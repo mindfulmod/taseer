@@ -183,7 +183,7 @@ export const STATES = {
     label: "Reactive",
     blurb: "Sorted by SIGHI histamine compatibility",
     emoji: "⚡",
-    tone: "neutral",
+    tone: "calm",
   },
 };
 

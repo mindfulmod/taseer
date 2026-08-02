@@ -60,8 +60,36 @@ function resolve({ parts, params }) {
     case "food": return { view: foodView(parts[1]), tab: null };
     case "browse": return { view: browseView(), tab: "/browse" };
     case "category": return { view: categoryView(parts[1]), tab: "/browse" };
-    case "state": return { view: stateView(parts[1]), tab: "/" };
+    case "state": return { view: stateView(parts[1], params), tab: "/" };
     default: return { view: { html: `<div class="empty">Nothing here.</div>` }, tab: null };
+  }
+}
+
+// The screen's tone is the remedy's temperature, not the complaint's.
+const wash = document.getElementById("wash");
+let currentTone = null;
+let washTimer;
+
+function setTone(tone = null) {
+  if (tone === currentTone) return;
+  const swapping = Boolean(currentTone && tone);
+  clearTimeout(washTimer);
+  currentTone = tone;
+  if (tone) document.documentElement.dataset.tone = tone;
+  else delete document.documentElement.dataset.tone;
+  if (!tone) {
+    wash.classList.remove("on");
+    return;
+  }
+  const paint = () => {
+    wash.className = `wash t-${tone}`;
+    requestAnimationFrame(() => wash.classList.add("on"));
+  };
+  if (swapping) {
+    wash.classList.remove("on");
+    washTimer = setTimeout(paint, 260);
+  } else {
+    paint();
   }
 }
 
@@ -72,6 +100,7 @@ function render() {
   const { view, tab } = resolve(route);
   main.innerHTML = view.html;
   view.mount?.(main);
+  setTone(view.tone);
 
   for (const item of document.querySelectorAll(".tabbar__item")) {
     if (item.dataset.nav === tab) item.setAttribute("aria-current", "page");

@@ -59,11 +59,11 @@ export function flags(food) {
   return out.length ? `<div class="row" style="gap:7px">${out.join("")}</div>` : "";
 }
 
-/** One list row. `meta` overrides the default sub-line. */
-export function foodTile(food, { meta } = {}) {
+/** One list row. `metaFn(food)` overrides the default sub-line. */
+export function foodTile(food, { metaFn } = {}) {
   const isTrigger = triggers.has(food.id);
   const isFav = favorites.has(food.id);
-  const sub = meta ?? `${esc(food.description)}`;
+  const sub = esc(metaFn ? metaFn(food) : food.description);
   return `
     <button class="tile t-${food.heatClass}${isTrigger ? " tile--trigger" : ""}" data-nav="/food/${food.id}">
       <span class="tile__glyph">${food.emoji}</span>

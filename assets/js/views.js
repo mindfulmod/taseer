@@ -2,11 +2,11 @@
 // HTML lands in the DOM (focus, listeners that can't be delegated).
 import {
   CATEGORIES, CUISINES, META, SOURCES, STATES, byCategory, fuzzySuggest, getFood, getFoods,
-  heatClass, search, systemHeat,
+  heatClass, remedyList, search, systemHeat,
 } from "./data.js";
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
-  badgeRow, chip, commonnessLabel, esc, flags, macroRings, miniTile, tileList,
+  badgeRow, chip, commonnessLabel, esc, flags, macroRings, mechLabel, miniTile, sighiText, tileList,
 } from "./components.js";
 
 const backBar = (label, href) =>
@@ -16,11 +16,6 @@ const backBar = (label, href) =>
 
 export function homeView() {
   const recents = getFoods(recent.all()).slice(0, 12);
-  const states = [
-    ["too-hot", "cold"],
-    ["too-cold", "hot"],
-    ["reactive", "neutral"],
-  ];
   return {
     html: `
       <section class="hero">
@@ -29,16 +24,15 @@ export function homeView() {
       </section>
 
       <div class="states">
-        ${states
-          .map(([id, tone]) => {
-            const s = STATES[id];
-            return `
-            <button class="state t-${tone}" data-nav="/state/${id}">
+        ${Object.entries(STATES)
+          .map(
+            ([id, s]) => `
+            <button class="state t-${s.tone}" data-nav="/state/${id}">
               <span class="state__emoji">${s.emoji}</span>
               <span class="state__label">${esc(s.label)}</span>
               <span class="state__blurb">${esc(s.blurb)}</span>
-            </button>`;
-          })
+            </button>`,
+          )
           .join("")}
         <button class="state t-neutral" data-nav="/browse">
           <span class="state__emoji">🍃</span>
@@ -257,14 +251,73 @@ export function categoryView(catId) {
   };
 }
 
-// ---- Placeholder until phase 2 ------------------------------------------
+// ---- Remedy results ------------------------------------------------------
 
-export function stateView(stateId) {
-  const s = STATES[stateId];
-  if (!s) return { html: `<div class="empty">Unknown state.</div>` };
+const SIGHI_META = food => {
+  const tags = food.histamine.tags.map(mechLabel);
+  return `SIGHI ${food.histamine.sighi} · ${sighiText(food.histamine.sighi).toLowerCase()}${tags.length ? ` · ${tags.join(", ").toLowerCase()}` : ""}`;
+};
+
+const GROUPS = [
+  { n: 1, label: "Everyday staples" },
+  { n: 2, label: "Common" },
+  { n: 3, label: "Occasional" },
+  { n: 4, label: "Specialty shop" },
+];
+
+/** Renders the list in commonness bands, with favourites lifted into their own band. */
+function rankedGroups(list, favIds, metaFn) {
+  const fav = new Set(favIds);
+  const favs = list.filter(f => fav.has(f.id));
+  const rest = list.filter(f => !fav.has(f.id));
+  const band = (label, items, extra = "") =>
+    items.length
+      ? `<section class="section">
+           <div class="section__head"><h2 class="band">${esc(label)}${extra}</h2><span class="tiny muted">${items.length}</span></div>
+           ${tileList(items, { metaFn })}
+         </section>`
+      : "";
+  return (
+    band("Your favourites", favs, ` <span class="fav-dot">♥</span>`) +
+    GROUPS.map(g => band(g.label, rest.filter(f => f.commonness === g.n))).join("")
+  );
+}
+
+export function stateView(stateId, { list = "eat" } = {}) {
+  const state = STATES[stateId];
+  if (!state) return { html: `<div class="empty">Unknown state.</div>` };
+  const verdict = list === "avoid" ? "avoid" : "eat";
+  const favIds = favorites.all();
+  const eat = remedyList(stateId, "eat", favIds);
+  const avoid = remedyList(stateId, "avoid", favIds);
+  const shown = verdict === "eat" ? eat : avoid;
+  const metaFn = stateId === "reactive" ? SIGHI_META : undefined;
+
+  const tab = (id, label, count) => `
+    <button class="segbar__btn" data-nav="/state/${stateId}?list=${id}" aria-selected="${verdict === id}">
+      ${label} <span class="segbar__count">${count}</span>
+    </button>`;
+
   return {
-    html: `${backBar("Home", "/")}
-      <section class="hero"><h1>${s.emoji} ${esc(s.label)}</h1><p>${esc(s.blurb)}</p></section>
-      <div class="empty">Remedy lists land in the next build step.</div>`,
+    tone: state.tone,
+    html: `
+      ${backBar("Home", "/")}
+      <section class="hero t-${state.tone}">
+        <h1><span aria-hidden="true">${state.emoji}</span> ${esc(state.label)}</h1>
+        <p>${esc(state.blurb)}.</p>
+      </section>
+
+      <div class="segbar" role="tablist">
+        ${tab("eat", verdict === "eat" ? "Eat this" : "Eat", eat.length)}
+        ${tab("avoid", verdict === "avoid" ? "Avoid this" : "Avoid", avoid.length)}
+      </div>
+
+      ${
+        stateId === "reactive"
+          ? `<p class="tiny muted" style="margin:0 2px 14px">Computed from SIGHI scores — safe means 0 and not a histamine liberator; avoid means 2+, or a liberator or DAO-blocker.</p>`
+          : `<p class="tiny muted" style="margin:0 2px 14px">Everyday kitchen items first. Traditional classifications, not medical advice.</p>`
+      }
+
+      ${shown.length ? rankedGroups(shown, favIds, metaFn) : `<div class="empty">Nothing in this list yet.</div>`}`,
   };
 }

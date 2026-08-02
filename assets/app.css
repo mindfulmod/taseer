@@ -7,9 +7,9 @@
 :root {
   color-scheme: light;
 
-  --bg: #faf6ef;
-  --surface: #fffdfa;
-  --surface-2: #f3ece1;
+  --bg-base: #faf6ef;
+  --surface-base: #fffdfa;
+  --surface-2-base: #f3ece1;
   --line: #e7dcca;
   --line-strong: #d6c7b0;
   --ink: #241f1a;
@@ -22,6 +22,10 @@
   --neutral: #b08d57; --neutral-tint: #f2e9da; --neutral-deep: #6e5734;
   --warm: #db7f2c;   --warm-tint: #fbe8d3;   --warm-deep: #8a4c13;
   --hot: #c13b23;    --hot-tint: #fadfd8;    --hot-deep: #8a2716;
+
+  /* Reactive days get their own calm tone — the thermal ramp's sand sits too
+     close to warm, and the state is about histamine, not temperature. */
+  --calm: #4f8078;   --calm-tint: #dfeeeb;   --calm-deep: #2c574f;
 
   /* Histamine (SIGHI) — deliberately a different family from the thermal ramp */
   --sighi-0: #2f8f5b;
@@ -46,9 +50,9 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  --bg: #14161a;
-  --surface: #1c2026;
-  --surface-2: #242a32;
+  --bg-base: #14161a;
+  --surface-base: #1c2026;
+  --surface-2-base: #242a32;
   --line: #2f3641;
   --line-strong: #414a57;
   --ink: #ece7df;
@@ -60,6 +64,8 @@
   --neutral: #cba96f; --neutral-tint: #2c2620; --neutral-deep: #e6d2ab;
   --warm: #f09a4a;   --warm-tint: #372718;   --warm-deep: #f8c895;
   --hot: #f26b4e;    --hot-tint: #3a1d18;    --hot-deep: #fbaa95;
+
+  --calm: #6fb3a6;   --calm-tint: #16302c;   --calm-deep: #a7ddd3;
 
   --sighi-0: #4bb87b;
   --sighi-1: #b9c451;
@@ -73,12 +79,28 @@
   --shadow-lift: 0 2px 6px rgb(0 0 0 / 34%), 0 14px 34px rgb(0 0 0 / 34%);
 }
 
+/* Surfaces default to their base; a chosen body state shifts them (below). */
+:root { --bg: var(--bg-base); --surface: var(--surface-base); --surface-2: var(--surface-2-base); }
+
+/* Remedy screens bathe every surface in the *remedy's* temperature — choosing
+   "too hot" turns the room cool. Cross-fades via background-color transitions. */
+:root[data-tone="cold"] { --tone: var(--cold); }
+:root[data-tone="hot"] { --tone: var(--hot); }
+:root[data-tone="calm"] { --tone: var(--calm); }
+:root[data-tone] {
+  --bg: color-mix(in srgb, var(--tone) 9%, var(--bg-base));
+  --surface: color-mix(in srgb, var(--tone) 6%, var(--surface-base));
+  --surface-2: color-mix(in srgb, var(--tone) 11%, var(--surface-2-base));
+  --line: color-mix(in srgb, var(--tone) 22%, var(--line));
+}
+
 /* Per-temperature scope: any element can set --t-* by carrying .t-<class> */
 .t-cold { --t: var(--cold); --t-tint: var(--cold-tint); --t-deep: var(--cold-deep); }
 .t-cool { --t: var(--cool); --t-tint: var(--cool-tint); --t-deep: var(--cool-deep); }
 .t-neutral { --t: var(--neutral); --t-tint: var(--neutral-tint); --t-deep: var(--neutral-deep); }
 .t-warm { --t: var(--warm); --t-tint: var(--warm-tint); --t-deep: var(--warm-deep); }
 .t-hot { --t: var(--hot); --t-tint: var(--hot-tint); --t-deep: var(--hot-deep); }
+.t-calm { --t: var(--calm); --t-tint: var(--calm-tint); --t-deep: var(--calm-deep); }
 
 /* ---- Base --------------------------------------------------------------- */
 
@@ -95,6 +117,11 @@ body {
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
   overflow-wrap: break-word;
+  transition: background-color 0.45s ease;
+}
+
+.tile, .panel, .segbar, .cat, .searchbar, .minitile, .empty {
+  transition: background-color 0.45s ease, border-color 0.45s ease;
 }
 
 h1, h2, h3 { margin: 0; line-height: 1.2; letter-spacing: -0.015em; font-weight: 700; }
@@ -475,6 +502,44 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   font-size: 0.72rem; font-weight: 600; line-height: 1.25;
   display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
 }
+
+/* ---- Tone wash ----------------------------------------------------------
+   Choosing a body state bathes the whole screen in the *remedy's* temperature:
+   "too hot" turns the room cool. Cross-fades rather than snapping. */
+
+.wash {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  opacity: 0; transition: opacity 0.45s ease;
+}
+.wash.on { opacity: 1; }
+.wash.t-cold, .wash.t-hot, .wash.t-calm {
+  background:
+    radial-gradient(135% 58% at 50% 0%, color-mix(in srgb, var(--t) 30%, transparent), transparent 70%),
+    radial-gradient(120% 34% at 50% 100%, color-mix(in srgb, var(--t) 16%, transparent), transparent 72%);
+}
+
+/* ---- Segmented control -------------------------------------------------- */
+
+.segbar {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px;
+  padding: 4px; margin: 14px 0 10px;
+  background: var(--surface-2); border-radius: 999px;
+}
+.segbar__btn {
+  display: flex; align-items: center; justify-content: center; gap: 7px;
+  min-height: 40px; padding: 8px 12px;
+  border: 0; border-radius: 999px; background: transparent; cursor: pointer;
+  font-weight: 700; font-size: 0.9rem; color: var(--ink-2);
+}
+.segbar__btn[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+.segbar__count {
+  font-size: 0.72rem; font-weight: 700; padding: 1px 7px; border-radius: 999px;
+  background: var(--surface-2); color: var(--ink-3);
+}
+.segbar__btn[aria-selected="true"] .segbar__count { background: var(--ink); color: var(--bg); }
+
+.band { font-size: 0.82rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+.section__head .band { flex: 1; }
 
 /* ---- Utility ------------------------------------------------------------ */
 
