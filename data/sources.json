@@ -1,0 +1,14 @@
+{
+  "legend": {
+    "tcm": "Standard TCM materia dietetica food-nature classifications (Bensky/Flaws tradition; five natures: cold, cool, neutral, warm, hot)",
+    "ayurveda": "Classical Ayurvedic virya (potency) per Charaka / Sushruta / Bhavaprakasha tradition (cooling = shita, heating = ushna)",
+    "unani": "Unani mizaj/taseer per the Ibn Sina (Qanun) tradition and everyday hakimi/desi usage (hot/cold, optionally dry/moist)",
+    "histamine": "SIGHI histamine compatibility list (Swiss Interest Group Histamine Elimination Diet); 0 = well tolerated, 3 = very poorly tolerated; tags: liberator, high-histamine, dao-blocker",
+    "nutrition": "USDA FoodData Central per 100 g (per 100 ml for drinks); dishes are Claude estimates for a typical preparation, marked with \"estimate\": true"
+  },
+  "confidence": {
+    "high": "Consistently documented across standard references of that tradition",
+    "moderate": "Documented but with some variation between references",
+    "contested": "References genuinely disagree, or classical documentation is thin — treat as indicative, flag visibly in UI"
+  }
+}
