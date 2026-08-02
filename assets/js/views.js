@@ -6,7 +6,8 @@ import {
 } from "./data.js";
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
-  badgeRow, chip, commonnessLabel, esc, flags, macroRings, mechLabel, miniTile, sighiText, tileList,
+  badgeRow, chip, commonnessLabel, conflictBanner, esc, flags, macroRings, mechLabel, miniTile,
+  sighiText, tileList,
 } from "./components.js";
 
 const backBar = (label, href) =>
@@ -155,8 +156,19 @@ export function foodView(id) {
     .map(([state, verdict]) => `${verdict === "eat" ? "Helps" : "Aggravates"} when you feel <strong>${STATES[state].label.toLowerCase()}</strong>`);
 
   return {
+    mount(root) {
+      // The illustration set is generated externally and lands incrementally, so
+      // presence is detected at runtime rather than baked into the dataset.
+      const img = root.querySelector(".card__img");
+      img?.addEventListener("load", () => root.querySelector("#card")?.classList.add("card--illustrated"));
+      img?.addEventListener("error", () => img.closest(".card__media")?.remove());
+    },
     html: `
       ${backBar("Back", "/")}
+      <article id="card">
+      <figure class="card__media t-${food.heatClass}">
+        <img class="card__img" src="assets/food-images/${food.id}.webp" alt="Painted illustration of ${esc(food.name)}" decoding="async">
+      </figure>
       <div class="card__hero t-${food.heatClass}">
         <div class="card__glyph">${food.emoji}</div>
         <div>
@@ -166,6 +178,7 @@ export function foodView(id) {
         </div>
       </div>
 
+      ${conflictBanner(food)}
       ${flags(food)}
 
       <div class="card__actions">
@@ -213,7 +226,8 @@ export function foodView(id) {
             <dt>Nutrition</dt><dd>${esc(SOURCES.legend.nutrition)}</dd>
           </dl>
         </details>
-      </div>`,
+      </div>
+      </article>`,
   };
 }
 

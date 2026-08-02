@@ -51,10 +51,36 @@ export const badgeRow = food => `
     ${sighiBadge(food)}
   </div>`;
 
+const SYSTEMS = ["tcm", "ayurveda", "unani"];
+const joinNames = list =>
+  list.length > 1 ? `${list.slice(0, -1).join(", ")} and ${list.at(-1)}` : list[0];
+
+/**
+ * Card-level disagreement banner. Names which traditions split which way — the
+ * conflict is the interesting part of the product, not an error to apologise for.
+ */
+export function conflictBanner(food) {
+  if (!food.conflict) return "";
+  const cooling = SYSTEMS.filter(s => systemHeat(food, s) < 0).map(s => SYSTEM_LABELS[s]);
+  const warming = SYSTEMS.filter(s => systemHeat(food, s) > 0).map(s => SYSTEM_LABELS[s]);
+  return `
+    <div class="conflict">
+      <span class="conflict__mark" aria-hidden="true">◐</span>
+      <div>
+        <strong>The traditions disagree here.</strong>
+        <p class="tiny">${esc(joinNames(cooling))} read${cooling.length > 1 ? "" : "s"} it cooling;
+        ${esc(joinNames(warming))} read${warming.length > 1 ? "" : "s"} it warming.
+        Taseer shows both rather than picking a winner.</p>
+      </div>
+    </div>`;
+}
+
 export function flags(food) {
   const out = [];
-  if (food.conflict) out.push(`<span class="flagline" title="Traditions disagree on this food">◐ Traditions disagree</span>`);
-  if (food.contested) out.push(`<span class="flagline" title="Classical documentation is thin or references differ">? Contested classification</span>`);
+  if (food.contested) {
+    const which = SYSTEMS.filter(s => food.thermal[s].confidence === "contested").map(s => SYSTEM_LABELS[s]);
+    out.push(`<span class="flagline" title="References genuinely disagree, or classical documentation is thin">? ${esc(joinNames(which))} contested</span>`);
+  }
   if (food.nutrition.estimate) out.push(`<span class="flagline">≈ Nutrition estimated</span>`);
   return out.length ? `<div class="row" style="gap:7px">${out.join("")}</div>` : "";
 }
@@ -70,6 +96,7 @@ export function foodTile(food, { metaFn } = {}) {
       <span class="tile__body">
         <span class="tile__name">
           <span>${esc(food.name)}</span>
+          ${food.conflict ? `<span class="tile__split" title="Traditions disagree on this food" aria-label="Traditions disagree">◐</span>` : ""}
           ${isFav ? `<span class="fav-dot" aria-label="Favourite">♥</span>` : ""}
           ${isTrigger ? `<span class="tile__flag" aria-label="One of your triggers">⚠</span>` : ""}
         </span>

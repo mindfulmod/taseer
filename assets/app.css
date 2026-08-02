@@ -4,43 +4,48 @@
 
 /* ---- Tokens ------------------------------------------------------------- */
 
+/* All hexes below are the LOCKED §2 palette in ART.md. Adding a colour means
+   amending the bible first — scripts/check-palette.mjs enforces this. */
+
 :root {
   color-scheme: light;
 
-  --bg-base: #faf6ef;
-  --surface-base: #fffdfa;
-  --surface-2-base: #f3ece1;
-  --line: #e7dcca;
-  --line-strong: #d6c7b0;
-  --ink: #241f1a;
-  --ink-2: #6b6055;
-  --ink-3: #978a7c;
+  --bg-base: #faf5ec;
+  --surface-base: #fffcf6;
+  --surface-2-base: #f1e9da;
+  --line: #e4d9c6;
+  --line-strong: #d2c2a8;
+  --ink: #241e17;
+  --ink-2: #6b5f51;
+  --ink-3: #978a79;
 
-  /* Thermal ramp: accent (marks), tint (fills), deep (text on tint) */
-  --cold: #12707f;   --cold-tint: #d7edf1;   --cold-deep: #0a4c57;
-  --cool: #3f9faf;   --cool-tint: #e6f3f6;   --cool-deep: #1f6b78;
-  --neutral: #b08d57; --neutral-tint: #f2e9da; --neutral-deep: #6e5734;
-  --warm: #db7f2c;   --warm-tint: #fbe8d3;   --warm-deep: #8a4c13;
-  --hot: #c13b23;    --hot-tint: #fadfd8;    --hot-deep: #8a2716;
+  /* Thermal ramp, muted & earthy: accent (marks), tint (fills), deep (text on tint) */
+  --cold: #26706e;    --cold-tint: #dcebe9;    --cold-deep: #164543;
+  --cool: #57968f;    --cool-tint: #e7f0ee;    --cool-deep: #2e5e58;
+  --neutral: #b39566; --neutral-tint: #f3eadb; --neutral-deep: #6b5632;
+  --warm: #ce8a4e;    --warm-tint: #f8e7d4;    --warm-deep: #7e4c1c;
+  --hot: #b4503a;     --hot-tint: #f6ddd5;     --hot-deep: #7a2e1e;
 
-  /* Reactive days get their own calm tone — the thermal ramp's sand sits too
-     close to warm, and the state is about histamine, not temperature. */
-  --calm: #4f8078;   --calm-tint: #dfeeeb;   --calm-deep: #2c574f;
+  /* Reactive days sit deliberately OFF the thermal axis (dusty plum) so they can
+     never be misread as a temperature. */
+  --calm: #7a6b84;    --calm-tint: #ede7f0;    --calm-deep: #453c4d;
 
-  /* Histamine (SIGHI) — deliberately a different family from the thermal ramp */
-  --sighi-0: #2f8f5b;
-  --sighi-1: #94a03a;
-  --sighi-2: #d38122;
-  --sighi-3: #b8362a;
+  /* Histamine (SIGHI) — the one sanctioned second colour family. Only ever
+     appears inside a histamine badge or segment pill. */
+  --sighi-0: #3b7d53;
+  --sighi-1: #8a8f3c;
+  --sighi-2: #c0812c;
+  --sighi-3: #a8402f;
 
-  --alert: #c8372b;
-  --alert-tint: #fbe4e0;
+  --alert: #b03a2a;
+  --alert-tint: #f7e0db;
 
   --radius: 18px;
-  --radius-sm: 12px;
-  --radius-lg: 26px;
-  --shadow: 0 1px 2px rgb(60 45 25 / 6%), 0 6px 20px rgb(60 45 25 / 6%);
-  --shadow-lift: 0 2px 6px rgb(60 45 25 / 8%), 0 14px 34px rgb(60 45 25 / 10%);
+  --radius-sm: 15px;
+  --radius-panel: 20px;
+  --radius-lg: 28px;
+  --shadow: 0 1px 2px rgb(74 55 30 / 6%), 0 8px 24px rgb(74 55 30 / 7%);
+  --shadow-lift: 0 2px 6px rgb(74 55 30 / 9%), 0 16px 36px rgb(74 55 30 / 11%);
   --tap: 44px;
   --page: 900px;
   --font: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont, "Segoe UI Variable",
@@ -50,33 +55,34 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  --bg-base: #14161a;
-  --surface-base: #1c2026;
-  --surface-2-base: #242a32;
-  --line: #2f3641;
-  --line-strong: #414a57;
-  --ink: #ece7df;
-  --ink-2: #a9a297;
-  --ink-3: #7d776d;
+  --bg-base: #17150f;
+  --surface-base: #201d16;
+  --surface-2-base: #2a251c;
+  --line: #383125;
+  --line-strong: #4c4433;
+  --ink: #efe8db;
+  --ink-2: #aba292;
+  --ink-3: #7e766a;
 
-  --cold: #4ecbdd;   --cold-tint: #0f3039;   --cold-deep: #a6e6f0;
-  --cool: #63b9c6;   --cool-tint: #15303a;   --cool-deep: #aadde5;
-  --neutral: #cba96f; --neutral-tint: #2c2620; --neutral-deep: #e6d2ab;
-  --warm: #f09a4a;   --warm-tint: #372718;   --warm-deep: #f8c895;
-  --hot: #f26b4e;    --hot-tint: #3a1d18;    --hot-deep: #fbaa95;
+  --cold: #4fb3ae;    --cold-tint: #123330;    --cold-deep: #a6e2de;
+  --cool: #79b8af;    --cool-tint: #17322e;    --cool-deep: #b7ddd7;
+  --neutral: #c8a972; --neutral-tint: #2c2519; --neutral-deep: #e4cfa6;
+  --warm: #e09a5c;    --warm-tint: #35281a;    --warm-deep: #f3c79c;
+  --hot: #d96a4e;     --hot-tint: #33201a;     --hot-deep: #f0a98f;
 
-  --calm: #6fb3a6;   --calm-tint: #16302c;   --calm-deep: #a7ddd3;
+  --calm: #a897b2;    --calm-tint: #292432;    --calm-deep: #d6c9dd;
 
-  --sighi-0: #4bb87b;
-  --sighi-1: #b9c451;
-  --sighi-2: #eda044;
-  --sighi-3: #ef6a5c;
+  --sighi-0: #62b27e;
+  --sighi-1: #b0b457;
+  --sighi-2: #e0a24e;
+  --sighi-3: #e2705c;
 
-  --alert: #f2705f;
-  --alert-tint: #3a1e1a;
+  --alert: #e8705c;
+  --alert-tint: #38201b;
 
-  --shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 6px 20px rgb(0 0 0 / 26%);
-  --shadow-lift: 0 2px 6px rgb(0 0 0 / 34%), 0 14px 34px rgb(0 0 0 / 34%);
+  /* Dark separates with borders, not lift. */
+  --shadow: 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-lift: 0 1px 2px rgb(0 0 0 / 40%);
 }
 
 /* Surfaces default to their base; a chosen body state shifts them (below). */
@@ -131,9 +137,11 @@ h3 { font-size: 1rem; }
 p { margin: 0; }
 button { font: inherit; color: inherit; }
 
-a { color: var(--cold); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
+/* Hue belongs to the data (ART.md §6.3) — interactive things read by ink,
+   weight and underline, never by a temperature colour. */
+a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 2px; }
 
-:focus-visible { outline: 2.5px solid var(--cold); outline-offset: 2px; border-radius: 6px; }
+:focus-visible { outline: 2.5px solid var(--ink); outline-offset: 2px; border-radius: 6px; }
 
 .skip {
   position: absolute; left: -9999px; top: 0; z-index: 100;
@@ -235,9 +243,11 @@ a { color: var(--cold); text-decoration-thickness: 1.5px; text-underline-offset:
 .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3); }
 
 .linkish {
-  background: none; border: 0; padding: 4px 2px; cursor: pointer;
-  color: var(--cold); font-weight: 600; font-size: 0.85rem;
+  background: none; border: 0; padding: 6px 2px; cursor: pointer;
+  color: var(--ink-2); font-weight: 700; font-size: 0.87rem;
+  text-underline-offset: 3px;
 }
+.linkish:hover { color: var(--ink); text-decoration: underline; }
 
 .pillbtn {
   display: inline-flex; align-items: center; gap: 7px;
@@ -256,24 +266,27 @@ a { color: var(--cold); text-decoration-thickness: 1.5px; text-underline-offset:
 
 /* ---- Food tile (list row) ----------------------------------------------- */
 
-.tiles { display: grid; gap: 10px; }
+.tiles { display: grid; gap: 12px; }
 @media (min-width: 620px) { .tiles { grid-template-columns: 1fr 1fr; } }
 
+/* Row fill stays neutral; the temperature lives in the glyph tile and a hairline
+   border mixed toward the food's accent (ART.md §4). */
 .tile {
   display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px;
-  width: 100%; padding: 10px 14px 10px 10px; text-align: left;
-  background: var(--surface); border: 1px solid var(--line);
+  width: 100%; min-height: 76px; padding: 12px 16px 12px 12px; text-align: left;
+  background: var(--surface);
+  border: 1px solid color-mix(in srgb, var(--t) 30%, var(--line));
   border-radius: var(--radius); cursor: pointer;
   box-shadow: var(--shadow);
   transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
 }
-.tile:hover { transform: translateY(-1px); box-shadow: var(--shadow-lift); border-color: var(--line-strong); }
-.tile:active { transform: translateY(0); }
+.tile:hover { border-color: color-mix(in srgb, var(--t) 55%, var(--line)); box-shadow: var(--shadow-lift); }
+.tile:active { transform: scale(0.985); }
 
 .tile__glyph {
   display: grid; place-items: center; flex: none;
-  width: 48px; height: 48px; border-radius: 14px;
-  font-size: 1.6rem; line-height: 1;
+  width: 50px; height: 50px; border-radius: var(--radius-sm);
+  font-size: 1.62rem; line-height: 1;
   background: var(--t-tint);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 22%, transparent);
 }
@@ -298,6 +311,8 @@ a { color: var(--cold); text-decoration-thickness: 1.5px; text-underline-offset:
 .tile__flag { color: var(--alert); font-size: 0.9rem; }
 
 .fav-dot { color: var(--hot); font-size: 0.85rem; }
+/* Quiet in lists; the card carries the full explanation (ART.md §9). */
+.tile__split { color: var(--ink-3); font-size: 0.82rem; }
 
 /* ---- Badges ------------------------------------------------------------- */
 
@@ -346,6 +361,18 @@ a { color: var(--cold); text-decoration-thickness: 1.5px; text-underline-offset:
   font-size: 0.7rem; font-weight: 700;
 }
 
+/* The banner is literally split across the thermal axis — the disagreement is
+   the point, so it gets a shape of its own rather than a grey system pill. */
+.conflict {
+  display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: start;
+  padding: 14px 16px; margin: 4px 0 12px; border-radius: var(--radius-panel);
+  background: linear-gradient(100deg, var(--cold-tint), var(--surface) 52%, var(--hot-tint));
+  border: 1px solid var(--line);
+}
+.conflict__mark { font-size: 1.2rem; line-height: 1.2; color: var(--ink-2); }
+.conflict strong { font-size: 0.94rem; }
+.conflict p { color: var(--ink-2); margin-top: 2px; }
+
 .flagline {
   display: inline-flex; align-items: center; gap: 6px;
   padding: 5px 11px; border-radius: 999px;
@@ -354,6 +381,23 @@ a { color: var(--cold); text-decoration-thickness: 1.5px; text-underline-offset:
 }
 
 /* ---- Food card ---------------------------------------------------------- */
+
+/* Hero illustration (ART.md §8). Hidden until the file actually loads, so foods
+   without an image degrade silently to the emoji tile with no layout shift. */
+.card__media {
+  display: none; position: relative; overflow: hidden;
+  margin: 4px 0 12px; aspect-ratio: 3 / 2;
+  border-radius: var(--radius-lg); background: var(--t-tint);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 20%, transparent);
+}
+.card--illustrated .card__media { display: block; }
+.card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.card__media::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, transparent 45%, color-mix(in srgb, var(--t) 20%, transparent));
+}
+.card--illustrated .card__hero { grid-template-columns: 1fr; }
+.card--illustrated .card__glyph { display: none; }
 
 .card__hero {
   display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center;
@@ -365,8 +409,10 @@ a { color: var(--cold); text-decoration-thickness: 1.5px; text-underline-offset:
 .card__glyph {
   display: grid; place-items: center; width: 74px; height: 74px;
   border-radius: 22px; font-size: 2.5rem; line-height: 1;
-  background: color-mix(in srgb, var(--surface) 72%, var(--t-tint));
-  box-shadow: 0 4px 14px color-mix(in srgb, var(--t) 18%, transparent);
+  /* Deeper than the hero wash behind it, so the tile reads as a tinted object
+     rather than a white cutout (ART.md §6.5). */
+  background: color-mix(in srgb, var(--t) 16%, var(--surface));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 26%, transparent);
 }
 .card__title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .card__aliases { font-size: 0.8rem; color: var(--t-deep); opacity: 0.85; margin-top: 2px; }
@@ -376,7 +422,7 @@ a { color: var(--cold); text-decoration-thickness: 1.5px; text-underline-offset:
 
 .panel {
   background: var(--surface); border: 1px solid var(--line);
-  border-radius: var(--radius); padding: 16px; margin: 12px 0;
+  border-radius: var(--radius-panel); padding: 16px; margin: 12px 0;
   box-shadow: var(--shadow);
 }
 .panel > h3 { margin-bottom: 10px; }
@@ -433,7 +479,7 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   background: var(--surface); border: 1.5px solid var(--line);
   border-radius: 999px; box-shadow: var(--shadow);
 }
-.searchbar:focus-within { border-color: var(--cold); }
+.searchbar:focus-within { border-color: var(--ink); }
 .searchbar input {
   flex: 1; min-width: 0; border: 0; background: none; outline: none;
   padding: 14px 0; font: inherit; font-size: 1rem; color: var(--ink);
@@ -516,6 +562,15 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   background:
     radial-gradient(135% 58% at 50% 0%, color-mix(in srgb, var(--t) 30%, transparent), transparent 70%),
     radial-gradient(120% 34% at 50% 100%, color-mix(in srgb, var(--t) 16%, transparent), transparent 72%);
+}
+/* Muted accents carry less chroma over a dark base — the wash needs more of it
+   to read as "the room went cool". */
+:root[data-theme="dark"] .wash.t-cold,
+:root[data-theme="dark"] .wash.t-hot,
+:root[data-theme="dark"] .wash.t-calm {
+  background:
+    radial-gradient(135% 58% at 50% 0%, color-mix(in srgb, var(--t) 42%, transparent), transparent 72%),
+    radial-gradient(120% 34% at 50% 100%, color-mix(in srgb, var(--t) 22%, transparent), transparent 74%);
 }
 
 /* ---- Segmented control -------------------------------------------------- */
