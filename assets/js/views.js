@@ -552,6 +552,16 @@ export function meView() {
           : "",
       )}
 
+      <section class="section" id="install-slot">
+        <div class="panel install">
+          <div>
+            <strong>Install Taseer</strong>
+            <p class="tiny">Add it to your home screen and it works with no connection at all.</p>
+          </div>
+          <button class="pillbtn" data-act="install">Install</button>
+        </div>
+      </section>
+
       <section class="section">
         <div class="section__head"><h2>About</h2></div>
         <div class="panel">

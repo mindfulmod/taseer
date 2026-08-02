@@ -673,6 +673,13 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .panel p { font-size: 0.92rem; color: var(--ink-2); }
 .panel p strong { color: var(--ink); }
 
+/* Shown only once the browser offers an install prompt. */
+#install-slot { display: none; }
+#install-slot.is-ready { display: block; }
+.install { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.install > div { flex: 1 1 200px; }
+.install .pillbtn { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
 /* ---- Utility ------------------------------------------------------------ */
 
 .stack { display: grid; gap: 10px; }

@@ -1,0 +1,23 @@
+{
+  "name": "Taseer — hot, cold & histamine",
+  "short_name": "Taseer",
+  "description": "Does this food run hot or cold across TCM, Ayurveda and Unani — and is it a histamine risk? A remedy finder for how your body feels.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#faf5ec",
+  "theme_color": "#faf5ec",
+  "categories": ["health", "food", "lifestyle"],
+  "icons": [
+    { "src": "assets/icon.svg", "type": "image/svg+xml", "sizes": "any", "purpose": "any" },
+    { "src": "assets/icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any" },
+    { "src": "assets/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any" },
+    { "src": "assets/icon-maskable-512.png", "type": "image/png", "sizes": "512x512", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Too hot", "url": "./#/state/too-hot" },
+    { "name": "Too cold", "url": "./#/state/too-cold" },
+    { "name": "Reactive", "url": "./#/state/reactive" }
+  ]
+}

@@ -164,6 +164,9 @@ document.addEventListener("click", event => {
         act.textContent = "Copied";
         setTimeout(() => (act.textContent = "Copy"), 1600);
       });
+  } else if (action === "install") {
+    installPrompt?.prompt();
+    installPrompt = null;
   } else if (action === "theme") {
     const resolved = document.documentElement.dataset.theme;
     theme.set(resolved === "dark" ? "light" : "dark");
@@ -173,6 +176,24 @@ document.addEventListener("click", event => {
 
 addEventListener("hashchange", render);
 addEventListener("scroll", () => topbar.classList.toggle("scrolled", scrollY > 4), { passive: true });
+
+// ---- PWA -----------------------------------------------------------------
+
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+}
+
+// Chromium fires this instead of showing its own prompt; we surface it on Me.
+let installPrompt = null;
+addEventListener("beforeinstallprompt", event => {
+  event.preventDefault();
+  installPrompt = event;
+  document.getElementById("install-slot")?.classList.add("is-ready");
+});
+addEventListener("appinstalled", () => {
+  installPrompt = null;
+  document.getElementById("install-slot")?.classList.remove("is-ready");
+});
 
 applyTheme();
 renderBanner();

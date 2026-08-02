@@ -30,3 +30,9 @@ questionable ones to the owner instead.
 
 Generated externally per `specs/04-image-spec.md`. They are always optional — the app
 must work, and look finished, with zero images present.
+
+## PWA
+
+`sw.js` precaches the shell only (never illustrations). **Bump `VERSION` in sw.js on
+any shell change** — html, css, js, or `assets/data/foods.js` — or installed clients
+keep serving the old build. Icons are generated: `node scripts/build-icons.mjs`.

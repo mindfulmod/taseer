@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#26706E"/>
+      <stop offset="0.52" stop-color="#B39566"/>
+      <stop offset="1" stop-color="#B4503A"/>
+    </linearGradient>
+    <linearGradient id="ramp" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#26706E"/>
+      <stop offset="0.28" stop-color="#57968F"/>
+      <stop offset="0.5" stop-color="#B39566"/>
+      <stop offset="0.74" stop-color="#CE8A4E"/>
+      <stop offset="1" stop-color="#B4503A"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="114" fill="url(#tile)"/>
+  <circle cx="256" cy="256" r="150" fill="#FAF5EC"/>
+  <rect x="166" y="242" width="180" height="28" rx="14" fill="url(#ramp)"/>
+</svg>
