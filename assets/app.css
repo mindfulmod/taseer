@@ -596,6 +596,83 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .band { font-size: 0.82rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
 .section__head .band { flex: 1; }
 
+/* ---- Browse ways -------------------------------------------------------- */
+
+.wayrow {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px;
+  width: 100%; min-height: 72px; padding: 14px 16px; text-align: left; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.wayrow:hover { border-color: var(--line-strong); }
+.wayrow__emoji { font-size: 1.5rem; }
+.wayrow__label { display: block; font-weight: 700; }
+.wayrow__sub { display: block; font-size: 0.8rem; color: var(--ink-2); }
+.wayrow__go { color: var(--ink-3); font-size: 1.3rem; }
+
+/* ---- Curated lists ------------------------------------------------------ */
+
+.listcard {
+  display: grid; gap: 3px; width: 100%; padding: 16px 18px; text-align: left; cursor: pointer;
+  border: 0; border-radius: var(--radius-panel);
+  background: linear-gradient(150deg, var(--t-tint), color-mix(in srgb, var(--t-tint) 42%, var(--surface)));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 22%, transparent), var(--shadow);
+}
+.listcard:hover { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 38%, transparent), var(--shadow-lift); }
+.listcard__title { font-size: 1.05rem; font-weight: 800; color: var(--t-deep); letter-spacing: -0.01em; }
+.listcard__blurb { font-size: 0.83rem; color: var(--t-deep); opacity: 0.82; }
+.listcard__count { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: var(--t-deep); opacity: 0.6; margin-top: 4px; }
+
+.steps { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 8px; }
+.steps li { color: var(--ink-2); font-size: 0.92rem; }
+.steps li::marker { color: var(--t); font-weight: 800; }
+
+/* ---- Compare ------------------------------------------------------------ */
+
+.cmp { display: grid; grid-template-columns: repeat(var(--cols), 1fr); gap: 8px; align-items: start; }
+.cmp__head {
+  position: relative; display: grid; justify-items: center; gap: 4px; text-align: center;
+  padding: 14px 8px 12px; border-radius: var(--radius);
+  background: var(--t-tint);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 24%, transparent);
+}
+.cmp__glyph { font-size: 1.8rem; line-height: 1; }
+.cmp__name { font-size: 0.82rem; font-weight: 700; color: var(--t-deep); line-height: 1.2; }
+.cmp__drop {
+  position: absolute; top: 4px; right: 4px; width: 28px; height: 28px;
+  border: 0; border-radius: 999px; background: transparent; cursor: pointer;
+  color: var(--t-deep); opacity: 0.6; font-size: 0.8rem;
+}
+.cmp__drop:hover { opacity: 1; background: color-mix(in srgb, var(--t) 16%, transparent); }
+.cmp__label {
+  grid-column: 1 / -1; margin-top: 12px;
+  font-size: 0.7rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3);
+}
+.cmp__label:empty { margin-top: 6px; }
+.cmp__cell { display: grid; gap: 2px; padding: 2px 4px; }
+.cmp__verdict { font-size: 0.88rem; font-weight: 700; color: var(--t-deep, var(--ink)); text-transform: capitalize; }
+.cmp__conf { font-size: 0.72rem; color: var(--ink-2); }
+
+/* ---- Spectrum ----------------------------------------------------------- */
+
+.spectrum__rail { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; margin: 4px 0 2px; }
+.spectrum__seg {
+  display: grid; justify-items: center; gap: 5px; padding: 8px 2px 10px;
+  border: 0; border-radius: var(--radius-sm); background: transparent; cursor: pointer;
+}
+.spectrum__seg[aria-selected="true"] { background: var(--t-tint); }
+.spectrum__segbar { width: 100%; height: 9px; border-radius: 999px; background: var(--t); }
+.spectrum__seglabel { font-size: 0.72rem; font-weight: 800; color: var(--ink-2); }
+.spectrum__segcount { font-size: 0.68rem; color: var(--ink-3); }
+
+/* ---- Me ----------------------------------------------------------------- */
+
+.misslist { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.missrow { display: flex; justify-content: space-between; gap: 12px; padding: 11px 15px; background: var(--surface); font-size: 0.9rem; }
+
+.panel p { font-size: 0.92rem; color: var(--ink-2); }
+.panel p strong { color: var(--ink); }
+
 /* ---- Utility ------------------------------------------------------------ */
 
 .stack { display: grid; gap: 10px; }

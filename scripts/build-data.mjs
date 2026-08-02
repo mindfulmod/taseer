@@ -31,6 +31,7 @@ for (const file of readdirSync(foodsDir).filter(f => f.endsWith(".json")).sort()
 foods.sort((a, b) => a.id.localeCompare(b.id));
 
 const sources = JSON.parse(readFileSync(join(root, "data", "sources.json"), "utf8"));
+const preparations = JSON.parse(readFileSync(join(root, "data", "preparations.json"), "utf8"));
 
 const meta = {
   count: foods.length,
@@ -46,6 +47,7 @@ writeFileSync(
     "// Source of truth: data/foods/*.json + data/sources.json",
     `export const META = ${JSON.stringify(meta)};`,
     `export const SOURCES = ${JSON.stringify(sources)};`,
+    `export const PREPARATIONS = ${JSON.stringify(preparations)};`,
     `export const FOODS = ${JSON.stringify(foods)};`,
     "",
   ].join("\n"),

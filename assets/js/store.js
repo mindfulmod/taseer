@@ -76,4 +76,5 @@ export const theme = {
 export const banner = {
   dismissed: () => read("banner-dismissed", false),
   dismiss: () => write("banner-dismissed", true),
+  show: () => write("banner-dismissed", false),
 };

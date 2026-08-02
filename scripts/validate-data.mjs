@@ -58,6 +58,23 @@ for (const f of all.values()) {
   }
 }
 
+// Preparations (curated simple recipes; separate id namespace, food-id references)
+const preps = JSON.parse(readFileSync(join(dir, "..", "preparations.json"), "utf8"));
+const prepIds = new Set();
+for (const p of preps) {
+  const where = `preparations.json → ${p.id ?? "??"}`;
+  if (!p.id?.startsWith("prep-")) errors.push(`${where}: id must start with "prep-"`);
+  if (prepIds.has(p.id)) errors.push(`${where}: DUPLICATE id`);
+  prepIds.add(p.id);
+  if (all.has(p.id)) errors.push(`${where}: id collides with a food id`);
+  if (!p.name || !p.blurb || !p.emoji) errors.push(`${where}: missing name/blurb/emoji`);
+  if (!REMEDY_STATES.includes(p.state) && p.state !== "reactive") errors.push(`${where}: bad state ${p.state}`);
+  if (!Array.isArray(p.steps) || p.steps.length < 2) errors.push(`${where}: needs at least 2 steps`);
+  for (const ing of p.ingredients ?? []) {
+    if (!all.has(ing)) errors.push(`${where}: unknown ingredient "${ing}"`);
+  }
+}
+
 // Stats
 const total = all.size;
 const contested = [...all.values()].filter(f => Object.values(f.thermal ?? {}).some(t => t?.confidence === "contested"));
@@ -78,6 +95,7 @@ console.log(`  e.g. ${conflicts.slice(0, 12).map(f => f.id).join(", ")}`);
 console.log(`Entries with ≥1 contested confidence: ${contested.length}`);
 console.log(`Remedy coverage — too-hot eat: ${remedyEat("too-hot")}, too-cold eat: ${remedyEat("too-cold")}`);
 console.log(`Aliases total: ${[...all.values()].reduce((a, f) => a + f.aliases.length, 0)}`);
+console.log(`Preparations: ${preps.length}`);
 
 if (errors.length) { console.error(`\n${errors.length} ERRORS:`); errors.forEach(e => console.error(" -", e)); process.exit(1); }
 console.log("\nAll checks passed ✅");

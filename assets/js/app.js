@@ -1,6 +1,9 @@
 // Shell: theme, hash router, delegated events, safety banner.
-import { banner, favorites, theme, triggers } from "./store.js";
-import { browseView, categoryView, foodView, homeView, searchView, stateView } from "./views.js";
+import { banner, favorites, misses, recent, theme, triggers } from "./store.js";
+import {
+  browseView, categoryView, compareView, foodView, homeView, listView, listsView, meView,
+  prepView, searchView, spectrumView, stateView,
+} from "./views.js";
 
 const main = document.getElementById("main");
 const topbar = document.querySelector(".topbar");
@@ -60,6 +63,12 @@ function resolve({ parts, params }) {
     case "food": return { view: foodView(parts[1]), tab: null };
     case "browse": return { view: browseView(), tab: "/browse" };
     case "category": return { view: categoryView(parts[1]), tab: "/browse" };
+    case "lists": return { view: listsView(), tab: "/browse" };
+    case "list": return { view: listView(parts[1]), tab: "/browse" };
+    case "prep": return { view: prepView(parts[1]), tab: "/browse" };
+    case "compare": return { view: compareView(params), tab: "/browse" };
+    case "spectrum": return { view: spectrumView(params), tab: "/browse" };
+    case "me": return { view: meView(), tab: "/me" };
     case "state": return { view: stateView(parts[1], params), tab: "/" };
     default: return { view: { html: `<div class="empty">Nothing here.</div>` }, tab: null };
   }
@@ -138,6 +147,23 @@ document.addEventListener("click", event => {
   } else if (action === "dismiss-banner") {
     banner.dismiss();
     renderBanner();
+  } else if (action === "show-banner") {
+    banner.show();
+    renderBanner();
+    scrollTo({ top: 0, behavior: "smooth" });
+  } else if (action === "clear-recent") {
+    recent.clear();
+    render();
+  } else if (action === "clear-misses") {
+    misses.clear();
+    render();
+  } else if (action === "copy-misses") {
+    navigator.clipboard
+      ?.writeText(misses.all().map(m => `${m.q}${m.n > 1 ? ` (${m.n}x)` : ""}`).join("\n"))
+      .then(() => {
+        act.textContent = "Copied";
+        setTimeout(() => (act.textContent = "Copy"), 1600);
+      });
   } else if (action === "theme") {
     const resolved = document.documentElement.dataset.theme;
     theme.set(resolved === "dark" ? "light" : "dark");

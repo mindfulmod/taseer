@@ -1,7 +1,7 @@
 // Dataset access layer: derived fields, search, remedy lists.
 // The bundled module is a faithful mirror of data/foods/*.json — everything
 // interpretive is computed here so the source data stays hand-editable.
-import { FOODS, META, SOURCES } from "../data/foods.js";
+import { FOODS, META, PREPARATIONS, SOURCES } from "../data/foods.js";
 
 export { META, SOURCES };
 
@@ -22,11 +22,14 @@ function compositeHeat(food) {
   return Math.max(-1, Math.min(1, sum / 3 / 0.9));
 }
 
+// Thresholds sit on natural breaks in the dataset's distribution: the extremes are
+// reserved for foods all three traditions agree on, so a lone dissenting tradition
+// pulls a food into cool/warm rather than leaving it at cold/hot.
 export function heatClass(heat) {
-  if (heat <= -0.6) return "cold";
+  if (heat <= -0.7) return "cold";
   if (heat <= -0.2) return "cool";
   if (heat < 0.2) return "neutral";
-  if (heat < 0.6) return "warm";
+  if (heat < 0.7) return "warm";
   return "hot";
 }
 
@@ -208,3 +211,55 @@ export function remedyList(state, verdict, favorites = []) {
 
 /** Coldest → hottest, for the spectrum explorer. */
 export const spectrum = () => [...foods].sort((a, b) => a.heat - b.heat || a.name.localeCompare(b.name));
+
+export const BANDS = [
+  { id: "cold", label: "Cold", blurb: "The deep coolers" },
+  { id: "cool", label: "Cool", blurb: "Gently cooling" },
+  { id: "neutral", label: "Neutral", blurb: "The traditions land near the middle" },
+  { id: "warm", label: "Warm", blurb: "Gently warming" },
+  { id: "hot", label: "Hot", blurb: "The real heaters" },
+];
+
+// ---- Preparations & curated lists -----------------------------------------
+
+export const preparations = PREPARATIONS;
+export const getPreparation = id => PREPARATIONS.find(p => p.id === id);
+
+const byCommon = (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name);
+
+export const LISTS = [
+  {
+    id: "top-cooling",
+    title: "Top 10 cooling foods",
+    blurb: "The coldest things most kitchens already have.",
+    tone: "cold",
+    pick: () => [...foods].filter(f => f.commonness <= 2).sort((a, b) => a.heat - b.heat).slice(0, 10),
+  },
+  {
+    id: "heating-culprits",
+    title: "Everyday heating culprits",
+    blurb: "Staples the traditions agree run hot — the usual suspects behind a heat complaint.",
+    tone: "hot",
+    pick: () => [...foods].filter(f => f.commonness === 1).sort((a, b) => b.heat - a.heat).slice(0, 12),
+  },
+  {
+    id: "histamine-safe",
+    title: "Histamine-safe snacks",
+    blurb: "SIGHI 0, no liberators, nothing aged or fermented.",
+    tone: "calm",
+    pick: () =>
+      foods
+        .filter(f => f.reactive === "eat" && f.commonness <= 2 && ["fruit", "vegetable", "grain", "protein"].includes(f.category))
+        .sort(byCommon)
+        .slice(0, 16),
+  },
+  {
+    id: "famous-disagreements",
+    title: "The famous disagreements",
+    blurb: "Foods where the traditions genuinely split — mango, yogurt, ghee and friends.",
+    tone: "neutral",
+    pick: () => foods.filter(f => f.conflict && f.commonness <= 2).sort(byCommon),
+  },
+];
+
+export const getList = id => LISTS.find(l => l.id === id);

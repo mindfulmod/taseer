@@ -1,0 +1,173 @@
+[
+  {
+    "id": "prep-cucumber-mint-water",
+    "name": "Cucumber-mint water",
+    "emoji": "🥒",
+    "state": "too-hot",
+    "blurb": "The house cooler — two cooling ingredients and nothing to argue about.",
+    "ingredients": [
+      "cucumber",
+      "mint",
+      "lime"
+    ],
+    "steps": [
+      "Slice half a cucumber thin; tear a small handful of mint.",
+      "Drop both into a jug of cold water with a squeeze of lime.",
+      "Rest 20 minutes in the fridge before drinking."
+    ]
+  },
+  {
+    "id": "prep-sattu-cooler",
+    "name": "Sattu cooler",
+    "emoji": "🥤",
+    "state": "too-hot",
+    "blurb": "Bihar's summer answer — filling enough to replace a meal in the heat.",
+    "ingredients": [
+      "sattu-drink",
+      "lemon",
+      "cumin"
+    ],
+    "steps": [
+      "Whisk 3 tbsp roasted gram flour into a glass of cold water until smooth.",
+      "Add lemon juice, a pinch of roasted cumin and salt to taste.",
+      "Drink immediately, before it settles."
+    ]
+  },
+  {
+    "id": "prep-barley-water",
+    "name": "Barley water",
+    "emoji": "🌾",
+    "state": "too-hot",
+    "blurb": "The old Unani cooler, still handed out for summer heat.",
+    "ingredients": [
+      "barley",
+      "lemon",
+      "honey"
+    ],
+    "steps": [
+      "Simmer 2 tbsp pearl barley in 4 cups water for 30 minutes.",
+      "Strain, and stir in lemon and a little honey while warm.",
+      "Chill and drink through the day."
+    ]
+  },
+  {
+    "id": "prep-mint-lassi",
+    "name": "Mint lassi",
+    "emoji": "🥛",
+    "state": "too-hot",
+    "blurb": "Salted, not sweet — the version that actually cools.",
+    "ingredients": [
+      "yogurt",
+      "mint",
+      "cumin"
+    ],
+    "steps": [
+      "Blend a cup of yogurt with a cup of cold water until frothy.",
+      "Add torn mint, roasted cumin and salt.",
+      "Serve over ice."
+    ]
+  },
+  {
+    "id": "prep-ginger-honey-tea",
+    "name": "Ginger-honey tea",
+    "emoji": "🫚",
+    "state": "too-cold",
+    "blurb": "The warming standby when hands and feet won't heat up.",
+    "ingredients": [
+      "ginger",
+      "honey",
+      "lemon"
+    ],
+    "steps": [
+      "Simmer a thumb of sliced ginger in 2 cups water for 10 minutes.",
+      "Take off the heat, then add honey and lemon.",
+      "Sip hot."
+    ]
+  },
+  {
+    "id": "prep-golden-milk",
+    "name": "Golden milk",
+    "emoji": "☕",
+    "state": "too-cold",
+    "blurb": "Haldi doodh — the warming bedtime cup of every desi household.",
+    "ingredients": [
+      "milk",
+      "turmeric",
+      "black-pepper",
+      "ghee"
+    ],
+    "steps": [
+      "Warm a cup of milk with ½ tsp turmeric and a crack of black pepper.",
+      "Add a small spoon of ghee and a little jaggery if you want it sweet.",
+      "Drink warm, before bed."
+    ]
+  },
+  {
+    "id": "prep-cinnamon-date-warmer",
+    "name": "Cinnamon-date warmer",
+    "emoji": "🫖",
+    "state": "too-cold",
+    "blurb": "Caffeine-free, warming, and sweet without sugar.",
+    "ingredients": [
+      "dates",
+      "cinnamon",
+      "cardamom",
+      "milk"
+    ],
+    "steps": [
+      "Simmer 3 pitted dates with a cinnamon stick and a cracked cardamom pod in milk.",
+      "Once the dates soften, blend smooth.",
+      "Drink hot."
+    ]
+  },
+  {
+    "id": "prep-rice-and-ghee",
+    "name": "Plain rice with ghee",
+    "emoji": "🍚",
+    "state": "reactive",
+    "blurb": "The reset meal for a reactive day — nothing aged, nothing fermented.",
+    "ingredients": [
+      "white-rice",
+      "ghee"
+    ],
+    "steps": [
+      "Cook white rice fresh — not yesterday's, not reheated twice.",
+      "Stir in a spoon of ghee and a pinch of salt while hot.",
+      "Eat it warm, on its own."
+    ]
+  },
+  {
+    "id": "prep-fresh-oat-porridge",
+    "name": "Fresh oat porridge",
+    "emoji": "🥣",
+    "state": "reactive",
+    "blurb": "A low-histamine breakfast that doesn't rely on anything cultured.",
+    "ingredients": [
+      "oats",
+      "apple",
+      "cinnamon"
+    ],
+    "steps": [
+      "Cook oats in water or fresh milk.",
+      "Grate in half an apple and a little cinnamon near the end.",
+      "Eat straight away — leftovers are the whole problem."
+    ]
+  },
+  {
+    "id": "prep-coconut-chia-cooler",
+    "name": "Coconut-chia cooler",
+    "emoji": "🥥",
+    "state": "reactive",
+    "blurb": "Hydrating, cooling, and clean on the SIGHI list.",
+    "ingredients": [
+      "coconut-water",
+      "chia-seeds",
+      "lime"
+    ],
+    "steps": [
+      "Stir 1 tbsp chia seeds into a glass of coconut water.",
+      "Leave 15 minutes until the seeds swell.",
+      "Add a squeeze of lime and drink cold."
+    ]
+  }
+]
