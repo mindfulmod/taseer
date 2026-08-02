@@ -78,8 +78,18 @@ No bundled font: offline-first beats cross-device identity.
 | Meta | 13 / 1.35 | 400 | ink-2 |
 | Eyebrow / band | 11 / 1.2 | 800 | uppercase, 0.09em, ink-3 |
 
-Space scale 4px: gaps 8 / 12 / 16 / 24 / 32. Page padding 16px, max width 900px.
+Space scale 4px: gaps 8 / 12 / 16 / 24 / 32.
 Radius: glyph tile 15 · row 18 · panel 20 · hero 28 · pill 999. Touch target ≥44px.
+
+Page width and padding step up with the viewport — a phone column centred on a
+desktop screen is a bug, not a responsive layout:
+
+| Viewport | Max width | Padding | List columns |
+|---|---|---|---|
+| < 620px | — | 16px | 1 |
+| ≥ 620px | 900px | 20px | 2 |
+| ≥ 1080px | 1180px | 28px | 3 |
+| ≥ 1440px | 1280px | 32px | 3 |
 
 ## 4. Elevation & tint recipe
 
@@ -103,6 +113,13 @@ Radius: glyph tile 15 · row 18 · panel 20 · hero 28 · pill 999. Touch target
 - Macro rings: 4 rings max plus one text highlight; all rings take the food's accent,
   differentiated by label, never by hue.
 - Horizontal rails (recently viewed) use 82px round-cornered mini tiles, ≥3 visible.
+
+**Desktop is a different layout, not a stretched phone.** At ≥1080px:
+- Navigation is a horizontal row inside the header, never a bottom bar.
+- The remedy screen shows **Eat this and Avoid side by side**; the segmented
+  control is a mobile affordance and is hidden.
+- The food card runs two columns — hero full width, panels paired beneath.
+- Anything that reads as a single centred phone column is a failure of this rule.
 
 ## 6. Ban-list (universal — extend, never trim)
 

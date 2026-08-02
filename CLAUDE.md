@@ -9,8 +9,11 @@ raise a question rather than relitigating one.
 ```bash
 node scripts/validate-data.mjs   # after ANY data/foods edit
 node scripts/build-data.mjs      # regenerates assets/data/foods.js
+node scripts/stamp-sw.mjs        # after ANY shell change (html/css/js/data)
 node scripts/check-palette.mjs   # enforces the ART.md palette
 ```
+
+CI runs all four and fails if any generated file is stale.
 
 ## Visual work
 
@@ -33,6 +36,14 @@ must work, and look finished, with zero images present.
 
 ## PWA
 
-`sw.js` precaches the shell only (never illustrations). **Bump `VERSION` in sw.js on
-any shell change** — html, css, js, or `assets/data/foods.js` — or installed clients
-keep serving the old build. Icons are generated: `node scripts/build-icons.mjs`.
+`sw.js` precaches the shell only (never illustrations). Its `VERSION` is a hash of
+those files, stamped by `node scripts/stamp-sw.mjs` — never edit it by hand. A stale
+version means installed clients keep serving the old build forever, which is
+invisible in testing, so CI treats it as a build failure.
+
+**When testing shell changes locally, the worker will serve you stale files too.**
+Clear it in the console: `navigator.serviceWorker.getRegistrations().then(rs =>
+rs.forEach(r => r.unregister()))` then `caches.keys().then(ks => ks.forEach(k =>
+caches.delete(k)))`, and reload.
+
+Icons are generated: `node scripts/build-icons.mjs`.

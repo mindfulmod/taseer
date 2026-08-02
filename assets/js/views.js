@@ -256,7 +256,7 @@ export function browseView() {
     html: `
       <section class="hero"><h1>Browse</h1><p>${META.count} foods across South Asian, Arabic, Chinese and Western kitchens.</p></section>
       <section class="section">
-        <div class="stack">
+        <div class="stack stack--ways">
           ${ways
             .map(
               w => `<button class="wayrow" data-nav="${w.to}">
@@ -627,7 +627,6 @@ export function stateView(stateId, { list = "eat" } = {}) {
   const favIds = favorites.all();
   const eat = remedyList(stateId, "eat", favIds);
   const avoid = remedyList(stateId, "avoid", favIds);
-  const shown = verdict === "eat" ? eat : avoid;
   const metaFn = stateId === "reactive" ? SIGHI_META : undefined;
 
   const tab = (id, label, count) => `
@@ -655,6 +654,21 @@ export function stateView(stateId, { list = "eat" } = {}) {
           : `<p class="tiny muted" style="margin:0 2px 14px">Everyday kitchen items first. Traditional classifications, not medical advice.</p>`
       }
 
-      ${shown.length ? rankedGroups(shown, favIds, metaFn) : `<div class="empty">Nothing in this list yet.</div>`}`,
+      <div class="remedy">
+        ${remedyColumn("eat", "Eat this", eat, verdict, favIds, metaFn)}
+        ${remedyColumn("avoid", "Avoid", avoid, verdict, favIds, metaFn)}
+      </div>`,
   };
+}
+
+/**
+ * Both lists are always rendered. Phones show the one the segmented control
+ * selects; desktop shows both side by side and hides the control (ART.md §5).
+ */
+function remedyColumn(id, label, items, active, favIds, metaFn) {
+  return `
+    <div class="remedy__col${id === active ? " is-active" : ""}">
+      <div class="remedy__head"><h2>${esc(label)}</h2><span class="tiny muted">${items.length}</span></div>
+      ${items.length ? rankedGroups(items, favIds, metaFn) : `<div class="empty">Nothing in this list yet.</div>`}
+    </div>`;
 }

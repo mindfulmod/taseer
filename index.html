@@ -25,6 +25,16 @@
         Taseer
         <span class="brand__sub">تاثیر</span>
       </button>
+
+      <!-- Lives in the header so it can be a bottom bar on phones (position:fixed,
+           so DOM order is irrelevant) and an inline row on desktop. -->
+      <nav class="tabbar" aria-label="Main">
+        <button class="tabbar__item" data-nav="/"><span aria-hidden="true">🫀</span><span>Feel</span></button>
+        <button class="tabbar__item" data-nav="/search"><span aria-hidden="true">🔍</span><span>Search</span></button>
+        <button class="tabbar__item" data-nav="/browse"><span aria-hidden="true">🗂️</span><span>Browse</span></button>
+        <button class="tabbar__item" data-nav="/me"><span aria-hidden="true">🔖</span><span>Me</span></button>
+      </nav>
+
       <button class="iconbtn" id="theme-toggle" data-act="theme" aria-label="Toggle dark mode">🌙</button>
     </div>
   </header>
@@ -32,13 +42,6 @@
   <div id="banner-slot"></div>
 
   <main class="main" id="main"></main>
-
-  <nav class="tabbar" aria-label="Main">
-    <button class="tabbar__item" data-nav="/"><span aria-hidden="true">🫀</span><span>Feel</span></button>
-    <button class="tabbar__item" data-nav="/search"><span aria-hidden="true">🔍</span><span>Search</span></button>
-    <button class="tabbar__item" data-nav="/browse"><span aria-hidden="true">🗂️</span><span>Browse</span></button>
-    <button class="tabbar__item" data-nav="/me"><span aria-hidden="true">🔖</span><span>Me</span></button>
-  </nav>
 
   <script type="module" src="assets/js/app.js"></script>
 </body>

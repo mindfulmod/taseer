@@ -30,6 +30,12 @@ jobs:
           node scripts/build-data.mjs
           git diff --exit-code assets/data/foods.js \
             || (echo "::error::assets/data/foods.js is stale — run node scripts/build-data.mjs and commit"; exit 1)
+      - name: Check the service worker version matches the shell
+        run: |
+          node scripts/stamp-sw.mjs
+          git diff --exit-code sw.js \
+            || (echo "::error::sw.js VERSION is stale — run node scripts/stamp-sw.mjs and commit, or installed clients keep the old build"; exit 1)
+
       - name: Enforce the art palette
         run: node scripts/check-palette.mjs
       - name: Check illustration filenames
