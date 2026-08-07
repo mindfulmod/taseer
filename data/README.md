@@ -1,4 +1,78 @@
-# Taseer dataset — Batch 1 (core 250)
+# Taseer dataset — 506 foods (batch 1 + batch 2)
+
+> **Batch 2 landed 2026-08-07: +256 foods, 250 → 506.** Plan and rationale in
+> [`BATCH-2-PLAN.md`](BATCH-2-PLAN.md). Shape now: 71 fruits · 79 vegetables ·
+> 38 grains · 80 spices/oils/condiments · 73 proteins · 26 dairy · 50 drinks ·
+> 89 dishes. 1,536 aliases, 85 cross-tradition conflicts, 59 foods at SIGHI 3.
+>
+> **What changed in kind, not just count:**
+> - **Cooking oils exist now.** Mustard, sesame, coconut, olive, sunflower and
+>   palm. Their absence was a hole in the middle of a taseer app — sarson vs
+>   coconut oil is one of the sharpest hot/cold splits in the whole set.
+> - **Alcohol is in** (6 entries), at the owner's instruction. All carry the
+>   `dao-blocker` tag: alcohol blocks the enzyme that clears histamine, so it
+>   worsens whatever is eaten alongside it. A reactive-day list that omitted
+>   wine was misleading.
+> - **Cured meat and offal** as teaching negatives: salami, bacon, liver, kidney
+>   and bone broth. Bone broth at SIGHI 3 is the one worth knowing — the hours
+>   of simmering that make it nourishing are exactly what builds histamine.
+> - **Dried-vs-fresh split out** where drying flips the reading: figs, apricots
+>   and dates all move from cooling/neutral to firmly garam once dried.
+> - **`contested` is now 263 of 506** — much higher than batch 1's rate, and
+>   honestly so: batch 2 reaches into new-world fruit, processed condiments and
+>   packaged drinks that the Chinese and Unani canons never covered. Saying so
+>   beats inventing confidence.
+>
+> ### Verification pass (2026-08-07) — and what batch 1 actually did
+>
+> **Batch 1 did no external verification.** Worth recording, because it is easy to
+> assume otherwise: its commit is co-authored Claude Opus 5, zero of its 250
+> entries carry a per-food `source` string, and `sources.json` names only
+> tradition-level bases. The `source` field in `specs/02-data-spec.md` was never
+> populated. Both batches are model-knowledge classification with honest
+> confidence levels — that is the method, and it should be stated rather than
+> implied.
+>
+> Batch 2 was then spot-verified against published sources, which batch 1 was
+> not. **Six corrections resulted:**
+>
+> | Entry | Was | Now | Why |
+> |---|---|---|---|
+> | `apple-cider-vinegar` | SIGHI 3 | **1** | SIGHI names cider vinegar *with distilled white* among tolerated vinegars. The original entry also contradicted batch 1's own correct `white-vinegar` note. |
+> | `rice-vinegar` | SIGHI 3 | **1** | Not wine-based; commonly recommended as the substitute. |
+> | `sourdough` | SIGHI 3 | **2** | SIGHI's own wording is a question, not a verdict. |
+> | `rye-bread` | SIGHI 3 | **2** | Same open question. |
+> | `olives` | note | note | Rating held at 2; note sharpened to SIGHI's actual distinction. |
+> | `lotus-seeds` | 332 kcal / 64.5 c | **362 / 76** | USDA FoodData Central. |
+>
+> **Confirmed correct** on checking: amla cooling-despite-sour (the classical
+> śīta vīrya / madhura vipāka exception), the durian-hot / mangosteen-cold pair
+> and its king-and-queen pairing, bone broth at SIGHI 3, and the `dao-blocker`
+> tag on all alcohol.
+>
+> **Coverage is a sample, not a census.** Roughly a dozen of the highest-risk
+> claims were externally checked out of 256 entries carrying 142 high-confidence
+> thermal claims and 188 non-estimate nutrition rows. One systematic caveat came
+> out of it: **nutrition figures are close but not exact USDA rows** — lotus seed
+> protein and fat matched to the decimal while calories and carbs were ~10% low.
+> Treat every number as approximate until checked.
+>
+> **Repeatable method:** SIGHI ratings against the published compatibility list
+> (histaminintoleranz.ch); nutrition against USDA FoodData Central; thermal
+> verdicts against the tradition named in `sources.json`. Prioritise, in order:
+> SIGHI 0 and 3 (they drive the reactive lists directly), `confidence: "high"`
+> claims (certainty was asserted), then nutrition.
+>
+> **Search-collision rule learned the hard way:** a new entry may not take a
+> name that an older entry holds as a *bare* alias — `atta`, `roti`, `cod` and
+> `tahini` all had to be surrendered by their old owners. Batch 1's
+> `alias (qualifier)` form — `besan (flour)` on chickpeas — is the opposite: a
+> deliberate cross-reference that should be left alone. Re-run the collision
+> audit after any batch.
+
+---
+
+## Batch 1 (core 250)
 
 **Classified 2026-08-02 by Claude** per the locked curation model (Claude classifies, owner spot-checks). Validated by `scripts/validate-data.mjs` — run it after any edit:
 
