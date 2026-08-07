@@ -7,8 +7,8 @@
   <meta name="description" content="Does this food run hot or cold across TCM, Ayurveda and Unani — and is it a histamine risk? A remedy finder for how your body feels.">
   <meta name="theme-color" content="#faf5ec">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="icon" href="assets/ui/taseer-mark-512.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/ui/taseer-mark-180.png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Taseer">
   <meta name="mobile-web-app-capable" content="yes">
@@ -18,31 +18,26 @@
   <a class="skip" href="#main">Skip to content</a>
   <div class="wash" id="wash" aria-hidden="true"></div>
 
-  <header class="topbar">
-    <div class="topbar__inner">
-      <button class="brand" data-nav="/" aria-label="Taseer — home">
-        <span class="brand__mark" aria-hidden="true"></span>
-        Taseer
-        <span class="brand__sub">تاثیر</span>
-      </button>
-
-      <!-- Lives in the header so it can be a bottom bar on phones (position:fixed,
-           so DOM order is irrelevant) and an inline row on desktop. -->
-      <nav class="tabbar" aria-label="Main">
-        <button class="tabbar__item" data-nav="/"><span aria-hidden="true">🫀</span><span>Feel</span></button>
-        <button class="tabbar__item" data-nav="/search"><span aria-hidden="true">🔍</span><span>Search</span></button>
-        <button class="tabbar__item" data-nav="/browse"><span aria-hidden="true">🗂️</span><span>Browse</span></button>
-        <button class="tabbar__item" data-nav="/me"><span aria-hidden="true">🔖</span><span>Me</span></button>
-      </nav>
-
-      <button class="iconbtn" id="theme-toggle" data-act="theme" aria-label="Toggle dark mode">🌙</button>
-    </div>
-  </header>
-
   <div id="banner-slot"></div>
 
   <main class="main" id="main"></main>
 
-  <script type="module" src="assets/js/app.js"></script>
+  <!-- No persistent app-name bar: it cost a row on every screen to show the name
+       of the app you already opened. The brand is content on home, every other
+       screen states what it is in its own h1, and this floating pill is the only
+       chrome. Theme lives on Me, where the rest of the settings are. -->
+  <nav class="tabbar" aria-label="Main">
+    <button class="tabbar__item" data-nav="/"><img class="tabbar__icon" src="assets/ui/icons/tab-feel.png" alt="" aria-hidden="true"><span>Feel</span></button>
+    <button class="tabbar__item" data-nav="/find"><img class="tabbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true"><span>Find</span></button>
+    <button class="tabbar__item" data-nav="/me"><img class="tabbar__icon" src="assets/ui/icons/tab-me.png" alt="" aria-hidden="true"><span>Me</span></button>
+  </nav>
+
+  <script type="module">
+    // A module URL is cached independently of the page, so editing app.js and
+    // reloading keeps executing the previous build — with a service worker in
+    // front of it, for several reloads. Production keeps the plain URL (the SW
+    // versions the shell); localhost busts it so a reload means a reload.
+    import("./assets/js/app.js" + (location.hostname === "localhost" ? "?t=" + Date.now() : ""));
+  </script>
 </body>
 </html>

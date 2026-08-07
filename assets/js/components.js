@@ -18,21 +18,6 @@ const MECHS = {
 
 const SIGHI_TEXT = ["Well tolerated", "Usually fine", "Care advised", "Poorly tolerated"];
 
-/** Position on the shared warm↔cool gradient track, 0–100%. */
-const dotPos = heat => `${((heat + 1) / 2) * 100}%`;
-
-export function thermalBadge(food, sys) {
-  const t = food.thermal[sys];
-  const cls = heatClass(systemHeat(food, sys));
-  const contested = t.confidence === "contested";
-  return `
-    <div class="badge t-${cls}${contested ? " badge--contested" : ""}">
-      <div class="badge__label">${SYSTEM_LABELS[sys]}</div>
-      <div class="badge__verdict">${esc(VERDICT_TEXT(t.verdict))}</div>
-      <div class="badge__track"><span class="badge__dot" style="left:${dotPos(systemHeat(food, sys))}"></span></div>
-    </div>`;
-}
-
 export function sighiBadge(food) {
   const { sighi, tags } = food.histamine;
   const segs = [0, 1, 2, 3].map(i => `<i class="${i <= sighi ? "on" : ""}"></i>`).join("");
@@ -45,13 +30,45 @@ export function sighiBadge(food) {
     </div>`;
 }
 
-export const badgeRow = food => `
-  <div class="badges">
-    ${["tcm", "ayurveda", "unani"].map(s => thermalBadge(food, s)).join("")}
-    ${sighiBadge(food)}
-  </div>`;
-
 const SYSTEMS = ["tcm", "ayurveda", "unani"];
+
+/**
+ * Painting wrapper (ART.md §8). Everything painted goes through this, so the
+ * dark grade is applied in exactly one place. A missing file degrades to the
+ * emoji on a tinted ground instead of a broken-image icon.
+ */
+export const art = (food, src, cls = "") => `
+  <span class="art ${cls}">
+    <img src="${src}" alt="" loading="lazy" decoding="async"
+         onerror="this.parentElement.classList.add('art--none');this.parentElement.append('${food.emoji}')">
+  </span>`;
+
+/**
+ * The three traditions as thin markers on one shared cold→hot axis.
+ *
+ * Same information as three stacked verdict badges in ~40% of the height, and
+ * the disagreement reads better: one axis means the spread between the markers
+ * is directly comparable, which is the whole point of showing three schools
+ * side by side. Still per-system — never an average (product spec).
+ */
+export function thermalScale(food) {
+  const rows = SYSTEMS.map(sys => {
+    const t = food.thermal[sys];
+    const heat = systemHeat(food, sys);
+    return `
+      <div class="scaperow t-${heatClass(heat)}">
+        <span class="scaperow__sys">${SYSTEM_LABELS[sys]}
+          <span>${esc(VERDICT_TEXT(t.verdict))}${t.confidence === "contested" ? " ?" : ""}</span>
+        </span>
+        <span class="scaperow__track">
+          <span class="scaperow__dot" style="--p:${((heat + 1) / 2).toFixed(3)}"></span>
+        </span>
+      </div>`;
+  }).join("");
+  return `
+    <div class="scale">${rows}</div>
+    <div class="scale__axis"><span>Cold</span><span>Neutral</span><span>Hot</span></div>`;
+}
 const joinNames = list =>
   list.length > 1 ? `${list.slice(0, -1).join(", ")} and ${list.at(-1)}` : list[0];
 
@@ -85,14 +102,56 @@ export function flags(food) {
   return out.length ? `<div class="row" style="gap:7px">${out.join("")}</div>` : "";
 }
 
-/** One list row. `metaFn(food)` overrides the default sub-line. */
-export function foodTile(food, { metaFn } = {}) {
+/**
+ * Glyph tile carrying the painted thumb, with the emoji left in the DOM
+ * underneath it. A missing thumb removes its own <img> and the tinted emoji
+ * tile is what shows — no broken image, no layout shift, the same silent
+ * degradation the food-card hero already does.
+ */
+export const artGlyph = (food, cls) => `
+  <span class="${cls}">${food.emoji}<img class="glyph__art"
+    src="assets/food-thumbs/${food.id}.webp" alt="" loading="lazy" decoding="async"
+    onerror="this.remove()"></span>`;
+
+/**
+ * Thermal reading at row scale — one dot per tradition, same three systems in
+ * the same order as the food card's scale, each carrying its OWN verdict colour.
+ *
+ * Deliberately not a single dot at a composite position: that would be a
+ * synthesized verdict in the most-scanned place in the app, which is the one
+ * thing Taseer never does. Three dots still answer "hot or cold?" at a glance
+ * when the traditions agree — they are all the same colour — and when they
+ * disagree the mixture is the answer, matching the ◐ on the name.
+ */
+export function thermalDots(food) {
+  const label = SYSTEMS
+    .map(sys => `${SYSTEM_LABELS[sys]} ${food.thermal[sys].verdict.replace("-", " and ")}`)
+    .join(", ");
+  const dots = SYSTEMS
+    .map(sys => `<i class="t-${heatClass(systemHeat(food, sys))}"></i>`)
+    .join("");
+  return `<span class="tdots" role="img" aria-label="${esc(label)}">${dots}</span>`;
+}
+
+/** Histamine meter, for the one screen where histamine is the actual metric. */
+const sighiSegments = food => `
+  <span class="segments" style="--sighi:var(--sighi-${food.histamine.sighi});width:34px"
+        role="img" aria-label="SIGHI ${food.histamine.sighi} — ${SIGHI_TEXT[food.histamine.sighi].toLowerCase()}">
+    ${[0, 1, 2, 3].map(i => `<i class="${i <= food.histamine.sighi ? "on" : ""}"></i>`).join("")}
+  </span>`;
+
+/**
+ * One list row. `metaFn(food)` overrides the default sub-line; `meter` picks
+ * what the row end reads — thermal everywhere except the reactive remedy
+ * screen, which is sorted by histamine and should show it.
+ */
+export function foodTile(food, { metaFn, meter = "thermal" } = {}) {
   const isTrigger = triggers.has(food.id);
   const isFav = favorites.has(food.id);
   const sub = esc(metaFn ? metaFn(food) : food.description);
   return `
     <button class="tile t-${food.heatClass}${isTrigger ? " tile--trigger" : ""}" data-nav="/food/${food.id}">
-      <span class="tile__glyph">${food.emoji}</span>
+      ${artGlyph(food, "tile__glyph")}
       <span class="tile__body">
         <span class="tile__name">
           <span>${esc(food.name)}</span>
@@ -103,9 +162,7 @@ export function foodTile(food, { metaFn } = {}) {
         <span class="tile__meta">${sub}</span>
       </span>
       <span class="tile__end">
-        <span class="segments" style="--sighi:var(--sighi-${food.histamine.sighi});width:34px" aria-label="SIGHI ${food.histamine.sighi}">
-          ${[0, 1, 2, 3].map(i => `<i class="${i <= food.histamine.sighi ? "on" : ""}"></i>`).join("")}
-        </span>
+        ${meter === "histamine" ? sighiSegments(food) : thermalDots(food)}
       </span>
     </button>`;
 }
@@ -115,13 +172,13 @@ export const tileList = (list, opts) =>
 
 export const miniTile = food => `
   <button class="minitile t-${food.heatClass}" data-nav="/food/${food.id}">
-    <span class="minitile__glyph">${food.emoji}</span>
+    ${artGlyph(food, "minitile__glyph")}
     <span class="minitile__name">${esc(food.name)}</span>
   </button>`;
 
 export const chip = food => `
   <button class="chip t-${food.heatClass}${triggers.has(food.id) ? " chip--trigger" : ""}" data-nav="/food/${food.id}">
-    <span>${food.emoji}</span>${esc(food.name)}
+    ${artGlyph(food, "chip__glyph")}${esc(food.name)}
   </button>`;
 
 // ---- Macro rings ---------------------------------------------------------

@@ -169,22 +169,43 @@ export function fuzzySuggest(query, limit = 4) {
 
 // ---- Remedy lists ----------------------------------------------------------
 
+/**
+ * Four pieces of copy per state, because each answers a different question and
+ * swapping them is how this screen goes wrong:
+ *
+ *   label   THE PERSON, mid-sentence — "when you feel too hot".
+ *   ask     THE PERSON, standing alone — a card title that must make sense with
+ *           nothing above it, so it carries its own question mark.
+ *   effect  WHAT A REMEDY DOES — the opposite of the complaint. A cooler is for
+ *           when you feel too hot; tagging it "Too hot" reads as a hot drink.
+ *   blurb   WHAT THE LIST HOLDS — names the foods, not the reader, and keeps the
+ *           "traditionally" hedge the safety framing requires.
+ *
+ * Rule of thumb: text about the reader uses label/ask; anything attached to a
+ * food or preparation uses effect/blurb.
+ */
 export const STATES = {
   "too-hot": {
     label: "Too hot",
-    blurb: "Foods traditionally classified as cooling",
+    ask: "Too hot?",
+    effect: "Cooling",
+    blurb: "Foods traditionally used to cool down",
     emoji: "🔥",
     tone: "cold",
   },
   "too-cold": {
     label: "Too cold",
-    blurb: "Foods traditionally classified as warming",
+    ask: "Too cold?",
+    effect: "Warming",
+    blurb: "Foods traditionally used to warm up",
     emoji: "❄️",
     tone: "hot",
   },
   reactive: {
     label: "Reactive",
-    blurb: "Sorted by SIGHI histamine compatibility",
+    ask: "Food reactions?",
+    effect: "Low histamine",
+    blurb: "Lowest-histamine foods first",
     emoji: "⚡",
     tone: "calm",
   },

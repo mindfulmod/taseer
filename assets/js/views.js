@@ -7,8 +7,8 @@ import {
 } from "./data.js";
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
-  badgeRow, chip, commonnessLabel, conflictBanner, esc, flags, macroRings, mechLabel, miniTile,
-  sighiText, tileList,
+  art, artGlyph, chip, commonnessLabel, conflictBanner, esc, flags, macroRings, mechLabel,
+  miniTile, sighiBadge, sighiText, thermalScale, tileList,
 } from "./components.js";
 
 const backBar = (label, href) =>
@@ -20,30 +20,45 @@ export function homeView() {
   const recents = getFoods(recent.all()).slice(0, 12);
   return {
     html: `
+      <!-- The brand is content here rather than chrome on every screen. -->
+      <div class="brand">
+        <img class="brand__mark" src="assets/ui/taseer-mark.png" alt="">
+        Taseer
+        <span class="brand__sub">تاثیر</span>
+      </div>
+
       <section class="hero">
         <h1>How does your body feel?</h1>
         <p>Pick a state — we'll show foods traditionally classified as helping or aggravating.</p>
       </section>
 
+      <!-- Each card has to read on its own: the title asks about you, the line
+           under it says what the list holds. A card that only makes sense once
+           you have read the heading above it is a card that failed. -->
       <div class="states">
         ${Object.entries(STATES)
           .map(
             ([id, s]) => `
             <button class="state t-${s.tone}" data-nav="/state/${id}">
-              <span class="state__emoji">${s.emoji}</span>
-              <span class="state__label">${esc(s.label)}</span>
+              <img class="state__icon" src="assets/ui/icons/state-${id}.png" alt="" aria-hidden="true">
+              <span class="state__label">${esc(s.ask)}</span>
               <span class="state__blurb">${esc(s.blurb)}</span>
             </button>`,
           )
           .join("")}
-        <button class="state t-neutral" data-nav="/browse">
-          <span class="state__emoji">🍃</span>
-          <span class="state__label">Balanced</span>
-          <span class="state__blurb">Just browsing the library</span>
+        <button class="state t-neutral" data-nav="/find">
+          <img class="state__icon" src="assets/ui/icons/state-balanced.png" alt="" aria-hidden="true">
+          <span class="state__label">Just browsing?</span>
+          <span class="state__blurb">All ${META.count} foods by category</span>
         </button>
       </div>
 
-      <button class="searchcue" data-nav="/search">🔍 Search ${META.count} foods — try “karela”</button>
+      <!-- focus=1: tapping a search affordance should land in the box. Tapping
+           the Find tab itself should not — see findView's mount. -->
+      <button class="searchcue" data-nav="/find?focus=1">
+        <img class="searchcue__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
+        Search ${META.count} foods — try “karela”
+      </button>
 
       ${
         recents.length
@@ -57,19 +72,17 @@ export function homeView() {
       <section class="section">
         <div class="section__head">
           <h2>Browse by category</h2>
-          <button class="linkish" data-nav="/browse">All</button>
+          <button class="linkish" data-nav="/find">All</button>
         </div>
         ${categoryGrid()}
       </section>`,
   };
 }
 
-// ---- Search --------------------------------------------------------------
+// ---- Find (search + browse) ----------------------------------------------
 
+/** Only ever called with a non-empty query — findBody owns the empty case. */
 function resultsHtml(q) {
-  if (!q.trim()) {
-    return `<p class="muted tiny">Type a name in any language you'd say it — bhindi, bamia, bok choy.</p>`;
-  }
   const hits = search(q);
   if (hits.length) {
     return `<p class="eyebrow" style="margin-bottom:10px">${hits.length} result${hits.length === 1 ? "" : "s"}</p>
@@ -91,26 +104,46 @@ function resultsHtml(q) {
     }`;
 }
 
-export function searchView({ q = "" } = {}) {
+/**
+ * Find — search and browse in one tab.
+ *
+ * They were never two jobs. Both existed to locate a food, and splitting them
+ * across two tabs meant guessing up front whether you knew the name. The search
+ * box is always there; with it empty the screen is the browse library, and
+ * typing swaps the library for results. Clearing the box brings it back.
+ */
+export function findView({ q = "", focus = "" } = {}) {
   return {
     html: `
+      <section class="hero">
+        <h1>Find</h1>
+        <p>${META.count} foods across South Asian, Arabic, Chinese and Western kitchens.</p>
+      </section>
+
       <div class="searchbar">
-        <span aria-hidden="true">🔍</span>
+        <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
         <input id="q" type="search" inputmode="search" autocomplete="off" spellcheck="false"
-               placeholder="Search foods, aliases, dishes…" value="${esc(q)}" aria-label="Search foods">
+               placeholder="Search ${META.count} foods — try “karela”" value="${esc(q)}"
+               aria-label="Search foods, in any language you'd say the name">
       </div>
-      <div id="results">${resultsHtml(q)}</div>`,
+
+      <div id="findbody">${findBody(q)}</div>`,
     mount(root) {
       const input = root.querySelector("#q");
-      const out = root.querySelector("#results");
+      const body = root.querySelector("#findbody");
       let missTimer;
-      input.focus({ preventScroll: true });
-      input.setSelectionRange(input.value.length, input.value.length);
+
+      // Only when the user tapped a search affordance to get here. Focusing on
+      // every visit would throw the keyboard over the library they came to browse.
+      if (focus) {
+        input.focus({ preventScroll: true });
+        input.setSelectionRange(input.value.length, input.value.length);
+      }
+
       input.addEventListener("input", () => {
         const value = input.value;
-        out.innerHTML = resultsHtml(value);
-        const hash = value ? `#/search?q=${encodeURIComponent(value)}` : "#/search";
-        history.replaceState(null, "", hash);
+        body.innerHTML = findBody(value);
+        history.replaceState(null, "", value ? `#/find?q=${encodeURIComponent(value)}` : "#/find");
         clearTimeout(missTimer);
         if (value.trim().length >= 2 && search(value).length === 0) {
           missTimer = setTimeout(() => misses.log(value), 900);
@@ -118,6 +151,11 @@ export function searchView({ q = "" } = {}) {
       });
     },
   };
+}
+
+/** Results while there is a query; the browse library while there isn't. */
+function findBody(q) {
+  return q.trim() ? resultsHtml(q) : browseBody();
 }
 
 // ---- Food card -----------------------------------------------------------
@@ -157,25 +195,37 @@ export function foodView(id) {
     .map(([state, verdict]) => `${verdict === "eat" ? "Helps" : "Aggravates"} when you feel <strong>${STATES[state].label.toLowerCase()}</strong>`);
 
   return {
-    mount(root) {
-      // The illustration set is generated externally and lands incrementally, so
-      // presence is detected at runtime rather than baked into the dataset.
-      const img = root.querySelector(".card__img");
-      img?.addEventListener("load", () => root.querySelector("#card")?.classList.add("card--illustrated"));
-      img?.addEventListener("error", () => img.closest(".card__media")?.remove());
-    },
     html: `
-      ${backBar("Back", "/")}
-      <article id="card">
-      <figure class="card__media t-${food.heatClass}">
-        <img class="card__img" src="assets/food-images/${food.id}.webp" alt="Painted illustration of ${esc(food.name)}" decoding="async">
-      </figure>
-      <div class="card__hero t-${food.heatClass}">
-        <div class="card__glyph">${food.emoji}</div>
-        <div>
-          <div class="card__title"><h1>${esc(food.name)}</h1></div>
-          ${food.aliases.length ? `<div class="card__aliases">${food.aliases.map(esc).join(" · ")}</div>` : ""}
-          <p class="card__desc">${esc(food.description)}</p>
+      <article id="card" class="t-${food.heatClass}">
+      <!-- ART.md §10.1: the painting runs to the top edge with no header above
+           it, and the title card overlaps up into it. The back and favourite
+           controls float on the art, which is what removes the header. -->
+      <div class="fhero">
+        ${art(food, `assets/food-images/${food.id}.webp`)}
+        <button class="fhero__btn fhero__btn--back" data-back="/category/${food.category}" aria-label="Back">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>
+        </button>
+        <button class="fhero__btn fhero__btn--fav${isFav ? " is-on" : ""}" data-act="fav" data-id="${food.id}"
+                aria-pressed="${isFav}" aria-label="Favourite">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19.6s-7.2-4.5-7.2-9.3A4 4 0 0 1 12 7.9a4 4 0 0 1 7.2 2.4c0 4.8-7.2 9.3-7.2 9.3Z"/></svg>
+        </button>
+      </div>
+
+      <div class="titlecard">
+        <p class="eyebrow">${esc(CATEGORIES.find(c => c.id === food.category)?.label ?? food.category)}${
+          food.cuisines.length ? ` · ${esc(CUISINES.find(x => x.id === food.cuisines[0])?.label ?? food.cuisines[0])}` : ""
+        }</p>
+        <h1>${esc(food.name)}</h1>
+        ${food.aliases.length ? `<div class="card__aliases">${food.aliases.map(esc).join(" · ")}</div>` : ""}
+        <p class="card__desc">${esc(food.description)}</p>
+
+        <!-- Thermal nature is what the app is FOR, so it sits in the title card
+             above the fold rather than in a panel below the nutrition. -->
+        <div class="cardsection">
+          <h3>Thermal nature</h3>
+          <p class="tiny muted">Where each tradition places it</p>
+          ${thermalScale(food)}
+          ${food.conflict ? "" : `<p class="spread"><strong>All three traditions agree.</strong> The readings line up across the scale.</p>`}
         </div>
       </div>
 
@@ -183,11 +233,10 @@ export function foodView(id) {
       ${flags(food)}
 
       <div class="card__actions">
-        <button class="pillbtn" data-act="fav" data-id="${food.id}" aria-pressed="${isFav}">${isFav ? "♥" : "♡"} Favourite</button>
         <button class="pillbtn" data-act="trigger" data-id="${food.id}" aria-pressed="${isTrig}">⚠ ${isTrig ? "One of my triggers" : "Mark as trigger"}</button>
       </div>
 
-      <div class="panel">${badgeRow(food)}</div>
+      <div class="panel">${sighiBadge(food)}</div>
 
       <div class="panel t-${food.heatClass}">
         <h3>Per 100 ${food.category === "drink" ? "ml" : "g"}</h3>
@@ -232,13 +281,13 @@ export function foodView(id) {
   };
 }
 
-// ---- Browse --------------------------------------------------------------
+// ---- The library (Find's empty-query body) --------------------------------
 
 function categoryGrid() {
   return `<div class="catgrid">
     ${CATEGORIES.map(
       c => `<button class="cat" data-nav="/category/${c.id}">
-              <span class="cat__emoji">${c.emoji}</span>
+              <img class="cat__cut" src="assets/ui/categories/${c.id}.png" alt="" aria-hidden="true" loading="lazy">
               <span class="cat__label">${esc(c.label)}</span>
               <span class="cat__count">${META.categories[c.id] ?? 0} foods</span>
             </button>`,
@@ -246,33 +295,31 @@ function categoryGrid() {
   </div>`;
 }
 
-export function browseView() {
+/** The library itself — what Find shows whenever the search box is empty. */
+function browseBody() {
   const ways = [
-    { to: "/lists", emoji: "📜", label: "Curated lists", sub: `${LISTS.length} lists + ${preparations.length} simple preparations` },
-    { to: "/spectrum", emoji: "🌡️", label: "Spectrum", sub: "Every food, coldest to hottest" },
-    { to: "/compare", emoji: "⚖️", label: "Compare", sub: "Put two or three side by side" },
+    { to: "/lists", icon: "browse-curated", label: "Curated lists", sub: `${LISTS.length} lists + ${preparations.length} simple preparations` },
+    { to: "/spectrum", icon: "browse-spectrum", label: "Spectrum", sub: "Every food, coldest to hottest" },
+    { to: "/compare", icon: "browse-compare", label: "Compare", sub: "Put two or three side by side" },
   ];
-  return {
-    html: `
-      <section class="hero"><h1>Browse</h1><p>${META.count} foods across South Asian, Arabic, Chinese and Western kitchens.</p></section>
-      <section class="section">
-        <div class="stack stack--ways">
-          ${ways
-            .map(
-              w => `<button class="wayrow" data-nav="${w.to}">
-                      <span class="wayrow__emoji">${w.emoji}</span>
-                      <span><span class="wayrow__label">${esc(w.label)}</span><span class="wayrow__sub">${esc(w.sub)}</span></span>
-                      <span class="wayrow__go" aria-hidden="true">›</span>
-                    </button>`,
-            )
-            .join("")}
-        </div>
-      </section>
-      <section class="section">
-        <div class="section__head"><h2>By category</h2></div>
-        ${categoryGrid()}
-      </section>`,
-  };
+  return `
+    <section class="section">
+      <div class="stack stack--ways">
+        ${ways
+          .map(
+            w => `<button class="wayrow" data-nav="${w.to}">
+                    <img class="wayrow__icon" src="assets/ui/icons/${w.icon}.png" alt="" aria-hidden="true">
+                    <span><span class="wayrow__label">${esc(w.label)}</span><span class="wayrow__sub">${esc(w.sub)}</span></span>
+                    <span class="wayrow__go" aria-hidden="true">›</span>
+                  </button>`,
+          )
+          .join("")}
+      </div>
+    </section>
+    <section class="section">
+      <div class="section__head"><h2>By category</h2></div>
+      ${categoryGrid()}
+    </section>`;
 }
 
 // ---- Curated lists & preparations ----------------------------------------
@@ -280,7 +327,7 @@ export function browseView() {
 export function listsView() {
   return {
     html: `
-      ${backBar("Browse", "/browse")}
+      ${backBar("Find", "/find")}
       <section class="hero"><h1>Curated lists</h1><p>Shortcuts into the library, and a few things worth making.</p></section>
       <div class="stack">
         ${LISTS.map(l => {
@@ -304,7 +351,8 @@ export function listsView() {
                         <span class="tile__name"><span>${esc(p.name)}</span></span>
                         <span class="tile__meta">${esc(p.blurb)}</span>
                       </span>
-                      <span class="tile__end tiny muted">${esc(STATES[p.state].label)}</span>
+                      <!-- What the preparation DOES, never the complaint it treats. -->
+                      <span class="tile__end prep__effect">${esc(STATES[p.state].effect)}</span>
                     </button>`,
             )
             .join("")}
@@ -338,6 +386,7 @@ export function prepView(id) {
       <div class="card__hero t-${tone}">
         <div class="card__glyph">${prep.emoji}</div>
         <div>
+          <p class="eyebrow">${esc(STATES[prep.state].effect)}</p>
           <div class="card__title"><h1>${esc(prep.name)}</h1></div>
           <p class="card__desc">${esc(prep.blurb)}</p>
         </div>
@@ -364,8 +413,11 @@ export function categoryView(catId) {
   const list = byCategory(catId).sort((a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name));
   return {
     html: `
-      ${backBar("Browse", "/browse")}
-      <section class="hero"><h1>${cat.emoji} ${esc(cat.label)}</h1><p>${list.length} foods, everyday staples first.</p></section>
+      ${backBar("Find", "/find")}
+      <section class="hero hero--cat">
+        <img class="hero__cut" src="assets/ui/categories/${cat.id}.png" alt="" aria-hidden="true">
+        <h1>${esc(cat.label)}</h1><p>${list.length} foods, everyday staples first.</p>
+      </section>
       ${tileList(list)}`,
   };
 }
@@ -381,7 +433,7 @@ export function compareView({ ids = "" } = {}) {
   if (!picked.length) {
     return {
       html: `
-        ${backBar("Browse", "/browse")}
+        ${backBar("Find", "/find")}
         <section class="hero"><h1>Compare</h1><p>Pick two or three foods and see the traditions line up — or not.</p></section>
         ${comparePicker(picked)}`,
       mount: mountComparePicker(picked),
@@ -400,14 +452,14 @@ export function compareView({ ids = "" } = {}) {
 
   return {
     html: `
-      ${backBar("Browse", "/browse")}
+      ${backBar("Find", "/find")}
       <section class="hero"><h1>Compare</h1></section>
       <div class="cmp" style="--cols:${picked.length}">
         ${picked
           .map(
             f => `<div class="cmp__head t-${f.heatClass}">
                     <button class="cmp__drop" data-nav="/compare?ids=${without(f.id)}" aria-label="Remove ${esc(f.name)}">✕</button>
-                    <span class="cmp__glyph">${f.emoji}</span>
+                    ${artGlyph(f, "cmp__glyph")}
                     <span class="cmp__name">${esc(f.name)}</span>
                   </div>`,
           )
@@ -455,7 +507,7 @@ function mountComparePicker(picked) {
 
 const addToCompareTile = (food, chosen) => `
   <button class="tile t-${food.heatClass}" data-nav="/compare?ids=${[...chosen, food.id].join(",")}">
-    <span class="tile__glyph">${food.emoji}</span>
+    ${artGlyph(food, "tile__glyph")}
     <span class="tile__body">
       <span class="tile__name"><span>${esc(food.name)}</span></span>
       <span class="tile__meta">${esc(food.description)}</span>
@@ -496,7 +548,7 @@ export function spectrumView({ band = "" } = {}) {
   return {
     tone: active && active.id !== "neutral" && active.id !== "cool" ? active.id : null,
     html: `
-      ${backBar("Browse", "/browse")}
+      ${backBar("Find", "/find")}
       <section class="hero"><h1>Spectrum</h1><p>Every food in the library, coldest to hottest. Tap a band to narrow it.</p></section>
       ${rail}
       <p class="tiny muted" style="margin:12px 2px">Position blends all three traditions — it orders the shelf, it is not a verdict. The badges on each card are the verdicts.</p>
@@ -518,6 +570,13 @@ export function meView() {
   return {
     html: `
       <section class="hero"><h1>Me</h1><p>Everything here stays on this device — no account, no backend, nothing sent anywhere.</p></section>
+
+      <!-- Theme used to live in the app bar; with the bar gone it belongs with
+           the rest of the settings. app.js keeps the glyph in sync. -->
+      <div class="setrow">
+        <span class="setrow__label">Appearance</span>
+        <button class="iconbtn iconbtn--ghost" id="theme-toggle" data-act="theme" aria-label="Toggle dark mode">🌙</button>
+      </div>
 
       ${section(
         "Favourites",
@@ -603,7 +662,7 @@ const GROUPS = [
 ];
 
 /** Renders the list in commonness bands, with favourites lifted into their own band. */
-function rankedGroups(list, favIds, metaFn) {
+function rankedGroups(list, favIds, opts) {
   const fav = new Set(favIds);
   const favs = list.filter(f => fav.has(f.id));
   const rest = list.filter(f => !fav.has(f.id));
@@ -611,7 +670,7 @@ function rankedGroups(list, favIds, metaFn) {
     items.length
       ? `<section class="section">
            <div class="section__head"><h2 class="band">${esc(label)}${extra}</h2><span class="tiny muted">${items.length}</span></div>
-           ${tileList(items, { metaFn })}
+           ${tileList(items, opts)}
          </section>`
       : "";
   return (
@@ -627,7 +686,9 @@ export function stateView(stateId, { list = "eat" } = {}) {
   const favIds = favorites.all();
   const eat = remedyList(stateId, "eat", favIds);
   const avoid = remedyList(stateId, "avoid", favIds);
-  const metaFn = stateId === "reactive" ? SIGHI_META : undefined;
+  // Reactive is the one remedy sorted BY histamine, so its rows read histamine —
+  // both the sub-line and the meter. Everywhere else the meter is thermal.
+  const tileOpts = stateId === "reactive" ? { metaFn: SIGHI_META, meter: "histamine" } : undefined;
 
   const tab = (id, label, count) => `
     <button class="segbar__btn" data-nav="/state/${stateId}?list=${id}" aria-selected="${verdict === id}">
@@ -638,8 +699,11 @@ export function stateView(stateId, { list = "eat" } = {}) {
     tone: state.tone,
     html: `
       ${backBar("Home", "/")}
-      <section class="hero t-${state.tone}">
-        <h1><span aria-hidden="true">${state.emoji}</span> ${esc(state.label)}</h1>
+      <section class="hero hero--cat t-${state.tone}">
+        <img class="hero__cut" src="assets/ui/icons/state-${stateId}.png" alt="" aria-hidden="true">
+        <!-- "Feeling …", not a bare "Too hot": on its own that reads as a screen
+             about hot foods, when it is the opposite. -->
+        <h1>Feeling ${esc(state.label.toLowerCase())}</h1>
         <p>${esc(state.blurb)}.</p>
       </section>
 
@@ -655,8 +719,8 @@ export function stateView(stateId, { list = "eat" } = {}) {
       }
 
       <div class="remedy">
-        ${remedyColumn("eat", "Eat this", eat, verdict, favIds, metaFn)}
-        ${remedyColumn("avoid", "Avoid", avoid, verdict, favIds, metaFn)}
+        ${remedyColumn("eat", "Eat this", eat, verdict, favIds, tileOpts)}
+        ${remedyColumn("avoid", "Avoid", avoid, verdict, favIds, tileOpts)}
       </div>`,
   };
 }
@@ -665,10 +729,10 @@ export function stateView(stateId, { list = "eat" } = {}) {
  * Both lists are always rendered. Phones show the one the segmented control
  * selects; desktop shows both side by side and hides the control (ART.md §5).
  */
-function remedyColumn(id, label, items, active, favIds, metaFn) {
+function remedyColumn(id, label, items, active, favIds, opts) {
   return `
     <div class="remedy__col${id === active ? " is-active" : ""}">
       <div class="remedy__head"><h2>${esc(label)}</h2><span class="tiny muted">${items.length}</span></div>
-      ${items.length ? rankedGroups(items, favIds, metaFn) : `<div class="empty">Nothing in this list yet.</div>`}
+      ${items.length ? rankedGroups(items, favIds, opts) : `<div class="empty">Nothing in this list yet.</div>`}
     </div>`;
 }

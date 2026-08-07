@@ -1,12 +1,11 @@
 // Shell: theme, hash router, delegated events, safety banner.
 import { banner, favorites, misses, recent, theme, triggers } from "./store.js";
 import {
-  browseView, categoryView, compareView, foodView, homeView, listView, listsView, meView,
-  prepView, searchView, spectrumView, stateView,
+  categoryView, compareView, findView, foodView, homeView, listView, listsView, meView,
+  prepView, spectrumView, stateView,
 } from "./views.js";
 
 const main = document.getElementById("main");
-const topbar = document.querySelector(".topbar");
 
 // ---- Theme ---------------------------------------------------------------
 
@@ -59,15 +58,19 @@ function parseHash() {
 function resolve({ parts, params }) {
   switch (parts[0]) {
     case undefined: return { view: homeView(), tab: "/" };
-    case "search": return { view: searchView(params), tab: "/search" };
+    case "find": return { view: findView(params), tab: "/find" };
+    // Search and Browse merged into Find. Both old routes still resolve: this
+    // ships as an installed PWA, so people have them in history and on home
+    // screens, and a shared #/search?q=… link has to keep working.
+    case "search": return { view: findView(params), tab: "/find" };
+    case "browse": return { view: findView({}), tab: "/find" };
     case "food": return { view: foodView(parts[1]), tab: null };
-    case "browse": return { view: browseView(), tab: "/browse" };
-    case "category": return { view: categoryView(parts[1]), tab: "/browse" };
-    case "lists": return { view: listsView(), tab: "/browse" };
-    case "list": return { view: listView(parts[1]), tab: "/browse" };
-    case "prep": return { view: prepView(parts[1]), tab: "/browse" };
-    case "compare": return { view: compareView(params), tab: "/browse" };
-    case "spectrum": return { view: spectrumView(params), tab: "/browse" };
+    case "category": return { view: categoryView(parts[1]), tab: "/find" };
+    case "lists": return { view: listsView(), tab: "/find" };
+    case "list": return { view: listView(parts[1]), tab: "/find" };
+    case "prep": return { view: prepView(parts[1]), tab: "/find" };
+    case "compare": return { view: compareView(params), tab: "/find" };
+    case "spectrum": return { view: spectrumView(params), tab: "/find" };
     case "me": return { view: meView(), tab: "/me" };
     case "state": return { view: stateView(parts[1], params), tab: "/" };
     default: return { view: { html: `<div class="empty">Nothing here.</div>` }, tab: null };
@@ -125,6 +128,19 @@ function render() {
 // ---- Delegated events ----------------------------------------------------
 
 document.addEventListener("click", event => {
+  const back = event.target.closest("[data-back]");
+  if (back) {
+    event.preventDefault();
+    // Reached this screen from inside the app → go back to exactly where they
+    // were: the search results, the category, the remedy list they tapped from.
+    // Opened cold (deep link, shared URL, fresh PWA launch) there is no such
+    // entry, so fall back to the value in data-back — the food's own category,
+    // which is the most useful place to land.
+    if (inAppNavs > 0) history.back();
+    else location.hash = `#${back.dataset.back}`;
+    return;
+  }
+
   const nav = event.target.closest("[data-nav]");
   if (nav) {
     event.preventDefault();
@@ -139,7 +155,10 @@ document.addEventListener("click", event => {
   if (action === "fav") {
     const on = favorites.toggle(id);
     act.setAttribute("aria-pressed", String(on));
-    act.textContent = `${on ? "♥" : "♡"} Favourite`;
+    // The food card's heart is an icon button floating on the painting: it
+    // shows its state with a class, and rewriting its text would eat the SVG.
+    if (act.classList.contains("fhero__btn")) act.classList.toggle("is-on", on);
+    else act.textContent = `${on ? "♥" : "♡"} Favourite`;
   } else if (action === "trigger") {
     const on = triggers.toggle(id);
     act.setAttribute("aria-pressed", String(on));
@@ -174,8 +193,13 @@ document.addEventListener("click", event => {
   }
 });
 
-addEventListener("hashchange", render);
-addEventListener("scroll", () => topbar.classList.toggle("scrolled", scrollY > 4), { passive: true });
+// How many in-app navigations have happened since load — tells the back button
+// whether there is anything of ours to go back to.
+let inAppNavs = 0;
+addEventListener("hashchange", () => {
+  inAppNavs++;
+  render();
+});
 
 // ---- PWA -----------------------------------------------------------------
 

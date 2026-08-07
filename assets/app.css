@@ -46,6 +46,13 @@
   --radius-lg: 28px;
   --shadow: 0 1px 2px rgb(74 55 30 / 6%), 0 8px 24px rgb(74 55 30 / 7%);
   --shadow-lift: 0 2px 6px rgb(74 55 30 / 9%), 0 16px 36px rgb(74 55 30 / 11%);
+
+  /* Paintings are the content, so they are never graded in light mode — house
+     rule: Instagram, Apple Photos and Pinterest all leave images alone, and iOS
+     Smart Invert skips them too. Dark mode gets only enough to stop the sand
+     ground baked into each painting from glowing. */
+  --art-filter: none;
+  --art-veil: 0;
   --tap: 44px;
   --page: 900px;
   --gutter: 16px;
@@ -83,7 +90,10 @@
 
   /* Dark separates with borders, not lift. */
   --shadow: 0 1px 2px rgb(0 0 0 / 40%);
-  --shadow-lift: 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-lift: 0 10px 30px rgb(0 0 0 / 40%);
+
+  --art-filter: brightness(0.98) saturate(0.96);
+  --art-veil: 0.12;
 }
 
 /* Surfaces default to their base; a chosen body state shifts them (below). */
@@ -154,35 +164,23 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 
 /* ---- App shell ---------------------------------------------------------- */
 
-.topbar {
-  position: sticky; top: 0; z-index: 20;
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px max(14px, env(safe-area-inset-left)) 10px max(14px, env(safe-area-inset-right));
-  padding-top: max(10px, env(safe-area-inset-top));
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
-}
-/* The blur lives on a pseudo-element, not on .topbar itself: backdrop-filter
-   creates a containing block for fixed-position descendants, which would pin the
-   bottom tab bar to the header instead of the viewport. */
-.topbar::before {
-  content: ""; position: absolute; inset: 0; z-index: -1;
-  background: color-mix(in srgb, var(--bg) 86%, transparent);
-  backdrop-filter: saturate(1.4) blur(14px);
-}
-.topbar.scrolled { border-bottom-color: var(--line); }
-.topbar__inner { display: flex; align-items: center; gap: 10px; width: 100%; max-width: var(--page); margin: 0 auto; }
-
+/* No persistent app bar. The brand is content on home, and it is the only place
+   it appears — every other screen names itself in its own h1. */
 .brand {
-  display: flex; align-items: baseline; gap: 8px;
+  display: flex; align-items: baseline; gap: 8px; padding-top: 6px;
   font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em;
-  background: none; border: 0; padding: 4px 2px; cursor: pointer;
 }
-.brand__mark {
-  width: 22px; height: 22px; border-radius: 8px; align-self: center;
-  background: linear-gradient(135deg, var(--cold), var(--neutral) 48%, var(--hot));
-}
+.brand__mark { width: 24px; height: 24px; align-self: center; object-fit: contain; }
 .brand__sub { font-size: 0.68rem; font-weight: 600; color: var(--ink-3); letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* Settings row on Me, where the theme control moved to. */
+.setrow {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  margin: 12px 0; padding: 10px 10px 10px 16px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius-panel); box-shadow: var(--shadow);
+}
+.setrow__label { font-weight: 700; }
 
 .iconbtn {
   display: inline-grid; place-items: center;
@@ -196,50 +194,56 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 
 .main {
   max-width: var(--page); margin: 0 auto;
-  padding: 6px max(var(--gutter), env(safe-area-inset-left)) 96px max(var(--gutter), env(safe-area-inset-right));
+  /* With no app bar above it, this is what keeps content clear of the notch.
+     The food-card hero cancels exactly this value to reach the true top edge. */
+  padding: max(6px, env(safe-area-inset-top)) max(var(--gutter), env(safe-area-inset-left))
+           108px max(var(--gutter), env(safe-area-inset-right));
 }
 
-/* Phones: a fixed bottom bar. Being position:fixed is what lets it live inside
-   the header in the DOM, which in turn lets it become an inline row on desktop. */
+/* Floating pill inset from the edges, at every width — with no app bar it is
+   the only navigation, so it can never be the thing that disappears. */
 .tabbar {
-  position: fixed; inset: auto 0 0 0; z-index: 30;
+  position: fixed; z-index: 30;
+  left: 12px; right: 12px; bottom: calc(10px + env(safe-area-inset-bottom));
   display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
-  gap: 2px; padding: 6px 8px calc(6px + env(safe-area-inset-bottom));
-  background: color-mix(in srgb, var(--bg) 90%, transparent);
-  backdrop-filter: saturate(1.4) blur(16px);
-  border-top: 1px solid var(--line);
+  padding: 6px; border-radius: 26px;
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  backdrop-filter: saturate(1.4) blur(18px);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-lift);
 }
 .tabbar__item {
-  display: grid; justify-items: center; gap: 1px;
-  padding: 6px 4px; min-height: var(--tap);
-  border: 0; border-radius: 14px; background: transparent;
+  display: grid; justify-items: center; gap: 2px;
+  padding: 8px 4px; min-height: var(--tap);
+  border: 0; border-radius: 20px; background: transparent;
   color: var(--ink-3); font-size: 0.68rem; font-weight: 600; cursor: pointer;
-  text-decoration: none;
 }
-.tabbar__item span:first-child { font-size: 1.25rem; line-height: 1.1; }
+/* Left at full colour. These are painted marks with large cream fills, not line
+   glyphs — desaturating an inactive one erases it against the cream pill rather
+   than dimming it. The active tab is carried by the tile and the ink label. */
+/* Several of these marks are largely cream (the book, the orbit) and would sink
+   into the cream pill without an edge. drop-shadow follows the alpha, so it
+   outlines the shape rather than boxing the sprite. */
+.tabbar__icon {
+  width: 24px; height: 24px; object-fit: contain; display: block;
+  filter: drop-shadow(0 1px 1.5px rgb(36 30 23 / 30%));
+}
+:root[data-theme="dark"] .tabbar__icon { filter: drop-shadow(0 1px 2px rgb(0 0 0 / 55%)); }
 .tabbar__item[aria-current="page"] { color: var(--ink); background: var(--surface-2); }
 
 @media (min-width: 860px) {
-  .tabbar {
-    position: static; z-index: auto;
-    margin-left: 12px; padding: 0;
-    grid-auto-columns: max-content; justify-content: start;
-    gap: 4px; background: none; backdrop-filter: none; border-top: 0;
-  }
-  .tabbar__item {
-    grid-auto-flow: column; align-items: center; gap: 8px;
-    padding: 9px 15px; min-height: 40px; font-size: 0.9rem;
-  }
-  .tabbar__item span:first-child { font-size: 1.05rem; }
+  /* Centred and capped: stretched across a desktop window the four tabs drift
+     so far apart they stop reading as one control. */
+  .tabbar { left: 50%; right: auto; transform: translateX(-50%); width: min(520px, calc(100% - 24px)); }
+  .tabbar__item { padding: 9px 6px; font-size: 0.72rem; }
   .tabbar__item:hover { color: var(--ink); }
-  .topbar__inner > .iconbtn { margin-left: auto; }
-  .main { padding-bottom: 56px; }
 }
 
 /* ---- Safety banner ------------------------------------------------------ */
 
 .banner {
-  max-width: var(--page); margin: 8px auto 0;
+  /* Nothing above it now that the app bar is gone — clear the notch itself. */
+  max-width: var(--page); margin: calc(8px + env(safe-area-inset-top)) auto 0;
   display: flex; gap: 12px; align-items: flex-start;
   padding: 12px 14px; border-radius: var(--radius);
   background: var(--surface-2); border: 1px solid var(--line);
@@ -299,11 +303,21 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .tile:active { transform: scale(0.985); }
 
 .tile__glyph {
+  position: relative; overflow: hidden;
   display: grid; place-items: center; flex: none;
   width: 50px; height: 50px; border-radius: var(--radius-sm);
   font-size: 1.62rem; line-height: 1;
   background: var(--t-tint);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 22%, transparent);
+}
+
+/* The painted thumb sits on top of the emoji rather than replacing it, so a
+   missing crop degrades to the tinted emoji tile with no layout shift.
+   No dark-mode grade here: these crops are small enough that the sand ground
+   never reads as a glowing panel the way a full-bleed hero can. */
+.glyph__art {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: block;
 }
 .tile__body { min-width: 0; }
 .tile__name { font-weight: 700; letter-spacing: -0.01em; display: flex; align-items: center; gap: 6px; }
@@ -315,6 +329,10 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .tile__end { display: grid; gap: 5px; justify-items: end; }
+
+/* Carries the tile's own temperature, so "Cooling" is literally cool-coloured
+   and cannot be misread as the complaint it treats. */
+.prep__effect { font-size: 0.72rem; font-weight: 700; color: var(--t-deep); white-space: nowrap; }
 
 /* Thermal strip: the tile's temperature read at a glance */
 .tile__strip {
@@ -331,8 +349,9 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 
 /* ---- Badges ------------------------------------------------------------- */
 
-.badges { display: flex; flex-wrap: wrap; gap: 8px; }
-
+/* The three thermal schools now read as one shared axis on the food card (see
+   `.scale`); what is left here is the histamine badge, which is a different
+   measure and keeps its own block. */
 .badge {
   display: grid; gap: 4px; min-width: 92px; flex: 1 1 92px;
   padding: 8px 10px 9px; border-radius: 14px;
@@ -348,24 +367,24 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   font-size: 0.92rem; font-weight: 700; letter-spacing: -0.01em; color: var(--t-deep);
 }
 .badge__verdict::first-letter { text-transform: uppercase; }
-.badge__track {
-  position: relative; height: 5px; border-radius: 999px;
-  background: linear-gradient(90deg, var(--cold), var(--cool) 26%, var(--neutral) 50%, var(--warm) 74%, var(--hot));
-  opacity: 0.55;
-}
-.badge__dot {
-  position: absolute; top: 50%; width: 9px; height: 9px; border-radius: 999px;
-  background: var(--surface); border: 2.5px solid var(--t);
-  transform: translate(-50%, -50%);
-}
-.badge--contested { box-shadow: inset 0 0 0 1.5px color-mix(in srgb, var(--t) 34%, transparent); }
-.badge--contested .badge__label::after { content: "?"; font-size: 0.8rem; }
 
-/* Always its own row — histamine is a different measure from the thermal three,
-   and letting it share a row squeezes it at desktop panel widths. */
-.badge--sighi { flex: 1 1 100%; background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line); }
+.badge--sighi { background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line); }
+/* Alone in its own panel on the food card, the badge's surface would be a box
+   inside a box — let the panel be the box. */
+.panel > .badge--sighi { background: none; box-shadow: none; padding: 0; }
 .badge--sighi .badge__label { color: var(--ink-3); }
 .badge--sighi .badge__verdict { color: var(--ink); }
+/* Thermal at row scale: one dot per tradition, left to right TCM · Ayurveda ·
+   Unani — the same three readings, in the same order, as the food card's scale.
+   Three matching dots is the common case and reads as one colour at a glance;
+   a mixed row is the disagreement, not noise. */
+.tdots { display: flex; gap: 4px; }
+.tdots i {
+  width: 9px; height: 9px; border-radius: 999px; background: var(--t);
+  /* Neutral is a sand tone that would vanish on the cream surface. */
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t-deep) 30%, transparent);
+}
+
 .segments { display: flex; gap: 3px; height: 5px; }
 .segments i { flex: 1; border-radius: 999px; background: var(--line-strong); }
 .segments i.on { background: var(--sighi); }
@@ -399,22 +418,131 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 
 /* ---- Food card ---------------------------------------------------------- */
 
-/* Hero illustration (ART.md §8). Hidden until the file actually loads, so foods
-   without an image degrade silently to the emoji tile with no layout shift. */
-.card__media {
-  display: none; position: relative; overflow: hidden;
-  margin: 4px 0 12px; aspect-ratio: 3 / 2;
-  border-radius: var(--radius-lg); background: var(--t-tint);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 20%, transparent);
+/* Every painting on every surface goes through .art, so the dark grade is
+   applied in exactly one place (ART.md §8). */
+.art {
+  position: relative; display: block; overflow: hidden;
+  background: var(--surface-2); isolation: isolate;
 }
-.card--illustrated .card__media { display: block; }
-.card__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.card__media::after {
+.art > img { display: block; width: 100%; height: 100%; object-fit: cover; filter: var(--art-filter); }
+/* Multiply, not a flat overlay: it scales luminance rather than subtracting it,
+   so the pale sand ground baked into every painting loses far more than the
+   subject does and the food keeps its contrast. A flat veil strong enough to
+   sink the sand turned every painting to mud. */
+.art::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, transparent 45%, color-mix(in srgb, var(--t) 20%, transparent));
+  background: var(--surface-2); mix-blend-mode: multiply; opacity: var(--art-veil);
 }
-.card--illustrated .card__hero { grid-template-columns: 1fr; }
-.card--illustrated .card__glyph { display: none; }
+/* No painting: the emoji on a tinted ground, appended by the img's onerror. */
+.art--none { display: grid; place-items: center; background: var(--t-tint, var(--surface-2)); font-size: 1.6rem; }
+.art--none > img, .art--none::after { display: none; }
+
+/* ART.md §10.1 — the painting runs to the top edge with no header above it and
+   the title card overlaps up into it. The negative margins cancel .main's
+   padding so the art reaches the viewport edge on phones. */
+.fhero {
+  position: relative;
+  margin: calc(-1 * max(6px, env(safe-area-inset-top)))
+          calc(-1 * max(var(--gutter), env(safe-area-inset-right))) 0
+          calc(-1 * max(var(--gutter), env(safe-area-inset-left)));
+  aspect-ratio: 3 / 2;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+.fhero .art { position: absolute; inset: 0; border-radius: inherit; }
+.fhero__btn {
+  position: absolute; top: 12px; z-index: 3;
+  display: grid; place-items: center; width: 42px; height: 42px;
+  border: 0; border-radius: 999px; cursor: pointer;
+  /* Neutral, never a temperature hue — hue belongs to the data (ART.md §6.3). */
+  background: color-mix(in srgb, var(--surface) 82%, transparent);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 16%);
+  color: var(--ink);
+}
+.fhero__btn--back { left: 12px; }
+.fhero__btn--fav { right: 12px; }
+.fhero__btn svg {
+  width: 21px; height: 21px; fill: none; stroke: currentColor;
+  stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round;
+}
+.fhero__btn.is-on { color: var(--hot); }
+.fhero__btn.is-on svg { fill: currentColor; }
+
+.titlecard {
+  position: relative; z-index: 2;
+  margin: -46px 0 0; padding: 20px 16px 18px;
+  border-radius: var(--radius-lg); background: var(--surface);
+  box-shadow: var(--shadow-lift);
+}
+/* Temperature rises from the card's base rather than washing the art: a
+   duotone over a painting makes a cooling mango read as spoiled. */
+.titlecard::before {
+  content: ""; position: absolute; inset: auto 0 0 0; height: 60%;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg); pointer-events: none;
+  background: linear-gradient(to top, var(--t-tint), transparent);
+  opacity: 0.55;
+}
+.titlecard > * { position: relative; z-index: 1; }
+.eyebrow {
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.titlecard h1 { margin-top: 5px; font-size: 1.75rem; font-weight: 800; }
+.card__aliases { font-size: 0.8rem; color: var(--t-deep); opacity: 0.85; margin-top: 4px; }
+.card__desc { color: var(--ink); margin-top: 6px; font-size: 0.95rem; }
+/* Secondary inside the title card — the h1 above it is carrying the weight. */
+.titlecard .card__desc { color: var(--ink-2); margin-top: 9px; }
+
+/* A titled block inside the title card, for content promoted above the fold. */
+.cardsection { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
+.cardsection > .tiny { margin: 2px 0 14px; }
+
+/* Three thin tracks on one shared cold→hot axis, one marker each — the same
+   information as three stacked badges in ~40% of the height. One grid for all
+   three rows with `display:contents` on the row, so every track starts and ends
+   at the same x: per-row grids would size their columns independently and the
+   markers would stop being comparable, which is the only reason this exists. */
+.scale { display: grid; grid-template-columns: 92px 1fr; align-items: center; gap: 11px 12px; }
+.scaperow { display: contents; }
+.scaperow__sys { font-size: 0.78rem; font-weight: 700; line-height: 1.25; }
+.scaperow__sys span { display: block; font-size: 0.68rem; font-weight: 600; color: var(--t-deep); }
+.scaperow__sys span::first-letter { text-transform: uppercase; }
+.scaperow__track {
+  position: relative; height: 7px; border-radius: 999px; border: 1px solid var(--line);
+  background: linear-gradient(to right, var(--cold-tint), var(--cool-tint), var(--neutral-tint), var(--warm-tint), var(--hot-tint));
+}
+/* Inset the travel by half the marker so the extremes sit fully on the track
+   instead of hanging off its rounded cap. */
+.scaperow__dot {
+  position: absolute; top: 50%; width: 15px; height: 15px; border-radius: 999px;
+  left: calc(8px + (100% - 16px) * var(--p));
+  transform: translate(-50%, -50%);
+  background: var(--t); border: 2.5px solid var(--surface);
+  box-shadow: 0 1px 4px rgb(74 55 30 / 26%);
+}
+/* The dark tints are all near-black, so the light-mode ramp collapses to a flat
+   bar. Mix the accents into the surface instead to keep a readable axis. */
+:root[data-theme="dark"] .scaperow__track {
+  background: linear-gradient(to right,
+    color-mix(in srgb, var(--cold) 32%, var(--surface-2)),
+    color-mix(in srgb, var(--cool) 26%, var(--surface-2)),
+    color-mix(in srgb, var(--neutral) 24%, var(--surface-2)),
+    color-mix(in srgb, var(--warm) 28%, var(--surface-2)),
+    color-mix(in srgb, var(--hot) 34%, var(--surface-2)));
+}
+.scale__axis {
+  display: flex; justify-content: space-between; margin: 7px 0 0 104px;
+  font-size: 0.58rem; font-weight: 800; letter-spacing: 0.07em;
+  text-transform: uppercase; color: var(--ink-3);
+}
+.spread { margin-top: 12px; font-size: 0.84rem; line-height: 1.5; color: var(--ink-2); }
+.spread strong { color: var(--ink); }
+
+.card__actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+
+/* ---- Preparation card ---------------------------------------------------
+   The emoji-and-title block. The food card used to open this way too, before
+   the painting took the top; preparations have no art, so it stays here. */
 
 .card__hero {
   display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center;
@@ -426,16 +554,12 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .card__glyph {
   display: grid; place-items: center; width: 74px; height: 74px;
   border-radius: 22px; font-size: 2.5rem; line-height: 1;
-  /* Deeper than the hero wash behind it, so the tile reads as a tinted object
+  /* Deeper than the wash behind it, so the tile reads as a tinted object
      rather than a white cutout (ART.md §6.5). */
   background: color-mix(in srgb, var(--t) 16%, var(--surface));
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 26%, transparent);
 }
 .card__title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.card__aliases { font-size: 0.8rem; color: var(--t-deep); opacity: 0.85; margin-top: 2px; }
-.card__desc { color: var(--ink); margin-top: 6px; font-size: 0.95rem; }
-
-.card__actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
 
 .panel {
   background: var(--surface); border: 1px solid var(--line);
@@ -472,6 +596,12 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   background: var(--t-tint); border: 1px solid color-mix(in srgb, var(--t) 26%, transparent);
   font-size: 0.83rem; font-weight: 600; color: var(--t-deep);
 }
+.chip__glyph {
+  position: relative; overflow: hidden; flex: none;
+  display: grid; place-items: center; width: 22px; height: 22px;
+  border-radius: 999px; font-size: 0.8rem; line-height: 1;
+  background: color-mix(in srgb, var(--t) 14%, var(--surface));
+}
 .chip:hover { border-color: var(--t); }
 .chip--trigger { box-shadow: 0 0 0 2px var(--alert); }
 
@@ -496,6 +626,7 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   background: var(--surface); border: 1.5px solid var(--line);
   border-radius: 999px; box-shadow: var(--shadow);
 }
+.searchbar__icon { width: 22px; height: 22px; object-fit: contain; flex: none; }
 .searchbar:focus-within { border-color: var(--ink); }
 .searchbar input {
   flex: 1; min-width: 0; border: 0; background: none; outline: none;
@@ -510,6 +641,7 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   border-radius: 999px; color: var(--ink-3); font-size: 0.95rem;
   cursor: pointer; text-align: left; box-shadow: var(--shadow);
 }
+.searchcue__icon { width: 22px; height: 22px; object-fit: contain; flex: none; }
 
 /* ---- Category grid ------------------------------------------------------ */
 
@@ -517,13 +649,29 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 @media (min-width: 620px) { .catgrid { grid-template-columns: repeat(4, 1fr); } }
 
 .cat {
-  display: grid; gap: 2px; padding: 16px 14px;
+  position: relative; overflow: visible;
+  display: grid; gap: 2px; padding: 16px 14px; min-height: 92px; align-content: end;
   background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
   cursor: pointer; text-align: left; box-shadow: var(--shadow);
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 .cat:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); }
-.cat__emoji { font-size: 1.6rem; line-height: 1.2; }
+
+/* The cut-outs are the only art in the app on transparency, so the only art
+   that can genuinely float above a card. drop-shadow() follows the alpha;
+   box-shadow would draw a rectangle around a cut-out and defeat the point.
+   Transparency also means no baked backdrop, so dark mode needs no grade. */
+.cat__cut {
+  position: absolute; right: -4px; top: -14px; z-index: 1;
+  width: 56%; height: calc(100% + 24px);
+  object-fit: contain; object-position: right center;
+  filter: drop-shadow(0 5px 9px rgb(36 30 23 / 24%));
+  pointer-events: none;
+}
+:root[data-theme="dark"] .cat__cut { filter: drop-shadow(0 5px 12px rgb(0 0 0 / 55%)); }
+.cat__label, .cat__count { position: relative; z-index: 2; }
+/* Later cards paint over earlier ones, so an overhang reads as in front. */
+.catgrid > *:nth-child(even) { z-index: 2; }
 .cat__label { font-weight: 700; }
 .cat__count { font-size: 0.76rem; color: var(--ink-3); }
 
@@ -532,6 +680,17 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .hero { padding: 18px 2px 6px; }
 .hero h1 { font-size: 1.75rem; }
 .hero p { color: var(--ink-2); margin-top: 6px; }
+
+/* Category and remedy headers: the cut-out sits beside the title instead of the
+   emoji that used to prefix it. */
+.hero--cat { position: relative; padding-right: 96px; }
+.hero__cut {
+  position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  width: 84px; height: 84px; object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgb(36 30 23 / 22%));
+  pointer-events: none;
+}
+:root[data-theme="dark"] .hero__cut { filter: drop-shadow(0 4px 10px rgb(0 0 0 / 55%)); }
 
 .states { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
 .state {
@@ -543,7 +702,11 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   transition: transform 0.14s ease, box-shadow 0.14s ease;
 }
 .state:hover { transform: translateY(-2px); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 34%, transparent), var(--shadow-lift); }
-.state__emoji { font-size: 1.5rem; line-height: 1.1; }
+.state__icon {
+  width: 40px; height: 40px; object-fit: contain; margin-bottom: 4px;
+  filter: drop-shadow(0 3px 6px rgb(36 30 23 / 18%));
+}
+:root[data-theme="dark"] .state__icon { filter: drop-shadow(0 3px 8px rgb(0 0 0 / 50%)); }
 .state__label { font-size: 1.05rem; font-weight: 800; color: var(--t-deep); letter-spacing: -0.01em; }
 .state__blurb { font-size: 0.76rem; color: var(--t-deep); opacity: 0.78; }
 
@@ -558,6 +721,7 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   cursor: pointer; text-align: center;
 }
 .minitile__glyph {
+  position: relative; overflow: hidden;
   display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px;
   font-size: 1.4rem; background: var(--t-tint);
 }
@@ -627,7 +791,7 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   border-radius: var(--radius); box-shadow: var(--shadow);
 }
 .wayrow:hover { border-color: var(--line-strong); }
-.wayrow__emoji { font-size: 1.5rem; }
+.wayrow__icon { width: 38px; height: 38px; object-fit: contain; }
 .wayrow__label { display: block; font-weight: 700; }
 .wayrow__sub { display: block; font-size: 0.8rem; color: var(--ink-2); }
 .wayrow__go { color: var(--ink-3); font-size: 1.3rem; }
@@ -658,7 +822,12 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   background: var(--t-tint);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 24%, transparent);
 }
-.cmp__glyph { font-size: 1.8rem; line-height: 1; }
+.cmp__glyph {
+  position: relative; overflow: hidden;
+  display: grid; place-items: center; width: 46px; height: 46px; margin: 0 auto;
+  border-radius: 14px; font-size: 1.5rem; line-height: 1;
+  background: color-mix(in srgb, var(--t) 14%, var(--surface));
+}
 .cmp__name { font-size: 0.82rem; font-weight: 700; color: var(--t-deep); line-height: 1.2; }
 .cmp__drop {
   position: absolute; top: 4px; right: 4px; width: 28px; height: 28px;
@@ -736,15 +905,22 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   .remedy .tiles { grid-template-columns: 1fr; }
   .remedy .section { margin: 18px 0; }
 
-  /* Food card: hero across the top, panels paired beneath. */
+  /* Food card: hero and title card across the top, panels paired beneath. The
+     3:2 crop is far too tall at this width — go letterbox. */
   #card { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; align-items: start; }
-  #card > .card__hero,
+  #card > .fhero,
+  #card > .titlecard,
   #card > .conflict,
   #card > .row,
   #card > .card__actions { grid-column: 1 / -1; }
-  #card > .card__media { grid-column: 1 / -1; max-height: 340px; }
-  .card--illustrated > .card__media { grid-column: 1; margin-bottom: 16px; }
-  .card--illustrated > .card__hero { grid-column: 2; }
+  /* Capped as the old desktop hero was: at this width the 3:2 crop would take
+     most of the fold. A fixed height rather than a clamped ratio — pairing
+     `aspect-ratio` with `max-height` transfers the ratio back into the WIDTH,
+     which rendered the art narrower than the card sitting on it. */
+  .fhero { aspect-ratio: auto; height: 380px; }
+  .titlecard { margin-left: 40px; margin-right: 40px; }
+  .scale { grid-template-columns: 116px 1fr; }
+  .scale__axis { margin-left: 128px; }
 }
 
 @media (min-width: 1440px) {
