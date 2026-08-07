@@ -218,5 +218,68 @@
    "description":"Firmer pressed paneer made to hold up on skewers and a grill.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with paneer, which is neutral and fresh."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; grilling warms it in practice."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar, tempered by the fire."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low — fresh and unripened, like ordinary paneer."},
-   "nutrition":{"kcal":296,"protein":20,"carbs":3.5,"fat":22,"highlight":"made to survive a skewer","estimate":true}}
+   "nutrition":{"kcal":296,"protein":20,"carbs":3.5,"fat":22,"highlight":"made to survive a skewer","estimate":true}},
+
+  {"id":"burrata","name":"Burrata","aliases":["cream-filled mozzarella"],"emoji":"🧀","category":"dairy","cuisines":["western"],"commonness":4,
+   "description":"A mozzarella shell holding shredded curd and cream — meant to be eaten the day it is made.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh cheese and cream."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Fresh and unripened, so low — but it spoils within days."},
+   "nutrition":{"kcal":330,"protein":15,"carbs":3,"fat":28,"highlight":"eat it the day it's made"}},
+
+  {"id":"provolone","name":"Provolone","aliases":["pu luo wo lo ne"],"emoji":"🧀","category":"dairy","cuisines":["western"],"commonness":4,
+   "description":"Stretched-curd Italian cheese aged from mild to sharp.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Read with the aged cheeses."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna and guru."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Aged cheese."},
+   "nutrition":{"kcal":351,"protein":25.6,"carbs":2.1,"fat":26.6,"highlight":"mild young, sharp old"}},
+
+  {"id":"emmental","name":"Emmental","aliases":["swiss cheese","rui shi nai lao"],"emoji":"🧀","category":"dairy","cuisines":["western"],"commonness":4,
+   "description":"The holed Swiss cheese, aged for months with a sweet nutty flavour.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Read with the aged cheeses."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna and guru."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Aged cheese — the holes come from the same bacteria that raise histamine."},
+   "nutrition":{"kcal":380,"protein":28,"carbs":1.4,"fat":29.7,"highlight":"the holes are bacterial"}},
+
+  {"id":"gruyere","name":"Gruyère","aliases":["greyerzer","ge lu ye er"],"emoji":"🧀","category":"dairy","cuisines":["western"],"commonness":4,
+   "description":"Dense alpine cheese aged up to a year — the melting cheese for fondue.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Read with the aged cheeses."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna and guru."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Long-aged."},
+   "nutrition":{"kcal":413,"protein":29.8,"carbs":0.4,"fat":32.3,"highlight":"up to a year in the cave"}},
+
+  {"id":"manchego","name":"Manchego","aliases":["spanish sheep cheese"],"emoji":"🧀","category":"dairy","cuisines":["western"],"commonness":4,
+   "description":"Firm sheep's-milk cheese from La Mancha, aged from weeks to years.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Read with the aged cheeses."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna and guru."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Aged sheep's milk cheese."},
+   "nutrition":{"kcal":393,"protein":25,"carbs":0.1,"fat":32,"highlight":"sheep, not cow"}},
+
+  {"id":"buffalo-mozzarella","name":"Buffalo mozzarella","aliases":["mozzarella di bufala"],"emoji":"🧀","category":"dairy","cuisines":["western"],"commonness":3,
+   "description":"Mozzarella from buffalo milk — softer, tangier and far richer than the cow version.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh cheese; read with mozzarella."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following buffalo milk."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar; buffalo milk is the coldest of the milks."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Fresh and unripened, so low."},
+   "nutrition":{"kcal":288,"protein":17,"carbs":2.2,"fat":24,"highlight":"richer than the cow kind"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"frozen-yogurt","name":"Frozen yogurt","aliases":["froyo","dong suan nai"],"emoji":"🍦","category":"dairy","cuisines":["western"],"commonness":2,
+   "description":"Yogurt churned and frozen — lighter than ice cream, and usually sweeter than it tastes.",
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Frozen dairy is cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Dahi is ushna classically, however cold the cup."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":159,"protein":4,"carbs":24.2,"fat":5.6,"highlight":"lighter than ice cream, barely"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"dulce-de-leche","name":"Dulce de leche","aliases":["caramelised condensed milk","manjar"],"emoji":"🍯","category":"dairy","cuisines":["western"],"commonness":3,
+   "description":"Condensed milk cooked until the sugars caramelise into a thick brown paste.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with condensed milk; long cooking warms further."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and guru."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":315,"protein":6.8,"carbs":55.4,"fat":7.4,"highlight":"condensed milk, caramelised"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"custard","name":"Custard","aliases":["egg custard","creme anglaise","dan nai"],"emoji":"🍮","category":"dairy","cuisines":["western","south-asian"],"commonness":1,
+   "description":"Milk thickened with egg yolk or powder — poured hot, or set cold.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Milk and egg together."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Anda is ushna over a shita milk base."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"Egg is a liberator; the powdered versions are mostly cornflour and colour."},
+   "nutrition":{"kcal":122,"protein":3.5,"carbs":16.5,"fat":4.5,"highlight":"poured hot or set cold"}},
+
+  {"id":"cheese-powder","name":"Cheese powder","aliases":["nacho cheese powder","nai lao fen"],"emoji":"🧀","category":"dairy","cuisines":["western"],"commonness":2,
+   "description":"Dehydrated cheese used to coat crisps and instant pasta.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Inherits from the aged cheese base."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna by inheritance."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Built from ripened cheese and stored dry for months."},
+   "nutrition":{"kcal":400,"protein":25,"carbs":30,"fat":22,"highlight":"what coats the crisps","estimate":true}}
 ]

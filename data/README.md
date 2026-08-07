@@ -1,4 +1,43 @@
-# Taseer dataset — 751 foods (batches 1–3)
+# Taseer dataset — 1,000 foods (batches 1–4)
+
+> **Batch 4 landed 2026-08-07: +249 foods, 751 → 1,000 — the spec's target,
+> reached.** Shape: 116 fruits · 128 vegetables · 80 grains · 135 spices/oils/
+> condiments · 133 proteins · 46 dairy · 94 drinks · 268 dishes. 2,693 aliases,
+> 142 cross-tradition conflicts, 184 foods at SIGHI 3.
+>
+> **The collision audit moved before writing this time**, which is what batch 3
+> said to do, and it earned its keep immediately — `kantola`, `cayenne` and
+> `ayran` were all caught as candidates rather than as committed entries.
+>
+> **It still let three through, in two ways worth recording:**
+> 1. It checked the name *declared in the candidate list* (`Bamia stew`,
+>    `Ayran drink`) while the entries were written with shorter display names
+>    (`Bamia`, `Ayran`) that WERE bare aliases of okra and buttermilk.
+> 2. `chakli` and `murukku` collided **with each other** — both were batch-4
+>    candidates, so neither existed in the shipped data when the other was
+>    checked, and nothing compared candidates among themselves.
+>
+> The checker now lives in the repo as `scripts/check-name-collisions.mjs` and
+> handles both: it compares candidates against each other as well as against
+> shipped data, and states plainly that the declared name must be the exact
+> string written to the file. Run it before writing; run the post-write audit
+> anyway, because aliases you plan to add are still not covered.
+>
+> ```bash
+> node scripts/check-name-collisions.mjs "some-id|Display Name, other-id|Other Name"
+> ```
+>
+> **Gaps this batch closed:** the entire Indo-Chinese category (chilli chicken,
+> gobi manchurian, hakka noodles, schezwan rice, manchow soup) which is what a
+> great many desi households actually order; dried ginger (`sonth`) as distinct
+> from fresh, which TCM and Ayurveda both treat as a different drug; papad and
+> sev; the leavening and setting agents (yeast, gelatin, agar, baking soda) that
+> every kitchen has and no earlier batch listed; and the cured-meat shelf, where
+> nearly everything lands at SIGHI 3.
+
+---
+
+## Batches 1–3 — 751 foods
 
 > **Batch 3 landed 2026-08-07: +245 foods, 506 → 751.** Shape now: 96 fruits ·
 > 109 vegetables · 60 grains · 108 spices/oils/condiments · 103 proteins ·
