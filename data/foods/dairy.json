@@ -157,5 +157,66 @@
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Absent from the Chinese record; placed by analogy only."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushtra dugdha is named ushna — light, slightly salty, and the exception among milks."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam in Arab and Unani usage, given for chest and digestive complaints."}},
    "histamine":{"sighi":1,"tags":[],"note":"Fresh milk; low. Often sold raw, which is a separate question from histamine."},
    "nutrition":{"kcal":61,"protein":3,"carbs":4.5,"fat":3,"highlight":"low lactose, Gulf staple"},
-   "remedy":{"too-cold":"eat"}}
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"blue-cheese","name":"Blue cheese","aliases":["roquefort","gorgonzola","stilton","lan wen nai lao"],"emoji":"🧀","category":"dairy","cuisines":["western"],"commonness":3,
+   "description":"Cheese deliberately veined with mould and ripened for months.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Read with the aged cheeses; warming and damp-forming."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna and very guru — aged, salty and mould-ripened."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam-khushk in a high degree."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Mould-ripened and long-aged — the highest cheese on the SIGHI list, above even hard cheddar."},
+   "nutrition":{"kcal":353,"protein":21.4,"carbs":2.3,"fat":28.7,"highlight":"veined with mould, on purpose"}},
+
+  {"id":"mascarpone","name":"Mascarpone","aliases":["italian cream cheese","ma si ka peng"],"emoji":"🧀","category":"dairy","cuisines":["western"],"commonness":3,
+   "description":"Cream set with acid into a spoonable, barely-cheese richness.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with cream and fresh cheese."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and extremely guru — almost pure cream."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Fresh and unripened, so low — unlike the aged cheeses."},
+   "nutrition":{"kcal":429,"protein":4.8,"carbs":4.6,"fat":44,"highlight":"barely a cheese at all"}},
+
+  {"id":"quark","name":"Quark","aliases":["topfen","fresh curd cheese"],"emoji":"🥣","category":"dairy","cuisines":["western"],"commonness":4,
+   "description":"Soft fresh curd cheese, thicker than yogurt and milder than cottage cheese.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Fresh dairy; read with the unripened cheeses."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Fresh and unsoured, so shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low — fresh and lightly cultured."},
+   "nutrition":{"kcal":97,"protein":12,"carbs":3.6,"fat":3.5,"highlight":"thicker than yogurt"}},
+
+  {"id":"milk-powder","name":"Milk powder","aliases":["doodh powder","haleeb bodra","nai fen","skimmed milk powder"],"emoji":"🥛","category":"dairy","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
+   "description":"Milk spray-dried to a shelf-stable powder — the base of most packaged sweets and chai.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with milk; drying does not change its nature."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita like milk, though heavier and harder to digest reconstituted."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Heat-processed and stored for months — above fresh milk, and it is in far more products than people expect."},
+   "nutrition":{"kcal":496,"protein":26.3,"carbs":38.4,"fat":26.7,"highlight":"in more things than you think"}},
+
+  {"id":"shrikhand","name":"Shrikhand","aliases":["srikhand","hung curd sweet","matho"],"emoji":"🍮","category":"dairy","cuisines":["south-asian"],"commonness":3,
+   "description":"Yogurt hung until thick, then whipped with sugar, saffron and cardamom.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Strained yogurt with warm spices; cooling overall."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Dahi is ushna in the classical reading, and the saffron adds to it."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar in desi usage — a summer sweet, eaten with puri."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Hung yogurt, held and sweetened — above plain dahi."},
+   "nutrition":{"kcal":210,"protein":5.5,"carbs":30,"fat":7.5,"highlight":"hung, then whipped","estimate":true}},
+
+  {"id":"mishti-doi","name":"Mishti doi","aliases":["sweet yogurt","misti dohi","bhapa doi"],"emoji":"🍮","category":"dairy","cuisines":["south-asian"],"commonness":3,
+   "description":"Bengali yogurt set with caramelised jaggery in an earthen pot.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Yogurt base, sweetened and set."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured dahi is ushna; the jaggery adds to it."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar, though warmer than plain dahi for the gur."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Cultured and then held warm to set — a longer ferment than plain dahi."},
+   "nutrition":{"kcal":180,"protein":4.5,"carbs":30,"fat":4.5,"highlight":"set in an earthen pot","estimate":true}},
+
+  {"id":"clotted-cream","name":"Clotted cream","aliases":["malai (thick)","qishta","kaymak"],"emoji":"🥛","category":"dairy","cuisines":["arabic","western","south-asian"],"commonness":3,
+   "description":"Cream heated slowly until a thick crust forms and is lifted off.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with cream; the slow heating concentrates it."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and extremely guru."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar; qishta and kaymak are the same idea across two cuisines."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low; it is fresh cream, only concentrated."},
+   "nutrition":{"kcal":586,"protein":1.6,"carbs":2.8,"fat":63.5,"highlight":"lifted off in a crust"}},
+
+  {"id":"lactose-free-milk","name":"Lactose-free milk","aliases":["lactose free","wu ru tang nai"],"emoji":"🥛","category":"dairy","cuisines":["western"],"commonness":3,
+   "description":"Ordinary milk with the lactose already split by added enzyme.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with milk; the enzyme changes the sugar, not the nature."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, as milk is."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Same as milk. Lactose intolerance and histamine intolerance are different problems, often confused."},
+   "nutrition":{"kcal":42,"protein":3.4,"carbs":4.8,"fat":1,"highlight":"the sugar is pre-split"}},
+
+  {"id":"whey","name":"Whey","aliases":["paneer ka pani","chaas cousin","milk serum"],"emoji":"🥛","category":"dairy","cuisines":["south-asian","western"],"commonness":3,
+   "description":"The greenish liquid left when milk curdles — usually poured away.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the cultured dairy family; light and cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu — the lightest thing milk becomes."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar; drunk rather than thrown away in older practice."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low fresh; it sours fast."},
+   "nutrition":{"kcal":27,"protein":0.9,"carbs":5.1,"fat":0.4,"highlight":"usually poured away"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"paneer-tikka-cheese","name":"Halloumi-style paneer","aliases":["grilling paneer","malai paneer"],"emoji":"🧀","category":"dairy","cuisines":["south-asian"],"commonness":3,
+   "description":"Firmer pressed paneer made to hold up on skewers and a grill.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with paneer, which is neutral and fresh."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; grilling warms it in practice."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar, tempered by the fire."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low — fresh and unripened, like ordinary paneer."},
+   "nutrition":{"kcal":296,"protein":20,"carbs":3.5,"fat":22,"highlight":"made to survive a skewer","estimate":true}}
 ]

@@ -1,4 +1,39 @@
-# Taseer dataset — 506 foods (batch 1 + batch 2)
+# Taseer dataset — 751 foods (batches 1–3)
+
+> **Batch 3 landed 2026-08-07: +245 foods, 506 → 751.** Shape now: 96 fruits ·
+> 109 vegetables · 60 grains · 108 spices/oils/condiments · 103 proteins ·
+> 36 dairy · 70 drinks · 169 dishes. 2,167 aliases, 122 cross-tradition
+> conflicts, 101 foods at SIGHI 3.
+>
+> **Four gaps it closed that were structural:**
+> - **Salt did not exist.** In 506 foods there was no salt of any kind, in an app
+>   about how food is classified — and salt is one of the sharpest three-way
+>   splits in the set: **cold** in TCM (salty flavour, descending, softens
+>   hardness), **heating** in Ayurveda (lavana rasa is ushna), **hot-dry** in
+>   Unani. Rock salt is the documented exception: *saindhava* is the one salt
+>   classically called śīta and the only one said not to aggravate pitta.
+> - **Fermented pickles were absent** — achar, kimchi and sauerkraut are now in,
+>   all at SIGHI 3. Achar matters most: it is the easiest high-histamine item on
+>   a desi plate to forget, because the portion is a spoonful.
+> - **The fasting-food category did not exist.** Sabudana, singhara atta,
+>   rajgira and samak rice are what a vrat is actually eaten on, and all four are
+>   SIGHI 0 — genuinely useful on a reactive day.
+> - **Ragi, jowar flour and the millets** were collapsed into one "millet" entry.
+>
+> **Verified against sources, not asserted:** *saindhava* as the only cooling
+> salt, salt's cold and descending nature in TCM, and yeast extract as both
+> high in biogenic amines and a DAO inhibitor — which added a `dao-blocker` tag
+> to instant noodles that I had missed.
+>
+> **Five entries were written and then deleted** as genuine duplicates the
+> collision audit caught: `jaggery-powder`, `cheese-spread`, `kulfi-malai`,
+> `sarson-da-saag`, `machboos`. One of them — malai — I had already caught and
+> dropped once in batch 2 and re-added by not re-reading my own notes. Run the
+> audit *before* writing, not only after.
+
+---
+
+## Batches 1–2 — 506 foods
 
 > **Batch 2 landed 2026-08-07: +256 foods, 250 → 506.** Plan and rationale in
 > [`BATCH-2-PLAN.md`](BATCH-2-PLAN.md). Shape now: 71 fruits · 79 vegetables ·
