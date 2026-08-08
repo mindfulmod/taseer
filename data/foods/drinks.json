@@ -918,5 +918,50 @@
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A live grain ferment, drunk uncooked."},
    "nutrition":{"kcal":85,"protein":1.5,"carbs":19,"fat":0.2,"highlight":"sold only in winter","estimate":true},
    "ingredients":["millet","white-sugar","canela"],
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"palm-wine","name":"Palm wine","aliases":["emu","nkwu","toddy"],"emoji":"🍶","category":"drink","cuisines":["african"],"commonness":3,
+   "description":"Palm sap that begins fermenting the moment it is tapped — sweet in the morning, sour by night.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; a fresh sap ferment; read as warming."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Madya is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":3,"tags":["high-histamine","dao-blocker"],"note":"It ferments in the container as you carry it — one of the few drinks that is measurably higher by evening than by morning."},
+   "nutrition":{"kcal":40,"protein":0.2,"carbs":4,"fat":0.1,"highlight":"sweet at dawn, sour by dusk"}},
+
+  {"id":"tej","name":"Tej","aliases":["ethiopian honey wine"],"emoji":"🍯","category":"drink","cuisines":["african"],"commonness":3,
+   "description":"Honey fermented with gesho twigs into a cloudy sweet-bitter wine.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A honey ferment."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Madhu and madya are both ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine","dao-blocker"],"note":"Fermented honey — alcohol plus a live ferment."},
+   "nutrition":{"kcal":120,"protein":0.2,"carbs":12,"fat":0,"highlight":"fermented with gesho twigs"}},
+
+  {"id":"tella","name":"Tella","aliases":["ethiopian beer"],"emoji":"🍺","category":"drink","cuisines":["african"],"commonness":4,
+   "description":"Home-brewed grain beer, cloudy and low in alcohol.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with beer, which TCM reads as cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Madya is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by ferment."}},
+   "histamine":{"sighi":3,"tags":["high-histamine","dao-blocker"],"note":"An unfiltered home ferment — higher than commercial beer."},
+   "nutrition":{"kcal":50,"protein":0.5,"carbs":5,"fat":0,"highlight":"brewed at home, cloudy"}},
+
+  {"id":"bissap","name":"Bissap","aliases":["zobo","hibiscus drink"],"emoji":"🌺","category":"drink","cuisines":["african"],"commonness":1,
+   "description":"Dried hibiscus steeped with ginger and sugar, drunk very cold.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Read with hibiscus, which is cool and clears heat."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and sour."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":["liberator"],"note":"Sour infusion."},
+   "nutrition":{"kcal":45,"protein":0.1,"carbs":11,"fat":0,"highlight":"drunk very cold, always"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"zobo","name":"Zobo","aliases":["nigerian hibiscus drink"],"emoji":"🌺","category":"drink","cuisines":["african"],"commonness":2,
+   "description":"The Nigerian hibiscus drink, usually with pineapple and clove alongside.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Hibiscus is cool and heat-clearing."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"Hibiscus plus pineapple, which is a liberator."},
+   "nutrition":{"kcal":50,"protein":0.2,"carbs":12,"fat":0,"highlight":"with pineapple and clove","estimate":true},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"kunu","name":"Kunu","aliases":["kunun zaki","millet drink"],"emoji":"🥤","category":"drink","cuisines":["african"],"commonness":3,
+   "description":"Millet soaked, ground and lightly fermented with ginger — thin, sweet and grainy.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record; a light grain ferment served cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented and ginger-spiced, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A short grain ferment, drunk uncooked."},
+   "nutrition":{"kcal":70,"protein":1.8,"carbs":15,"fat":0.4,"highlight":"thin, sweet and grainy","estimate":true}},
+
+  {"id":"ginger-juice-african","name":"Ginger juice","aliases":["ginger drink (west african)"],"emoji":"🫚","category":"drink","cuisines":["african"],"commonness":2,
+   "description":"Raw ginger blended with water, lime and sugar — fierce enough to catch the throat.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"high","note":"Raw ginger in quantity."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ardraka is ushna and tikshna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":1,"tags":["liberator"],"note":"Lime is the only real contributor."},
+   "nutrition":{"kcal":60,"protein":0.3,"carbs":14,"fat":0.2,"highlight":"it catches the throat","estimate":true},
    "remedy":{"too-cold":"eat"}}
 ]

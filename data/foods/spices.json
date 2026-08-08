@@ -1362,5 +1362,58 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; read with thyme, which it resembles."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; katu and ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk, in the thyme group."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":272,"protein":6.7,"carbs":68.7,"fat":5.9,"highlight":"peppery, like a sharp thyme"},
-   "remedy":{"too-cold":"eat"}}
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"niter-kibbeh","name":"Niter kibbeh","aliases":["ethiopian spiced butter"],"emoji":"🧈","category":"spice","cuisines":["african"],"commonness":3,
+   "description":"Butter clarified with ginger, garlic and fenugreek — the fat under most Ethiopian cooking.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Clarified butter with warming aromatics."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ghrita infused with ushna spices."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low — clarified fat with the milk solids removed."},
+   "nutrition":{"kcal":880,"protein":0.3,"carbs":1,"fat":99,"highlight":"under most Ethiopian cooking"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"berbere-spiced-butter","name":"Mitmita","aliases":["ethiopian chilli powder"],"emoji":"🌶️","category":"spice","cuisines":["african"],"commonness":3,
+   "description":"A fiercer, simpler blend than berbere — bird's eye chilli, cardamom and salt.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"high","note":"Chilli-led; hot throughout."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"Dried chilli."},
+   "nutrition":{"kcal":310,"protein":12,"carbs":50,"fat":10,"highlight":"fiercer than berbere","estimate":true},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"awaze","name":"Awaze","aliases":["berbere paste"],"emoji":"🌶️","category":"spice","cuisines":["african"],"commonness":3,
+   "description":"Berbere slaked with wine or water into a dipping paste.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Chilli paste."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Chilli plus tej or wine in the traditional version."},
+   "nutrition":{"kcal":180,"protein":5,"carbs":25,"fat":7,"highlight":"slaked with wine, traditionally","estimate":true},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"shito","name":"Shito","aliases":["ghanaian black pepper sauce"],"emoji":"⚫","category":"spice","cuisines":["african"],"commonness":3,
+   "description":"Dried shrimp, chilli and ginger fried in oil until black — keeps for months.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Fried chilli and dried seafood."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Dried shrimp and dried fish fried into it — high, and it keeps for months by design."},
+   "nutrition":{"kcal":400,"protein":8,"carbs":15,"fat":36,"highlight":"black, and it keeps for months","estimate":true},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"yaji","name":"Yaji","aliases":["suya spice"],"emoji":"🥜","category":"spice","cuisines":["african"],"commonness":3,
+   "description":"Ground peanut with chilli, ginger and stock cube — the rub on suya.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Peanut and chilli."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Peanuts are liberators and the stock cube brings yeast extract."},
+   "nutrition":{"kcal":420,"protein":20,"carbs":25,"fat":28,"highlight":"the rub on suya","estimate":true},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"dawadawa","name":"Dawadawa","aliases":["iru","fermented locust bean"],"emoji":"⚫","category":"spice","cuisines":["african"],"commonness":3,
+   "description":"Locust beans fermented into dark pungent cakes — West Africa's umami.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; a long bean ferment; read as warming."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A deliberate multi-day bean ferment, like natto and cheonggukjang."},
+   "nutrition":{"kcal":280,"protein":30,"carbs":20,"fat":12,"highlight":"West Africa's umami","estimate":true}},
+
+  {"id":"argan-oil","name":"Argan oil","aliases":["moroccan argan"],"emoji":"🫗","category":"spice","cuisines":["african"],"commonness":4,
+   "description":"Nutty oil pressed from roasted argan kernels — for dipping bread, not for frying.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; a roasted nut oil; read as warming."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; ushna and snigdha."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam-tar."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Low as a fat."},
+   "nutrition":{"kcal":884,"protein":0,"carbs":0,"fat":100,"highlight":"for dipping, not frying"}},
+
+  {"id":"preserved-lemon","name":"Preserved lemon","aliases":["l'hamd markad","salted lemon"],"emoji":"🍋","category":"spice","cuisines":["african"],"commonness":2,
+   "description":"Lemons packed in salt for a month until the peel goes soft and the flavour turns savoury.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with lemon; the cure adds warmth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Amla and lavana together — ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk by the salt cure."}},
+   "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"A month-long salt ferment on citrus — both mechanisms."},
+   "nutrition":{"kcal":30,"protein":1,"carbs":8,"fat":0.3,"highlight":"the peel is the part you use"}}
 ]

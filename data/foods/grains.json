@@ -634,5 +634,23 @@
    "description":"Pastry extruded into fine threads — the base of künefe and many syrup sweets.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with wheat pastry."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna once fried in butter."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low as raw pastry."},
-   "nutrition":{"kcal":340,"protein":8,"carbs":68,"fat":3,"highlight":"threads, not sheets"}}
+   "nutrition":{"kcal":340,"protein":8,"carbs":68,"fat":3,"highlight":"threads, not sheets"}},
+
+  {"id":"garri","name":"Garri","aliases":["gari","cassava granules"],"emoji":"🟡","category":"grain","cuisines":["african"],"commonness":1,
+   "description":"Cassava grated, fermented, pressed and toasted into granules — soaked cold or made into eba.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with cassava; the ferment adds warmth."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru, following cassava."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Cassava is deliberately fermented for days before toasting — that is what makes it garri, and what rates it."},
+   "nutrition":{"kcal":357,"protein":1.5,"carbs":84,"fat":0.5,"highlight":"fermented, then toasted"}},
+
+  {"id":"attieke","name":"Attiéké","aliases":["cassava couscous"],"emoji":"⚪","category":"grain","cuisines":["african"],"commonness":3,
+   "description":"Fermented grated cassava steamed into fine grains — Ivorian, and eaten with fish.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with cassava."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following cassava."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A cassava ferment, like garri."},
+   "nutrition":{"kcal":160,"protein":1,"carbs":38,"fat":0.3,"highlight":"cassava, as couscous"}},
+
+  {"id":"kocho","name":"Kocho","aliases":["enset bread"],"emoji":"🫓","category":"grain","cuisines":["african"],"commonness":4,
+   "description":"Fermented enset pulp buried in a pit for months and baked flat.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; no classical entry; a long ferment."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Months of pit fermentation."},
+   "nutrition":{"kcal":180,"protein":1.5,"carbs":42,"fat":0.4,"highlight":"buried for months","estimate":true}}
 ]

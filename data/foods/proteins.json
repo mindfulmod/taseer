@@ -966,5 +966,12 @@
    "thermal":{"tcm":{"verdict":"hot","confidence":"contested","note":"Outside the classical record; salted and air-dried beef."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and ruksha."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Air-dried cured meat."},
    "nutrition":{"kcal":300,"protein":45,"carbs":2,"fat":12,"highlight":"pressed thin, then dried"},
-   "remedy":{"too-cold":"eat"}}
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"egusi-seeds","name":"Egusi seeds","aliases":["melon seeds (african)","agusi"],"emoji":"🌱","category":"protein","cuisines":["african"],"commonness":2,
+   "description":"Ground melon seeds that thicken soup and turn it grainy — the base of egusi.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the melon seeds, which are cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, in the magaz group."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar; the melon seeds are classical Unani coolers."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low; they go rancid quickly once ground."},
+   "nutrition":{"kcal":590,"protein":28,"carbs":15,"fat":47,"highlight":"they thicken and go grainy"},
+   "remedy":{"too-hot":"eat"}}
 ]

@@ -1020,5 +1020,31 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with fenugreek, which is warm and drying."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Methika is ushna and deepana."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":49,"protein":4.4,"carbs":6,"fat":0.9,"highlight":"what makes ghormeh sabzi itself"},
-   "remedy":{"too-cold":"eat"}}
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"bitter-leaf","name":"Bitter leaf","aliases":["onugbu","vernonia"],"emoji":"🌿","category":"vegetable","cuisines":["african"],"commonness":3,
+   "description":"Washed repeatedly to take the edge off — even then it is bitter.",
+   "thermal":{"tcm":{"verdict":"cold","confidence":"contested","note":"Outside the classical record; bitter greens are read as cold and heat-clearing."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta rasa is shita and pitta-clearing."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Barid-yabis, in the bitter group."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":52,"protein":5.2,"carbs":8,"fat":0.4,"highlight":"washed, and still bitter"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"ugu-leaf","name":"Ugu leaf","aliases":["fluted pumpkin leaf"],"emoji":"🌿","category":"vegetable","cuisines":["african"],"commonness":3,
+   "description":"Dark pumpkin-vine leaves shredded into soups — mild where bitter leaf is not.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record; read with the leafy greens."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with the greens."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":45,"protein":4,"carbs":7,"fat":0.5,"highlight":"mild, unlike bitter leaf"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"cassava-leaves","name":"Cassava leaves","aliases":["pondu","saka saka"],"emoji":"🌿","category":"vegetable","cuisines":["african"],"commonness":3,
+   "description":"Pounded cassava leaves cooked for hours — they must be, or they are toxic.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with the leafy greens; long cooking is required."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with greens."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low for histamine. Raw cassava leaves contain cyanogens, which is why they are boiled for hours."},
+   "nutrition":{"kcal":60,"protein":7,"carbs":8,"fat":1,"highlight":"hours of boiling, not by choice"}},
+
+  {"id":"enset","name":"Enset","aliases":["false banana","ensete"],"emoji":"🌿","category":"vegetable","cuisines":["african"],"commonness":4,
+   "description":"Not a banana — the corm and stem are what is eaten, after long fermentation.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; no classical entry."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; starchy and read as shita."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; outside the record."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Almost always fermented before eating."},
+   "nutrition":{"kcal":150,"protein":1.2,"carbs":36,"fat":0.3,"highlight":"the false banana"}}
 ]

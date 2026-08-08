@@ -305,5 +305,11 @@
    "description":"Drained yogurt dried into hard balls and reconstituted — intensely sour and savoury.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with yogurt."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured dairy is ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar, as dahi is."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Yogurt fermented, dried and stored for months — far above fresh dairy."},
-   "nutrition":{"kcal":180,"protein":15,"carbs":12,"fat":8,"highlight":"dried into hard balls","estimate":true}}
+   "nutrition":{"kcal":180,"protein":15,"carbs":12,"fat":8,"highlight":"dried into hard balls","estimate":true}},
+
+  {"id":"smen","name":"Smen","aliases":["preserved butter","aged ghee (maghrebi)"],"emoji":"🧈","category":"dairy","cuisines":["african"],"commonness":4,
+   "description":"Salted butter buried and aged for months to years — pungent, and used sparingly.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Aged clarified butter."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ghrita is cooling classically, but ageing turns it."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Aged for months to years — the ageing is the whole point."},
+   "nutrition":{"kcal":880,"protein":0.5,"carbs":1,"fat":98,"highlight":"buried, sometimes for years","estimate":true}}
 ]
