@@ -117,7 +117,7 @@ export function findView({ q = "", focus = "" } = {}) {
     html: `
       <section class="hero">
         <h1>Find</h1>
-        <p>${META.count} foods across South Asian, Arabic, Chinese and Western kitchens.</p>
+        <p>${META.count} foods across the world's home kitchens.</p>
       </section>
 
       <div class="searchbar">

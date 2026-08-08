@@ -303,7 +303,7 @@
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":404,"protein":14.7,"carbs":65.7,"fat":9.1,"highlight":"oats, milled fine"}},
 
-  {"id":"breadcrumbs","name":"Breadcrumbs","aliases":["mian bao xie","panko","bread rusk crumb"],"emoji":"🍞","category":"grain","cuisines":["western","chinese","south-asian"],"commonness":2,
+  {"id":"breadcrumbs","name":"Breadcrumbs","aliases":["mian bao xie","bread rusk crumb"],"emoji":"🍞","category":"grain","cuisines":["western","chinese","south-asian"],"commonness":2,
    "description":"Dried bread ground coarse — the coating on everything fried.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with the bread it is made from."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened bread dried further; ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
    "histamine":{"sighi":2,"tags":[],"note":"Made from yeasted bread, so it carries that; usually fried on top."},
@@ -500,5 +500,44 @@
    "description":"Paper-thin sheets of wheat or rice for wrapping and frying.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with its base grain."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Shita if rice-based, cooler than wheat."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Thanda."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
-   "nutrition":{"kcal":320,"protein":7,"carbs":70,"fat":1,"highlight":"paper, essentially"}}
+   "nutrition":{"kcal":320,"protein":7,"carbs":70,"fat":1,"highlight":"paper, essentially"}},
+
+  {"id":"sushi-rice","name":"Sushi rice","aliases":["shari","seasoned rice"],"emoji":"🍚","category":"grain","cuisines":["japanese"],"commonness":2,
+   "description":"Short-grain rice dressed while warm with vinegar, sugar and salt.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Rice with vinegar; the vinegar warms an otherwise neutral grain."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Shukta makes it ushna despite the shita rice beneath."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam by the sirka, thanda by the rice — the dressing decides it."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Vinegar-dressed and held at room temperature, which is the whole technique and also the risk."},
+   "nutrition":{"kcal":150,"protein":2.8,"carbs":33,"fat":0.3,"highlight":"dressed while still warm"}},
+
+  {"id":"somen","name":"Somen","aliases":["thin wheat noodles","su mian"],"emoji":"🍜","category":"grain","cuisines":["japanese"],"commonness":3,
+   "description":"Hair-thin wheat noodles served ice-cold with dipping sauce in summer.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with wheat; eaten cold, in the heat."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following godhuma."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; grouped with gehun."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low plain."},
+   "nutrition":{"kcal":127,"protein":3.5,"carbs":25.8,"fat":0.2,"highlight":"eaten ice-cold, in August"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"ramen-noodles","name":"Ramen noodles","aliases":["chuka men","alkaline noodles"],"emoji":"🍜","category":"grain","cuisines":["japanese"],"commonness":1,
+   "description":"Wheat noodles made springy with alkaline salts — that is what makes them ramen.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with wheat."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The kansui alkali is kshara, classically ushna and tikshna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low plain; the broth and toppings decide the bowl."},
+   "nutrition":{"kcal":138,"protein":4.6,"carbs":27.5,"fat":0.6,"highlight":"the alkali is what makes them ramen"}},
+
+  {"id":"shirataki","name":"Shirataki","aliases":["konjac noodles","yam noodles"],"emoji":"⬜","category":"grain","cuisines":["japanese"],"commonness":3,
+   "description":"Translucent konjac noodles with essentially no calories.",
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Read with konnyaku, which is cold in the Chinese record."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and almost entirely fibre."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with konjac."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":9,"protein":0.2,"carbs":3.1,"fat":0,"highlight":"essentially no calories"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"harusame","name":"Harusame","aliases":["glass noodles (japanese)","spring rain noodles"],"emoji":"🍜","category":"grain","cuisines":["japanese"],"commonness":4,
+   "description":"Fine translucent starch noodles used in salads and hotpot.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with mung bean starch, which is cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the classical record; placed with the starch noodles."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":351,"protein":0.2,"carbs":86,"fat":0.1,"highlight":"spring rain, literally"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"panko-crumbs","name":"Panko","aliases":["japanese breadcrumbs"],"emoji":"🍞","category":"grain","cuisines":["japanese"],"commonness":2,
+   "description":"Coarse airy crumbs from crustless bread — they fry lighter than ordinary breadcrumbs.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with bread."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened wheat, dried; ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Made from yeasted bread."},
+   "nutrition":{"kcal":395,"protein":13,"carbs":72,"fat":5,"highlight":"fries lighter than ordinary crumbs"}}
 ]

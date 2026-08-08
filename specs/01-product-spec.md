@@ -13,7 +13,10 @@ A fast, graphical web app that tells you whether any food runs hot or cold acros
 ## Audience & posture (locked)
 
 - **v1 is for the owner**, shareable-by-URL later. No accounts, no backend, no user data leaves the device.
-- Cultures covered by the dataset: **South Asian, Arabic, Chinese, Western** household foods.
+- Cultures covered by the dataset: originally **South Asian, Arabic, Chinese, Western**
+  household foods; widened 2026-08-07 to world kitchens (see `02-data-spec.md`
+  amendment). Japanese, Korean, Southeast Asian, Latin American, Persian & Turkish,
+  African and Eastern European were added once the original four were covered.
 
 ## Core loop (locked)
 

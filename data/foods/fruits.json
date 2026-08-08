@@ -749,5 +749,44 @@
    "description":"A wrinkled loose-skinned citrus, sweeter than grapefruit and easier to peel.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the citrus."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour-sweet, ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Citrus liberator."},
-   "nutrition":{"kcal":47,"protein":0.7,"carbs":11.6,"fat":0.2,"highlight":"as ugly as advertised"}}
+   "nutrition":{"kcal":47,"protein":0.7,"carbs":11.6,"fat":0.2,"highlight":"as ugly as advertised"}},
+
+  {"id":"mikan","name":"Mikan","aliases":["satsuma","unshu mandarin"],"emoji":"🍊","category":"fruit","cuisines":["japanese"],"commonness":1,
+   "description":"Loose-skinned winter mandarin, peeled with one hand under a kotatsu.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with mandarin; cool and fluid-generating."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour-sweet citrus, ushna in the classical reading."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda in desi usage."}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"Citrus liberator."},
+   "nutrition":{"kcal":53,"protein":0.8,"carbs":13.3,"fat":0.3,"highlight":"peeled one-handed, under a kotatsu"}},
+
+  {"id":"nashi-pear","name":"Nashi pear","aliases":["asian pear","apple pear","li"],"emoji":"🍐","category":"fruit","cuisines":["japanese"],"commonness":2,
+   "description":"Round crisp pear with the texture of an apple and far more juice.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Li is cool, moistens the lung and stops dry cough — a standard autumn fruit."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and moistening."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":42,"protein":0.5,"carbs":10.7,"fat":0.2,"highlight":"an apple's crunch, a pear's juice"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"kaki-persimmon","name":"Kaki","aliases":["japanese persimmon","fuyu"],"emoji":"🟠","category":"fruit","cuisines":["japanese"],"commonness":2,
+   "description":"Firm sweet persimmon eaten crisp like an apple, skin and all.",
+   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Shi zi is cold and clears heat; classically not eaten on an empty stomach."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and astringent."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":70,"protein":0.6,"carbs":18.6,"fat":0.2,"highlight":"eaten crisp, skin and all"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"sudachi","name":"Sudachi","aliases":["japanese green citrus"],"emoji":"🟢","category":"fruit","cuisines":["japanese"],"commonness":4,
+   "description":"Small green citrus squeezed over grilled fish — sharper and greener than lime.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the small sour citrus."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour and ushna."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with citrus."}},
+   "histamine":{"sighi":1,"tags":["liberator"],"note":"Citrus liberator."},
+   "nutrition":{"kcal":30,"protein":0.5,"carbs":8,"fat":0.1,"highlight":"over grilled fish, always"}},
+
+  {"id":"kabosu","name":"Kabosu","aliases":["japanese sour citrus"],"emoji":"🟢","category":"fruit","cuisines":["japanese"],"commonness":4,
+   "description":"Round green citrus, milder than sudachi, used for its juice rather than its zest.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the sour citrus."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour and ushna."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with citrus."}},
+   "histamine":{"sighi":1,"tags":["liberator"],"note":"Citrus liberator."},
+   "nutrition":{"kcal":25,"protein":0.4,"carbs":7,"fat":0.1,"highlight":"juice, not zest"}},
+
+  {"id":"umeboshi","name":"Umeboshi","aliases":["pickled plum","salted ume"],"emoji":"🔴","category":"fruit","cuisines":["japanese"],"commonness":2,
+   "description":"Ume fruit salted and sun-dried for months into something intensely sour and salty.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Salted, soured and dried; warming and astringent."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Amla plus lavana plus a long cure — firmly ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk; taken in tiny amounts as a digestive."}},
+   "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Months of salt fermentation on an intensely sour fruit — high on both counts, though eaten one at a time."},
+   "nutrition":{"kcal":33,"protein":0.7,"carbs":8.6,"fat":0.2,"highlight":"one is enough"},
+   "remedy":{"too-cold":"eat"}}
 ]

@@ -897,5 +897,36 @@
    "description":"Hydrogenated vegetable oil made to imitate ghee — the fat behind most commercial mithai.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"A modern industrial fat with no classical entry."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and very guru; classically nothing like the ghee it imitates."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low for histamine. Its trans-fat content is the real and separate concern."},
-   "nutrition":{"kcal":884,"protein":0,"carbs":0,"fat":100,"highlight":"imitates ghee, is not ghee"}}
+   "nutrition":{"kcal":884,"protein":0,"carbs":0,"fat":100,"highlight":"imitates ghee, is not ghee"}},
+
+  {"id":"dashi","name":"Dashi","aliases":["japanese stock","kombu dashi","awase dashi"],"emoji":"🍲","category":"spice","cuisines":["japanese"],"commonness":1,
+   "description":"Kombu and bonito steeped briefly — the savoury base under almost all Japanese cooking.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Kelp is cold; the bonito warms it. Net cooling, and very light."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; a sea-vegetable broth, read as shita."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with the sea vegetables."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Both its ingredients are among the highest on the SIGHI list — dried seaweed and mould-fermented fish. It is under almost everything Japanese, which is worth knowing."},
+   "nutrition":{"kcal":3,"protein":0.4,"carbs":0.3,"fat":0,"highlight":"under almost everything"}},
+
+  {"id":"kinako","name":"Kinako","aliases":["roasted soy flour"],"emoji":"🟤","category":"spice","cuisines":["japanese"],"commonness":3,
+   "description":"Roasted soybean flour dusted over mochi and stirred into milk.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with soy; roasting adds warmth."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following the soybean."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with soy."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low — unfermented soy."},
+   "nutrition":{"kcal":437,"protein":36.7,"carbs":28.5,"fat":25.7,"highlight":"dusted over mochi"}},
+
+  {"id":"takuan","name":"Takuan","aliases":["pickled daikon","yellow radish pickle"],"emoji":"🟡","category":"spice","cuisines":["japanese"],"commonness":2,
+   "description":"Daikon salted and fermented for months until it turns yellow and rubbery.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with radish, which is cool and descending; the ferment warms it."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured and salted, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam by its cure."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A months-long vegetable ferment, like kimchi and sauerkraut."},
+   "nutrition":{"kcal":27,"protein":0.6,"carbs":6.2,"fat":0.1,"highlight":"months until it yellows"}},
+
+  {"id":"tsukemono","name":"Tsukemono","aliases":["japanese pickles","asazuke"],"emoji":"🥒","category":"spice","cuisines":["japanese"],"commonness":1,
+   "description":"The pickle plate — anything from a quick salt-press to a year in rice bran.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Mostly cooling vegetables; the cure warms them."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Salted and soured, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam by cure."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Rated for the fermented kind. A same-day salt-press (asazuke) is far lower — the two are served on the same plate and rarely distinguished."},
+   "nutrition":{"kcal":30,"protein":1,"carbs":6,"fat":0.2,"highlight":"a same-day press, or a year in bran","estimate":true}},
+
+  {"id":"hijiki","name":"Hijiki","aliases":["hiziki","dried sea vegetable"],"emoji":"⚫","category":"spice","cuisines":["japanese"],"commonness":3,
+   "description":"Black shredded seaweed rehydrated and simmered with soy and carrot.",
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"With the cooling sea vegetables."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; read with kelp and nori."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with the seaweeds."}},
+   "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Dried sea vegetable. It also carries inorganic arsenic, which is a separate and real caution."},
+   "nutrition":{"kcal":186,"protein":7.4,"carbs":56,"fat":1.3,"highlight":"carries arsenic — a real caution"},
+   "remedy":{"too-hot":"eat"}}
 ]

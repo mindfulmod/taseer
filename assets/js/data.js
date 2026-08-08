@@ -95,6 +95,16 @@ export const CUISINES = [
   { id: "arabic", label: "Arabic" },
   { id: "chinese", label: "Chinese" },
   { id: "western", label: "Western" },
+  // Widened beyond the original four in batch 5. Grouped rather than split by
+  // country: one entry per country would fragment the label on a food card
+  // without telling the reader anything more useful.
+  { id: "japanese", label: "Japanese" },
+  { id: "korean", label: "Korean" },
+  { id: "southeast-asian", label: "Southeast Asian" },
+  { id: "latin-american", label: "Latin American" },
+  { id: "persian-turkish", label: "Persian & Turkish" },
+  { id: "african", label: "African" },
+  { id: "eastern-european", label: "Eastern European" },
 ];
 
 export const byCategory = cat => foods.filter(f => f.category === cat);

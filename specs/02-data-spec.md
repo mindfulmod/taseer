@@ -16,6 +16,30 @@
 
 **Staged: ~250 core foods → 1000.** v1 ships at ~250 (most common across the four cuisines, spot-checked). Subsequent batches are data-only updates. Search-miss logging prioritizes additions.
 
+### Amendment — scope widened to world kitchens (2026-08-07)
+
+**The 1000 target was met at batch 4, and the owner then chose to widen the
+scope rather than stop.** Recording it here because the original four-cuisine
+framing was a locked decision and this supersedes it.
+
+The four household cuisines are close to exhausted: at 1000 foods, 389 entries
+already sit at commonness 3–4 (occasional or specialty), so perhaps 300 useful
+items remained inside them. Doubling within that scope would have produced ~700
+commonness-4 obscurities. Widening instead buys ~700 foods that are genuinely
+everyday *somewhere*.
+
+Cuisine ids added: `japanese`, `korean`, `southeast-asian`, `latin-american`,
+`persian-turkish`, `african`, `eastern-european`. They are grouped rather than
+split per country — one id per country would fragment the label on a food card
+without telling the reader anything more.
+
+**What does not change:** the per-system classification model, the confidence
+levels, and the safety framing. A Thai curry is read by the same TCM / Ayurveda
+/ Unani lens as a desi one, and where those traditions have no entry for a food
+— which is most of the new set — the reading is marked `contested`, not
+invented. Expect the contested share to rise; that is the honest outcome, not a
+defect.
+
 ## Food record schema
 
 ```jsonc

@@ -5,7 +5,10 @@ import { fileURLToPath } from "node:url";
 
 const dir = join(dirname(fileURLToPath(import.meta.url)), "..", "data", "foods");
 const CATEGORIES = ["fruit", "vegetable", "grain", "spice", "protein", "dairy", "drink", "dish"];
-const CUISINES = ["south-asian", "arabic", "chinese", "western"];
+const CUISINES = ["south-asian", "arabic", "chinese", "western",
+  // Batch 5 (2026-08-07): scope widened from four household cuisines to
+  // world kitchens, by the owner's decision. See specs/02-data-spec.md.
+  "japanese", "korean", "southeast-asian", "latin-american", "persian-turkish", "african", "eastern-european"];
 const CONFIDENCE = ["high", "moderate", "contested"];
 const TCM = ["cold", "cool", "neutral", "warm", "hot"];
 const AYUR = ["cooling", "heating"];

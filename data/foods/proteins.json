@@ -857,5 +857,87 @@
    "description":"The deliberately fattened liver of a duck or goose, served as a terrine or seared.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with liver; extremely rich."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and extremely guru."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar in a high degree."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Liver, aged as a terrine — offal plus storage."},
-   "nutrition":{"kcal":462,"protein":11.4,"carbs":4.7,"fat":43.8,"highlight":"rich past the point of sense"}}
+   "nutrition":{"kcal":462,"protein":11.4,"carbs":4.7,"fat":43.8,"highlight":"rich past the point of sense"}},
+
+  {"id":"katsuobushi","name":"Katsuobushi","aliases":["bonito flakes","dried skipjack"],"emoji":"🐟","category":"protein","cuisines":["japanese"],"commonness":2,
+   "description":"Skipjack tuna smoked, fermented with mould and dried to a block hard as wood, then shaved.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Dried and smoked fish; warming and concentrating."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya, dried and concentrated — firmly ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Smoked, mould-fermented and aged for months — one of the highest-histamine ingredients in any kitchen, and it is the base of nearly every Japanese broth."},
+   "nutrition":{"kcal":356,"protein":77.1,"carbs":0.8,"fat":2.9,"highlight":"the base of nearly every broth"}},
+
+  {"id":"chikuwa","name":"Chikuwa","aliases":["fish tube cake"],"emoji":"🐟","category":"protein","cuisines":["japanese"],"commonness":3,
+   "description":"Fish paste moulded round a stick and grilled, leaving a hollow tube.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with the processed white fish."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya is ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; placed with fish."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Processed fish paste, stored a long time before sale."},
+   "nutrition":{"kcal":121,"protein":12.2,"carbs":13.5,"fat":2,"highlight":"hollow, from the stick"}},
+
+  {"id":"kamaboko","name":"Kamaboko","aliases":["fish cake","narutomaki"],"emoji":"🍥","category":"protein","cuisines":["japanese"],"commonness":3,
+   "description":"Steamed fish paste in a pink-rimmed loaf, sliced thin over noodles.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with the processed white fish."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, as fish is."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; placed with fish."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Processed and long-stored fish paste."},
+   "nutrition":{"kcal":95,"protein":12,"carbs":9.6,"fat":0.5,"highlight":"the pink swirl on ramen"}},
+
+  {"id":"hanpen","name":"Hanpen","aliases":["whipped fish cake"],"emoji":"⬜","category":"protein","cuisines":["japanese"],"commonness":4,
+   "description":"Fish paste whipped with yam until it floats — soft, white and almost weightless.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with the fish pastes."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; placed with fish."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Processed fish paste."},
+   "nutrition":{"kcal":94,"protein":9.9,"carbs":11.4,"fat":1,"highlight":"light enough to float"}},
+
+  {"id":"satsuma-age","name":"Satsuma age","aliases":["fried fish cake","tempura kamaboko"],"emoji":"🟠","category":"protein","cuisines":["japanese"],"commonness":4,
+   "description":"Fish paste deep-fried into patties, dropped into oden.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; fried fish paste; the frying warms it."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and guru."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; placed with fried fish."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Processed fish, then fried."},
+   "nutrition":{"kcal":139,"protein":12.5,"carbs":13.9,"fat":3.6,"highlight":"straight into the oden pot"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"mentaiko","name":"Mentaiko","aliases":["spicy cod roe","karashi mentaiko"],"emoji":"🩷","category":"protein","cuisines":["japanese"],"commonness":4,
+   "description":"Pollock roe cured in salt and chilli — sliced over rice, or stirred through pasta.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Cured roe with chilli; warming."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Salt-cured roe — a preserved fish product, and eaten raw."},
+   "nutrition":{"kcal":121,"protein":21,"carbs":3,"fat":3,"highlight":"sliced over hot rice"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"ikura","name":"Ikura","aliases":["salmon roe","salted salmon eggs"],"emoji":"🟠","category":"protein","cuisines":["japanese"],"commonness":4,
+   "description":"Large salmon eggs cured in soy and sake — they burst rather than chew.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Cured roe; read with the fish roes."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; placed with fish roe, treated as strengthening."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Soy-cured raw roe."},
+   "nutrition":{"kcal":250,"protein":32,"carbs":3,"fat":12,"highlight":"they burst, not chew"}},
+
+  {"id":"uni","name":"Uni","aliases":["sea urchin","hai dan"],"emoji":"🟡","category":"protein","cuisines":["japanese"],"commonness":4,
+   "description":"The gonads of a sea urchin, eaten raw — custardy, briny and divisive.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Shellfish of the cooling kind in the Chinese reading; yin-nourishing."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; read with the shellfish, which are ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; placed with shellfish."}},
+   "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Raw shellfish that spoils within hours — the single most time-critical item in the set."},
+   "nutrition":{"kcal":172,"protein":16,"carbs":3.3,"fat":4.8,"highlight":"hours, not days"}},
+
+  {"id":"toro","name":"Toro","aliases":["fatty tuna belly","otoro","chutoro"],"emoji":"🍣","category":"protein","cuisines":["japanese"],"commonness":4,
+   "description":"The fatty belly of bluefin tuna, marbled and served raw.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Oily fish; warming and building."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and very guru."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Tuna is a scombroid — it builds histamine faster than almost any other fish, and this is eaten raw."},
+   "nutrition":{"kcal":344,"protein":20,"carbs":0,"fat":28,"highlight":"marbled like beef"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"anago","name":"Anago","aliases":["saltwater eel","conger eel"],"emoji":"🐟","category":"protein","cuisines":["japanese"],"commonness":4,
+   "description":"Sea eel simmered soft and glazed with a sweet reduction — lighter than unagi.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Read with eel, which is warm and strongly tonifying in TCM."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and guru."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Cooked and glazed; the sweet tare is a long-kept reduction."},
+   "nutrition":{"kcal":161,"protein":17.3,"carbs":0,"fat":9.3,"highlight":"lighter than unagi"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"abura-age","name":"Abura-age","aliases":["fried tofu pouch","inari skin"],"emoji":"🟨","category":"protein","cuisines":["japanese"],"commonness":3,
+   "description":"Thin tofu slices fried until they puff hollow — the pouch in inari sushi.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with tofu; the frying warms it somewhat."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following soy."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low; unfermented soy."},
+   "nutrition":{"kcal":410,"protein":23.4,"carbs":0.4,"fat":34.4,"highlight":"puffs hollow when fried"}},
+
+  {"id":"atsuage","name":"Atsuage","aliases":["thick fried tofu","nama-age"],"emoji":"🟨","category":"protein","cuisines":["japanese"],"commonness":4,
+   "description":"Thick tofu blocks fried so the outside crusts and the middle stays soft.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with tofu."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following soy."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low; unfermented soy."},
+   "nutrition":{"kcal":150,"protein":10.7,"carbs":0.9,"fat":11.3,"highlight":"crust outside, soft within"}},
+
+  {"id":"yuba-fresh","name":"Fresh yuba","aliases":["nama yuba","fresh tofu skin"],"emoji":"🟡","category":"protein","cuisines":["japanese"],"commonness":4,
+   "description":"The skin lifted straight off simmering soy milk and eaten soft, not dried.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with tofu."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low, though it must be eaten the day it is made."},
+   "nutrition":{"kcal":150,"protein":14,"carbs":5,"fat":8,"highlight":"eaten soft, not dried","estimate":true}}
 ]
