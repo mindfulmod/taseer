@@ -1,4 +1,54 @@
-# Taseer dataset — 1,000 foods (batches 1–4)
+# Taseer dataset — 2,000 foods (batches 1–5)
+
+> **Batch 5 landed 2026-08-08: +1,000 foods, 1,000 → 2,000.** Shape: 125 fruits ·
+> 159 vegetables · 112 grains · 259 spices/oils/condiments · 167 proteins ·
+> 62 dairy · 146 drinks · 970 dishes. 3,966 aliases, 253 cross-tradition
+> conflicts, 730 foods at SIGHI 3.
+>
+> **The scope widened, by the owner's decision.** Batches 1–4 covered four
+> household cuisines. Batch 5 added seven more — Japanese, Korean, Southeast
+> Asian, Latin American, Persian & Turkish, African, Eastern European — and then
+> went back and deepened the original four, which were broad but shallow: they
+> had the famous dishes and very little of the pantry that makes them.
+>
+> Per-cuisine coverage now: south-asian 607 · western 517 · chinese 497 ·
+> arabic 448 · southeast-asian 149 · latin-american 100 · japanese 99 ·
+> african 97 · persian-turkish 97 · korean 88 · eastern-european 49.
+>
+> **Written in eleven committed parts**, one per cuisine, each gated
+> independently (pre-write collision check → write → validator → post-write
+> alias audit → build + stamp + palette). Splitting it this way meant every
+> checkpoint was green, and the two mistakes that got through were caught one
+> part later rather than at the end of a thousand entries.
+>
+> **What the audits caught this batch:**
+> - `zobo` shipped as a duplicate of `bissap` — same hibiscus drink, and bissap
+>   already aliased it. Caught by the post-write audit *after* the commit, so the
+>   fix is its own commit. The pre-write check missed it because I never declared
+>   `zobo` as a candidate name against bissap's alias list.
+> - `lahm-bi-ajeen` was the same dish as the already-shipped `lahmacun`. Rather
+>   than ship two entries that would both answer the same search, lahmacun took
+>   an additional `arabic` cuisine tag and the slot went to `sayadieh`.
+> - The hardened checker's **id-as-words** rule earned itself: `nian-gao` and
+>   `fen-si` both read as bare aliases of existing foods (`rice-cake`,
+>   `glass-noodles`) even though the display names I intended did not collide.
+> - ~15 ingredient references pointed at ids that did not exist (`shiitake-mushroom`
+>   for `shiitake`, `green-cardamom` for `cardamom`, `pita` for `pita-bread`, and
+>   several outright placeholders). The validator caught every one before build.
+>   **This is now the single most common defect** — the fix is to resolve
+>   ingredient ids against the shipped data *before* writing, not after.
+>
+> **Two dataset-shape notes for whoever reads this next.** SIGHI 3 is now 36.5%
+> of entries, up from 18%. That is not rating drift — it is what happens when you
+> add the world's preserved foods, which is most of what traditional cuisines
+> outside the four originals consist of. And the cooling vocabulary finally
+> exists: liangfen, grass jelly, leung cha, bissap, erk sous, okroshka, shafut
+> and winter melon soup are entries the app needed to answer "I am too hot" in
+> any cuisine but its first four.
+
+---
+
+## Batches 1–4 — 1,000 foods
 
 > **Batch 4 landed 2026-08-07: +249 foods, 751 → 1,000 — the spec's target,
 > reached.** Shape: 116 fruits · 128 vegetables · 80 grains · 135 spices/oils/
