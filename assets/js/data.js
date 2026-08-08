@@ -237,6 +237,34 @@ export function remedyList(state, verdict, favorites = []) {
 /** Coldest → hottest, for the spectrum explorer. */
 export const spectrum = () => [...foods].sort((a, b) => a.heat - b.heat || a.name.localeCompare(b.name));
 
+/**
+ * Orderings offered wherever a list is long enough to need one.
+ *
+ * `heat` is the composite across all three traditions, the same number the
+ * spectrum explorer ranks by — so "hottest first" here and the spectrum agree.
+ * A thermal *filter* was considered and rejected (most cooked dishes read warm,
+ * so filtering to "warm" barely shortens anything); ordering has no such
+ * problem, because it moves the extremes to the top instead of partitioning.
+ */
+// Composite heat is an average of three verdicts drawn from small fixed sets,
+// so it lands on very few distinct values — the "too hot / eat" list has 283
+// foods across 8 of them, 66 tied at exactly -1. Breaking ties by name alone
+// would open that list with 66 alphabetical entries and read as no sort at all,
+// so every ranked order falls back to commonness first: among equally cold
+// foods, the ones actually in a kitchen come up before the specialty shop.
+const then = (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name);
+
+export const SORTS = {
+  staples: { label: "Everyday first", cmp: (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name) },
+  hottest: { label: "Hottest first", band: "desc", cmp: (a, b) => b.heat - a.heat || then(a, b) },
+  coolest: { label: "Coolest first", band: "asc", cmp: (a, b) => a.heat - b.heat || then(a, b) },
+  gentlest: { label: "Lowest histamine", cmp: (a, b) => a.histamine.sighi - b.histamine.sighi || then(a, b) },
+  az: { label: "A–Z", cmp: (a, b) => a.name.localeCompare(b.name) },
+};
+
+export const sortFoods = (list, sortId) =>
+  [...list].sort((SORTS[sortId] ?? SORTS.staples).cmp);
+
 export const BANDS = [
   { id: "cold", label: "Cold", blurb: "The deep coolers" },
   { id: "cool", label: "Cool", blurb: "Gently cooling" },

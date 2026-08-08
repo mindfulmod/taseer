@@ -1,9 +1,9 @@
 // One function per screen. Each returns { html, mount? } — mount runs after the
 // HTML lands in the DOM (focus, listeners that can't be delegated).
 import {
-  BANDS, CATEGORIES, CUISINES, LISTS, META, SOURCES, STATES, byCategory, fuzzySuggest, getFood,
-  getFoods, getList, getPreparation, heatClass, preparations, remedyList, search, spectrum,
-  systemHeat,
+  BANDS, CATEGORIES, CUISINES, LISTS, META, SORTS, SOURCES, STATES, byCategory, fuzzySuggest,
+  getFood, getFoods, getList, getPreparation, heatClass, preparations, remedyList, search,
+  sortFoods, spectrum, systemHeat,
 } from "./data.js";
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
@@ -418,10 +418,63 @@ const byStaplesFirst = (a, b) => a.commonness - b.commonness || a.name.localeCom
  */
 const cuisineFilterable = catId => catId === "dish";
 
-function categoryBody(pool, q, cuisine) {
+/**
+ * The sort control. Rendered as a native <select> on purpose: four to six
+ * options is too many for a chip row that already carries eleven cuisines, and
+ * the platform picker is better on a phone than anything hand-rolled.
+ */
+function sortSelect(current, ids, id = "sortby") {
+  return `
+    <label class="sortby">
+      <span class="sr">Sort by</span>
+      <select id="${id}" class="sortby__sel">
+        ${ids
+          .map(s => `<option value="${s}"${s === current ? " selected" : ""}>${esc(SORTS[s].label)}</option>`)
+          .join("")}
+      </select>
+    </label>`;
+}
+
+const CAT_SORTS = ["staples", "hottest", "coolest", "gentlest", "az"];
+
+/**
+ * A thermally-sorted list rendered flat reads as alphabetical, because the
+ * composite lands on so few distinct values that long runs share one. Grouping
+ * the run under its band name makes the ranking legible and honest at once:
+ * you can see that 66 foods really are equally cold, rather than guessing why
+ * the order looks arbitrary.
+ */
+function thermalBands(list, dir, opts) {
+  const order = BANDS.map(b => b.id);
+  if (dir === "desc") order.reverse();
+  return order
+    .map(id => {
+      const items = list.filter(f => heatClass(f.heat) === id);
+      if (!items.length) return "";
+      const band = BANDS.find(b => b.id === id);
+      return `
+        <section class="section">
+          <div class="section__head">
+            <h2 class="band t-${id}">${esc(band.label)}</h2>
+            <span class="tiny muted">${items.length}</span>
+          </div>
+          ${tileList(items, opts)}
+        </section>`;
+    })
+    .join("");
+}
+
+/** Ranked output: banded when the sort is thermal, flat otherwise. */
+function sortedList(list, sort, opts) {
+  const dir = SORTS[sort]?.band;
+  return dir ? thermalBands(list, dir, opts) : tileList(list, opts);
+}
+
+function categoryBody(pool, q, cuisine, sort) {
   let list = cuisine ? pool.filter(f => f.cuisines.includes(cuisine)) : pool;
-  // With a query, search ranking wins; without one, everyday staples lead.
-  list = q.trim() ? search(q, 500, list) : [...list].sort(byStaplesFirst);
+  // A query ranks by match quality — reordering those hits by temperature would
+  // bury the exact-name match the reader was after. Sorting owns the rest.
+  list = q.trim() ? search(q, 500, list) : sortFoods(list, sort);
 
   if (!list.length) {
     return `<div class="empty">Nothing matches${q.trim() ? ` “${esc(q.trim())}”` : ""} here.
@@ -431,20 +484,20 @@ function categoryBody(pool, q, cuisine) {
   // The noun agrees with whichever number it follows — "1 of 970 foods", but
   // "1 food" when the category really does hold one.
   const noun = (of ? pool.length : list.length) === 1 ? "food" : "foods";
+  const how = q.trim() ? "best match first" : SORTS[sort in SORTS ? sort : "staples"].label.toLowerCase();
   return `
-    <p class="tiny muted" style="margin:0 2px 10px">${list.length}${of} ${noun}${
-      q.trim() ? "" : ", everyday staples first"
-    }.</p>
-    ${tileList(list)}`;
+    <p class="tiny muted" style="margin:0 2px 10px">${list.length}${of} ${noun}, ${how}.</p>
+    ${q.trim() ? tileList(list) : sortedList(list, sort)}`;
 }
 
-export function categoryView(catId, { q = "", cuisine = "" } = {}) {
+export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } = {}) {
   const cat = CATEGORIES.find(c => c.id === catId);
   if (!cat) return { html: `<div class="empty">Unknown category.</div>` };
   const pool = byCategory(catId);
   const cuisines = cuisineFilterable(catId)
     ? CUISINES.filter(c => pool.some(f => f.cuisines.includes(c.id)))
     : [];
+  if (!(sort in SORTS)) sort = "staples";
 
   const chipFor = (id, label, on) =>
     `<button class="pillbtn" data-cuisine="${esc(id)}" aria-pressed="${on}">${esc(label)}</button>`;
@@ -457,11 +510,14 @@ export function categoryView(catId, { q = "", cuisine = "" } = {}) {
         <h1>${esc(cat.label)}</h1><p>${pool.length} foods to look through.</p>
       </section>
 
-      <div class="searchbar">
-        <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
-        <input id="catq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
-               placeholder="Search ${esc(cat.label.toLowerCase())}" value="${esc(q)}"
-               aria-label="Search within ${esc(cat.label)}">
+      <div class="findrow">
+        <div class="searchbar">
+          <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
+          <input id="catq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
+                 placeholder="Search ${esc(cat.label.toLowerCase())}" value="${esc(q)}"
+                 aria-label="Search within ${esc(cat.label)}">
+        </div>
+        ${sortSelect(sort, CAT_SORTS)}
       </div>
 
       ${
@@ -473,13 +529,15 @@ export function categoryView(catId, { q = "", cuisine = "" } = {}) {
           : ""
       }
 
-      <div id="catbody">${categoryBody(pool, q, cuisine)}</div>`,
+      <div id="catbody">${categoryBody(pool, q, cuisine, sort)}</div>`,
 
     mount(root) {
       const input = root.querySelector("#catq");
+      const sel = root.querySelector("#sortby");
       const body = root.querySelector("#catbody");
       let q0 = q;
       let cuisine0 = cuisine;
+      let sort0 = sort;
 
       // Arriving on a shared link with a filter already set, the active chip can
       // sit off the right edge of the scroller — the list looks arbitrarily
@@ -501,16 +559,22 @@ export function categoryView(catId, { q = "", cuisine = "" } = {}) {
       // replaceState, not a hash change: re-rendering the whole screen on every
       // keystroke would rebuild the chip row and steal focus from the input.
       const sync = () => {
-        body.innerHTML = categoryBody(pool, q0, cuisine0);
+        body.innerHTML = categoryBody(pool, q0, cuisine0, sort0);
         const p = new URLSearchParams();
         if (q0.trim()) p.set("q", q0.trim());
         if (cuisine0) p.set("cuisine", cuisine0);
+        if (sort0 !== "staples") p.set("sort", sort0);
         const qs = p.toString();
         history.replaceState(null, "", `#/category/${catId}${qs ? `?${qs}` : ""}`);
       };
 
       input.addEventListener("input", () => {
         q0 = input.value;
+        sync();
+      });
+
+      sel?.addEventListener("change", () => {
+        sort0 = sel.value;
         sync();
       });
 
@@ -784,10 +848,11 @@ function rankedGroups(list, favIds, opts) {
   );
 }
 
-export function stateView(stateId, { list = "eat" } = {}) {
+export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
   const state = STATES[stateId];
   if (!state) return { html: `<div class="empty">Unknown state.</div>` };
   const verdict = list === "avoid" ? "avoid" : "eat";
+  if (sort && !(sort in SORTS)) sort = "";
   const favIds = favorites.all();
   const eat = remedyList(stateId, "eat", favIds);
   const avoid = remedyList(stateId, "avoid", favIds);
@@ -795,10 +860,28 @@ export function stateView(stateId, { list = "eat" } = {}) {
   // both the sub-line and the meter. Everywhere else the meter is thermal.
   const tileOpts = stateId === "reactive" ? { metaFn: SIGHI_META, meter: "histamine" } : undefined;
 
+  // Switching Eat/Avoid keeps whatever search and sort you had — they describe
+  // how you want to read a list, not which list you are reading.
+  const keep = extra => {
+    const p = new URLSearchParams(extra);
+    if (q.trim()) p.set("q", q.trim());
+    if (sort) p.set("sort", sort);
+    return p.toString();
+  };
   const tab = (id, label, count) => `
-    <button class="segbar__btn" data-nav="/state/${stateId}?list=${id}" aria-selected="${verdict === id}">
+    <button class="segbar__btn" data-nav="/state/${stateId}?${keep({ list: id })}" aria-selected="${verdict === id}">
       ${label} <span class="segbar__count">${count}</span>
     </button>`;
+
+  // The remedy's own axis leads. "Too hot" wants its strongest coolers at the
+  // top, so Coolest is offered first there and Hottest first on "too cold";
+  // the reactive screen ranks by histamine instead, which is its whole subject.
+  const sorts =
+    stateId === "reactive"
+      ? ["gentlest", "coolest", "hottest", "az"]
+      : stateId === "too-hot"
+        ? ["coolest", "hottest", "gentlest", "az"]
+        : ["hottest", "coolest", "gentlest", "az"];
 
   return {
     tone: state.tone,
@@ -817,16 +900,65 @@ export function stateView(stateId, { list = "eat" } = {}) {
         ${tab("avoid", verdict === "avoid" ? "Avoid this" : "Avoid", avoid.length)}
       </div>
 
+      <div class="findrow">
+        <div class="searchbar">
+          <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
+          <input id="stateq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
+                 placeholder="Search this list" value="${esc(q)}"
+                 aria-label="Search within these foods">
+        </div>
+        <label class="sortby">
+          <span class="sr">Sort by</span>
+          <select id="statesort" class="sortby__sel">
+            <option value=""${sort ? "" : " selected"}>Everyday first</option>
+            ${sorts
+              .map(s => `<option value="${s}"${s === sort ? " selected" : ""}>${esc(SORTS[s].label)}</option>`)
+              .join("")}
+          </select>
+        </label>
+      </div>
+
       ${
         stateId === "reactive"
           ? `<p class="tiny muted" style="margin:0 2px 14px">Computed from SIGHI scores — safe means 0 and not a histamine liberator; avoid means 2+, or a liberator or DAO-blocker.</p>`
-          : `<p class="tiny muted" style="margin:0 2px 14px">Everyday kitchen items first. Traditional classifications, not medical advice.</p>`
+          : `<p class="tiny muted" style="margin:0 2px 14px">Traditional classifications, not medical advice.</p>`
       }
 
-      <div class="remedy">
-        ${remedyColumn("eat", "Eat this", eat, verdict, favIds, tileOpts)}
-        ${remedyColumn("avoid", "Avoid", avoid, verdict, favIds, tileOpts)}
+      <div class="remedy" id="remedybody">
+        ${remedyColumn("eat", "Eat this", eat, verdict, favIds, tileOpts, { q, sort })}
+        ${remedyColumn("avoid", "Avoid", avoid, verdict, favIds, tileOpts, { q, sort })}
       </div>`,
+
+    mount(root) {
+      const input = root.querySelector("#stateq");
+      const sel = root.querySelector("#statesort");
+      const body = root.querySelector("#remedybody");
+      let q0 = q;
+      let sort0 = sort;
+
+      // Same reasoning as the category screen: replaceState so a keystroke does
+      // not re-render the screen out from under the input it came from.
+      const sync = () => {
+        body.innerHTML =
+          remedyColumn("eat", "Eat this", eat, verdict, favIds, tileOpts, { q: q0, sort: sort0 }) +
+          remedyColumn("avoid", "Avoid", avoid, verdict, favIds, tileOpts, { q: q0, sort: sort0 });
+        const p = new URLSearchParams();
+        if (verdict !== "eat") p.set("list", verdict);
+        if (q0.trim()) p.set("q", q0.trim());
+        if (sort0) p.set("sort", sort0);
+        const qs = p.toString();
+        history.replaceState(null, "", `#/state/${stateId}${qs ? `?${qs}` : ""}`);
+      };
+
+      input.addEventListener("input", () => {
+        q0 = input.value;
+        sync();
+      });
+      sel.addEventListener("change", () => {
+        sort0 = sel.value;
+        sync();
+      });
+    },
   };
 }
 
@@ -834,10 +966,29 @@ export function stateView(stateId, { list = "eat" } = {}) {
  * Both lists are always rendered. Phones show the one the segmented control
  * selects; desktop shows both side by side and hides the control (ART.md §5).
  */
-function remedyColumn(id, label, items, active, favIds, opts) {
+function remedyColumn(id, label, items, active, favIds, opts, { q = "", sort = "" } = {}) {
+  const shown = q.trim() ? search(q, 500, items) : sort ? sortFoods(items, sort) : items;
+
+  let inner;
+  if (!shown.length) {
+    inner = `<div class="empty">${
+      q.trim() ? `Nothing here matches “${esc(q.trim())}”.` : "Nothing in this list yet."
+    }</div>`;
+  } else if (q.trim() || sort) {
+    // Commonness bands are the default shape, but they fight an explicit sort:
+    // "hottest first" split across four headed groups is four restarts, not one
+    // ranking. A chosen order flattens the list so the top really is the top.
+    const of = shown.length === items.length ? "" : ` of ${items.length}`;
+    inner = `<p class="tiny muted" style="margin:0 2px 10px">${shown.length}${of}, ${
+      q.trim() ? "best match first" : SORTS[sort].label.toLowerCase()
+    }.</p>${q.trim() ? tileList(shown, opts) : sortedList(shown, sort, opts)}`;
+  } else {
+    inner = rankedGroups(shown, favIds, opts);
+  }
+
   return `
-    <div class="remedy__col${id === active ? " is-active" : ""}">
+    <div class="remedy__col${id === active ? " is-active" : ""}" data-col="${id}">
       <div class="remedy__head"><h2>${esc(label)}</h2><span class="tiny muted">${items.length}</span></div>
-      ${items.length ? rankedGroups(items, favIds, opts) : `<div class="empty">Nothing in this list yet.</div>`}
+      ${inner}
     </div>`;
 }
