@@ -559,5 +559,32 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Nuo mi is warm and binding."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Guru."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":370,"protein":6.8,"carbs":81.7,"fat":0.6,"highlight":"sticky, and deliberately so"},
-   "remedy":{"too-cold":"eat"}}
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"mung-bean-flour","name":"Mung bean flour","aliases":["tepung hunkwe","green bean flour"],"emoji":"⚪","category":"grain","cuisines":["southeast-asian"],"commonness":3,
+   "description":"Starch from mung beans, used to set puddings and make glass noodles.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with mung bean, which is cold and heat-clearing."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following moong."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":345,"protein":3,"carbs":82,"fat":0.5,"highlight":"sets puddings, makes noodles"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"black-glutinous-rice","name":"Black glutinous rice","aliases":["pulut hitam","khao niao dam"],"emoji":"🍚","category":"grain","cuisines":["southeast-asian"],"commonness":3,
+   "description":"Deep purple sticky rice simmered into sweet porridge with coconut milk.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with black rice and glutinous rice — both warming."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Guru and building."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":356,"protein":8.9,"carbs":75.6,"fat":3.2,"highlight":"purple, and sticky"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"banh-pho","name":"Banh pho","aliases":["pho noodles","flat rice noodles"],"emoji":"🍜","category":"grain","cuisines":["southeast-asian"],"commonness":2,
+   "description":"Flat fresh rice noodles, the width decided by which soup they are going into.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with rice."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following rice."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":192,"protein":1.8,"carbs":44,"fat":0.3,"highlight":"the width tells you the soup"}},
+
+  {"id":"bun-noodles","name":"Bun noodles","aliases":["vermicelli (vietnamese)","round rice noodles"],"emoji":"🍜","category":"grain","cuisines":["southeast-asian"],"commonness":2,
+   "description":"Thin round rice noodles served cool in bowls and salads, never in hot broth.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Rice noodles, served cool."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":190,"protein":1.7,"carbs":43,"fat":0.2,"highlight":"served cool, never hot"},
+   "remedy":{"too-hot":"eat"}}
 ]

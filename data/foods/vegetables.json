@@ -949,5 +949,50 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record; read with the wild leafy greens."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; shita, with the greens."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with leafy greens."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low; dried and rehydrated."},
    "nutrition":{"kcal":40,"protein":4,"carbs":6,"fat":0.6,"highlight":"one of the namul","estimate":true},
-   "remedy":{"too-hot":"eat"}}
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"petai","name":"Petai","aliases":["stink bean","sator","bitter bean"],"emoji":"🫛","category":"vegetable","cuisines":["southeast-asian"],"commonness":4,
+   "description":"Bright green beans with a sulphurous smell that lingers for a day afterwards.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; pungent and sulphurous; read as warming."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; katu and ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; placed with the pungent legumes."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":140,"protein":8,"carbs":22,"fat":2,"highlight":"the smell lasts a day"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"young-jackfruit","name":"Young jackfruit","aliases":["nangka muda","kathal","green jackfruit"],"emoji":"🟢","category":"vegetable","cuisines":["southeast-asian"],"commonness":2,
+   "description":"Unripe jackfruit cooked as a vegetable — fibrous enough to pass for pulled meat.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"The unripe fruit is neutral where the ripe is warming."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru when unripe — the reverse of the sweet ripe fruit."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda; kathal is cooked as a sabzi across South Asia too."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":95,"protein":1.7,"carbs":23,"fat":0.6,"highlight":"passes for pulled meat"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"thai-eggplant","name":"Thai eggplant","aliases":["makhua","green pea eggplant (large)"],"emoji":"🟢","category":"vegetable","cuisines":["southeast-asian"],"commonness":3,
+   "description":"Golf-ball green aubergines quartered into curries — crisp and faintly bitter.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with eggplant, which is cool in TCM."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Vrintaka is ushna in the classical reading."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Baingan is garam in the eastern reading."}},
+   "histamine":{"sighi":3,"tags":[],"note":"Aubergine sits high on the SIGHI list whatever its size or colour."},
+   "nutrition":{"kcal":25,"protein":1,"carbs":5.5,"fat":0.2,"highlight":"quartered, never sliced"}},
+
+  {"id":"pea-eggplant","name":"Pea aubergine","aliases":["makhua puang","turkey berry"],"emoji":"🟢","category":"vegetable","cuisines":["southeast-asian"],"commonness":4,
+   "description":"Pea-sized bitter aubergines used whole — they pop between the teeth.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with eggplant."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, with the aubergines."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam in the eastern reading."}},
+   "histamine":{"sighi":3,"tags":[],"note":"An aubergine, so high, though eaten in small quantity."},
+   "nutrition":{"kcal":28,"protein":1.5,"carbs":6,"fat":0.3,"highlight":"they pop between the teeth"}},
+
+  {"id":"sawi","name":"Sawi","aliases":["indonesian mustard green","caisim"],"emoji":"🥬","category":"vegetable","cuisines":["southeast-asian"],"commonness":3,
+   "description":"Mild mustard green wilted into noodle soups across the archipelago.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A brassica green; cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; grouped with the leafy greens."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":20,"protein":1.8,"carbs":3,"fat":0.3,"highlight":"wilted in, at the end"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"long-bean-thai","name":"Thai long bean","aliases":["tua fak yao","kacang panjang"],"emoji":"🫛","category":"vegetable","cuisines":["southeast-asian"],"commonness":2,
+   "description":"Half-metre beans cut into lengths and stir-fried or eaten raw with nam prik.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with the fresh beans; jiang dou is neutral and spleen-strengthening."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda, and windy."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":47,"protein":2.8,"carbs":8.4,"fat":0.4,"highlight":"eaten raw, with chilli dip"}},
+
+  {"id":"pickled-bamboo","name":"Pickled bamboo","aliases":["nor mai dong","sour bamboo"],"emoji":"🎋","category":"vegetable","cuisines":["southeast-asian"],"commonness":4,
+   "description":"Bamboo shoots fermented sour — pungent, and used where fresh would be bland.",
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Bamboo is cold; the ferment warms it somewhat."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A deliberate vegetable ferment, like sauerkraut."},
+   "nutrition":{"kcal":30,"protein":2.5,"carbs":5,"fat":0.4,"highlight":"sour, and deliberately so"}}
 ]

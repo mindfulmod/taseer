@@ -788,5 +788,11 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Salted, soured and dried; warming and astringent."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Amla plus lavana plus a long cure — firmly ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk; taken in tiny amounts as a digestive."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Months of salt fermentation on an intensely sour fruit — high on both counts, though eaten one at a time."},
    "nutrition":{"kcal":33,"protein":0.7,"carbs":8.6,"fat":0.2,"highlight":"one is enough"},
-   "remedy":{"too-cold":"eat"}}
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"belimbing-wuluh","name":"Belimbing wuluh","aliases":["sour finger carambola"],"emoji":"🟢","category":"fruit","cuisines":["southeast-asian"],"commonness":4,
+   "description":"Small sour green fruit used as a souring agent rather than eaten.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with star fruit, its relative."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, though sour by taste."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"Intensely sour."},
+   "nutrition":{"kcal":28,"protein":0.6,"carbs":6,"fat":0.3,"highlight":"a souring agent, not a fruit"}}
 ]
