@@ -372,5 +372,12 @@
    "description":"Plain fresh white cheese kept in brine — mild, squeaky, and eaten at every breakfast.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh brined cheese."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and madhura."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Brined rather than aged, so lower than the ripened cheeses."},
-   "nutrition":{"kcal":260,"protein":18,"carbs":3,"fat":20,"highlight":"at every breakfast, without fail"}}
+   "nutrition":{"kcal":260,"protein":18,"carbs":3,"fat":20,"highlight":"at every breakfast, without fail"}},
+
+  {"id":"skyr","name":"Skyr","aliases":["icelandic cultured dairy"],"emoji":"🥛","category":"dairy","cuisines":["western"],"commonness":2,
+   "description":"A thick strained cultured skimmed milk — technically a cheese, eaten as yogurt.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cultured strained dairy."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Cultured, though the cultures used are milder than yogurt's."},
+   "nutrition":{"kcal":63,"protein":11,"carbs":4,"fat":0.2,"highlight":"technically a cheese, eaten as yogurt"},
+   "remedy":{"too-hot":"eat"}}
 ]

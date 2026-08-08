@@ -1046,5 +1046,40 @@
    "thermal":{"tcm":{"verdict":"hot","confidence":"contested","note":"Outside the classical record; preserved fatty meat."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and extremely guru."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Meat preserved for months under fat."},
    "nutrition":{"kcal":500,"protein":18,"carbs":0,"fat":48,"highlight":"how meat was kept, before fridges"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"prosciutto","name":"Prosciutto","aliases":["parma ham","dry-cured ham"],"emoji":"🥓","category":"protein","cuisines":["western"],"commonness":1,
+   "description":"Pork leg salted and air-dried for a year or more, sliced thin enough to see through.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"contested","note":"Outside the classical record; salt-cured dried meat."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and guru."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A year or more of curing — one of the highest-histamine foods there is."},
+   "nutrition":{"kcal":195,"protein":26,"carbs":0.5,"fat":10,"highlight":"thin enough to see through"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"mortadella","name":"Mortadella","aliases":["bologna sausage"],"emoji":"🌭","category":"protein","cuisines":["western"],"commonness":2,
+   "description":"A large smooth pork sausage studded with fat cubes and scented with myrtle.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"contested","note":"Outside the classical record; a cooked cured sausage."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and guru."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Cured and emulsified pork."},
+   "nutrition":{"kcal":310,"protein":16,"carbs":1,"fat":27,"highlight":"the fat cubes are the point"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"nduja","name":"Nduja","aliases":["calabrian spreadable salami"],"emoji":"🔴","category":"protein","cuisines":["western"],"commonness":3,
+   "description":"A soft fermented pork salami so heavy with chilli it spreads like paste.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"high","note":"Fermented cured pork with chilli."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"A fermented salami plus a great deal of chilli."},
+   "nutrition":{"kcal":450,"protein":14,"carbs":2,"fat":43,"highlight":"it spreads, which is unusual for salami"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"bresaola","name":"Bresaola","aliases":["air-dried beef"],"emoji":"🥩","category":"protein","cuisines":["western"],"commonness":3,
+   "description":"Beef salted with juniper and air-dried until deep red and lean.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"contested","note":"Outside the classical record; air-dried cured beef."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and ruksha."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Air-dried cured meat."},
+   "nutrition":{"kcal":150,"protein":32,"carbs":0.5,"fat":2,"highlight":"deep red, and very lean"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"jamon-iberico","name":"Jamón ibérico","aliases":["iberian ham"],"emoji":"🥓","category":"protein","cuisines":["western"],"commonness":2,
+   "description":"Acorn-fed black pig cured for three years or more — the fat melts at hand temperature.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"contested","note":"Outside the classical record; long-cured dried pork."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and guru."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Three years of curing."},
+   "nutrition":{"kcal":250,"protein":30,"carbs":0,"fat":15,"highlight":"the fat melts in your hand"},
    "remedy":{"too-cold":"eat"}}
 ]

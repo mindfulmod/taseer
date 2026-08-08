@@ -1661,5 +1661,37 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Cooling and calming; taken for the nerves as well as for flavour."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and aromatic."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low — a distillate with nothing solid in it."},
    "nutrition":{"kcal":0,"protein":0,"carbs":0,"fat":0,"highlight":"a few drops for a whole tray"},
-   "remedy":{"too-hot":"eat"}}
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"marmite","name":"Marmite","aliases":["yeast extract"],"emoji":"⚫","category":"spice","cuisines":["western"],"commonness":2,
+   "description":"Concentrated brewer's yeast, salty and bitter — a scrape is a serving.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; a concentrated yeast product."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Lavana and ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Yeast extract is one of the highest-histamine foods by weight, though the serving is tiny."},
+   "nutrition":{"kcal":250,"protein":34,"carbs":24,"fat":0.5,"highlight":"a scrape is a serving"}},
+
+  {"id":"piccalilli","name":"Piccalilli","aliases":["mustard pickle"],"emoji":"🟡","category":"spice","cuisines":["western"],"commonness":3,
+   "description":"Chopped vegetables in a sharp turmeric and mustard vinegar sauce.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Vegetables in mustard vinegar."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sarshapa and amla are ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A vinegar pickle."},
+   "nutrition":{"kcal":60,"protein":1,"carbs":12,"fat":0.5,"highlight":"sharp, and it should be"}},
+
+  {"id":"bechamel","name":"Béchamel","aliases":["white sauce"],"emoji":"⬜","category":"spice","cuisines":["western"],"commonness":2,
+   "description":"Flour cooked in butter then let down with milk — the base under half of French cooking.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Milk, butter and flour."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Dugdha is shita and guru."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low; fresh milk and butter."},
+   "nutrition":{"kcal":150,"protein":4,"carbs":10,"fat":10,"highlight":"under half of French cooking"}},
+
+  {"id":"hollandaise","name":"Hollandaise","aliases":["egg and butter sauce"],"emoji":"🟡","category":"spice","cuisines":["western"],"commonness":3,
+   "description":"Egg yolk and butter emulsified over gentle heat with lemon — it splits if you look away.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Egg yolk and butter."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Anda is ushna and guru."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar."}},
+   "histamine":{"sighi":3,"tags":["liberator"],"note":"Raw-ish egg yolk and lemon."},
+   "nutrition":{"kcal":560,"protein":4,"carbs":1,"fat":60,"highlight":"it splits if you look away"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"aioli","name":"Aioli","aliases":["garlic mayonnaise"],"emoji":"🧄","category":"spice","cuisines":["western"],"commonness":2,
+   "description":"Garlic pounded into an oil emulsion — properly, without egg at all.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Raw garlic in oil."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Lashuna is ushna and tikshna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Raw garlic and lemon; the egg version adds more."},
+   "nutrition":{"kcal":620,"protein":1,"carbs":2,"fat":68,"highlight":"properly, no egg at all"},
+   "remedy":{"too-cold":"eat"}}
 ]
