@@ -278,6 +278,37 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .pillbtn:hover { border-color: var(--line-strong); }
 .pillbtn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
+/* Search and sort share one line so the controls cost a single row of height
+   on a phone. The search box takes the slack; the sort stays at its own width. */
+.findrow { display: flex; align-items: stretch; gap: 8px; margin: 8px 0 16px; }
+.findrow .searchbar { flex: 1; min-width: 0; margin: 0; }
+
+.sortby { display: flex; flex: none; }
+.sortby__sel {
+  appearance: none;
+  padding: 0 30px 0 15px; min-height: 100%; height: auto;
+  border: 1.5px solid var(--line); border-radius: 999px;
+  background: var(--surface); color: var(--ink);
+  font: inherit; font-size: 0.87rem; font-weight: 600;
+  cursor: pointer; box-shadow: var(--shadow);
+  /* Chevron drawn in the border colour, not a temperature — hue belongs to the
+     data (ART.md §6.3). currentColor keeps it correct in both themes. */
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+                    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right 15px center, right 10px center;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+}
+.sortby__sel:hover { border-color: var(--line-strong); }
+.sortby__sel:focus-visible { border-color: var(--ink); }
+
+/* Under ~380px the two controls stop fitting side by side legibly. */
+@media (max-width: 380px) {
+  .findrow { flex-wrap: wrap; }
+  .findrow .searchbar { flex: 1 0 100%; }
+  .sortby__sel { min-height: 40px; }
+}
+
 /* Eleven cuisines will not wrap tidily on a phone, so the row scrolls sideways
    instead of pushing the list two rows further down the screen. */
 .chiprow {
