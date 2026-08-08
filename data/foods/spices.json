@@ -1606,5 +1606,60 @@
    "description":"A light neutral oil pressed from the bran, common in Indian frying.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A neutral cooking oil."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following rice."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
-   "nutrition":{"kcal":884,"protein":0,"carbs":0,"fat":100,"highlight":"light, and it stays light"}}
+   "nutrition":{"kcal":884,"protein":0,"carbs":0,"fat":100,"highlight":"light, and it stays light"}},
+
+  {"id":"toum","name":"Toum","aliases":["lebanese garlic sauce"],"emoji":"🧄","category":"spice","cuisines":["arabic"],"commonness":2,
+   "description":"Raw garlic whipped with oil and lemon into a stiff white emulsion — fierce, and it stays with you.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"high","note":"Raw garlic in quantity."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Lashuna is ushna and tikshna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk in a high degree."}},
+   "histamine":{"sighi":2,"tags":["liberator","high-histamine"],"note":"Raw garlic and lemon."},
+   "nutrition":{"kcal":600,"protein":2,"carbs":6,"fat":64,"highlight":"it stays with you, for a day"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"amba","name":"Amba","aliases":["pickled mango sauce"],"emoji":"🟠","category":"spice","cuisines":["arabic"],"commonness":3,
+   "description":"Green mango pickled with fenugreek and turmeric into a sour yellow sauce — Iraqi, via India.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A sour fermented pickle."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Methi and amla are both ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A brine-fermented pickle."},
+   "nutrition":{"kcal":60,"protein":1,"carbs":12,"fat":1,"highlight":"Iraqi, by way of India"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"sahawiq","name":"Sahawiq","aliases":["zhug","yemeni green chilli paste"],"emoji":"🟢","category":"spice","cuisines":["arabic"],"commonness":3,
+   "description":"Green chilli, coriander and garlic pounded raw into a fresh fiery paste.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"high","note":"Raw chilli and garlic."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and tikshna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"Fresh chilli, made and eaten the same week."},
+   "nutrition":{"kcal":90,"protein":3,"carbs":8,"fat":6,"highlight":"made fresh, or not at all"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"hulba","name":"Hulba","aliases":["whipped fenugreek"],"emoji":"🟡","category":"spice","cuisines":["arabic"],"commonness":4,
+   "description":"Fenugreek soaked and whipped to a foam, folded with sahawiq — Yemen's table condiment.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fenugreek with chilli."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Methi is ushna and tikta."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"The chilli in it; fenugreek itself is low."},
+   "nutrition":{"kcal":60,"protein":5,"carbs":8,"fat":2,"highlight":"whipped to a foam, genuinely"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"kishk","name":"Kishk","aliases":["fermented bulgur and yogurt"],"emoji":"⚪","category":"spice","cuisines":["arabic"],"commonness":3,
+   "description":"Bulgur fermented with yogurt for weeks, dried and ground to a sour powder that keeps a year.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A dried grain and dairy ferment."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented and ruksha, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk by the ferment."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Weeks of yogurt fermentation, then drying — grain and dairy ferment at once."},
+   "nutrition":{"kcal":380,"protein":15,"carbs":60,"fat":6,"highlight":"it keeps for a year, and does"}},
+
+  {"id":"bzar","name":"Bzar","aliases":["gulf spice blend","bezar"],"emoji":"🟤","category":"spice","cuisines":["arabic"],"commonness":3,
+   "description":"The Gulf's everyday blend — cumin, coriander, turmeric, cinnamon and dried lime.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"A warm whole-spice blend."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low as a dried spice blend."},
+   "nutrition":{"kcal":300,"protein":12,"carbs":50,"fat":12,"highlight":"the Gulf's everyday blend"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"hawaij","name":"Hawaij","aliases":["yemeni spice blend"],"emoji":"🟡","category":"spice","cuisines":["arabic"],"commonness":3,
+   "description":"Two blends share the name — a savoury cumin-turmeric one for soup, a sweet one for coffee.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"A warm spice blend."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low as a dried spice blend."},
+   "nutrition":{"kcal":310,"protein":13,"carbs":48,"fat":13,"highlight":"two blends share the name"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"orange-blossom-water","name":"Orange blossom water","aliases":["mazaher"],"emoji":"🌸","category":"spice","cuisines":["arabic"],"commonness":2,
+   "description":"Distilled bitter orange flowers — a few drops perfume a whole tray of syrup.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Cooling and calming; taken for the nerves as well as for flavour."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and aromatic."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low — a distillate with nothing solid in it."},
+   "nutrition":{"kcal":0,"protein":0,"carbs":0,"fat":0,"highlight":"a few drops for a whole tray"},
+   "remedy":{"too-hot":"eat"}}
 ]

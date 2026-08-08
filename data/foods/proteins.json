@@ -1039,5 +1039,12 @@
    "description":"Fish heavily salted and sun-dried — pungent enough that a small piece flavours a whole dish.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Salted and dried fish."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Salted and sun-dried fish — as high as this dataset goes."},
-   "nutrition":{"kcal":300,"protein":45,"carbs":0,"fat":12,"highlight":"a small piece flavours everything"}}
+   "nutrition":{"kcal":300,"protein":45,"carbs":0,"fat":12,"highlight":"a small piece flavours everything"}},
+
+  {"id":"awarma","name":"Awarma","aliases":["lamb confit"],"emoji":"🥩","category":"protein","cuisines":["arabic"],"commonness":4,
+   "description":"Lamb cooked down in its own fat and sealed under it — how meat was kept before refrigeration.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"contested","note":"Outside the classical record; preserved fatty meat."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and extremely guru."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Meat preserved for months under fat."},
+   "nutrition":{"kcal":500,"protein":18,"carbs":0,"fat":48,"highlight":"how meat was kept, before fridges"},
+   "remedy":{"too-cold":"eat"}}
 ]

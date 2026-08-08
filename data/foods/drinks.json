@@ -991,5 +991,25 @@
    "thermal":{"tcm":{"verdict":"hot","confidence":"high","note":"A strong spirit."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Madya is ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["dao-blocker"],"note":"Distilled, so lower than wine — but alcohol blocks DAO regardless."},
    "nutrition":{"kcal":250,"protein":0,"carbs":0,"fat":0,"highlight":"an acquired thing, genuinely"},
-   "remedy":{"too-cold":"eat"}}
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"qishr","name":"Qishr","aliases":["yemeni coffee husk drink"],"emoji":"☕","category":"drink","cuisines":["arabic"],"commonness":4,
+   "description":"The dried coffee cherry husk brewed with ginger — the bean itself is sold, not drunk.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A ginger-spiced infusion."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ardraka is ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":5,"protein":0,"carbs":1,"fat":0,"highlight":"the husk, not the bean"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"sobia","name":"Sobia","aliases":["fermented bread drink"],"emoji":"🥤","category":"drink","cuisines":["arabic"],"commonness":4,
+   "description":"A cloudy pink Ramadan drink of lightly fermented bread or oats with sugar and cinnamon.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A light ferment served cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A short live ferment, drunk without cooking."},
+   "nutrition":{"kcal":70,"protein":1.5,"carbs":15,"fat":0.5,"highlight":"cloudy pink, in Ramadan"}},
+
+  {"id":"erk-sous","name":"Erk sous","aliases":["liquorice root drink"],"emoji":"⚫","category":"drink","cuisines":["arabic"],"commonness":4,
+   "description":"Liquorice root steeped cold into a bitter foaming black drink — an acquired taste, sold from a brass urn.",
+   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Liquorice is cooling and moistening; drunk against summer heat."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Madhura and shita."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":20,"protein":0,"carbs":5,"fat":0,"highlight":"sold from a brass urn, poured over the shoulder"},
+   "remedy":{"too-hot":"eat"}}
 ]

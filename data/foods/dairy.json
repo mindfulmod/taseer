@@ -354,5 +354,23 @@
    "description":"Milk split with acid and drained but not pressed — softer than paneer, and the base of Bengali sweets.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh unpressed curd."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and madhura."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":1,"tags":[],"note":"Fresh curd, made and used the same day."},
-   "nutrition":{"kcal":160,"protein":15,"carbs":4,"fat":10,"highlight":"softer than paneer, deliberately"}}
+   "nutrition":{"kcal":160,"protein":15,"carbs":4,"fat":10,"highlight":"softer than paneer, deliberately"}},
+
+  {"id":"shanklish","name":"Shanklish","aliases":["aged cheese balls"],"emoji":"🧀","category":"dairy","cuisines":["arabic"],"commonness":4,
+   "description":"Cheese balls rolled in za'atar and aged until sharp, sometimes until they crumble.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; an aged and mould-ripened cheese."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Aged and ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk by ageing."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Deliberately aged and often mould-ripened — as high as cheese gets."},
+   "nutrition":{"kcal":310,"protein":22,"carbs":4,"fat":24,"highlight":"aged until sharp, sometimes further"}},
+
+  {"id":"jameed","name":"Jameed","aliases":["dried fermented yogurt"],"emoji":"⚪","category":"dairy","cuisines":["arabic"],"commonness":3,
+   "description":"Sheep yogurt salted, drained and sun-dried into hard stones, reconstituted for mansaf.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; dried fermented dairy."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A fermented yogurt dried hard — the ferment concentrates as the water goes."},
+   "nutrition":{"kcal":320,"protein":30,"carbs":12,"fat":18,"highlight":"hard as a stone, and meant to be"}},
+
+  {"id":"jibneh-baladi","name":"Jibneh baladi","aliases":["village white cheese"],"emoji":"🧀","category":"dairy","cuisines":["arabic"],"commonness":3,
+   "description":"Plain fresh white cheese kept in brine — mild, squeaky, and eaten at every breakfast.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh brined cheese."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and madhura."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Brined rather than aged, so lower than the ripened cheeses."},
+   "nutrition":{"kcal":260,"protein":18,"carbs":3,"fat":20,"highlight":"at every breakfast, without fail"}}
 ]
