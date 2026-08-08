@@ -311,5 +311,42 @@
    "description":"Salted butter buried and aged for months to years — pungent, and used sparingly.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Aged clarified butter."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ghrita is cooling classically, but ageing turns it."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Aged for months to years — the ageing is the whole point."},
-   "nutrition":{"kcal":880,"protein":0.5,"carbs":1,"fat":98,"highlight":"buried, sometimes for years","estimate":true}}
+   "nutrition":{"kcal":880,"protein":0.5,"carbs":1,"fat":98,"highlight":"buried, sometimes for years","estimate":true}},
+
+  {"id":"tvorog","name":"Tvorog","aliases":["farmer cheese","quark (russian)"],"emoji":"🥣","category":"dairy","cuisines":["eastern-european"],"commonness":2,
+   "description":"Fresh curd cheese, drier than quark — eaten with sour cream or baked into syrniki.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh dairy."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; fresh and unsoured."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Fresh and lightly cultured."},
+   "nutrition":{"kcal":98,"protein":17,"carbs":3,"fat":2,"highlight":"drier than quark"}},
+
+  {"id":"ryazhenka","name":"Ryazhenka","aliases":["baked fermented milk"],"emoji":"🥛","category":"dairy","cuisines":["eastern-european"],"commonness":3,
+   "description":"Milk baked for hours until caramel-coloured, then cultured — nuttier than kefir.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Long-baked then cultured milk."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Baking and souring are both ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam-tar by the baking and ferment."}},
+   "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Cultured dairy; the long bake concentrates it before the ferment even starts."},
+   "nutrition":{"kcal":85,"protein":3,"carbs":4.2,"fat":6,"highlight":"baked before it is soured"}},
+
+  {"id":"sguschenka","name":"Sguschenka","aliases":["russian condensed milk"],"emoji":"🥫","category":"dairy","cuisines":["eastern-european"],"commonness":2,
+   "description":"Condensed milk boiled in the tin until it caramelises — eaten with a spoon.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Reduced sweetened milk."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and guru."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":320,"protein":7.5,"carbs":55,"fat":8.5,"highlight":"boiled in the tin, dangerously"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"brynza","name":"Brynza","aliases":["sheep brine cheese"],"emoji":"🧀","category":"dairy","cuisines":["eastern-european"],"commonness":3,
+   "description":"Sharp white sheep's cheese kept in brine — the Carpathian feta.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; brined cheese; read with feta."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Salty and soured, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk by the brine."}},
+   "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Brine-ripened, like feta."},
+   "nutrition":{"kcal":260,"protein":15,"carbs":2,"fat":21,"highlight":"the Carpathian feta"}},
+
+  {"id":"kashkaval","name":"Kashkaval","aliases":["balkan yellow cheese"],"emoji":"🧀","category":"dairy","cuisines":["eastern-european"],"commonness":3,
+   "description":"Firm yellow sheep or cow cheese, aged and good for grilling.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; read with the aged cheeses."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; ushna and guru."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Aged cheese."},
+   "nutrition":{"kcal":365,"protein":25,"carbs":2,"fat":29,"highlight":"grills without collapsing"}},
+
+  {"id":"twarog","name":"Twaróg","aliases":["polish curd cheese"],"emoji":"🥣","category":"dairy","cuisines":["eastern-european"],"commonness":3,
+   "description":"Polish fresh curd cheese, from soft to dry depending on how long it drains.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh dairy."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Fresh and unripened."},
+   "nutrition":{"kcal":105,"protein":18,"carbs":3.5,"fat":2.5,"highlight":"soft or dry, by draining time"}}
 ]

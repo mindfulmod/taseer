@@ -1415,5 +1415,25 @@
    "description":"Lemons packed in salt for a month until the peel goes soft and the flavour turns savoury.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with lemon; the cure adds warmth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Amla and lavana together — ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk by the salt cure."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"A month-long salt ferment on citrus — both mechanisms."},
-   "nutrition":{"kcal":30,"protein":1,"carbs":8,"fat":0.3,"highlight":"the peel is the part you use"}}
+   "nutrition":{"kcal":30,"protein":1,"carbs":8,"fat":0.3,"highlight":"the peel is the part you use"}},
+
+  {"id":"adjika","name":"Adjika","aliases":["georgian chilli paste"],"emoji":"🌶️","category":"spice","cuisines":["eastern-european"],"commonness":3,
+   "description":"Red chilli pounded with garlic, walnut and blue fenugreek into a coarse paste.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Chilli and garlic paste."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and tikshna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Chilli plus walnut, and the traditional version is fermented."},
+   "nutrition":{"kcal":150,"protein":5,"carbs":15,"fat":8,"highlight":"walnut is what thickens it","estimate":true},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"tkemali","name":"Tkemali","aliases":["georgian sour plum sauce"],"emoji":"🟢","category":"spice","cuisines":["eastern-european"],"commonness":3,
+   "description":"Sour wild plums cooked with herbs into a sharp green or red sauce for meat.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Sour fruit sauce."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Amla-rasa is ushna."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda by the fruit, in the plum group."}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"Concentrated sour fruit."},
+   "nutrition":{"kcal":80,"protein":1,"carbs":18,"fat":0.3,"highlight":"green in spring, red in autumn","estimate":true}},
+
+  {"id":"marjoram","name":"Marjoram","aliases":["sweet marjoram"],"emoji":"🌿","category":"spice","cuisines":["western","eastern-european"],"commonness":2,
+   "description":"Oregano's milder cousin — sweeter, and it fades if cooked too long.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"An aromatic warming herb."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and tikshna, in the aromatic group."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Marzanjosh is garam-khushk in the classical materia medica."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low as a dried herb."},
+   "nutrition":{"kcal":271,"protein":12.7,"carbs":60.6,"fat":7,"highlight":"add it late, or it fades"},
+   "remedy":{"too-cold":"eat"}}
 ]
