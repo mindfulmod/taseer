@@ -407,18 +407,123 @@ export function prepView(id) {
   };
 }
 
-export function categoryView(catId) {
+const byStaplesFirst = (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name);
+
+/**
+ * Cuisine chips earn their space on Dishes and nowhere else. A dish belongs to
+ * exactly one kitchen 98% of the time, so the filter cuts 970 down to 36–190.
+ * Ingredients sit in several kitchens at once — half of all fruit carries two
+ * or more tags — so the same control there would hide half the list while
+ * cutting nothing the reader wanted gone.
+ */
+const cuisineFilterable = catId => catId === "dish";
+
+function categoryBody(pool, q, cuisine) {
+  let list = cuisine ? pool.filter(f => f.cuisines.includes(cuisine)) : pool;
+  // With a query, search ranking wins; without one, everyday staples lead.
+  list = q.trim() ? search(q, 500, list) : [...list].sort(byStaplesFirst);
+
+  if (!list.length) {
+    return `<div class="empty">Nothing matches${q.trim() ? ` “${esc(q.trim())}”` : ""} here.
+      ${cuisine ? "Try clearing the cuisine filter." : "Try a different spelling, or search from Find."}</div>`;
+  }
+  const of = list.length === pool.length ? "" : ` of ${pool.length}`;
+  // The noun agrees with whichever number it follows — "1 of 970 foods", but
+  // "1 food" when the category really does hold one.
+  const noun = (of ? pool.length : list.length) === 1 ? "food" : "foods";
+  return `
+    <p class="tiny muted" style="margin:0 2px 10px">${list.length}${of} ${noun}${
+      q.trim() ? "" : ", everyday staples first"
+    }.</p>
+    ${tileList(list)}`;
+}
+
+export function categoryView(catId, { q = "", cuisine = "" } = {}) {
   const cat = CATEGORIES.find(c => c.id === catId);
   if (!cat) return { html: `<div class="empty">Unknown category.</div>` };
-  const list = byCategory(catId).sort((a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name));
+  const pool = byCategory(catId);
+  const cuisines = cuisineFilterable(catId)
+    ? CUISINES.filter(c => pool.some(f => f.cuisines.includes(c.id)))
+    : [];
+
+  const chipFor = (id, label, on) =>
+    `<button class="pillbtn" data-cuisine="${esc(id)}" aria-pressed="${on}">${esc(label)}</button>`;
+
   return {
     html: `
       ${backBar("Find", "/find")}
       <section class="hero hero--cat">
         <img class="hero__cut" src="assets/ui/categories/${cat.id}.png" alt="" aria-hidden="true">
-        <h1>${esc(cat.label)}</h1><p>${list.length} foods, everyday staples first.</p>
+        <h1>${esc(cat.label)}</h1><p>${pool.length} foods to look through.</p>
       </section>
-      ${tileList(list)}`,
+
+      <div class="searchbar">
+        <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
+        <input id="catq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
+               placeholder="Search ${esc(cat.label.toLowerCase())}" value="${esc(q)}"
+               aria-label="Search within ${esc(cat.label)}">
+      </div>
+
+      ${
+        cuisines.length
+          ? `<div class="chiprow" role="group" aria-label="Filter by cuisine">
+               ${chipFor("", "All", !cuisine)}
+               ${cuisines.map(c => chipFor(c.id, c.label, c.id === cuisine)).join("")}
+             </div>`
+          : ""
+      }
+
+      <div id="catbody">${categoryBody(pool, q, cuisine)}</div>`,
+
+    mount(root) {
+      const input = root.querySelector("#catq");
+      const body = root.querySelector("#catbody");
+      let q0 = q;
+      let cuisine0 = cuisine;
+
+      // Arriving on a shared link with a filter already set, the active chip can
+      // sit off the right edge of the scroller — the list looks arbitrarily
+      // short with nothing on screen explaining why. Only scroll when it really
+      // is out of view: centring a chip that was already visible pushes "All"
+      // off the left edge, hiding the only way to clear the filter.
+      if (cuisine0) {
+        const active = root.querySelector(`[data-cuisine="${CSS.escape(cuisine0)}"]`);
+        const row = active?.parentElement;
+        if (active && row) {
+          const a = active.getBoundingClientRect();
+          const r = row.getBoundingClientRect();
+          if (a.left < r.left || a.right > r.right) {
+            active.scrollIntoView({ block: "nearest", inline: "center" });
+          }
+        }
+      }
+
+      // replaceState, not a hash change: re-rendering the whole screen on every
+      // keystroke would rebuild the chip row and steal focus from the input.
+      const sync = () => {
+        body.innerHTML = categoryBody(pool, q0, cuisine0);
+        const p = new URLSearchParams();
+        if (q0.trim()) p.set("q", q0.trim());
+        if (cuisine0) p.set("cuisine", cuisine0);
+        const qs = p.toString();
+        history.replaceState(null, "", `#/category/${catId}${qs ? `?${qs}` : ""}`);
+      };
+
+      input.addEventListener("input", () => {
+        q0 = input.value;
+        sync();
+      });
+
+      for (const btn of root.querySelectorAll("[data-cuisine]")) {
+        btn.addEventListener("click", () => {
+          cuisine0 = btn.dataset.cuisine === cuisine0 ? "" : btn.dataset.cuisine;
+          for (const b of root.querySelectorAll("[data-cuisine]")) {
+            b.setAttribute("aria-pressed", String(b.dataset.cuisine === cuisine0));
+          }
+          sync();
+        });
+      }
+    },
   };
 }
 

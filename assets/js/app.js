@@ -65,7 +65,7 @@ function resolve({ parts, params }) {
     case "search": return { view: findView(params), tab: "/find" };
     case "browse": return { view: findView({}), tab: "/find" };
     case "food": return { view: foodView(parts[1]), tab: null };
-    case "category": return { view: categoryView(parts[1]), tab: "/find" };
+    case "category": return { view: categoryView(parts[1], params), tab: "/find" };
     case "lists": return { view: listsView(), tab: "/find" };
     case "list": return { view: listView(parts[1]), tab: "/find" };
     case "prep": return { view: prepView(parts[1]), tab: "/find" };
