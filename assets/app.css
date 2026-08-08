@@ -278,6 +278,16 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .pillbtn:hover { border-color: var(--line-strong); }
 .pillbtn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
+/* Eleven cuisines will not wrap tidily on a phone, so the row scrolls sideways
+   instead of pushing the list two rows further down the screen. */
+.chiprow {
+  display: flex; gap: 8px; margin: 0 0 16px;
+  overflow-x: auto; scrollbar-width: none;
+  padding: 2px 2px 4px; scroll-padding-inline: 2px;
+}
+.chiprow::-webkit-scrollbar { display: none; }
+.chiprow .pillbtn { flex: none; }
+
 .empty {
   padding: 34px 20px; text-align: center; color: var(--ink-2);
   background: var(--surface); border: 1px dashed var(--line-strong); border-radius: var(--radius);

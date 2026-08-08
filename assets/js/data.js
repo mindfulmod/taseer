@@ -129,11 +129,15 @@ function tier(food, q) {
   return Infinity;
 }
 
-export function search(query, limit = 80) {
+/**
+ * `pool` narrows the haystack — the category screen passes its own foods so a
+ * search inside Dishes cannot surface a spice. Ranking is identical either way.
+ */
+export function search(query, limit = 80, pool = foods) {
   const q = norm(query);
   if (!q) return [];
   const hits = [];
-  for (const food of foods) {
+  for (const food of pool) {
     const t = tier(food, q);
     if (t !== Infinity) hits.push({ food, t });
   }
