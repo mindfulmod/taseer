@@ -586,5 +586,29 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Rice noodles, served cool."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":190,"protein":1.7,"carbs":43,"fat":0.2,"highlight":"served cool, never hot"},
-   "remedy":{"too-hot":"eat"}}
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"hominy","name":"Hominy","aliases":["nixtamal","pozole corn"],"emoji":"🌽","category":"grain","cuisines":["latin-american"],"commonness":3,
+   "description":"Corn soaked in lime until the hulls slip off — the step that makes maize nourishing.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with corn; the alkaline soak is drying."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following corn."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the classical record; the nixtamal process has no classical parallel."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":119,"protein":2.5,"carbs":23.5,"fat":1.5,"highlight":"nixtamalisation makes maize nourishing"}},
+
+  {"id":"masa-harina","name":"Masa harina","aliases":["nixtamalised corn flour"],"emoji":"🌽","category":"grain","cuisines":["latin-american"],"commonness":2,
+   "description":"Flour ground from hominy — what tortillas and tamales are made from.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with corn."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":365,"protein":9.3,"carbs":76.3,"fat":3.9,"highlight":"not the same as cornflour"}},
+
+  {"id":"arepa-flour","name":"Arepa flour","aliases":["masarepa","precooked corn flour"],"emoji":"🌽","category":"grain","cuisines":["latin-american"],"commonness":3,
+   "description":"Pre-cooked corn flour that hydrates instantly — arepas and nothing else.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with corn."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":362,"protein":8,"carbs":78,"fat":1.5,"highlight":"hydrates instantly"}},
+
+  {"id":"farofa","name":"Farofa","aliases":["toasted cassava flour"],"emoji":"🟡","category":"grain","cuisines":["latin-american"],"commonness":3,
+   "description":"Cassava flour toasted in butter — scattered over feijoada for texture.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with cassava; the toasting warms it."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; ushna from the toasting and fat."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":420,"protein":2,"carbs":78,"fat":12,"highlight":"scattered, for texture"}}
 ]

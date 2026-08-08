@@ -794,5 +794,11 @@
    "description":"Small sour green fruit used as a souring agent rather than eaten.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with star fruit, its relative."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, though sour by taste."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Intensely sour."},
-   "nutrition":{"kcal":28,"protein":0.6,"carbs":6,"fat":0.3,"highlight":"a souring agent, not a fruit"}}
+   "nutrition":{"kcal":28,"protein":0.6,"carbs":6,"fat":0.3,"highlight":"a souring agent, not a fruit"}},
+
+  {"id":"lucuma","name":"Lúcuma","aliases":["eggfruit","peruvian lucuma"],"emoji":"🟠","category":"fruit","cuisines":["latin-american"],"commonness":4,
+   "description":"Dry orange flesh tasting of maple and sweet potato — used as a flavouring more than eaten.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; no classical entry; sweet and dry."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; madhura and read as mildly ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; outside the record."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":99,"protein":1.5,"carbs":25,"fat":0.5,"highlight":"tastes of maple and sweet potato"}}
 ]

@@ -281,5 +281,23 @@
    "description":"Dehydrated cheese used to coat crisps and instant pasta.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Inherits from the aged cheese base."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna by inheritance."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Built from ripened cheese and stored dry for months."},
-   "nutrition":{"kcal":400,"protein":25,"carbs":30,"fat":22,"highlight":"what coats the crisps","estimate":true}}
+   "nutrition":{"kcal":400,"protein":25,"carbs":30,"fat":22,"highlight":"what coats the crisps","estimate":true}},
+
+  {"id":"queso-fresco","name":"Queso fresco","aliases":["fresh mexican cheese"],"emoji":"🧀","category":"dairy","cuisines":["latin-american"],"commonness":2,
+   "description":"Crumbly fresh white cheese that softens but does not melt.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh unripened cheese."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, like paneer."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Fresh and unripened, so low."},
+   "nutrition":{"kcal":305,"protein":18,"carbs":3,"fat":24,"highlight":"softens, never melts"}},
+
+  {"id":"cotija","name":"Cotija","aliases":["mexican aged cheese"],"emoji":"🧀","category":"dairy","cuisines":["latin-american"],"commonness":3,
+   "description":"Hard salty aged cheese crumbled over corn and beans — the Mexican parmesan.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; read with the aged cheeses."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; ushna and guru."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Aged cheese."},
+   "nutrition":{"kcal":370,"protein":22,"carbs":4,"fat":30,"highlight":"the Mexican parmesan"}},
+
+  {"id":"crema-mexicana","name":"Crema","aliases":["crema mexicana","mexican sour cream"],"emoji":"🥛","category":"dairy","cuisines":["latin-american"],"commonness":2,
+   "description":"Thinner and less sour than sour cream — poured rather than spooned.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record; read with cultured cream."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured dairy is ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Cultured but young."},
+   "nutrition":{"kcal":230,"protein":2.5,"carbs":4,"fat":23,"highlight":"poured, not spooned"}}
 ]
