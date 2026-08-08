@@ -886,5 +886,37 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record; read with tea; a bitter caffeinated infusion."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; tikta and caffeinated."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; outside the record."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Caffeine liberator."},
    "nutrition":{"kcal":5,"protein":0.3,"carbs":0.8,"fat":0,"highlight":"passed around, never refused","estimate":true},
-   "ingredients":["yerba-mate"]}
+   "ingredients":["yerba-mate"]},
+
+  {"id":"doogh","name":"Doogh","aliases":["persian yogurt drink"],"emoji":"🥛","category":"drink","cuisines":["persian-turkish"],"commonness":1,
+   "description":"Salted yogurt drink with dried mint, often sparkling.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Thinned yogurt, served cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Takra is ushna classically."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar; drunk with kabab for exactly that reason."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low, like other yogurt drinks."},
+   "nutrition":{"kcal":35,"protein":1.6,"carbs":3,"fat":1.7,"highlight":"sparkling, if you're lucky","estimate":true},
+   "ingredients":["yogurt","mint-dried","salt"],
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"sherbet-persian","name":"Sharbat","aliases":["persian sherbet","sekanjabin"],"emoji":"🥤","category":"drink","cuisines":["persian-turkish"],"commonness":2,
+   "description":"Fruit or herb syrup diluted with cold water — vinegar and mint in the case of sekanjabin.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Diluted syrup, served cold."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; the classic summer drink."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar; sharbat is a Unani category, not just a drink."}},
+   "histamine":{"sighi":2,"tags":[],"note":"The vinegar-based sekanjabin rates higher than the fruit ones."},
+   "nutrition":{"kcal":70,"protein":0.1,"carbs":18,"fat":0,"highlight":"a Unani category, not just a drink","estimate":true},
+   "ingredients":["white-sugar","mint","apple-cider-vinegar"],
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"turkish-coffee","name":"Turkish coffee","aliases":["kahve","cezve coffee"],"emoji":"☕","category":"drink","cuisines":["persian-turkish"],"commonness":1,
+   "description":"Very finely ground coffee brought to a foam in a cezve and served with the grounds.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with coffee; unfiltered and concentrated."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and tikshna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk; the Unani record on qahwa is explicit."}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"Coffee liberator, and the grounds stay in the cup."},
+   "nutrition":{"kcal":10,"protein":0.2,"carbs":1.8,"fat":0.2,"highlight":"the grounds stay in the cup","estimate":true},
+   "ingredients":["coffee","cardamom","white-sugar"],
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"boza","name":"Boza","aliases":["fermented millet drink"],"emoji":"🥤","category":"drink","cuisines":["persian-turkish"],"commonness":3,
+   "description":"Thick slightly fizzy fermented millet drink, drunk in winter with cinnamon and chickpeas on top.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A fermented grain drink, taken warm."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A live grain ferment, drunk uncooked."},
+   "nutrition":{"kcal":85,"protein":1.5,"carbs":19,"fat":0.2,"highlight":"sold only in winter","estimate":true},
+   "ingredients":["millet","white-sugar","canela"],
+   "remedy":{"too-cold":"eat"}}
 ]

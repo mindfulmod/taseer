@@ -610,5 +610,29 @@
    "description":"Cassava flour toasted in butter — scattered over feijoada for texture.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with cassava; the toasting warms it."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; ushna from the toasting and fat."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
-   "nutrition":{"kcal":420,"protein":2,"carbs":78,"fat":12,"highlight":"scattered, for texture"}}
+   "nutrition":{"kcal":420,"protein":2,"carbs":78,"fat":12,"highlight":"scattered, for texture"}},
+
+  {"id":"sangak","name":"Sangak","aliases":["pebble bread","persian flatbread"],"emoji":"🫓","category":"grain","cuisines":["persian-turkish"],"commonness":2,
+   "description":"Long sourdough flatbread baked directly on hot stones, which leave dimples.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with wheat."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"A sour ferment is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Sourdough-leavened, like other long-proved breads."},
+   "nutrition":{"kcal":270,"protein":9,"carbs":54,"fat":2,"highlight":"baked on hot pebbles"}},
+
+  {"id":"nan-e-barbari","name":"Barbari","aliases":["nan-e barbari","persian flatbread"],"emoji":"🫓","category":"grain","cuisines":["persian-turkish"],"commonness":2,
+   "description":"Thick ridged bread glazed before baking so the crust goes glossy.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with wheat."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Yeast-leavened."},
+   "nutrition":{"kcal":280,"protein":9,"carbs":55,"fat":3,"highlight":"the ridges are pressed by hand"}},
+
+  {"id":"nan-e-taftoon","name":"Taftoon","aliases":["nan-e taftoon"],"emoji":"🫓","category":"grain","cuisines":["persian-turkish"],"commonness":3,
+   "description":"A thin soft round bread baked fast against the oven wall.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with wheat."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Yeast-leavened."},
+   "nutrition":{"kcal":265,"protein":8,"carbs":53,"fat":2,"highlight":"thin, soft, and fast"}},
+
+  {"id":"kadayif","name":"Kadayıf","aliases":["shredded pastry"],"emoji":"🍜","category":"grain","cuisines":["persian-turkish"],"commonness":2,
+   "description":"Pastry extruded into fine threads — the base of künefe and many syrup sweets.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with wheat pastry."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna once fried in butter."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low as raw pastry."},
+   "nutrition":{"kcal":340,"protein":8,"carbs":68,"fat":3,"highlight":"threads, not sheets"}}
 ]
