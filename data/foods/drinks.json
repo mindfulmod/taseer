@@ -945,13 +945,6 @@
    "nutrition":{"kcal":45,"protein":0.1,"carbs":11,"fat":0,"highlight":"drunk very cold, always"},
    "remedy":{"too-hot":"eat"}},
 
-  {"id":"zobo","name":"Zobo","aliases":["nigerian hibiscus drink"],"emoji":"🌺","category":"drink","cuisines":["african"],"commonness":2,
-   "description":"The Nigerian hibiscus drink, usually with pineapple and clove alongside.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Hibiscus is cool and heat-clearing."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
-   "histamine":{"sighi":2,"tags":["liberator"],"note":"Hibiscus plus pineapple, which is a liberator."},
-   "nutrition":{"kcal":50,"protein":0.2,"carbs":12,"fat":0,"highlight":"with pineapple and clove","estimate":true},
-   "remedy":{"too-hot":"eat"}},
-
   {"id":"kunu","name":"Kunu","aliases":["kunun zaki","millet drink"],"emoji":"🥤","category":"drink","cuisines":["african"],"commonness":3,
    "description":"Millet soaked, ground and lightly fermented with ginger — thin, sweet and grainy.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record; a light grain ferment served cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented and ginger-spiced, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
