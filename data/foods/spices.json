@@ -928,5 +928,54 @@
    "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"With the cooling sea vegetables."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; read with kelp and nori."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with the seaweeds."}},
    "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Dried sea vegetable. It also carries inorganic arsenic, which is a separate and real caution."},
    "nutrition":{"kcal":186,"protein":7.4,"carbs":56,"fat":1.3,"highlight":"carries arsenic — a real caution"},
-   "remedy":{"too-hot":"eat"}}
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"doenjang","name":"Doenjang","aliases":["korean soybean paste","da jiang"],"emoji":"🫙","category":"spice","cuisines":["korean"],"commonness":1,
+   "description":"Soybeans fermented in brine for months to years — earthier and saltier than miso.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A long salty ferment; warming and descending."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented and salty, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam by ferment and salt."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Years of ferment in some households — higher again than miso."},
+   "nutrition":{"kcal":198,"protein":12,"carbs":22,"fat":6,"highlight":"years, in some households"}},
+
+  {"id":"ganjang","name":"Ganjang","aliases":["korean soy sauce","guk-ganjang"],"emoji":"🫙","category":"spice","cuisines":["korean"],"commonness":1,
+   "description":"Korean soy sauce — the soup kind is saltier and paler than the Chinese sort.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fermented and salty."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna by ferment."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Fermented soy, like all soy sauces."},
+   "nutrition":{"kcal":60,"protein":6,"carbs":5,"fat":0.1,"highlight":"the soup kind is paler, and saltier"}},
+
+  {"id":"ssamjang","name":"Ssamjang","aliases":["korean wrap sauce"],"emoji":"🫙","category":"spice","cuisines":["korean"],"commonness":2,
+   "description":"Doenjang and gochujang mixed with sesame and garlic — the sauce inside a lettuce wrap.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Two ferments plus chilli and garlic."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and tikshna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Two fermented pastes at once, plus chilli."},
+   "nutrition":{"kcal":165,"protein":8,"carbs":20,"fat":6,"highlight":"the sauce inside the lettuce","estimate":true}},
+
+  {"id":"cheonggukjang","name":"Cheonggukjang","aliases":["fast-fermented soybean paste"],"emoji":"🫘","category":"spice","cuisines":["korean"],"commonness":4,
+   "description":"Soybeans fermented for two or three days into a pungent sticky paste — Korea's natto.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A short intense ferment."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna by ferment."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A bacillus ferment like natto — high, and famous for its smell."},
+   "nutrition":{"kcal":180,"protein":16,"carbs":14,"fat":8,"highlight":"Korea's answer to natto","estimate":true}},
+
+  {"id":"jeotgal","name":"Jeotgal","aliases":["salted seafood","korean fish sauce"],"emoji":"🦐","category":"spice","cuisines":["korean"],"commonness":2,
+   "description":"Seafood salted and fermented for months — the umami engine inside kimchi.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fermented salted seafood."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Fermented seafood — among the very highest, and it is what makes kimchi taste like kimchi."},
+   "nutrition":{"kcal":80,"protein":12,"carbs":2,"fat":2,"highlight":"the engine inside kimchi","estimate":true}},
+
+  {"id":"saeujeot","name":"Saeujeot","aliases":["salted shrimp"],"emoji":"🦐","category":"spice","cuisines":["korean"],"commonness":3,
+   "description":"Tiny shrimp packed in salt and left to break down — used by the spoonful.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Salted fermented shellfish."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Fermented shellfish: both the liberator flag and a heavy amine load."},
+   "nutrition":{"kcal":70,"protein":12,"carbs":1,"fat":1.5,"highlight":"used by the spoonful","estimate":true}},
+
+  {"id":"dashida","name":"Dashida","aliases":["korean beef stock powder"],"emoji":"🫙","category":"spice","cuisines":["korean"],"commonness":2,
+   "description":"Powdered beef-and-vegetable stock base found in most Korean kitchens.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; a modern stock powder; read as warming."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; ushna by its meat base and salt."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Concentrated meat extract with yeast extract — both high, and it is in a great many home dishes."},
+   "nutrition":{"kcal":200,"protein":12,"carbs":30,"fat":4,"highlight":"in most Korean kitchens","estimate":true}},
+
+  {"id":"perilla-leaf","name":"Perilla leaf","aliases":["kkaennip","sesame leaf"],"emoji":"🌿","category":"spice","cuisines":["korean"],"commonness":2,
+   "description":"Broad minty-anise leaf used for wrapping — related to shiso, but not the same.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Zi su ye is warm and releases the exterior; a classical drug for chills and fish."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Katu and ushna by its aroma."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; aromatic leaves read as warming."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":41,"protein":3.9,"carbs":7.4,"fat":0.8,"highlight":"related to shiso, not the same"},
+   "remedy":{"too-cold":"eat"}}
 ]
