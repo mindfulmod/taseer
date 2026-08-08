@@ -1,2 +1,6 @@
 .DS_Store
 node_modules/
+
+# Source renders the illustrations were derived from — 647MB and growing.
+# Only the exported webp at assets/food-images/*.webp ships.
+assets/food-images/_raw/
