@@ -1001,5 +1001,43 @@
    "thermal":{"tcm":{"verdict":"hot","confidence":"contested","note":"Outside the classical record; air-dried cured beef."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Fermented and air-dried."},
    "nutrition":{"kcal":400,"protein":22,"carbs":2,"fat":34,"highlight":"sliced very thin, always"},
-   "remedy":{"too-cold":"eat"}}
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"lap-cheong","name":"Chinese sausage","aliases":["lap cheong","lap chong"],"emoji":"🌭","category":"protein","cuisines":["chinese"],"commonness":2,
+   "description":"Sweet dried pork sausage, hard until it is steamed on top of rice.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Cured, sweetened and warming."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and guru."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Cured and air-dried pork."},
+   "nutrition":{"kcal":500,"protein":22,"carbs":12,"fat":42,"highlight":"hard until it meets steam"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"conpoy","name":"Dried scallop","aliases":["conpoy"],"emoji":"🐚","category":"protein","cuisines":["chinese"],"commonness":3,
+   "description":"Scallops dried hard into amber discs and shredded into soup and congee for depth.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Dried shellfish; read as building."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Dried matsya is ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Dried shellfish — one of the highest categories there is."},
+   "nutrition":{"kcal":330,"protein":65,"carbs":5,"fat":2,"highlight":"amber discs, shredded by hand"}},
+
+  {"id":"dried-squid","name":"Dried squid","aliases":["sotong kering"],"emoji":"🦑","category":"protein","cuisines":["chinese"],"commonness":3,
+   "description":"Squid dried stiff, then toasted or soaked back to life.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Dried seafood."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and ruksha."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Dried seafood."},
+   "nutrition":{"kcal":310,"protein":60,"carbs":10,"fat":4,"highlight":"toasted, or soaked back"}},
+
+  {"id":"salted-duck-egg","name":"Salted duck egg","aliases":["xian ya dan"],"emoji":"🥚","category":"protein","cuisines":["chinese"],"commonness":2,
+   "description":"Duck egg cured in brine for a month — the yolk goes orange, firm and oily.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Duck egg is cooler than hen; the cure warms it."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Anda is ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk by the brine."}},
+   "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Egg plus a month-long salt cure."},
+   "nutrition":{"kcal":190,"protein":14,"carbs":1.5,"fat":14,"highlight":"the yolk goes orange and oily"}},
+
+  {"id":"silkie-chicken","name":"Silkie chicken","aliases":["black chicken","wu gu ji"],"emoji":"🐔","category":"protein","cuisines":["chinese"],"commonness":4,
+   "description":"Black-boned chicken simmered whole into tonic soup rather than eaten for its meat.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"A classical tonic bird; warmer and more building than ordinary chicken."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and guru."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":2,"tags":[],"note":"Fresh poultry; the long simmer is what raises the soup."},
+   "nutrition":{"kcal":140,"protein":21,"carbs":0,"fat":6,"highlight":"for the broth, not the meat"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"salted-fish-chinese","name":"Chinese salted fish","aliases":["xian yu"],"emoji":"🐟","category":"protein","cuisines":["chinese"],"commonness":3,
+   "description":"Fish heavily salted and sun-dried — pungent enough that a small piece flavours a whole dish.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Salted and dried fish."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Salted and sun-dried fish — as high as this dataset goes."},
+   "nutrition":{"kcal":300,"protein":45,"carbs":0,"fat":12,"highlight":"a small piece flavours everything"}}
 ]

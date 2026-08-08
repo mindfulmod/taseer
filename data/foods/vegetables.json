@@ -1046,5 +1046,18 @@
    "description":"Not a banana — the corm and stem are what is eaten, after long fermentation.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; no classical entry."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; starchy and read as shita."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; outside the record."}},
    "histamine":{"sighi":2,"tags":[],"note":"Almost always fermented before eating."},
-   "nutrition":{"kcal":150,"protein":1.2,"carbs":36,"fat":0.3,"highlight":"the false banana"}}
+   "nutrition":{"kcal":150,"protein":1.2,"carbs":36,"fat":0.3,"highlight":"the false banana"}},
+
+  {"id":"chinese-yam","name":"Chinese yam","aliases":["shan yao","nagaimo"],"emoji":"🍠","category":"vegetable","cuisines":["chinese"],"commonness":3,
+   "description":"Pale slippery tuber eaten raw grated or in soup — a spleen tonic more than a vegetable.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"high","note":"A classical spleen and lung tonic; neutral and building."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, madhura and guru."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":118,"protein":1.5,"carbs":28,"fat":0.2,"highlight":"slippery, and deliberately so"}},
+
+  {"id":"dried-bamboo-shoot","name":"Dried bamboo shoot","aliases":["gan sun"],"emoji":"🎋","category":"vegetable","cuisines":["chinese"],"commonness":3,
+   "description":"Bamboo dried into pale strips that need a long soak and a longer braise.",
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Read with bamboo shoot, which is cold and draining."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and ruksha."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":280,"protein":12,"carbs":60,"fat":2,"highlight":"a long soak, then a longer braise"},
+   "remedy":{"too-hot":"eat"}}
 ]

@@ -1,7 +1,7 @@
 // Taseer service worker — offline-first shell, lazily-cached illustrations.
 // VERSION is generated: run `node scripts/stamp-sw.mjs` after any shell change.
 // Do not edit it by hand — it is a hash of SHELL_FILES, and CI fails if it's stale.
-const VERSION = "taseer-b455ca5608";
+const VERSION = "taseer-e14b34882f";
 const SHELL = `${VERSION}-shell`;
 const IMAGES = `${VERSION}-images`;
 

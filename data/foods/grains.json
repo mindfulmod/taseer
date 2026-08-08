@@ -652,5 +652,19 @@
    "description":"Fermented enset pulp buried in a pit for months and baked flat.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; no classical entry; a long ferment."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Months of pit fermentation."},
-   "nutrition":{"kcal":180,"protein":1.5,"carbs":42,"fat":0.4,"highlight":"buried for months","estimate":true}}
+   "nutrition":{"kcal":180,"protein":1.5,"carbs":42,"fat":0.4,"highlight":"buried for months","estimate":true}},
+
+  {"id":"jiu-niang","name":"Jiu niang","aliases":["sweet fermented rice","lao zao"],"emoji":"🍚","category":"grain","cuisines":["chinese"],"commonness":3,
+   "description":"Glutinous rice fermented a few days into a sweet boozy porridge, spooned into soup.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"A warming rice ferment; used to move blood after childbirth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":3,"tags":["high-histamine","dao-blocker"],"note":"A live ferment with alcohol in it."},
+   "nutrition":{"kcal":120,"protein":2,"carbs":25,"fat":0.3,"highlight":"sweet, and faintly boozy"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"liangfen","name":"Mung bean jelly","aliases":["liangfen"],"emoji":"⬜","category":"grain","cuisines":["chinese"],"commonness":3,
+   "description":"Mung bean starch set into a translucent block, sliced cold and dressed in chilli and vinegar.",
+   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Mung bean starch, served cold — a summer food."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low on its own; the vinegar dressing is what rates."},
+   "nutrition":{"kcal":60,"protein":0.3,"carbs":14,"fat":0,"highlight":"a summer food, plainly"},
+   "remedy":{"too-hot":"eat"}}
 ]

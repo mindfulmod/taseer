@@ -956,5 +956,33 @@
    "thermal":{"tcm":{"verdict":"hot","confidence":"high","note":"Raw ginger in quantity."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ardraka is ushna and tikshna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Lime is the only real contributor."},
    "nutrition":{"kcal":60,"protein":0.3,"carbs":14,"fat":0.2,"highlight":"it catches the throat","estimate":true},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"suan-mei-tang","name":"Sour plum drink","aliases":["suan mei tang"],"emoji":"🟤","category":"drink","cuisines":["chinese"],"commonness":2,
+   "description":"Smoked plums, hawthorn and liquorice boiled and chilled — the summer heat drink.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Sour, cooling and thirst-generating; drunk in high summer."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Amla and shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Smoked dried plums, which is both a dried fruit and a smoked one."},
+   "nutrition":{"kcal":50,"protein":0.2,"carbs":12,"fat":0,"highlight":"the summer heat drink"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"winter-melon-tea","name":"Winter melon tea","aliases":["dong gua cha"],"emoji":"🥤","category":"drink","cuisines":["chinese"],"commonness":3,
+   "description":"Winter melon simmered with rock sugar into a dark caramel syrup, then diluted.",
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Winter melon is cold and diuretic."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":45,"protein":0,"carbs":11,"fat":0,"highlight":"dark as caramel, and it is"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"leung-cha","name":"Leung cha","aliases":["herbal tea (cantonese)","cooling tea"],"emoji":"🍵","category":"drink","cuisines":["chinese"],"commonness":3,
+   "description":"A bitter black herbal decoction drunk specifically to clear heat — not a pleasure drink.",
+   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"The whole point is clearing heat; strongly cold."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Tikta and shita."},"unani":{"verdict":"cold-dry","confidence":"high","note":"Barid-yabis."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Low."},
+   "nutrition":{"kcal":5,"protein":0,"carbs":1,"fat":0,"highlight":"not a pleasure drink"},
+   "remedy":{"too-hot":"eat"}},
+
+  {"id":"baijiu","name":"Baijiu","aliases":["chinese white spirit"],"emoji":"🍾","category":"drink","cuisines":["chinese"],"commonness":3,
+   "description":"Sorghum spirit, very strong and very aromatic — drunk in small cups at table.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"high","note":"A strong spirit; hot and dispersing."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Madya is ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["dao-blocker"],"note":"Distilled, so lower in histamine than wine or beer — but alcohol blocks DAO regardless."},
+   "nutrition":{"kcal":300,"protein":0,"carbs":0,"fat":0,"highlight":"small cups, at table"},
    "remedy":{"too-cold":"eat"}}
 ]
