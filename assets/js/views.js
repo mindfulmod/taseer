@@ -483,11 +483,19 @@ export function categoryView(catId, { q = "", cuisine = "" } = {}) {
 
       // Arriving on a shared link with a filter already set, the active chip can
       // sit off the right edge of the scroller — the list looks arbitrarily
-      // short with nothing on screen explaining why. Bring it into view.
+      // short with nothing on screen explaining why. Only scroll when it really
+      // is out of view: centring a chip that was already visible pushes "All"
+      // off the left edge, hiding the only way to clear the filter.
       if (cuisine0) {
-        root
-          .querySelector(`[data-cuisine="${CSS.escape(cuisine0)}"]`)
-          ?.scrollIntoView({ block: "nearest", inline: "center" });
+        const active = root.querySelector(`[data-cuisine="${CSS.escape(cuisine0)}"]`);
+        const row = active?.parentElement;
+        if (active && row) {
+          const a = active.getBoundingClientRect();
+          const r = row.getBoundingClientRect();
+          if (a.left < r.left || a.right > r.right) {
+            active.scrollIntoView({ block: "nearest", inline: "center" });
+          }
+        }
       }
 
       // replaceState, not a hash change: re-rendering the whole screen on every
