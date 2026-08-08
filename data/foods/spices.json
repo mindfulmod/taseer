@@ -1560,5 +1560,51 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"An aromatic warming flower."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and aromatic."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low as a dried flower; the syrup version is sugar."},
    "nutrition":{"kcal":280,"protein":3,"carbs":65,"fat":1,"highlight":"a pinch, never more"},
-   "remedy":{"too-cold":"eat"}}
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"kashmiri-chilli","name":"Kashmiri chilli","aliases":["kashmiri mirch","deggi mirch"],"emoji":"🌶️","category":"spice","cuisines":["south-asian"],"commonness":2,
+   "description":"Dried chilli grown for colour rather than heat — it reddens a dish without burning it.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Still a chilli, though a mild one."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Katu and ushna, in a lower degree."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"A dried chilli, so it carries the liberator flag despite the low heat."},
+   "nutrition":{"kcal":280,"protein":12,"carbs":50,"fat":14,"highlight":"colour without the burn"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"byadgi-chilli","name":"Byadgi chilli","aliases":["byadagi"],"emoji":"🌶️","category":"spice","cuisines":["south-asian"],"commonness":3,
+   "description":"Long wrinkled Karnataka chilli, deep red and almost as mild as Kashmiri.",
+   "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"A mild dried chilli."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna in a lower degree."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"A dried chilli."},
+   "nutrition":{"kcal":280,"protein":12,"carbs":50,"fat":14,"highlight":"wrinkled, and deep red"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"dagad-phool","name":"Dagad phool","aliases":["stone flower","kalpasi","black stone flower"],"emoji":"🪨","category":"spice","cuisines":["south-asian"],"commonness":4,
+   "description":"A dried lichen that smells of nothing until it hits hot oil — then it carries goat masala.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; an aromatic used in the goat masalas; read as warming."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; ushna, with the aromatics."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":300,"protein":5,"carbs":60,"fat":3,"highlight":"smells of nothing until it hits oil"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"marathi-moggu","name":"Marathi moggu","aliases":["kapok buds"],"emoji":"🌰","category":"spice","cuisines":["south-asian"],"commonness":4,
+   "description":"Dried kapok buds used in Karnataka masalas — musty, and a little like mustard.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; read with the warming aromatics."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; ushna and katu."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":290,"protein":6,"carbs":58,"fat":4,"highlight":"musty, in a good way"},
+   "remedy":{"too-cold":"eat"}},
+
+  {"id":"coconut-vinegar-goan","name":"Goan coconut vinegar","aliases":["toddy vinegar"],"emoji":"🫗","category":"spice","cuisines":["south-asian"],"commonness":3,
+   "description":"Cloudy vinegar made from fermented palm toddy — sharper and softer at once than cane vinegar.",
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A fermented sour liquid."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Amla-rasa is ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A double ferment — toddy to alcohol, then alcohol to vinegar."},
+   "nutrition":{"kcal":15,"protein":0,"carbs":1,"fat":0,"highlight":"cloudy, and it should be"}},
+
+  {"id":"groundnut-oil","name":"Groundnut oil","aliases":["peanut oil"],"emoji":"🫗","category":"spice","cuisines":["south-asian"],"commonness":1,
+   "description":"Neutral high-smoke-point oil used across western and southern India.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A neutral cooking oil."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Peanuts are ushna, and so is their oil."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low as a refined oil — the peanut protein that liberates histamine is not in it."},
+   "nutrition":{"kcal":884,"protein":0,"carbs":0,"fat":100,"highlight":"the protein is not in the oil"}},
+
+  {"id":"rice-bran-oil","name":"Rice bran oil","aliases":["rice oil"],"emoji":"🫗","category":"spice","cuisines":["south-asian"],"commonness":2,
+   "description":"A light neutral oil pressed from the bran, common in Indian frying.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A neutral cooking oil."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following rice."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "nutrition":{"kcal":884,"protein":0,"carbs":0,"fat":100,"highlight":"light, and it stays light"}}
 ]

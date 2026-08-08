@@ -348,5 +348,11 @@
    "description":"Polish fresh curd cheese, from soft to dry depending on how long it drains.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh dairy."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":1,"tags":[],"note":"Fresh and unripened."},
-   "nutrition":{"kcal":105,"protein":18,"carbs":3.5,"fat":2.5,"highlight":"soft or dry, by draining time"}}
+   "nutrition":{"kcal":105,"protein":18,"carbs":3.5,"fat":2.5,"highlight":"soft or dry, by draining time"}},
+
+  {"id":"chhena","name":"Chhena","aliases":["bengali fresh curd"],"emoji":"⚪","category":"dairy","cuisines":["south-asian"],"commonness":2,
+   "description":"Milk split with acid and drained but not pressed — softer than paneer, and the base of Bengali sweets.",
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh unpressed curd."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and madhura."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "histamine":{"sighi":1,"tags":[],"note":"Fresh curd, made and used the same day."},
+   "nutrition":{"kcal":160,"protein":15,"carbs":4,"fat":10,"highlight":"softer than paneer, deliberately"}}
 ]
