@@ -2,7 +2,7 @@
 import { banner, favorites, misses, recent, theme, triggers } from "./store.js";
 import {
   categoryView, compareView, findView, foodView, homeView, listView, listsView, meView,
-  prepView, spectrumView, stateView,
+  prepView, spectrumView, stateView, notFound,
 } from "./views.js";
 
 const main = document.getElementById("main");
@@ -73,7 +73,7 @@ function resolve({ parts, params }) {
     case "spectrum": return { view: spectrumView(params), tab: "/find" };
     case "me": return { view: meView(), tab: "/me" };
     case "state": return { view: stateView(parts[1], params), tab: "/" };
-    default: return { view: { html: `<div class="empty">Nothing here.</div>` }, tab: null };
+    default: return { view: notFound("page"), tab: null };
   }
 }
 

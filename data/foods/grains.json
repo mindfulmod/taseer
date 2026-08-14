@@ -214,8 +214,7 @@
    "description":"Deep purple whole-grain rice that stains everything it's cooked with.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Hei mi is warmer than white rice — a blood- and kidney-tonifying grain in the Chinese reading."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Regional rather than classical; read with rice."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Placed with rice."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
-   "nutrition":{"kcal":356,"protein":8.9,"carbs":75.6,"fat":3.2,"highlight":"anthocyanin-dark"},
-   "remedy":{"too-cold":"eat"}},
+   "nutrition":{"kcal":356,"protein":8.9,"carbs":75.6,"fat":3.2,"highlight":"anthocyanin-dark"}},
 
   {"id":"red-rice","name":"Red rice","aliases":["matta rice","kerala rice","hong mi","rosematta"],"emoji":"🍚","category":"grain","cuisines":["south-asian","chinese"],"commonness":3,
    "description":"Unpolished rice with a red bran layer — coarse, nutty, filling.",

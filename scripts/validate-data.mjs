@@ -77,6 +77,47 @@ for (const p of preps) {
 
 // Stats
 const total = all.size;
+// ---- Cross-entry consistency ------------------------------------------------
+// These catch contradictions the data can prove against itself. Both were real
+// when first run (2026-08-14): nine dishes rated below an ingredient they list,
+// and two foods prescribed for the state their own thermal reading argues
+// against. The screen shows the rating and the ingredient chips together, so an
+// inconsistency here is visible to the reader and costs trust in everything else.
+
+// A dish may sit one level below its worst ingredient — a trace of something
+// high does not drag the whole plate up — but not two.
+for (const f of all.values()) {
+  if (!f.ingredients?.length) continue;
+  const known = f.ingredients.map(i => all.get(i)).filter(Boolean);
+  if (!known.length) continue;
+  const worst = Math.max(...known.map(i => i.histamine.sighi));
+  if (f.histamine.sighi < worst - 1) {
+    const which = known.filter(i => i.histamine.sighi === worst).map(i => i.id).join("/");
+    errors.push(`${f.id}: SIGHI ${f.histamine.sighi} but lists ${which} at ${worst} — raise the dish, or drop the ingredient if it isn't really in it`);
+  }
+}
+
+// A remedy must not point against the food's own composite reading.
+const HEAT_V = {
+  tcm: { cold: -1, cool: -0.5, neutral: 0, warm: 0.5, hot: 1 },
+  ayurveda: { cooling: -0.7, heating: 0.7 },
+  unani: { cold: -1, "cold-dry": -1, "cold-moist": -1, neutral: 0, hot: 1, "hot-dry": 1, "hot-moist": 1 },
+};
+for (const f of all.values()) {
+  if (!f.remedy || !f.thermal?.tcm) continue;
+  const h = ["tcm", "ayurveda", "unani"].reduce((n, s) => n + (HEAT_V[s][f.thermal[s].verdict] ?? 0), 0) / 3 / 0.9;
+  if (f.remedy["too-hot"] === "eat" && h > 0.2) errors.push(`${f.id}: prescribed for "too hot" but reads warm (${h.toFixed(2)})`);
+  if (f.remedy["too-cold"] === "eat" && h < -0.2) errors.push(`${f.id}: prescribed for "too cold" but reads cool (${h.toFixed(2)})`);
+}
+
+// Macros cannot exceed the 100 g they are measured against.
+for (const f of all.values()) {
+  const n = f.nutrition;
+  if (!n) continue;
+  const g = n.protein + n.carbs + n.fat;
+  if (g > 100.5) errors.push(`${f.id}: macros sum to ${g.toFixed(1)} g per 100 g`);
+}
+
 const contested = [...all.values()].filter(f => Object.values(f.thermal ?? {}).some(t => t?.confidence === "contested"));
 const conflicts = [...all.values()].filter(f => {
   const t = f.thermal; if (!t?.tcm || !t?.ayurveda || !t?.unani) return false;
