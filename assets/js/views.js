@@ -14,6 +14,31 @@ import {
 const backBar = (label, href) =>
   `<button class="linkish" data-nav="${href}">← ${esc(label)}</button>`;
 
+/**
+ * Dead ends used to render as a bare "Unknown food." — no heading, no controls,
+ * no explanation. That is reachable in normal use: this ships as an installed
+ * PWA, so people keep old links on home screens, and entries do get renamed or
+ * merged (zobo folded into bissap, lahm-bi-ajeen into lahmacun). Anyone holding
+ * those URLs deserves to know what happened and be handed a way onward.
+ */
+export function notFound(thing) {
+  return {
+    html: `
+      ${backBar("Find", "/find")}
+      <section class="hero"><h1>Not found</h1>
+        <p>That ${esc(thing)} isn't here. It may have been renamed, or merged into another entry.</p>
+      </section>
+      <div class="empty">
+        <p><strong>Nothing at this address.</strong></p>
+        <p class="tiny" style="margin-top:6px">Entries are occasionally merged when two names turn out to mean the same food.</p>
+      </div>
+      <div class="chiprow" style="margin-top:14px">
+        <button class="pillbtn" data-nav="/find?focus=1">Search all ${META.count} foods</button>
+        <button class="pillbtn" data-nav="/">Home</button>
+      </div>`,
+  };
+}
+
 // ---- Home ----------------------------------------------------------------
 
 export function homeView() {
@@ -185,7 +210,7 @@ const systemNote = (food, sys) => {
 
 export function foodView(id) {
   const food = getFood(id);
-  if (!food) return { html: `<div class="empty">Unknown food.</div>` };
+  if (!food) return notFound("food");
   recent.push(food.id);
 
   const isFav = favorites.has(food.id);
@@ -363,7 +388,7 @@ export function listsView() {
 
 export function listView(id) {
   const list = getList(id);
-  if (!list) return { html: `<div class="empty">Unknown list.</div>` };
+  if (!list) return notFound("list");
   const items = list.pick();
   return {
     tone: list.tone === "neutral" ? null : list.tone,
@@ -376,7 +401,7 @@ export function listView(id) {
 
 export function prepView(id) {
   const prep = getPreparation(id);
-  if (!prep) return { html: `<div class="empty">Unknown preparation.</div>` };
+  if (!prep) return notFound("preparation");
   const tone = STATES[prep.state].tone;
   const ingredients = getFoods(prep.ingredients);
   return {
@@ -492,7 +517,7 @@ function categoryBody(pool, q, cuisine, sort) {
 
 export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } = {}) {
   const cat = CATEGORIES.find(c => c.id === catId);
-  if (!cat) return { html: `<div class="empty">Unknown category.</div>` };
+  if (!cat) return notFound("category");
   const pool = byCategory(catId);
   const cuisines = cuisineFilterable(catId)
     ? CUISINES.filter(c => pool.some(f => f.cuisines.includes(c.id)))
@@ -703,16 +728,38 @@ export function spectrumView({ band = "" } = {}) {
       ).join("")}
     </div>`;
 
-  const groups = (active ? [active] : BANDS)
-    .map(b => {
-      const items = shown.filter(f => f.heatClass === b.id);
-      if (!items.length) return "";
-      return `<section class="section">
-                <div class="section__head"><h2 class="band">${esc(b.label)}</h2><span class="tiny muted">${esc(b.blurb)}</span></div>
-                <div class="rail">${items.map(miniTile).join("")}</div>
-              </section>`;
-    })
-    .join("");
+  // The overview previews each band; the band view lists it in full.
+  //
+  // Rendering all 2,000 here used to lock the tab. A horizontal .rail has to lay
+  // out every child to know its scroll width, so nothing is ever "below the
+  // fold" and loading="lazy" buys nothing — 2,000 minitiles measured ~1s of
+  // blocking layout off-screen and hung the renderer on-screen. A vertical
+  // tileList has no such problem (970 rows render in ~2ms), so the full band
+  // uses that instead of a rail.
+  const PREVIEW = 18;
+  const groups = active
+    ? `<section class="section">
+         <div class="section__head"><h2 class="band">${esc(active.label)}</h2><span class="tiny muted">${esc(active.blurb)}</span></div>
+         <p class="tiny muted" style="margin:0 2px 10px">${shown.length} foods, coldest to hottest.</p>
+         ${tileList(shown)}
+       </section>`
+    : BANDS.map(b => {
+        const items = all.filter(f => f.heatClass === b.id);
+        if (!items.length) return "";
+        const more = items.length - PREVIEW;
+        return `<section class="section">
+                  <div class="section__head">
+                    <h2 class="band">${esc(b.label)}</h2>
+                    <span class="tiny muted">${esc(b.blurb)}</span>
+                  </div>
+                  <div class="rail">${items.slice(0, PREVIEW).map(miniTile).join("")}</div>
+                  ${
+                    more > 0
+                      ? `<button class="linkish" data-nav="/spectrum?band=${b.id}">See all ${items.length} ${esc(b.label.toLowerCase())} foods →</button>`
+                      : ""
+                  }
+                </section>`;
+      }).join("");
 
   return {
     tone: active && active.id !== "neutral" && active.id !== "cool" ? active.id : null,
@@ -850,7 +897,7 @@ function rankedGroups(list, favIds, opts) {
 
 export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
   const state = STATES[stateId];
-  if (!state) return { html: `<div class="empty">Unknown state.</div>` };
+  if (!state) return notFound("state");
   const verdict = list === "avoid" ? "avoid" : "eat";
   if (sort && !(sort in SORTS)) sort = "";
   const favIds = favorites.all();
