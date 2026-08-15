@@ -206,14 +206,42 @@ const ring = (value, max, label, unit) => {
     </div>`;
 };
 
+/**
+ * The fourth slot used to hold the hand-written `highlight`, sitting in the
+ * ring row under the label "Highlight" as though it were a macro stat. It is
+ * not one — two thirds of those strings restate the description printed
+ * directly above them, and a line like "the dish two countries argue over"
+ * reads as a non-sequitur beside 165 kcal.
+ *
+ * What belongs there is a reading of the macros themselves, so that is what it
+ * is now: derived, always true, and nothing to maintain. The written line moves
+ * below the rings as a caption, which is what it always was.
+ */
+function macroShape({ kcal, protein, carbs, fat }) {
+  const cals = protein * 4 + carbs * 4 + fat * 9;
+  if (kcal <= 25) return "barely any calories";
+  // Calories with no protein, carbohydrate or fat to account for them: a spirit.
+  // Alcohol carries ~7 kcal/g and is invisible to the macro rings, so say so
+  // rather than repeating the kcal figure sitting next to it.
+  if (!cals) return "calories from alcohol";
+  const share = n => n / cals;
+  if (share(fat * 9) >= 0.65) return "mostly fat";
+  if (share(protein * 4) >= 0.45) return "mostly protein";
+  if (share(carbs * 4) >= 0.8) return kcal >= 300 ? "dense in carbohydrate" : "mostly carbohydrate";
+  if (share(fat * 9) >= 0.4) return "rich, fat-led";
+  if (share(protein * 4) >= 0.25) return "protein and carbohydrate";
+  return "carbohydrate-led";
+}
+
 export const macroRings = food => `
   <div class="rings">
     ${MACROS.map(m => ring(food.nutrition[m.key], m.max, m.label, m.unit)).join("")}
     <div class="ring ring--text">
-      <span class="ring__hl">${esc(food.nutrition.highlight)}</span>
-      <span class="ring__label">Highlight</span>
+      <span class="ring__hl">${esc(macroShape(food.nutrition))}</span>
+      <span class="ring__label">Profile</span>
     </div>
-  </div>`;
+  </div>
+  <p class="rings__note">${esc(food.nutrition.highlight)}</p>`;
 
 export const mechLabel = tag => MECHS[tag]?.label ?? tag;
 export const sighiText = n => SIGHI_TEXT[n];
