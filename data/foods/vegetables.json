@@ -16,7 +16,7 @@
    "description":"Soft leafy green cooked across all four cuisines.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-moist","confidence":"high","note":"Palak is classically thanda."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Surprisingly high histamine for a 'healthy' green."},
-   "nutrition":{"kcal":23,"protein":2.9,"carbs":3.6,"fat":0.4,"highlight":"iron & folate"}},
+   "nutrition":{"kcal":23,"protein":2.9,"carbs":3.6,"fat":0.4,"highlight":"the iron is real; so is the oxalate that blocks it"}},
 
   {"id":"lettuce","name":"Lettuce","aliases":["salad patta","khass","sheng cai"],"emoji":"🥬","category":"vegetable","cuisines":["arabic","chinese","western"],"commonness":1,
    "description":"Crisp salad leaf; khass is a classic Unani cooler.",
@@ -168,7 +168,7 @@
    "description":"Everyday white mushroom.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Classically discouraged (tamasic) more than classified."},"unani":{"verdict":"cold-moist","confidence":"contested"}},
    "histamine":{"sighi":1,"tags":[],"note":"Fungi accumulate amines as they age — eat very fresh."},
-   "nutrition":{"kcal":22,"protein":3.1,"carbs":3.3,"fat":0.3,"highlight":"vitamin D (if UV-grown)"}},
+   "nutrition":{"kcal":22,"protein":3.1,"carbs":3.3,"fat":0.3,"highlight":"the only produce that makes vitamin D, and only under UV"}},
 
   {"id":"shiitake","name":"Shiitake mushroom","aliases":["xiang gu","donko"],"emoji":"🍄","category":"vegetable","cuisines":["chinese"],"commonness":3,
    "description":"Meaty aromatic mushroom, fresh or dried.",
@@ -345,7 +345,7 @@
    "description":"Unripe papaya shredded into salads or cooked as a vegetable.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"The unripe fruit is not separately classified; read from its enzyme-rich, stimulating character."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Unripe papaya is strongly ushna and emmenagogue — the reason it is traditionally avoided in pregnancy."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam, and used to bring on delayed courses."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Papain is at its strongest in the unripe fruit — the same liberator flag as ripe papaya, more so."},
-   "nutrition":{"kcal":43,"protein":0.5,"carbs":10.8,"fat":0.3,"highlight":"papain at its strongest"},
+   "nutrition":{"kcal":43,"protein":0.5,"carbs":10.8,"fat":0.3,"highlight":"papain at its strongest, before the fruit sweetens"},
    "remedy":{"too-cold":"eat"}},
 
   {"id":"banana-flower","name":"Banana flower","aliases":["kele ka phool","vazhaipoo","mocha","banana blossom"],"emoji":"🌺","category":"vegetable","cuisines":["south-asian"],"commonness":4,

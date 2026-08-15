@@ -45,7 +45,7 @@
    "description":"Bitter golden seed; hilba tea and methi tempering.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"high"},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot-dry","confidence":"high","note":"Textbook garam — hilba is a winter drink."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated."},
-   "nutrition":{"kcal":323,"protein":23,"carbs":58,"fat":6.4,"highlight":"iron & fiber"},
+   "nutrition":{"kcal":323,"protein":23,"carbs":58,"fat":6.4,"highlight":"bitter until toasted, and then it turns nutty"},
    "remedy":{"too-cold":"eat","too-hot":"avoid"}},
 
   {"id":"black-pepper","name":"Black pepper","aliases":["kali mirch","filfil aswad","hu jiao"],"emoji":"⚫","category":"spice","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
@@ -183,7 +183,7 @@
    "description":"The bulk green of tabbouleh.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Thinly documented."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Mildly heating, diuretic."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Baqdunis leans garam in Unani sources."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated."},
-   "nutrition":{"kcal":36,"protein":3,"carbs":6.3,"fat":0.8,"highlight":"vitamin K & C"}},
+   "nutrition":{"kcal":36,"protein":3,"carbs":6.3,"fat":0.8,"highlight":"more vitamin C than a lemon, gram for gram"}},
 
   {"id":"dill","name":"Dill","aliases":["soya (leaf)","shibint","shi luo"],"emoji":"🌿","category":"spice","cuisines":["south-asian","arabic","western"],"commonness":3,
    "description":"Feathery herb of fish, raita, and Egyptian shibint.",
@@ -202,7 +202,7 @@
    "description":"Thyme-sesame-sumac blend on manakish and labneh.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Blend; thyme base is warming."},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot-dry","confidence":"high","note":"Wild thyme (za'atar herb) is classically garam."}},
    "histamine":{"sighi":0,"tags":[],"note":"Generally fine; sesame component noted separately."},
-   "nutrition":{"kcal":300,"protein":11,"carbs":45,"fat":10,"highlight":"thymol + sesame","estimate":true}},
+   "nutrition":{"kcal":300,"protein":11,"carbs":45,"fat":10,"highlight":"thymol from the herb, richness from the sesame","estimate":true}},
 
   {"id":"sesame-seeds","name":"Sesame seeds","aliases":["til","simsim","zhi ma","tahini (paste)"],"emoji":"🟤","category":"spice","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Oil-rich seed; tahini, til laddu, and zhi ma jiang.",

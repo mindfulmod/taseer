@@ -24,7 +24,7 @@
    "description":"The king of fruits; sweet, rich summer stone fruit.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"TCM leans cool/neutral — the opposite of the desi view."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ripe mango is called cooling by some schools, heating by others."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Classic garam-taseer fruit in desi/Unani usage."}},
    "histamine":{"sighi":1,"tags":[],"note":"Usually tolerated; occasional reports of flares."},
-   "nutrition":{"kcal":60,"protein":0.8,"carbs":15,"fat":0.4,"highlight":"vitamin A & C"}},
+   "nutrition":{"kcal":60,"protein":0.8,"carbs":15,"fat":0.4,"highlight":"vitamin A and C, and the fibre gets in your teeth"}},
 
   {"id":"banana","name":"Banana","aliases":["kela","mauz","xiang jiao"],"emoji":"🍌","category":"fruit","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Everyday sweet fruit, filling and portable.",
@@ -266,7 +266,7 @@
    "description":"Delicate sweet berry of early summer.",
    "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Sang shen is a classic yin-nourishing cold fruit."},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Shahtoot sharbat is a traditional throat-cooler."}},
    "histamine":{"sighi":1,"tags":[],"note":"Sparse data."},
-   "nutrition":{"kcal":43,"protein":1.4,"carbs":10,"fat":0.4,"highlight":"iron & vitamin C"},
+   "nutrition":{"kcal":43,"protein":1.4,"carbs":10,"fat":0.4,"highlight":"stains everything it touches, hands included"},
    "remedy":{"too-hot":"eat"}},
 
   {"id":"amla","name":"Amla","aliases":["indian gooseberry","amlaki","nellikai","aamla"],"emoji":"🫒","category":"fruit","cuisines":["south-asian"],"commonness":2,

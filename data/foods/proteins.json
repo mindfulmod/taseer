@@ -10,14 +10,14 @@
    "description":"Red meat staple, curries to burgers.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Neutral-to-warm; strengthening."},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot-dry","confidence":"moderate"}},
    "histamine":{"sighi":1,"tags":[],"note":"Freshness rules: freshly cooked fine; aged steak and ground beef sitting around are worse."},
-   "nutrition":{"kcal":250,"protein":26,"carbs":0,"fat":15,"highlight":"iron & B12"},
+   "nutrition":{"kcal":250,"protein":26,"carbs":0,"fat":15,"highlight":"iron and B12 in the form the body absorbs best"},
    "remedy":{"too-cold":"eat"}},
 
   {"id":"lamb","name":"Lamb / mutton","aliases":["bakre ka gosht","lahm kharuf","yang rou"],"emoji":"🍖","category":"protein","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"The festival meat — and every tradition's warmest.",
    "thermal":{"tcm":{"verdict":"hot","confidence":"high","note":"Yang rou is TCM's defining warming meat — winter hot pot."},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot-moist","confidence":"high","note":"Classic garam — nihari and paya weather."}},
    "histamine":{"sighi":0,"tags":[],"note":"Fresh lamb is well tolerated; same freshness caveat as all meat."},
-   "nutrition":{"kcal":294,"protein":25,"carbs":0,"fat":21,"highlight":"iron & zinc"},
+   "nutrition":{"kcal":294,"protein":25,"carbs":0,"fat":21,"highlight":"fattier than beef, and the fat is where the flavour sits"},
    "remedy":{"too-cold":"eat","too-hot":"avoid"}},
 
   {"id":"goat","name":"Goat meat","aliases":["bakri","lahm ma'iz","shan yang rou"],"emoji":"🍖","category":"protein","cuisines":["south-asian","arabic","chinese"],"commonness":2,
@@ -37,7 +37,7 @@
    "description":"Rich dark poultry; Peking duck to salan.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"The yin poultry — opposite of chicken."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Heavy-oily; thin documentation."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Waterfowl generally garam-tar; sources vary."}},
    "histamine":{"sighi":1,"tags":[],"note":"Fresh fine; roasted-hung preparations age the meat."},
-   "nutrition":{"kcal":337,"protein":19,"carbs":0,"fat":28,"highlight":"iron-rich dark meat"}},
+   "nutrition":{"kcal":337,"protein":19,"carbs":0,"fat":28,"highlight":"dark meat throughout — there is no white on a duck"}},
 
   {"id":"egg","name":"Egg (chicken)","aliases":["anda","baid","ji dan"],"emoji":"🥚","category":"protein","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"The universal breakfast protein.",
@@ -70,7 +70,7 @@
    "description":"Small oily canned fish.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"contested"},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot-dry","confidence":"moderate"}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Scombroid-class; canned small oily fish run very high."},
-   "nutrition":{"kcal":208,"protein":25,"carbs":0,"fat":11,"highlight":"omega-3 + calcium (bones)"}},
+   "nutrition":{"kcal":208,"protein":25,"carbs":0,"fat":11,"highlight":"the bones go in too, and that is where the calcium is"}},
 
   {"id":"mackerel","name":"Mackerel","aliases":["bangda","isqumri","qing yu"],"emoji":"🐟","category":"protein","cuisines":["south-asian","arabic","chinese"],"commonness":3,
    "description":"Strong-flavored oily fish.",
@@ -230,7 +230,7 @@
    "description":"Gel-forming little seeds (often confused with desi sabja — see basil seeds).",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"New-world; not classical."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Used like cooling sabja in modern practice; not classical."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Treated like tukh malanga in modern desi use."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated."},
-   "nutrition":{"kcal":486,"protein":17,"carbs":42,"fat":31,"highlight":"omega-3 + fiber"}},
+   "nutrition":{"kcal":486,"protein":17,"carbs":42,"fat":31,"highlight":"they gel in water, which is the whole trick"}},
 
   {"id":"flaxseed","name":"Flaxseed","aliases":["alsi","bizr kittan","ya ma zi"],"emoji":"🟤","category":"protein","cuisines":["south-asian","arabic","western"],"commonness":2,
    "description":"Oily seed ground into winter pinnis and porridges.",
