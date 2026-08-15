@@ -1,5 +1,50 @@
 # Taseer dataset — 2,000 foods (batches 1–5)
 
+## Verification pass, 2026-08-15 — nuts, seeds and cheese
+
+> Checked ~26 entries against SIGHI's published compatibility list and
+> **corrected 11**. Two of them are systematic, which matters more than the
+> individual rows: the same reasoning error will have been applied elsewhere.
+>
+> **We rate fresh cheese one level too high, every time.** SIGHI puts genuinely
+> unripened cheese at **0**; we had all of it at 1 because the entries reasoned
+> "cheese is a ferment, so at least 1". Corrected: `fresh-mozzarella`, `ricotta`,
+> `cream-cheese`, `mascarpone` 1 → 0, and `feta` 2 → 1. Unripened is not aged,
+> and brined is not the same as matured.
+>
+> **Nuts were compressed toward the middle.** We had almost every nut at 1–2;
+> SIGHI spreads them from 0 to 3.
+>
+> | entry | was | now |
+> |---|---|---|
+> | `walnuts` | 2 | **3** — the highest-rated nut, not a middling one |
+> | `cashews` | 2 | **1** — its note literally said "flagged alongside walnuts", which was the error |
+> | `sunflower-seeds` | 1 | **2** |
+> | `pistachios` | 1 | **0** |
+> | `brazil-nuts` | 1 | **0** |
+> | `hemp-seeds` | 1 | **0** |
+>
+> Confirmed correct on checking: `almonds` 1, `sesame-seeds` 1, `pine-nuts` 1,
+> `hazelnuts` 1, `peanuts` 2, `chia-seeds` 0, `pumpkin-seeds` 0, `wheat` 1,
+> `rye` 1.
+>
+> **A first source said peanuts were 3 and it was wrong** — a dedicated page on
+> the same site gives 2, which is what we already had. Single-page summaries of
+> the SIGHI PDF are not reliable enough to edit from; corroborate before
+> changing a rating.
+>
+> **Scope: this is a sample, not a census.** Two categories out of eight were
+> checked. Fruit, vegetables, drinks, grains, proteins and dishes have had no
+> external pass since batch 2, and both errors found here were systematic — so
+> assume the same kind of reasoning error is sitting in the categories nobody
+> has checked yet.
+>
+> Nutrition remains the weakest column: 56% of rows are marked `estimate` and
+> none has been checked against USDA since batch 2.
+
+---
+
+
 > **Batch 5 landed 2026-08-08: +1,000 foods, 1,000 → 2,000.** Shape: 125 fruits ·
 > 159 vegetables · 112 grains · 259 spices/oils/condiments · 167 proteins ·
 > 62 dairy · 146 drinks · 970 dishes. 3,966 aliases, 253 cross-tradition

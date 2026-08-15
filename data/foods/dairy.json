@@ -46,7 +46,7 @@
   {"id":"fresh-mozzarella","name":"Fresh cheese (mozzarella/akkawi)","aliases":["mozzarella","akkawi","jibn abyad","ma su li la"],"emoji":"🧀","category":"dairy","cuisines":["arabic","western"],"commonness":2,
    "description":"Young white cheeses — pizza's stretch and kunafa's heart.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Not classical."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"As fresh cheese."},"unani":{"verdict":"cold-moist","confidence":"moderate"}},
-   "histamine":{"sighi":1,"tags":[],"note":"Young cheeses are the tolerable end of cheese."},
+   "histamine":{"sighi":0,"tags":[],"note":"SIGHI rates fresh mozzarella 0 — unripened cheese is not an aged one."},
    "nutrition":{"kcal":280,"protein":28,"carbs":3.1,"fat":17,"highlight":"protein + calcium"}},
 
   {"id":"aged-cheese","name":"Aged cheese","aliases":["cheddar","parmesan","romi","gouda","lao nai lao"],"emoji":"🧀","category":"dairy","cuisines":["western","arabic"],"commonness":1,
@@ -76,7 +76,7 @@
   {"id":"feta","name":"Feta","aliases":["jibneh baida","white cheese","barrel-aged cheese"],"emoji":"🧀","category":"dairy","cuisines":["arabic","western"],"commonness":2,
    "description":"Salty brined white cheese, crumbled over everything from salad to eggs.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Brined cheese is not a classical TCM entry; placed by analogy to fresh dairy."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour plus salty plus fermented reads ushna, unlike fresh paneer."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Salt and ripening push it toward garam; the classical texts describe fresh cheese, not this."}},
-   "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Brine-ripened, so well above fresh cheese — though below a hard aged block."},
+   "histamine":{"sighi":1,"tags":["high-histamine"],"note":"SIGHI rates it 1 — brine-ripened, so above fresh cheese but below the aged ones."},
    "nutrition":{"kcal":264,"protein":14.2,"carbs":4.1,"fat":21.3,"highlight":"salty because the brine is what preserves it"}},
 
   {"id":"halloumi","name":"Halloumi","aliases":["hallum","grilling cheese","jibneh halloum"],"emoji":"🧀","category":"dairy","cuisines":["arabic","western"],"commonness":3,
@@ -94,13 +94,13 @@
   {"id":"ricotta","name":"Ricotta","aliases":["whey cheese","ricotta cheese"],"emoji":"🥣","category":"dairy","cuisines":["western"],"commonness":3,
    "description":"Soft, sweet-tasting cheese made from the whey another cheese left behind.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Not classically classified; read as fresh dairy."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Fresh and unsoured, so shita like other unfermented curds."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Placed with the fresh cheeses."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Fresh, but spoils fast — age is what moves cheese up this scale."},
+   "histamine":{"sighi":0,"tags":[],"note":"SIGHI rates it 0. Fresh and unripened, though it spoils fast once opened."},
    "nutrition":{"kcal":174,"protein":11.3,"carbs":3,"fat":13,"highlight":"made from whey, not curd"}},
 
   {"id":"cream-cheese","name":"Cream cheese","aliases":["soft cheese","spread cheese","philadelphia"],"emoji":"🧀","category":"dairy","cuisines":["western"],"commonness":2,
    "description":"Spreadable fresh cheese, rich enough to be mostly fat.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Modern product; read as rich fresh dairy, which TCM calls damp-forming."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Fresh and unsoured, so shita — but very guru, heavy and slow."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Cold and wet like the fresh cheeses it belongs with."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Fresh; the flavoured tubs inherit whatever is stirred into them."},
+   "histamine":{"sighi":0,"tags":[],"note":"SIGHI rates plain cream cheese 0; flavoured tubs inherit whatever is stirred in."},
    "nutrition":{"kcal":342,"protein":6.2,"carbs":4.1,"fat":34,"highlight":"a third fat by weight"}},
 
   {"id":"processed-cheese","name":"Processed cheese","aliases":["cheese slice","cheese spread","cheese single","amul cheese"],"emoji":"🧀","category":"dairy","cuisines":["western","south-asian","arabic"],"commonness":1,
@@ -168,7 +168,7 @@
   {"id":"mascarpone","name":"Mascarpone","aliases":["italian cream cheese","ma si ka peng"],"emoji":"🧀","category":"dairy","cuisines":["western"],"commonness":3,
    "description":"Cream set with acid into a spoonable, barely-cheese richness.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with cream and fresh cheese."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and extremely guru — almost pure cream."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Fresh and unripened, so low — unlike the aged cheeses."},
+   "histamine":{"sighi":0,"tags":[],"note":"SIGHI rates it 0 — fresh and unripened, unlike the aged cheeses."},
    "nutrition":{"kcal":429,"protein":4.8,"carbs":4.6,"fat":44,"highlight":"barely a cheese at all"}},
 
   {"id":"quark","name":"Quark","aliases":["topfen","fresh curd cheese"],"emoji":"🥣","category":"dairy","cuisines":["western"],"commonness":4,
