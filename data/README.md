@@ -210,7 +210,8 @@ node scripts/validate-data.mjs
 
 ## Schema notes (deltas from specs/02-data-spec.md)
 
-- `remedy` is flattened to `{"too-hot": "eat|avoid", "too-cold": ...}` and only present where the call is clear. **Reactive-state lists are computed in-app** from histamine data (eat = SIGHI 0 non-liberator; avoid = SIGHI ≥2 or liberator/DAO-blocker) — no hand synthesis needed.
+- **All three remedy lists are computed in-app**, never hand-synthesised. Reactive comes from histamine (eat = SIGHI 0 non-liberator; avoid = SIGHI ≥2 or liberator/DAO-blocker). Thermal comes from the composite band: too-hot eat = cold/cool, avoid = hot; too-cold eat = warm/hot, avoid = cold. `eat` is deliberately generous and `avoid` deliberately is not — "what can I have" wants the whole library, "what is working against me" wants only the far band.
+- `remedy` in the JSON is now an **override**, not the source of the lists. Write one only where the band gets it wrong — as of 2026-08-15 that is 4 entries out of 2,000, all neutral-band foods whose traditions genuinely split (`somen`, `gomen`, `sticky-rice`, `jujube-red-date`). Before this, remedy was hand-only and 22% of strongly hot or cold foods had no tag, so they never appeared in the screen the app exists for.
 - Per-food `source` strings are omitted; each system's source basis is global, in `data/sources.json`. Notes carry food-specific reasoning.
 - `nutrition.estimate: true` marks Claude estimates (all dishes + a few items USDA lacks).
 - Composed drinks (masala chai, lassi, barley water, sattu) carry `ingredients` like dishes do.

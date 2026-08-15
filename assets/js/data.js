@@ -55,6 +55,30 @@ function reactiveVerdict(food) {
   return null;
 }
 
+/**
+ * Thermal remedy verdict \u2014 derived from the band, exactly as `reactive` is
+ * derived from SIGHI, with any hand-written `remedy` winning outright.
+ *
+ * It used to be hand-only, and 22% of the strongly hot or cold foods simply
+ * had no tag: nobody had written one, so they were invisible in the one screen
+ * the app exists for. Deriving closes that by construction, and new data needs
+ * no tagging pass to show up. The hand tags were already agreeing with the
+ * bands \u2014 of 1,206 of them only 4 disagreed, all neutral-band foods where the
+ * traditions genuinely split, which is precisely when an override earns its
+ * place, so those keep winning.
+ *
+ * `eat` is generous and `avoid` is not, on purpose. "What can I have" wants
+ * every cooling thing in the library; "what is working against me" wants the
+ * foods that actually pull hard in the wrong direction, so it takes only the
+ * far band and leaves the merely-warm out of it.
+ */
+function thermalRemedy(food, state, cls) {
+  const hand = food.remedy?.[state];
+  if (hand) return hand;
+  if (state === "too-hot") return cls === "cold" || cls === "cool" ? "eat" : cls === "hot" ? "avoid" : null;
+  return cls === "hot" || cls === "warm" ? "eat" : cls === "cold" ? "avoid" : null;
+}
+
 export const norm = s =>
   s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
 
@@ -62,14 +86,19 @@ export const norm = s =>
 
 export const foods = FOODS.map(food => {
   const heat = compositeHeat(food);
+  const cls = heatClass(heat);
   const names = [food.name, ...food.aliases];
   return {
     ...food,
     heat,
-    heatClass: heatClass(heat),
+    heatClass: cls,
     conflict: hasConflict(food),
     contested: SYSTEMS.some(s => food.thermal[s].confidence === "contested"),
     reactive: reactiveVerdict(food),
+    remedies: {
+      "too-hot": thermalRemedy(food, "too-hot", cls),
+      "too-cold": thermalRemedy(food, "too-cold", cls),
+    },
     _names: names.map(norm),
     _desc: norm(food.description),
   };
@@ -232,7 +261,7 @@ export const STATES = {
  */
 export function remedyList(state, verdict, favorites = []) {
   const fav = new Set(favorites);
-  const pick = state === "reactive" ? f => f.reactive : f => f.remedy?.[state];
+  const pick = state === "reactive" ? f => f.reactive : f => f.remedies[state];
   return foods
     .filter(f => pick(f) === verdict)
     .sort(
