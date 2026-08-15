@@ -617,6 +617,13 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .ring__fill { fill: none; stroke: var(--t); stroke-width: 7; stroke-linecap: round; transform: rotate(-90deg); transform-origin: 50% 50%; }
 .ring__val { font-size: 0.8rem; font-weight: 800; fill: var(--ink); }
 .ring__label { font-size: 0.7rem; color: var(--ink-2); font-weight: 600; }
+
+/* The written line sits under the rings, not inside them — it is an aside about
+   the food, never a fifth statistic. */
+.rings__note {
+  margin: 12px 2px 0; font-size: 0.85rem; color: var(--ink-2);
+  font-style: italic;
+}
 .ring--text { display: grid; place-items: center; text-align: center; }
 .ring--text .ring__hl { font-size: 0.8rem; font-weight: 700; color: var(--t-deep); }
 

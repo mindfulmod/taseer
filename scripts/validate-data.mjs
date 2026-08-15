@@ -126,7 +126,20 @@ const conflicts = [...all.values()].filter(f => {
   return new Set(dirs).size > 1;
 });
 const sighiDist = [0, 1, 2, 3].map(s => [...all.values()].filter(f => f.histamine.sighi === s).length);
-const remedyEat = state => [...all.values()].filter(f => f.remedy?.[state] === "eat").length;
+// Remedy lists are derived from the band in-app (see data/README.md); the JSON
+// `remedy` field is only an override. Report both, or this reads as a coverage
+// gap that no longer exists.
+const bandOf = f => {
+  const h = ["tcm", "ayurveda", "unani"].reduce((n, s) => n + (HEAT_V[s][f.thermal[s].verdict] ?? 0), 0) / 3 / 0.9;
+  return h <= -0.7 ? "cold" : h <= -0.2 ? "cool" : h < 0.2 ? "neutral" : h < 0.7 ? "warm" : "hot";
+};
+const derivedEat = state => [...all.values()].filter(f => {
+  const hand = f.remedy?.[state];
+  if (hand) return hand === "eat";
+  const c = bandOf(f);
+  return state === "too-hot" ? c === "cold" || c === "cool" : c === "warm" || c === "hot";
+}).length;
+const handTags = [...all.values()].filter(f => f.remedy).length;
 
 console.log(`TOTAL FOODS: ${total}`);
 console.log("By category:", byCategory);
@@ -134,7 +147,7 @@ console.log(`SIGHI distribution 0/1/2/3: ${sighiDist.join(" / ")}`);
 console.log(`Cross-tradition conflicts (hot vs cold disagreement): ${conflicts.length}`);
 console.log(`  e.g. ${conflicts.slice(0, 12).map(f => f.id).join(", ")}`);
 console.log(`Entries with ≥1 contested confidence: ${contested.length}`);
-console.log(`Remedy coverage — too-hot eat: ${remedyEat("too-hot")}, too-cold eat: ${remedyEat("too-cold")}`);
+console.log(`Remedy "eat" lists (derived) — too-hot: ${derivedEat("too-hot")}, too-cold: ${derivedEat("too-cold")}  ·  hand overrides: ${handTags}`);
 console.log(`Aliases total: ${[...all.values()].reduce((a, f) => a + f.aliases.length, 0)}`);
 console.log(`Preparations: ${preps.length}`);
 

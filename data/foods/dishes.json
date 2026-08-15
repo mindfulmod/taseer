@@ -11,7 +11,7 @@
    "description":"Wok-fried chicken in a sharp tomato-ginger masala.",
    "thermal":{"tcm":{"verdict":"hot","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot-dry","confidence":"high"}},
    "histamine":{"sighi":3,"tags":[],"note":"Tomato-dominant gravy — inherits tomato's score."},
-   "nutrition":{"kcal":145,"protein":12,"carbs":5,"fat":9,"highlight":"tomato-forward","estimate":true},
+   "nutrition":{"kcal":145,"protein":12,"carbs":5,"fat":9,"highlight":"the tomato goes in whole and breaks down in the wok","estimate":true},
    "ingredients":["chicken","tomato","ginger","garlic","green-chili"],
    "remedy":{"too-cold":"eat","too-hot":"avoid"}},
 
@@ -33,14 +33,14 @@
    "description":"Dry-spiced potato and cauliflower.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Two cooling vegetables in warming spices — lands near neutral."},"unani":{"verdict":"neutral","confidence":"moderate"}},
    "histamine":{"sighi":0,"tags":[],"note":"One of the safest desi dishes when reactive (skip the tomato variant)."},
-   "nutrition":{"kcal":90,"protein":2.5,"carbs":12,"fat":4,"highlight":"gentle sabzi","estimate":true},
+   "nutrition":{"kcal":90,"protein":2.5,"carbs":12,"fat":4,"highlight":"dry — no gravy, by definition","estimate":true},
    "ingredients":["potato","cauliflower","turmeric","cumin","ginger"]},
 
   {"id":"saag","name":"Sarson ka saag","aliases":["saag","palak saag","makki-saag"],"emoji":"🥬","category":"dish","cuisines":["south-asian"],"commonness":2,
    "description":"Slow-cooked mustard greens with makki roti — Punjab's winter ritual.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"high"},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot","confidence":"high","note":"The definitional winter garam meal."}},
    "histamine":{"sighi":1,"tags":[],"note":"Palak-heavy versions inherit spinach's higher score."},
-   "nutrition":{"kcal":95,"protein":4,"carbs":8,"fat":6,"highlight":"winter iron","estimate":true},
+   "nutrition":{"kcal":95,"protein":4,"carbs":8,"fat":6,"highlight":"the iron is real, and so is the hour of cooking","estimate":true},
    "ingredients":["mustard-greens","cornmeal","butter","garlic"],
    "remedy":{"too-cold":"eat","too-hot":"avoid"}},
 
@@ -48,7 +48,7 @@
    "description":"Tandoori chicken folded into a creamy tomato-butter gravy.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"high","note":"Sour-rich tomato-cream — heavy pitta load."},"unani":{"verdict":"hot-moist","confidence":"moderate"}},
    "histamine":{"sighi":3,"tags":[],"note":"Tomato-concentrate gravy — inherits tomato's score."},
-   "nutrition":{"kcal":175,"protein":12,"carbs":6,"fat":12,"highlight":"rich gravy","estimate":true},
+   "nutrition":{"kcal":175,"protein":12,"carbs":6,"fat":12,"highlight":"invented to use up yesterday's tandoori chicken","estimate":true},
    "ingredients":["chicken","tomato","cream","butter","garam-masala"]},
 
   {"id":"tandoori-chicken","name":"Tandoori chicken","aliases":["chicken tikka (cousin)","tandoori"],"emoji":"🍗","category":"dish","cuisines":["south-asian","arabic"],"commonness":1,
@@ -70,14 +70,14 @@
    "description":"Besan-battered fritters of rainy-day chai.",
    "thermal":{"tcm":{"verdict":"hot","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot-dry","confidence":"high"}},
    "histamine":{"sighi":1,"tags":[],"note":"Spinach/eggplant pakoras inherit those vegetables' scores."},
-   "nutrition":{"kcal":280,"protein":8,"carbs":28,"fat":16,"highlight":"chai's companion","estimate":true},
+   "nutrition":{"kcal":280,"protein":8,"carbs":28,"fat":16,"highlight":"the batter must be thick enough to cling","estimate":true},
    "ingredients":["chickpeas","onion","potato","green-chili"]},
 
   {"id":"haleem","name":"Haleem","aliases":["daleem","harees (cousin)"],"emoji":"🍲","category":"dish","cuisines":["south-asian","arabic"],"commonness":2,
    "description":"Wheat, lentils, and meat pounded into a slow porridge.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot-moist","confidence":"high","note":"Prescribed as a strengthening garam food."}},
    "histamine":{"sighi":2,"tags":[],"note":"Hours of slow-cooking meat raises histamine — flavor and amines rise together."},
-   "nutrition":{"kcal":150,"protein":10,"carbs":14,"fat":6,"highlight":"slow-cooked strength","estimate":true},
+   "nutrition":{"kcal":150,"protein":10,"carbs":14,"fat":6,"highlight":"pounded, not stirred, until the meat disappears","estimate":true},
    "ingredients":["wheat","beef","red-lentils","ginger","garam-masala"],
    "remedy":{"too-cold":"eat"}},
 
@@ -85,7 +85,7 @@
    "description":"Overnight-simmered shank stew — the definitive winter garam dish.",
    "thermal":{"tcm":{"verdict":"hot","confidence":"high"},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot","confidence":"high","note":"Old Delhi hakims' cold-weather prescription, literally."}},
    "histamine":{"sighi":3,"tags":[],"note":"Overnight meat simmering maximizes histamine — worst-case cooking method for the sensitive."},
-   "nutrition":{"kcal":175,"protein":14,"carbs":6,"fat":11,"highlight":"winter fire","estimate":true},
+   "nutrition":{"kcal":175,"protein":14,"carbs":6,"fat":11,"highlight":"the marrow is the reason for the shank","estimate":true},
    "ingredients":["beef","wheat","ginger","garam-masala","ghee"],
    "remedy":{"too-cold":"eat","too-hot":"avoid"}},
 
@@ -109,7 +109,7 @@
    "description":"Semolina roasted in ghee, sweetened, and spooned warm.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot","confidence":"high","note":"A prescribed warming sweet — halwa in winter, kheer in summer."}},
    "histamine":{"sighi":1,"tags":[],"note":"Benign components; cassia cinnamon garnish adds a touch."},
-   "nutrition":{"kcal":320,"protein":4,"carbs":45,"fat":14,"highlight":"warm comfort","estimate":true},
+   "nutrition":{"kcal":320,"protein":4,"carbs":45,"fat":14,"highlight":"the ghee comes before the water, always","estimate":true},
    "ingredients":["semolina","ghee","white-sugar","cardamom"],
    "remedy":{"too-cold":"eat"}},
 
@@ -125,14 +125,14 @@
    "description":"Chickpea-tahini purée with lemon and garlic.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Tahini and garlic tilt it warm."},"unani":{"verdict":"hot-dry","confidence":"moderate"}},
    "histamine":{"sighi":1,"tags":[],"note":"Fresh homemade is gentle; store tubs with citric acid/preservatives vary."},
-   "nutrition":{"kcal":170,"protein":7,"carbs":14,"fat":10,"highlight":"protein dip","estimate":true},
+   "nutrition":{"kcal":170,"protein":7,"carbs":14,"fat":10,"highlight":"warm and freshly made is a different dish entirely","estimate":true},
    "ingredients":["chickpeas","sesame-seeds","lemon","garlic"]},
 
   {"id":"falafel","name":"Falafel","aliases":["ta'ameya","felafel"],"emoji":"🧆","category":"dish","cuisines":["arabic"],"commonness":1,
    "description":"Deep-fried herbed chickpea (or fava) fritters.",
    "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Deep-fried."},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot-dry","confidence":"high"}},
    "histamine":{"sighi":1,"tags":[],"note":"Egyptian ta'ameya uses fava — see the favism note on ful."},
-   "nutrition":{"kcal":330,"protein":13,"carbs":32,"fat":18,"highlight":"street protein","estimate":true},
+   "nutrition":{"kcal":330,"protein":13,"carbs":32,"fat":18,"highlight":"must be soaked chickpeas, never cooked ones","estimate":true},
    "ingredients":["chickpeas","cilantro","parsley","garlic","cumin"]},
 
   {"id":"shawarma","name":"Shawarma","aliases":["shawerma","doner (cousin)"],"emoji":"🌯","category":"dish","cuisines":["arabic"],"commonness":1,
@@ -146,7 +146,7 @@
    "description":"Gulf spiced rice with chicken and dried lime.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot","confidence":"high"}},
    "histamine":{"sighi":2,"tags":[],"note":"Tomato base + loomi (fermented dried lime)."},
-   "nutrition":{"kcal":160,"protein":10,"carbs":20,"fat":5,"highlight":"Gulf comfort","estimate":true},
+   "nutrition":{"kcal":160,"protein":10,"carbs":20,"fat":5,"highlight":"the dried lime is what makes it Gulf and not biryani","estimate":true},
    "ingredients":["white-rice","chicken","tomato","cinnamon","cardamom","black-pepper"],
    "remedy":{"too-cold":"eat"}},
 
@@ -154,7 +154,7 @@
    "description":"Parsley salad flecked with bulgur, tomato, and lemon.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw herb salad."},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold","confidence":"moderate"}},
    "histamine":{"sighi":2,"tags":[],"note":"Tomato + lemon carry the load; parsley and bulgur are innocent."},
-   "nutrition":{"kcal":90,"protein":2.5,"carbs":13,"fat":3.5,"highlight":"herb salad","estimate":true},
+   "nutrition":{"kcal":90,"protein":2.5,"carbs":13,"fat":3.5,"highlight":"parsley with bulgur in it, not the other way round","estimate":true},
    "ingredients":["parsley","bulgur","tomato","lemon","mint"],
    "remedy":{"too-hot":"eat"}},
 
@@ -206,7 +206,7 @@
    "description":"Stir-fried wheat noodles with vegetables.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot","confidence":"contested"}},
    "histamine":{"sighi":2,"tags":[],"note":"Soy sauce carries the score."},
-   "nutrition":{"kcal":155,"protein":5,"carbs":23,"fat":5,"highlight":"takeout staple","estimate":true},
+   "nutrition":{"kcal":155,"protein":5,"carbs":23,"fat":5,"highlight":"the noodles go in dry-fried, not boiled soft","estimate":true},
    "ingredients":["wheat-noodles","soy-sauce","cabbage","carrot","spring-onion"]},
 
   {"id":"hot-sour-soup","name":"Hot and sour soup","aliases":["suan la tang"],"emoji":"🍲","category":"dish","cuisines":["chinese"],"commonness":2,
@@ -302,14 +302,14 @@
    "description":"Smooth simmered tomato bowl.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Cool tomato served hot; reads near-neutral."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Concentrated sour tomato."},"unani":{"verdict":"neutral","confidence":"contested"}},
    "histamine":{"sighi":3,"tags":[],"note":"Tomato, concentrated — maximal form of the trigger."},
-   "nutrition":{"kcal":55,"protein":1.2,"carbs":7,"fat":2.5,"highlight":"lycopene bowl","estimate":true},
+   "nutrition":{"kcal":55,"protein":1.2,"carbs":7,"fat":2.5,"highlight":"cooking is what frees the lycopene","estimate":true},
    "ingredients":["tomato","cream","onion","basil"]},
 
   {"id":"chicken-noodle-soup","name":"Chicken noodle soup","aliases":["shorbat dajaj","ji tang mian","chicken soup"],"emoji":"🍜","category":"dish","cuisines":["western","arabic","chinese","south-asian"],"commonness":1,
    "description":"The universal sickbed soup.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Chicken + broth + ginger logic: warming and restoring in every tradition."},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot-moist","confidence":"high","note":"Yakhni is the Unani restorative."}},
    "histamine":{"sighi":2,"tags":[],"note":"The catch: long-simmered broth is high-histamine — quick-cooked versions are the reactive-safe route."},
-   "nutrition":{"kcal":55,"protein":4,"carbs":6,"fat":1.5,"highlight":"the restorative","estimate":true},
+   "nutrition":{"kcal":55,"protein":4,"carbs":6,"fat":1.5,"highlight":"the sickbed soup of every culture that has soup","estimate":true},
    "ingredients":["chicken","wheat-noodles","carrot","celery","onion"],
    "remedy":{"too-cold":"eat"}},
 
@@ -324,7 +324,7 @@
    "description":"Griddled sweet breakfast rounds.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Griddled wheat-egg-milk; not classical."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Components split; net mild."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Follows wheat."}},
    "histamine":{"sighi":1,"tags":[],"note":"Batter is benign; watch the toppings (chocolate, strawberries, aged butter)."},
-   "nutrition":{"kcal":225,"protein":6,"carbs":28,"fat":10,"highlight":"weekend breakfast","estimate":true},
+   "nutrition":{"kcal":225,"protein":6,"carbs":28,"fat":10,"highlight":"lumps in the batter are correct","estimate":true},
    "ingredients":["wheat","egg","milk","butter"]},
 
   {"id":"dosa","name":"Dosa","aliases":["dose","masala dosa","sada dosa"],"emoji":"🥞","category":"dish","cuisines":["south-asian"],"commonness":1,
@@ -784,7 +784,7 @@
    "description":"Whole urad and rajma simmered overnight with butter and cream.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Slow-cooked pulses enriched with dairy."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Urad is ushna and guru; overnight cooking with butter compounds it."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar; among the heaviest dals there is."}},
    "histamine":{"sighi":3,"tags":[],"note":"Cooked overnight and reheated — the long hold is what rates it, not the dal."},
-   "nutrition":{"kcal":185,"protein":7.5,"carbs":18,"fat":9.5,"highlight":"simmered overnight","estimate":true},
+   "nutrition":{"kcal":185,"protein":7.5,"carbs":18,"fat":9.5,"highlight":"the butter goes in at the end, not the start","estimate":true},
    "ingredients":["urad-dal","kidney-beans","butter","cream","tomato","ginger","garlic"],
    "remedy":{"too-cold":"eat"}},
 
@@ -1974,7 +1974,7 @@
    "description":"Mashed avocado with lime, onion and coriander — made fresh, or not at all.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw avocado, cooled by lime."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"Avocado is already a SIGHI 2, and lime adds a liberator — it also browns fast, which is the same oxidation."},
-   "nutrition":{"kcal":160,"protein":2,"carbs":9,"fat":15,"highlight":"made fresh, or not at all","estimate":true},
+   "nutrition":{"kcal":160,"protein":2,"carbs":9,"fat":15,"highlight":"browns within the hour, so it is made last","estimate":true},
    "ingredients":["avocado","lemon","onion","cilantro","green-chili"]},
 
   {"id":"coleslaw","name":"Coleslaw","aliases":["slaw","cabbage salad"],"emoji":"🥗","category":"dish","cuisines":["western"],"commonness":1,

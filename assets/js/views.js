@@ -216,7 +216,10 @@ export function foodView(id) {
   const isFav = favorites.has(food.id);
   const isTrig = triggers.has(food.id);
   const ingredients = getFoods(food.ingredients ?? []);
-  const remedy = Object.entries(food.remedy ?? {})
+  // Reads from the derived verdicts, not the raw hand tag, so the card and the
+  // remedy list can never disagree about the same food.
+  const remedy = Object.entries(food.remedies)
+    .filter(([, verdict]) => verdict)
     .map(([state, verdict]) => `${verdict === "eat" ? "Helps" : "Aggravates"} when you feel <strong>${STATES[state].label.toLowerCase()}</strong>`);
 
   return {
