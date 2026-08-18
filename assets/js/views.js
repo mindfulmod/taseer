@@ -2,8 +2,9 @@
 // HTML lands in the DOM (focus, listeners that can't be delegated).
 import {
   BANDS, CATEGORIES, CUISINES, LISTS, META, SORTS, SOURCES, STATES, byCategory, fuzzySuggest,
-  getFood, getFoods, getList, getPreparation, heatClass, preparations,
-  prepsForState, prepsUsing, remedyList, search, sortFoods, spectrum, systemHeat,
+  MECHANISM_IDS, MECHANISMS, foodsWithMechanism, getFood, getFoods, getList, getMechanism,
+  getPreparation, heatClass, preparations, prepsForState, prepsUsing, remedyList, search,
+  sortFoods, spectrum, systemHeat,
 } from "./data.js";
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
@@ -340,6 +341,9 @@ function categoryGrid() {
 function browseBody() {
   const ways = [
     { to: "/lists", icon: "browse-curated", label: "Curated lists", sub: `${LISTS.length} lists + ${preparations.length} simple preparations` },
+    // The reactive icon on purpose: histamine is the calm axis, and these three
+    // pages are that axis explained rather than scored.
+    { to: "/mechanism", icon: "state-reactive", label: "Histamine mechanisms", sub: "Why a food reacts, not just how much" },
     { to: "/spectrum", icon: "browse-spectrum", label: "Spectrum", sub: "Every food, coldest to hottest" },
     { to: "/compare", icon: "browse-compare", label: "Compare", sub: "Put two or three side by side" },
   ];
@@ -361,6 +365,94 @@ function browseBody() {
       <div class="section__head"><h2>By category</h2></div>
       ${categoryGrid()}
     </section>`;
+}
+
+// ---- Histamine mechanisms -------------------------------------------------
+
+/**
+ * The index. Three cards, because the mechanisms are peers — none of them is
+ * the "main" one, and ranking them by how many foods carry the tag would imply
+ * a severity order that SIGHI does not claim.
+ */
+export function mechanismIndexView() {
+  return {
+    tone: "calm",
+    html: `
+      ${backBar("Find", "/find")}
+      <section class="hero t-calm">
+        <h1>Histamine mechanisms</h1>
+        <p>A SIGHI score says how much. These say why — and the three work nothing alike.</p>
+      </section>
+      <div class="stack">
+        ${MECHANISM_IDS.map(id => {
+          const m = MECHANISMS[id];
+          return `<button class="listcard t-calm" data-nav="/mechanism/${id}">
+                    <span class="listcard__title">${m.glyph} ${esc(m.label)}</span>
+                    <span class="listcard__blurb">${esc(m.lede)}</span>
+                    <span class="listcard__count">${foodsWithMechanism(id).length} foods</span>
+                  </button>`;
+        }).join("")}
+      </div>
+      <!-- The legend ends on a tag name with no full stop, so it needs one. -->
+      <p class="tiny muted" style="margin:16px 2px 0">${esc(SOURCES.legend.histamine)}.
+      Informational, not medical advice.</p>`,
+  };
+}
+
+export function mechanismView(id, { sort = "staples" } = {}) {
+  const m = getMechanism(id);
+  if (!m) return notFound("mechanism");
+  if (!(sort in SORTS)) sort = "staples";
+  const all = foodsWithMechanism(id);
+  // Foods that carry the mechanism while scoring low. For a DAO blocker that
+  // set is the entire point of the page — black tea and masala chai read as
+  // "1 — Usually fine" and still lower the ceiling for everything after them.
+  const missable = m.missable ? sortFoods(all.filter(f => f.histamine.sighi <= 1), "staples") : [];
+
+  return {
+    tone: "calm",
+    html: `
+      ${backBar("Mechanisms", "/mechanism")}
+      <section class="hero t-calm">
+        <h1>${esc(m.label)}</h1>
+        <p>${esc(m.lede)}</p>
+      </section>
+
+      <div class="panel">
+        <p class="mech__body">${esc(m.body)}</p>
+        <p class="mech__body mech__body--lead">${esc(m.implication)}</p>
+      </div>
+
+      ${
+        missable.length > 1
+          ? `<section class="section">
+               <div class="section__head"><h2>${esc(m.missable)}</h2><span class="tiny muted">${missable.length}</span></div>
+               <p class="tiny muted" style="margin-bottom:12px">${esc(m.missableNote)}</p>
+               ${tileList(missable, { metaFn: SIGHI_META, meter: "histamine" })}
+             </section>`
+          : ""
+      }
+
+      <section class="section">
+        <div class="section__head">
+          <h2>Every food carrying it</h2>
+          <span class="tiny muted">${all.length}</span>
+        </div>
+        ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "mechsort")}
+        <div id="mechbody" style="margin-top:12px">
+          ${tileList(sortFoods(all, sort), { metaFn: SIGHI_META, meter: "histamine" })}
+        </div>
+      </section>`,
+
+    mount(root) {
+      const sel = root.querySelector("#mechsort");
+      sel.addEventListener("change", () => {
+        root.querySelector("#mechbody").innerHTML =
+          tileList(sortFoods(all, sel.value), { metaFn: SIGHI_META, meter: "histamine" });
+        history.replaceState(null, "", `#/mechanism/${id}?sort=${sel.value}`);
+      });
+    },
+  };
 }
 
 // ---- Curated lists & preparations ----------------------------------------

@@ -101,6 +101,45 @@ you". A preparation with no `why` fails validation.
 **Still parked:** quantities and full method prose, photography, scaling,
 shopping lists, anything resembling a meal planner.
 
+### Amendment — the mechanism layer (2026-08-17)
+
+**"Renders as one badge; mechanism detail in card expand" understated what the
+mechanisms are.** They are the *why*, and the app was rendering them as three
+near-identical inert chips.
+
+The three SIGHI tags behave nothing alike. `high-histamine` means the food
+arrives carrying it. `liberator` means it triggers release of your own.
+`dao-blocker` means neither — it inhibits the enzyme that clears the others, so
+its whole meaning is about the rest of the meal. Rendered as identical chips,
+that distinction was invisible, and the consequence was concrete: four
+DAO blockers (black tea, green tea, masala chai, cola) sit at SIGHI 1,
+"Usually fine", while lowering the ceiling for everything after them.
+
+Added: `/mechanism` (index) and `/mechanism/<tag>` — what the mechanism is, what
+it implies, a **"low score, same mechanism"** section for the foods that carry it
+while reading mild, and every food that carries it. The badge chips became the
+way in. Copy stays in the reported register: what SIGHI says the mechanism is,
+never what it will do to you.
+
+**A food may carry more than one mechanism.** 248 already did; the model always
+supported it. The coffee family did not use it, and read as a contradiction —
+`coffee` was tagged `dao-blocker` with the note "caffeine blocks DAO" while
+`decaf-coffee` was tagged `liberator` with the note "the mechanism is not
+caffeine". Both are true of *different* mechanisms. Eight caffeinated coffees
+now carry both; decaf keeps `liberator` alone, which is precisely why decaf
+still provokes and is the milder half rather than the safe version.
+
+**Flagged, not changed:** the same inconsistency runs through tea. Black and
+green tea carry `dao-blocker`; matcha, sencha, hojicha, oolong, jasmine and
+white tea are the same plant, caffeinated, and carry nothing. Also `energy-drink`,
+`yerba-mate`, `mate-drink` and `iced-tea`, tagged `liberator` only. Owner's call,
+per CLAUDE.md.
+
+**Declined again:** a combined-load view ("you had coffee, cheese and wine →
+here is the stack"). Nearer the symptom-checker line declined 2026-08-02 than
+the mechanism pages are, and not needed to answer the question that prompted
+this.
+
 ## v2 parking lot (dated decisions, not omissions — parked 2026-08-02)
 
 - AI live lookup for unknown foods (revisit after miss-log data exists)

@@ -26,7 +26,9 @@ export function sighiBadge(food) {
       <div class="badge__label">Histamine · SIGHI</div>
       <div class="badge__verdict">${sighi} — ${SIGHI_TEXT[sighi]}</div>
       <div class="segments">${segs}</div>
-      ${tags.length ? `<div class="mechs">${tags.map(t => `<span class="mech" title="${esc(MECHS[t].label)}">${MECHS[t].glyph} ${esc(MECHS[t].label)}</span>`).join("")}</div>` : ""}
+      <!-- The chips were inert labels. They are the only place the reader meets
+           a mechanism, so they are now the way into what it means. -->
+      ${tags.length ? `<div class="mechs">${tags.map(t => `<button class="mech mech--link" data-nav="/mechanism/${t}">${MECHS[t].glyph} ${esc(MECHS[t].label)} <span class="mech__go" aria-hidden="true">›</span></button>`).join("")}</div>` : ""}
     </div>`;
 }
 

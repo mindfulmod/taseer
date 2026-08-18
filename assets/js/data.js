@@ -312,6 +312,57 @@ export const BANDS = [
   { id: "hot", label: "Hot", blurb: "The real heaters" },
 ];
 
+// ---- Histamine mechanisms --------------------------------------------------
+
+/**
+ * The three SIGHI mechanism tags, promoted from a label on a badge to something
+ * the reader can actually open.
+ *
+ * They behave nothing alike — one delivers histamine, one triggers your own,
+ * one blocks the enzyme that clears either — and the app rendered all three as
+ * near-identical chips, which is the whole reason a DAO blocker scoring 1 read
+ * as a mild entry. Copy stays in the traditional/reported register: what SIGHI
+ * says the mechanism is, never what it will do to you.
+ */
+export const MECHANISMS = {
+  liberator: {
+    label: "Histamine liberators",
+    short: "Liberator",
+    glyph: "⚡",
+    lede: "Foods that need not carry much histamine themselves — they prompt the body to release its own.",
+    body: "Histamine is stored in mast cells throughout the body. A liberator triggers that release, so what reaches you was already yours. Freshness and storage do not change it: the effect sits in the compound, not in the condition of the food.",
+    implication: "This is why a difficult day can follow a meal with nothing aged or fermented in it. Decaf coffee is the clean example — it carries the liberator effect in full, with none of the caffeine.",
+    missable: "Low scores, same mechanism",
+    missableNote: "SIGHI scores each food on its own, so these read as mild. The mechanism they carry does not scale with the score.",
+  },
+  "high-histamine": {
+    label: "High histamine",
+    short: "High histamine",
+    glyph: "●",
+    lede: "The food arrives already carrying histamine — because something aged, fermented, cured, or simply sat.",
+    body: "Bacteria produce histamine as protein breaks down, so the amount climbs with time, warmth and microbial activity rather than with the ingredient itself. Of the three mechanisms this is the one where handling matters more than the shopping list.",
+    implication: "Fresh mozzarella scores 0 and aged cheese scores 3, from the same milk. The same logic runs through fish, meat and yesterday's leftovers: how long it has been standing is the variable, not what it is.",
+  },
+  "dao-blocker": {
+    label: "DAO blockers",
+    short: "DAO blocker",
+    glyph: "⛔",
+    lede: "Diamine oxidase is the gut enzyme that breaks down histamine from food. These inhibit it.",
+    body: "A DAO blocker need not deliver histamine or trigger its release. It reduces how much of everything else can be cleared, which means its effect shows up in the foods around it rather than in itself.",
+    implication: "Which is why a DAO blocker scoring 1 is not the mild entry that score suggests. SIGHI rates each food alone, and this is the one mechanism whose entire meaning is about the rest of the meal.",
+    missable: "Scored mild, still blocking",
+    missableNote: "Each of these sits at 1 on its own. Every one of them lowers the ceiling for whatever follows it.",
+  },
+};
+
+export const MECHANISM_IDS = Object.keys(MECHANISMS);
+
+const byMechanism = new Map(MECHANISM_IDS.map(id => [id, []]));
+for (const food of foods) for (const tag of food.histamine.tags) byMechanism.get(tag)?.push(food);
+
+export const getMechanism = id => MECHANISMS[id];
+export const foodsWithMechanism = id => byMechanism.get(id) ?? [];
+
 // ---- Preparations & curated lists -----------------------------------------
 
 export const preparations = PREPARATIONS;

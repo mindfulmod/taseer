@@ -456,6 +456,27 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   font-size: 0.7rem; font-weight: 700;
 }
 
+/* ART.md §1: hue belongs to the data, so a chip that has become a control reads
+   as one by shape — a chevron and a border — not by turning a different colour.
+   The alert tint it already carries is the mechanism's, and it keeps it. */
+.mech--link {
+  border: 1px solid color-mix(in srgb, var(--alert) 30%, transparent);
+  cursor: pointer; font-family: inherit;
+}
+.mech--link:hover { border-color: var(--alert); }
+.mech__go { font-size: 0.8rem; line-height: 1; opacity: 0.65; margin-left: 1px; }
+
+/* ---- Mechanism page ------------------------------------------------------ */
+
+.mech__body { font-size: 0.94rem; line-height: 1.55; color: var(--ink-2); }
+/* The consequence, set apart from the description of the mechanism itself —
+   for a DAO blocker it is the entire reason the page exists. */
+.mech__body--lead {
+  margin-top: 14px; padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--ink); font-weight: 600;
+}
+
 /* The banner is literally split across the thermal axis — the disagreement is
    the point, so it gets a shape of its own rather than a grey system pill. */
 .conflict {

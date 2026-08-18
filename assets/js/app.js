@@ -1,8 +1,8 @@
 // Shell: theme, hash router, delegated events, safety banner.
 import { banner, favorites, misses, recent, theme, triggers } from "./store.js";
 import {
-  categoryView, compareView, findView, foodView, homeView, listView, listsView, meView,
-  prepView, spectrumView, stateView, notFound,
+  categoryView, compareView, findView, foodView, homeView, listView, listsView,
+  mechanismIndexView, mechanismView, meView, prepView, spectrumView, stateView, notFound,
 } from "./views.js";
 
 const main = document.getElementById("main");
@@ -67,6 +67,8 @@ function resolve({ parts, params }) {
     case "food": return { view: foodView(parts[1]), tab: null };
     case "category": return { view: categoryView(parts[1], params), tab: "/find" };
     case "lists": return { view: listsView(), tab: "/find" };
+    // Bare /mechanism is the index; /mechanism/<tag> is one mechanism.
+    case "mechanism": return { view: parts[1] ? mechanismView(parts[1], params) : mechanismIndexView(), tab: "/find" };
     case "list": return { view: listView(parts[1]), tab: "/find" };
     case "prep": return { view: prepView(parts[1]), tab: "/find" };
     case "compare": return { view: compareView(params), tab: "/find" };
