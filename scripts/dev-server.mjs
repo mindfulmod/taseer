@@ -17,6 +17,10 @@ const TYPES = {
   ".webmanifest": "application/manifest+json; charset=utf-8",
   ".svg": "image/svg+xml",
   ".png": "image/png",
+  // Every food card is a webp. Without this they fall through to
+  // application/octet-stream, which browsers mostly sniff their way past but
+  // not reliably — and it makes local preview a poor model of production.
+  ".webp": "image/webp",
   ".ico": "image/x-icon",
   ".woff2": "font/woff2",
 };
