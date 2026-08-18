@@ -38,7 +38,7 @@ Then open http://localhost:4173. Nothing to install.
 
 ## What's built
 
-Remedy finder (4 body states, eat/avoid lists ranked by kitchen-commonness with favourites floated, reactive lists computed from SIGHI) · instant alias search over 750 aliases with miss logging · food cards with per-tradition badges, macro rings, ingredient chips and a why-classified expander · curated lists and 10 simple preparations · compare view · spectrum explorer · Me screen · installable PWA that works with zero connection.
+Remedy finder (4 body states, eat/avoid lists ranked by kitchen-commonness with favourites floated, reactive lists computed from SIGHI) · instant alias search over 750 aliases with miss logging · food cards with per-tradition badges, macro rings, ingredient chips and a why-classified expander · curated lists and 44 simple preparations, offered on the remedy screens and linked from every food they use · compare view · spectrum explorer · Me screen · installable PWA that works with zero connection.
 
 Food illustrations are optional throughout — the app is designed to look finished with emoji alone, and images drop into `assets/food-images/<food-id>.webp` with no code change.
 
@@ -48,7 +48,7 @@ Remedy-finder-first · four body states · eat+avoid lists · per-system badges 
 
 **Art direction (2026-08-02):** Headspace warmth on the emotional screens, Oura restraint on the data screens; muted spice-tin palette; hue belongs to the data, so buttons and links read by weight and shape instead.
 
-**Parked to v2 (dated, deliberate):** AI live lookup · eating log · native-script names · full recipe lane.
+**Parked to v2 (dated, deliberate):** AI live lookup · eating log · native-script names · full recipe *depth* (quantities, method prose — the preparation lane itself was widened to 44 on 2026-08-17).
 
 ## Deploying
 

@@ -317,6 +317,33 @@ export const BANDS = [
 export const preparations = PREPARATIONS;
 export const getPreparation = id => PREPARATIONS.find(p => p.id === id);
 
+/** What sort of thing it is, so the lane can't quietly become all drinks again. */
+export const PREP_KINDS = { drink: "Drink", bowl: "Bowl", plate: "Plate", side: "Side", sweet: "Sweet" };
+
+/**
+ * Preparations, indexed the two ways the screens actually ask for them.
+ *
+ * By state, because the remedy screen is the whole product and the lane was
+ * invisible from it — you could stand on "Feeling too hot" reading 614 cooling
+ * foods with nothing telling you that fourteen ready-made cooling things exist
+ * two taps away. By ingredient, because a food card that lists cucumber should
+ * be able to say what cucumber is used in.
+ */
+const byState = new Map();
+const byIngredient = new Map();
+for (const p of PREPARATIONS) {
+  if (!byState.has(p.state)) byState.set(p.state, []);
+  byState.get(p.state).push(p);
+  for (const id of p.ingredients) {
+    if (!byIngredient.has(id)) byIngredient.set(id, []);
+    byIngredient.get(id).push(p);
+  }
+}
+
+/** Fastest first: the remedy screen's premise is "now", so time is the ranking. */
+export const prepsForState = state => [...(byState.get(state) ?? [])].sort((a, b) => a.minutes - b.minutes);
+export const prepsUsing = foodId => byIngredient.get(foodId) ?? [];
+
 const byCommon = (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name);
 
 export const LISTS = [

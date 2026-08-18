@@ -374,6 +374,24 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 /* Carries the tile's own temperature, so "Cooling" is literally cool-coloured
    and cannot be misread as the complaint it treats. */
 .prep__effect { font-size: 0.72rem; font-weight: 700; color: var(--t-deep); white-space: nowrap; }
+/* Time is the one fact worth carrying in a list: the remedy screen's premise is
+   "now", and a 5-minute cooler and a 90-minute yakhni are different offers. */
+.prep__time { font-size: 0.72rem; color: var(--ink-3); white-space: nowrap; }
+
+/* Food names are words and ellipsise cleanly; preparation names are phrases and
+   do not — "Cucumber-mint w…" is not a name. They wrap to two lines instead,
+   which is what the effect/time stack beside them leaves room for. */
+.tile--prep .tile__name span {
+  white-space: normal; overflow: visible;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+/* The blurb has to become a box too, or -webkit-line-clamp is inert on it and
+   a four-line blurb doubles the height of every row in the list. */
+.tile--prep .tile__meta {
+  white-space: normal; overflow: hidden;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.tile--prep .tile__end { align-self: start; padding-top: 2px; }
 
 /* Thermal strip: the tile's temperature read at a glance */
 .tile__strip {
@@ -860,6 +878,38 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .steps { margin: 10px 0 0; padding-left: 20px; display: grid; gap: 8px; }
 .steps li { color: var(--ink-2); font-size: 0.92rem; }
 .steps li::marker { color: var(--t); font-weight: 800; }
+
+/* ---- Preparation card ----------------------------------------------------
+   Quiet register (ART.md §1): the hero already carries the temperature, so
+   everything below it reads by weight and rule, not by hue. */
+
+.prep__facts {
+  margin-top: 10px; font-size: 0.78rem; font-weight: 600;
+  letter-spacing: 0.02em; color: var(--t-deep); opacity: 0.8;
+}
+
+/* A swap is an aside to the method, so it hangs off the bottom of the steps
+   panel on a rule rather than claiming a panel of its own. */
+.prep__swap {
+  margin: 14px 0 0; padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, var(--t) 22%, var(--line));
+  font-size: 0.85rem; color: var(--ink-2);
+}
+.prep__swap b {
+  margin-right: 7px; color: var(--ink-3);
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.09em; text-transform: uppercase;
+}
+
+.prep__why { margin: 8px 0 0; font-size: 0.9rem; line-height: 1.5; color: var(--ink-2); }
+
+/* Your own trigger list outranks anything the app recommends, so this sits
+   above the ingredients rather than as a ring on a chip inside them. */
+.prep__warn {
+  margin: 0 0 16px; padding: 12px 14px; border-radius: var(--radius);
+  background: var(--alert-tint); color: var(--alert);
+  border: 1px solid color-mix(in srgb, var(--alert) 35%, transparent);
+  font-size: 0.85rem; font-weight: 600;
+}
 
 /* ---- Compare ------------------------------------------------------------ */
 

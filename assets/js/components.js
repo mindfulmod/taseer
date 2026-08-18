@@ -1,5 +1,5 @@
 // Render helpers. Everything returns an HTML string; the shell owns the DOM.
-import { SYSTEM_LABELS, systemHeat, heatClass } from "./data.js";
+import { PREP_KINDS, STATES, SYSTEM_LABELS, systemHeat, heatClass } from "./data.js";
 import { favorites, triggers } from "./store.js";
 
 export const esc = s =>
@@ -175,6 +175,35 @@ export const miniTile = food => `
     ${artGlyph(food, "minitile__glyph")}
     <span class="minitile__name">${esc(food.name)}</span>
   </button>`;
+
+/**
+ * A preparation row, shared by the lists screen, the remedy screens and the
+ * food card. One renderer on purpose: a preparation offered from three places
+ * should look identical in all three, or it reads as three different things.
+ */
+export const prepTile = (prep, { effect: showEffect = true } = {}) => {
+  const { tone, effect } = STATES[prep.state];
+  return `
+    <button class="tile tile--prep t-${tone}" data-nav="/prep/${prep.id}">
+      <span class="tile__glyph">${prep.emoji}</span>
+      <span class="tile__body">
+        <span class="tile__name"><span>${esc(prep.name)}</span></span>
+        <span class="tile__meta">${esc(prep.blurb)}</span>
+      </span>
+      <span class="tile__end">
+        <!-- What the preparation DOES, never the complaint it treats. Off where
+             a section heading has just said it — fourteen rows each repeating
+             "Cooling" under a COOLING heading is noise, and the time is the
+             thing that actually separates them. -->
+        ${showEffect ? `<span class="prep__effect">${esc(effect)}</span>` : ""}
+        <span class="prep__time">${prep.minutes} min</span>
+      </span>
+    </button>`;
+};
+
+/** Kind · time · yield — the three things you want before committing to cook. */
+export const prepFacts = prep =>
+  `${esc(PREP_KINDS[prep.kind] ?? prep.kind)} · ${prep.minutes} min · serves ${prep.serves}`;
 
 export const chip = food => `
   <button class="chip t-${food.heatClass}${triggers.has(food.id) ? " chip--trigger" : ""}" data-nav="/food/${food.id}">

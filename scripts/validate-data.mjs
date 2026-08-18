@@ -15,6 +15,21 @@ const AYUR = ["cooling", "heating"];
 const UNANI = ["cold", "cold-dry", "cold-moist", "neutral", "hot", "hot-dry", "hot-moist"];
 const TAGS = ["liberator", "high-histamine", "dao-blocker"];
 const REMEDY_STATES = ["too-hot", "too-cold"];
+const PREP_KINDS = ["drink", "bowl", "plate", "side", "sweet"];
+
+// Mirrors data.js compositeHeat/heatClass. Duplicated rather than imported: the
+// validator reads data/foods/*.json directly and must not depend on the
+// generated bundle, which may legitimately be stale at the moment it runs.
+const HEAT = {
+  tcm: { cold: -1, cool: -0.5, neutral: 0, warm: 0.5, hot: 1 },
+  ayurveda: { cooling: -0.7, heating: 0.7 },
+  unani: { cold: -1, "cold-dry": -1, "cold-moist": -1, neutral: 0, hot: 1, "hot-dry": 1, "hot-moist": 1 },
+};
+function heatClass(food) {
+  const sum = ["tcm", "ayurveda", "unani"].reduce((n, s) => n + (HEAT[s][food.thermal[s].verdict] ?? 0), 0);
+  const h = Math.max(-1, Math.min(1, sum / 3 / 0.9));
+  return h <= -0.7 ? "cold" : h <= -0.2 ? "cool" : h < 0.2 ? "neutral" : h < 0.7 ? "warm" : "hot";
+}
 
 const errors = [];
 const all = new Map();
@@ -71,10 +86,46 @@ for (const p of preps) {
   prepIds.add(p.id);
   if (all.has(p.id)) errors.push(`${where}: id collides with a food id`);
   if (!p.name || !p.blurb || !p.emoji) errors.push(`${where}: missing name/blurb/emoji`);
+  if (!p.why) errors.push(`${where}: missing "why" — a preparation has to say which tradition is doing the work`);
+  if (!PREP_KINDS.includes(p.kind)) errors.push(`${where}: bad kind ${p.kind} (expected ${PREP_KINDS.join("|")})`);
+  if (!(p.minutes > 0)) errors.push(`${where}: missing/invalid minutes`);
+  if (!(p.serves > 0)) errors.push(`${where}: missing/invalid serves`);
   if (!REMEDY_STATES.includes(p.state) && p.state !== "reactive") errors.push(`${where}: bad state ${p.state}`);
-  if (!Array.isArray(p.steps) || p.steps.length < 2) errors.push(`${where}: needs at least 2 steps`);
-  for (const ing of p.ingredients ?? []) {
-    if (!all.has(ing)) errors.push(`${where}: unknown ingredient "${ing}"`);
+  // 2–4 steps, both ends enforced. The lower bound was always here; the upper
+  // one is what keeps the lane "three-step things, not recipes" as it grows —
+  // without it, the format drifts into a recipe site one well-meaning entry at
+  // a time, and the whole set stops being hand-maintainable.
+  if (!Array.isArray(p.steps) || p.steps.length < 2 || p.steps.length > 4) {
+    errors.push(`${where}: needs 2–4 steps, has ${p.steps?.length ?? 0}`);
+  }
+  const ing = [];
+  for (const id of p.ingredients ?? []) {
+    if (!all.has(id)) errors.push(`${where}: unknown ingredient "${id}"`);
+    else ing.push(all.get(id));
+  }
+
+  // A preparation is a recommendation, so it has to survive being read next to
+  // the remedy list that recommends it. Two of the original ten did not: the
+  // "low-histamine" oat porridge carried cinnamon and the coconut-chia cooler
+  // carried lime, both liberators, both sitting on the Reactive → Avoid list
+  // the reader had just come from. Same reasoning as the dish/ingredient SIGHI
+  // check above — the screen shows the claim and the chips together.
+  if (p.state === "reactive") {
+    const bad = ing.filter(f => f.histamine.sighi >= 2 || f.histamine.tags.length);
+    if (bad.length) {
+      const which = bad.map(f => `${f.id} (SIGHI ${f.histamine.sighi}${f.histamine.tags.length ? ` ${f.histamine.tags.join("/")}` : ""})`);
+      errors.push(`${where}: reactive preparation contains ${which.join(", ")} — the Reactive screen tells the reader to avoid these`);
+    }
+  } else if (ing.length) {
+    // The thermal counterpart, deliberately weak: a cooling preparation must
+    // contain something cooling. It does NOT compute a verdict from the
+    // ingredients — the product spec declines that outright, because
+    // preparation method changes thermal nature. Seasoning quantities of a hot
+    // spice in a cold dish are normal and stay legal.
+    const want = p.state === "too-hot" ? ["cold", "cool"] : ["hot", "warm"];
+    if (!ing.some(f => want.includes(heatClass(f)))) {
+      errors.push(`${where}: ${p.state} preparation with no ${want.join("/")} ingredient in it`);
+    }
   }
 }
 

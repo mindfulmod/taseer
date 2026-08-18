@@ -75,6 +75,47 @@ Thermal verdict vocabularies per system (kept native, not forced into one scale)
 - **Ayurveda:** cooling (shita virya) · heating (ushna virya)
 - **Unani:** hot/cold × dry/moist degrees where classically stated, simplified to hot · cold (+ optional dry/moist)
 
+## Preparation record schema
+
+`data/preparations.json` — a separate id namespace (`prep-*`), referencing food
+ids. 44 entries as of 2026-08-17; see the product-spec amendment for why the
+lane was widened and what stayed parked.
+
+```jsonc
+{
+  "id": "prep-khichdi",
+  "name": "Khichdi",
+  "emoji": "🍲",
+  "kind": "bowl",              // drink|bowl|plate|side|sweet
+  "state": "reactive",         // too-hot|too-cold|reactive — which remedy screen offers it
+  "minutes": 30,
+  "serves": 2,
+  "blurb": "One line, the same voice as a food description.",
+  "why": "Which tradition is doing the work, in the food-card register.",
+  "swap": "One substitution. Optional.",
+  "ingredients": ["white-rice", "mung-beans", "ghee"],  // food ids
+  "steps": ["...", "...", "..."]                        // 2–4, enforced
+}
+```
+
+Four rules `validate-data.mjs` enforces beyond the schema:
+
+- **2–4 steps.** The upper bound is what keeps this a lane rather than a recipe
+  site; without it the format drifts one entry at a time.
+- **A `reactive` preparation may not contain a SIGHI ≥ 2 ingredient, or one
+  tagged liberator / DAO-blocker / high-histamine.** Two of the original ten
+  did — the "low-histamine" oat porridge carried cinnamon and the coconut-chia
+  cooler carried lime — which put an ingredient from the Reactive → **Avoid**
+  list inside a preparation offered on the Reactive → **Eat** screen. Same
+  reasoning as the dish/ingredient SIGHI check: the reader sees the claim and
+  the chips together.
+- **A thermal preparation must contain at least one ingredient pulling its
+  way.** Deliberately weak — it does *not* compute a verdict from ingredients
+  (the product spec declines that: preparation method changes thermal nature).
+  Seasoning quantities of a hot spice in a cold dish stay legal.
+- **`why` is required.** A preparation that can't say which tradition puts it on
+  its list doesn't belong on the list.
+
 ## Sources
 
 - **Histamine:** SIGHI compatibility list (the reference allergists hand out) — scores + mechanism tags.

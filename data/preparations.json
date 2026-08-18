@@ -3,8 +3,13 @@
     "id": "prep-cucumber-mint-water",
     "name": "Cucumber-mint water",
     "emoji": "🥒",
+    "kind": "drink",
     "state": "too-hot",
+    "minutes": 5,
+    "serves": 4,
     "blurb": "The house cooler — two cooling ingredients and nothing to argue about.",
+    "why": "Cucumber and mint are the rare pair all three traditions read the same way: cold in TCM, cooling in Ayurveda, cold-moist in Unani. The lime is for taste, not temperature.",
+    "swap": "Fennel seed, steeped the same way, reads cool too if mint is short.",
     "ingredients": [
       "cucumber",
       "mint",
@@ -20,8 +25,13 @@
     "id": "prep-sattu-cooler",
     "name": "Sattu cooler",
     "emoji": "🥤",
+    "kind": "drink",
     "state": "too-hot",
+    "minutes": 5,
+    "serves": 1,
     "blurb": "Bihar's summer answer — filling enough to replace a meal in the heat.",
+    "why": "Roasted gram is classified cold in the Unani reading, which is why it is handed out through North Indian summers rather than winters. The cumin is a digestive counterweight, not a warming agent.",
+    "swap": "Fine besan, dry-roasted until it smells nutty, stands in for sattu.",
     "ingredients": [
       "sattu-drink",
       "lemon",
@@ -37,8 +47,12 @@
     "id": "prep-barley-water",
     "name": "Barley water",
     "emoji": "🌾",
+    "kind": "drink",
     "state": "too-hot",
+    "minutes": 35,
+    "serves": 4,
     "blurb": "The old Unani cooler, still handed out for summer heat.",
+    "why": "Barley is one of the few grains Unani classifies cold and moist outright, and TCM agrees it is cooling. It is the base of ma-ul-shaeer, the classical summer drink.",
     "ingredients": [
       "barley",
       "lemon",
@@ -54,8 +68,13 @@
     "id": "prep-mint-lassi",
     "name": "Mint lassi",
     "emoji": "🥛",
+    "kind": "drink",
     "state": "too-hot",
+    "minutes": 5,
+    "serves": 2,
     "blurb": "Salted, not sweet — the version that actually cools.",
+    "why": "Ayurveda reads diluted, salted buttermilk as cooling where thick sweet yogurt is not, which is why the classical text is takra and not dahi. The mint pulls it further cold.",
+    "swap": "Buttermilk straight from the carton skips the dilution step entirely.",
     "ingredients": [
       "yogurt",
       "mint",
@@ -68,11 +87,243 @@
     ]
   },
   {
+    "id": "prep-doogh",
+    "name": "Doogh with dried mint",
+    "emoji": "🧊",
+    "kind": "drink",
+    "state": "too-hot",
+    "minutes": 5,
+    "serves": 2,
+    "blurb": "Iran's fizzy salted yogurt — the one thing ordered with every kebab.",
+    "why": "Unani puts thinned yogurt on the cold-moist side and dried mint colder still. The salt is what makes it a hot-weather drink rather than a dessert.",
+    "swap": "Fresh mint works, but dried is what gives doogh its particular dusty edge.",
+    "ingredients": [
+      "yogurt",
+      "mint-dried",
+      "soda-water",
+      "rock-salt"
+    ],
+    "steps": [
+      "Whisk a cup of yogurt with a big pinch of dried mint and salt.",
+      "Top with cold soda water and stir once — you want it fizzy, not blended.",
+      "Serve very cold."
+    ]
+  },
+  {
+    "id": "prep-smashed-cucumber",
+    "name": "Smashed cucumber salad",
+    "emoji": "🥢",
+    "kind": "side",
+    "state": "too-hot",
+    "minutes": 10,
+    "serves": 2,
+    "blurb": "Pai huang gua — bruised, not sliced, so the dressing gets inside.",
+    "why": "TCM reads cucumber as outright cold; the garlic and sesame oil are warm but present in seasoning quantities, which is the traditional way of keeping a cold dish from being harsh on digestion.",
+    "swap": "Rice vinegar can go — the salad still works on salt and sesame alone.",
+    "ingredients": [
+      "cucumber",
+      "garlic",
+      "rice-vinegar",
+      "sesame-oil"
+    ],
+    "steps": [
+      "Smash a cucumber with the flat of a knife until it splits, then tear into rough chunks.",
+      "Salt it and leave 10 minutes; pour off the water that comes out.",
+      "Toss with minced garlic, a splash of rice vinegar and sesame oil."
+    ]
+  },
+  {
+    "id": "prep-mung-bean-soup",
+    "name": "Mung bean cooling soup",
+    "emoji": "🫘",
+    "kind": "bowl",
+    "state": "too-hot",
+    "minutes": 45,
+    "serves": 4,
+    "blurb": "Lü dou tang — what southern Chinese kitchens make when the summer breaks.",
+    "why": "Green mung is one of the coldest things in the TCM materia medica, and Ayurveda treats whole moong as the lightest of the pulses. Rock sugar rather than jaggery keeps it on the cool side.",
+    "swap": "Adzuki beans cook the same way and read cool rather than cold.",
+    "ingredients": [
+      "mung-beans",
+      "rock-sugar"
+    ],
+    "steps": [
+      "Simmer ¾ cup mung beans in 6 cups water until the skins split and the beans collapse, about 40 minutes.",
+      "Sweeten lightly with rock sugar.",
+      "Drink the broth as much as you eat the beans."
+    ]
+  },
+  {
+    "id": "prep-lauki-sabzi",
+    "name": "Bottle gourd sabzi",
+    "emoji": "🥘",
+    "kind": "bowl",
+    "state": "too-hot",
+    "minutes": 25,
+    "serves": 3,
+    "blurb": "Lauki — the vegetable every desi household reaches for in a heat spell.",
+    "why": "Bottle gourd sits at the cold end of all three readings, and unusually for a gourd it stays there when cooked. The cumin and turmeric are a tempering, not a reclassification.",
+    "swap": "Ridge gourd or pointed gourd cook the same way and read just as cold.",
+    "ingredients": [
+      "bottle-gourd",
+      "cumin",
+      "turmeric",
+      "ghee"
+    ],
+    "steps": [
+      "Peel and cube a bottle gourd; it will release plenty of its own water.",
+      "Temper cumin in ghee, add turmeric and salt, then the gourd.",
+      "Cover and cook on low 15 minutes, until it turns translucent."
+    ]
+  },
+  {
+    "id": "prep-cold-bun-bowl",
+    "name": "Cold rice-noodle bowl",
+    "emoji": "🍜",
+    "kind": "bowl",
+    "state": "too-hot",
+    "minutes": 15,
+    "serves": 2,
+    "blurb": "Bún — herbs, cold noodles, no broth. Built for weather that won't let up.",
+    "why": "Rice noodles read cool where wheat noodles read neutral to warm, and the raw herb pile is the cooling half of the dish rather than a garnish.",
+    "swap": "Vermicelli rice noodles, banh pho, any thin rice noodle — all interchangeable here.",
+    "ingredients": [
+      "bun-noodles",
+      "cucumber",
+      "mint",
+      "lettuce",
+      "lime"
+    ],
+    "steps": [
+      "Cook the noodles, then rinse under cold water until they are properly cold.",
+      "Pile with shredded lettuce, cucumber batons and a lot of torn mint.",
+      "Dress with lime, a little sugar and salt; toss at the table."
+    ]
+  },
+  {
+    "id": "prep-karela-fry",
+    "name": "Bitter gourd fry",
+    "emoji": "🥒",
+    "kind": "side",
+    "state": "too-hot",
+    "minutes": 25,
+    "serves": 2,
+    "blurb": "Karela, salted first so it's bitter rather than punishing.",
+    "why": "Bitter gourd is the strongest cooling vegetable in the library — cold in TCM, cooling in Ayurveda, cold-dry in Unani, with all three at high confidence. Onion and mustard oil warm the pan, not the verdict.",
+    "swap": "Ivy gourd is the gentler cousin if karela is too much.",
+    "ingredients": [
+      "bitter-gourd",
+      "onion",
+      "turmeric",
+      "mustard-oil"
+    ],
+    "steps": [
+      "Slice the gourd thin, salt heavily and leave 20 minutes; squeeze out the liquid.",
+      "Fry sliced onion in mustard oil until it colours, add turmeric.",
+      "Add the gourd and fry hard until the edges crisp."
+    ]
+  },
+  {
+    "id": "prep-cucumber-pomegranate-raita",
+    "name": "Cucumber-pomegranate raita",
+    "emoji": "🥣",
+    "kind": "side",
+    "state": "too-hot",
+    "minutes": 10,
+    "serves": 3,
+    "blurb": "The side that does the cooling work while the main course doesn't.",
+    "why": "This is the standard desi answer to a heating meal: something cold-moist served alongside rather than instead. Pomegranate reads cool in Unani and adds the sourness without citrus.",
+    "ingredients": [
+      "yogurt",
+      "cucumber",
+      "pomegranate",
+      "mint",
+      "cumin"
+    ],
+    "steps": [
+      "Grate a cucumber, squeeze the water out, and fold into whisked yogurt.",
+      "Stir through pomegranate seeds, torn mint, roasted cumin and salt.",
+      "Chill 20 minutes before serving."
+    ]
+  },
+  {
+    "id": "prep-watermelon-mint",
+    "name": "Watermelon and mint",
+    "emoji": "🍉",
+    "kind": "side",
+    "state": "too-hot",
+    "minutes": 5,
+    "serves": 2,
+    "blurb": "Barely a recipe. Still the fastest cold thing you can put on a plate.",
+    "why": "Watermelon is classified cold across all three traditions; the salt is a Middle Eastern habit that makes the sweetness read cleaner without touching the thermal side.",
+    "swap": "Honeydew or cantaloupe read just as cold and bruise less.",
+    "ingredients": [
+      "watermelon",
+      "mint",
+      "rock-salt"
+    ],
+    "steps": [
+      "Cube cold watermelon.",
+      "Scatter torn mint and a small pinch of salt over it.",
+      "Eat within the hour — it weeps if it stands."
+    ]
+  },
+  {
+    "id": "prep-napa-tofu-soup",
+    "name": "Napa cabbage and tofu soup",
+    "emoji": "🍲",
+    "kind": "bowl",
+    "state": "too-hot",
+    "minutes": 20,
+    "serves": 3,
+    "blurb": "A clear soup that cools — which sounds wrong until you've had it.",
+    "why": "Serving temperature and thermal classification are different things: tofu and napa cabbage are both read as cold, and a hot bowl of them is still a cooling dish in TCM terms.",
+    "swap": "Bok choy in place of napa; same reading, firmer bite.",
+    "ingredients": [
+      "napa-cabbage",
+      "tofu",
+      "ginger",
+      "spring-onion"
+    ],
+    "steps": [
+      "Simmer a few slices of ginger in 4 cups water for 5 minutes.",
+      "Add sliced napa cabbage; cook until it turns silky, about 10 minutes.",
+      "Slide in cubed tofu, warm through, and finish with spring onion and salt."
+    ]
+  },
+  {
+    "id": "prep-rose-milk",
+    "name": "Rose milk",
+    "emoji": "🌹",
+    "kind": "drink",
+    "state": "too-hot",
+    "minutes": 5,
+    "serves": 2,
+    "blurb": "Pink, cold, and everywhere in Hyderabad from April onward.",
+    "why": "Rose is classified cold in the Unani tradition and is the standard summer sharbat base for that reason. Milk reads cool, so nothing here pulls the other way.",
+    "swap": "Soda water instead of milk gives you a sharbat rather than a milkshake.",
+    "ingredients": [
+      "milk",
+      "rose-water",
+      "rock-sugar"
+    ],
+    "steps": [
+      "Dissolve rock sugar in a splash of hot water, then cool it.",
+      "Stir into cold milk with a teaspoon of rose water.",
+      "Pour over ice."
+    ]
+  },
+  {
     "id": "prep-ginger-honey-tea",
     "name": "Ginger-honey tea",
     "emoji": "🫚",
+    "kind": "drink",
     "state": "too-cold",
+    "minutes": 12,
+    "serves": 2,
     "blurb": "The warming standby when hands and feet won't heat up.",
+    "why": "Ginger is hot in all three readings at high confidence — one of the few foods with no disagreement at the warm end. Honey is warm in Unani, so nothing here cools it back down.",
+    "swap": "Dry ginger (sonth) is read as hotter still than fresh, if you want more of it.",
     "ingredients": [
       "ginger",
       "honey",
@@ -88,8 +339,13 @@
     "id": "prep-golden-milk",
     "name": "Golden milk",
     "emoji": "☕",
+    "kind": "drink",
     "state": "too-cold",
+    "minutes": 8,
+    "serves": 1,
     "blurb": "Haldi doodh — the warming bedtime cup of every desi household.",
+    "why": "Turmeric and black pepper are both hot in Ayurveda and Unani, and they are doing the work here — milk on its own reads cool. The fat is traditionally what carries the turmeric.",
+    "swap": "Oat milk keeps the reading warm; almond milk pulls it slightly cooler.",
     "ingredients": [
       "milk",
       "turmeric",
@@ -106,8 +362,13 @@
     "id": "prep-cinnamon-date-warmer",
     "name": "Cinnamon-date warmer",
     "emoji": "🫖",
+    "kind": "drink",
     "state": "too-cold",
+    "minutes": 15,
+    "serves": 2,
     "blurb": "Caffeine-free, warming, and sweet without sugar.",
+    "why": "Dates and cinnamon are both classified hot — dates in Unani at high confidence, which is why they are a winter and Ramadan food rather than a summer one. Cardamom is the cool note that keeps it drinkable.",
+    "swap": "Dried figs behave like dates here, with more body.",
     "ingredients": [
       "dates",
       "cinnamon",
@@ -121,11 +382,274 @@
     ]
   },
   {
+    "id": "prep-adrak-chai",
+    "name": "Adrak wali chai",
+    "emoji": "🍵",
+    "kind": "drink",
+    "state": "too-cold",
+    "minutes": 10,
+    "serves": 2,
+    "blurb": "Crushed ginger, boiled hard into the leaves. Not a teabag operation.",
+    "why": "Black tea alone reads warm; it is the crushed ginger, cardamom and pepper that make masala chai a genuinely heating drink in the Unani sense rather than just a hot one.",
+    "swap": "Leave the tea out entirely and you have a kadha — same spices, no caffeine.",
+    "ingredients": [
+      "black-tea",
+      "ginger",
+      "cardamom",
+      "black-pepper",
+      "milk"
+    ],
+    "steps": [
+      "Boil crushed ginger, cardamom and a crack of pepper in a cup of water for 5 minutes.",
+      "Add tea leaves and boil 2 minutes more, then a cup of milk and boil again until it rises.",
+      "Strain, sweeten, drink hot."
+    ]
+  },
+  {
+    "id": "prep-shorbat-adas",
+    "name": "Red lentil soup",
+    "emoji": "🍲",
+    "kind": "bowl",
+    "state": "too-cold",
+    "minutes": 35,
+    "serves": 4,
+    "blurb": "Shorbat adas — the bowl that opens every Levantine winter meal.",
+    "why": "Red lentils read warm and onion and cumin hot, which is why this is a cold-weather soup across the Levant rather than a year-round one. The lemon at the end is for brightness, not temperature.",
+    "swap": "Brown lentils work but keep their shape — you lose the smoothness.",
+    "ingredients": [
+      "red-lentils",
+      "onion",
+      "cumin",
+      "turmeric",
+      "olive-oil",
+      "lemon"
+    ],
+    "steps": [
+      "Soften a chopped onion in olive oil, then add cumin and turmeric.",
+      "Add a cup of rinsed red lentils and 5 cups water; simmer 25 minutes until collapsed.",
+      "Blend smooth, salt well, and squeeze lemon over each bowl."
+    ]
+  },
+  {
+    "id": "prep-ginger-chicken-broth",
+    "name": "Ginger chicken broth",
+    "emoji": "🍜",
+    "kind": "bowl",
+    "state": "too-cold",
+    "minutes": 50,
+    "serves": 4,
+    "blurb": "Thin, clear, and aggressively gingered. The one to make when you're cold through.",
+    "why": "Chicken is hot in all three readings and ginger the same, so this is one of the least contested warming dishes in the library. Spring onion is the classic TCM finish for a wind-cold day.",
+    "swap": "Goat or lamb read hotter still, if you want to push it further.",
+    "ingredients": [
+      "chicken",
+      "ginger",
+      "garlic",
+      "spring-onion"
+    ],
+    "steps": [
+      "Cover chicken pieces with cold water, bring up slowly and skim.",
+      "Add a thick slab of sliced ginger and a few crushed garlic cloves; simmer 40 minutes.",
+      "Salt at the end, and pile spring onion into each bowl."
+    ]
+  },
+  {
+    "id": "prep-ginger-congee",
+    "name": "Ginger congee",
+    "emoji": "🍚",
+    "kind": "bowl",
+    "state": "too-cold",
+    "minutes": 60,
+    "serves": 3,
+    "blurb": "Rice cooked past the point of being rice. The Chinese sickbed default.",
+    "why": "Rice on its own reads cool; congee is warming because of the ginger and the long cooking, which TCM treats as changing a food's nature rather than just its texture.",
+    "swap": "Brown rice reads warm to begin with, but takes half again as long to break down.",
+    "ingredients": [
+      "white-rice",
+      "ginger",
+      "spring-onion",
+      "sesame-oil"
+    ],
+    "steps": [
+      "Simmer ½ cup rice in 8 cups water with sliced ginger, stirring now and then.",
+      "Cook 50 minutes, until the grains have dissolved into a loose porridge.",
+      "Finish each bowl with spring onion, sesame oil and salt."
+    ]
+  },
+  {
+    "id": "prep-sarson-saag",
+    "name": "Mustard greens saag",
+    "emoji": "🥬",
+    "kind": "plate",
+    "state": "too-cold",
+    "minutes": 60,
+    "serves": 4,
+    "blurb": "Punjab's winter plate. Cooked long, finished with more ghee than seems reasonable.",
+    "why": "Mustard greens and fenugreek greens are both classified hot — unusual for leafy vegetables, and precisely why saag is eaten in January and not in June.",
+    "swap": "Spinach is the common bulking green, though it reads cold and pulls the dish back.",
+    "ingredients": [
+      "mustard-greens",
+      "methi-leaves",
+      "ginger",
+      "green-chili",
+      "ghee",
+      "cornmeal"
+    ],
+    "steps": [
+      "Boil the greens with ginger and chilli until completely soft, about 40 minutes.",
+      "Mash rather than blend, then stir in a spoon of cornmeal to thicken.",
+      "Cook down 15 minutes more and finish with hot ghee poured over."
+    ]
+  },
+  {
+    "id": "prep-methi-paratha",
+    "name": "Methi paratha",
+    "emoji": "🫓",
+    "kind": "plate",
+    "state": "too-cold",
+    "minutes": 30,
+    "serves": 3,
+    "blurb": "Fenugreek worked into the dough, not sprinkled on top.",
+    "why": "Fresh fenugreek leaves read hot in Ayurveda and Unani both, and ajwain is hot at high confidence — a combination traditionally eaten in winter and by new mothers.",
+    "swap": "Kasuri methi, crushed between the palms, if fresh leaves aren't around.",
+    "ingredients": [
+      "methi-leaves",
+      "atta",
+      "ajwain",
+      "ghee"
+    ],
+    "steps": [
+      "Chop the fenugreek fine, salt it, and knead straight into the atta with ajwain.",
+      "Rest 15 minutes, then roll out thick.",
+      "Cook on a dry tawa, then brush both sides with ghee."
+    ]
+  },
+  {
+    "id": "prep-lamb-yakhni",
+    "name": "Lamb yakhni",
+    "emoji": "🥘",
+    "kind": "bowl",
+    "state": "too-cold",
+    "minutes": 90,
+    "serves": 4,
+    "blurb": "A white stock, no chilli, no tomato. All the heat comes from whole spice.",
+    "why": "Lamb is hot in all three traditions at high confidence, and the whole spices are the classical Unani warming set. Nothing in this dish is cooling, which is the point.",
+    "swap": "Goat reads the same and holds a long simmer better.",
+    "ingredients": [
+      "lamb",
+      "ginger",
+      "black-pepper",
+      "clove",
+      "cardamom"
+    ],
+    "steps": [
+      "Cover the lamb with water and bring up slowly, skimming carefully.",
+      "Tie the whole spices in a cloth and drop them in; simmer 80 minutes until the meat gives.",
+      "Salt at the end and serve the broth alongside the meat."
+    ]
+  },
+  {
+    "id": "prep-sooji-halwa",
+    "name": "Sooji halwa",
+    "emoji": "🍮",
+    "kind": "sweet",
+    "state": "too-cold",
+    "minutes": 25,
+    "serves": 4,
+    "blurb": "Roast the semolina properly and it needs nothing else.",
+    "why": "Ghee and jaggery both read warm to hot, and almonds warm — the classical winter sweet profile. Cardamom is the one cool note, and it is there for aroma.",
+    "swap": "Sugar instead of jaggery makes it lighter and drops the reading a little.",
+    "ingredients": [
+      "semolina",
+      "ghee",
+      "jaggery",
+      "cardamom",
+      "almonds"
+    ],
+    "steps": [
+      "Roast a cup of semolina in ghee on low heat until it turns properly golden — this takes 10 minutes and cannot be rushed.",
+      "Pour in 3 cups hot water with dissolved jaggery; it will spit.",
+      "Stir until it pulls from the pan, then fold in cardamom and almonds."
+    ]
+  },
+  {
+    "id": "prep-sonth-ladoo",
+    "name": "Dry ginger ladoo",
+    "emoji": "🟤",
+    "kind": "sweet",
+    "state": "too-cold",
+    "minutes": 20,
+    "serves": 8,
+    "blurb": "Sonth ke laddu — one after dinner through the cold months, not a dessert course.",
+    "why": "Dry ginger is read as hotter than fresh in both Ayurveda and Unani, and jaggery and sesame are the traditional winter carriers. This is a Makar Sankranti sweet for exactly that reason.",
+    "ingredients": [
+      "sonth",
+      "jaggery",
+      "ghee",
+      "sesame-seeds"
+    ],
+    "steps": [
+      "Toast sesame seeds dry until they pop, then crush coarsely.",
+      "Melt jaggery in ghee, take off the heat, and stir in the sesame and dry ginger powder.",
+      "Roll into balls while just cool enough to handle."
+    ]
+  },
+  {
+    "id": "prep-nutmeg-milk",
+    "name": "Nutmeg milk",
+    "emoji": "🥛",
+    "kind": "drink",
+    "state": "too-cold",
+    "minutes": 6,
+    "serves": 1,
+    "blurb": "Two ingredients, grated fresh. The quietest thing on this list.",
+    "why": "Nutmeg is classified hot and dry in Unani and heating in Ayurveda, traditionally given in very small amounts at night. A grating is the dose; more is not better.",
+    "ingredients": [
+      "milk",
+      "nutmeg",
+      "jaggery"
+    ],
+    "steps": [
+      "Warm a cup of milk with a little jaggery until it dissolves.",
+      "Grate nutmeg over the top — a few passes, no more.",
+      "Drink hot."
+    ]
+  },
+  {
+    "id": "prep-goat-pepper-soup",
+    "name": "Goat pepper soup",
+    "emoji": "🌶️",
+    "kind": "bowl",
+    "state": "too-cold",
+    "minutes": 75,
+    "serves": 4,
+    "blurb": "West African pepper soup — thin, fierce, and eaten when you're chilled.",
+    "why": "Goat and black pepper are both hot at high confidence, and this is one of the clearest cases where a dish's traditional use and its classification line up exactly across systems.",
+    "swap": "Lamb or beef in place of goat; the spicing does the same job.",
+    "ingredients": [
+      "goat",
+      "black-pepper",
+      "ginger",
+      "onion",
+      "thyme"
+    ],
+    "steps": [
+      "Brown goat pieces with sliced onion in a heavy pot.",
+      "Cover with water, add crushed pepper, ginger and thyme, and simmer 60 minutes.",
+      "Keep the broth thin — it is a soup, not a stew."
+    ]
+  },
+  {
     "id": "prep-rice-and-ghee",
     "name": "Plain rice with ghee",
     "emoji": "🍚",
+    "kind": "bowl",
     "state": "reactive",
+    "minutes": 20,
+    "serves": 2,
     "blurb": "The reset meal for a reactive day — nothing aged, nothing fermented.",
+    "why": "White rice and ghee are both SIGHI 0 with no mechanism tags. What matters as much as the ingredients is the timing: histamine accumulates in cooked food as it stands.",
+    "swap": "Any SIGHI 0 grain — poha, samak rice, puffed rice — behaves the same.",
     "ingredients": [
       "white-rice",
       "ghee"
@@ -140,16 +664,20 @@
     "id": "prep-fresh-oat-porridge",
     "name": "Fresh oat porridge",
     "emoji": "🥣",
+    "kind": "bowl",
     "state": "reactive",
+    "minutes": 10,
+    "serves": 1,
     "blurb": "A low-histamine breakfast that doesn't rely on anything cultured.",
+    "why": "Oats and apple are both SIGHI 0. Cinnamon is the obvious thing to reach for here and it is exactly what to leave out — SIGHI lists it as a histamine liberator.",
+    "swap": "Pear or blueberry instead of apple, both SIGHI 0.",
     "ingredients": [
       "oats",
-      "apple",
-      "cinnamon"
+      "apple"
     ],
     "steps": [
       "Cook oats in water or fresh milk.",
-      "Grate in half an apple and a little cinnamon near the end.",
+      "Grate in half an apple near the end.",
       "Eat straight away — leftovers are the whole problem."
     ]
   },
@@ -157,17 +685,314 @@
     "id": "prep-coconut-chia-cooler",
     "name": "Coconut-chia cooler",
     "emoji": "🥥",
+    "kind": "drink",
     "state": "reactive",
+    "minutes": 15,
+    "serves": 1,
     "blurb": "Hydrating, cooling, and clean on the SIGHI list.",
+    "why": "Coconut water and chia are both SIGHI 0. Citrus is the usual finish for a drink like this and it is the one thing that would break it — lemon and lime are both liberators.",
+    "swap": "A little pomegranate gives you the sourness without the liberator.",
     "ingredients": [
       "coconut-water",
-      "chia-seeds",
-      "lime"
+      "chia-seeds"
     ],
     "steps": [
       "Stir 1 tbsp chia seeds into a glass of coconut water.",
       "Leave 15 minutes until the seeds swell.",
-      "Add a squeeze of lime and drink cold."
+      "Drink cold, once it has thickened."
+    ]
+  },
+  {
+    "id": "prep-khichdi",
+    "name": "Khichdi",
+    "emoji": "🍲",
+    "kind": "bowl",
+    "state": "reactive",
+    "minutes": 30,
+    "serves": 2,
+    "blurb": "The reset meal — nothing aged, nothing fermented, nothing reheated.",
+    "why": "Moong is the one pulse Ayurveda treats as easy on every constitution, and nothing in the pot carries a SIGHI mechanism tag. Cooked fresh and eaten straight away, it is about as low as a full meal goes.",
+    "swap": "Red lentils cook faster and behave the same.",
+    "ingredients": [
+      "white-rice",
+      "mung-beans",
+      "ghee",
+      "turmeric",
+      "cumin"
+    ],
+    "steps": [
+      "Rinse ½ cup rice and ½ cup split moong together until the water runs clear.",
+      "Simmer with 3 cups water, turmeric and salt for 20 minutes, until it collapses.",
+      "Temper cumin in ghee and pour it over."
+    ]
+  },
+  {
+    "id": "prep-steamed-white-fish",
+    "name": "Steamed white fish with ginger",
+    "emoji": "🐟",
+    "kind": "plate",
+    "state": "reactive",
+    "minutes": 20,
+    "serves": 2,
+    "blurb": "Fish is the hard one on a reactive day. This is how it's done.",
+    "why": "Fish histamine is about freshness, not species — it climbs from the moment the fish is landed. A SIGHI 0 white fish cooked the day you buy it is the version that works; anything tinned, smoked or aged is not.",
+    "swap": "Chicken, also SIGHI 0, if you don't trust the fish counter.",
+    "ingredients": [
+      "white-fish",
+      "ginger",
+      "spring-onion",
+      "rice-bran-oil"
+    ],
+    "steps": [
+      "Lay the fillet on a plate, scatter with fine ginger shreds and salt.",
+      "Steam 8–10 minutes, until it just flakes.",
+      "Heat the oil until it shimmers and pour over the spring onion on top."
+    ]
+  },
+  {
+    "id": "prep-chicken-congee",
+    "name": "Chicken congee",
+    "emoji": "🍚",
+    "kind": "bowl",
+    "state": "reactive",
+    "minutes": 60,
+    "serves": 3,
+    "blurb": "Soft, plain, and made from two SIGHI 0 things.",
+    "why": "Chicken and white rice are both SIGHI 0 with no tags. Cook it the same day the chicken was bought and don't keep the leftovers — standing time is what turns a safe dish into an unsafe one.",
+    "ingredients": [
+      "chicken",
+      "white-rice",
+      "ginger",
+      "spring-onion"
+    ],
+    "steps": [
+      "Simmer chicken with ginger in 8 cups water for 30 minutes; lift out and shred.",
+      "Add ½ cup rice to the broth and cook 40 minutes until it breaks down.",
+      "Return the chicken, salt, and finish with spring onion."
+    ]
+  },
+  {
+    "id": "prep-carrot-pumpkin-soup",
+    "name": "Carrot and pumpkin soup",
+    "emoji": "🎃",
+    "kind": "bowl",
+    "state": "reactive",
+    "minutes": 35,
+    "serves": 4,
+    "blurb": "Sweet, thick, and built from things that never appear on a SIGHI list.",
+    "why": "Carrot, pumpkin, ghee and cumin are all SIGHI 0. Most soups fail on the stock rather than the vegetables — bone broth is a 3, so this one is built on water.",
+    "swap": "Sweet potato for pumpkin; also SIGHI 0 and thicker.",
+    "ingredients": [
+      "carrot",
+      "pumpkin",
+      "ghee",
+      "cumin"
+    ],
+    "steps": [
+      "Soften cubed carrot and pumpkin in ghee with cumin and salt.",
+      "Add water to just cover and simmer 25 minutes until soft.",
+      "Blend smooth; loosen with more water if it's claggy."
+    ]
+  },
+  {
+    "id": "prep-poha",
+    "name": "Poha",
+    "emoji": "🍛",
+    "kind": "plate",
+    "state": "reactive",
+    "minutes": 20,
+    "serves": 2,
+    "blurb": "Ten minutes, no fermentation, no citrus. The workable Indian breakfast.",
+    "why": "Flattened rice, potato and curry leaves are all SIGHI 0. The usual finishes are the problem — lemon is a liberator and chilli is too, so this version leaves both out.",
+    "swap": "A little pomegranate over the top gives the sour edge lemon would have.",
+    "ingredients": [
+      "poha",
+      "potato",
+      "curry-leaves",
+      "turmeric",
+      "mustard-seed"
+    ],
+    "steps": [
+      "Rinse the poha in a sieve until soft, then leave to drain — don't soak it.",
+      "Pop mustard seeds in oil, add curry leaves, diced potato and turmeric; cook until the potato is done.",
+      "Fold the poha through, salt, and cover off the heat for 2 minutes."
+    ]
+  },
+  {
+    "id": "prep-zucchini-noodles",
+    "name": "Rice noodles with zucchini",
+    "emoji": "🍜",
+    "kind": "bowl",
+    "state": "reactive",
+    "minutes": 15,
+    "serves": 2,
+    "blurb": "Fast, and it avoids every sauce that would have wrecked it.",
+    "why": "Rice noodles, zucchini, garlic and sesame oil are all SIGHI 0. Soy sauce, oyster sauce and vinegar are the things this dish would normally lean on, and all three are fermented — SIGHI 3.",
+    "swap": "Rice vermicelli or banh pho in place of the flat noodles — all SIGHI 0.",
+    "ingredients": [
+      "rice-noodles",
+      "zucchini",
+      "garlic",
+      "sesame-oil"
+    ],
+    "steps": [
+      "Soak the rice noodles in hot water until pliable, then drain.",
+      "Fry sliced garlic and zucchini batons hard until the zucchini takes colour.",
+      "Toss the noodles through with sesame oil and salt."
+    ]
+  },
+  {
+    "id": "prep-broccoli-potato-mash",
+    "name": "Broccoli and potato mash",
+    "emoji": "🥦",
+    "kind": "side",
+    "state": "reactive",
+    "minutes": 25,
+    "serves": 3,
+    "blurb": "A side that goes with anything and reacts with nothing.",
+    "why": "Broccoli, potato and butter are SIGHI 0. Aged cheese is the standard thing to fold into a mash and is a 3 — this is the version that skips it.",
+    "swap": "Fresh mozzarella is SIGHI 0 if you want something melting in there.",
+    "ingredients": [
+      "broccoli",
+      "potato",
+      "butter"
+    ],
+    "steps": [
+      "Boil potatoes until soft; add broccoli florets for the last 5 minutes.",
+      "Drain well and mash together with butter and plenty of salt.",
+      "Leave it rough — it isn't meant to be smooth."
+    ]
+  },
+  {
+    "id": "prep-pear-blueberry-compote",
+    "name": "Pear and blueberry compote",
+    "emoji": "🍐",
+    "kind": "sweet",
+    "state": "reactive",
+    "minutes": 20,
+    "serves": 4,
+    "blurb": "Dessert on a reactive day, which is usually the hardest meal to solve.",
+    "why": "Pear and blueberry are SIGHI 0; strawberry, banana and citrus — the obvious alternatives — are all liberators. Honey is SIGHI 0 where most syrups and jams are not.",
+    "swap": "Apple works, and holds its shape better than pear.",
+    "ingredients": [
+      "pear",
+      "blueberry",
+      "honey"
+    ],
+    "steps": [
+      "Simmer diced pear with a splash of water until it softens, about 12 minutes.",
+      "Add blueberries and cook 3 minutes more, just until they burst.",
+      "Stir in honey off the heat."
+    ]
+  },
+  {
+    "id": "prep-cucumber-mozzarella-plate",
+    "name": "Cucumber and fresh mozzarella",
+    "emoji": "🧀",
+    "kind": "plate",
+    "state": "reactive",
+    "minutes": 5,
+    "serves": 2,
+    "blurb": "The cheese plate that works — because the cheese is a day old, not a year.",
+    "why": "Histamine in cheese tracks ageing almost exactly: fresh mozzarella is SIGHI 0 while aged cheese is a 3. Tomato and basil would be the usual partners; tomato is a 3 and a liberator, so cucumber takes its place.",
+    "swap": "Cream cheese, also SIGHI 0, if mozzarella isn't around.",
+    "ingredients": [
+      "cucumber",
+      "fresh-mozzarella",
+      "olive-oil",
+      "mint"
+    ],
+    "steps": [
+      "Slice cucumber thick and tear the mozzarella by hand.",
+      "Salt the cucumber lightly and let it sit 5 minutes.",
+      "Dress with olive oil and torn mint."
+    ]
+  },
+  {
+    "id": "prep-thyme-roast-chicken",
+    "name": "Thyme roast chicken and potatoes",
+    "emoji": "🍗",
+    "kind": "plate",
+    "state": "reactive",
+    "minutes": 60,
+    "serves": 4,
+    "blurb": "A proper dinner, with nothing on the avoid list in it.",
+    "why": "Chicken, potato, thyme and olive oil are all SIGHI 0. The rule that matters is what happens afterwards: cooked meat climbs as it sits, so this is a cook-and-eat dish, not a batch-cook one.",
+    "swap": "Marjoram or oregano in place of thyme — both SIGHI 0.",
+    "ingredients": [
+      "chicken",
+      "potato",
+      "thyme",
+      "olive-oil"
+    ],
+    "steps": [
+      "Toss chicken pieces and halved potatoes with olive oil, thyme and salt.",
+      "Roast at 200°C for 45 minutes, turning the potatoes once.",
+      "Eat the same day; don't keep the leftovers."
+    ]
+  },
+  {
+    "id": "prep-fennel-tea",
+    "name": "Fennel seed tea",
+    "emoji": "🌿",
+    "kind": "drink",
+    "state": "reactive",
+    "minutes": 8,
+    "serves": 2,
+    "blurb": "What to drink when tea and coffee are both off the table.",
+    "why": "Fennel seed and honey are SIGHI 0. Almost every other hot drink fails somewhere — coffee is a DAO blocker, black and green tea both block DAO, and cocoa does both.",
+    "swap": "Coriander seed, steeped the same way, is also SIGHI 0.",
+    "ingredients": [
+      "fennel-seed",
+      "honey"
+    ],
+    "steps": [
+      "Crush a teaspoon of fennel seed lightly and cover with boiling water.",
+      "Steep 6 minutes, covered, then strain.",
+      "Sweeten with honey if you want it."
+    ]
+  },
+  {
+    "id": "prep-ragi-porridge",
+    "name": "Ragi porridge",
+    "emoji": "🥄",
+    "kind": "bowl",
+    "state": "reactive",
+    "minutes": 15,
+    "serves": 2,
+    "blurb": "Finger millet, cooked out properly so it isn't raw and chalky.",
+    "why": "Ragi is SIGHI 0 and one of the few flours here that isn't wheat. Nothing in it carries a mechanism tag, which makes it a workable breakfast when oats have got dull.",
+    "swap": "Rajgira or jowar flour, both SIGHI 0, cook much the same way.",
+    "ingredients": [
+      "ragi",
+      "milk",
+      "jaggery"
+    ],
+    "steps": [
+      "Whisk 3 tbsp ragi flour into cold water until there are no lumps at all.",
+      "Cook on low, stirring constantly, for 8 minutes — it must lose its raw smell.",
+      "Loosen with warm milk and sweeten with a little jaggery."
+    ]
+  },
+  {
+    "id": "prep-sweet-potato-mash",
+    "name": "Peppered sweet potato",
+    "emoji": "🍠",
+    "kind": "side",
+    "state": "reactive",
+    "minutes": 40,
+    "serves": 3,
+    "blurb": "Roasted rather than boiled, so it needs almost nothing doing to it.",
+    "why": "Sweet potato, ghee and black pepper are all SIGHI 0. Black pepper is worth knowing about here — it is one of the few genuinely hot spices that carries no histamine mechanism at all.",
+    "ingredients": [
+      "sweet-potato",
+      "ghee",
+      "black-pepper"
+    ],
+    "steps": [
+      "Roast whole sweet potatoes at 200°C for 35 minutes, until they give completely.",
+      "Split, and fork the flesh with ghee and salt.",
+      "Crack black pepper over generously."
     ]
   }
 ]

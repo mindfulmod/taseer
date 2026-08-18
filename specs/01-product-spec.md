@@ -53,7 +53,7 @@ SIGHI-style **0–3 compatibility score** + mechanism tags: **liberator / high-h
 ## Browse & discovery (locked — all four)
 
 - **Category grid** (Fruits · Vegetables · Grains · Spices · Proteins · Dairy · Drinks · Dishes-by-cuisine)
-- **Curated lists** ("Top 10 cooling foods", "Everyday heating culprits", "Histamine-safe snacks") — includes **5–10 simple preparations** (cucumber-mint water etc.); full recipe lane stays out of v1
+- **Curated lists** ("Top 10 cooling foods", "Everyday heating culprits", "Histamine-safe snacks") — includes **simple preparations** (cucumber-mint water etc.) — 44 as of the 2026-08-17 amendment, surfaced on the remedy screens; full recipe *depth* stays out of v1
 - **Compare view** (2–3 foods side by side)
 - **Spectrum explorer** (coldest→hottest interactive strip; showcase of the thermal identity)
 
@@ -71,12 +71,42 @@ SIGHI-style **0–3 compatibility score** + mechanism tags: **liberator / high-h
 
 **Static PWA, offline-first.** One responsive site, installable, full dataset bundled locally (~1000 foods ≈ a few hundred KB), instant search with zero network. Free hosting (GitHub Pages or Cloudflare Pages). No backend.
 
+### Amendment — the preparation lane, half unparked (2026-08-17)
+
+**"Full recipe/preparation content lane" was parked to v2 below; the owner
+unparked the breadth and left the depth parked.** Recording it here because the
+original parking was a locked decision.
+
+What changed: **10 preparations → 44**, spread evenly across the three body
+states, and no longer almost all drinks — the original ten were eight beverages
+and a bowl of rice, so the lane answered "what can I drink" and not "what do I
+cook". They also moved out of hiding: preparations for the current state now
+appear on the remedy screen itself under **"Or make something"** (four, fastest
+first, on the Eat tab only), and food cards carry a **"Used in"** row back into
+them. Buried three taps deep behind Find → Curated lists, the lane may as well
+not have existed from the screen this product is built around.
+
+What did *not* change, deliberately: **2–4 steps, enforced by the validator.**
+That upper bound is the whole reason this is a lane and not a recipe site — it
+keeps every entry hand-maintainable and hand-checkable, and without it the
+format drifts one well-meaning entry at a time. Records gained `kind`,
+`minutes`, `serves`, `why` and an optional `swap`; they did not gain quantities,
+method paragraphs or per-step timings.
+
+`why` is the field that earns the lane its place: it says which tradition is
+doing the work, in the same register the food cards use ("Barley is one of the
+few grains Unani classifies cold and moist outright"), never "this will cool
+you". A preparation with no `why` fails validation.
+
+**Still parked:** quantities and full method prose, photography, scaling,
+shopping lists, anything resembling a meal planner.
+
 ## v2 parking lot (dated decisions, not omissions — parked 2026-08-02)
 
 - AI live lookup for unknown foods (revisit after miss-log data exists)
 - Eating log / tracking (a second product; needs its own interview)
 - Native-script names on cards (بامية / 苦瓜) — romanized aliases only in v1
-- Full recipe/preparation content lane
+- ~~Full recipe/preparation content lane~~ — breadth unparked 2026-08-17 (see amendment above); full recipe depth stays parked
 - Accounts / sync / any backend
 
 ## Definition of done, v1

@@ -2,13 +2,13 @@
 // HTML lands in the DOM (focus, listeners that can't be delegated).
 import {
   BANDS, CATEGORIES, CUISINES, LISTS, META, SORTS, SOURCES, STATES, byCategory, fuzzySuggest,
-  getFood, getFoods, getList, getPreparation, heatClass, preparations, remedyList, search,
-  sortFoods, spectrum, systemHeat,
+  getFood, getFoods, getList, getPreparation, heatClass, preparations,
+  prepsForState, prepsUsing, remedyList, search, sortFoods, spectrum, systemHeat,
 } from "./data.js";
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
   art, artGlyph, chip, commonnessLabel, conflictBanner, esc, flags, macroRings, mechLabel,
-  miniTile, sighiBadge, sighiText, thermalScale, tileList,
+  miniTile, prepFacts, prepTile, sighiBadge, sighiText, thermalScale, tileList,
 } from "./components.js";
 
 const backBar = (label, href) =>
@@ -216,6 +216,7 @@ export function foodView(id) {
   const isFav = favorites.has(food.id);
   const isTrig = triggers.has(food.id);
   const ingredients = getFoods(food.ingredients ?? []);
+  const usedIn = prepsUsing(food.id);
   // Reads from the derived verdicts, not the raw hand tag, so the card and the
   // remedy list can never disagree about the same food.
   const remedy = Object.entries(food.remedies)
@@ -277,6 +278,18 @@ export function foodView(id) {
                <h3>Typically contains</h3>
                <p class="tiny muted" style="margin-bottom:10px">Traditions classify the dish as a whole — these are the usual contents, not a calculation.</p>
                <div class="chips">${ingredients.map(chip).join("")}</div>
+             </div>`
+          : ""
+      }
+
+      <!-- The reverse of the chip row above, and the only route out of a food
+           card that leads to doing something with the food rather than to
+           another food. -->
+      ${
+        usedIn.length
+          ? `<div class="panel">
+               <h3>Used in</h3>
+               <div class="tiles" style="margin-top:10px">${usedIn.map(prepTile).join("")}</div>
              </div>`
           : ""
       }
@@ -369,22 +382,21 @@ export function listsView() {
       </div>
       <section class="section">
         <div class="section__head"><h2>Simple preparations</h2><span class="tiny muted">${preparations.length}</span></div>
-        <p class="tiny muted" style="margin-bottom:12px">Three-step things, not recipes. Each one links to the foods in it.</p>
-        <div class="tiles">
-          ${preparations
-            .map(
-              p => `<button class="tile t-${STATES[p.state].tone}" data-nav="/prep/${p.id}">
-                      <span class="tile__glyph">${p.emoji}</span>
-                      <span class="tile__body">
-                        <span class="tile__name"><span>${esc(p.name)}</span></span>
-                        <span class="tile__meta">${esc(p.blurb)}</span>
-                      </span>
-                      <!-- What the preparation DOES, never the complaint it treats. -->
-                      <span class="tile__end prep__effect">${esc(STATES[p.state].effect)}</span>
-                    </button>`,
-            )
-            .join("")}
-        </div>
+        <p class="tiny muted" style="margin-bottom:12px">Two to four steps, not recipes. Each one links to the foods in it.</p>
+        <!-- Grouped rather than one flat grid: at ten a flat list was fine, at
+             forty-four it is a wall, and the only division a reader actually
+             wants here is the one the whole app is organised by. -->
+        ${Object.keys(STATES)
+          .map(id => {
+            const list = prepsForState(id);
+            return `
+              <div class="section__head" style="margin-top:20px">
+                <h3 class="band">${esc(STATES[id].effect)}</h3>
+                <span class="tiny muted">${list.length}</span>
+              </div>
+              <div class="tiles">${list.map(p => prepTile(p, { effect: false })).join("")}</div>`;
+          })
+          .join("")}
       </section>`,
   };
 }
@@ -407,6 +419,11 @@ export function prepView(id) {
   if (!prep) return notFound("preparation");
   const tone = STATES[prep.state].tone;
   const ingredients = getFoods(prep.ingredients);
+  // The reader's own triggers outrank anything a preparation recommends, so
+  // they are called out at the top rather than left as a ring on a chip
+  // halfway down — this is the one place the app is telling you to go and eat
+  // something, and it should not have to be proof-read for your own list.
+  const flagged = ingredients.filter(f => triggers.has(f.id));
   return {
     tone,
     html: `
@@ -417,8 +434,15 @@ export function prepView(id) {
           <p class="eyebrow">${esc(STATES[prep.state].effect)}</p>
           <div class="card__title"><h1>${esc(prep.name)}</h1></div>
           <p class="card__desc">${esc(prep.blurb)}</p>
+          <p class="prep__facts">${prepFacts(prep)}</p>
         </div>
       </div>
+
+      ${
+        flagged.length
+          ? `<div class="prep__warn">⚠ Contains ${flagged.map(f => esc(f.name)).join(", ")}, on your trigger list.</div>`
+          : ""
+      }
 
       <div class="panel">
         <h3>What goes in</h3>
@@ -428,6 +452,15 @@ export function prepView(id) {
       <div class="panel t-${tone}">
         <h3>How</h3>
         <ol class="steps">${prep.steps.map(s => `<li>${esc(s)}</li>`).join("")}</ol>
+        ${prep.swap ? `<p class="prep__swap"><b>Swap</b> ${esc(prep.swap)}</p>` : ""}
+      </div>
+
+      <!-- The reason this lane exists rather than a link to a recipe site: it
+           says which tradition is doing the work, in the same register the
+           food cards use. Never "this will cool you". -->
+      <div class="panel">
+        <h3>Why it's on this list</h3>
+        <p class="prep__why">${esc(prep.why)}</p>
       </div>
 
       <p class="tiny muted" style="margin:0 2px">Traditionally taken when you feel
@@ -898,6 +931,29 @@ function rankedGroups(list, favIds, opts) {
   );
 }
 
+/**
+ * The remedy screen used to hand you six hundred cooling foods and stop there —
+ * a correct answer to "what may I eat" and no answer at all to "what do I make".
+ * The preparations existed the whole time, three taps away behind Find →
+ * Curated lists, which is to say invisible from the one screen this app is
+ * built around. Four of them, fastest first, on the Eat tab only: making
+ * something is an eat action, and offering it beside "Avoid" would read as a
+ * recommendation to cook the thing you were just told to skip.
+ */
+function makeSomething(stateId) {
+  const preps = prepsForState(stateId);
+  if (!preps.length) return "";
+  const shown = preps.slice(0, 4);
+  return `
+    <section class="section">
+      <div class="section__head">
+        <h2>Or make something</h2>
+        ${preps.length > shown.length ? `<button class="linkish" data-nav="/lists">All ${preps.length}</button>` : ""}
+      </div>
+      <div class="tiles">${shown.map(prepTile).join("")}</div>
+    </section>`;
+}
+
 export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
   const state = STATES[stateId];
   if (!state) return notFound("state");
@@ -949,6 +1005,8 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
         ${tab("eat", verdict === "eat" ? "Eat this" : "Eat", eat.length)}
         ${tab("avoid", verdict === "avoid" ? "Avoid this" : "Avoid", avoid.length)}
       </div>
+
+      ${verdict === "eat" ? makeSomething(stateId) : ""}
 
       <div class="findrow">
         <div class="searchbar">
