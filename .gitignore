@@ -9,3 +9,4 @@ assets/food-images/_raw/
 # machine that generated them, meaningless off it, and it embeds absolute
 # home-directory paths.
 image-cache-map.tsv
+Icon?
