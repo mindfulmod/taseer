@@ -4,3 +4,8 @@ node_modules/
 # Source renders the illustrations were derived from — 647MB and growing.
 # Only the exported webp at assets/food-images/*.webp ships.
 assets/food-images/_raw/
+
+# Generation audit trail: maps local cache files to food ids. Useful on the
+# machine that generated them, meaningless off it, and it embeds absolute
+# home-directory paths.
+image-cache-map.tsv
