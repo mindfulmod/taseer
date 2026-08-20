@@ -381,8 +381,13 @@ export function mechanismIndexView() {
       ${backBar("Find", "/find")}
       <section class="hero t-calm">
         <h1>Histamine mechanisms</h1>
-        <p>A SIGHI score says how much. These say why — and no two of them work alike.</p>
+        <p>A score tells you how bad a food is. These tell you why — four different
+        routes to the same trouble.</p>
       </section>
+      <!-- Asked directly and answered directly: a reader who cannot tell whether
+           a page is warning them or reassuring them has learnt nothing. -->
+      <div class="mech__verdict">None of these is a good thing. They are four
+      reasons a food can cause a problem, not four grades of safety.</div>
       <div class="stack">
         ${MECHANISM_IDS.map(id => {
           const m = MECHANISMS[id];
@@ -418,6 +423,8 @@ export function mechanismView(id, { sort = "staples" } = {}) {
         <p>${esc(m.lede)}</p>
       </section>
 
+      <div class="mech__verdict">${esc(m.verdict)}</div>
+
       <div class="panel">
         <p class="mech__body">${esc(m.body)}</p>
         <p class="mech__body mech__body--lead">${esc(m.implication)}</p>
@@ -435,14 +442,21 @@ export function mechanismView(id, { sort = "staples" } = {}) {
 
       <section class="section">
         <div class="section__head">
-          <h2>Every food carrying it</h2>
+          <h2>Every food on this list</h2>
           <span class="tiny muted">${all.length}</span>
         </div>
         ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "mechsort")}
         <div id="mechbody" style="margin-top:12px">
           ${tileList(sortFoods(all, sort), { metaFn: SIGHI_META, meter: "histamine" })}
         </div>
-      </section>`,
+      </section>
+
+      <!-- The safety framing lives here instead of inside every sentence. It
+           used to be hedged into the prose, which made the prose unreadable
+           without making it any safer. -->
+      <p class="tiny muted" style="margin:0 2px">This is what the SIGHI list flags,
+      not a prediction about you — people react to very different things. Informational,
+      not medical advice.</p>`,
 
     mount(root) {
       const sel = root.querySelector("#mechsort");
