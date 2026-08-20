@@ -125,20 +125,67 @@ never what it will do to you.
 supported it. The coffee family did not use it, and read as a contradiction —
 `coffee` was tagged `dao-blocker` with the note "caffeine blocks DAO" while
 `decaf-coffee` was tagged `liberator` with the note "the mechanism is not
-caffeine". Both are true of *different* mechanisms. Eight caffeinated coffees
-now carry both; decaf keeps `liberator` alone, which is precisely why decaf
-still provokes and is the milder half rather than the safe version.
+caffeine".
 
-**Flagged, not changed:** the same inconsistency runs through tea. Black and
-green tea carry `dao-blocker`; matcha, sencha, hojicha, oolong, jasmine and
-white tea are the same plant, caffeinated, and carry nothing. Also `energy-drink`,
-`yerba-mate`, `mate-drink` and `iced-tea`, tagged `liberator` only. Owner's call,
-per CLAUDE.md.
+> **Corrected 2026-08-19 — this paragraph was wrong.** The contradiction was
+> real; the resolution was not. Caffeine is not SIGHI's DAO-inhibiting compound,
+> and eight caffeinated coffees were given a `dao-blocker` tag they should never
+> have had. SIGHI rates coffee **1 with no marker at all**. See the 2026-08-19
+> amendment below.
+
+**Flagged, not changed:** the same inconsistency runs through tea — resolved in
+the 2026-08-19 amendment below, in the opposite direction to the one assumed here.
 
 **Declined again:** a combined-load view ("you had coffee, cheese and wine →
 here is the stack"). Nearer the symptom-checker line declined 2026-08-02 than
 the mechanism pages are, and not needed to answer the question that prompted
 this.
+
+### Amendment — reconciled against SIGHI, and a fourth mechanism (2026-08-19)
+
+Triggered by checking the tea family against the source. **The premise was
+backwards**, and the 2026-08-17 coffee change was wrong.
+
+Pulling the current SIGHI list (2024-08-29 edition) and extracting every entry
+it marks **B** gives 26, in four groups: **alcohol** (ethanol and every
+alcoholic drink), **the tea plant and mate** (green tea 1 B, black tea 2 H+B,
+mate 1 B), **energy drinks** (2 B — the one entry SIGHI annotates with the
+compound, naming *theobromine*), and **theobromine and vitamin C** as
+substances. Coffee is not on it: SIGHI rates coffee **1, unmarked**, and rates
+espresso **1** with a note calling it better tolerated than coffee, not worse.
+
+So the rule is not "caffeinated". It is:
+
+> **`dao-blocker` is applied where SIGHI marks B, and inherits only through an
+> ingredient SIGHI marks B. Caffeine on its own does not confer it.**
+
+Applied: `dao-blocker` removed from the eight coffees, from cola and from
+chocolate; added to the camellia sinensis teas (matcha, sencha, hojicha,
+genmaicha, oolong, jasmine, white, pu-erh), to the drinks built on a black-tea
+base, to mate and to energy drinks. `black-tea` rescored 1 → 2 with
+`high-histamine`; mate rescored 2 → 1. The 31 alcohol-derived entries were
+already correct. `instant-noodles` still carries a `dao-blocker` with no SIGHI
+basis found — left alone, flagged.
+
+**Fourth mechanism: `other-amines`** — SIGHI's **A**, for tyramine, putrescine
+and phenylethylamine. Without it an A-only food loses its mechanism entirely or
+gets labelled as something it is not, which is precisely what happened to
+chocolate. Applied to the 54 library entries that map onto an A-marked SIGHI
+row: matured cheese, cured meat, oily and tinned fish, cashews and walnuts,
+citrus, banana, pear, cocoa and all alcohol.
+
+`other-amines` is deliberately **not** part of the Reactive → Avoid rule. It is
+not histamine, and SIGHI's elimination phase does not exclude a low-scoring
+A food. The preparation validator had to be corrected for this: it rejected any
+tag at all, which was the same rule as `reactiveVerdict()` only while every tag
+meant histamine. A guard stricter than the screen it mirrors is a bug.
+
+**Known and not fixed:** Taseer's score agrees with SIGHI on only **48%** of the
+153 single ingredients whose names match exactly (tags agree on 73%). Coffee sits
+at 2 where SIGHI says 1, cola at 1 where SIGHI says 2. The library is not a
+transcription of SIGHI and never claimed to be, but the divergence is currently
+silent and undocumented. Deciding where Taseer may diverge, and saying so on the
+card, is unstarted work.
 
 ## v2 parking lot (dated decisions, not omissions — parked 2026-08-02)
 

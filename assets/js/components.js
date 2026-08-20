@@ -14,6 +14,7 @@ const MECHS = {
   liberator: { glyph: "⚡", label: "Histamine liberator" },
   "high-histamine": { glyph: "●", label: "High histamine" },
   "dao-blocker": { glyph: "⛔", label: "DAO blocker" },
+  "other-amines": { glyph: "◆", label: "Other amines" },
 };
 
 const SIGHI_TEXT = ["Well tolerated", "Usually fine", "Care advised", "Poorly tolerated"];

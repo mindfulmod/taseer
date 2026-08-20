@@ -38,7 +38,7 @@ Then open http://localhost:4173. Nothing to install.
 
 ## What's built
 
-Remedy finder (4 body states, eat/avoid lists ranked by kitchen-commonness with favourites floated, reactive lists computed from SIGHI) · instant alias search over 750 aliases with miss logging · food cards with per-tradition badges, macro rings, ingredient chips and a why-classified expander · curated lists and 44 simple preparations, offered on the remedy screens and linked from every food they use · histamine mechanism pages explaining liberator / high-histamine / DAO-blocker, reachable from the badge on any food card · compare view · spectrum explorer · Me screen · installable PWA that works with zero connection.
+Remedy finder (4 body states, eat/avoid lists ranked by kitchen-commonness with favourites floated, reactive lists computed from SIGHI) · instant alias search over 750 aliases with miss logging · food cards with per-tradition badges, macro rings, ingredient chips and a why-classified expander · curated lists and 44 simple preparations, offered on the remedy screens and linked from every food they use · four histamine mechanism pages (liberator / high-histamine / other amines / DAO-blocker, mirroring SIGHI's own markers), reachable from the badge on any food card · compare view · spectrum explorer · Me screen · installable PWA that works with zero connection.
 
 Food illustrations are optional throughout — the app is designed to look finished with emoji alone, and images drop into `assets/food-images/<food-id>.webp` with no code change.
 

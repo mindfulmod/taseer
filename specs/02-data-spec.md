@@ -116,6 +116,32 @@ Four rules `validate-data.mjs` enforces beyond the schema:
 - **`why` is required.** A preparation that can't say which tradition puts it on
   its list doesn't belong on the list.
 
+## Histamine mechanism tags
+
+Four, mirroring SIGHI's four markers one-for-one:
+
+| Taseer tag | SIGHI | Means |
+|---|---|---|
+| `high-histamine` | H | The food arrives carrying histamine |
+| `liberator` | L | Triggers release of the body's own |
+| `other-amines` | A | Tyramine, putrescine, phenylethylamine — not histamine |
+| `dao-blocker` | B | Inhibits diamine oxidase or another degrading enzyme |
+
+SIGHI's `H!` (highly perishable, rapid histamine formation) has no equivalent and
+is currently folded into `high-histamine`.
+
+**The `dao-blocker` rule (set 2026-08-19):** applied where SIGHI marks B, and
+inherited only through an ingredient SIGHI marks B. SIGHI's B set is alcohol,
+the tea plant, mate, energy drinks, theobromine and vitamin C. **Caffeine on its
+own does not confer it** — SIGHI rates coffee 1 with no marker, and the compound
+it names for DAO inhibition is theobromine. Eight coffees carried a wrong
+`dao-blocker` between 2026-08-17 and 2026-08-19 on the opposite assumption.
+
+**`other-amines` is not part of the Reactive → Avoid rule.** `reactiveVerdict()`
+in `assets/js/data.js` avoids on SIGHI ≥ 2, `liberator` or `dao-blocker` only,
+and the preparation check in `validate-data.mjs` mirrors exactly that list.
+Do not widen one without the other.
+
 ## Sources
 
 - **Histamine:** SIGHI compatibility list (the reference allergists hand out) — scores + mechanism tags.

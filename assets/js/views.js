@@ -381,7 +381,7 @@ export function mechanismIndexView() {
       ${backBar("Find", "/find")}
       <section class="hero t-calm">
         <h1>Histamine mechanisms</h1>
-        <p>A SIGHI score says how much. These say why — and the three work nothing alike.</p>
+        <p>A SIGHI score says how much. These say why — and no two of them work alike.</p>
       </section>
       <div class="stack">
         ${MECHANISM_IDS.map(id => {

@@ -38,7 +38,7 @@
       "tags": [
         "dao-blocker"
       ],
-      "note": "Tea inhibits DAO — a consideration when flaring, fine otherwise."
+      "note": "Marked by SIGHI as a DAO blocker rather than for histamine content; the catechins are the usual explanation."
     },
     "nutrition": {
       "kcal": 1,
@@ -87,11 +87,12 @@
       }
     },
     "histamine": {
-      "sighi": 1,
+      "sighi": 2,
       "tags": [
-        "dao-blocker"
+        "dao-blocker",
+        "high-histamine"
       ],
-      "note": "Same DAO note as green tea."
+      "note": "SIGHI marks black tea for histamine content as well as for blocking DAO — the only tea it scores above green."
     },
     "nutrition": {
       "kcal": 1,
@@ -199,10 +200,9 @@
     "histamine": {
       "sighi": 2,
       "tags": [
-        "dao-blocker",
         "liberator"
       ],
-      "note": "Two mechanisms at once: a SIGHI liberator, and caffeine inhibits DAO so it also lowers clearance of whatever you eat with it."
+      "note": "SIGHI rates coffee mildly and marks no mechanism on it: the concern is that caffeine stimulates nerves and bowel, which can activate mast cells. It is not a DAO blocker."
     },
     "nutrition": {
       "kcal": 2,
@@ -698,10 +698,8 @@
     },
     "histamine": {
       "sighi": 1,
-      "tags": [
-        "dao-blocker"
-      ],
-      "note": "Caffeine's DAO note; additives vary by brand."
+      "tags": [],
+      "note": "Caffeinated and sweet, but caffeine does not inhibit DAO — SIGHI marks no mechanism on cola."
     },
     "nutrition": {
       "kcal": 42,
@@ -1035,7 +1033,9 @@
     },
     "histamine": {
       "sighi": 1,
-      "tags": [],
+      "tags": [
+        "dao-blocker"
+      ],
       "note": "Lower than black tea, higher than green — oxidation is the variable."
     },
     "nutrition": {
@@ -1080,7 +1080,9 @@
     },
     "histamine": {
       "sighi": 1,
-      "tags": [],
+      "tags": [
+        "dao-blocker"
+      ],
       "note": "Low; the least processed tea."
     },
     "nutrition": {
@@ -1129,6 +1131,7 @@
     "histamine": {
       "sighi": 3,
       "tags": [
+        "dao-blocker",
         "high-histamine"
       ],
       "note": "Years of deliberate microbial fermentation — the highest of the teas by a distance."
@@ -1177,7 +1180,9 @@
     },
     "histamine": {
       "sighi": 1,
-      "tags": [],
+      "tags": [
+        "dao-blocker"
+      ],
       "note": "Low, as green tea is."
     },
     "nutrition": {
@@ -1811,10 +1816,9 @@
     "histamine": {
       "sighi": 2,
       "tags": [
-        "dao-blocker",
         "liberator"
       ],
-      "note": "Liberator and DAO blocker, roast and origin notwithstanding."
+      "note": "Read as coffee, roast and origin notwithstanding."
     },
     "nutrition": {
       "kcal": 2,
@@ -1866,7 +1870,9 @@
     },
     "histamine": {
       "sighi": 2,
-      "tags": [],
+      "tags": [
+        "dao-blocker"
+      ],
       "note": "Black tea is moderate; the long boil and the tinned milk both add."
     },
     "nutrition": {
@@ -2167,9 +2173,10 @@
     "histamine": {
       "sighi": 2,
       "tags": [
+        "dao-blocker",
         "liberator"
       ],
-      "note": "Caffeine is a liberator, and these carry citric acid and preservatives on top."
+      "note": "The one drink SIGHI annotates with the compound: theobromine inhibits DAO. That is the mechanism people wrongly attribute to caffeine."
     },
     "nutrition": {
       "kcal": 45,
@@ -2267,7 +2274,8 @@
       "sighi": 3,
       "tags": [
         "high-histamine",
-        "liberator"
+        "liberator",
+        "other-amines"
       ],
       "note": "Yeast-fermented and unfiltered — high in histamine and a liberator besides. Alcohol also blocks DAO, the enzyme that clears histamine, so it worsens everything eaten alongside it."
     },
@@ -2314,8 +2322,9 @@
     "histamine": {
       "sighi": 3,
       "tags": [
+        "dao-blocker",
         "high-histamine",
-        "dao-blocker"
+        "other-amines"
       ],
       "note": "The textbook histamine trigger: skin-contact fermentation, ageing, sulphites, and alcohol blocking DAO all at once. Red is worse than white."
     },
@@ -2361,8 +2370,9 @@
     "histamine": {
       "sighi": 3,
       "tags": [
+        "dao-blocker",
         "high-histamine",
-        "dao-blocker"
+        "other-amines"
       ],
       "note": "Lower than red, since it ferments off the skins — but still fermented, sulphited and DAO-blocking."
     },
@@ -2413,7 +2423,8 @@
     "histamine": {
       "sighi": 2,
       "tags": [
-        "dao-blocker"
+        "dao-blocker",
+        "other-amines"
       ],
       "note": "Distilling leaves most histamine behind, so clear spirits are lower than wine or beer — but the alcohol still blocks DAO, which is the bigger problem."
     },
@@ -2463,8 +2474,9 @@
     "histamine": {
       "sighi": 3,
       "tags": [
+        "dao-blocker",
         "high-histamine",
-        "dao-blocker"
+        "other-amines"
       ],
       "note": "Fermented and usually sulphited, with the same DAO problem as any alcohol."
     },
@@ -2512,8 +2524,9 @@
     "histamine": {
       "sighi": 3,
       "tags": [
+        "dao-blocker",
         "high-histamine",
-        "dao-blocker"
+        "other-amines"
       ],
       "note": "Fermented, and worth flagging because it goes into so many dishes — the cooking does not remove the histamine."
     },
@@ -2562,7 +2575,9 @@
     },
     "histamine": {
       "sighi": 1,
-      "tags": [],
+      "tags": [
+        "dao-blocker"
+      ],
       "note": "Low, like green tea; you are consuming the entire leaf, which concentrates everything in it."
     },
     "nutrition": {
@@ -2661,7 +2676,8 @@
       "sighi": 3,
       "tags": [
         "high-histamine",
-        "liberator"
+        "liberator",
+        "other-amines"
       ],
       "note": "Cocoa is fermented before roasting, and is both high in histamine and a liberator — the milk does not offset it."
     },
@@ -3563,10 +3579,9 @@
     "histamine": {
       "sighi": 2,
       "tags": [
-        "dao-blocker",
         "liberator"
       ],
-      "note": "Liberator, plus a DAO block from the caffeine — concentrated, so the second half hits harder per cup."
+      "note": "SIGHI reads espresso as slightly better tolerated than filter coffee, not worse. No DAO effect; the caffeine stimulation is the concern."
     },
     "nutrition": {
       "kcal": 9,
@@ -3612,10 +3627,9 @@
     "histamine": {
       "sighi": 2,
       "tags": [
-        "dao-blocker",
         "liberator"
       ],
-      "note": "Liberator and DAO blocker, with milk stacked on top."
+      "note": "Read as coffee, with milk stacked on top."
     },
     "nutrition": {
       "kcal": 37,
@@ -3662,10 +3676,9 @@
     "histamine": {
       "sighi": 2,
       "tags": [
-        "dao-blocker",
         "liberator"
       ],
-      "note": "Liberator and DAO blocker; the twelve-hour steep is also a long time at room temperature."
+      "note": "Same mild reading as coffee. The twelve-hour steep at room temperature is the part worth watching, not a DAO effect."
     },
     "nutrition": {
       "kcal": 5,
@@ -3712,10 +3725,9 @@
     "histamine": {
       "sighi": 2,
       "tags": [
-        "dao-blocker",
         "liberator"
       ],
-      "note": "Liberator and DAO blocker. Often robusta-based, which carries roughly twice the caffeine of arabica."
+      "note": "Read as coffee. Often robusta-based, so the caffeine end runs high — but caffeine is not what inhibits DAO."
     },
     "nutrition": {
       "kcal": 2,
@@ -3764,7 +3776,7 @@
       "tags": [
         "liberator"
       ],
-      "note": "Still a liberator — that mechanism is not caffeine, which is why decaf disappoints people who switched for it. Without the caffeine it does not block DAO, so it is the milder half of coffee, not the safe version."
+      "note": "Still a liberator — that mechanism is not caffeine, which is why decaf disappoints people who switched for it."
     },
     "nutrition": {
       "kcal": 2,
@@ -3808,7 +3820,9 @@
     },
     "histamine": {
       "sighi": 2,
-      "tags": [],
+      "tags": [
+        "dao-blocker"
+      ],
       "note": "Black tea and non-dairy creamer; the pearls themselves are inert starch."
     },
     "nutrition": {
@@ -4052,6 +4066,7 @@
     "histamine": {
       "sighi": 2,
       "tags": [
+        "dao-blocker",
         "liberator"
       ],
       "note": "Black tea plus lemon, and bottled versions sit for months."
@@ -4436,7 +4451,9 @@
     },
     "histamine": {
       "sighi": 2,
-      "tags": [],
+      "tags": [
+        "dao-blocker"
+      ],
       "note": "Black tea base, usually from a stored syrup concentrate."
     },
     "nutrition": {
@@ -4734,7 +4751,9 @@
     },
     "histamine": {
       "sighi": 1,
-      "tags": [],
+      "tags": [
+        "dao-blocker"
+      ],
       "note": "Low, as green tea is."
     },
     "nutrition": {
@@ -4780,7 +4799,9 @@
     },
     "histamine": {
       "sighi": 1,
-      "tags": [],
+      "tags": [
+        "dao-blocker"
+      ],
       "note": "Low."
     },
     "nutrition": {
@@ -4824,7 +4845,9 @@
     },
     "histamine": {
       "sighi": 1,
-      "tags": [],
+      "tags": [
+        "dao-blocker"
+      ],
       "note": "Low."
     },
     "nutrition": {
@@ -4918,8 +4941,9 @@
     "histamine": {
       "sighi": 3,
       "tags": [
+        "dao-blocker",
         "high-histamine",
-        "dao-blocker"
+        "other-amines"
       ],
       "note": "Alcohol plus months of steeping on sour fruit — both mechanisms."
     },
@@ -4964,7 +4988,8 @@
     "histamine": {
       "sighi": 2,
       "tags": [
-        "dao-blocker"
+        "dao-blocker",
+        "other-amines"
       ],
       "note": "Distilling leaves most histamine behind, but the alcohol still blocks DAO."
     },
@@ -5010,8 +5035,9 @@
     "histamine": {
       "sighi": 3,
       "tags": [
+        "dao-blocker",
         "high-histamine",
-        "dao-blocker"
+        "other-amines"
       ],
       "note": "Unfiltered and still fermenting in the bottle — live yeast plus alcohol."
     },
@@ -5056,7 +5082,8 @@
     "histamine": {
       "sighi": 2,
       "tags": [
-        "dao-blocker"
+        "dao-blocker",
+        "other-amines"
       ],
       "note": "Distilled, so lower in histamine than beer or wine — but the alcohol still blocks DAO."
     },
@@ -5416,7 +5443,9 @@
     },
     "histamine": {
       "sighi": 2,
-      "tags": [],
+      "tags": [
+        "dao-blocker"
+      ],
       "note": "Black tea and condensed milk."
     },
     "nutrition": {
@@ -5730,7 +5759,9 @@
     },
     "histamine": {
       "sighi": 2,
-      "tags": [],
+      "tags": [
+        "dao-blocker"
+      ],
       "note": "Black tea and condensed milk."
     },
     "nutrition": {
@@ -5782,10 +5813,9 @@
     "histamine": {
       "sighi": 2,
       "tags": [
-        "dao-blocker",
         "liberator"
       ],
-      "note": "Liberator and DAO blocker; typically robusta, so the caffeine end runs high."
+      "note": "Read as coffee; typically robusta, so the caffeine end runs high."
     },
     "nutrition": {
       "kcal": 15,
@@ -5835,11 +5865,11 @@
       }
     },
     "histamine": {
-      "sighi": 2,
+      "sighi": 1,
       "tags": [
-        "liberator"
+        "dao-blocker"
       ],
-      "note": "Caffeine is a liberator, as in coffee and tea."
+      "note": "SIGHI groups mate with green tea: mild in itself, and a DAO blocker."
     },
     "nutrition": {
       "kcal": 3,
@@ -6358,11 +6388,11 @@
       }
     },
     "histamine": {
-      "sighi": 2,
+      "sighi": 1,
       "tags": [
-        "liberator"
+        "dao-blocker"
       ],
-      "note": "Caffeine liberator."
+      "note": "SIGHI groups mate with green tea: mild in itself, and a DAO blocker."
     },
     "nutrition": {
       "kcal": 5,
@@ -6515,10 +6545,9 @@
     "histamine": {
       "sighi": 2,
       "tags": [
-        "dao-blocker",
         "liberator"
       ],
-      "note": "Liberator and DAO blocker, and the grounds stay in the cup."
+      "note": "Read as coffee, and the grounds stay in the cup."
     },
     "nutrition": {
       "kcal": 10,
@@ -6626,8 +6655,9 @@
     "histamine": {
       "sighi": 3,
       "tags": [
+        "dao-blocker",
         "high-histamine",
-        "dao-blocker"
+        "other-amines"
       ],
       "note": "It ferments in the container as you carry it — one of the few drinks that is measurably higher by evening than by morning."
     },
@@ -6672,8 +6702,9 @@
     "histamine": {
       "sighi": 3,
       "tags": [
+        "dao-blocker",
         "high-histamine",
-        "dao-blocker"
+        "other-amines"
       ],
       "note": "Fermented honey — alcohol plus a live ferment."
     },
@@ -6718,8 +6749,9 @@
     "histamine": {
       "sighi": 3,
       "tags": [
+        "dao-blocker",
         "high-histamine",
-        "dao-blocker"
+        "other-amines"
       ],
       "note": "An unfiltered home ferment — higher than commercial beer."
     },
@@ -7051,7 +7083,8 @@
     "histamine": {
       "sighi": 3,
       "tags": [
-        "dao-blocker"
+        "dao-blocker",
+        "other-amines"
       ],
       "note": "Distilled, so lower in histamine than wine or beer — but alcohol blocks DAO regardless."
     },

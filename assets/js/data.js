@@ -343,6 +343,16 @@ export const MECHANISMS = {
     body: "Bacteria produce histamine as protein breaks down, so the amount climbs with time, warmth and microbial activity rather than with the ingredient itself. Of the three mechanisms this is the one where handling matters more than the shopping list.",
     implication: "Fresh mozzarella scores 0 and aged cheese scores 3, from the same milk. The same logic runs through fish, meat and yesterday's leftovers: how long it has been standing is the variable, not what it is.",
   },
+  "other-amines": {
+    label: "Other biogenic amines",
+    short: "Other amines",
+    glyph: "◆",
+    lede: "Not histamine — tyramine, putrescine and phenylethylamine, which leave by the same crowded door.",
+    body: "These come from the same bacterial breakdown of protein that produces histamine, and they are cleared by overlapping enzymes. A food can carry a great deal of them and very little histamine, so SIGHI gives them a letter of their own rather than folding them into the score.",
+    implication: "Dark chocolate is the case that makes the distinction visible: it is flagged for tyramine and phenylethylamine, not for histamine and not for blocking DAO. Aged cheese and cured meat generally carry both at once.",
+    missable: "Low scores, other amines",
+    missableNote: "These sit at 0 or 1 for histamine, and the score is only reporting histamine. The amines are a separate measure it does not carry.",
+  },
   "dao-blocker": {
     label: "DAO blockers",
     short: "DAO blocker",

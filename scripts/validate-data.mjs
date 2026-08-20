@@ -13,7 +13,13 @@ const CONFIDENCE = ["high", "moderate", "contested"];
 const TCM = ["cold", "cool", "neutral", "warm", "hot"];
 const AYUR = ["cooling", "heating"];
 const UNANI = ["cold", "cold-dry", "cold-moist", "neutral", "hot", "hot-dry", "hot-moist"];
-const TAGS = ["liberator", "high-histamine", "dao-blocker"];
+// Mirrors SIGHI's four markers. `other-amines` is its A — tyramine, putrescine
+// and phenylethylamine compete for the same degradation pathway as histamine
+// without being histamine, which is why SIGHI marks dark chocolate at all.
+// Without it, an A-only food either loses its mechanism or gets mislabelled as
+// something it is not; chocolate was carrying `dao-blocker` for exactly that
+// reason until 2026-08-19.
+const TAGS = ["liberator", "high-histamine", "dao-blocker", "other-amines"];
 const REMEDY_STATES = ["too-hot", "too-cold"];
 const PREP_KINDS = ["drink", "bowl", "plate", "side", "sweet"];
 
@@ -111,7 +117,16 @@ for (const p of preps) {
   // the reader had just come from. Same reasoning as the dish/ingredient SIGHI
   // check above — the screen shows the claim and the chips together.
   if (p.state === "reactive") {
-    const bad = ing.filter(f => f.histamine.sighi >= 2 || f.histamine.tags.length);
+    // Mirrors reactiveVerdict() in assets/js/data.js exactly. It used to reject
+    // any tag at all, which was the same rule only as long as every tag meant
+    // "histamine". Adding `other-amines` broke that: SIGHI marks pear A, the
+    // Reactive screen does not avoid pear, and the check failed a preparation
+    // over an ingredient the screen it protects is perfectly happy with. A
+    // guard that is stricter than the screen it mirrors is just a bug with a
+    // good error message.
+    const bad = ing.filter(
+      f => f.histamine.sighi >= 2 || f.histamine.tags.includes("liberator") || f.histamine.tags.includes("dao-blocker"),
+    );
     if (bad.length) {
       const which = bad.map(f => `${f.id} (SIGHI ${f.histamine.sighi}${f.histamine.tags.length ? ` ${f.histamine.tags.join("/")}` : ""})`);
       errors.push(`${where}: reactive preparation contains ${which.join(", ")} — the Reactive screen tells the reader to avoid these`);
