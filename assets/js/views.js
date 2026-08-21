@@ -2,7 +2,7 @@
 // HTML lands in the DOM (focus, listeners that can't be delegated).
 import {
   BANDS, CATEGORIES, CUISINES, LISTS, META, SORTS, SOURCES, STATES, byCategory, fuzzySuggest,
-  BLOATING, COMPOUNDS, MECHANISM_IDS, MECHANISMS, foodsWithMechanism, stimulantFamilies, getFood, getFoods, getList, getMechanism,
+  BLOATING, COMPOUNDS, GUNAS, GUNA_IDS, MECHANISM_IDS, MECHANISMS, foodsWithGuna, foodsWithMechanism, gunaCount, stimulantFamilies, getFood, getFoods, getList, getMechanism,
   getPreparation, heatClass, preparations, prepsForState, prepsUsing, remedyList, search,
   sortFoods, spectrum, systemHeat,
 } from "./data.js";
@@ -266,6 +266,23 @@ export function foodView(id) {
         <button class="pillbtn" data-act="trigger" data-id="${food.id}" aria-pressed="${isTrig}">⚠ ${isTrig ? "One of my triggers" : "Mark as trigger"}</button>
       </div>
 
+      ${
+        food.guna
+          ? `<div class="panel guna__row t-${GUNAS[food.guna.verdict].tone}">
+               <div class="guna__row-main">
+                 <span class="guna__glyph">${GUNAS[food.guna.verdict].glyph}</span>
+                 <span>
+                   <span class="guna__label">${esc(GUNAS[food.guna.verdict].label)}</span>
+                   <span class="guna__sub">${esc(GUNAS[food.guna.verdict].oneLine)}</span>
+                 </span>
+                 <button class="linkish" data-nav="/guna">What this means</button>
+               </div>
+               ${food.guna.note ? `<p class="guna__note">${esc(food.guna.note)}</p>` : ""}
+               ${food.guna.confidence === "contested" ? `<p class="guna__note guna__note--soft">The sources differ on this one.</p>` : ""}
+             </div>`
+          : ""
+      }
+
       <div class="panel">${sighiBadge(food)}${provenance(food)}</div>
 
       ${
@@ -361,6 +378,7 @@ function browseBody() {
     { to: "/mechanism", icon: "state-reactive", label: "Histamine mechanisms", sub: "Why a food reacts, not just how much" },
     { to: "/bloating", icon: "category-vegetables", label: "Why food bloats", sub: "Four mechanisms, and what they cannot tell you" },
     { to: "/caffeine", icon: "category-drinks", label: "The caffeine family", sub: "Why tea and coffee don't feel alike" },
+    { to: "/guna", icon: "browse-spectrum", label: "Light, restless, heavy", sub: "Ayurveda's other axis — what food does to your head" },
     { to: "/spectrum", icon: "browse-spectrum", label: "Spectrum", sub: "Every food, coldest to hottest" },
     { to: "/compare", icon: "browse-compare", label: "Compare", sub: "Put two or three side by side" },
   ];
@@ -382,6 +400,85 @@ function browseBody() {
       <div class="section__head"><h2>By category</h2></div>
       ${categoryGrid()}
     </section>`;
+}
+
+// ---- Guna -------------------------------------------------------------------
+
+/**
+ * Owner brief, verbatim: "it needs to be very easy to understand." So the
+ * English name is the heading and the Sanskrit is a footnote, every section
+ * answers "is this good or bad" before it explains anything, and the sentence
+ * that does the most work — condition beats ingredient — gets its own panel
+ * rather than being buried in a paragraph.
+ */
+export function gunaView() {
+  return {
+    tone: null,
+    html: `
+      ${backBar("Find", "/find")}
+      <section class="hero">
+        <h1>Light, restless, heavy</h1>
+        <p>Ayurveda sorts food a second way, and this one is about your head rather than your temperature.</p>
+      </section>
+
+      <div class="panel">
+        <p class="mech__body">Everywhere else in this app, Ayurveda is telling you whether a food
+        warms you or cools you. It has a second answer too: does this food leave you clear, wind
+        you up, or weigh you down?</p>
+      </div>
+
+      <!-- The one sentence worth remembering. It earns a panel of its own. -->
+      <div class="mech__verdict">It matters less what the food is than what state it's in. Fresh
+      dal is light. The same dal reheated tomorrow is heavy. That's the whole idea.</div>
+
+      ${GUNA_IDS.map(id => {
+        const g = GUNAS[id];
+        const list = foodsWithGuna(id);
+        return `
+          <section class="section">
+            <div class="section__head">
+              <h2 class="guna__title t-${g.tone}">${g.glyph} ${esc(g.label)}</h2>
+              <span class="tiny muted">${list.length}</span>
+            </div>
+            <p class="guna__one">${esc(g.oneLine)}</p>
+            <div class="panel">
+              <p class="guna__verdict">${esc(g.verdict)}</p>
+              <p class="cmpd__what">${esc(g.what)}</p>
+              <p class="guna__sanskrit">Called <em>${esc(g.sanskrit)}</em> in the sources.</p>
+              <div class="chips" style="margin-top:14px">${list.slice(0, 18).map(chip).join("")}</div>
+              ${list.length > 18 ? `<p class="tiny muted" style="margin-top:10px">…and ${list.length - 18} more.</p>` : ""}
+            </div>
+          </section>`;
+      }).join("")}
+
+      <div class="panel">
+        <h3>The rule that does most of the work</h3>
+        <p class="mech__body" style="margin-top:8px">Almost anything becomes heavy if it is old,
+        reheated, deep-fried, or simply too much. That is why the tradition is so particular about
+        eating food the day it is cooked, and why the same plate can read light at lunch and heavy
+        as leftovers. You do not need to memorise a list to use this — you need to notice how long
+        the food has been sitting.</p>
+      </div>
+
+      <!-- An overlap, observed. Not a derivation: nothing here computes one
+           system's verdict from the other's, which the spec refuses outright. -->
+      <div class="panel">
+        <h3>Two traditions, one shelf</h3>
+        <p class="mech__body" style="margin-top:8px">The foods Ayurveda calls heavy are largely the
+        ones SIGHI marks
+        <button class="linkish linkish--inline" data-nav="/mechanism/high-histamine">high in histamine</button>:
+        aged, cured, fermented, or left standing. Two systems from opposite ends of the world,
+        centuries apart, pointing at the same shelf of the fridge and describing the same feeling
+        afterwards.</p>
+        <p class="mech__body mech__body--lead">They are not the same claim and neither is computed
+        from the other. It is just striking that they agree.</p>
+      </div>
+
+      <p class="tiny muted" style="margin:0 2px">${gunaCount()} of the everyday foods carry a reading.
+      Guna is described in the sources by quality and condition far more than by lists, so the long
+      tail is deliberately left unmarked rather than guessed at. Traditional classification, not
+      medical advice.</p>`,
+  };
 }
 
 // ---- Caffeine ---------------------------------------------------------------

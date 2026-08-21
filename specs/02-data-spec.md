@@ -116,6 +116,44 @@ Four rules `validate-data.mjs` enforces beyond the schema:
 - **`why` is required.** A preparation that can't say which tradition puts it on
   its list doesn't belong on the list.
 
+## Guna — Ayurveda's second axis
+
+Separate from `thermal.ayurveda`, which carries *virya* (heating/cooling) only.
+Guna is about mental effect rather than temperature.
+
+```jsonc
+"guna": { "verdict": "light", "confidence": "high", "note": "..." }
+```
+
+`verdict` is `light` | `restless` | `heavy`. Confidence uses the same three
+values as thermal.
+
+**English names lead, Sanskrit follows.** *sattva → light*, *rajas → restless*,
+*tamas → heavy*. Owner brief was "it needs to be very easy to understand", and
+leading with the Sanskrit is the single thing that makes most writing on this
+subject unreadable — nobody arrives wanting to learn the word "tamasic", they
+arrive wanting to know why they are foggy after lunch. Every section of
+`/guna` answers "is this good or bad" before it explains anything.
+
+**322 of the 496 everyday foods carry a reading; the long tail is deliberately
+unmarked.** Guna is described in the sources by quality and condition far more
+than by ingredient lists, so a food is tagged where the sources support it and
+left alone where they do not. 78 are classically named (high confidence), 234
+follow a stated principle (moderate), 10 are genuine disagreements between
+schools (contested — eggs, cultured dairy).
+
+**One rule outranks the ingredient**, and the page says so before it lists
+anything: what has happened to a food matters more than what it is. Fresh dal is
+light; the same dal reheated tomorrow is heavy.
+
+**Not derived from the histamine layer.** An early draft mapped `liberator` onto
+restless — that was cut, because a pharmacological tag has no Ayurvedic
+correlate and using it would merge two systems into one verdict, which the
+product spec refuses outright. The aged/fermented → heavy rule is kept because
+both systems are describing the same observable condition of the food, not
+because one is computed from the other. The overlap is noted on the page as an
+observation, never as a derivation.
+
 ## Stimulant profile
 
 On the 33 caffeine-bearing entries only.

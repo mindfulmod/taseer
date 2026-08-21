@@ -404,6 +404,54 @@ for (const food of foods) for (const tag of food.histamine.tags) byMechanism.get
 export const getMechanism = id => MECHANISMS[id];
 export const foodsWithMechanism = id => byMechanism.get(id) ?? [];
 
+// ---- Guna -------------------------------------------------------------------
+
+/**
+ * Ayurveda's second axis, alongside hot and cold: what a food does to your head
+ * rather than to your temperature.
+ *
+ * English names lead and the Sanskrit follows, which is the opposite of how
+ * almost every other source presents this and the whole reason those sources
+ * are hard to read. Nobody arrives wanting to learn the word "tamasic" — they
+ * arrive wanting to know why they are foggy after lunch.
+ */
+export const GUNAS = {
+  light: {
+    label: "Light",
+    sanskrit: "sattva",
+    glyph: "○",
+    tone: "cool",
+    oneLine: "Leaves you clear-headed.",
+    verdict: "This is the one the tradition recommends when you want to think straight. It is also the plainest food on the list, which is worth knowing before you commit.",
+    what: "Fresh, simple, and not much done to it. Fruit, most vegetables, rice, fresh milk, ghee, mung beans. Cooked today, eaten today.",
+  },
+  restless: {
+    label: "Restless",
+    sanskrit: "rajas",
+    glyph: "◐",
+    tone: "warm",
+    oneLine: "Winds you up.",
+    verdict: "Not the villain. You need some of this to get anything done — it is drive. Too much of it and you are wired, scattered, and unable to settle.",
+    what: "Sharp, hot, sour, salty, stimulating. Chilli, onion and garlic, coffee and tea, strong spice, lots of salt or sugar.",
+  },
+  heavy: {
+    label: "Heavy",
+    sanskrit: "tamas",
+    glyph: "●",
+    tone: "neutral",
+    oneLine: "Weighs you down.",
+    verdict: "This is the one behind the after-lunch fog. Grounding in small amounts and dulling in large ones — and the amount matters more here than anywhere else.",
+    what: "Old, aged, fermented, fried, or simply too much of anything. Meat, alcohol, aged cheese, and — the one people forget — yesterday's dinner reheated.",
+  },
+};
+
+export const GUNA_IDS = ["light", "restless", "heavy"];
+
+const byGuna = new Map(GUNA_IDS.map(id => [id, []]));
+for (const f of foods) if (f.guna) byGuna.get(f.guna.verdict)?.push(f);
+export const foodsWithGuna = id => (byGuna.get(id) ?? []).slice().sort(byCommon);
+export const gunaCount = () => foods.filter(f => f.guna).length;
+
 // ---- Stimulants -------------------------------------------------------------
 
 /**

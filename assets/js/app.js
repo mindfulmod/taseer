@@ -1,7 +1,7 @@
 // Shell: theme, hash router, delegated events, safety banner.
 import { banner, favorites, misses, recent, theme, triggers } from "./store.js";
 import {
-  bloatingView, caffeineView, categoryView, compareView, findView, foodView, homeView, listView, listsView,
+  bloatingView, caffeineView, categoryView, gunaView, compareView, findView, foodView, homeView, listView, listsView,
   mechanismIndexView, mechanismView, meView, prepView, spectrumView, stateView, notFound,
 } from "./views.js";
 
@@ -69,6 +69,7 @@ function resolve({ parts, params }) {
     case "lists": return { view: listsView(), tab: "/find" };
     case "bloating": return { view: bloatingView(), tab: "/find" };
     case "caffeine": return { view: caffeineView(), tab: "/find" };
+    case "guna": return { view: gunaView(), tab: "/find" };
     // Bare /mechanism is the index; /mechanism/<tag> is one mechanism.
     case "mechanism": return { view: parts[1] ? mechanismView(parts[1], params) : mechanismIndexView(), tab: "/find" };
     case "list": return { view: listView(parts[1]), tab: "/find" };

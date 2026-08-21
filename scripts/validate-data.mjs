@@ -75,6 +75,18 @@ for (const file of readdirSync(dir).filter(f => f.endsWith(".json"))) {
   }
 }
 
+// Guna — Ayurveda's second axis, about mental effect rather than temperature.
+// Separate from `thermal.ayurveda`, which carries virya (heating/cooling) only.
+// Optional: it is assigned where the sources support it and left off where they
+// do not, which is most of the long tail.
+const GUNA = ["light", "restless", "heavy"];
+for (const f of all.values()) {
+  if (!f.guna) continue;
+  const where = `${f.file} → ${f.id}`;
+  if (!GUNA.includes(f.guna.verdict)) errors.push(`${where}: guna must be ${GUNA.join("|")}, got ${f.guna.verdict}`);
+  if (!CONFIDENCE.includes(f.guna.confidence)) errors.push(`${where}: bad guna confidence ${f.guna.confidence}`);
+}
+
 // Stimulant profile — which molecules, never how many milligrams. Dose per cup
 // swings an order of magnitude with grind, steep and serving size, and the
 // schema has no portion concept to hang a number on; the compounds present are

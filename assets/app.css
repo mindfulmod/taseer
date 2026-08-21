@@ -466,6 +466,26 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .mech--link:hover { border-color: var(--alert); }
 .mech__go { font-size: 0.8rem; line-height: 1; opacity: 0.65; margin-left: 1px; }
 
+/* ---- Guna ----------------------------------------------------------------- */
+
+.guna__title { color: var(--t-deep); }
+.guna__one { margin: -6px 2px 12px; font-size: 1.02rem; font-weight: 600; color: var(--ink); }
+.guna__verdict { margin: 0; font-size: 0.94rem; line-height: 1.55; font-weight: 600; color: var(--ink); }
+.guna__sanskrit { margin: 10px 0 0; font-size: 0.8rem; color: var(--ink-3); }
+.guna__sanskrit em { font-style: italic; }
+
+/* The card row: label and one-liner together, so the reading is legible without
+   opening the page that explains it. */
+.guna__row-main { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px; }
+.guna__glyph {
+  display: grid; place-items: center; width: 38px; height: 38px; flex: none;
+  border-radius: 12px; background: var(--t-tint); color: var(--t-deep); font-size: 1rem;
+}
+.guna__label { display: block; font-weight: 700; letter-spacing: -0.01em; }
+.guna__sub { display: block; font-size: 0.82rem; color: var(--ink-2); margin-top: 1px; }
+.guna__note { margin: 12px 0 0; padding-top: 10px; border-top: 1px solid var(--line); font-size: 0.85rem; line-height: 1.5; color: var(--ink-2); }
+.guna__note--soft { border-top: 0; padding-top: 0; margin-top: 6px; color: var(--ink-3); }
+
 /* ---- Caffeine page -------------------------------------------------------- */
 
 .cmpd { margin-bottom: 12px; }
