@@ -254,7 +254,8 @@
    "description":"Cocoa in all its forms — and a major histamine offender.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Not classical; modern sources call it warming-damp."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Stimulant, bitter-pungent."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Not classical; inferred."}},
    "histamine":{"sighi":3,"tags":["liberator","other-amines"],"note":"Tyramine and phenylethylamine rather than histamine. Theobromine does inhibit DAO, but SIGHI marks that on energy drinks, not on cocoa."},
-   "nutrition":{"kcal":546,"protein":4.9,"carbs":61,"fat":31,"highlight":"theobromine, not caffeine, is the lift"}},
+   "nutrition":{"kcal":546,"protein":4.9,"carbs":61,"fat":31,"highlight":"theobromine, not caffeine, is the lift"},
+   "stimulant":{"compounds":["theobromine","caffeine"],"note":"Mostly theobromine with a little caffeine. Theobromine is a far weaker stimulant and clears more slowly — which is why chocolate never feels like coffee."}},
 
   {"id":"mustard-oil","name":"Mustard oil","aliases":["sarson ka tel","kachi ghani","rai oil"],"emoji":"🫗","category":"spice","cuisines":["south-asian"],"commonness":1,
    "description":"Pungent yellow oil, smoked till it stops biting — the North Indian and Bengali frying fat.",

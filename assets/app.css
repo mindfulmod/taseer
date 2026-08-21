@@ -466,6 +466,26 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .mech--link:hover { border-color: var(--alert); }
 .mech__go { font-size: 0.8rem; line-height: 1; opacity: 0.65; margin-left: 1px; }
 
+/* ---- Caffeine page -------------------------------------------------------- */
+
+.cmpd { margin-bottom: 12px; }
+.cmpd__glyph { color: var(--ink-3); margin-right: 4px; }
+.cmpd__what { margin: 8px 0 0; font-size: 0.9rem; line-height: 1.55; color: var(--ink-2); }
+.cmpd__feel, .cmpd__catch { margin: 10px 0 0; font-size: 0.86rem; line-height: 1.5; color: var(--ink-2); }
+.cmpd__catch { padding-top: 10px; border-top: 1px solid var(--line); color: var(--ink-3); }
+.cmpd__feel strong, .cmpd__catch strong { color: var(--ink); }
+
+.cmpd__list { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 0; }
+.cmpd__pill {
+  padding: 3px 10px; border-radius: 999px;
+  background: var(--surface-2); border: 1px solid var(--line);
+  font-size: 0.76rem; font-weight: 700; color: var(--ink-2);
+}
+.cmpd__pill--none { font-weight: 400; color: var(--ink-3); }
+
+/* An inline link inside a paragraph, where the default block linkish would break the line. */
+.linkish--inline { display: inline; padding: 0; font: inherit; color: var(--ink); text-decoration: underline; text-underline-offset: 2px; }
+
 /* ---- Bloating page -------------------------------------------------------- */
 
 .bloat__group { margin-bottom: 12px; }

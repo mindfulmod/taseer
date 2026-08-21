@@ -116,6 +116,34 @@ Four rules `validate-data.mjs` enforces beyond the schema:
 - **`why` is required.** A preparation that can't say which tradition puts it on
   its list doesn't belong on the list.
 
+## Stimulant profile
+
+On the 33 caffeine-bearing entries only.
+
+```jsonc
+"stimulant": {
+  "compounds": ["caffeine", "theanine"],   // caffeine | theanine | theobromine | theophylline
+  "note": "..."
+}
+```
+
+**Compounds, never milligrams — and the validator enforces it.** Dose per cup
+swings an order of magnitude with grind, steep and serving size, and this schema
+has no portion concept to hang a number on; a note quoting `mg` fails the build.
+Which molecules are present is stable, and it is the part that explains why two
+equally caffeinated drinks feel nothing alike.
+
+The axis also joins up with the histamine layer, which is the part no other
+reference puts in one place: **theobromine** is the compound SIGHI names as
+inhibiting DAO, so the mildest stimulant in the set has the clearest effect on
+clearance; and the tea plant's catechins are why every tea carries a
+`dao-blocker` tag while coffee, for all its caffeine, does not.
+
+Six families fall out of the data: caffeine + theanine (17, the tea plant and
+everything built on it), caffeine alone (10, the coffees and cola), theobromine
++ caffeine (2, cocoa), all three methylxanthines (2, mate), caffeine +
+theobromine (1, energy drinks), and decaffeinated (1).
+
 ## Histamine provenance
 
 The thermal layer has carried `confidence` and `source` per tradition since the

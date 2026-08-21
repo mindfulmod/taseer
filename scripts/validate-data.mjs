@@ -75,6 +75,24 @@ for (const file of readdirSync(dir).filter(f => f.endsWith(".json"))) {
   }
 }
 
+// Stimulant profile — which molecules, never how many milligrams. Dose per cup
+// swings an order of magnitude with grind, steep and serving size, and the
+// schema has no portion concept to hang a number on; the compounds present are
+// stable and are what actually explains why two equally caffeinated drinks feel
+// nothing alike.
+const COMPOUNDS = ["caffeine", "theanine", "theobromine", "theophylline"];
+for (const f of all.values()) {
+  const st = f.stimulant;
+  if (!st) continue;
+  const where = `${f.file} → ${f.id}`;
+  if (!Array.isArray(st.compounds)) errors.push(`${where}: stimulant.compounds must be an array`);
+  else for (const c of st.compounds) {
+    if (!COMPOUNDS.includes(c)) errors.push(`${where}: unknown stimulant compound "${c}"`);
+  }
+  if (!st.note) errors.push(`${where}: stimulant needs a note — the compound list alone tells the reader nothing`);
+  if (/\b\d+\s?mg\b/i.test(st.note)) errors.push(`${where}: stimulant note quotes a milligram dose; this schema has no portion to hang it on`);
+}
+
 // Histamine provenance. `ref` records what SIGHI itself says about a food it
 // lists, so the app can show its own reading next to its source instead of
 // citing SIGHI and quietly departing from it — which it did on 116 of the 187

@@ -2,7 +2,7 @@
 // HTML lands in the DOM (focus, listeners that can't be delegated).
 import {
   BANDS, CATEGORIES, CUISINES, LISTS, META, SORTS, SOURCES, STATES, byCategory, fuzzySuggest,
-  BLOATING, MECHANISM_IDS, MECHANISMS, foodsWithMechanism, getFood, getFoods, getList, getMechanism,
+  BLOATING, COMPOUNDS, MECHANISM_IDS, MECHANISMS, foodsWithMechanism, stimulantFamilies, getFood, getFoods, getList, getMechanism,
   getPreparation, heatClass, preparations, prepsForState, prepsUsing, remedyList, search,
   sortFoods, spectrum, systemHeat,
 } from "./data.js";
@@ -268,6 +268,21 @@ export function foodView(id) {
 
       <div class="panel">${sighiBadge(food)}${provenance(food)}</div>
 
+      ${
+        food.stimulant
+          ? `<div class="panel">
+               <h3>What's in the cup</h3>
+               <p class="cmpd__list">${
+                 food.stimulant.compounds.length
+                   ? food.stimulant.compounds.map(c => `<span class="cmpd__pill">${COMPOUNDS[c].glyph} ${esc(COMPOUNDS[c].label)}</span>`).join("")
+                   : `<span class="cmpd__pill cmpd__pill--none">No meaningful stimulant</span>`
+               }</p>
+               <p class="cmpd__what">${esc(food.stimulant.note)}</p>
+               <button class="linkish" data-nav="/caffeine">How these four differ →</button>
+             </div>`
+          : ""
+      }
+
       <div class="panel t-${food.heatClass}">
         <h3>Per 100 ${food.category === "drink" ? "ml" : "g"}</h3>
         ${macroRings(food)}
@@ -345,6 +360,7 @@ function browseBody() {
     // pages are that axis explained rather than scored.
     { to: "/mechanism", icon: "state-reactive", label: "Histamine mechanisms", sub: "Why a food reacts, not just how much" },
     { to: "/bloating", icon: "category-vegetables", label: "Why food bloats", sub: "Four mechanisms, and what they cannot tell you" },
+    { to: "/caffeine", icon: "category-drinks", label: "The caffeine family", sub: "Why tea and coffee don't feel alike" },
     { to: "/spectrum", icon: "browse-spectrum", label: "Spectrum", sub: "Every food, coldest to hottest" },
     { to: "/compare", icon: "browse-compare", label: "Compare", sub: "Put two or three side by side" },
   ];
@@ -366,6 +382,78 @@ function browseBody() {
       <div class="section__head"><h2>By category</h2></div>
       ${categoryGrid()}
     </section>`;
+}
+
+// ---- Caffeine ---------------------------------------------------------------
+
+/**
+ * Every caffeinated drink in the library, grouped by which stimulant molecules
+ * it carries rather than by how much.
+ *
+ * Dose is the obvious axis and the wrong one: a cup of coffee and a cup of tea
+ * can carry the same caffeine and feel nothing alike, because the tea also
+ * carries theanine. Grouping by compound puts that difference where the reader
+ * meets it, and it is the same chemistry the histamine layer already turns on —
+ * theobromine is SIGHI's named DAO inhibitor, and the tea plant's catechins are
+ * why every tea here is tagged a DAO blocker while coffee is not.
+ */
+export function caffeineView() {
+  const families = stimulantFamilies();
+  return {
+    tone: null,
+    html: `
+      ${backBar("Find", "/find")}
+      <section class="hero">
+        <h1>The caffeine family</h1>
+        <p>Same molecule in most of these. They still don't feel alike — and the reason is what else is in the cup.</p>
+      </section>
+
+      <div class="panel">
+        <p class="mech__body">Dose is the obvious way to compare a coffee with a tea, and it is
+        the wrong one. A cup of each can carry similar caffeine and land completely differently,
+        because caffeine is rarely travelling alone.</p>
+        <p class="mech__body mech__body--lead">So this page groups by what is in the cup, not by
+        how strong it is. Nothing here quotes a milligram figure: that number swings with the
+        grind, the steep and the size of your cup far more than with what you ordered.</p>
+      </div>
+
+      <section class="section">
+        <div class="section__head"><h2>The four molecules</h2></div>
+        ${Object.entries(COMPOUNDS).map(([id, c]) => `
+          <div class="panel cmpd">
+            <h3><span class="cmpd__glyph">${c.glyph}</span> ${esc(c.label)}</h3>
+            <p class="cmpd__what">${esc(c.what)}</p>
+            <p class="cmpd__feel"><strong>How it lands.</strong> ${esc(c.feel)}</p>
+            <p class="cmpd__catch"><strong>Worth knowing.</strong> ${esc(c.catch)}</p>
+          </div>`).join("")}
+      </section>
+
+      <section class="section">
+        <div class="section__head"><h2>What's in what</h2><span class="tiny muted">${families.reduce((n, f) => n + f.list.length, 0)}</span></div>
+        ${families.map(fam => `
+          <div class="panel">
+            <h3>${fam.compounds.length ? fam.compounds.map(c => `${COMPOUNDS[c].glyph} ${esc(COMPOUNDS[c].label)}`).join(" + ") : "Decaffeinated"}</h3>
+            <div class="chips" style="margin-top:12px">${fam.list.map(chip).join("")}</div>
+          </div>`).join("")}
+      </section>
+
+      <!-- The join between this page and the histamine layer, which is the part
+           no other reference puts in one place. -->
+      <div class="panel">
+        <h3>The same chemistry runs both ways</h3>
+        <p class="mech__body" style="margin-top:8px">Theobromine is the compound SIGHI names as
+        inhibiting DAO — so the mildest stimulant on this page is the one with the clearest effect
+        on how you clear histamine. And the tea plant's catechins are why every tea here carries a
+        <button class="linkish linkish--inline" data-nav="/mechanism/dao-blocker">DAO blocker</button>
+        tag while coffee, for all its caffeine, does not.</p>
+        <p class="mech__body mech__body--lead">Which is the answer to a question that sounds like two:
+        why one caffeinated drink leaves you sharp and another leaves you foggy is often the same
+        chemistry as why one bothers you and another doesn't.</p>
+      </div>
+
+      <p class="tiny muted" style="margin:0 2px">How fast you clear caffeine varies severalfold
+      between people, and tolerance shifts it again. General information, not medical advice.</p>`,
+  };
 }
 
 // ---- Bloating ---------------------------------------------------------------

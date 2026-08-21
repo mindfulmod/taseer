@@ -404,6 +404,62 @@ for (const food of foods) for (const tag of food.histamine.tags) byMechanism.get
 export const getMechanism = id => MECHANISMS[id];
 export const foodsWithMechanism = id => byMechanism.get(id) ?? [];
 
+// ---- Stimulants -------------------------------------------------------------
+
+/**
+ * What the four molecules actually do.
+ *
+ * The useful axis across caffeinated drinks is not dose — that swings an order
+ * of magnitude with grind, steep and cup size — but which of these are present.
+ * It is also the axis that connects to the histamine layer already built:
+ * theobromine is the compound SIGHI names as inhibiting DAO, and the tea plant's
+ * catechins are why every tea here carries a dao-blocker tag while coffee does
+ * not. The same chemistry decides how a cup feels and what it does to clearance.
+ */
+export const COMPOUNDS = {
+  caffeine: {
+    label: "Caffeine",
+    glyph: "◉",
+    what: "Blocks adenosine, the molecule that accumulates through the day and makes you feel like sleeping. It does not add energy — it hides the signal that you are short of it.",
+    feel: "Fast on, fast off. Peaks in about half an hour and is half gone in four to six, though that varies several-fold between people.",
+    catch: "Tolerance builds within days. Much of the lift a regular drinker feels is climbing back out of their own withdrawal rather than gaining anything.",
+  },
+  theanine: {
+    label: "L-theanine",
+    glyph: "◍",
+    what: "An amino acid found almost nowhere outside the tea plant. It crosses into the brain and is associated with a calmer, more settled kind of attention.",
+    feel: "It does not stimulate. Paired with caffeine it takes the edge off — the same alertness with less of the jitter and less of the sharp drop.",
+    catch: "This is why an equally caffeinated tea and coffee do not feel alike. It is the single biggest difference in this whole family.",
+  },
+  theobromine: {
+    label: "Theobromine",
+    glyph: "◎",
+    what: "Cocoa's methylxanthine, and a much weaker stimulant than caffeine — mild, slow, and longer to clear.",
+    feel: "Gentle and drawn out rather than sharp. It is why chocolate never feels like a coffee however much of it you eat.",
+    catch: "It is also the compound SIGHI names as inhibiting DAO — so the mildest stimulant here is the one with the clearest effect on how you clear histamine.",
+  },
+  theophylline: {
+    label: "Theophylline",
+    glyph: "◌",
+    what: "The third methylxanthine, present in small amounts in tea and mate. Stronger than theobromine, and used medically to open airways.",
+    feel: "Too little in a normal cup to feel on its own. It contributes to mate's reputation for a steadier lift than coffee's.",
+    catch: "Rarely the main event, but part of why mate sits apart from both coffee and tea.",
+  },
+};
+
+/** Caffeinated entries, grouped by the profile they share. */
+export const stimulantFamilies = () => {
+  const key = f => f.stimulant.compounds.join("+") || "none";
+  const map = new Map();
+  for (const f of foods.filter(f => f.stimulant)) {
+    if (!map.has(key(f))) map.set(key(f), []);
+    map.get(key(f)).push(f);
+  }
+  return [...map.entries()]
+    .map(([k, list]) => ({ compounds: k === "none" ? [] : k.split("+"), list: list.sort(byCommon) }))
+    .sort((a, b) => b.list.length - a.list.length);
+};
+
 // ---- Bloating ---------------------------------------------------------------
 
 /**
