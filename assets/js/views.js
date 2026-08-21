@@ -9,7 +9,7 @@ import {
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
   art, artGlyph, chip, commonnessLabel, conflictBanner, esc, flags, macroRings, mechLabel,
-  miniTile, prepFacts, prepTile, sighiBadge, sighiText, thermalScale, tileList,
+  miniTile, prepFacts, prepTile, provenance, sighiBadge, sighiText, thermalScale, tileList,
 } from "./components.js";
 
 const backBar = (label, href) =>
@@ -266,7 +266,7 @@ export function foodView(id) {
         <button class="pillbtn" data-act="trigger" data-id="${food.id}" aria-pressed="${isTrig}">⚠ ${isTrig ? "One of my triggers" : "Mark as trigger"}</button>
       </div>
 
-      <div class="panel">${sighiBadge(food)}</div>
+      <div class="panel">${sighiBadge(food)}${provenance(food)}</div>
 
       <div class="panel t-${food.heatClass}">
         <h3>Per 100 ${food.category === "drink" ? "ml" : "g"}</h3>

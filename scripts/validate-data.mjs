@@ -75,6 +75,23 @@ for (const file of readdirSync(dir).filter(f => f.endsWith(".json"))) {
   }
 }
 
+// Histamine provenance. `ref` records what SIGHI itself says about a food it
+// lists, so the app can show its own reading next to its source instead of
+// citing SIGHI and quietly departing from it — which it did on 116 of the 187
+// foods SIGHI carries, with nothing anywhere saying so.
+const MARK_CHARS = /^[HALB]*$/;
+for (const f of all.values()) {
+  const ref = f.histamine.ref;
+  if (!ref) {
+    if (f.histamine.why) errors.push(`${f.file} → ${f.id}: has a "why" but no "ref" to differ from`);
+    continue;
+  }
+  const where = `${f.file} → ${f.id}`;
+  if (!(ref.sighi >= 0 && ref.sighi <= 3)) errors.push(`${where}: ref.sighi out of range`);
+  if (typeof ref.marks !== "string" || !MARK_CHARS.test(ref.marks)) errors.push(`${where}: ref.marks must be a subset of HALB`);
+  if (!ref.as) errors.push(`${where}: ref needs "as" — the SIGHI row it was matched against, so a loose match stays visible`);
+}
+
 // Cross-reference dish/drink ingredients
 for (const f of all.values()) {
   for (const ing of f.ingredients ?? []) {

@@ -116,6 +116,45 @@ Four rules `validate-data.mjs` enforces beyond the schema:
 - **`why` is required.** A preparation that can't say which tradition puts it on
   its list doesn't belong on the list.
 
+## Histamine provenance
+
+The thermal layer has carried `confidence` and `source` per tradition since the
+beginning, which is why it can show a contested reading honestly and make a
+feature of disagreement. The histamine layer had neither. It cited SIGHI and
+departed from it on **116 of the 187 foods SIGHI lists**, with nothing anywhere
+saying so — which is how a wrong coffee mechanism reached production on
+2026-08-17 and sat there for two days.
+
+```jsonc
+"histamine": {
+  "sighi": 0, "tags": [], "note": "...",
+  "ref": { "sighi": 2, "marks": "L", "as": "cumin (Cuminum cyminum)" },  // when SIGHI lists it
+  "why": "..."                                                          // when we differ on purpose
+}
+```
+
+`ref.as` carries the SIGHI row verbatim, because SIGHI lumps where Taseer splits
+— "kelp, seaweed, algae" is a single row — and a loose match has to stay visible
+rather than being presented to the reader as a disagreement.
+
+`sourceState` is derived in `assets/js/data.js`, never stored:
+
+| State | Count | Meaning |
+|---|---|---|
+| `verified` | 71 | SIGHI lists it, we agree on score and markers |
+| `reasoned` | 5 | SIGHI lists it, we differ, `why` says why |
+| `unreviewed` | 111 | SIGHI lists it, we differ, nobody has adjudicated it |
+| `derived` | 1813 | SIGHI does not list it — most dishes and world foods |
+
+**`unreviewed` is a real state and it renders as one.** The card says nobody has
+worked out which reading is right. Writing 111 plausible-sounding rationales
+would have looked more finished and been worth less than nothing.
+
+Live consequence, found by this audit: **cumin** is Taseer 0 and SIGHI 2 `L`,
+and it sits in two *reactive* preparations. On SIGHI's number those preparations
+fail the validator's own reactive rule. The guard is only ever as good as the
+data it guards.
+
 ## Histamine mechanism tags
 
 Four, mirroring SIGHI's four markers one-for-one:

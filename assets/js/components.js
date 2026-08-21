@@ -33,6 +33,42 @@ export function sighiBadge(food) {
     </div>`;
 }
 
+const MARK_LABEL = { H: "high histamine", L: "liberator", A: "other amines", B: "DAO blocker" };
+const refReading = ref =>
+  `${ref.sighi}${ref.marks ? ` · ${[...ref.marks].map(c => MARK_LABEL[c] ?? c).join(" · ")}` : " · no mechanism marked"}`;
+
+/**
+ * Where this reading came from, and whether it matches the source the app cites.
+ *
+ * The thermal layer has shown its confidence and its disagreements from the
+ * start. This is the same courtesy for histamine, which was citing SIGHI while
+ * departing from it on 116 of the 187 foods SIGHI lists — silently, which is
+ * how a wrong coffee mechanism reached production and stayed there two days.
+ * An unreviewed difference is stated as unreviewed; the honest answer is not a
+ * rationalisation invented after the fact.
+ */
+export function provenance(food) {
+  const { ref, why } = food.histamine;
+  if (!ref) {
+    return `<p class="prov prov--derived">Not on the SIGHI list — this reading is taken from close
+            relatives and from what the dish contains.</p>`;
+  }
+  if (food.sourceState === "verified") {
+    return `<p class="prov prov--ok">✓ Matches the SIGHI list${
+      ref.as.toLowerCase() !== food.name.toLowerCase() ? `, listed there as “${esc(ref.as)}”` : ""}.</p>`;
+  }
+  return `
+    <div class="prov prov--differs">
+      <p class="prov__head">⚑ Taseer differs from SIGHI here</p>
+      <p class="prov__ref">SIGHI rates <em>${esc(ref.as)}</em> at <strong>${refReading(ref)}</strong>.</p>
+      <p class="prov__why">${
+        why
+          ? esc(why)
+          : "Nobody has worked out which reading is right. Treat the difference as an open question, not a considered position."
+      }</p>
+    </div>`;
+}
+
 const SYSTEMS = ["tcm", "ayurveda", "unani"];
 
 /**

@@ -34,21 +34,21 @@
   {"id":"oats","name":"Oats","aliases":["jai","shofan","yan mai","oatmeal"],"emoji":"🌾","category":"grain","cuisines":["western","arabic"],"commonness":1,
    "description":"Breakfast porridge grain.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Cooked oats are warming-building."},"unani":{"verdict":"hot","confidence":"contested","note":"Thin classical documentation."}},
-   "histamine":{"sighi":0,"tags":[],"note":"A safe breakfast for histamine-sensitive people."},
+   "histamine":{"sighi":0,"tags":[],"note":"A safe breakfast for histamine-sensitive people.","ref":{"sighi":0,"marks":"","as":"oats, oat flakes, oatmeal"}},
    "nutrition":{"kcal":389,"protein":17,"carbs":66,"fat":6.9,"highlight":"the beta-glucan is what makes porridge thick"},
    "remedy":{"too-cold":"eat"}},
 
   {"id":"barley","name":"Barley","aliases":["jau","sha'ir","da mai"],"emoji":"🌾","category":"grain","cuisines":["south-asian","arabic","chinese","western"],"commonness":3,
    "description":"Ancient cooling grain; the base of jau ka pani and Prophetic talbina.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"high"},"unani":{"verdict":"cold-dry","confidence":"high","note":"THE classic cooling grain of Unani — barley water for heat."}},
-   "histamine":{"sighi":0,"tags":[],"note":"Well tolerated (contains gluten)."},
+   "histamine":{"sighi":0,"tags":[],"note":"Well tolerated (contains gluten).","ref":{"sighi":1,"marks":"","as":"barley"}},
    "nutrition":{"kcal":352,"protein":9.9,"carbs":78,"fat":1.2,"highlight":"cooling in a way no other grain is said to be"},
    "remedy":{"too-hot":"eat","too-cold":"avoid"}},
 
   {"id":"millet","name":"Millet (bajra)","aliases":["bajra","pearl millet","dukhn","shu mi"],"emoji":"🌾","category":"grain","cuisines":["south-asian","arabic","chinese"],"commonness":3,
    "description":"Hardy winter flatbread grain.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"TCM's xiao mi (foxtail millet) is cooling — a different millet from bajra."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Bajra is textbook garam — a winter roti."},"unani":{"verdict":"hot-dry","confidence":"high"}},
-   "histamine":{"sighi":0,"tags":[],"note":"Well tolerated; gluten-free."},
+   "histamine":{"sighi":0,"tags":[],"note":"Well tolerated; gluten-free.","ref":{"sighi":0,"marks":"","as":"millet"}},
    "nutrition":{"kcal":378,"protein":11,"carbs":73,"fat":4.2,"highlight":"gluten-free, and iron-rich for a grain"},
    "remedy":{"too-cold":"eat"}},
 
@@ -67,7 +67,7 @@
   {"id":"quinoa","name":"Quinoa","aliases":["kinwa","li mai"],"emoji":"🌾","category":"grain","cuisines":["western"],"commonness":3,
    "description":"Protein-rich Andean pseudo-grain.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"New-world; inferred."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Light, dry, mildly heating per modern Ayurvedic use."},"unani":{"verdict":"neutral","confidence":"contested","note":"Not classical; inferred."}},
-   "histamine":{"sighi":0,"tags":[],"note":"Well tolerated; gluten-free."},
+   "histamine":{"sighi":0,"tags":[],"note":"Well tolerated; gluten-free.","ref":{"sighi":0,"marks":"","as":"quinoa"}},
    "nutrition":{"kcal":120,"protein":4.4,"carbs":21,"fat":1.9,"highlight":"one of the few plant foods with all nine amino acids"}},
 
   {"id":"couscous","name":"Couscous","aliases":["kuskus","maftoul (large)"],"emoji":"🌾","category":"grain","cuisines":["arabic","western"],"commonness":2,
@@ -79,7 +79,7 @@
   {"id":"bulgur","name":"Bulgur","aliases":["burghul","dalia (cousin)","cracked wheat"],"emoji":"🌾","category":"grain","cuisines":["arabic"],"commonness":2,
    "description":"Parboiled cracked wheat of tabbouleh and kibbeh.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Follows TCM wheat."},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Follows wheat."}},
-   "histamine":{"sighi":1,"tags":[],"note":"As wheat."},
+   "histamine":{"sighi":1,"tags":[],"note":"As wheat.","ref":{"sighi":1,"marks":"","as":"bulgur, burghul, riffoth"}},
    "nutrition":{"kcal":83,"protein":3.1,"carbs":19,"fat":0.2,"highlight":"already parboiled, so it only needs soaking"}},
 
   {"id":"pasta","name":"Pasta","aliases":["makarona","yi da li mian","spaghetti","macaroni"],"emoji":"🍝","category":"grain","cuisines":["arabic","western"],"commonness":1,
@@ -91,7 +91,7 @@
   {"id":"rice-noodles","name":"Rice noodles","aliases":["mi fen","he fen","vermicelli (rice)"],"emoji":"🍜","category":"grain","cuisines":["chinese"],"commonness":2,
    "description":"Soft gluten-free noodles of pho and chow fun.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Follows rice."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Follows rice."}},
-   "histamine":{"sighi":0,"tags":[],"note":"A safe noodle choice."},
+   "histamine":{"sighi":0,"tags":[],"note":"A safe noodle choice.","ref":{"sighi":0,"marks":"","as":"rice noodles"}},
    "nutrition":{"kcal":108,"protein":1.8,"carbs":25,"fat":0.2,"highlight":"gluten-free by nature, not by substitution"}},
 
   {"id":"wheat-noodles","name":"Wheat noodles","aliases":["mian tiao","lo mein","ramen (plain)","sevaiyan (roasted)"],"emoji":"🍜","category":"grain","cuisines":["chinese","south-asian"],"commonness":2,
@@ -110,7 +110,7 @@
   {"id":"buckwheat","name":"Buckwheat (kuttu)","aliases":["kuttu","qiao mai","soba grain"],"emoji":"🌾","category":"grain","cuisines":["south-asian","chinese","western"],"commonness":3,
    "description":"Nutty pseudo-grain; kuttu atta of fasting days.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Called heating in Ayurveda — used in vrat (fasting) food; disagrees with TCM."},"unani":{"verdict":"neutral","confidence":"contested"}},
-   "histamine":{"sighi":1,"tags":[],"note":"Usually fine; occasional sensitivity reports."},
+   "histamine":{"sighi":1,"tags":[],"note":"Usually fine; occasional sensitivity reports.","ref":{"sighi":2,"marks":"","as":"buckwheat"}},
    "nutrition":{"kcal":343,"protein":13,"carbs":72,"fat":3.4,"highlight":"not wheat at all, despite the name"}},
 
   {"id":"besan","name":"Besan","aliases":["gram flour","chickpea flour","chana ka atta","daqiq al hummus"],"emoji":"🫙","category":"grain","cuisines":["south-asian"],"commonness":1,
@@ -195,13 +195,13 @@
   {"id":"rye","name":"Rye","aliases":["rye grain","rye berries","hei mai"],"emoji":"🌾","category":"grain","cuisines":["western"],"commonness":4,
    "description":"Hardy dark grain that grows where wheat won't — malty and dense.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Grouped with the cooling cereals; not in the classical Chinese record."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry; read with the grain family."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the Unani record."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Low as a whole grain; it is the sour breads made from it that climb."},
+   "histamine":{"sighi":1,"tags":[],"note":"Low as a whole grain; it is the sour breads made from it that climb.","ref":{"sighi":1,"marks":"","as":"rye"}},
    "nutrition":{"kcal":338,"protein":10.3,"carbs":75.9,"fat":1.6,"highlight":"grows where wheat won't"}},
 
   {"id":"spelt","name":"Spelt","aliases":["dinkel","farro grande","ancient wheat"],"emoji":"🌾","category":"grain","cuisines":["western"],"commonness":4,
    "description":"An older wheat species — nuttier, and often better tolerated.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with wheat."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Follows godhuma; no separate classical entry."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Read with gehun."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Low; still gluten-bearing, which is a separate sensitivity."},
+   "histamine":{"sighi":1,"tags":[],"note":"Low; still gluten-bearing, which is a separate sensitivity.","ref":{"sighi":0,"marks":"","as":"spelt"}},
    "nutrition":{"kcal":338,"protein":14.6,"carbs":70.2,"fat":2.4,"highlight":"an older wheat"}},
 
   {"id":"farro","name":"Farro","aliases":["emmer","grano farro","burghul cousin"],"emoji":"🌾","category":"grain","cuisines":["western","arabic"],"commonness":4,
@@ -238,7 +238,7 @@
   {"id":"sabudana","name":"Sabudana","aliases":["tapioca pearls","sago","javvarisi","xi mi"],"emoji":"⚪","category":"grain","cuisines":["south-asian","chinese"],"commonness":1,
    "description":"Translucent starch pearls soaked till they swell — the vrat khichdi staple.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with the starches; neutral and spleen-strengthening."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Shita and guru — pure starch, and the reason it is permitted on fasting days."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar; heavy and filling, easy on a fasting stomach."}},
-   "histamine":{"sighi":0,"tags":[],"note":"Very low — nearly pure starch, and among the safest things on a reactive day."},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low — nearly pure starch, and among the safest things on a reactive day.","ref":{"sighi":0,"marks":"","as":"sago"}},
    "nutrition":{"kcal":358,"protein":0.2,"carbs":88.7,"fat":0.02,"highlight":"the vrat khichdi staple"},
    "remedy":{"too-hot":"eat"}},
 
@@ -379,7 +379,7 @@
   {"id":"wild-rice","name":"Wild rice","aliases":["gu mi","manoomin","water oats"],"emoji":"🌾","category":"grain","cuisines":["western"],"commonness":4,
    "description":"Long black grass seeds, not a rice at all — chewy and nutty.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Not the classical Chinese grain despite the name."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the record."}},
-   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low.","ref":{"sighi":0,"marks":"","as":"wild rice (Zizania)"}},
    "nutrition":{"kcal":357,"protein":14.7,"carbs":74.9,"fat":1.1,"highlight":"not actually rice"}},
 
   {"id":"jobs-tears","name":"Job's tears","aliases":["yi yi ren","coix","chinese pearl barley"],"emoji":"⚪","category":"grain","cuisines":["chinese"],"commonness":3,
@@ -399,7 +399,7 @@
   {"id":"tapioca-flour","name":"Tapioca flour","aliases":["tapioca starch","mu shu fen","cassava flour"],"emoji":"⚪","category":"grain","cuisines":["chinese","south-asian"],"commonness":2,
    "description":"Fine white starch from cassava — the chew in bubble tea pearls and gluten-free bakes.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with cassava."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru; pure starch."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
-   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "histamine":{"sighi":0,"tags":[],"note":"Very low.","ref":{"sighi":0,"marks":"","as":"tapioca starch"}},
    "nutrition":{"kcal":358,"protein":0.2,"carbs":88.7,"fat":0.02,"highlight":"the chew in boba"}},
 
   {"id":"teff","name":"Teff","aliases":["taf","ti fu"],"emoji":"🌾","category":"grain","cuisines":["western"],"commonness":4,
@@ -411,7 +411,7 @@
   {"id":"kamut","name":"Kamut","aliases":["khorasan wheat","pharaoh grain"],"emoji":"🌾","category":"grain","cuisines":["western","arabic"],"commonness":4,
    "description":"A large ancient wheat with a buttery flavour and more protein than modern kinds.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with wheat."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Follows godhuma."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Grouped with gehun."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Low; still gluten-bearing."},
+   "histamine":{"sighi":1,"tags":[],"note":"Low; still gluten-bearing.","ref":{"sighi":0,"marks":"","as":"KAMUT�, Khorasan wheat"}},
    "nutrition":{"kcal":337,"protein":14.5,"carbs":70.4,"fat":2.2,"highlight":"an ancient wheat"}},
 
   {"id":"corn-flakes","name":"Corn flakes","aliases":["cereal flakes","yu mi pian"],"emoji":"🥣","category":"grain","cuisines":["western","south-asian","arabic"],"commonness":1,

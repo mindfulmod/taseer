@@ -44,6 +44,31 @@ function hasConflict(food) {
   return new Set(dirs).size > 1;
 }
 
+const TAG_MARK = { "high-histamine": "H", liberator: "L", "other-amines": "A", "dao-blocker": "B" };
+
+/**
+ * How this food's histamine reading stands against the source the app cites.
+ *
+ * The thermal layer has carried `confidence` and `source` per tradition since
+ * the beginning, which is why it can show a contested reading honestly and make
+ * a feature of disagreement. The histamine layer had neither, so it cited SIGHI
+ * and silently differed from it on 116 of the 187 foods SIGHI lists — including
+ * the coffee mechanism that went to production wrong on 2026-08-17.
+ *
+ *   verified   SIGHI lists it and we agree on score and markers
+ *   reasoned   SIGHI lists it, we differ, and the record says why
+ *   unreviewed SIGHI lists it, we differ, and nobody has adjudicated it
+ *   derived    SIGHI does not list it — most dishes and world foods
+ */
+function sourceState(food) {
+  const { ref, sighi, tags, why } = food.histamine;
+  if (!ref) return "derived";
+  const mine = tags.map(t => TAG_MARK[t]).sort().join("");
+  const theirs = [...ref.marks].sort().join("");
+  if (sighi === ref.sighi && mine === theirs) return "verified";
+  return why ? "reasoned" : "unreviewed";
+}
+
 /**
  * Reactive-day verdict, computed (never hand-curated) per data/README.md:
  * eat = SIGHI 0 and not a liberator; avoid = SIGHI >= 2, or liberator/DAO-blocker.
@@ -95,6 +120,7 @@ export const foods = FOODS.map(food => {
     conflict: hasConflict(food),
     contested: SYSTEMS.some(s => food.thermal[s].confidence === "contested"),
     reactive: reactiveVerdict(food),
+    sourceState: sourceState(food),
     remedies: {
       "too-hot": thermalRemedy(food, "too-hot", cls),
       "too-cold": thermalRemedy(food, "too-cold", cls),
@@ -413,6 +439,16 @@ export const prepsUsing = foodId => byIngredient.get(foodId) ?? [];
 const byCommon = (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name);
 
 export const LISTS = [
+  {
+    id: "sighi-divergence",
+    title: "Where we differ from SIGHI",
+    blurb: "The app cites the SIGHI list and departs from it here. Most of these have not been adjudicated.",
+    tone: "calm",
+    pick: () =>
+      foods
+        .filter(f => f.sourceState === "unreviewed" || f.sourceState === "reasoned")
+        .sort((a, b) => Math.abs(b.histamine.sighi - b.histamine.ref.sighi) - Math.abs(a.histamine.sighi - a.histamine.ref.sighi) || a.name.localeCompare(b.name)),
+  },
   {
     id: "top-cooling",
     title: "Top 10 cooling foods",

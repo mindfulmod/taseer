@@ -466,6 +466,23 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .mech--link:hover { border-color: var(--alert); }
 .mech__go { font-size: 0.8rem; line-height: 1; opacity: 0.65; margin-left: 1px; }
 
+/* ---- Histamine provenance -------------------------------------------------
+   Quiet register: agreement is a hairline, disagreement is a bordered block.
+   Hue stays on the data (ART.md §1), so this reads by weight and rule. */
+
+.prov { font-size: 0.82rem; line-height: 1.5; margin: 12px 0 0; color: var(--ink-3); }
+.prov--ok, .prov--derived { padding-top: 10px; border-top: 1px solid var(--line); }
+
+.prov--differs {
+  margin-top: 12px; padding: 12px 14px; border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  border: 1px solid var(--line-strong);
+}
+.prov__head { margin: 0; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.04em; color: var(--ink); }
+.prov__ref { margin: 7px 0 0; font-size: 0.85rem; color: var(--ink-2); }
+.prov__ref em { font-style: normal; color: var(--ink); }
+.prov__why { margin: 7px 0 0; font-size: 0.82rem; color: var(--ink-3); }
+
 /* ---- Mechanism page ------------------------------------------------------ */
 
 /* The plain answer to "is this bad for me". Sits above the explanation because

@@ -31,6 +31,7 @@ Then open http://localhost:4173. Nothing to install.
 | `node scripts/build-data.mjs` | Merges `data/**` into the bundled `assets/data/foods.js` |
 | `node scripts/stamp-sw.mjs` | Stamps the service worker version with a hash of the shell. **Run after any shell change.** |
 | `node scripts/check-palette.mjs` | Fails on any hex not declared in ART.md §2 |
+| `node scripts/format-data.mjs` | Canonical layout for `data/foods/*.json` (`--check` to verify) |
 | `node scripts/build-icons.mjs` | Rasterises the app icon to PNG (pure Node) |
 | `node scripts/build-image-prompts.mjs` | Regenerates `image-prompts.md` — 250 illustration prompts |
 | `node scripts/optimise-images.mjs` | Generated PNGs → 640px WebP (needs `brew install webp`) |
