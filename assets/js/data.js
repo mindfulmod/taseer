@@ -404,6 +404,74 @@ for (const food of foods) for (const tag of food.histamine.tags) byMechanism.get
 export const getMechanism = id => MECHANISMS[id];
 export const foodsWithMechanism = id => byMechanism.get(id) ?? [];
 
+// ---- Bloating ---------------------------------------------------------------
+
+/**
+ * Why food bloats, grouped by mechanism.
+ *
+ * Deliberately NOT a fourth classification layer, and deliberately not tagged
+ * per food. The clinical framework here is FODMAP, whose measured values are
+ * Monash University's and are not ours to redistribute; more to the point,
+ * FODMAP ratings are dose-defined — a quarter avocado is low and a whole one is
+ * high — and this schema has one verdict per food and no concept of a portion.
+ * Tagging foods would mean flattening a threshold into a verdict, which is the
+ * false precision the product spec already declined once for dish verdicts.
+ *
+ * So this is a page about mechanisms, drawn from general nutrition knowledge,
+ * pointing at foods the library already carries. It ends by saying it cannot
+ * tell you which of these is yours, because that is true and because the
+ * clinical method — remove, then reintroduce one group at a time — exists
+ * precisely because no list can.
+ */
+export const BLOATING = [
+  {
+    id: "fermentable",
+    title: "Fermentable carbohydrates",
+    lede: "The big one. What your small intestine doesn't absorb, your gut bacteria ferment — and gas is the by-product.",
+    groups: [
+      { label: "Legumes", why: "Galacto-oligosaccharides. Soaking and long cooking reduce them; canned-and-rinsed is gentler than dried-and-boiled.",
+        ids: "chickpeas kidney-beans black-beans toor-dal chana-dal urad-dal red-lentils mung-beans fava-beans black-eyed-peas" },
+      { label: "Onion and garlic", why: "Fructans, and the reason so many people react to food they didn't cook themselves. Frying does not destroy them.",
+        ids: "onion garlic leek shallots spring-onion garlic-powder onion-powder" },
+      { label: "Wheat and rye", why: "Also fructans — which is why some people who feel better off bread are not reacting to gluten at all.",
+        ids: "wheat roti naan white-bread pasta semolina bulgur couscous pita-bread" },
+      { label: "Cruciferous vegetables", why: "Raffinose. The reputation is earned, though the dose it takes varies enormously.",
+        ids: "cabbage cauliflower broccoli brussels-sprouts kale napa-cabbage bok-choy mustard-greens" },
+      { label: "Fruit sugars", why: "Fructose in excess of glucose, which crosses the gut wall slowly.",
+        ids: "apple mango honey watermelon pear dried-figs raisins" },
+      { label: "Stone fruit", why: "Sorbitol, a polyol — the same class as the sweeteners below.",
+        ids: "peach plum nectarine cherry apricot avocado" },
+    ],
+  },
+  {
+    id: "lactose",
+    title: "Lactose",
+    lede: "Milk sugar, undigested when you're short of lactase. Most of the world's adults are, to some degree.",
+    groups: [
+      { label: "Fresh dairy", why: "Lactose falls as dairy ages and ferments — bacteria eat it. So hard aged cheese is low in it, and fresh milk is not. Exactly the reverse of how histamine behaves.",
+        ids: "milk ice-cream cream condensed-milk evaporated-milk milk-powder buffalo-milk khoya" },
+    ],
+  },
+  {
+    id: "polyols",
+    title: "Sugar alcohols",
+    lede: "Sorbitol, xylitol, mannitol, erythritol. Poorly absorbed by design — that's why they're low-calorie.",
+    groups: [
+      { label: "Where they hide", why: "Anything labelled sugar-free: gum, mints, protein bars, diet drinks, cough syrup. The library doesn't itemise them, so read the label.",
+        ids: "protein-bar" },
+    ],
+  },
+  {
+    id: "gas",
+    title: "Swallowed air",
+    lede: "Not a food property at all, and often the actual answer.",
+    groups: [
+      { label: "Carbonation", why: "Fizzy drinks put gas in directly. Straws, chewing gum, eating fast and talking while eating all add more.",
+        ids: "soda-water cola lemon-lime-soda beer tonic-water energy-drink" },
+    ],
+  },
+];
+
 // ---- Preparations & curated lists -----------------------------------------
 
 export const preparations = PREPARATIONS;

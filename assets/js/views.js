@@ -2,7 +2,7 @@
 // HTML lands in the DOM (focus, listeners that can't be delegated).
 import {
   BANDS, CATEGORIES, CUISINES, LISTS, META, SORTS, SOURCES, STATES, byCategory, fuzzySuggest,
-  MECHANISM_IDS, MECHANISMS, foodsWithMechanism, getFood, getFoods, getList, getMechanism,
+  BLOATING, MECHANISM_IDS, MECHANISMS, foodsWithMechanism, getFood, getFoods, getList, getMechanism,
   getPreparation, heatClass, preparations, prepsForState, prepsUsing, remedyList, search,
   sortFoods, spectrum, systemHeat,
 } from "./data.js";
@@ -344,6 +344,7 @@ function browseBody() {
     // The reactive icon on purpose: histamine is the calm axis, and these three
     // pages are that axis explained rather than scored.
     { to: "/mechanism", icon: "state-reactive", label: "Histamine mechanisms", sub: "Why a food reacts, not just how much" },
+    { to: "/bloating", icon: "category-vegetables", label: "Why food bloats", sub: "Four mechanisms, and what they cannot tell you" },
     { to: "/spectrum", icon: "browse-spectrum", label: "Spectrum", sub: "Every food, coldest to hottest" },
     { to: "/compare", icon: "browse-compare", label: "Compare", sub: "Put two or three side by side" },
   ];
@@ -365,6 +366,62 @@ function browseBody() {
       <div class="section__head"><h2>By category</h2></div>
       ${categoryGrid()}
     </section>`;
+}
+
+// ---- Bloating ---------------------------------------------------------------
+
+/**
+ * Neutral tone throughout: this sits off both of the app's axes — it is neither
+ * a temperature nor a histamine reading — and colouring it as either would be a
+ * lie the palette tells before the copy gets a chance to speak.
+ */
+export function bloatingView() {
+  return {
+    tone: null,
+    html: `
+      ${backBar("Find", "/find")}
+      <section class="hero">
+        <h1>Why food bloats</h1>
+        <p>Four mechanisms, and the honest limits of a list.</p>
+      </section>
+
+      <div class="panel">
+        <p class="mech__body">Most bloating is gas, and most of that gas is made by your own gut
+        bacteria fermenting carbohydrate your small intestine did not absorb. Which carbohydrate,
+        and how much of it you can take before it shows, is where people differ enormously.</p>
+        <p class="mech__body mech__body--lead">Dose decides. So does your own gut. Nothing on this
+        page is a verdict on a food — these are the usual suspects, not a list of things to avoid.</p>
+      </div>
+
+      ${BLOATING.map(sec => `
+        <section class="section">
+          <div class="section__head"><h2>${esc(sec.title)}</h2></div>
+          <p class="tiny muted" style="margin:-4px 2px 14px">${esc(sec.lede)}</p>
+          ${sec.groups.map(g => `
+            <div class="panel bloat__group">
+              <h3>${esc(g.label)}</h3>
+              <p class="bloat__why">${esc(g.why)}</p>
+              <div class="chips">${getFoods(g.ids.split(" ")).map(chip).join("")}</div>
+            </div>`).join("")}
+        </section>`).join("")}
+
+      <!-- The point of the page. FODMAP's whole clinical method is elimination
+           then structured reintroduction, precisely because no list can answer
+           the individual question. Saying so is more useful than a verdict. -->
+      <div class="panel">
+        <h3>What this page can't tell you</h3>
+        <p class="mech__body" style="margin-top:8px">Which of these is yours. Tolerance is individual
+        and dose-dependent, and the clinical approach reflects that: remove the lot for a few weeks,
+        then bring them back one group at a time and watch what happens. That is the low-FODMAP
+        method, and it exists in that shape because reading a list does not work.</p>
+        <p class="mech__body mech__body--lead">Which also means a food appearing above is not a
+        reason to drop it. It is a reason to test it.</p>
+      </div>
+
+      <p class="tiny muted" style="margin:0 2px">General nutrition information, not medical advice.
+      Persistent bloating, or bloating with weight loss, bleeding or pain, deserves a doctor rather
+      than a food list.</p>`,
+  };
 }
 
 // ---- Histamine mechanisms -------------------------------------------------

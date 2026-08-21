@@ -187,6 +187,48 @@ transcription of SIGHI and never claimed to be, but the divergence is currently
 silent and undocumented. Deciding where Taseer may diverge, and saying so on the
 card, is unstarted work.
 
+### Amendment — a bloating page, and why it is not a third layer (2026-08-20)
+
+Asked whether the app could work out which foods cause bloating. The framework
+exists — **FODMAP**, from Monash University — and it is to bloating what SIGHI
+is to histamine. It was declined as a classification layer for three reasons,
+and the third is the interesting one.
+
+**Licensing.** SIGHI's list is a free public PDF, which is what made citing and
+comparing against it straightforward. Monash's measured values are not: there is
+a product certification programme and their own paid app, and no public licence
+for redistributing composition data. Absent an explicit grant, those numbers are
+not ours to ship.
+
+**The schema cannot hold it.** FODMAP ratings are dose-defined — a quarter
+avocado is low and a whole one is high. Every Taseer classification is one
+verdict per food, with no portion concept anywhere. Tagging foods would flatten
+a threshold into a verdict, which is the same false precision the spec declined
+in 2026-08-02 for computing dish verdicts from ingredients.
+
+**The framework says a list cannot answer it.** Low-FODMAP is not a lookup. It
+is elimination for weeks, then structured reintroduction one subgroup at a time,
+because tolerance is individual and dose-dependent — Monash ships a food diary
+for exactly this reason. A FODMAP list tells you what to *test*, not what to
+*avoid*.
+
+Built instead: **`/bloating`**, a page about mechanisms rather than a per-food
+tag — fermentable carbohydrates (legumes, alliums, wheat, cruciferous, fruit
+sugars, stone fruit), lactose, sugar alcohols, and swallowed air. 62 chips into
+foods the library already carries, drawn from general nutrition knowledge with
+no Monash values involved. Neutral tone throughout: it sits off both of the
+app's axes, and colouring it as either would be a lie the palette tells before
+the copy can speak.
+
+The page closes by saying what it cannot do, and that a food appearing on it is
+a reason to test that food, not to drop it.
+
+**Noted for the second time:** the question "which foods bloat *me*" and the
+question "which of my coffees makes me itch" have the same answer, and it is not
+a list. That is twice a real question has resolved to needing a personal record.
+The log stays parked, but it is now the most-requested unbuilt thing by
+implication rather than by request.
+
 ## v2 parking lot (dated decisions, not omissions — parked 2026-08-02)
 
 - AI live lookup for unknown foods (revisit after miss-log data exists)
