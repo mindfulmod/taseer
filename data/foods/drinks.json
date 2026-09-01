@@ -10,7 +10,7 @@
 
   {"id":"black-tea","name":"Black tea","aliases":["chai patti","shai ahmar","hong cha"],"emoji":"🫖","category":"drink","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Fully oxidized tea — the base of desi chai and Arab shai.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Oxidation warms it: hong cha is the winter tea."},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Chai is treated as garam in desi usage."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Oxidation warms it: hong cha is the winter tea."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Oxidation reads as ushna, the same logic fermentation gets elsewhere in this set — green tea's astringent-bitter coolness doesn't survive it."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Chai is treated as garam in desi usage."}},
    "histamine":{"sighi":2,"tags":["dao-blocker","high-histamine"],"note":"SIGHI marks black tea for histamine content as well as for blocking DAO — the only tea it scores above green.","ref":{"sighi":2,"marks":"BH","as":"tea, black tea"}},
    "nutrition":{"kcal":1,"protein":0,"carbs":0,"fat":0,"highlight":"theaflavins + caffeine"},
    "remedy":{"too-cold":"eat"},
@@ -19,7 +19,7 @@
 
   {"id":"masala-chai","name":"Masala chai","aliases":["doodh patti","adrak chai"],"emoji":"☕","category":"drink","cuisines":["south-asian","arabic"],"commonness":1,
    "description":"Black tea boiled with milk, ginger, and warming spices.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Warming tea + warming spices."},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot","confidence":"high","note":"The default garam drink of the subcontinent."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Warming tea + warming spices."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Black tea's own heat plus ginger and warming whole spices — doubly ushna."},"unani":{"verdict":"hot","confidence":"high","note":"The default garam drink of the subcontinent."}},
    "histamine":{"sighi":1,"tags":["dao-blocker"],"note":"Tea's DAO note; spices mostly benign."},
    "nutrition":{"kcal":60,"protein":2,"carbs":8,"fat":2.5,"highlight":"the daily ritual","estimate":true},
    "ingredients":["black-tea","milk","ginger","cardamom","white-sugar"],
@@ -45,7 +45,7 @@
 
   {"id":"mint-tea","name":"Mint tea","aliases":["pudina chai","shai bil na'na","bo he cha"],"emoji":"🌿","category":"drink","cuisines":["arabic","south-asian"],"commonness":2,
    "description":"Fresh mint steeped alone (Maghrebi style adds green tea).",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"high"},"unani":{"verdict":"cold","confidence":"high"}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Pudina is classically shita, used to settle a hot stomach."},"unani":{"verdict":"cold","confidence":"high"}},
    "histamine":{"sighi":0,"tags":[],"note":"One of the safest hot drinks when reactive."},
    "nutrition":{"kcal":1,"protein":0,"carbs":0,"fat":0,"highlight":"caffeine-free unless green tea goes in too"},
    "remedy":{"too-hot":"eat","too-cold":"avoid"}},
@@ -66,7 +66,7 @@
 
   {"id":"sugarcane-juice","name":"Sugarcane juice","aliases":["ganne ka ras","asab al-sukkar","gan zhe zhi"],"emoji":"🎋","category":"drink","cuisines":["south-asian","arabic","chinese"],"commonness":2,
    "description":"Fresh-pressed cane — the streetside summer glass.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Sugarcane clears heat and moistens in TCM."},"ayurveda":{"verdict":"cooling","confidence":"high"},"unani":{"verdict":"cold-moist","confidence":"high","note":"Ganna is textbook thanda."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Sugarcane clears heat and moistens in TCM."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Ikshu is madhura and classically shita — the streetside thirst-quencher."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Ganna is textbook thanda."}},
    "histamine":{"sighi":0,"tags":[],"note":"Fresh-pressed is fine; hygiene of the press matters more."},
    "nutrition":{"kcal":74,"protein":0,"carbs":18,"fat":0,"highlight":"pressed to order, because it ferments within hours","estimate":true},
    "remedy":{"too-hot":"eat","too-cold":"avoid"}},
@@ -109,7 +109,7 @@
 
   {"id":"barley-water","name":"Barley water (jau/talbina)","aliases":["jau ka pani","talbina","ma' al-sha'ir","sattu of jau"],"emoji":"🌾","category":"drink","cuisines":["south-asian","arabic","western"],"commonness":3,
    "description":"Strained barley infusion — a cooler in three traditions at once.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"high"},"unani":{"verdict":"cold-moist","confidence":"high","note":"Ma' al-sha'ir is a canonical Unani cooling prescription."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Yava is shita and mutrala — light and cooling, same logic as barley tea."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Ma' al-sha'ir is a canonical Unani cooling prescription."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very gentle — good reactive-day drink."},
    "nutrition":{"kcal":25,"protein":0.3,"carbs":6,"fat":0,"highlight":"the classical cooler","estimate":true},
    "ingredients":["barley"],
@@ -249,7 +249,7 @@
 
   {"id":"kahwa","name":"Kahwa","aliases":["kashmiri kahwa","saffron green tea","kashmiri qahwa"],"emoji":"🍵","category":"drink","cuisines":["south-asian"],"commonness":3,
    "description":"Kashmiri green tea with saffron, cardamom and slivered almonds.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"A cool green-tea base carrying warm spices; the spices dominate."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Saffron, cardamom and almond are all ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam; a winter drink of the Kashmir valley."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"A cool green-tea base carrying warm spices; the spices dominate."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Saffron and almond are ushna; green cardamom's own virya is contested but doesn't reverse the reading over a green-tea base."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam; a winter drink of the Kashmir valley."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":30,"protein":0.8,"carbs":4,"fat":1.2,"highlight":"saffron, cardamom, almond","estimate":true},
    "ingredients":["green-tea","saffron","cardamom","almonds"],
@@ -265,7 +265,7 @@
 
   {"id":"arabic-coffee","name":"Arabic coffee","aliases":["qahwa","gahwa","cardamom coffee"],"emoji":"☕","category":"drink","cuisines":["arabic"],"commonness":1,
    "description":"Pale lightly-roasted coffee heavy with cardamom, poured from a dallah.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Read with coffee; the cardamom adds warmth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and tikshna — coffee and cardamom together."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Qahwa is garam-khushk in the Arab record; the cardamom is added expressly to temper it."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Read with coffee; the cardamom adds warmth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and tikshna from the coffee; green cardamom's own virya is contested but doesn't offset it."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Qahwa is garam-khushk in the Arab record; the cardamom is added expressly to temper it."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Read as coffee, roast and origin notwithstanding."},
    "nutrition":{"kcal":2,"protein":0.1,"carbs":0.3,"fat":0,"highlight":"poured from a dallah"},
    "ingredients":["coffee","cardamom"],
@@ -306,7 +306,7 @@
 
   {"id":"mango-juice","name":"Mango juice","aliases":["aam ka ras","asir manga","mango nectar","frooti"],"emoji":"🧃","category":"drink","cuisines":["south-asian","arabic"],"commonness":1,
    "description":"Thick sweet pulp thinned and sweetened — sold in cartons year-round.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Follows the ripe mango, which TCM reads as cool."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ripe mango is ushna and rakta-aggravating in the classical reading — the famous split with the Chinese one."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Aam is garam-tar in desi usage, which is why it is soaked in water before eating."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Follows the ripe mango, which TCM reads as cool."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ripe mango's own entry marks its virya contested — some schools call it ushna and rakta-aggravating, others cooling — so this drink inherits that split rather than asserting it flatly."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Aam is garam-tar in desi usage, which is why it is soaked in water before eating."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low, though the sugar load in carton nectar is considerable."},
    "nutrition":{"kcal":60,"protein":0.3,"carbs":15,"fat":0.1,"highlight":"sold in cartons year-round"}},
 
@@ -485,7 +485,7 @@
 
   {"id":"mango-lassi","name":"Mango lassi","aliases":["aam lassi","mango yogurt drink"],"emoji":"🥭","category":"drink","cuisines":["south-asian"],"commonness":1,
    "description":"Yogurt blended with mango pulp and sugar — thick, sweet and everywhere on a curry-house menu.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Yogurt and mango, blended cold."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Both dahi and ripe mango are ushna in the classical reading — this is a heating drink, whatever its temperature."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Aam is garam; the dahi is thanda, so desi readings split on it."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Yogurt and mango, blended cold."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Dahi is ushna at high confidence, but ripe mango's own virya is itself contested between schools — the drink is read heating, whatever its temperature, but not asserted at high confidence."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Aam is garam; the dahi is thanda, so desi readings split on it."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low, though it is yogurt plus fruit and does not keep."},
    "nutrition":{"kcal":105,"protein":2.8,"carbs":20,"fat":1.8,"highlight":"the curry-house default","estimate":true},
    "ingredients":["yogurt","mango","white-sugar"]},
