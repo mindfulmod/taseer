@@ -101,7 +101,7 @@
   {"id":"cottage-cheese","name":"Cottage cheese","aliases":["curd cheese","chenna (cousin)","pot cheese"],"emoji":"🥣","category":"dairy","cuisines":["western"],"commonness":2,
    "description":"Loose fresh curds, barely cultured — the plainest cheese there is.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh dairy, neutral and moistening."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Fresh unsoured curd stays shita — it is souring that turns dairy ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar, the same reading as paneer."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Fresh and lightly cultured; among the safer cheeses for a reactive day.","ref":{"sighi":0,"marks":"","as":"curd cheese, quark"}},
+   "histamine":{"sighi":0,"tags":[],"note":"SIGHI rates it 0 — fresh and unripened, same as the other unaged cheeses.","ref":{"sighi":0,"marks":"","as":"curd cheese, quark"}},
    "nutrition":{"kcal":98,"protein":11.1,"carbs":3.4,"fat":4.3,"highlight":"high protein, low fat"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh dairy is sattvic; the reading changes once it sours or ages."}},
 
@@ -195,7 +195,7 @@
   {"id":"quark","name":"Quark","aliases":["topfen","fresh curd cheese"],"emoji":"🥣","category":"dairy","cuisines":["western"],"commonness":4,
    "description":"Soft fresh curd cheese, thicker than yogurt and milder than cottage cheese.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Fresh dairy; read with the unripened cheeses."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Fresh and unsoured, so shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Low — fresh and lightly cultured.","ref":{"sighi":0,"marks":"","as":"curd cheese, quark"}},
+   "histamine":{"sighi":0,"tags":[],"note":"SIGHI rates it 0 — fresh and unripened, same as the other unaged cheeses.","ref":{"sighi":0,"marks":"","as":"curd cheese, quark"}},
    "nutrition":{"kcal":97,"protein":12,"carbs":3.6,"fat":3.5,"highlight":"thicker than yogurt"}},
 
   {"id":"milk-powder","name":"Milk powder","aliases":["doodh powder","haleeb bodra","nai fen","skimmed milk powder"],"emoji":"🥛","category":"dairy","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
