@@ -6,7 +6,8 @@
    "nutrition":{"kcal":1,"protein":0,"carbs":0,"fat":0,"highlight":"EGCG + gentle caffeine"},
    "remedy":{"too-hot":"eat","too-cold":"avoid"},
    "stimulant":{"compounds":["caffeine","theanine"],"note":"Caffeine with L-theanine, an amino acid nearly unique to the tea plant. The pairing is the reason green tea is described as alert rather than wired."},
-   "guna":{"verdict":"restless","confidence":"high"}},
+   "guna":{"verdict":"restless","confidence":"high"},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"Trials pairing L-theanine with caffeine report calmer, steadier attention than caffeine alone — the doses studied run supplement-strength, above what one cup delivers. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"black-tea","name":"Black tea","aliases":["chai patti","shai ahmar","hong cha"],"emoji":"🫖","category":"drink","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Fully oxidized tea — the base of desi chai and Arab shai.",
@@ -15,7 +16,8 @@
    "nutrition":{"kcal":1,"protein":0,"carbs":0,"fat":0,"highlight":"theaflavins + caffeine"},
    "remedy":{"too-cold":"eat"},
    "stimulant":{"compounds":["caffeine","theanine"],"note":"Fully oxidised: less theanine than green tea, and tannins that appear to slow how quickly the caffeine lands."},
-   "guna":{"verdict":"restless","confidence":"high"}},
+   "guna":{"verdict":"restless","confidence":"high"},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"Trials pairing L-theanine with caffeine report calmer, steadier attention than caffeine alone — the doses studied run supplement-strength, above what one cup delivers. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"masala-chai","name":"Masala chai","aliases":["doodh patti","adrak chai"],"emoji":"☕","category":"drink","cuisines":["south-asian","arabic"],"commonness":1,
    "description":"Black tea boiled with milk, ginger, and warming spices.",
@@ -156,7 +158,8 @@
    "histamine":{"sighi":1,"tags":["dao-blocker"],"note":"Lower than black tea, higher than green — oxidation is the variable."},
    "nutrition":{"kcal":1,"protein":0,"carbs":0.2,"fat":0,"highlight":"half-oxidised"},
    "stimulant":{"compounds":["caffeine","theanine"],"note":"Partly oxidised, sitting between green and black on both counts."},
-   "guna":{"verdict":"restless","confidence":"moderate","note":"Stimulating, which is the definition of rajasic rather than a judgement on it."}},
+   "guna":{"verdict":"restless","confidence":"moderate","note":"Stimulating, which is the definition of rajasic rather than a judgement on it."},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"Trials pairing L-theanine with caffeine report calmer, steadier attention than caffeine alone — the doses studied run supplement-strength, above what one cup delivers. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"white-tea","name":"White tea","aliases":["bai cha","silver needle","bai hao yin zhen"],"emoji":"🍵","category":"drink","cuisines":["chinese"],"commonness":4,
    "description":"The youngest buds, barely processed — pale and delicate.",
@@ -164,7 +167,8 @@
    "histamine":{"sighi":1,"tags":["dao-blocker"],"note":"Low; the least processed tea."},
    "nutrition":{"kcal":1,"protein":0,"carbs":0.2,"fat":0,"highlight":"buds, barely processed"},
    "remedy":{"too-hot":"eat"},
-   "stimulant":{"compounds":["caffeine","theanine"],"note":"Least processed of the teas, and not the lowest in caffeine despite the reputation."}},
+   "stimulant":{"compounds":["caffeine","theanine"],"note":"Least processed of the teas, and not the lowest in caffeine despite the reputation."},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"Trials pairing L-theanine with caffeine report calmer, steadier attention than caffeine alone — the doses studied run supplement-strength, above what one cup delivers. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"puerh-tea","name":"Pu-erh tea","aliases":["pu er cha","dark tea","aged tea"],"emoji":"🍵","category":"drink","cuisines":["chinese"],"commonness":3,
    "description":"Tea deliberately aged and fermented for years — earthy and dark.",
@@ -386,7 +390,8 @@
    "histamine":{"sighi":1,"tags":["dao-blocker"],"note":"Low, like green tea; you are consuming the entire leaf, which concentrates everything in it."},
    "nutrition":{"kcal":3,"protein":0.3,"carbs":0.5,"fat":0,"highlight":"the whole leaf, powdered"},
    "remedy":{"too-hot":"eat"},
-   "stimulant":{"compounds":["caffeine","theanine"],"note":"You drink the whole leaf rather than an infusion of it, so both the caffeine and the theanine arrive higher than in steeped green tea."}},
+   "stimulant":{"compounds":["caffeine","theanine"],"note":"You drink the whole leaf rather than an infusion of it, so both the caffeine and the theanine arrive higher than in steeped green tea."},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"Trials pairing L-theanine with caffeine report calmer, steadier attention than caffeine alone — the doses studied run supplement-strength, above what one cup delivers. Matcha's whole-leaf preparation puts both compounds at the high end of what a cup of tea can deliver. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"barley-tea","name":"Barley tea","aliases":["da mai cha","mugicha","roasted barley water"],"emoji":"🍵","category":"drink","cuisines":["chinese","arabic"],"commonness":3,
    "description":"Roasted barley steeped into a caffeine-free amber brew, drunk hot or iced.",
@@ -788,7 +793,8 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Ren shen is warm and the archetypal qi tonic — held back in heat conditions."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and building."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk; a strengthening tonic."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":15,"protein":0.3,"carbs":3.5,"fat":0,"highlight":"the archetypal tonic"},
-   "remedy":{"too-cold":"eat"}},
+   "remedy":{"too-cold":"eat"},
+   "effects":[{"effect":"energizing","confidence":"moderate","note":"A systematic review of eight RCTs on ginseng found a real anti-fatigue effect with sustained use, distinct from a caffeine-style jolt — genuinely one of the better clinical crossovers of a traditional tonic. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"daechu-cha","name":"Daechu cha","aliases":["jujube tea"],"emoji":"🍵","category":"drink","cuisines":["korean"],"commonness":3,
    "description":"Red dates simmered long and sweetened — thick, dark and warming.",

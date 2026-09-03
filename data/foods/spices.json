@@ -113,7 +113,8 @@
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"TCM's fan hong hua moves blood; nature listed neutral-ish."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Mildly ushna yet tridoshic — given in milk."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Zafran is classically garam and mood-lifting."}},
    "histamine":{"sighi":0,"tags":[],"note":"Thread amounts fine."},
    "nutrition":{"kcal":310,"protein":11,"carbs":65,"fat":5.9,"highlight":"crocin is the colour, and the reason for the price"},
-   "remedy":{"too-cold":"eat"}},
+   "remedy":{"too-cold":"eat"},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Unani tradition already names zafran mood-lifting, and clinical trials — including a 2025 study of over 200 people — back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"mustard-seed","name":"Mustard seed","aliases":["rai","sarson dana","khardal","jie zi"],"emoji":"🟡","category":"spice","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"Popping tempering seed and the source of sarson oil.",

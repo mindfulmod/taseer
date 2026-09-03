@@ -525,7 +525,8 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Sour and fluid-generating; cooler than the sweet cherry."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and sour — a summer sharbat fruit."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda; albaloo sharbat is a standard Levantine and Persian cooler."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Sour stone fruit, and usually preserved in syrup or dried.","ref":{"sighi":0,"marks":"","as":"Amarelle cherry, sour cherry"}},
    "nutrition":{"kcal":50,"protein":1,"carbs":12.2,"fat":0.3,"highlight":"too tart to eat raw"},
-   "remedy":{"too-hot":"eat"}},
+   "remedy":{"too-hot":"eat"},
+   "effects":[{"effect":"sleep-aid","confidence":"moderate","note":"Small trials and a 2025 systematic review link tart cherry with modest gains in sleep duration and efficiency, plausibly from a small melatonin content plus anti-inflammatory compounds rather than one mechanism alone. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"dried-longan","name":"Dried longan","aliases":["gui yuan","long yan rou","dragon eye"],"emoji":"🟤","category":"fruit","cuisines":["chinese"],"commonness":3,
    "description":"Longan flesh dried to a dark chewy raisin — dropped into tonic soups.",

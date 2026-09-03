@@ -113,12 +113,20 @@ for (const f of all.values()) {
 // than histamine's verified/reasoned/unreviewed states — those exist to audit
 // a reading against a named external list (SIGHI), and there is no equivalent
 // single reference list for anecdotal effects to check against.
-const EFFECTS = ["calming", "sedative", "stimulating", "digestive", "anti-nausea", "carminative", "diuretic"];
+const EFFECTS = ["calming", "sedative", "stimulating", "digestive", "anti-nausea", "carminative", "diuretic",
+  // Batch (2026-09-03): four new tags researched against clinical evidence —
+  // see the readout cited in that commit. focus (theanine+caffeine teas),
+  // sleep-aid (tart/sour cherry), energizing (ginseng), mood-lifting (saffron).
+  "focus", "sleep-aid", "energizing", "mood-lifting"];
 // A documented-effect note must read as traditional/anecdotal information, never
 // as a personalised or predictive promise (product spec's traditional-info
 // framing rule — "traditionally classified as", never "this will lower your
 // body heat"). Mirrors the stimulant note's mg-dose ban below.
-const PREDICTIVE_CLAIM = /\b(will (make|help|calm|relax|cure|fix)|cures?|treats?|guarantees?|always works)\b/i;
+// The verb list is enumerated, not general — extend it whenever a new effect
+// category brings verbs of its own (focus/energizing/mood-lifting add
+// impair/sharpen/trigger/distort/boost) rather than relying on the existing
+// list to catch them by accident.
+const PREDICTIVE_CLAIM = /\b(will (make|help|calm|relax|cure|fix|impair|sharpen|trigger|distort|boost)|cures?|treats?|guarantees?|always works)\b/i;
 for (const f of all.values()) {
   if (!f.effects) continue;
   const where = `${f.file} → ${f.id}`;
