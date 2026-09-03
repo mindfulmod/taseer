@@ -105,6 +105,35 @@ for (const f of all.values()) {
   if (/\b\d+\s?mg\b/i.test(st.note)) errors.push(`${where}: stimulant note quotes a milligram dose; this schema has no portion to hang it on`);
 }
 
+// Effects — documented traditional/anecdotal food-level effects (chamomile's
+// calming reputation, ginger's anti-nausea one). Optional and rare by design:
+// present only where a specific tradition or folk-medicine source documents an
+// effect for THIS food by name, never assigned as a default. Reuses the same
+// high/moderate/contested confidence vocabulary as thermal and guna, rather
+// than histamine's verified/reasoned/unreviewed states — those exist to audit
+// a reading against a named external list (SIGHI), and there is no equivalent
+// single reference list for anecdotal effects to check against.
+const EFFECTS = ["calming", "sedative", "stimulating", "digestive", "anti-nausea", "carminative", "diuretic"];
+// A documented-effect note must read as traditional/anecdotal information, never
+// as a personalised or predictive promise (product spec's traditional-info
+// framing rule — "traditionally classified as", never "this will lower your
+// body heat"). Mirrors the stimulant note's mg-dose ban below.
+const PREDICTIVE_CLAIM = /\b(will (make|help|calm|relax|cure|fix)|cures?|treats?|guarantees?|always works)\b/i;
+for (const f of all.values()) {
+  if (!f.effects) continue;
+  const where = `${f.file} → ${f.id}`;
+  if (!Array.isArray(f.effects) || !f.effects.length) {
+    errors.push(`${where}: effects must be a non-empty array when present (omit the field entirely otherwise)`);
+    continue;
+  }
+  for (const e of f.effects) {
+    if (!EFFECTS.includes(e.effect)) errors.push(`${where}: unknown effect "${e.effect}"`);
+    if (!CONFIDENCE.includes(e.confidence)) errors.push(`${where}: bad effect confidence "${e.confidence}"`);
+    if (!e.note) errors.push(`${where}: effect "${e.effect}" needs a note — a bare label makes an unexplained claim`);
+    else if (PREDICTIVE_CLAIM.test(e.note)) errors.push(`${where}: effect "${e.effect}" note reads as a predictive/medical claim — state it as documented, not promised`);
+  }
+}
+
 // Histamine provenance. `ref` records what SIGHI itself says about a food it
 // lists, so the app can show its own reading next to its source instead of
 // citing SIGHI and quietly departing from it — which it did on 116 of the 187
@@ -266,6 +295,7 @@ console.log(`Entries with ≥1 contested confidence: ${contested.length}`);
 console.log(`Remedy "eat" lists (derived) — too-hot: ${derivedEat("too-hot")}, too-cold: ${derivedEat("too-cold")}  ·  hand overrides: ${handTags}`);
 console.log(`Aliases total: ${[...all.values()].reduce((a, f) => a + f.aliases.length, 0)}`);
 console.log(`Preparations: ${preps.length}`);
+console.log(`Foods with a documented effect: ${[...all.values()].filter(f => f.effects).length}`);
 
 if (errors.length) { console.error(`\n${errors.length} ERRORS:`); errors.forEach(e => console.error(" -", e)); process.exit(1); }
 console.log("\nAll checks passed ✅");
