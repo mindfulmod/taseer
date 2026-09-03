@@ -2,8 +2,9 @@
 // HTML lands in the DOM (focus, listeners that can't be delegated).
 import {
   BANDS, CATEGORIES, CUISINES, LISTS, META, SORTS, SOURCES, STATES, byCategory, fuzzySuggest,
-  BLOATING, COMPOUNDS, EFFECTS, GUNAS, GUNA_IDS, MECHANISM_IDS, MECHANISMS,
-  foodsWithGuna, foodsWithMechanism, gunaCount, stimulantFamilies, getFood, getFoods, getList, getMechanism,
+  BLOATING, COMPOUNDS, EFFECTS, EFFECT_IDS, GUNAS, GUNA_IDS, MECHANISM_IDS, MECHANISMS,
+  effectsCount, foodsWithEffect, foodsWithGuna, foodsWithMechanism, getEffectEntry, gunaCount,
+  stimulantFamilies, getFood, getFoods, getList, getMechanism,
   getPreparation, heatClass, preparations, prepsForState, prepsUsing, remedyList, search,
   sortFoods, spectrum, systemHeat,
 } from "./data.js";
@@ -395,6 +396,7 @@ function browseBody() {
     // The reactive icon on purpose: histamine is the calm axis, and these three
     // pages are that axis explained rather than scored.
     { to: "/mechanism", icon: "state-reactive", label: "Histamine mechanisms", sub: "Why a food reacts, not just how much" },
+    { to: "/effect", icon: "category-spices", label: "Documented effects", sub: `${effectsCount()} foods with a sleep, focus, mood or other reported effect` },
     { to: "/bloating", icon: "category-vegetables", label: "Why food bloats", sub: "Four mechanisms, and what they cannot tell you" },
     { to: "/caffeine", icon: "category-drinks", label: "The caffeine family", sub: "Why tea and coffee don't feel alike" },
     { to: "/guna", icon: "browse-spectrum", label: "Light, restless, heavy", sub: "Ayurveda's other axis — what food does to your head" },
@@ -725,6 +727,91 @@ export function mechanismView(id, { sort = "staples" } = {}) {
         root.querySelector("#mechbody").innerHTML =
           tileList(sortFoods(all, sel.value), { metaFn: SIGHI_META, meter: "histamine" });
         history.replaceState(null, "", `#/mechanism/${id}?sort=${sel.value}`);
+      });
+    },
+  };
+}
+
+// ---- Documented effects -----------------------------------------------------
+
+/**
+ * The index: every effect tag actually carried by a food, ranked by how many
+ * foods carry it. Neutral tone throughout — this sits off both of the app's
+ * axes (it's neither a temperature nor a histamine reading, same reasoning as
+ * guna above), and colouring it as either would misrepresent what it is.
+ */
+export function effectIndexView() {
+  return {
+    tone: null,
+    html: `
+      ${backBar("Find", "/find")}
+      <section class="hero">
+        <h1>Documented effects</h1>
+        <p>Traditional or anecdotal reports for specific foods — sleep, focus, mood, digestion and
+        more. Individual response varies, and every entry says how confident the evidence is.</p>
+      </section>
+      <div class="stack">
+        ${EFFECT_IDS.map(id => {
+          const e = EFFECTS[id] ?? { label: id, glyph: "•" };
+          return `<button class="listcard t-neutral" data-nav="/effect/${id}">
+                    <span class="listcard__title">${e.glyph} ${esc(e.label)}</span>
+                    <span class="listcard__count">${foodsWithEffect(id).length} foods</span>
+                  </button>`;
+        }).join("")}
+      </div>
+      <p class="tiny muted" style="margin:16px 2px 0">Traditional, anecdotal or early-research
+      reports, food by food — never a personalised or predictive claim. Open a food to see the
+      confidence and any dose or safety note behind its entry. Informational, not medical advice.</p>`,
+  };
+}
+
+export function effectView(id, { sort = "staples" } = {}) {
+  const e = EFFECTS[id];
+  if (!e) return notFound("effect");
+  if (!(sort in SORTS)) sort = "staples";
+  const all = foodsWithEffect(id);
+  if (!all.length) return notFound("effect");
+  // A few labels carry a clarifying suffix after an em dash (carminative,
+  // satiety, analgesic) for the pill and the h1 — too much for a sentence.
+  const short = e.label.split(" — ")[0].toLowerCase();
+  // Confidence is right here in the sub-line, not just on the food card — the
+  // same reason SIGHI_META puts the SIGHI score in the mechanism list rather
+  // than making a reader open every food to find out how solid the claim is.
+  const metaFn = food => {
+    const entry = getEffectEntry(food, id);
+    return `${entry.confidence} confidence${entry.confidence === "contested" ? " — sources disagree" : ""}`;
+  };
+
+  return {
+    tone: null,
+    html: `
+      ${backBar("Documented effects", "/effect")}
+      <section class="hero">
+        <h1>${e.glyph} ${esc(e.label)}</h1>
+        <p>Foods with a documented or anecdotal ${esc(short)} report. Individual
+        response varies — open a food for the full note and its confidence.</p>
+      </section>
+
+      <section class="section">
+        <div class="section__head">
+          <h2>Every food with this tag</h2>
+          <span class="tiny muted">${all.length}</span>
+        </div>
+        ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "effectsort")}
+        <div id="effectbody" style="margin-top:12px">
+          ${tileList(sortFoods(all, sort), { metaFn })}
+        </div>
+      </section>
+
+      <p class="tiny muted" style="margin:0 2px">Not a ranking of which food works best — these are
+      the foods with a documented report, nothing more. Informational, not medical advice.</p>`,
+
+    mount(root) {
+      const sel = root.querySelector("#effectsort");
+      sel.addEventListener("change", () => {
+        root.querySelector("#effectbody").innerHTML =
+          tileList(sortFoods(all, sel.value), { metaFn });
+        history.replaceState(null, "", `#/effect/${id}?sort=${sel.value}`);
       });
     },
   };

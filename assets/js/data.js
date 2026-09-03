@@ -493,6 +493,23 @@ export const EFFECTS = {
   "hangover-relief": { label: "Hangover relief", glyph: "↻" },
 };
 
+const byEffect = new Map();
+for (const f of foods) for (const e of f.effects ?? []) {
+  if (!byEffect.has(e.effect)) byEffect.set(e.effect, []);
+  byEffect.get(e.effect).push(f);
+}
+
+export const foodsWithEffect = id => (byEffect.get(id) ?? []).slice().sort(byCommon);
+/** That specific food's entry for this effect — confidence + note, not just the tag. */
+export const getEffectEntry = (food, id) => food.effects?.find(e => e.effect === id);
+export const effectsCount = () => foods.filter(f => f.effects?.length).length;
+// Only tags actually carried by a food in this dataset, most-documented first —
+// the question a browsing reader has ("what helps sleep") is best answered by
+// the tag with the most foods under it, not by catalog declaration order.
+export const EFFECT_IDS = [...byEffect.keys()].sort(
+  (a, b) => byEffect.get(b).length - byEffect.get(a).length || a.localeCompare(b),
+);
+
 // ---- Stimulants -------------------------------------------------------------
 
 /**
