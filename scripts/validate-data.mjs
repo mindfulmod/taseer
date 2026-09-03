@@ -194,7 +194,79 @@ const EFFECTS = ["calming", "sedative", "stimulating", "digestive", "anti-nausea
   // app's eaten-food scope entirely; thyme for cough, where every RCT found
   // used a thyme+ivy or thyme+primrose combination extract rather than
   // thyme alone, so no single-food claim can be cleanly supported.
-  "blood-pressure-lowering", "immune-supportive", "cough-suppressant"];
+  "blood-pressure-lowering", "immune-supportive", "cough-suppressant",
+  // Batch (2026-09-03, pass 6): a rigor spot-audit of four existing entries
+  // (saffron/mood-lifting, walnuts/sleep-aid, honey/cough-suppressant,
+  // garlic/blood-pressure-lowering) turned up one real inaccuracy — garlic's
+  // note claimed meta-analyses pooling "well over a thousand participants";
+  // the actual literature tops out around 970 (20 trials) to 738 (12 trials),
+  // never over a thousand, so the note was corrected in place. The other
+  // three checked out: saffron's 2025 trial is genuinely 202 participants and
+  // the CANMAT/WFSBP task force guideline citation is real; walnuts' 76-
+  // participant 2025 trial matches on every number including the specific
+  // p-values for sleep latency and efficiency; honey's Cochrane review is
+  // genuinely six trials/899 children with the stated comparator results.
+  // Three new tags cleared the bar this pass. `bone-supportive` — prunes,
+  // backed by a 12-month RCT in 235 postmenopausal women where 50g/day
+  // preserved hip BMD against a losing control group, credited to polyphenol
+  // action on bone remodelling distinct from the fruit's laxative mechanism.
+  // Dairy/calcium, researched specifically per the brief, did not clear the
+  // bar: 44 cohort studies on dietary calcium/dairy and fracture mostly found
+  // no association, only two RCTs exist on food-form (not supplement) calcium,
+  // and even supplement RCTs lose significance at lowest risk of bias — real
+  // uncertainty, not a case of dose-inflation like the declined categories,
+  // so this is left out rather than added on weak footing. `liver-supportive`
+  // — coffee, on cohort evidence rather than RCTs (cirrhosis and fibrosis
+  // outcomes can't ethically or practically be randomised over the years they
+  // take to develop): pooled analyses spanning hundreds of thousands of
+  // participants show a consistent dose-response (each +2 cups/day roughly
+  // halves pooled cirrhosis risk), replicated across alcoholic and viral
+  // hepatitis subgroups, with decaf sharing the benefit — pointing to
+  // chlorogenic acid and related compounds alongside caffeine. Milk thistle,
+  // named in the brief, isn't in the dataset. `satiety` — a pulses-as-a-class
+  // meta-analysis (9 RCTs, 31% greater fullness from ~160g/meal, an ordinary
+  // portion) swept across every whole dried pulse in the dataset (chickpeas,
+  // both lentils, mung beans, urad dal, kidney/black/pinto/lima/fava beans,
+  // black-eyed peas, chana/toor dal, kala chana, horse gram, adzuki beans) —
+  // soybeans excluded (higher-fat profile puts them outside the "pulses"
+  // definition the trials used) and moth beans excluded (this dataset's own
+  // entry describes it as usually sprouted, a different food than the dried
+  // whole legume the trials tested. Oats also cleared the bar (a 22-trial
+  // review plus a dedicated isocaloric-breakfast RCT, both crediting
+  // beta-glucan viscosity) at `moderate`; chia seeds only at `contested` —
+  // real trials exist but conflict, one finding a real satiety effect and
+  // another finding none despite a real glycaemic-response change. Checked
+  // and declined: `appetite-suppressing`-shaped concern re-litigated by
+  // this satiety research was avoided by requiring isocaloric-controlled
+  // trial designs throughout, the same discipline that kept the earlier
+  // appetite-suppressing/concentration-impairing categories out — this is a
+  // food property (fibre/protein content) acting on a fixed-calorie meal,
+  // not the meal's own composition or size doing the work.
+  // `anticoagulant`/blood-thinning, researched specifically per the brief —
+  // declined, and flagged clearly given the real warfarin/pre-surgery safety
+  // stakes: case reports exist for both garlic and ginger raising INR, but
+  // the actual controlled trials point the other way — a 12-week
+  // placebo-controlled trial of aged garlic extract in 48 people stabilised
+  // on warfarin found no INR change, and controlled human trials of ginger
+  // found no effect on warfarin's pharmacokinetics either. Adding a tag the
+  // best controlled evidence argues against would overstate a claim this
+  // app has no mechanism to safety-caveat properly, so it stays out; the
+  // case-report signal is real but unconfirmed, worth knowing about, not
+  // worth shipping as a documented effect. Vitamin-K leafy greens
+  // (clotting-supportive — the opposite direction) declined for a different
+  // reason: this is basic nutrient physiology (K is a clotting-factor
+  // cofactor), not a food doing something beyond its baseline nutritional
+  // role the way every other entry in this vocabulary does, and "helps you
+  // clot better" is not a benefit framing that makes sense for a general
+  // audience the way calming or digestive do. `oral-health`/antibacterial-
+  // in-mouth — green tea catechins, researched per the brief — declined:
+  // xylitol has no foods in this dataset to hang it on, and green tea's
+  // trials use a concentrated mouthwash held in the mouth for 30-60 seconds,
+  // a different dose and contact-time than swallowing a cup of tea; the
+  // specific systematic review pooling this evidence also found high
+  // heterogeneity and risk of bias, with green tea not clearly beating
+  // placebo overall despite some individual trials showing benefit.
+  "bone-supportive", "liver-supportive", "satiety"];
 // A documented-effect note must read as traditional/anecdotal information, never
 // as a personalised or predictive promise (product spec's traditional-info
 // framing rule — "traditionally classified as", never "this will lower your

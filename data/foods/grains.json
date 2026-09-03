@@ -41,7 +41,8 @@
    "histamine":{"sighi":0,"tags":[],"note":"A safe breakfast for histamine-sensitive people.","ref":{"sighi":0,"marks":"","as":"oats, oat flakes, oatmeal"}},
    "nutrition":{"kcal":389,"protein":17,"carbs":66,"fat":6.9,"highlight":"the beta-glucan is what makes porridge thick"},
    "remedy":{"too-cold":"eat"},
-   "guna":{"verdict":"light","confidence":"high"}},
+   "guna":{"verdict":"light","confidence":"high"},
+   "effects":[{"effect":"satiety","confidence":"moderate","note":"A review pooling 22 controlled feeding trials found whole-grain oats and oat bran more reliably increased fullness than other grain foods lower in fibre or viscosity, and a trial comparing isocaloric breakfasts found instant oatmeal beat a ready-to-eat oat cereal on fullness and reduced desire to eat over the next four hours — credited to the gel-forming viscosity of oats' beta-glucan fibre slowing digestion. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"barley","name":"Barley","aliases":["jau","sha'ir","da mai"],"emoji":"🌾","category":"grain","cuisines":["south-asian","arabic","chinese","western"],"commonness":3,
    "description":"Ancient cooling grain; the base of jau ka pani and Prophetic talbina.",
