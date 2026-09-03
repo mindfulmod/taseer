@@ -14,7 +14,8 @@
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated.","ref":{"sighi":1,"marks":"","as":"garlic"}},
    "nutrition":{"kcal":149,"protein":6.4,"carbs":33,"fat":0.5,"highlight":"allicin only forms once it is crushed"},
    "remedy":{"too-cold":"eat","too-hot":"avoid"},
-   "guna":{"verdict":"restless","confidence":"high","note":"Excluded from sattvic cooking alongside onion, for the same reason."}},
+   "guna":{"verdict":"restless","confidence":"high","note":"Excluded from sattvic cooking alongside onion, for the same reason."},
+   "effects":[{"effect":"blood-pressure-lowering","confidence":"moderate","note":"Meta-analyses pooling well over a thousand participants across a dozen-plus RCTs find garlic supplementation lowers systolic blood pressure, with the drop largest — around 8 mmHg — in people who are already hypertensive. Most of the underlying trials use standardized dried garlic powder at doses equivalent to roughly a clove a day, well inside normal cooking use. A possible effect, not a promise — response to it varies from person to person."},{"effect":"immune-supportive","confidence":"moderate","note":"Two independent placebo-controlled trials — one an allicin capsule, the other an aged garlic extract — found real drops in cold and flu frequency or severity, alongside measurable increases in the immune system's own natural killer and γδ-T cell activity. Both used garlic in a concentrated form, at a dose beyond a light seasoning but within reach of a garlic-heavy diet; a Cochrane review of the first trial alone called that single study's evidence insufficient, though the second trial's independent biomarker findings back the same mechanism. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"turmeric","name":"Turmeric","aliases":["haldi","kurkum","jiang huang"],"emoji":"🟡","category":"spice","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Golden root powder in nearly every desi dish.",
@@ -259,7 +260,8 @@
    "histamine":{"sighi":0,"tags":[],"note":"Generally well tolerated in modest amounts.","ref":{"sighi":0,"marks":"","as":"honey"}},
    "nutrition":{"kcal":304,"protein":0.3,"carbs":82,"fat":0,"highlight":"enzymes & trace pollen"},
    "remedy":{"too-cold":"eat"},
-   "guna":{"verdict":"light","confidence":"high","note":"Sattvic raw. The texts are unusually specific that heating honey spoils it."}},
+   "guna":{"verdict":"light","confidence":"high","note":"Sattvic raw. The texts are unusually specific that heating honey spoils it."},
+   "effects":[{"effect":"cough-suppressant","confidence":"moderate","note":"A Cochrane review of six trials in nearly 900 children found honey eases cough better than placebo, diphenhydramine, and no treatment, and holds its own against dextromethorphan — a genuinely well-studied piece of kitchen-cabinet folk medicine. A spoonful before bed is exactly the dose the trials use. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"white-sugar","name":"White sugar","aliases":["cheeni","sukkar","bai tang"],"emoji":"⬜","category":"spice","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Refined cane sugar.",
@@ -791,7 +793,8 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with garlic."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Lashuna is ushna and tikshna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":331,"protein":16.6,"carbs":72.7,"fat":0.7,"highlight":"not the same as a clove"},
-   "remedy":{"too-cold":"eat"}},
+   "remedy":{"too-cold":"eat"},
+   "effects":[{"effect":"blood-pressure-lowering","confidence":"moderate","note":"This is the actual form most of the garlic blood pressure trials used — standardized dried garlic powder, at doses (600-1200mg) close to what a well-seasoned dish delivers. See garlic for the full evidence trail. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"onion-powder","name":"Onion powder","aliases":["pyaz powder","yang cong fen"],"emoji":"🧅","category":"spice","cuisines":["western","chinese"],"commonness":2,
    "description":"Dehydrated ground onion, used where fresh would add water.",

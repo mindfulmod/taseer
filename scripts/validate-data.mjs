@@ -145,7 +145,56 @@ const EFFECTS = ["calming", "sedative", "stimulating", "digestive", "anti-nausea
   // doses far past what bioavailability lets a spoonful of powder deliver,
   // so anti-inflammatory as a category stays out; see commit for the full
   // trail, including green tea/appetite-suppression, also excluded).
-  "impairing", "laxative", "blood-sugar-moderating", "analgesic"];
+  "impairing", "laxative", "blood-sugar-moderating", "analgesic",
+  // Batch (2026-09-03, pass 5): open-ended sweep for genuinely new,
+  // well-evidenced categories beyond the 11 shipped so far. Three cleared the
+  // bar. `blood-pressure-lowering` — garlic (a dozen-plus meta-analysed RCTs,
+  // strongest in hypertensives, standardized-powder doses close to a clove a
+  // day) and garlic-powder (the literal form most of those trials used);
+  // beetroot and beetroot-juice, spinach, and arugula, all via the same
+  // dietary-nitrate → nitric-oxide pathway with real RCT support at
+  // food-sized doses (beetroot's whole-root dose is the least precise of the
+  // four, since nitrate content swings with soil and variety — flagged in
+  // its own note); hibiscus tea, backed by an umbrella review of 26 RCTs at
+  // ordinary tea-drinking amounts. `immune-supportive` — garlic again (two
+  // independent placebo-controlled trials, an allicin capsule and an aged
+  // extract, both at concentrated-but-food-adjacent doses, both showing real
+  // NK/γδ-T cell and illness-frequency effects, honestly caveated against
+  // the Cochrane review that called the first trial alone insufficient);
+  // shiitake (one whole-dried-mushroom RCT at an ordinary 5-10g/day dose,
+  // real immune-marker shifts, same single-trial calibration as walnuts'
+  // sleep-aid entry); elderberry, at `contested` rather than moderate — the
+  // pooled trials behind it are mostly funded by one supplement maker, and
+  // the sole independent trial found no effect, which the note says plainly.
+  // `cough-suppressant` — honey, backed by a Cochrane review of six trials in
+  // nearly 900 children finding it beats placebo and no-treatment and holds
+  // its own against dextromethorphan, at exactly the spoonful dose tested.
+  // Declined this pass, with reasons: garlic/cold-cure evidence stopping at
+  // immune-supportive rather than reaching a bare "antimicrobial" tag, since
+  // the mechanism-specific tags say more; cranberry/UTI, researched
+  // specifically per the brief — the highest-quality synthesis (Cochrane,
+  // 24 trials) found no significant effect, and newer meta-analyses claiming
+  // benefit in subgroups don't overturn that, so the popular claim stays
+  // out despite looking plausible; celery for blood pressure, which turned
+  // out to be seed-extract evidence only (capsules standardized to
+  // 3-n-butylphthalide) with no whole-stalk trial behind it — the same
+  // supplement-dose-inflation shape as the already-declined turmeric and
+  // green tea; oyster mushroom's beta-glucan (pleuran) evidence, same
+  // shape again — purified extract capsules, not a food-sized mushroom
+  // serving; L-theanine anti-anxiety, researched specifically per the
+  // brief — real RCTs exist, but the effective dose (200-400mg) is 7-20
+  // cups of tea, so this is the theanine/EGCG dose-inflation pattern again,
+  // not a real distinction from the already-shipped `calming`/`focus` tags;
+  // vitamin-C/citrus for immune support, the other common misconception
+  // checked directly — Cochrane's own pooled analysis (11,306 participants)
+  // found no effect on cold incidence in the general population, benefit
+  // showing up only in endurance-athlete subgroups, so this is the same
+  // deficiency-correction-only shape as the already-declined iron/B12 claim;
+  // honey's wound-healing evidence, which is real but topical, outside this
+  // app's eaten-food scope entirely; thyme for cough, where every RCT found
+  // used a thyme+ivy or thyme+primrose combination extract rather than
+  // thyme alone, so no single-food claim can be cleanly supported.
+  "blood-pressure-lowering", "immune-supportive", "cough-suppressant"];
 // A documented-effect note must read as traditional/anecdotal information, never
 // as a personalised or predictive promise (product spec's traditional-info
 // framing rule — "traditionally classified as", never "this will lower your

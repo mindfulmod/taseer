@@ -60,7 +60,8 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Sour yet classed cooling — an exception like amla."},"unani":{"verdict":"cold","confidence":"moderate","note":"Served as a summer cooler across the Arab world."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated; sparse formal data."},
    "nutrition":{"kcal":0,"protein":0,"carbs":0,"fat":0,"highlight":"anthocyanins; lowers BP"},
-   "remedy":{"too-hot":"eat"}},
+   "remedy":{"too-hot":"eat"},
+   "effects":[{"effect":"blood-pressure-lowering","confidence":"moderate","note":"An umbrella review of 26 RCTs and nearly 1,800 participants found hibiscus tea dose-dependently lowers systolic and diastolic blood pressure compared with placebo. A cup or two a day, the amount most trials use, is ordinary tea-drinking. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"lemonade","name":"Lemonade / shikanjvi","aliases":["shikanjabeen","limonada","ning meng shui"],"emoji":"🍋","category":"drink","cuisines":["south-asian","arabic","western"],"commonness":1,
    "description":"Lemon, water, sugar — the subcontinent's first response to heat.",
@@ -655,7 +656,8 @@
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with beetroot."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and building; a blood-building juice in desi usage."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low, though beetroot is high in oxalate and nitrate — separate matters."},
    "nutrition":{"kcal":42,"protein":1.6,"carbs":9.9,"fat":0.1,"highlight":"earthy and very sweet"},
-   "remedy":{"too-cold":"eat"}},
+   "remedy":{"too-cold":"eat"},
+   "effects":[{"effect":"blood-pressure-lowering","confidence":"moderate","note":"Dietary nitrate converts in the body to nitric oxide, a natural blood-vessel relaxant, and meta-analyses of RCTs find beetroot juice lowers systolic blood pressure by several mmHg, with no sign of the effect fading over weeks of daily use. A standard juice shot (70-250ml) sits within the range the trials use. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"green-juice","name":"Green juice","aliases":["detox juice","lv zhi"],"emoji":"🥬","category":"drink","cuisines":["western"],"commonness":3,
    "description":"Leafy greens, cucumber and apple pressed together — bitter unless there is a lot of apple.",

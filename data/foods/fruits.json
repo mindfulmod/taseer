@@ -566,7 +566,8 @@
    "description":"Dark clustered berries, cooked into syrup — never eaten raw.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"The related plant is used for wind-damp; the berry has no clear food classification."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the record."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Usually taken as a concentrated syrup, which is where the rating comes from. Raw berries are mildly toxic — a separate matter.","ref":{"sighi":0,"marks":"","as":"elderberry, elderberries"}},
-   "nutrition":{"kcal":73,"protein":0.7,"carbs":18.4,"fat":0.5,"highlight":"cooked into syrup, never raw"}},
+   "nutrition":{"kcal":73,"protein":0.7,"carbs":18.4,"fat":0.5,"highlight":"cooked into syrup, never raw"},
+   "effects":[{"effect":"immune-supportive","confidence":"contested","note":"A small pooled analysis of elderberry syrup trials found shorter, milder upper respiratory infections, but three of the four trials behind it were funded by the same supplement maker, and the one independently run trial found no benefit — real research, but not yet independent of commercial interest. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"sea-buckthorn","name":"Sea buckthorn","aliases":["leh berry","sha ji","chharma"],"emoji":"🟠","category":"fruit","cuisines":["chinese","south-asian"],"commonness":4,
    "description":"Intensely sour orange berries from high cold deserts — Ladakh and the Tibetan plateau.",

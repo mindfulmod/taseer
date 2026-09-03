@@ -20,7 +20,8 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-moist","confidence":"high","note":"Palak is classically thanda."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Surprisingly high histamine for a 'healthy' green.","ref":{"sighi":2,"marks":"","as":"spinach"}},
    "nutrition":{"kcal":23,"protein":2.9,"carbs":3.6,"fat":0.4,"highlight":"the iron is real; so is the oxalate that blocks it"},
-   "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."}},
+   "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."},
+   "effects":[{"effect":"blood-pressure-lowering","confidence":"moderate","note":"Spinach is one of the most nitrate-dense vegetables grown, and randomised crossover trials using a cooked-spinach-sized dose found measurable drops in blood pressure within hours, through the same nitrate-to-nitric-oxide pathway as beetroot. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"lettuce","name":"Lettuce","aliases":["salad patta","khass","sheng cai"],"emoji":"🥬","category":"vegetable","cuisines":["arabic","chinese","western"],"commonness":1,
    "description":"Crisp salad leaf; khass is a classic Unani cooler.",
@@ -179,7 +180,8 @@
    "histamine":{"sighi":1,"tags":[],"note":"Occasionally flagged; most tolerate it.","ref":{"sighi":0,"marks":"","as":"beetroot"}},
    "nutrition":{"kcal":43,"protein":1.6,"carbs":9.6,"fat":0.2,"highlight":"nitrates & folate"},
    "remedy":{"too-cold":"eat"},
-   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
+   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."},
+   "effects":[{"effect":"blood-pressure-lowering","confidence":"moderate","note":"Beetroot's dietary nitrate converts in the body to nitric oxide, a natural blood-vessel relaxant, and meta-analyses of RCTs — mostly run on beetroot juice — find a real drop in systolic blood pressure. A couple of cooked beets approaches the nitrate dose those trials use, though whole-root nitrate content swings a good deal with soil and variety, less predictable than a measured juice shot. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"bell-pepper","name":"Bell pepper / capsicum","aliases":["shimla mirch","filfil halw","tian jiao"],"emoji":"🫑","category":"vegetable","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Sweet non-spicy pepper.",
@@ -199,7 +201,8 @@
    "description":"Meaty aromatic mushroom, fresh or dried.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Not classical; inferred."},"unani":{"verdict":"neutral","confidence":"contested","note":"Not classical; inferred."}},
    "histamine":{"sighi":1,"tags":[],"note":"Dried/aged forms carry more amines than fresh."},
-   "nutrition":{"kcal":34,"protein":2.2,"carbs":6.8,"fat":0.5,"highlight":"dried, the umami multiplies"}},
+   "nutrition":{"kcal":34,"protein":2.2,"carbs":6.8,"fat":0.5,"highlight":"dried, the umami multiplies"},
+   "effects":[{"effect":"immune-supportive","confidence":"moderate","note":"A randomised trial had healthy adults eat 5-10g of whole dried shiitake daily for a month and found real increases in the immune system's own natural killer and γδ-T cell activity, plus a rise in the mucosal antibody sIgA and a drop in the inflammation marker CRP — a genuine food-dose result, though from a single trial measuring immune markers rather than actual illness counts. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"green-beans","name":"Green beans","aliases":["phali","fasoolia","si ji dou"],"emoji":"🫛","category":"vegetable","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Tender pod beans.",
@@ -512,7 +515,8 @@
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":25,"protein":2.6,"carbs":3.7,"fat":0.7,"highlight":"the peppery mezze green"},
    "remedy":{"too-cold":"eat"},
-   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
+   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."},
+   "effects":[{"effect":"blood-pressure-lowering","confidence":"moderate","note":"Also nitrate-dense; a randomised trial comparing rocket, spinach, and beetroot juice as nitrate sources found arugula lowered blood pressure at least as well as the other two, with the drop in diastolic pressure lasting longer. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"watercress","name":"Watercress","aliases":["xi yang cai","abu qurain","halim leaves"],"emoji":"🌿","category":"vegetable","cuisines":["chinese","arabic","western"],"commonness":3,
    "description":"Small peppery leaves that grow in running water — a Cantonese soup green.",
