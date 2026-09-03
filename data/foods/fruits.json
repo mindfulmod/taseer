@@ -816,7 +816,8 @@
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":42,"protein":0.5,"carbs":10.7,"fat":0.2,"highlight":"an apple's crunch, a pear's juice"},
    "remedy":{"too-hot":"eat"},
-   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
+   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."},
+   "effects":[{"effect":"hangover-relief","confidence":"moderate","note":"A randomised crossover trial found juice from Korean pear — Pyrus pyrifolia cv. Shingo, the same species as nashi/Asian pear under a different cultivar name — measurably lowered blood acetaldehyde and cut hangover severity by roughly a fifth in the hours after drinking, alongside faster blood alcohol clearance; supporting lab work found the pear boosts the very enzymes (alcohol and aldehyde dehydrogenase) that break both compounds down. The trial was small (14 men) and single-blind rather than double-blind, so this is promising rather than settled. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"kaki-persimmon","name":"Kaki","aliases":["japanese persimmon","fuyu"],"emoji":"🟠","category":"fruit","cuisines":["japanese"],"commonness":2,
    "description":"Firm sweet persimmon eaten crisp like an apple, skin and all.",

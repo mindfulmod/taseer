@@ -266,7 +266,83 @@ const EFFECTS = ["calming", "sedative", "stimulating", "digestive", "anti-nausea
   // specific systematic review pooling this evidence also found high
   // heterogeneity and risk of bias, with green tea not clearly beating
   // placebo overall despite some individual trials showing benefit.
-  "bone-supportive", "liver-supportive", "satiety"];
+  "bone-supportive", "liver-supportive", "satiety",
+  // Batch (2026-09-03, pass 7): asked directly whether well-evidenced,
+  // food-identity-level categories are running dry. Answer: mostly yes, but
+  // not entirely — one new tag and two additions to existing tags cleared
+  // the bar, against four candidate directions that came up empty or folded
+  // into what already exists. `hangover-relief` — Korean pear (Pyrus
+  // pyrifolia cv. Shingo, the same species nashi-pear already carries under
+  // a different cultivar name) in a randomised crossover trial: real
+  // acetaldehyde and hangover-severity reductions, backed by in vitro
+  // ADH/ALDH enzyme data, but only one trial, small (14 men), single-blind
+  // rather than double-blind — real signal, not yet a settled one. Prickly
+  // pear (Opuntia ficus-indica), also named in the brief, declined: the one
+  // trial used a proprietary standardized extract (1600 IU, an odd unit for
+  // a plant extract) with no established whole-fruit equivalent dose, and
+  // its own primary outcome (overall hangover severity) was null — only 3 of
+  // 9 individual symptoms improved. Ginseng-for-hangover, also checked,
+  // declined the same way: the cleanest trial dosed a proprietary "red
+  // ginseng anti-hangover drink" at 0.321 mg/mL, too dilute and
+  // commercial-product-specific to equate to a cup of insam-cha. No new tag
+  // needed for two other findings, which extend already-shipped tags
+  // instead. `blood-pressure-lowering` gains pomegranate-juice — a
+  // meta-analysis of 14 RCTs, 573 participants, ~5 mmHg systolic drop, at
+  // realistic (≤300ml/day) doses; this is also this pass's answer to the
+  // brief's antioxidant/anti-aging question — antioxidant-capacity assays
+  // don't clear this project's bar (declined again, still too vague/
+  // unfalsifiable as its own category), but the one pomegranate outcome
+  // trial that does clear it turns out to be a blood-pressure trial, so it
+  // belongs under the tag that already exists for that outcome rather than
+  // a new generic one. `digestive` gains yogurt and kefir, on strong
+  // footing — EFSA formally approved a lactose-digestion health claim for
+  // live yogurt cultures in 2010, and a randomised trial matching yogurt,
+  // kefir and milk at the same lactose dose found both fermented forms cut
+  // breath hydrogen and flatulence severity roughly in half versus milk;
+  // greek-yogurt, labneh and buttermilk/chaas follow at `moderate` by direct
+  // mechanism (literally the same cultured product, strained or thinned),
+  // not a dedicated trial of their own. Left out on purpose: skyr (this
+  // dataset's own histamine note already flags its culture as milder than
+  // yogurt's, so extending an unrelated claim on top felt like a stretch
+  // rather than a safe transfer) and quark (traditionally a different,
+  // mesophilic culture, no located lactose-digestion data). This was the
+  // brief's gut-microbiome-supportive candidate resolving narrower than
+  // proposed: the Stanford 2021 fermented-food trial and single-food
+  // kimchi/kefir microbiome-diversity papers show real compositional shifts,
+  // but "gut microbiome diversity" is a biomarker change without a
+  // demonstrated downstream symptom or health outcome — the same
+  // assay-without-an-endpoint shape as the declined antioxidant-capacity
+  // question, so it stays out as its own tag. A specific kimchi/IBS trial
+  // looked more promising (real symptom improvements, 90 participants) until
+  // closer reading: despite its "placebo-controlled" title, all three arms
+  // ate kimchi (standard, standard plus a dead-bacteria placebo additive, or
+  // a fortified version) — there was no non-kimchi control, so the symptom
+  // improvement can't actually be attributed to kimchi itself over 12 weeks
+  // of any dietary change, regression to the mean, or trial participation
+  // alone. Two more directions closed out cleanly. `antiviral`, distinct
+  // from immune-supportive/cough-suppressant, turned out not to be a real
+  // category: garlic's only antiviral-shaped trial is the same allicin-
+  // capsule cold-frequency trial already folded into immune-supportive, and
+  // the Cochrane review of it attributes the effect to immune modulation,
+  // not direct antiviral action; honey's antiviral RCTs are real (kanuka
+  // honey vs. acyclovir for cold sores) but every one is topical, the same
+  // out-of-scope shape as honey's already-declined wound-healing evidence.
+  // `cognitive-protective`/long-term brain health (the brief's proposed
+  // second, longer-horizon tag alongside the existing acute `focus`) also
+  // declined: MIND-diet and leafy-green dementia-risk evidence is cohort-
+  // only, and the one actual randomised trial (NEJM, 2023, 604 participants,
+  // 3 years) found no significant difference between the MIND diet and an
+  // active control diet — the same cohort-looks-strong-RCT-says-no pattern
+  // that sank the dairy/bone-health claim in pass 6, so a second tag on
+  // berries restating the same underlying evidence never became a live
+  // question. `thermogenic`/metabolism (capsaicin) declined too: a 13-study
+  // meta-analysis found real but trivial resting-metabolic-rate gains (+34
+  // kcal/day, under 2% of typical intake), and the trials chasing a
+  // meaningful effect use concentrated capsinoid extracts (non-pungent
+  // CH-19 sweet pepper compounds) specifically because whole-chili doses
+  // large enough to move the needle cause intolerable GI symptoms first —
+  // the same supplement-dose-inflation shape as turmeric and green tea.
+  "hangover-relief"];
 // A documented-effect note must read as traditional/anecdotal information, never
 // as a personalised or predictive promise (product spec's traditional-info
 // framing rule — "traditionally classified as", never "this will lower your
