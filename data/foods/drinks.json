@@ -48,7 +48,8 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Pudina is classically shita, used to settle a hot stomach."},"unani":{"verdict":"cold","confidence":"high"}},
    "histamine":{"sighi":0,"tags":[],"note":"One of the safest hot drinks when reactive."},
    "nutrition":{"kcal":1,"protein":0,"carbs":0,"fat":0,"highlight":"caffeine-free unless green tea goes in too"},
-   "remedy":{"too-hot":"eat","too-cold":"avoid"}},
+   "remedy":{"too-hot":"eat","too-cold":"avoid"},
+   "effects":[{"effect":"digestive","confidence":"high","note":"A standard after-meal glass across Middle Eastern, South Asian and Mediterranean households, taken to settle the stomach once the food is down. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"hibiscus-tea","name":"Hibiscus (karkade)","aliases":["karkade","gudhal","luo shen hua"],"emoji":"🌺","category":"drink","cuisines":["arabic"],"commonness":3,
    "description":"Ruby-red tart infusion, iced in Egyptian summers.",
@@ -113,7 +114,8 @@
    "histamine":{"sighi":0,"tags":[],"note":"Very gentle — good reactive-day drink."},
    "nutrition":{"kcal":25,"protein":0.3,"carbs":6,"fat":0,"highlight":"the classical cooler","estimate":true},
    "ingredients":["barley"],
-   "remedy":{"too-hot":"eat","too-cold":"avoid"}},
+   "remedy":{"too-hot":"eat","too-cold":"avoid"},
+   "effects":[{"effect":"diuretic","confidence":"moderate","note":"Ayurveda names barley water mutrala — a diuretic — and folk use for urinary complaints echoes that across other traditions too. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"sattu-drink","name":"Sattu sharbat","aliases":["sattu ka sharbat","roasted gram drink"],"emoji":"🥤","category":"drink","cuisines":["south-asian"],"commonness":3,
    "description":"Roasted gram flour whisked in water — Bihar's field-day cooler.",
@@ -208,7 +210,8 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Cumin is warm and moves the middle burner."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Jiraka is ushna and deepana-pachana — kindling for a dull digestion."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk, carminative and drying."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":3,"protein":0.1,"carbs":0.6,"fat":0.1,"highlight":"the everyday digestive glass"},
-   "remedy":{"too-cold":"eat"}},
+   "remedy":{"too-cold":"eat"},
+   "effects":[{"effect":"digestive","confidence":"high","note":"Ayurveda's deepana-pachana reputation for cumin — kindling a sluggish digestion — is echoed in everyday South Asian home use well beyond the classical texts. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"thandai","name":"Thandai","aliases":["sardai","cooling milk drink"],"emoji":"🥛","category":"drink","cuisines":["south-asian"],"commonness":3,
    "description":"Milk ground with almonds, melon seeds, fennel and pepper — the Holi cooler.",
