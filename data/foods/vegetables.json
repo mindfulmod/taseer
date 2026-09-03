@@ -12,7 +12,8 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"high","note":"Sour-pungent; classically pitta-aggravating."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"New-world food; hakims disagree."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"One of the biggest everyday histamine offenders.","ref":{"sighi":2,"marks":"HL","as":"tomato"}},
    "nutrition":{"kcal":18,"protein":0.9,"carbs":3.9,"fat":0.2,"highlight":"cooking makes the lycopene more available, not less"},
-   "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."}},
+   "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."},
+   "effects":[{"effect":"sleep-aid","confidence":"moderate","note":"An 8-week trial had postmenopausal women eat a fresh beefsteak tomato before bed and found a tenfold rise in a urinary melatonin marker alongside a measurable improvement in sleep quality scores — beefsteak varieties carry more melatonin than other tomato forms, and the trial used the fruit raw. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"spinach","name":"Spinach","aliases":["palak","sabanikh","bo cai"],"emoji":"🥬","category":"vegetable","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Soft leafy green cooked across all four cuisines.",

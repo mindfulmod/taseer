@@ -198,14 +198,16 @@
    "histamine":{"sighi":1,"tags":[],"note":"Among the better-tolerated nuts."},
    "nutrition":{"kcal":579,"protein":21,"carbs":22,"fat":50,"highlight":"vitamin E, and soaked overnight in half of Asia"},
    "remedy":{"too-cold":"eat"},
-   "guna":{"verdict":"light","confidence":"high"}},
+   "guna":{"verdict":"light","confidence":"high"},
+   "effects":[{"effect":"sleep-aid","confidence":"moderate","note":"A 20-week trial of 175 adults with poor sleep found that 60g of almonds a day improved self-reported sleep quality, efficiency and time to fall asleep, with a modest rise in blood melatonin — though objective sleep-lab measures showed no change. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"walnuts","name":"Walnuts","aliases":["akhrot","jouz","he tao"],"emoji":"🌰","category":"protein","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"Brain-shaped nut; TCM's kidney-warming tonic.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"A classic yang/kidney tonic."},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot-dry","confidence":"high","note":"Akhrot is textbook garam — winter food."}},
    "histamine":{"sighi":3,"tags":["liberator","other-amines"],"note":"SIGHI rates it 3 — the highest-rated nut, and well above the others."},
    "nutrition":{"kcal":654,"protein":15,"carbs":14,"fat":65,"highlight":"the only common nut with plant omega-3"},
-   "remedy":{"too-cold":"eat","too-hot":"avoid"}},
+   "remedy":{"too-cold":"eat","too-hot":"avoid"},
+   "effects":[{"effect":"sleep-aid","confidence":"moderate","note":"A 2025 randomized trial had 76 young adults eat 40g of walnuts nightly for 8 weeks and found higher melatonin breakdown products in their urine alongside shorter time to fall asleep and better sleep efficiency — one of the larger trials behind any food-level sleep claim here. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"cashews","name":"Cashews","aliases":["kaju","kajoo","yao guo"],"emoji":"🌰","category":"protein","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"Creamy nut of korma pastes and snack tins.",
@@ -332,7 +334,8 @@
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"The hours of simmering that make it nourishing are exactly what builds histamine — the reason a 'healing' broth flares some people badly."},
    "nutrition":{"kcal":35,"protein":6,"carbs":1,"fat":0.5,"highlight":"sets to jelly when cold","estimate":true},
    "remedy":{"too-cold":"eat"},
-   "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."}},
+   "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."},
+   "effects":[{"effect":"sleep-aid","confidence":"moderate","note":"A cup of bone broth carries roughly the amount of glycine used in small trials that shortened time to fall asleep and improved sleep efficiency, one of them confirmed by lab sleep monitoring — the evidence base is thin, a few dozen people across a handful of studies, but the dose genuinely lines up with what was tested. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"salami","name":"Salami","aliases":["cured sausage","pepperoni","salame"],"emoji":"🥓","category":"protein","cuisines":["western"],"commonness":3,
    "description":"Pork cured, fermented and air-dried for weeks — sliced thin, eaten cold.",

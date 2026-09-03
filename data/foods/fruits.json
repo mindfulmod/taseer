@@ -174,7 +174,8 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold","confidence":"moderate"}},
    "histamine":{"sighi":2,"tags":["liberator","other-amines"],"note":"A classic liberator — common flare trigger.","ref":{"sighi":2,"marks":"AL","as":"strawberry"}},
    "nutrition":{"kcal":32,"protein":0.7,"carbs":7.7,"fat":0.3,"highlight":"more vitamin C by weight than an orange"},
-   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
+   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"A smoothie mixing equal parts strawberry, blueberry, raspberry and blackberry improved executive function for several hours after drinking it in a controlled trial, plausibly through the same anthocyanin route credited to blueberry — though strawberry has less evidence on its own than blueberry does. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"blueberry","name":"Blueberry","aliases":["toot azraq","lan mei"],"emoji":"🫐","category":"fruit","cuisines":["western","chinese"],"commonness":2,
    "description":"Small antioxidant-rich berry.",
@@ -182,13 +183,15 @@
    "histamine":{"sighi":0,"tags":[],"note":"One of the safer berries."},
    "nutrition":{"kcal":57,"protein":0.7,"carbs":14,"fat":0.3,"highlight":"the blue is anthocyanin"},
    "remedy":{"too-hot":"eat"},
-   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
+   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"A cup or so of blueberries, fresh or freeze-dried, has improved memory within a few hours of eating them in several controlled trials in both children and adults, with some trials also showing gains in attention and executive function — a pattern a 2019 systematic review backs across independent studies. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"raspberry","name":"Raspberry","aliases":["toot ahmar","fu pen zi (herb form)"],"emoji":"🍓","category":"fruit","cuisines":["western"],"commonness":3,
    "description":"Tart red berry.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"The dried herb is warm; fresh fruit thinly documented."},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold","confidence":"contested"}},
    "histamine":{"sighi":1,"tags":[],"note":"Moderate amounts usually fine.","ref":{"sighi":2,"marks":"","as":"raspberry"}},
-   "nutrition":{"kcal":52,"protein":1.2,"carbs":12,"fat":0.7,"highlight":"mostly seeds and fibre"}},
+   "nutrition":{"kcal":52,"protein":1.2,"carbs":12,"fat":0.7,"highlight":"mostly seeds and fibre"},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"A smoothie mixing equal parts raspberry, blueberry, strawberry and blackberry improved executive function for several hours after drinking it in a controlled trial, plausibly through the same anthocyanin route credited to blueberry — though raspberry has less evidence on its own than blueberry does. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"cherry","name":"Cherry","aliases":["cheri","karaz","ying tao"],"emoji":"🍒","category":"fruit","cuisines":["south-asian","arabic","chinese","western"],"commonness":3,
    "description":"Sweet stone fruit of early summer.",
@@ -224,7 +227,8 @@
    "thermal":{"tcm":{"verdict":"cold","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold","confidence":"moderate"}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Liberator; also a true allergen for some (separate from histamine).","ref":{"sighi":2,"marks":"L","as":"kiwi fruit"}},
    "nutrition":{"kcal":61,"protein":1.1,"carbs":15,"fat":0.5,"highlight":"twice an orange's vitamin C"},
-   "remedy":{"too-hot":"eat"}},
+   "remedy":{"too-hot":"eat"},
+   "effects":[{"effect":"sleep-aid","confidence":"moderate","note":"Small trials — including one in people with chronic insomnia symptoms and one in elite athletes — found that two kiwis eaten nightly for several weeks shortened time to fall asleep and improved sleep efficiency. The mechanism looks more like serotonin and antioxidant content than melatonin itself: one trial found no rise in urinary melatonin despite the better sleep. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"persimmon","name":"Persimmon","aliases":["japani phal","kaka","shi zi"],"emoji":"🍅","category":"fruit","cuisines":["south-asian","chinese"],"commonness":3,
    "description":"Honey-sweet autumn fruit.",
@@ -251,7 +255,8 @@
    "description":"Very tart berry, mostly consumed dried or as juice.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classical; inferred."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Astringent-sour; schools would split."},"unani":{"verdict":"cold-dry","confidence":"contested"}},
    "histamine":{"sighi":1,"tags":[],"note":"Dried/juiced forms often sweetened and sulfured.","ref":{"sighi":0,"marks":"","as":"cranberry, cranberries"}},
-   "nutrition":{"kcal":46,"protein":0.4,"carbs":12,"fat":0.1,"highlight":"too tart to eat unsweetened"}},
+   "nutrition":{"kcal":46,"protein":0.4,"carbs":12,"fat":0.1,"highlight":"too tart to eat unsweetened"},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"A 12-week trial gave older adults freeze-dried cranberry equivalent to about a cup of fresh cranberries a day and found improved short-term and episodic memory alongside increased blood flow to memory-related brain regions — though the same trial found no significant change on attention tests specifically. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"raisins","name":"Raisins","aliases":["kishmish","zabib","pu tao gan","munakka"],"emoji":"🍇","category":"fruit","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Dried grapes; kitchen and dessert staple.",
@@ -387,7 +392,8 @@
    "description":"Dark, seedy hedgerow berry, sweet at the edge of tart.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classically listed; read with the berry family."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry; sweet-astringent."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the canon."}},
    "histamine":{"sighi":1,"tags":[],"note":"Better tolerated than strawberry, which is the berry SIGHI singles out.","ref":{"sighi":0,"marks":"","as":"blackberry"}},
-   "nutrition":{"kcal":43,"protein":1.4,"carbs":9.6,"fat":0.5,"highlight":"dark berry pigments"}},
+   "nutrition":{"kcal":43,"protein":1.4,"carbs":9.6,"fat":0.5,"highlight":"dark berry pigments"},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"A smoothie mixing equal parts blackberry, blueberry, strawberry and raspberry improved executive function for several hours after drinking it in a controlled trial, plausibly through the same anthocyanin route credited to blueberry — though blackberry has less evidence on its own than blueberry does. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"carob","name":"Carob","aliases":["kharoub","kharrub","locust bean","st john's bread"],"emoji":"🟤","category":"fruit","cuisines":["arabic","western"],"commonness":4,
    "description":"Dried pod ground into a sweet powder — chocolate's caffeine-free stand-in.",
@@ -631,7 +637,8 @@
    "description":"Cranberries dried with a great deal of added sugar, because they are inedible otherwise.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Follows cranberry; a new-world fruit with no classical entry."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical record."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the Unani canon."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Dried, sweetened and sour — several contributors at once."},
-   "nutrition":{"kcal":308,"protein":0.1,"carbs":82.4,"fat":1.4,"highlight":"mostly added sugar"}},
+   "nutrition":{"kcal":308,"protein":0.1,"carbs":82.4,"fat":1.4,"highlight":"mostly added sugar"},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"A 12-week trial gave older adults freeze-dried cranberry equivalent to about a cup of fresh cranberries a day — close to what dried cranberries deliver before the added sugar — and found improved short-term and episodic memory alongside increased blood flow to memory-related brain regions, though the same trial found no significant change on attention tests specifically. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"jam","name":"Jam","aliases":["fruit preserve","murabba","guo jiang"],"emoji":"🍓","category":"fruit","cuisines":["western","arabic","south-asian"],"commonness":1,
    "description":"Fruit boiled with sugar until it sets — the toast standard.",
