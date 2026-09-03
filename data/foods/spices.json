@@ -118,7 +118,7 @@
    "histamine":{"sighi":0,"tags":[],"note":"Thread amounts fine."},
    "nutrition":{"kcal":310,"protein":11,"carbs":65,"fat":5.9,"highlight":"crocin is the colour, and the reason for the price"},
    "remedy":{"too-cold":"eat"},
-   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Unani tradition already names zafran mood-lifting, and clinical trials — including a 2025 study of over 200 people — back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Unani tradition already names zafran mood-lifting, and clinical trials — including a 2025 study of over 200 people — back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. Those trials use a standardized extract at roughly 28-30mg a day; ordinary cooking uses far less — a pinch is more like 15-30mg of thread for a whole dish, not a single serving — so a spice-jar amount sits well under what was actually tested. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"mustard-seed","name":"Mustard seed","aliases":["rai","sarson dana","khardal","jie zi"],"emoji":"🟡","category":"spice","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"Popping tempering seed and the source of sarson oil.",
@@ -261,7 +261,7 @@
    "nutrition":{"kcal":304,"protein":0.3,"carbs":82,"fat":0,"highlight":"enzymes & trace pollen"},
    "remedy":{"too-cold":"eat"},
    "guna":{"verdict":"light","confidence":"high","note":"Sattvic raw. The texts are unusually specific that heating honey spoils it."},
-   "effects":[{"effect":"cough-suppressant","confidence":"moderate","note":"A Cochrane review of six trials in nearly 900 children found honey eases cough better than placebo, diphenhydramine, and no treatment, and holds its own against dextromethorphan — a genuinely well-studied piece of kitchen-cabinet folk medicine. A spoonful before bed is exactly the dose the trials use. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"cough-suppressant","confidence":"moderate","note":"A Cochrane review of six trials in nearly 900 children found honey eases cough better than placebo, diphenhydramine, and no treatment, and holds its own against dextromethorphan — a genuinely well-studied piece of kitchen-cabinet folk medicine. The trials used anywhere from half a teaspoon to two teaspoons depending on the child's age — a teaspoonful before bed sits inside that range, though a heaping tablespoon runs past what most of them tested. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"white-sugar","name":"White sugar","aliases":["cheeni","sukkar","bai tang"],"emoji":"⬜","category":"spice","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Refined cane sugar.",

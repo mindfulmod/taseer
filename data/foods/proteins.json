@@ -352,7 +352,7 @@
    "nutrition":{"kcal":35,"protein":6,"carbs":1,"fat":0.5,"highlight":"sets to jelly when cold","estimate":true},
    "remedy":{"too-cold":"eat"},
    "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."},
-   "effects":[{"effect":"sleep-aid","confidence":"moderate","note":"A cup of bone broth carries roughly the amount of glycine used in small trials that shortened time to fall asleep and improved sleep efficiency, one of them confirmed by lab sleep monitoring — the evidence base is thin, a few dozen people across a handful of studies, but the dose genuinely lines up with what was tested. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"sleep-aid","confidence":"moderate","note":"Small trials found that 3g of glycine before bed shortened time to fall asleep and improved sleep efficiency, one of them confirmed by lab sleep monitoring — but a cup of bone broth usually supplies less than that, commonly well under half to two-thirds of the trial dose, since home-simmered broth is far more diluted than a measured supplement. Only a long-simmered, bone-and-skin-heavy batch that sets to a firm jelly gets close to the amount tested. The evidence base is thin either way, a few dozen people across a handful of studies. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"salami","name":"Salami","aliases":["cured sausage","pepperoni","salame"],"emoji":"🥓","category":"protein","cuisines":["western"],"commonness":3,
    "description":"Pork cured, fermented and air-dried for weeks — sliced thin, eaten cold.",

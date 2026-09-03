@@ -1269,7 +1269,7 @@
    "nutrition":{"kcal":160,"protein":9,"carbs":22,"fat":4,"highlight":"the crust underneath is the point","estimate":true},
    "ingredients":["white-rice","prawns","mussels","saffron","bone-broth","bell-pepper"],
    "remedy":{"too-cold":"eat"},
-   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — the same evidence behind the spice on its own applies. Unani tradition already names zafran mood-lifting, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — but even a generous dish's worth of threads is a small fraction of the roughly 28-30mg a day of standardized extract used in the depression trials. Unani tradition names zafran mood-lifting on its own grounds, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood at that extract dose, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"carbonara","name":"Carbonara","aliases":["spaghetti carbonara"],"emoji":"🍝","category":"dish","cuisines":["western"],"commonness":1,
    "description":"Pasta bound with egg, hard cheese and cured pork — no cream, ever.",
@@ -4169,7 +4169,7 @@
    "nutrition":{"kcal":200,"protein":24,"carbs":4,"fat":10,"highlight":"overnight in saffron and lemon","estimate":true},
    "ingredients":["chicken","saffron","lemon","onion","yogurt"],
    "remedy":{"too-cold":"eat"},
-   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — the same evidence behind the spice on its own applies. Unani tradition already names zafran mood-lifting, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — but even a generous dish's worth of threads is a small fraction of the roughly 28-30mg a day of standardized extract used in the depression trials. Unani tradition names zafran mood-lifting on its own grounds, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood at that extract dose, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"ghormeh-sabzi","name":"Ghormeh sabzi","aliases":["herb stew"],"emoji":"🌿","category":"dish","cuisines":["persian-turkish"],"commonness":1,
    "description":"Herbs fried down almost black with kidney beans, lamb and dried lime.",
@@ -4234,7 +4234,7 @@
    "nutrition":{"kcal":210,"protein":8,"carbs":30,"fat":7,"highlight":"turned out like a cake","estimate":true},
    "ingredients":["white-rice","yogurt","egg","saffron","chicken","barberry"],
    "remedy":{"too-cold":"eat"},
-   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — the same evidence behind the spice on its own applies. Unani tradition already names zafran mood-lifting, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — but even a generous dish's worth of threads is a small fraction of the roughly 28-30mg a day of standardized extract used in the depression trials. Unani tradition names zafran mood-lifting on its own grounds, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood at that extract dose, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"baghali-polo","name":"Baghali polo","aliases":["dill and broad bean rice"],"emoji":"🟢","category":"dish","cuisines":["persian-turkish"],"commonness":2,
    "description":"Rice layered with dill and broad beans, steamed until the herbs perfume it.",
@@ -4349,7 +4349,7 @@
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":160,"protein":2,"carbs":34,"fat":3,"highlight":"set, then decorated with cinnamon","estimate":true},
    "ingredients":["white-rice","saffron","rose-water","white-sugar","pistachios"],
-   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — the same evidence behind the spice on its own applies. Unani tradition already names zafran mood-lifting, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — but even a generous dish's worth of threads is a small fraction of the roughly 28-30mg a day of standardized extract used in the depression trials. Unani tradition names zafran mood-lifting on its own grounds, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood at that extract dose, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"faloodeh","name":"Faloodeh","aliases":["frozen rice noodle sorbet"],"emoji":"🍧","category":"dish","cuisines":["persian-turkish"],"commonness":2,
    "description":"Thin frozen rice noodles in rose and lime syrup — a sorbet with texture.",
@@ -4365,7 +4365,7 @@
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":230,"protein":5,"carbs":26,"fat":12,"highlight":"mastic makes it stretch","estimate":true},
    "ingredients":["milk","saffron","rose-water","pistachios","mastic","clotted-cream"],
-   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — the same evidence behind the spice on its own applies. Unani tradition already names zafran mood-lifting, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — but even a generous dish's worth of threads is a small fraction of the roughly 28-30mg a day of standardized extract used in the depression trials. Unani tradition names zafran mood-lifting on its own grounds, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood at that extract dose, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"gaz","name":"Gaz","aliases":["persian nougat"],"emoji":"🤍","category":"dish","cuisines":["persian-turkish"],"commonness":3,
    "description":"Nougat of pistachio and rose set with the sap of a desert shrub.",
@@ -4382,7 +4382,7 @@
    "nutrition":{"kcal":490,"protein":6,"carbs":60,"fat":26,"highlight":"it should snap, not bend","estimate":true},
    "ingredients":["wheat","butter","saffron","pistachios","cardamom"],
    "remedy":{"too-cold":"eat"},
-   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — the same evidence behind the spice on its own applies. Unani tradition already names zafran mood-lifting, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — but even a generous dish's worth of threads is a small fraction of the roughly 28-30mg a day of standardized extract used in the depression trials. Unani tradition names zafran mood-lifting on its own grounds, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood at that extract dose, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"koloocheh","name":"Koloocheh","aliases":["persian filled cookie"],"emoji":"🍪","category":"dish","cuisines":["persian-turkish"],"commonness":3,
    "description":"Soft spiced cookies filled with walnut and dates, stamped with a pattern.",
@@ -6826,7 +6826,7 @@
    "nutrition":{"kcal":230,"protein":6,"carbs":38,"fat":6,"highlight":"holed like crumpets","estimate":true},
    "ingredients":["maida","yeast","egg","saffron","cardamom","date-syrup"],
    "remedy":{"too-cold":"eat"},
-   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — the same evidence behind the spice on its own applies. Unani tradition already names zafran mood-lifting, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — but even a generous dish's worth of threads is a small fraction of the roughly 28-30mg a day of standardized extract used in the depression trials. Unani tradition names zafran mood-lifting on its own grounds, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood at that extract dose, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"khanfaroosh","name":"Khanfaroosh","aliases":["saffron rice fritters"],"emoji":"🟡","category":"dish","cuisines":["arabic"],"commonness":4,
    "description":"Rice-flour and saffron batter fried into small ridged cakes — an old Emirati sweet.",
@@ -6835,7 +6835,7 @@
    "nutrition":{"kcal":340,"protein":5,"carbs":48,"fat":15,"highlight":"ridged, from the mould","estimate":true},
    "ingredients":["rice-flour","egg","saffron","cardamom","white-sugar","rose-water"],
    "remedy":{"too-cold":"eat"},
-   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — the same evidence behind the spice on its own applies. Unani tradition already names zafran mood-lifting, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — but even a generous dish's worth of threads is a small fraction of the roughly 28-30mg a day of standardized extract used in the depression trials. Unani tradition names zafran mood-lifting on its own grounds, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood at that extract dose, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"aseeda","name":"Aseeda","aliases":["wheat dough with date syrup"],"emoji":"🟤","category":"dish","cuisines":["arabic"],"commonness":3,
    "description":"Wheat flour beaten into boiling water into a stiff smooth mound and eaten with syrup and ghee.",
@@ -6860,7 +6860,7 @@
    "nutrition":{"kcal":330,"protein":7,"carbs":46,"fat":13,"highlight":"raised by egg alone","estimate":true},
    "ingredients":["maida","egg","saffron","cardamom","sesame-seeds","rose-water"],
    "remedy":{"too-cold":"eat"},
-   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — the same evidence behind the spice on its own applies. Unani tradition already names zafran mood-lifting, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — but even a generous dish's worth of threads is a small fraction of the roughly 28-30mg a day of standardized extract used in the depression trials. Unani tradition names zafran mood-lifting on its own grounds, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood at that extract dose, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"rangina","name":"Rangina","aliases":["dates in flour and butter"],"emoji":"🌴","category":"dish","cuisines":["arabic"],"commonness":4,
    "description":"Whole stoned dates set in a toasted flour and butter paste, served warm from the pan.",

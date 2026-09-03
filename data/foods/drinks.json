@@ -271,7 +271,7 @@
    "nutrition":{"kcal":30,"protein":0.8,"carbs":4,"fat":1.2,"highlight":"saffron, cardamom, almond","estimate":true},
    "ingredients":["green-tea","saffron","cardamom","almonds"],
    "remedy":{"too-cold":"eat"},
-   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — the same evidence behind the spice on its own applies. Unani tradition already names zafran mood-lifting, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — but even a generous dish's worth of threads is a small fraction of the roughly 28-30mg a day of standardized extract used in the depression trials. Unani tradition names zafran mood-lifting on its own grounds, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood at that extract dose, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"tamarind-drink","name":"Tamarind drink","aliases":["imli ka sharbat","tamr hindi","agua de tamarindo"],"emoji":"🟤","category":"drink","cuisines":["south-asian","arabic"],"commonness":3,
    "description":"Tamarind pulp strained, sweetened and iced — a Ramadan table fixture.",
