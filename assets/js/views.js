@@ -2,7 +2,8 @@
 // HTML lands in the DOM (focus, listeners that can't be delegated).
 import {
   BANDS, CATEGORIES, CUISINES, LISTS, META, SORTS, SOURCES, STATES, byCategory, fuzzySuggest,
-  BLOATING, COMPOUNDS, GUNAS, GUNA_IDS, MECHANISM_IDS, MECHANISMS, foodsWithGuna, foodsWithMechanism, gunaCount, stimulantFamilies, getFood, getFoods, getList, getMechanism,
+  BLOATING, COMPOUNDS, EFFECTS, GUNAS, GUNA_IDS, MECHANISM_IDS, MECHANISMS,
+  foodsWithGuna, foodsWithMechanism, gunaCount, stimulantFamilies, getFood, getFoods, getList, getMechanism,
   getPreparation, heatClass, preparations, prepsForState, prepsUsing, remedyList, search,
   sortFoods, spectrum, systemHeat,
 } from "./data.js";
@@ -192,22 +193,6 @@ const CONF_TITLE = {
   contested: "References genuinely disagree, or classical documentation is thin",
 };
 
-// Documented traditional/anecdotal effects (chamomile's calming reputation,
-// ginger's anti-nausea one) — proposed field, demoed on a handful of foods.
-// Same confidence vocabulary and tooltips as the thermal/guna badges above,
-// reused rather than adding histamine's verified/reasoned/unreviewed states:
-// those audit a reading against a named external list (SIGHI), and there is
-// no equivalent single reference list for anecdotal effects to check against.
-const EFFECT_META = {
-  calming: { glyph: "☾", label: "Calming" },
-  sedative: { glyph: "☾", label: "Sedative" },
-  stimulating: { glyph: "◆", label: "Stimulating" },
-  digestive: { glyph: "◇", label: "Digestive" },
-  "anti-nausea": { glyph: "≈", label: "Anti-nausea" },
-  carminative: { glyph: "○", label: "Carminative — eases gas/bloating" },
-  diuretic: { glyph: "▽", label: "Diuretic" },
-};
-
 const SYSTEM_NOTE_LABELS = { tcm: "TCM", ayurveda: "Ayurveda", unani: "Unani" };
 
 // Each note is tinted by *its own* system's verdict, not the food's composite —
@@ -305,12 +290,14 @@ export function foodView(id) {
                <h3>Documented effects</h3>
                <p class="tiny muted">Traditionally or anecdotally reported for this food specifically — individual response varies</p>
                ${food.effects.map(e => `
-                 <p class="cmpd__list" style="margin-top:10px">
-                   <span class="cmpd__pill">${EFFECT_META[e.effect]?.glyph ?? "•"} ${esc(EFFECT_META[e.effect]?.label ?? e.effect)}</span>
-                   <span class="note__conf ${e.confidence === "contested" ? "note__conf--contested" : ""}"
-                         title="${esc(CONF_TITLE[e.confidence])}">${e.confidence}</span>
-                 </p>
-                 <p class="cmpd__what">${esc(e.note)}</p>`).join("")}
+                 <div style="margin-top:14px">
+                   <p class="cmpd__list" style="margin-top:0">
+                     <span class="cmpd__pill">${EFFECTS[e.effect]?.glyph ?? "•"} ${esc(EFFECTS[e.effect]?.label ?? e.effect)}</span>
+                     <span class="note__conf ${e.confidence === "contested" ? "note__conf--contested" : ""}"
+                           title="${esc(CONF_TITLE[e.confidence])}">${e.confidence}</span>
+                   </p>
+                   <p class="cmpd__what">${esc(e.note)}</p>
+                 </div>`).join("")}
              </div>`
           : ""
       }

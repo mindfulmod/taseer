@@ -452,6 +452,47 @@ for (const f of foods) if (f.guna) byGuna.get(f.guna.verdict)?.push(f);
 export const foodsWithGuna = id => (byGuna.get(id) ?? []).slice().sort(byCommon);
 export const gunaCount = () => foods.filter(f => f.guna).length;
 
+// ---- Documented effects ------------------------------------------------------
+
+/**
+ * Food-level documented/anecdotal effects (`data/foods/*.json` → `effects`).
+ * Confidence reuses the same high/moderate/contested vocabulary as thermal and
+ * guna, not histamine's verified/reasoned/unreviewed — those audit a reading
+ * against a named external list (SIGHI), and there is no equivalent single
+ * reference list for anecdotal effects to check against.
+ *
+ * Glyph is decorative only. The confidence badge and the food's own note are
+ * what carry the actual claim and any dose/safety caveat — never the label
+ * alone, which is the one thing this catalog is not allowed to be read as.
+ * Keys match validate-data.mjs's EFFECTS vocabulary; a couple (e.g.
+ * `stimulating`) aren't in use yet but are kept here so a future food can pick
+ * them up without a UI change.
+ */
+export const EFFECTS = {
+  calming: { label: "Calming", glyph: "☾" },
+  sedative: { label: "Sedative", glyph: "☾" },
+  stimulating: { label: "Stimulating", glyph: "◆" },
+  digestive: { label: "Digestive", glyph: "◇" },
+  "anti-nausea": { label: "Anti-nausea", glyph: "≈" },
+  carminative: { label: "Carminative — eases gas/bloating", glyph: "○" },
+  diuretic: { label: "Diuretic", glyph: "▽" },
+  focus: { label: "Focus", glyph: "◈" },
+  "sleep-aid": { label: "Sleep aid", glyph: "☾" },
+  energizing: { label: "Energizing", glyph: "↑" },
+  "mood-lifting": { label: "Mood-lifting", glyph: "✦" },
+  impairing: { label: "Impairing", glyph: "⊘" },
+  laxative: { label: "Laxative", glyph: "∿" },
+  "blood-sugar-moderating": { label: "Blood sugar moderating", glyph: "◊" },
+  analgesic: { label: "Analgesic — pain-relieving", glyph: "⚕" },
+  "blood-pressure-lowering": { label: "Blood pressure lowering", glyph: "↓" },
+  "immune-supportive": { label: "Immune-supportive", glyph: "✚" },
+  "cough-suppressant": { label: "Cough-suppressant", glyph: "⁓" },
+  "bone-supportive": { label: "Bone-supportive", glyph: "▣" },
+  "liver-supportive": { label: "Liver-supportive", glyph: "◧" },
+  satiety: { label: "Satiety — helps you feel full", glyph: "◒" },
+  "hangover-relief": { label: "Hangover relief", glyph: "↻" },
+};
+
 // ---- Stimulants -------------------------------------------------------------
 
 /**
