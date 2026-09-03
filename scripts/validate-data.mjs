@@ -117,16 +117,45 @@ const EFFECTS = ["calming", "sedative", "stimulating", "digestive", "anti-nausea
   // Batch (2026-09-03): four new tags researched against clinical evidence —
   // see the readout cited in that commit. focus (theanine+caffeine teas),
   // sleep-aid (tart/sour cherry), energizing (ginseng), mood-lifting (saffron).
-  "focus", "sleep-aid", "energizing", "mood-lifting"];
+  "focus", "sleep-aid", "energizing", "mood-lifting",
+  // Batch (2026-09-03, second pass): AM asked specifically about foods that
+  // make it hard to pay attention — the negative side of "focus" that the
+  // first pass of this batch shipped only the positive half of. `impairing`
+  // answers that, restricted to actual alcoholic drinks (strong, universally
+  // accepted pharmacology at typical drinking doses) rather than to meal
+  // composition, which the bloating amendment already ruled out as a shape
+  // effects can't take — every drink genuinely drunk as alcohol got it (18
+  // in all, via a sweep of every histamine dao-blocker entry, filtered down
+  // to the ones where the mechanism is actually alcohol rather than tea's
+  // catechins or energy drinks' theobromine); wine/rice-wine used only as a
+  // cooking ingredient (mirin, shaoxing wine, hours-long braises) did not,
+  // since the dose eaten is small and/or the alcohol is substantially cooked
+  // off. Three more from an open-ended deepen-the-vocab pass: `laxative`
+  // (prunes, kiwi, figs, flaxseed, coffee — bowel-motility RCTs, several
+  // beating psyllium or lactulose head to head; kiwi keeps its sleep-aid tag
+  // too, same precedent as ginseng carrying one note into two dishes),
+  // `blood-sugar-moderating` (all seven vinegars for acetic acid, fenugreek
+  // seed for its galactomannan fibre, cinnamon with a coumarin-safety flag
+  // in its own note — all pharmacological actions the food itself performs
+  // on a meal, the same shape as the already-shipped digestive/carminative
+  // tags, not the meal's own composition acting on itself the way the
+  // declined sugar-crash claim was), `analgesic` (ginger for dysmenorrhea
+  // specifically, matched against mefenamic acid and ibuprofen in RCTs —
+  // turmeric's curcumin has real trial evidence too, but only at supplement
+  // doses far past what bioavailability lets a spoonful of powder deliver,
+  // so anti-inflammatory as a category stays out; see commit for the full
+  // trail, including green tea/appetite-suppression, also excluded).
+  "impairing", "laxative", "blood-sugar-moderating", "analgesic"];
 // A documented-effect note must read as traditional/anecdotal information, never
 // as a personalised or predictive promise (product spec's traditional-info
 // framing rule — "traditionally classified as", never "this will lower your
 // body heat"). Mirrors the stimulant note's mg-dose ban below.
 // The verb list is enumerated, not general — extend it whenever a new effect
 // category brings verbs of its own (focus/energizing/mood-lifting add
-// impair/sharpen/trigger/distort/boost) rather than relying on the existing
-// list to catch them by accident.
-const PREDICTIVE_CLAIM = /\b(will (make|help|calm|relax|cure|fix|impair|sharpen|trigger|distort|boost)|cures?|treats?|guarantees?|always works)\b/i;
+// impair/sharpen/trigger/distort/boost; impairing/laxative/blood-sugar-
+// moderating/analgesic add lower/reduce/ease/moderate/relieve) rather
+// than relying on the existing list to catch them by accident.
+const PREDICTIVE_CLAIM = /\b(will (make|help|calm|relax|cure|fix|impair|sharpen|trigger|distort|boost|lower|reduce|ease|moderate|relieve)|cures?|treats?|guarantees?|always works)\b/i;
 for (const f of all.values()) {
   if (!f.effects) continue;
   const where = `${f.file} → ${f.id}`;

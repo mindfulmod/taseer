@@ -116,7 +116,8 @@
    "description":"Soft honeyed fruit, fresh or dried.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Fresh figs cooling; dried more building."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Anjeer is garam in Unani texts."}},
    "histamine":{"sighi":1,"tags":[],"note":"Dried figs (sulfured) worse than fresh.","ref":{"sighi":0,"marks":"","as":"figs (fresh or dried)"}},
-   "nutrition":{"kcal":74,"protein":0.8,"carbs":19,"fat":0.3,"highlight":"fiber & calcium"}},
+   "nutrition":{"kcal":74,"protein":0.8,"carbs":19,"fat":0.3,"highlight":"fiber & calcium"},
+   "effects":[{"effect":"laxative","confidence":"moderate","note":"A four-month randomised trial in IBS with constipation found regular fig intake improved defecation frequency and stool consistency against a control diet. A smaller trial pitting fig syrup against sugar syrup in constipated children found the same direction of effect. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"papaya","name":"Papaya","aliases":["papita","babbay","mu gua (colloquial)"],"emoji":"🥭","category":"fruit","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"Soft orange tropical fruit with digestive enzymes.",
@@ -228,7 +229,8 @@
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Liberator; also a true allergen for some (separate from histamine).","ref":{"sighi":2,"marks":"L","as":"kiwi fruit"}},
    "nutrition":{"kcal":61,"protein":1.1,"carbs":15,"fat":0.5,"highlight":"twice an orange's vitamin C"},
    "remedy":{"too-hot":"eat"},
-   "effects":[{"effect":"sleep-aid","confidence":"moderate","note":"Small trials — including one in people with chronic insomnia symptoms and one in elite athletes — found that two kiwis eaten nightly for several weeks shortened time to fall asleep and improved sleep efficiency. The mechanism looks more like serotonin and antioxidant content than melatonin itself: one trial found no rise in urinary melatonin despite the better sleep. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"sleep-aid","confidence":"moderate","note":"Small trials — including one in people with chronic insomnia symptoms and one in elite athletes — found that two kiwis eaten nightly for several weeks shortened time to fall asleep and improved sleep efficiency. The mechanism looks more like serotonin and antioxidant content than melatonin itself: one trial found no rise in urinary melatonin despite the better sleep. A possible effect, not a promise — response to it varies from person to person."},
+    {"effect":"laxative","confidence":"moderate","note":"A meta-analysis of five randomised trials found kiwifruit measurably improved bowel movement frequency; one crossover trial had two kiwis a day beating a standard psyllium supplement outright (6.3 vs. 4.5 bowel movements a week). The actinidin enzyme and sorbitol content are the leading explanations, distinct from the fruit's sleep-aid mechanism above. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"persimmon","name":"Persimmon","aliases":["japani phal","kaka","shi zi"],"emoji":"🍅","category":"fruit","cuisines":["south-asian","chinese"],"commonness":3,
    "description":"Honey-sweet autumn fruit.",
@@ -269,7 +271,8 @@
    "description":"Dried plums, stewed into desi qormas and eaten for digestion.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-moist","confidence":"high","note":"Aloo bukhara is a classic Unani cooler."}},
    "histamine":{"sighi":2,"tags":[],"note":"Dried fruit; sulfites common."},
-   "nutrition":{"kcal":240,"protein":2.2,"carbs":64,"fat":0.4,"highlight":"eaten for what they do, not what they taste like"}},
+   "nutrition":{"kcal":240,"protein":2.2,"carbs":64,"fat":0.4,"highlight":"eaten for what they do, not what they taste like"},
+   "effects":[{"effect":"laxative","confidence":"high","note":"An 8-week randomised crossover trial found prunes beat psyllium — the standard fibre-supplement comparator — on both bowel movements per week and stool consistency, at a matched fibre dose. One of the better head-to-head showings of any food on this list, which is why prunes are the first thing reached for, not a folk runner-up. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"dragon-fruit","name":"Dragon fruit","aliases":["pitaya","huo long guo"],"emoji":"🐉","category":"fruit","cuisines":["chinese"],"commonness":4,
    "description":"Mild speckle-fleshed cactus fruit.",

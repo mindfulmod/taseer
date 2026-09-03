@@ -253,7 +253,8 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"high","note":"Alsi is classically ushna — a winter laddu seed."},"unani":{"verdict":"hot-dry","confidence":"high"}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated."},
    "nutrition":{"kcal":534,"protein":18,"carbs":29,"fat":42,"highlight":"lignans + omega-3"},
-   "remedy":{"too-cold":"eat"}},
+   "remedy":{"too-cold":"eat"},
+   "effects":[{"effect":"laxative","confidence":"moderate","note":"A randomised trial in constipated people with type 2 diabetes found ground flaxseed outperformed psyllium on overall constipation-symptom improvement at a matched dose; a separate trial found it beat a lactulose laxative on weekly bowel-movement count. It has to be ground — whole seeds pass through largely undigested. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"chana-dal","name":"Chana dal","aliases":["split bengal gram","chholar dal","kadalai paruppu"],"emoji":"🟡","category":"protein","cuisines":["south-asian"],"commonness":1,
    "description":"Split husked bengal gram — holds its shape, so it never turns to mush.",
