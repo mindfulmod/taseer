@@ -55,7 +55,7 @@
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated."},
    "nutrition":{"kcal":323,"protein":23,"carbs":58,"fat":6.4,"highlight":"bitter until toasted, and then it turns nutty"},
    "remedy":{"too-cold":"eat","too-hot":"avoid"},
-   "effects":[{"effect":"blood-sugar-moderating","confidence":"moderate","note":"The seed's soluble fibre (galactomannan) slows carbohydrate absorption — a meta-analysis of five trials in type 2 diabetes found real reductions in fasting glucose and HbA1c, with the smaller everyday doses (under 10g) outperforming supplement-scale ones. A tempering's worth is well within that effective range. A possible effect, not a promise — response to it varies from person to person."}]},
+   "effects":[{"effect":"blood-sugar-moderating","confidence":"moderate","note":"The seed's soluble fibre (galactomannan) slows carbohydrate absorption — a meta-analysis of ten trials in type 2 diabetes found real reductions in fasting glucose and HbA1c, but the effect is dose-dependent the other way round from most doses in this app: low doses under 5g a day showed no significant benefit, with the reductions only appearing at medium-to-high doses, up toward 25g a day. That's well past a light tempering's worth — closer to a dedicated daily dose than a seasoning. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"black-pepper","name":"Black pepper","aliases":["kali mirch","filfil aswad","hu jiao"],"emoji":"⚫","category":"spice","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"The default table heat.",

@@ -214,13 +214,15 @@
    "description":"Yogurt hung until thick, then whipped with sugar, saffron and cardamom.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Strained yogurt with warm spices; cooling overall."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Dahi is ushna in the classical reading, and the saffron adds to it."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar in desi usage — a summer sweet, eaten with puri."}},
    "histamine":{"sighi":2,"tags":[],"note":"Hung yogurt, held and sweetened — above plain dahi."},
-   "nutrition":{"kcal":210,"protein":5.5,"carbs":30,"fat":7.5,"highlight":"hung, then whipped","estimate":true}},
+   "nutrition":{"kcal":210,"protein":5.5,"carbs":30,"fat":7.5,"highlight":"hung, then whipped","estimate":true},
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Shrikhand is hung yogurt, whipped and sweetened, carrying the same live cultures behind yogurt's own lactose-digestion effect — the dedicated trials tested plain yogurt rather than shrikhand itself, but this is the same product, strained and finished, not a different one. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"mishti-doi","name":"Mishti doi","aliases":["sweet yogurt","misti dohi","bhapa doi"],"emoji":"🍮","category":"dairy","cuisines":["south-asian"],"commonness":3,
    "description":"Bengali yogurt set with caramelised jaggery in an earthen pot.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Yogurt base, sweetened and set."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured dahi is ushna; the jaggery adds to it."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar, though warmer than plain dahi for the gur."}},
    "histamine":{"sighi":2,"tags":[],"note":"Cultured and then held warm to set — a longer ferment than plain dahi."},
-   "nutrition":{"kcal":180,"protein":4.5,"carbs":30,"fat":4.5,"highlight":"set in an earthen pot","estimate":true}},
+   "nutrition":{"kcal":180,"protein":4.5,"carbs":30,"fat":4.5,"highlight":"set in an earthen pot","estimate":true},
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Mishti doi is yogurt itself, set with caramelised jaggery in place of plain milk, carrying the same live cultures behind yogurt's own lactose-digestion effect — the dedicated trials tested plain yogurt rather than this sweetened version, but it is cultured the same way, not a different product. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"clotted-cream","name":"Clotted cream","aliases":["malai (thick)","qishta","kaymak"],"emoji":"🥛","category":"dairy","cuisines":["arabic","western","south-asian"],"commonness":3,
    "description":"Cream heated slowly until a thick crust forms and is lifted off.",
@@ -356,7 +358,8 @@
    "description":"Milk baked for hours until caramel-coloured, then cultured — nuttier than kefir.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Long-baked then cultured milk."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Baking and souring are both ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam-tar by the baking and ferment."}},
    "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Cultured dairy; the long bake concentrates it before the ferment even starts."},
-   "nutrition":{"kcal":85,"protein":3,"carbs":4.2,"fat":6,"highlight":"baked before it is soured"}},
+   "nutrition":{"kcal":85,"protein":3,"carbs":4.2,"fat":6,"highlight":"baked before it is soured"},
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Ryazhenka is fermented with the same Lactobacillus bulgaricus and Streptococcus thermophilus cultures credited with yogurt's own lactose-digestion effect, just cultured into baked rather than plain milk — untested directly, but the same live cultures doing the same job. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"sguschenka","name":"Sguschenka","aliases":["russian condensed milk"],"emoji":"🥫","category":"dairy","cuisines":["eastern-european"],"commonness":2,
    "description":"Condensed milk boiled in the tin until it caramelises — eaten with a spoon.",

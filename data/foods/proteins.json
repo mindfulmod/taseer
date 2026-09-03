@@ -516,7 +516,8 @@
    "description":"Dried peas split and hulled — they collapse into soup rather than holding shape.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with peas, which are neutral and spleen-strengthening."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and ruksha, like the other cooling pulses."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk, and windy."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low cooked."},
-   "nutrition":{"kcal":341,"protein":24.6,"carbs":60.4,"fat":1.2,"highlight":"collapses into soup"}},
+   "nutrition":{"kcal":341,"protein":24.6,"carbs":60.4,"fat":1.2,"highlight":"collapses into soup"},
+   "effects":[{"effect":"satiety","confidence":"moderate","note":"A systematic review and meta-analysis of nine randomised feeding trials found meals built around roughly 160g of pulses — about a cup, cooked — left people reporting about 31% greater fullness than a calorie-matched meal without them, credited to the fibre, protein and low glycaemic load pulses bring to a plate. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"green-gram-whole","name":"Whole moong","aliases":["sabut moong","green gram","whole mung"],"emoji":"🟢","category":"protein","cuisines":["south-asian"],"commonness":1,
    "description":"Mung beans with the skin on — sprouted, or cooked into a heavier dal than the split kind.",
@@ -524,7 +525,8 @@
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":347,"protein":23.9,"carbs":62.6,"fat":1.2,"highlight":"what the sick are fed"},
    "remedy":{"too-hot":"eat"},
-   "guna":{"verdict":"light","confidence":"high"}},
+   "guna":{"verdict":"light","confidence":"high"},
+   "effects":[{"effect":"satiety","confidence":"moderate","note":"A systematic review and meta-analysis of nine randomised feeding trials found meals built around roughly 160g of pulses — about a cup, cooked — left people reporting about 31% greater fullness than a calorie-matched meal without them, credited to the fibre, protein and low glycaemic load pulses bring to a plate. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"soybean-sprouts","name":"Soybean sprouts","aliases":["huang dou ya","kongnamul"],"emoji":"🌱","category":"protein","cuisines":["chinese"],"commonness":3,
    "description":"Sprouted soybeans with the yellow head still attached — firmer than mung sprouts.",

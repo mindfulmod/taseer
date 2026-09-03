@@ -90,7 +90,8 @@
    "histamine":{"sighi":1,"tags":[],"note":"As yogurt."},
    "nutrition":{"kcal":75,"protein":2.5,"carbs":12,"fat":2,"highlight":"yogurt thinned until it can be drunk","estimate":true},
    "ingredients":["yogurt","white-sugar","milk"],
-   "remedy":{"too-hot":"eat"}},
+   "remedy":{"too-hot":"eat"},
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Lassi is yogurt itself, churned and thinned with water, milk and sugar, carrying the same live cultures credited with yogurt's own lactose-digestion effect — untested directly, but not a different food from the yogurt the trials used, just a sweetened, more dilute serving of it. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"rose-drink","name":"Rose sharbat (Rooh Afza)","aliases":["rooh afza","sharbat ward","gulab sharbat"],"emoji":"🌹","category":"drink","cuisines":["south-asian","arabic"],"commonness":2,
    "description":"The crimson rose syrup of Ramadan tables and loo summers.",
@@ -514,7 +515,8 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Yogurt and mango, blended cold."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Dahi is ushna at high confidence, but ripe mango's own virya is itself contested between schools — the drink is read heating, whatever its temperature, but not asserted at high confidence."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Aam is garam; the dahi is thanda, so desi readings split on it."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low, though it is yogurt plus fruit and does not keep."},
    "nutrition":{"kcal":105,"protein":2.8,"carbs":20,"fat":1.8,"highlight":"the curry-house default","estimate":true},
-   "ingredients":["yogurt","mango","white-sugar"]},
+   "ingredients":["yogurt","mango","white-sugar"],
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Mango lassi is yogurt itself, blended with mango and sugar, carrying the same live cultures credited with yogurt's own lactose-digestion effect — untested directly, but not a different food from the yogurt the trials used, just a fruited, thicker serving of it. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"salt-lassi","name":"Salted lassi","aliases":["namkeen lassi","chaas lassi"],"emoji":"🥛","category":"drink","cuisines":["south-asian"],"commonness":1,
    "description":"Yogurt thinned with water, salted and spiked with roasted cumin.",
@@ -522,7 +524,8 @@
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":45,"protein":2.2,"carbs":4.5,"fat":1.8,"highlight":"the answer to a hot afternoon","estimate":true},
    "ingredients":["yogurt","cumin","salt"],
-   "remedy":{"too-hot":"eat"}},
+   "remedy":{"too-hot":"eat"},
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Salted lassi is yogurt itself, thinned with water and salted, carrying the same live cultures credited with yogurt's own lactose-digestion effect — untested directly, but not a different food from the yogurt the trials used, just a savoury, more dilute serving of it. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"sugarcane-vinegar-drink","name":"Panakam","aliases":["panagam","jaggery lemon drink"],"emoji":"🥤","category":"drink","cuisines":["south-asian"],"commonness":4,
    "description":"Jaggery water with lemon, ginger and cardamom — offered at Rama Navami, drunk all summer.",
@@ -1002,7 +1005,8 @@
    "histamine":{"sighi":1,"tags":[],"note":"Low, like other yogurt drinks."},
    "nutrition":{"kcal":35,"protein":1.6,"carbs":3,"fat":1.7,"highlight":"sparkling, if you're lucky","estimate":true},
    "ingredients":["yogurt","mint-dried","salt"],
-   "remedy":{"too-hot":"eat"}},
+   "remedy":{"too-hot":"eat"},
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Doogh is yogurt itself, thinned with water and salted, carrying the same live cultures credited with yogurt's own lactose-digestion effect — untested directly, but not a different food from the yogurt the trials used, just a savoury, more dilute serving of it. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"sherbet-persian","name":"Sharbat","aliases":["persian sherbet","sekanjabin"],"emoji":"🥤","category":"drink","cuisines":["persian-turkish"],"commonness":2,
    "description":"Fruit or herb syrup diluted with cold water — vinegar and mint in the case of sekanjabin.",
