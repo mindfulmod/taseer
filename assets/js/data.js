@@ -320,7 +320,14 @@ export const spectrum = () => [...foods].sort((a, b) => a.heat - b.heat || a.nam
 const then = (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name);
 
 export const SORTS = {
-  staples: { label: "Everyday first", cmp: (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name) },
+  // Every other order here carries a thermal `.band`, so a long category renders
+  // as headed cold→hot sections instead of one unbroken scroll (`thermalBands`,
+  // views.js). Staples lacked one, which was harmless for small categories but
+  // left the biggest one — Dishes, ~970 foods — as a single flat, unpaginated
+  // list. Banding it "asc" (cold→hot, matching Coolest's direction) fixes that
+  // everywhere at once, and keeps the within-band order exactly what "Everyday
+  // first" already promised: commonness, via `then`/`cmp` below.
+  staples: { label: "Everyday first", band: "asc", cmp: (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name) },
   hottest: { label: "Hottest first", band: "desc", cmp: (a, b) => b.heat - a.heat || then(a, b) },
   coolest: { label: "Coolest first", band: "asc", cmp: (a, b) => a.heat - b.heat || then(a, b) },
   gentlest: { label: "Lowest histamine", cmp: (a, b) => a.histamine.sighi - b.histamine.sighi || then(a, b) },
