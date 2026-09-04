@@ -30,6 +30,12 @@ systemDark.addEventListener("change", () => theme.get() === "system" && applyThe
 
 // ---- Safety banner -------------------------------------------------------
 
+// Compact by default — a bolded one-line summary plus the same disclosure
+// pattern the documented-effects panel uses (`details.expander`) — because the
+// full four-sentence notice was pushing Home's state cards and Find's "ways"
+// list below the fold on first visit, on every single screen, until dismissed.
+// Nothing is cut: the summary line is itself the notice's own opening
+// sentence, and every remaining word is one tap away, never removed.
 function renderBanner() {
   const slot = document.getElementById("banner-slot");
   if (!slot) return;
@@ -37,9 +43,11 @@ function renderBanner() {
     ? ""
     : `<div class="banner" role="note">
          <span aria-hidden="true">🌿</span>
-         <span><strong>Traditional information, not medical advice.</strong>
-         Taseer reports how healing traditions have classified foods. It doesn't diagnose or treat.
-         Severe or persistent reactions deserve real care.</span>
+         <details class="expander banner__note">
+           <summary><strong>Traditional information, not medical advice.</strong></summary>
+           <p>Taseer reports how healing traditions have classified foods. It doesn't diagnose or treat.
+           Severe or persistent reactions deserve real care.</p>
+         </details>
          <button class="iconbtn" data-act="dismiss-banner" aria-label="Dismiss">✕</button>
        </div>`;
 }
