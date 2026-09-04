@@ -116,7 +116,8 @@
    "description":"Soft honeyed fruit, fresh or dried.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Fresh figs cooling; dried more building."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Anjeer is garam in Unani texts."}},
    "histamine":{"sighi":1,"tags":[],"note":"Dried figs (sulfured) worse than fresh.","ref":{"sighi":0,"marks":"","as":"figs (fresh or dried)"}},
-   "nutrition":{"kcal":74,"protein":0.8,"carbs":19,"fat":0.3,"highlight":"fiber & calcium"}},
+   "nutrition":{"kcal":74,"protein":0.8,"carbs":19,"fat":0.3,"highlight":"fiber & calcium"},
+   "effects":[{"effect":"laxative","confidence":"moderate","note":"A four-month randomised trial in IBS with constipation found regular fig intake improved defecation frequency and stool consistency against a control diet. A smaller trial pitting fig syrup against sugar syrup in constipated children found the same direction of effect. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"papaya","name":"Papaya","aliases":["papita","babbay","mu gua (colloquial)"],"emoji":"🥭","category":"fruit","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"Soft orange tropical fruit with digestive enzymes.",
@@ -174,7 +175,8 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold","confidence":"moderate"}},
    "histamine":{"sighi":2,"tags":["liberator","other-amines"],"note":"A classic liberator — common flare trigger.","ref":{"sighi":2,"marks":"AL","as":"strawberry"}},
    "nutrition":{"kcal":32,"protein":0.7,"carbs":7.7,"fat":0.3,"highlight":"more vitamin C by weight than an orange"},
-   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
+   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"A smoothie mixing equal parts strawberry, blueberry, raspberry and blackberry improved executive function for several hours after drinking it in a controlled trial, plausibly through the same anthocyanin route credited to blueberry — though strawberry has less evidence on its own than blueberry does. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"blueberry","name":"Blueberry","aliases":["toot azraq","lan mei"],"emoji":"🫐","category":"fruit","cuisines":["western","chinese"],"commonness":2,
    "description":"Small antioxidant-rich berry.",
@@ -182,13 +184,15 @@
    "histamine":{"sighi":0,"tags":[],"note":"One of the safer berries."},
    "nutrition":{"kcal":57,"protein":0.7,"carbs":14,"fat":0.3,"highlight":"the blue is anthocyanin"},
    "remedy":{"too-hot":"eat"},
-   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
+   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"A cup or so of blueberries, fresh or freeze-dried, has improved memory within a few hours of eating them in several controlled trials in both children and adults, with some trials also showing gains in attention and executive function — a pattern a 2019 systematic review backs across independent studies. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"raspberry","name":"Raspberry","aliases":["toot ahmar","fu pen zi (herb form)"],"emoji":"🍓","category":"fruit","cuisines":["western"],"commonness":3,
    "description":"Tart red berry.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"The dried herb is warm; fresh fruit thinly documented."},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold","confidence":"contested"}},
    "histamine":{"sighi":1,"tags":[],"note":"Moderate amounts usually fine.","ref":{"sighi":2,"marks":"","as":"raspberry"}},
-   "nutrition":{"kcal":52,"protein":1.2,"carbs":12,"fat":0.7,"highlight":"mostly seeds and fibre"}},
+   "nutrition":{"kcal":52,"protein":1.2,"carbs":12,"fat":0.7,"highlight":"mostly seeds and fibre"},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"A smoothie mixing equal parts raspberry, blueberry, strawberry and blackberry improved executive function for several hours after drinking it in a controlled trial, plausibly through the same anthocyanin route credited to blueberry — though raspberry has less evidence on its own than blueberry does. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"cherry","name":"Cherry","aliases":["cheri","karaz","ying tao"],"emoji":"🍒","category":"fruit","cuisines":["south-asian","arabic","chinese","western"],"commonness":3,
    "description":"Sweet stone fruit of early summer.",
@@ -224,7 +228,9 @@
    "thermal":{"tcm":{"verdict":"cold","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold","confidence":"moderate"}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Liberator; also a true allergen for some (separate from histamine).","ref":{"sighi":2,"marks":"L","as":"kiwi fruit"}},
    "nutrition":{"kcal":61,"protein":1.1,"carbs":15,"fat":0.5,"highlight":"twice an orange's vitamin C"},
-   "remedy":{"too-hot":"eat"}},
+   "remedy":{"too-hot":"eat"},
+   "effects":[{"effect":"sleep-aid","confidence":"moderate","note":"Small trials — including one in people with chronic insomnia symptoms and one in elite athletes — found that two kiwis eaten nightly for several weeks shortened time to fall asleep and improved sleep efficiency. The mechanism looks more like serotonin and antioxidant content than melatonin itself: one trial found no rise in urinary melatonin despite the better sleep. A possible effect, not a promise — response to it varies from person to person."},
+    {"effect":"laxative","confidence":"moderate","note":"A meta-analysis of five randomised trials found kiwifruit measurably improved bowel movement frequency; one crossover trial had three kiwis a day beating a standard psyllium supplement outright (6.3 vs. 4.5 bowel movements a week). The actinidin enzyme and sorbitol content are the leading explanations, distinct from the fruit's sleep-aid mechanism above. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"persimmon","name":"Persimmon","aliases":["japani phal","kaka","shi zi"],"emoji":"🍅","category":"fruit","cuisines":["south-asian","chinese"],"commonness":3,
    "description":"Honey-sweet autumn fruit.",
@@ -251,7 +257,8 @@
    "description":"Very tart berry, mostly consumed dried or as juice.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classical; inferred."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Astringent-sour; schools would split."},"unani":{"verdict":"cold-dry","confidence":"contested"}},
    "histamine":{"sighi":1,"tags":[],"note":"Dried/juiced forms often sweetened and sulfured.","ref":{"sighi":0,"marks":"","as":"cranberry, cranberries"}},
-   "nutrition":{"kcal":46,"protein":0.4,"carbs":12,"fat":0.1,"highlight":"too tart to eat unsweetened"}},
+   "nutrition":{"kcal":46,"protein":0.4,"carbs":12,"fat":0.1,"highlight":"too tart to eat unsweetened"},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"A 12-week trial gave older adults freeze-dried cranberry equivalent to about a cup of fresh cranberries a day and found improved short-term and episodic memory alongside increased blood flow to memory-related brain regions — though the same trial found no significant change on attention tests specifically. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"raisins","name":"Raisins","aliases":["kishmish","zabib","pu tao gan","munakka"],"emoji":"🍇","category":"fruit","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Dried grapes; kitchen and dessert staple.",
@@ -264,7 +271,8 @@
    "description":"Dried plums, stewed into desi qormas and eaten for digestion.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-moist","confidence":"high","note":"Aloo bukhara is a classic Unani cooler."}},
    "histamine":{"sighi":2,"tags":[],"note":"Dried fruit; sulfites common."},
-   "nutrition":{"kcal":240,"protein":2.2,"carbs":64,"fat":0.4,"highlight":"eaten for what they do, not what they taste like"}},
+   "nutrition":{"kcal":240,"protein":2.2,"carbs":64,"fat":0.4,"highlight":"eaten for what they do, not what they taste like"},
+   "effects":[{"effect":"laxative","confidence":"high","note":"An 8-week randomised crossover trial found prunes beat psyllium — the standard fibre-supplement comparator — on both bowel movements per week and stool consistency, at a matched fibre dose. One of the better head-to-head showings of any food on this list, which is why prunes are the first thing reached for, not a folk runner-up. A possible effect, not a promise — response to it varies from person to person."},{"effect":"bone-supportive","confidence":"moderate","note":"A 12-month randomised controlled trial in 235 postmenopausal women found that eating 50g of prunes a day — about ten — preserved hip bone mineral density where a no-prune control group lost it, an effect that held from six months through to twelve. Researchers point to the fruit's polyphenol content acting on bone-remodelling and inflammation pathways, a separate mechanism from the laxative effect above. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"dragon-fruit","name":"Dragon fruit","aliases":["pitaya","huo long guo"],"emoji":"🐉","category":"fruit","cuisines":["chinese"],"commonness":4,
    "description":"Mild speckle-fleshed cactus fruit.",
@@ -387,7 +395,8 @@
    "description":"Dark, seedy hedgerow berry, sweet at the edge of tart.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classically listed; read with the berry family."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry; sweet-astringent."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the canon."}},
    "histamine":{"sighi":1,"tags":[],"note":"Better tolerated than strawberry, which is the berry SIGHI singles out.","ref":{"sighi":0,"marks":"","as":"blackberry"}},
-   "nutrition":{"kcal":43,"protein":1.4,"carbs":9.6,"fat":0.5,"highlight":"dark berry pigments"}},
+   "nutrition":{"kcal":43,"protein":1.4,"carbs":9.6,"fat":0.5,"highlight":"dark berry pigments"},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"A smoothie mixing equal parts blackberry, blueberry, strawberry and raspberry improved executive function for several hours after drinking it in a controlled trial, plausibly through the same anthocyanin route credited to blueberry — though blackberry has less evidence on its own than blueberry does. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"carob","name":"Carob","aliases":["kharoub","kharrub","locust bean","st john's bread"],"emoji":"🟤","category":"fruit","cuisines":["arabic","western"],"commonness":4,
    "description":"Dried pod ground into a sweet powder — chocolate's caffeine-free stand-in.",
@@ -525,7 +534,8 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Sour and fluid-generating; cooler than the sweet cherry."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and sour — a summer sharbat fruit."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda; albaloo sharbat is a standard Levantine and Persian cooler."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Sour stone fruit, and usually preserved in syrup or dried.","ref":{"sighi":0,"marks":"","as":"Amarelle cherry, sour cherry"}},
    "nutrition":{"kcal":50,"protein":1,"carbs":12.2,"fat":0.3,"highlight":"too tart to eat raw"},
-   "remedy":{"too-hot":"eat"}},
+   "remedy":{"too-hot":"eat"},
+   "effects":[{"effect":"sleep-aid","confidence":"moderate","note":"Small trials and a 2025 systematic review link tart cherry with modest gains in sleep duration and efficiency, plausibly from a small melatonin content plus anti-inflammatory compounds rather than one mechanism alone. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"dried-longan","name":"Dried longan","aliases":["gui yuan","long yan rou","dragon eye"],"emoji":"🟤","category":"fruit","cuisines":["chinese"],"commonness":3,
    "description":"Longan flesh dried to a dark chewy raisin — dropped into tonic soups.",
@@ -556,7 +566,8 @@
    "description":"Dark clustered berries, cooked into syrup — never eaten raw.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"The related plant is used for wind-damp; the berry has no clear food classification."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the record."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Usually taken as a concentrated syrup, which is where the rating comes from. Raw berries are mildly toxic — a separate matter.","ref":{"sighi":0,"marks":"","as":"elderberry, elderberries"}},
-   "nutrition":{"kcal":73,"protein":0.7,"carbs":18.4,"fat":0.5,"highlight":"cooked into syrup, never raw"}},
+   "nutrition":{"kcal":73,"protein":0.7,"carbs":18.4,"fat":0.5,"highlight":"cooked into syrup, never raw"},
+   "effects":[{"effect":"immune-supportive","confidence":"contested","note":"A small pooled analysis of elderberry syrup trials found shorter, milder upper respiratory infections, but three of the four trials behind it were funded by the same supplement maker, and the one independently run trial found no benefit — real research, but not yet independent of commercial interest. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"sea-buckthorn","name":"Sea buckthorn","aliases":["leh berry","sha ji","chharma"],"emoji":"🟠","category":"fruit","cuisines":["chinese","south-asian"],"commonness":4,
    "description":"Intensely sour orange berries from high cold deserts — Ladakh and the Tibetan plateau.",
@@ -630,7 +641,8 @@
    "description":"Cranberries dried with a great deal of added sugar, because they are inedible otherwise.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Follows cranberry; a new-world fruit with no classical entry."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical record."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the Unani canon."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Dried, sweetened and sour — several contributors at once."},
-   "nutrition":{"kcal":308,"protein":0.1,"carbs":82.4,"fat":1.4,"highlight":"mostly added sugar"}},
+   "nutrition":{"kcal":308,"protein":0.1,"carbs":82.4,"fat":1.4,"highlight":"mostly added sugar"},
+   "effects":[{"effect":"focus","confidence":"moderate","note":"A 12-week trial gave older adults freeze-dried cranberry equivalent to about a cup of fresh cranberries a day — close to what dried cranberries deliver before the added sugar — and found improved short-term and episodic memory alongside increased blood flow to memory-related brain regions, though the same trial found no significant change on attention tests specifically. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"jam","name":"Jam","aliases":["fruit preserve","murabba","guo jiang"],"emoji":"🍓","category":"fruit","cuisines":["western","arabic","south-asian"],"commonness":1,
    "description":"Fruit boiled with sugar until it sets — the toast standard.",
@@ -804,7 +816,8 @@
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":42,"protein":0.5,"carbs":10.7,"fat":0.2,"highlight":"an apple's crunch, a pear's juice"},
    "remedy":{"too-hot":"eat"},
-   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
+   "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."},
+   "effects":[{"effect":"hangover-relief","confidence":"moderate","note":"A randomised crossover trial found juice from Korean pear — Pyrus pyrifolia cv. Shingo, the same species as nashi/Asian pear under a different cultivar name — measurably lowered blood acetaldehyde and cut hangover severity by roughly a fifth in the hours after drinking, alongside faster blood alcohol clearance; supporting lab work found the pear boosts the very enzymes (alcohol and aldehyde dehydrogenase) that break both compounds down. The trial was small (14 men) and single-blind rather than double-blind, so this is promising rather than settled. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"kaki-persimmon","name":"Kaki","aliases":["japanese persimmon","fuyu"],"emoji":"🟠","category":"fruit","cuisines":["japanese"],"commonness":2,
    "description":"Firm sweet persimmon eaten crisp like an apple, skin and all.",

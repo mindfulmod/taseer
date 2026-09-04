@@ -12,7 +12,8 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Thinly classified; modern TCM leans cool-damp."},"ayurveda":{"verdict":"heating","confidence":"high","note":"The classic surprise: dahi is USHNA (sour, channel-clogging) — avoid at night."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Dahi is textbook thanda in desi/Unani usage — the exact opposite of Ayurveda."}},
    "histamine":{"sighi":1,"tags":[],"note":"Fermented but young; fine for many, borderline for the very sensitive."},
    "nutrition":{"kcal":61,"protein":3.5,"carbs":4.7,"fat":3.3,"highlight":"live cultures, and the traditions' loudest disagreement"},
-   "guna":{"verdict":"heavy","confidence":"contested","note":"Soured and cultured dairy is read as heavier than fresh milk, and traditionally avoided at night."}},
+   "guna":{"verdict":"heavy","confidence":"contested","note":"Soured and cultured dairy is read as heavier than fresh milk, and traditionally avoided at night."},
+   "effects":[{"effect":"digestive","confidence":"high","note":"Yogurt's live Lactobacillus bulgaricus and Streptococcus thermophilus cultures produce their own lactase, which breaks down some of the yogurt's own lactose before it reaches a lactase-poor gut — the mechanism behind a formal EFSA health claim approved in 2010 after review of the supporting trials. In one such trial, lactose-maldigesting adults given matched 20g-lactose portions of milk, yogurt and kefir produced roughly two-thirds less breath hydrogen (a marker of undigested lactose reaching the colon) after yogurt than after milk, with flatulence severity cut by over half. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"buttermilk","name":"Buttermilk (chaas)","aliases":["chaas","mattha","laban ayran","ayran"],"emoji":"🥛","category":"dairy","cuisines":["south-asian","arabic"],"commonness":2,
    "description":"Thin churned yogurt drink, salted and spiced.",
@@ -20,7 +21,8 @@
    "histamine":{"sighi":1,"tags":[],"note":"As yogurt."},
    "nutrition":{"kcal":40,"protein":3.3,"carbs":4.8,"fat":0.9,"highlight":"light & hydrating"},
    "remedy":{"too-hot":"eat"},
-   "guna":{"verdict":"heavy","confidence":"contested","note":"Soured and cultured dairy is read as heavier than fresh milk, and traditionally avoided at night."}},
+   "guna":{"verdict":"heavy","confidence":"contested","note":"Soured and cultured dairy is read as heavier than fresh milk, and traditionally avoided at night."},
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Chaas is yogurt itself, churned and thinned with water, carrying the same live cultures credited with yogurt's own lactose-digestion effect — untested directly, but not a different food from the yogurt the trials used, just a more dilute serving of it. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"paneer","name":"Paneer","aliases":["fresh cheese (desi)","paneer khoya"],"emoji":"🧀","category":"dairy","cuisines":["south-asian"],"commonness":1,
    "description":"Fresh unaged pressed cheese of palak paneer.",
@@ -69,7 +71,8 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classical."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Follows dahi (sour, concentrated)."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Follows laban's cooling nature in Arab usage."}},
    "histamine":{"sighi":1,"tags":[],"note":"As yogurt, slightly concentrated."},
    "nutrition":{"kcal":174,"protein":8,"carbs":4,"fat":14,"highlight":"yogurt with the water strained out","estimate":true},
-   "guna":{"verdict":"heavy","confidence":"contested","note":"Soured and cultured dairy is read as heavier than fresh milk, and traditionally avoided at night."}},
+   "guna":{"verdict":"heavy","confidence":"contested","note":"Soured and cultured dairy is read as heavier than fresh milk, and traditionally avoided at night."},
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Labneh is yogurt strained further still, carrying the same live cultures that let yogurt digest some of its own lactose before it reaches a lactase-poor gut — the underlying trials tested plain yogurt rather than labneh itself, but this is the same product, concentrated, not a different one. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"ice-cream","name":"Ice cream","aliases":["booza","bing qi lin"],"emoji":"🍨","category":"dairy","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Frozen sweet cream — physically cold, energetically argued over.",
@@ -83,7 +86,8 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Follows plain yogurt; straining removes water, not nature."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Dahi is ushna whatever you strain out of it."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda like dahi, though less watery than the desi original."}},
    "histamine":{"sighi":1,"tags":[],"note":"Young culture, like plain yogurt — the aged cheeses are the problem, not this."},
    "nutrition":{"kcal":59,"protein":10.2,"carbs":3.6,"fat":0.4,"highlight":"double the protein of plain yogurt"},
-   "guna":{"verdict":"heavy","confidence":"contested","note":"Soured and cultured dairy is read as heavier than fresh milk, and traditionally avoided at night."}},
+   "guna":{"verdict":"heavy","confidence":"contested","note":"Soured and cultured dairy is read as heavier than fresh milk, and traditionally avoided at night."},
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Straining removes whey, not the live Lactobacillus bulgaricus and Streptococcus thermophilus cultures behind yogurt's own lactose-digestion effect — the dedicated trials tested regular yogurt rather than the strained kind specifically, so this carries over by mechanism rather than a dedicated trial of its own. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"feta","name":"Feta","aliases":["jibneh baida","white cheese","barrel-aged cheese"],"emoji":"🧀","category":"dairy","cuisines":["arabic","western"],"commonness":2,
    "description":"Salty brined white cheese, crumbled over everything from salad to eggs.",
@@ -136,7 +140,8 @@
    "description":"Milk fermented with grains into a thin, fizzy, sharply sour drink.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not a classical food; placed with cultured milk."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Strongly soured, so ushna — more so than plain dahi."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Read as a thinner, sourer dahi."}},
    "histamine":{"sighi":2,"tags":["high-histamine","other-amines"],"note":"A live, mixed, long ferment — the mechanism that makes kefir interesting is also the one that makes histamine.","ref":{"sighi":1,"marks":"AH","as":"kefir, keefir, kephir"}},
-   "nutrition":{"kcal":41,"protein":3.3,"carbs":4.5,"fat":1,"highlight":"live mixed cultures"}},
+   "nutrition":{"kcal":41,"protein":3.3,"carbs":4.5,"fat":1,"highlight":"live mixed cultures"},
+   "effects":[{"effect":"digestive","confidence":"high","note":"Kefir's live bacterial and yeast cultures do the same job yogurt's do — the trial behind yogurt's lactose-digestion evidence tested kefir side by side with it, and lactose-maldigesting adults given a matched 20g-lactose portion produced about as little breath hydrogen (a marker of undigested lactose) after kefir as after yogurt, both far below milk's, with flatulence severity cut by over half. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"condensed-milk","name":"Condensed milk","aliases":["sweetened condensed","milkmaid","haleeb muhalla","lian ru"],"emoji":"🥫","category":"dairy","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"Milk boiled down with sugar until it pours like syrup.",
@@ -209,13 +214,15 @@
    "description":"Yogurt hung until thick, then whipped with sugar, saffron and cardamom.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Strained yogurt with warm spices; cooling overall."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Dahi is ushna in the classical reading, and the saffron adds to it."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar in desi usage — a summer sweet, eaten with puri."}},
    "histamine":{"sighi":2,"tags":[],"note":"Hung yogurt, held and sweetened — above plain dahi."},
-   "nutrition":{"kcal":210,"protein":5.5,"carbs":30,"fat":7.5,"highlight":"hung, then whipped","estimate":true}},
+   "nutrition":{"kcal":210,"protein":5.5,"carbs":30,"fat":7.5,"highlight":"hung, then whipped","estimate":true},
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Shrikhand is hung yogurt, whipped and sweetened, carrying the same live cultures behind yogurt's own lactose-digestion effect — the dedicated trials tested plain yogurt rather than shrikhand itself, but this is the same product, strained and finished, not a different one. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"mishti-doi","name":"Mishti doi","aliases":["sweet yogurt","misti dohi","bhapa doi"],"emoji":"🍮","category":"dairy","cuisines":["south-asian"],"commonness":3,
    "description":"Bengali yogurt set with caramelised jaggery in an earthen pot.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Yogurt base, sweetened and set."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured dahi is ushna; the jaggery adds to it."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar, though warmer than plain dahi for the gur."}},
    "histamine":{"sighi":2,"tags":[],"note":"Cultured and then held warm to set — a longer ferment than plain dahi."},
-   "nutrition":{"kcal":180,"protein":4.5,"carbs":30,"fat":4.5,"highlight":"set in an earthen pot","estimate":true}},
+   "nutrition":{"kcal":180,"protein":4.5,"carbs":30,"fat":4.5,"highlight":"set in an earthen pot","estimate":true},
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Mishti doi is yogurt itself, set with caramelised jaggery in place of plain milk, carrying the same live cultures behind yogurt's own lactose-digestion effect — the dedicated trials tested plain yogurt rather than this sweetened version, but it is cultured the same way, not a different product. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"clotted-cream","name":"Clotted cream","aliases":["malai (thick)","qishta","kaymak"],"emoji":"🥛","category":"dairy","cuisines":["arabic","western","south-asian"],"commonness":3,
    "description":"Cream heated slowly until a thick crust forms and is lifted off.",
@@ -351,7 +358,8 @@
    "description":"Milk baked for hours until caramel-coloured, then cultured — nuttier than kefir.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Long-baked then cultured milk."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Baking and souring are both ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam-tar by the baking and ferment."}},
    "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Cultured dairy; the long bake concentrates it before the ferment even starts."},
-   "nutrition":{"kcal":85,"protein":3,"carbs":4.2,"fat":6,"highlight":"baked before it is soured"}},
+   "nutrition":{"kcal":85,"protein":3,"carbs":4.2,"fat":6,"highlight":"baked before it is soured"},
+   "effects":[{"effect":"digestive","confidence":"moderate","note":"Ryazhenka is fermented with the same Lactobacillus bulgaricus and Streptococcus thermophilus cultures credited with yogurt's own lactose-digestion effect, just cultured into baked rather than plain milk — untested directly, but the same live cultures doing the same job. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"sguschenka","name":"Sguschenka","aliases":["russian condensed milk"],"emoji":"🥫","category":"dairy","cuisines":["eastern-european"],"commonness":2,
    "description":"Condensed milk boiled in the tin until it caramelises — eaten with a spoon.",
