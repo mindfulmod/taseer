@@ -1283,7 +1283,12 @@ export function spectrumView({ band = "" } = {}) {
       }).join("");
 
   return {
-    tone: active && active.id !== "neutral" && active.id !== "cool" ? active.id : null,
+    // Only "cold" and "hot" are wired up as a room-wash tone (app.css's
+    // `:root[data-tone="…"]` rules) — the same two extremes remedy screens use.
+    // This used to also pass "warm" through, but there is no matching CSS rule
+    // for it, so `--tone`/`--bg` resolved to nothing and the whole page's
+    // background went translucent on `/#/spectrum?band=warm`.
+    tone: active && (active.id === "cold" || active.id === "hot") ? active.id : null,
     html: `
       ${backBar("Find", "/find")}
       <section class="hero"><h1>Spectrum</h1><p>Every food in the library, coldest to hottest. Tap a band to narrow it.</p></section>
