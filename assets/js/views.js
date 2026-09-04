@@ -342,7 +342,8 @@ export function foodView(id) {
         usedIn.length
           ? `<div class="panel">
                <h3>Used in</h3>
-               <div class="tiles" style="margin-top:10px">${usedIn.map(prepTile).join("")}</div>
+               <div class="tiles" style="margin-top:10px">${usedIn.slice(0, 18).map(prepTile).join("")}</div>
+               ${usedIn.length > 18 ? `<p class="tiny muted" style="margin-top:10px">…and ${usedIn.length - 18} more.</p>` : ""}
              </div>`
           : ""
       }
