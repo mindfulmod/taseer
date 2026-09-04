@@ -83,7 +83,12 @@ function resolve({ parts, params }) {
     // Bare /effect is the index; /effect/<tag> is one documented effect.
     case "effect": return { view: parts[1] ? effectView(parts[1], params) : effectIndexView(), tab: "/find" };
     case "list": return { view: listView(parts[1]), tab: "/find" };
-    case "prep": return { view: prepView(parts[1]), tab: "/find" };
+    // Like food: reachable from two different hubs (a remedy screen's "Or make
+    // something", and Find → Curated lists), so no single tab owns it — same
+    // reasoning as food's tab: null two lines up. Forcing "/find" here used to
+    // make the tab bar silently jump off "Feel" the moment you tapped a
+    // preparation tile from a remedy screen you never left.
+    case "prep": return { view: prepView(parts[1]), tab: null };
     case "compare": return { view: compareView(params), tab: "/find" };
     case "spectrum": return { view: spectrumView(params), tab: "/find" };
     case "me": return { view: meView(), tab: "/me" };
