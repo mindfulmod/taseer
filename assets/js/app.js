@@ -8,6 +8,17 @@ import { growPager, PAGE_SIZE, resetPagers } from "./components.js";
 
 const main = document.getElementById("main");
 
+// The router already decides scroll position itself — every route change,
+// forward or via the browser's own back/forward, calls scrollTo(0, 0) below.
+// Left on "auto" the browser's own back/forward scroll restoration fights
+// that: it restores the old pixel offset from before the navigation, racing
+// the app's reset and often winning it, landing back-navigation partway down
+// whatever now renders at that offset — a wrong food card, a truncated
+// paginated band's tail — never actually at the top of the screen being
+// returned to. One flag hands scroll position entirely to the app, which
+// already has explicit, deliberate control over it.
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
 // ---- Theme ---------------------------------------------------------------
 
 const systemDark = matchMedia("(prefers-color-scheme: dark)");
