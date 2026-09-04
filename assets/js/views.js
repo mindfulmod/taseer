@@ -11,7 +11,7 @@ import {
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
   art, artGlyph, chip, commonnessLabel, conflictBanner, esc, flags, macroRings, mechLabel,
-  miniTile, prepFacts, prepTile, provenance, sighiBadge, sighiText, thermalScale, tileList,
+  miniTile, pagedTileList, prepFacts, prepTile, provenance, sighiBadge, sighiText, thermalScale, tileList,
 } from "./components.js";
 
 // data-back, not data-nav: every "← Parent" link on a detail-ish screen is a
@@ -872,7 +872,7 @@ export function listView(id) {
     html: `
       ${backBar("Lists", "/lists")}
       <section class="hero t-${list.tone}"><h1>${esc(list.title)}</h1><p>${esc(list.blurb)}</p></section>
-      ${tileList(items)}`,
+      ${pagedTileList(items)}`,
   };
 }
 
@@ -981,7 +981,7 @@ function thermalBands(list, dir, opts) {
             <h2 class="band t-${id}">${esc(band.label)}</h2>
             <span class="tiny muted">${items.length}</span>
           </div>
-          ${tileList(items, opts)}
+          ${pagedTileList(items, opts)}
         </section>`;
     })
     .join("");
@@ -1005,17 +1005,18 @@ function sighiBands(list, opts) {
             <h2 class="band" style="color:var(--sighi-${n})">${esc(sighiText(n))}</h2>
             <span class="tiny muted">${items.length}</span>
           </div>
-          ${tileList(items, opts)}
+          ${pagedTileList(items, opts)}
         </section>`;
     })
     .join("");
 }
 
-/** Ranked output: banded when the sort carries one, flat otherwise. */
+/** Ranked output: banded when the sort carries one, flat (but still paginated
+ *  past PAGE_SIZE — an unbanded sort like "A–Z" can still be Dishes' 970) otherwise. */
 function sortedList(list, sort, opts) {
   const band = SORTS[sort]?.band;
   if (band === "sighi") return sighiBands(list, opts);
-  return band ? thermalBands(list, band, opts) : tileList(list, opts);
+  return band ? thermalBands(list, band, opts) : pagedTileList(list, opts);
 }
 
 function categoryBody(pool, q, cuisine, sort) {
@@ -1035,7 +1036,7 @@ function categoryBody(pool, q, cuisine, sort) {
   const how = q.trim() ? "best match first" : SORTS[sort in SORTS ? sort : "staples"].label.toLowerCase();
   return `
     <p class="tiny muted" style="margin:0 2px 10px">${list.length}${of} ${noun}, ${how}.</p>
-    ${q.trim() ? tileList(list) : sortedList(list, sort)}`;
+    ${q.trim() ? pagedTileList(list) : sortedList(list, sort)}`;
 }
 
 export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } = {}) {
@@ -1287,14 +1288,15 @@ export function spectrumView({ band = "" } = {}) {
   // out every child to know its scroll width, so nothing is ever "below the
   // fold" and loading="lazy" buys nothing — 2,000 minitiles measured ~1s of
   // blocking layout off-screen and hung the renderer on-screen. A vertical
-  // tileList has no such problem (970 rows render in ~2ms), so the full band
-  // uses that instead of a rail.
+  // list doesn't have that specific problem, so the full band uses one
+  // instead of a rail — paginated (pagedTileList), since the hottest band
+  // alone still runs past a thousand foods across the whole dataset.
   const PREVIEW = 18;
   const groups = active
     ? `<section class="section">
          <div class="section__head"><h2 class="band">${esc(active.label)}</h2><span class="tiny muted">${esc(active.blurb)}</span></div>
          <p class="tiny muted" style="margin:0 2px 10px">${shown.length} foods, coldest to hottest.</p>
-         ${tileList(shown)}
+         ${pagedTileList(shown)}
        </section>`
     : BANDS.map(b => {
         const items = all.filter(f => f.heatClass === b.id);
@@ -1444,7 +1446,7 @@ function rankedGroups(list, favIds, opts) {
     items.length
       ? `<section class="section">
            <div class="section__head"><h2 class="band">${esc(label)}${extra}</h2><span class="tiny muted">${items.length}</span></div>
-           ${tileList(items, opts)}
+           ${pagedTileList(items, opts)}
          </section>`
       : "";
   return (
@@ -1611,7 +1613,7 @@ function remedyColumn(id, label, items, active, favIds, opts, { q = "", sort = "
     const of = shown.length === items.length ? "" : ` of ${items.length}`;
     inner = `<p class="tiny muted" style="margin:0 2px 10px">${shown.length}${of}, ${
       q.trim() ? "best match first" : SORTS[sort].label.toLowerCase()
-    }.</p>${q.trim() ? tileList(shown, opts) : sortedList(shown, sort, opts)}`;
+    }.</p>${q.trim() ? pagedTileList(shown, opts) : sortedList(shown, sort, opts)}`;
   } else {
     inner = rankedGroups(shown, favIds, opts);
   }

@@ -335,6 +335,12 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .tiles { display: grid; gap: 12px; }
 @media (min-width: 620px) { .tiles { grid-template-columns: 1fr 1fr; } }
 
+/* "Show more" under a paginated tiles grid (pagedTileList, components.js) —
+   centred rather than left-aligned like .chiprow's pillbtns, since it's the
+   one control ending the list rather than sitting beside its content. */
+.pager { display: flex; justify-content: center; margin-top: 14px; }
+.pager__more { min-width: 200px; justify-content: center; }
+
 /* Row fill stays neutral; the temperature lives in the glyph tile and a hairline
    border mixed toward the food's accent (ART.md §4). */
 .tile {

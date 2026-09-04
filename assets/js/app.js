@@ -4,6 +4,7 @@ import {
   bloatingView, caffeineView, categoryView, gunaView, compareView, effectIndexView, effectView, findView, foodView, homeView, listView, listsView,
   mechanismIndexView, mechanismView, meView, prepView, spectrumView, stateView, notFound,
 } from "./views.js";
+import { growPager, PAGE_SIZE, resetPagers } from "./components.js";
 
 const main = document.getElementById("main");
 
@@ -129,6 +130,13 @@ let lastHash = null;
 
 function render() {
   const route = parseHash();
+  // Pager state (pagedTileList/growPager, components.js) is keyed to DOM nodes
+  // this render is about to replace — nothing from the outgoing screen can be
+  // grown after this point, so there is nothing left to keep. Reset before
+  // resolve(), not after: resolve() is what calls pagedTileList (building the
+  // view's html string), so resetting afterward would wipe the very entries
+  // that html's "Show more" buttons refer to.
+  resetPagers();
   const { view, tab } = resolve(route);
   main.innerHTML = view.html;
   view.mount?.(main);
@@ -210,6 +218,18 @@ document.addEventListener("click", event => {
     const resolved = document.documentElement.dataset.theme;
     theme.set(resolved === "dark" ? "light" : "dark");
     applyTheme();
+  } else if (action === "page-more") {
+    // Appends the next page onto the tiles container already on screen rather
+    // than re-rendering the list, so growing a long list never re-does work
+    // already visible — see pagedTileList/growPager (components.js).
+    const grown = growPager(id);
+    if (!grown) return;
+    document.getElementById(id)?.insertAdjacentHTML("beforeend", grown.html);
+    if (grown.remaining > 0) {
+      act.textContent = `Show ${Math.min(PAGE_SIZE, grown.remaining)} more · ${grown.remaining} left`;
+    } else {
+      act.closest(".pager")?.remove();
+    }
   }
 });
 
