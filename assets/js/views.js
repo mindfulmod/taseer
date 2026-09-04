@@ -14,8 +14,15 @@ import {
   miniTile, prepFacts, prepTile, provenance, sighiBadge, sighiText, thermalScale, tileList,
 } from "./components.js";
 
+// data-back, not data-nav: every "← Parent" link on a detail-ish screen is a
+// BACK affordance, not a hard link to that one fixed route. Reusing the same
+// [data-back] handler foodView's hero button already uses (app.js) means it
+// goes to wherever the reader actually came from — Home, a search result, an
+// inline cross-link from Guna/Caffeine, a remedy screen's "make something"
+// tile — falling back to the named parent route only on a cold/deep-linked
+// open, when there is no in-app history to return to.
 const backBar = (label, href) =>
-  `<button class="linkish" data-nav="${href}">← ${esc(label)}</button>`;
+  `<button class="linkish" data-back="${href}">← ${esc(label)}</button>`;
 
 /**
  * Dead ends used to render as a bare "Unknown food." — no heading, no controls,
