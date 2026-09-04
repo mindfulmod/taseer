@@ -3,6 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>
+    // Resolve the theme before the stylesheet paints anything. The html tag's
+    // data-theme="light" default below is only a no-JS fallback — without this,
+    // every reload for a dark-mode reader flashes light first, since app.js's
+    // applyTheme() only runs after the deferred module at the bottom of body
+    // parses, well after first paint. Mirrors store.js's read("theme", "system")
+    // and app.js's applyTheme() resolution exactly, so it can never disagree.
+    (function () {
+      try {
+        var raw = localStorage.getItem("taseer.theme");
+        var pref = raw === null ? "system" : JSON.parse(raw);
+        var dark = pref === "dark" || (pref === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+      } catch (e) {}
+    })();
+  </script>
   <title>Taseer — hot, cold &amp; histamine</title>
   <meta name="description" content="Does this food run hot or cold across TCM, Ayurveda and Unani — and is it a histamine risk? A remedy finder for how your body feels.">
   <meta name="theme-color" content="#faf5ec">
