@@ -289,16 +289,16 @@ export function foodView(id) {
         food.effects?.length
           ? `<div class="panel">
                <h3>Documented effects</h3>
-               <p class="tiny muted">Traditionally or anecdotally reported for this food specifically — individual response varies</p>
+               <p class="tiny muted">Traditionally or anecdotally reported for this food specifically — individual response varies. Open one for the full note, including any dose or safety caveat.</p>
                ${food.effects.map(e => `
-                 <div style="margin-top:14px">
-                   <p class="cmpd__list" style="margin-top:0">
+                 <details class="expander" style="margin-top:14px">
+                   <summary>
                      <span class="cmpd__pill">${EFFECTS[e.effect]?.glyph ?? "•"} ${esc(EFFECTS[e.effect]?.label ?? e.effect)}</span>
                      <span class="note__conf ${e.confidence === "contested" ? "note__conf--contested" : ""}"
                            title="${esc(CONF_TITLE[e.confidence])}">${e.confidence}</span>
-                   </p>
+                   </summary>
                    <p class="cmpd__what">${esc(e.note)}</p>
-                 </div>`).join("")}
+                 </details>`).join("")}
              </div>`
           : ""
       }
