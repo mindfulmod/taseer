@@ -711,7 +711,7 @@ export function mechanismView(id, { sort = "staples" } = {}) {
         </div>
         ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "mechsort")}
         <div id="mechbody" style="margin-top:12px">
-          ${tileList(sortFoods(all, sort), { metaFn: SIGHI_META, meter: "histamine" })}
+          ${sortedList(sortFoods(all, sort), sort, { metaFn: SIGHI_META, meter: "histamine" })}
         </div>
       </section>
 
@@ -726,7 +726,7 @@ export function mechanismView(id, { sort = "staples" } = {}) {
       const sel = root.querySelector("#mechsort");
       sel.addEventListener("change", () => {
         root.querySelector("#mechbody").innerHTML =
-          tileList(sortFoods(all, sel.value), { metaFn: SIGHI_META, meter: "histamine" });
+          sortedList(sortFoods(all, sel.value), sel.value, { metaFn: SIGHI_META, meter: "histamine" });
         history.replaceState(null, "", `#/mechanism/${id}?sort=${sel.value}`);
       });
     },
@@ -800,7 +800,7 @@ export function effectView(id, { sort = "staples" } = {}) {
         </div>
         ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "effectsort")}
         <div id="effectbody" style="margin-top:12px">
-          ${tileList(sortFoods(all, sort), { metaFn })}
+          ${sortedList(sortFoods(all, sort), sort, { metaFn })}
         </div>
       </section>
 
@@ -811,7 +811,7 @@ export function effectView(id, { sort = "staples" } = {}) {
       const sel = root.querySelector("#effectsort");
       sel.addEventListener("change", () => {
         root.querySelector("#effectbody").innerHTML =
-          tileList(sortFoods(all, sel.value), { metaFn });
+          sortedList(sortFoods(all, sel.value), sel.value, { metaFn });
         history.replaceState(null, "", `#/effect/${id}?sort=${sel.value}`);
       });
     },
@@ -980,10 +980,35 @@ function thermalBands(list, dir, opts) {
     .join("");
 }
 
-/** Ranked output: banded when the sort is thermal, flat otherwise. */
+/**
+ * The histamine analogue of `thermalBands` above — same reasoning, same shape,
+ * just grouped by SIGHI score (0-3) instead of thermal band. Reuses the exact
+ * labels `sighiBadge`'s badge already shows, and the same `--sighi-N` palette
+ * `foodView`'s histamine note already tints its border with, so this isn't a
+ * new colour or a new taxonomy — just this one list finally using both.
+ */
+function sighiBands(list, opts) {
+  return [0, 1, 2, 3]
+    .map(n => {
+      const items = list.filter(f => f.histamine.sighi === n);
+      if (!items.length) return "";
+      return `
+        <section class="section">
+          <div class="section__head">
+            <h2 class="band" style="color:var(--sighi-${n})">${esc(sighiText(n))}</h2>
+            <span class="tiny muted">${items.length}</span>
+          </div>
+          ${tileList(items, opts)}
+        </section>`;
+    })
+    .join("");
+}
+
+/** Ranked output: banded when the sort carries one, flat otherwise. */
 function sortedList(list, sort, opts) {
-  const dir = SORTS[sort]?.band;
-  return dir ? thermalBands(list, dir, opts) : tileList(list, opts);
+  const band = SORTS[sort]?.band;
+  if (band === "sighi") return sighiBands(list, opts);
+  return band ? thermalBands(list, band, opts) : tileList(list, opts);
 }
 
 function categoryBody(pool, q, cuisine, sort) {

@@ -320,8 +320,8 @@ export const spectrum = () => [...foods].sort((a, b) => a.heat - b.heat || a.nam
 const then = (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name);
 
 export const SORTS = {
-  // Every other order here carries a thermal `.band`, so a long category renders
-  // as headed cold→hot sections instead of one unbroken scroll (`thermalBands`,
+  // Every other order here carries a `.band`, so a long category renders as
+  // headed sections instead of one unbroken scroll (`thermalBands`/`sighiBands`,
   // views.js). Staples lacked one, which was harmless for small categories but
   // left the biggest one — Dishes, ~970 foods — as a single flat, unpaginated
   // list. Banding it "asc" (cold→hot, matching Coolest's direction) fixes that
@@ -330,7 +330,10 @@ export const SORTS = {
   staples: { label: "Everyday first", band: "asc", cmp: (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name) },
   hottest: { label: "Hottest first", band: "desc", cmp: (a, b) => b.heat - a.heat || then(a, b) },
   coolest: { label: "Coolest first", band: "asc", cmp: (a, b) => a.heat - b.heat || then(a, b) },
-  gentlest: { label: "Lowest histamine", cmp: (a, b) => a.histamine.sighi - b.histamine.sighi || then(a, b) },
+  // Same "970-item Dishes list" problem as staples, just on the histamine axis
+  // instead of the thermal one — "sighi" tells `sortedList` to group by SIGHI
+  // score (0-3) rather than by thermal band.
+  gentlest: { label: "Lowest histamine", band: "sighi", cmp: (a, b) => a.histamine.sighi - b.histamine.sighi || then(a, b) },
   az: { label: "A–Z", cmp: (a, b) => a.name.localeCompare(b.name) },
 };
 
