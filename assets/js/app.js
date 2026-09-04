@@ -211,7 +211,14 @@ addEventListener("hashchange", () => {
 // ---- PWA -----------------------------------------------------------------
 
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-  addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+  // app.js only runs after a dynamic import() from an inline module script
+  // (index.html), which doesn't block window's "load" — by the time this line
+  // executes, "load" has very often already fired, so a plain
+  // addEventListener("load", …) here silently never calls register() at all.
+  // Check readyState first and register immediately in that case.
+  const registerSW = () => navigator.serviceWorker.register("./sw.js").catch(() => {});
+  if (document.readyState === "complete") registerSW();
+  else addEventListener("load", registerSW);
 }
 
 // Chromium fires this instead of showing its own prompt; we surface it on Me.
