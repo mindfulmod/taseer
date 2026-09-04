@@ -3,7 +3,7 @@
 import {
   BANDS, CATEGORIES, CUISINES, LISTS, META, SORTS, SOURCES, STATES, byCategory, fuzzySuggest,
   BLOATING, COMPOUNDS, EFFECTS, EFFECT_IDS, GUNAS, GUNA_IDS, MECHANISM_IDS, MECHANISMS,
-  effectsCount, foodsWithEffect, foodsWithGuna, foodsWithMechanism, getEffectEntry, gunaCount,
+  effectsCount, everydayPicks, foodsWithEffect, foodsWithGuna, foodsWithMechanism, getEffectEntry, gunaCount,
   stimulantFamilies, getFood, getFoods, getList, getMechanism,
   getPreparation, heatClass, preparations, prepsForState, prepsUsing, remedyList, search,
   sortFoods, spectrum, systemHeat,
@@ -1161,7 +1161,29 @@ export function compareView({ ids = "" } = {}) {
   };
 }
 
+/**
+ * Recently viewed, then favourites, then a handful of everyday foods — in that
+ * order of relevance — so the picker never opens to a bare search box with
+ * nothing on screen to tap. Filler for a blank state, not a recommendation.
+ */
+function compareSuggestions(chosenIds) {
+  const seen = new Set(chosenIds);
+  const out = [];
+  const add = list => {
+    for (const f of list) {
+      if (out.length >= 6) return;
+      if (!seen.has(f.id) && !out.some(p => p.id === f.id)) out.push(f);
+    }
+  };
+  add(getFoods(recent.all()));
+  add(getFoods(favorites.all()));
+  add(everydayPicks(10));
+  return out;
+}
+
 function comparePicker(picked) {
+  const chosen = picked.map(f => f.id);
+  const suggestions = compareSuggestions(chosen);
   return `
     <section class="section">
       <div class="section__head"><h2>${picked.length ? "Add another" : "Pick a food"}</h2></div>
@@ -1169,7 +1191,8 @@ function comparePicker(picked) {
         <span aria-hidden="true">🔍</span>
         <input id="cmp-q" type="search" autocomplete="off" placeholder="Search foods…" aria-label="Search foods to compare">
       </div>
-      <div id="cmp-results" class="tiles"></div>
+      <p class="tiny muted" id="cmp-hint" style="margin:12px 2px 8px"${suggestions.length ? "" : " hidden"}>Or pick one of these</p>
+      <div id="cmp-results" class="tiles">${suggestions.map(f => addToCompareTile(f, chosen)).join("")}</div>
     </section>`;
 }
 
@@ -1177,13 +1200,20 @@ function mountComparePicker(picked) {
   return root => {
     const input = root.querySelector("#cmp-q");
     const out = root.querySelector("#cmp-results");
+    const hint = root.querySelector("#cmp-hint");
     if (!input || !out) return;
     const chosen = picked.map(f => f.id);
+    const suggestions = compareSuggestions(chosen);
     const draw = () => {
+      const q = input.value.trim();
+      if (!q) {
+        out.innerHTML = suggestions.map(f => addToCompareTile(f, chosen)).join("");
+        if (hint) hint.hidden = !suggestions.length;
+        return;
+      }
       const hits = search(input.value, 8).filter(f => !chosen.includes(f.id));
-      out.innerHTML = input.value.trim()
-        ? hits.map(f => addToCompareTile(f, chosen)).join("") || `<p class="tiny muted">No match.</p>`
-        : "";
+      out.innerHTML = hits.map(f => addToCompareTile(f, chosen)).join("") || `<p class="tiny muted">No match.</p>`;
+      if (hint) hint.hidden = true;
     };
     input.addEventListener("input", draw);
   };

@@ -487,8 +487,11 @@ export const EFFECTS = {
   "blood-pressure-lowering": { label: "Blood pressure lowering", glyph: "↓" },
   "immune-supportive": { label: "Immune-supportive", glyph: "✚" },
   "cough-suppressant": { label: "Cough-suppressant", glyph: "⁓" },
-  "bone-supportive": { label: "Bone-supportive", glyph: "▣" },
-  "liver-supportive": { label: "Liver-supportive", glyph: "◧" },
+  // Both were originally heavier fill glyphs (▣ ◧) that read as a solid block
+  // at pill size, out of step with every other effect's thin stroke — swapped
+  // for outline shapes of the same weight as the rest of the set.
+  "bone-supportive": { label: "Bone-supportive", glyph: "◫" },
+  "liver-supportive": { label: "Liver-supportive", glyph: "▭" },
   satiety: { label: "Satiety — helps you feel full", glyph: "◒" },
   "hangover-relief": { label: "Hangover relief", glyph: "↻" },
 };
@@ -714,3 +717,11 @@ export const LISTS = [
 ];
 
 export const getList = id => LISTS.find(l => l.id === id);
+
+/**
+ * A handful of everyday foods to seed a picker that opens with nothing typed
+ * yet — Compare's empty state otherwise has nothing on screen to tap. Plain
+ * commonness order, not a curated opinion: this is filler for a blank box,
+ * not a "best of" claim.
+ */
+export const everydayPicks = (n = 8) => foods.filter(f => f.commonness === 1).slice(0, n);
