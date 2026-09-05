@@ -720,11 +720,13 @@ export function mechanismView(id, { sort = "staples" } = {}) {
       }
 
       <section class="section">
-        <div class="section__head">
-          <h2>Every food on this list</h2>
-          <span class="tiny muted">${all.length}</span>
+        <div class="controls-sticky">
+          <div class="section__head">
+            <h2>Every food on this list</h2>
+            <span class="tiny muted">${all.length}</span>
+          </div>
+          ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "mechsort")}
         </div>
-        ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "mechsort")}
         <div id="mechbody" style="margin-top:12px">
           ${sortedList(sortFoods(all, sort), sort, { metaFn: SIGHI_META, meter: "histamine" })}
         </div>
@@ -809,11 +811,13 @@ export function effectView(id, { sort = "staples" } = {}) {
       </section>
 
       <section class="section">
-        <div class="section__head">
-          <h2>Every food with this tag</h2>
-          <span class="tiny muted">${all.length}</span>
+        <div class="controls-sticky">
+          <div class="section__head">
+            <h2>Every food with this tag</h2>
+            <span class="tiny muted">${all.length}</span>
+          </div>
+          ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "effectsort")}
         </div>
-        ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "effectsort")}
         <div id="effectbody" style="margin-top:12px">
           ${sortedList(sortFoods(all, sort), sort, { metaFn })}
         </div>
@@ -1076,24 +1080,26 @@ export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } =
         <h1>${esc(cat.label)}</h1><p>${pool.length} foods to look through.</p>
       </section>
 
-      <div class="findrow">
-        <div class="searchbar">
-          <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
-          <input id="catq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
-                 placeholder="Search ${esc(cat.label.toLowerCase())}" value="${esc(q)}"
-                 aria-label="Search within ${esc(cat.label)}">
+      <div class="controls-sticky">
+        <div class="findrow">
+          <div class="searchbar">
+            <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
+            <input id="catq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
+                   placeholder="Search ${esc(cat.label.toLowerCase())}" value="${esc(q)}"
+                   aria-label="Search within ${esc(cat.label)}">
+          </div>
+          ${sortSelect(sort, CAT_SORTS)}
         </div>
-        ${sortSelect(sort, CAT_SORTS)}
-      </div>
 
-      ${
-        cuisines.length
-          ? `<div class="chiprow" role="group" aria-label="Filter by cuisine">
-               ${chipFor("", "All", !cuisine)}
-               ${cuisines.map(c => chipFor(c.id, c.label, c.id === cuisine)).join("")}
-             </div>`
-          : ""
-      }
+        ${
+          cuisines.length
+            ? `<div class="chiprow" role="group" aria-label="Filter by cuisine">
+                 ${chipFor("", "All", !cuisine)}
+                 ${cuisines.map(c => chipFor(c.id, c.label, c.id === cuisine)).join("")}
+               </div>`
+            : ""
+        }
+      </div>
 
       <div id="catbody">${categoryBody(catId, pool, q, cuisine, sort)}</div>`,
 
@@ -1543,27 +1549,35 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
         <p>${esc(state.blurb)}.</p>
       </section>
 
-      <div class="segbar" id="segbar" role="tablist">${segbarHtml(verdict)}</div>
+      <div class="controls-sticky">
+        <div class="segbar" id="segbar" role="tablist">${segbarHtml(verdict)}</div>
 
-      <div id="makesomething">${verdict === "eat" ? makeSomething(stateId) : ""}</div>
-
-      <div class="findrow">
-        <div class="searchbar">
-          <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
-          <input id="stateq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
-                 placeholder="Search this list" value="${esc(q)}"
-                 aria-label="Search within these foods">
+        <div class="findrow">
+          <div class="searchbar">
+            <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
+            <input id="stateq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
+                   placeholder="Search this list" value="${esc(q)}"
+                   aria-label="Search within these foods">
+          </div>
+          <label class="sortby">
+            <span class="sr">Sort by</span>
+            <select id="statesort" class="sortby__sel">
+              <option value=""${sort ? "" : " selected"}>Everyday first</option>
+              ${sorts
+                .map(s => `<option value="${s}"${s === sort ? " selected" : ""}>${esc(SORTS[s].label)}</option>`)
+                .join("")}
+            </select>
+          </label>
         </div>
-        <label class="sortby">
-          <span class="sr">Sort by</span>
-          <select id="statesort" class="sortby__sel">
-            <option value=""${sort ? "" : " selected"}>Everyday first</option>
-            ${sorts
-              .map(s => `<option value="${s}"${s === sort ? " selected" : ""}>${esc(SORTS[s].label)}</option>`)
-              .join("")}
-          </select>
-        </label>
       </div>
+
+      <!-- Below the sticky controls, not between the segmented control and the
+           search/sort row where it used to sit: that gap was the one thing
+           stopping the segbar and findrow from being one contiguous block,
+           which is what they need to be to pin together as a single strip
+           (see .controls-sticky, app.css). Nothing here depends on the exact
+           position — mount() below finds it by id either way. -->
+      <div id="makesomething">${verdict === "eat" ? makeSomething(stateId) : ""}</div>
 
       ${
         stateId === "reactive"

@@ -293,6 +293,43 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   border-bottom: 1px solid var(--line);
 }
 
+/* Category, State, Mechanism and Effect all put a search box, sort <select>,
+   cuisine chip row and/or (State only) the Eat/Avoid segmented control right
+   under the hero, then a commonness-grouped, paginated list that can run to
+   dozens of screen-heights — long enough that the reader has no way back to
+   those controls without scrolling all the way up (see the scroll-distance
+   table in the round-15 writeup). Pins the whole block once it would
+   otherwise scroll out of view. `.backbar-sticky` above already solved this
+   for prep with plain `position: sticky` — no observer needed there, or here:
+   unlike `.fhero__btn--back`, which floats *over* artwork and only needs to
+   detach once the art scrolls past (hence the fixed position + the
+   IntersectionObserver in app.js's `watchHeroBack`), these controls are
+   already ordinary block content sitting below the hero, so sticky picks them
+   up directly. Same background/backdrop-filter/border treatment as
+   `.backbar-sticky` so every pinned strip in the app reads as one idiom. */
+.controls-sticky {
+  position: sticky; top: env(safe-area-inset-top); z-index: 15;
+  margin: 0 calc(-1 * max(var(--gutter), env(safe-area-inset-right))) 16px
+          calc(-1 * max(var(--gutter), env(safe-area-inset-left)));
+  padding: 10px max(var(--gutter), env(safe-area-inset-right)) 10px
+           max(var(--gutter), env(safe-area-inset-left));
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+/* Each screen nests a different mix of findrow/chiprow/segbar/section__head —
+   flatten all of their own top/bottom margins to one consistent gap here
+   rather than special-casing four different layouts, then drop the last
+   child's bottom margin so the wrapper's own padding is the only space before
+   the border. Compound selectors (not a bare `>*`) so this always outranks
+   each control's own single-class margin rule regardless of source order. */
+.controls-sticky > .findrow,
+.controls-sticky > .chiprow,
+.controls-sticky > .segbar,
+.controls-sticky > .section__head,
+.controls-sticky > .sortby { margin: 0 0 10px; }
+.controls-sticky > *:last-child { margin-bottom: 0; }
+
 .pillbtn {
   display: inline-flex; align-items: center; gap: 7px;
   padding: 9px 15px; min-height: 40px;
