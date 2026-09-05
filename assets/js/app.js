@@ -4,8 +4,20 @@ import {
   bloatingView, caffeineView, categoryView, gunaView, compareView, effectIndexView, effectView, findView, foodView, homeView, listView, listsView,
   mechanismIndexView, mechanismView, meView, prepView, spectrumView, stateView, notFound,
 } from "./views.js";
+import { growPager, PAGE_SIZE, resetPagers } from "./components.js";
 
 const main = document.getElementById("main");
+
+// The router already decides scroll position itself — every route change,
+// forward or via the browser's own back/forward, calls scrollTo(0, 0) below.
+// Left on "auto" the browser's own back/forward scroll restoration fights
+// that: it restores the old pixel offset from before the navigation, racing
+// the app's reset and often winning it, landing back-navigation partway down
+// whatever now renders at that offset — a wrong food card, a truncated
+// paginated band's tail — never actually at the top of the screen being
+// returned to. One flag hands scroll position entirely to the app, which
+// already has explicit, deliberate control over it.
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
 
 // ---- Theme ---------------------------------------------------------------
 
@@ -30,6 +42,12 @@ systemDark.addEventListener("change", () => theme.get() === "system" && applyThe
 
 // ---- Safety banner -------------------------------------------------------
 
+// Compact by default — a bolded one-line summary plus the same disclosure
+// pattern the documented-effects panel uses (`details.expander`) — because the
+// full four-sentence notice was pushing Home's state cards and Find's "ways"
+// list below the fold on first visit, on every single screen, until dismissed.
+// Nothing is cut: the summary line is itself the notice's own opening
+// sentence, and every remaining word is one tap away, never removed.
 function renderBanner() {
   const slot = document.getElementById("banner-slot");
   if (!slot) return;
@@ -37,9 +55,11 @@ function renderBanner() {
     ? ""
     : `<div class="banner" role="note">
          <span aria-hidden="true">🌿</span>
-         <span><strong>Traditional information, not medical advice.</strong>
-         Taseer reports how healing traditions have classified foods. It doesn't diagnose or treat.
-         Severe or persistent reactions deserve real care.</span>
+         <details class="expander banner__note">
+           <summary><strong>Traditional information, not medical advice.</strong></summary>
+           <p>Taseer reports how healing traditions have classified foods. It doesn't diagnose or treat.
+           Severe or persistent reactions deserve real care.</p>
+         </details>
          <button class="iconbtn" data-act="dismiss-banner" aria-label="Dismiss">✕</button>
        </div>`;
 }
@@ -75,7 +95,12 @@ function resolve({ parts, params }) {
     // Bare /effect is the index; /effect/<tag> is one documented effect.
     case "effect": return { view: parts[1] ? effectView(parts[1], params) : effectIndexView(), tab: "/find" };
     case "list": return { view: listView(parts[1]), tab: "/find" };
-    case "prep": return { view: prepView(parts[1]), tab: "/find" };
+    // Like food: reachable from two different hubs (a remedy screen's "Or make
+    // something", and Find → Curated lists), so no single tab owns it — same
+    // reasoning as food's tab: null two lines up. Forcing "/find" here used to
+    // make the tab bar silently jump off "Feel" the moment you tapped a
+    // preparation tile from a remedy screen you never left.
+    case "prep": return { view: prepView(parts[1]), tab: null };
     case "compare": return { view: compareView(params), tab: "/find" };
     case "spectrum": return { view: spectrumView(params), tab: "/find" };
     case "me": return { view: meView(), tab: "/me" };
@@ -116,6 +141,13 @@ let lastHash = null;
 
 function render() {
   const route = parseHash();
+  // Pager state (pagedTileList/growPager, components.js) is keyed to DOM nodes
+  // this render is about to replace — nothing from the outgoing screen can be
+  // grown after this point, so there is nothing left to keep. Reset before
+  // resolve(), not after: resolve() is what calls pagedTileList (building the
+  // view's html string), so resetting afterward would wipe the very entries
+  // that html's "Show more" buttons refer to.
+  resetPagers();
   const { view, tab } = resolve(route);
   main.innerHTML = view.html;
   view.mount?.(main);
@@ -197,6 +229,18 @@ document.addEventListener("click", event => {
     const resolved = document.documentElement.dataset.theme;
     theme.set(resolved === "dark" ? "light" : "dark");
     applyTheme();
+  } else if (action === "page-more") {
+    // Appends the next page onto the tiles container already on screen rather
+    // than re-rendering the list, so growing a long list never re-does work
+    // already visible — see pagedTileList/growPager (components.js).
+    const grown = growPager(id);
+    if (!grown) return;
+    document.getElementById(id)?.insertAdjacentHTML("beforeend", grown.html);
+    if (grown.remaining > 0) {
+      act.textContent = `Show ${Math.min(PAGE_SIZE, grown.remaining)} more · ${grown.remaining} left`;
+    } else {
+      act.closest(".pager")?.remove();
+    }
   }
 });
 
@@ -211,7 +255,14 @@ addEventListener("hashchange", () => {
 // ---- PWA -----------------------------------------------------------------
 
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
-  addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+  // app.js only runs after a dynamic import() from an inline module script
+  // (index.html), which doesn't block window's "load" — by the time this line
+  // executes, "load" has very often already fired, so a plain
+  // addEventListener("load", …) here silently never calls register() at all.
+  // Check readyState first and register immediately in that case.
+  const registerSW = () => navigator.serviceWorker.register("./sw.js").catch(() => {});
+  if (document.readyState === "complete") registerSW();
+  else addEventListener("load", registerSW);
 }
 
 // Chromium fires this instead of showing its own prompt; we surface it on Me.

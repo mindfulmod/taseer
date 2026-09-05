@@ -283,6 +283,10 @@ Highest-value 20 minutes: check the entries where I overrode or split from commo
 2. **Histamine surprises**: spinach 3 · tomato 3 · avocado 2 · walnuts 2 · canned tuna 3 · chicken-noodle-soup 2 (long broth) · nihari 3 (overnight simmer) · caesar salad 3.
 3. **Anything tagged `contested`** you have household knowledge on — your correction beats my inference; edit the JSON and rerun the validator.
 
-## Batch 2+ (toward 1000)
+## Batch 2+ (historical planning note, superseded)
 
-Priority order: (1) whatever the in-app miss-log collects, (2) remaining desi sabzis and dals, (3) Chinese herbs-as-food (goji, red dates/jujube, white fungus), (4) Arabic mezze and stews, (5) Western processed/packaged categories, (6) alcohol if going public.
+Priority order at the time: (1) whatever the in-app miss-log collects, (2) remaining desi sabzis and dals, (3) Chinese herbs-as-food (goji, red dates/jujube, white fungus), (4) Arabic mezze and stews, (5) Western processed/packaged categories, (6) alcohol if going public.
+
+This originally targeted the spec's 1,000-food goal (reached in batch 4). The
+scope widened after that — **the dataset has been at 2,000 foods since batch 5,
+2026-08-08** — see the top of this file for current shape and coverage.

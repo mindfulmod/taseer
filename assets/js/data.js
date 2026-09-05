@@ -320,10 +320,20 @@ export const spectrum = () => [...foods].sort((a, b) => a.heat - b.heat || a.nam
 const then = (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name);
 
 export const SORTS = {
-  staples: { label: "Everyday first", cmp: (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name) },
+  // Every other order here carries a `.band`, so a long category renders as
+  // headed sections instead of one unbroken scroll (`thermalBands`/`sighiBands`,
+  // views.js). Staples lacked one, which was harmless for small categories but
+  // left the biggest one — Dishes, ~970 foods — as a single flat, unpaginated
+  // list. Banding it "asc" (cold→hot, matching Coolest's direction) fixes that
+  // everywhere at once, and keeps the within-band order exactly what "Everyday
+  // first" already promised: commonness, via `then`/`cmp` below.
+  staples: { label: "Everyday first", band: "asc", cmp: (a, b) => a.commonness - b.commonness || a.name.localeCompare(b.name) },
   hottest: { label: "Hottest first", band: "desc", cmp: (a, b) => b.heat - a.heat || then(a, b) },
   coolest: { label: "Coolest first", band: "asc", cmp: (a, b) => a.heat - b.heat || then(a, b) },
-  gentlest: { label: "Lowest histamine", cmp: (a, b) => a.histamine.sighi - b.histamine.sighi || then(a, b) },
+  // Same "970-item Dishes list" problem as staples, just on the histamine axis
+  // instead of the thermal one — "sighi" tells `sortedList` to group by SIGHI
+  // score (0-3) rather than by thermal band.
+  gentlest: { label: "Lowest histamine", band: "sighi", cmp: (a, b) => a.histamine.sighi - b.histamine.sighi || then(a, b) },
   az: { label: "A–Z", cmp: (a, b) => a.name.localeCompare(b.name) },
 };
 
@@ -487,8 +497,11 @@ export const EFFECTS = {
   "blood-pressure-lowering": { label: "Blood pressure lowering", glyph: "↓" },
   "immune-supportive": { label: "Immune-supportive", glyph: "✚" },
   "cough-suppressant": { label: "Cough-suppressant", glyph: "⁓" },
-  "bone-supportive": { label: "Bone-supportive", glyph: "▣" },
-  "liver-supportive": { label: "Liver-supportive", glyph: "◧" },
+  // Both were originally heavier fill glyphs (▣ ◧) that read as a solid block
+  // at pill size, out of step with every other effect's thin stroke — swapped
+  // for outline shapes of the same weight as the rest of the set.
+  "bone-supportive": { label: "Bone-supportive", glyph: "◫" },
+  "liver-supportive": { label: "Liver-supportive", glyph: "▭" },
   satiety: { label: "Satiety — helps you feel full", glyph: "◒" },
   "hangover-relief": { label: "Hangover relief", glyph: "↻" },
 };
@@ -714,3 +727,11 @@ export const LISTS = [
 ];
 
 export const getList = id => LISTS.find(l => l.id === id);
+
+/**
+ * A handful of everyday foods to seed a picker that opens with nothing typed
+ * yet — Compare's empty state otherwise has nothing on screen to tap. Plain
+ * commonness order, not a curated opinion: this is filler for a blank box,
+ * not a "best of" claim.
+ */
+export const everydayPicks = (n = 8) => foods.filter(f => f.commonness === 1).slice(0, n);
