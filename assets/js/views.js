@@ -312,6 +312,7 @@ export function foodView(id) {
                            title="${esc(CONF_TITLE[e.confidence])}">${e.confidence}</span>
                    </summary>
                    <p class="cmpd__what">${esc(e.note)}</p>
+                   <button class="linkish linkish--inline" data-nav="/effect/${e.effect}">See every food with this effect →</button>
                  </details>`).join("")}
              </div>`
           : ""
