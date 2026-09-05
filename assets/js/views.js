@@ -1507,17 +1507,18 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
   // both the sub-line and the meter. Everywhere else the meter is thermal.
   const tileOpts = stateId === "reactive" ? { metaFn: SIGHI_META, meter: "histamine" } : undefined;
 
-  // Switching Eat/Avoid keeps whatever search and sort you had — they describe
-  // how you want to read a list, not which list you are reading.
-  const keep = extra => {
-    const p = new URLSearchParams(extra);
-    if (q.trim()) p.set("q", q.trim());
-    if (sort) p.set("sort", sort);
-    return p.toString();
-  };
-  const tab = (id, label, count) => `
-    <button class="segbar__btn" data-nav="/state/${stateId}?${keep({ list: id })}" aria-selected="${verdict === id}">
-      ${label} <span class="segbar__count">${count}</span>
+  // Eat/Avoid is a toggle on how to read this same screen, not a trip to a new
+  // one — same class of control as the search box and the sort <select> just
+  // below, so it renders (and re-renders, from mount()) the same way they do,
+  // not as a data-nav hash push. Building the segbar HTML as a function of the
+  // active verdict, rather than a fixed pair of buttons, means switching from
+  // mount() and switching from the very first render never draw it differently.
+  const segbarHtml = verdict => `
+    <button class="segbar__btn" data-list="eat" aria-selected="${verdict === "eat"}">
+      ${verdict === "eat" ? "Eat this" : "Eat"} <span class="segbar__count">${eat.length}</span>
+    </button>
+    <button class="segbar__btn" data-list="avoid" aria-selected="${verdict === "avoid"}">
+      ${verdict === "avoid" ? "Avoid this" : "Avoid"} <span class="segbar__count">${avoid.length}</span>
     </button>`;
 
   // The remedy's own axis leads. "Too hot" wants its strongest coolers at the
@@ -1542,12 +1543,9 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
         <p>${esc(state.blurb)}.</p>
       </section>
 
-      <div class="segbar" role="tablist">
-        ${tab("eat", verdict === "eat" ? "Eat this" : "Eat", eat.length)}
-        ${tab("avoid", verdict === "avoid" ? "Avoid this" : "Avoid", avoid.length)}
-      </div>
+      <div class="segbar" id="segbar" role="tablist">${segbarHtml(verdict)}</div>
 
-      ${verdict === "eat" ? makeSomething(stateId) : ""}
+      <div id="makesomething">${verdict === "eat" ? makeSomething(stateId) : ""}</div>
 
       <div class="findrow">
         <div class="searchbar">
@@ -1582,17 +1580,20 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
       const input = root.querySelector("#stateq");
       const sel = root.querySelector("#statesort");
       const body = root.querySelector("#remedybody");
+      const segbar = root.querySelector("#segbar");
+      const makeSection = root.querySelector("#makesomething");
       let q0 = q;
       let sort0 = sort;
+      let verdict0 = verdict;
 
       // Same reasoning as the category screen: replaceState so a keystroke does
       // not re-render the screen out from under the input it came from.
       const sync = () => {
         body.innerHTML =
-          remedyColumn("eat", "Eat this", eat, verdict, favIds, tileOpts, { q: q0, sort: sort0 }) +
-          remedyColumn("avoid", "Avoid", avoid, verdict, favIds, tileOpts, { q: q0, sort: sort0 });
+          remedyColumn("eat", "Eat this", eat, verdict0, favIds, tileOpts, { q: q0, sort: sort0 }) +
+          remedyColumn("avoid", "Avoid", avoid, verdict0, favIds, tileOpts, { q: q0, sort: sort0 });
         const p = new URLSearchParams();
-        if (verdict !== "eat") p.set("list", verdict);
+        if (verdict0 !== "eat") p.set("list", verdict0);
         if (q0.trim()) p.set("q", q0.trim());
         if (sort0) p.set("sort", sort0);
         const qs = p.toString();
@@ -1605,6 +1606,22 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
       });
       sel.addEventListener("change", () => {
         sort0 = sel.value;
+        sync();
+      });
+
+      // Used to be a data-nav hash push — a real navigation, on every tap,
+      // between two segments of one screen. Tap Eat, Avoid, Eat, then a food,
+      // and the back button spent its first three taps undoing tab switches
+      // that render the same screen shell before it ever got you back out of
+      // this state, rather than the one tap a reader would expect. This is the
+      // same in-place-update-plus-replaceState fix already used for the search
+      // box and sort <select> right above.
+      segbar.addEventListener("click", event => {
+        const btn = event.target.closest("[data-list]");
+        if (!btn || btn.dataset.list === verdict0) return;
+        verdict0 = btn.dataset.list;
+        segbar.innerHTML = segbarHtml(verdict0);
+        makeSection.innerHTML = verdict0 === "eat" ? makeSomething(stateId) : "";
         sync();
       });
     },
