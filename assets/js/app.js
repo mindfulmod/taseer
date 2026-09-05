@@ -139,6 +139,25 @@ function setTone(tone = null) {
 
 let lastHash = null;
 
+// Pins the food card's hero back button to the viewport once the hero itself
+// has scrolled fully out of view (see the `.is-pinned` rule in app.css for why
+// it waits for that rather than pinning from the first paint). One observer,
+// rebuilt per render rather than left running against a food card `render()`
+// is about to tear out — `main.innerHTML = …` below detaches the old `.fhero`
+// without ever un-observing it otherwise.
+let heroBackObserver = null;
+function watchHeroBack(root) {
+  heroBackObserver?.disconnect();
+  heroBackObserver = null;
+  const hero = root.querySelector(".fhero");
+  const back = root.querySelector(".fhero__btn--back");
+  if (!hero || !back) return;
+  heroBackObserver = new IntersectionObserver(([entry]) => {
+    back.classList.toggle("is-pinned", !entry.isIntersecting);
+  });
+  heroBackObserver.observe(hero);
+}
+
 function render() {
   const route = parseHash();
   // Pager state (pagedTileList/growPager, components.js) is keyed to DOM nodes
@@ -151,6 +170,7 @@ function render() {
   const { view, tab } = resolve(route);
   main.innerHTML = view.html;
   view.mount?.(main);
+  watchHeroBack(main);
   setTone(view.tone);
 
   for (const item of document.querySelectorAll(".tabbar__item")) {

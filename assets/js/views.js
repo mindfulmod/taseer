@@ -897,7 +897,7 @@ export function prepView(id) {
   return {
     tone,
     html: `
-      ${backBar("Lists", "/lists")}
+      <div class="backbar-sticky">${backBar("Lists", "/lists")}</div>
       <div class="card__hero t-${tone}">
         <div class="card__glyph">${prep.emoji}</div>
         <div>
