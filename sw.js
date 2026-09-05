@@ -19,7 +19,7 @@ const SHELL_FILES = [
   "./assets/ui/icons/tab-browse.png",
   "./assets/ui/icons/tab-me.png",
   "./assets/ui/taseer-mark.png",
-  "./assets/data/foods.js",
+  "./assets/data/foods-index.js",
   "./assets/js/app.js",
   "./assets/js/data.js",
   "./assets/js/store.js",

@@ -1,7 +1,17 @@
 // Dataset access layer: derived fields, search, remedy lists.
-// The bundled module is a faithful mirror of data/foods/*.json — everything
-// interpretive is computed here so the source data stays hand-editable.
-import { FOODS, META, PREPARATIONS, SOURCES } from "../data/foods.js";
+//
+// SPIKE (claude/taseer-dataset-spike): the full per-food record used to come
+// from one statically-imported 1.7MB bundle (assets/data/foods.js, built by
+// scripts/build-data.mjs). This branch instead imports a slim per-food INDEX
+// (assets/data/foods-index.js, built by scripts/spike-build-data.mjs) and
+// fetches each food's full detail on demand from assets/data/detail/<id>.json
+// — see getFoodDetail() below. Only Home and the food detail view have been
+// adapted to this; every other screen still reads the derived `foods` array
+// built from the slim index below, which lacks thermal/histamine/nutrition/
+// guna/effects — those screens are left broken on this branch on purpose (see
+// the spike's report), guarded just enough that a missing field doesn't throw
+// at module-load time.
+import { INDEX, META, PREPARATIONS, SOURCES } from "../data/foods-index.js";
 
 export { META, SOURCES };
 
@@ -109,7 +119,34 @@ export const norm = s =>
 
 // ---- Index -----------------------------------------------------------------
 
-export const foods = FOODS.map(food => {
+// SPIKE: INDEX entries already carry a precomputed heat/heatClass (baked in
+// by scripts/spike-build-data.mjs, from the same compositeHeat/heatClass logic
+// below) but none of thermal/histamine/guna/effects/nutrition — those live in
+// the per-food detail file. So conflict/contested/reactive/sourceState/
+// remedies can't be derived here the way the old full-bundle version did;
+// they're left at inert defaults for the slim list entry and only computed
+// for real once a food's full detail is fetched (see deriveFullFood, used by
+// getFoodDetail). Any screen reading them off a *list* entry (search results,
+// category tiles, remedy lists, ...) will see the inert default — one of the
+// "left broken on this branch" screens the report calls out.
+export const foods = INDEX.map(food => ({
+  ...food,
+  conflict: false,
+  contested: false,
+  reactive: null,
+  sourceState: "derived",
+  remedies: {},
+  _names: [food.name, ...food.aliases].map(norm),
+  _desc: norm(food.description ?? ""),
+}));
+
+const byId = new Map(foods.map(f => [f.id, f]));
+export const getFood = id => byId.get(id);
+export const getFoods = ids => ids.map(getFood).filter(Boolean);
+
+/** Same per-food derivation the old full-bundle `foods` map did, run once a
+ * food's full detail JSON has actually arrived. */
+function deriveFullFood(food) {
   const heat = compositeHeat(food);
   const cls = heatClass(heat);
   const names = [food.name, ...food.aliases];
@@ -128,11 +165,30 @@ export const foods = FOODS.map(food => {
     _names: names.map(norm),
     _desc: norm(food.description),
   };
-});
+}
 
-const byId = new Map(foods.map(f => [f.id, f]));
-export const getFood = id => byId.get(id);
-export const getFoods = ids => ids.map(getFood).filter(Boolean);
+const detailCache = new Map();
+
+/**
+ * SPIKE: the async counterpart to getFood() — fetches and derives a food's
+ * full record on demand, cached after the first fetch. `undefined` on a
+ * missing id or a failed/404 fetch (offline + never-visited-before, most
+ * notably — see the spike's offline-risk note).
+ */
+export async function getFoodDetail(id) {
+  if (detailCache.has(id)) return detailCache.get(id);
+  let raw;
+  try {
+    const res = await fetch(`assets/data/detail/${id}.json`);
+    if (!res.ok) return undefined;
+    raw = await res.json();
+  } catch {
+    return undefined;
+  }
+  const full = deriveFullFood(raw);
+  detailCache.set(id, full);
+  return full;
+}
 
 export const CATEGORIES = [
   { id: "fruit", label: "Fruits", emoji: "🍎" },
@@ -399,7 +455,11 @@ export const MECHANISMS = {
 export const MECHANISM_IDS = Object.keys(MECHANISMS);
 
 const byMechanism = new Map(MECHANISM_IDS.map(id => [id, []]));
-for (const food of foods) for (const tag of food.histamine.tags) byMechanism.get(tag)?.push(food);
+// SPIKE: `foods` entries no longer carry `histamine` (detail-only field), so
+// this comes up empty on this branch — the mechanism index/detail screens are
+// among the ones left broken here. Optional-chained so module load doesn't
+// throw rather than silently working.
+for (const food of foods) for (const tag of food.histamine?.tags ?? []) byMechanism.get(tag)?.push(food);
 
 export const getMechanism = id => MECHANISMS[id];
 export const foodsWithMechanism = id => byMechanism.get(id) ?? [];

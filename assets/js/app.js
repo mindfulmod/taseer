@@ -114,9 +114,14 @@ function setTone(tone = null) {
 
 let lastHash = null;
 
-function render() {
-  const route = parseHash();
-  const { view, tab } = resolve(route);
+// SPIKE: foodView() is now async (fetches its food's detail on demand — see
+// data.js's getFoodDetail), so `resolve()` can hand back a view that's a
+// Promise. Everything else still resolves synchronously. `renderGen` guards
+// against a stale fetch finishing after a newer navigation has already
+// happened (fast back-to-back nav, e.g. tapping through several foods).
+let renderGen = 0;
+
+function applyView(view, tab) {
   main.innerHTML = view.html;
   view.mount?.(main);
   setTone(view.tone);
@@ -130,6 +135,26 @@ function render() {
     lastHash = location.hash;
     window.scrollTo(0, 0);
   }
+}
+
+function render() {
+  const route = parseHash();
+  const { view, tab } = resolve(route);
+  const myGen = ++renderGen;
+
+  if (view && typeof view.then === "function") {
+    // Paint something immediately rather than leaving #main blank while the
+    // per-food fetch is in flight — a real conversion would want this to be a
+    // proper ART.md-compliant skeleton; this is a spike.
+    main.innerHTML = `<div class="spike-loading" aria-busy="true" style="padding:48px 20px;text-align:center;opacity:.6">Loading…</div>`;
+    view.then(resolved => {
+      if (myGen !== renderGen) return; // superseded by a newer navigation
+      applyView(resolved, tab);
+    });
+    return;
+  }
+
+  applyView(view, tab);
 }
 
 // ---- Delegated events ----------------------------------------------------

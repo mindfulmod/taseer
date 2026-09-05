@@ -4,7 +4,7 @@ import {
   BANDS, CATEGORIES, CUISINES, LISTS, META, SORTS, SOURCES, STATES, byCategory, fuzzySuggest,
   BLOATING, COMPOUNDS, EFFECTS, EFFECT_IDS, GUNAS, GUNA_IDS, MECHANISM_IDS, MECHANISMS,
   effectsCount, foodsWithEffect, foodsWithGuna, foodsWithMechanism, getEffectEntry, gunaCount,
-  stimulantFamilies, getFood, getFoods, getList, getMechanism,
+  stimulantFamilies, getFood, getFoodDetail, getFoods, getList, getMechanism,
   getPreparation, heatClass, preparations, prepsForState, prepsUsing, remedyList, search,
   sortFoods, spectrum, systemHeat,
 } from "./data.js";
@@ -211,8 +211,12 @@ const systemNote = (food, sys) => {
     </div>`;
 };
 
-export function foodView(id) {
-  const food = getFood(id);
+// SPIKE: async — the food card is the one view actually converted to fetch its
+// full record on demand (assets/data/detail/<id>.json) instead of reading it
+// out of a synchronously-imported full dataset. See app.js's render() for how
+// the router deals with a view that's a promise.
+export async function foodView(id) {
+  const food = await getFoodDetail(id);
   if (!food) return notFound("food");
   recent.push(food.id);
 

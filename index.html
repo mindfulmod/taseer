@@ -13,6 +13,19 @@
   <meta name="apple-mobile-web-app-title" content="Taseer">
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="stylesheet" href="assets/app.css">
+  <!-- SPIKE (claude/taseer-dataset-spike): app.js is loaded via a dynamic
+       import(), invisible to the preload scanner, so its module chain (down
+       to the dataset) is otherwise discovered one hop at a time. Preloading
+       it isn't this spike's subject (that's the UX branch's own, separate,
+       still-unmerged fix) but leaving it out would make the "after" number
+       partly reflect a different, already-known problem rather than the one
+       this spike is actually testing -- the dataset split itself. -->
+  <link rel="modulepreload" href="assets/js/app.js">
+  <link rel="modulepreload" href="assets/js/store.js">
+  <link rel="modulepreload" href="assets/js/views.js">
+  <link rel="modulepreload" href="assets/js/components.js">
+  <link rel="modulepreload" href="assets/js/data.js">
+  <link rel="modulepreload" href="assets/data/foods-index.js">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
