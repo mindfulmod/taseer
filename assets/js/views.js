@@ -135,7 +135,14 @@ function resultsHtml(q) {
              <div class="section__head"><h2>Did you mean</h2></div>
              ${tileList(near)}
            </section>`
-        : ""
+        // Genuinely nonsense input has no near-match at all — without this the
+        // reader is left with a "no match" sentence and nothing on the whole
+        // screen left to tap. data-nav, not a form reset: clearing #q would
+        // need JS the empty state doesn't otherwise carry, and a plain route
+        // to Find with no query is the browse library either way.
+        : `<div class="chiprow" style="margin-top:14px">
+             <button class="pillbtn" data-nav="/find">Browse by category instead</button>
+           </div>`
     }`;
 }
 
@@ -1019,15 +1026,24 @@ function sortedList(list, sort, opts) {
   return band ? thermalBands(list, band, opts) : pagedTileList(list, opts);
 }
 
-function categoryBody(pool, q, cuisine, sort) {
+function categoryBody(catId, pool, q, cuisine, sort) {
   let list = cuisine ? pool.filter(f => f.cuisines.includes(cuisine)) : pool;
   // A query ranks by match quality — reordering those hits by temperature would
   // bury the exact-name match the reader was after. Sorting owns the rest.
   list = q.trim() ? search(q, 500, list) : sortFoods(list, sort);
 
   if (!list.length) {
-    return `<div class="empty">Nothing matches${q.trim() ? ` “${esc(q.trim())}”` : ""} here.
-      ${cuisine ? "Try clearing the cuisine filter." : "Try a different spelling, or search from Find."}</div>`;
+    // Used to just say what to try, with nothing on screen that actually did
+    // it — the cuisine chips scroll off-row and the search box is easy to miss
+    // as "the thing to change" once the reader's eye is on this message.
+    const qs = q.trim() ? `?q=${encodeURIComponent(q.trim())}` : "";
+    return `
+      <div class="empty">Nothing matches${q.trim() ? ` “${esc(q.trim())}”` : ""} here.
+        ${cuisine ? "Try clearing the cuisine filter." : "Try a different spelling, or search from Find."}</div>
+      <div class="chiprow" style="margin-top:14px">
+        ${cuisine ? `<button class="pillbtn" data-nav="/category/${catId}${qs}">Clear cuisine filter</button>` : ""}
+        ${q.trim() ? `<button class="pillbtn" data-nav="/find${qs}">Search all ${META.count} foods</button>` : ""}
+      </div>`;
   }
   const of = list.length === pool.length ? "" : ` of ${pool.length}`;
   // The noun agrees with whichever number it follows — "1 of 970 foods", but
@@ -1078,7 +1094,7 @@ export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } =
           : ""
       }
 
-      <div id="catbody">${categoryBody(pool, q, cuisine, sort)}</div>`,
+      <div id="catbody">${categoryBody(catId, pool, q, cuisine, sort)}</div>`,
 
     mount(root) {
       const input = root.querySelector("#catq");
@@ -1108,7 +1124,7 @@ export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } =
       // replaceState, not a hash change: re-rendering the whole screen on every
       // keystroke would rebuild the chip row and steal focus from the input.
       const sync = () => {
-        body.innerHTML = categoryBody(pool, q0, cuisine0, sort0);
+        body.innerHTML = categoryBody(catId, pool, q0, cuisine0, sort0);
         const p = new URLSearchParams();
         if (q0.trim()) p.set("q", q0.trim());
         if (cuisine0) p.set("cuisine", cuisine0);
@@ -1603,9 +1619,20 @@ function remedyColumn(id, label, items, active, favIds, opts, { q = "", sort = "
 
   let inner;
   if (!shown.length) {
+    // A miss here only means "not in this Eat/Avoid list", not "not in the
+    // library" — the reader searching a state screen has no way to tell those
+    // apart without this, and the food they typed may well just be in the
+    // other column or another state entirely.
     inner = `<div class="empty">${
       q.trim() ? `Nothing here matches “${esc(q.trim())}”.` : "Nothing in this list yet."
-    }</div>`;
+    }</div>
+    ${
+      q.trim()
+        ? `<div class="chiprow" style="margin-top:14px">
+             <button class="pillbtn" data-nav="/find?q=${encodeURIComponent(q.trim())}">Search all foods for “${esc(q.trim())}”</button>
+           </div>`
+        : ""
+    }`;
   } else if (q.trim() || sort) {
     // Commonness bands are the default shape, but they fight an explicit sort:
     // "hottest first" split across four headed groups is four restarts, not one
