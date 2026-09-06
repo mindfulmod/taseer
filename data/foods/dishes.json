@@ -2031,7 +2031,7 @@
 
   {"id":"apple-pie","name":"Apple pie","aliases":["ping guo pai"],"emoji":"🥧","category":"dish","cuisines":["western"],"commonness":1,
    "description":"Spiced apples under a pastry lid, served with cream or custard.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Apple is cool; the pastry and spice warm it."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita from the fruit; guru from the pastry."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Baked pastry with cinnamon — same reading as strudel, the same dish structurally; the apple's own coolness doesn't survive the oven and the spice."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Twak (cinnamon) is ushna and the baked maida-butter crust is guru; shita apple is the minority ingredient here, as in strudel."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar, matching strudel — baked maida and dar chini overrule the apple's own thanda-tar nature."}},
    "histamine":{"sighi":2,"tags":[],"note":"The pastry and any cream, more than the apple."},
    "nutrition":{"kcal":265,"protein":2.4,"carbs":37,"fat":12,"highlight":"with cream, or with custard","estimate":true},
    "ingredients":["apple","maida","butter","white-sugar","cinnamon"]},
@@ -3306,7 +3306,7 @@
 
   {"id":"leche-flan","name":"Leche flan","aliases":["filipino caramel custard"],"emoji":"🍮","category":"dish","cuisines":["southeast-asian"],"commonness":1,
    "description":"A dense custard of egg yolks and condensed milk under burnt caramel.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Steamed egg and milk."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Anda is ushna; this is nearly all yolk."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Steamed egg and milk."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Anda is ushna over a heavy dairy base — read by component, like purin and crème brûlée, since no classical Ayurvedic source covers this Filipino-Spanish dessert directly."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar, by the same component reasoning as purin and crème brûlée; no Filipino-Unani source names this dish, so it doesn't warrant more confidence than its structural twins."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Egg yolk in quantity."},
    "nutrition":{"kcal":310,"protein":7,"carbs":42,"fat":12,"highlight":"denser than crème caramel","estimate":true},
    "ingredients":["egg","condensed-milk","evaporated-milk","white-sugar"]},
@@ -4637,7 +4637,7 @@
 
   {"id":"lokum","name":"Lokum","aliases":["turkish delight","rahat lokum"],"emoji":"🍬","category":"dish","cuisines":["persian-turkish"],"commonness":1,
    "description":"Starch and sugar gel set with rose or lemon and dusted in icing sugar.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A plain starch and sugar gel with rose."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Gulab is shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Starch and sugar are thermally mild here (see white-sugar); rose water is TCM-cool and qi-moving. Boiled and set, never fried, so nothing pushes it warm the way gulab-jamun or jalebi are."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Gulab and sugar are both shita — the same pairing gulqand (rose petals preserved in sugar) is built on, a standard Ayurvedic pitta-cooler despite the sugar."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar, and well-attested: gulqand and gulab sharbat are the standard examples of rose overriding sugar in a preserve. This reading is for the rose original — lemon lokum, the common variant, is untested."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low; the pistachio versions add a little."},
    "nutrition":{"kcal":350,"protein":0.2,"carbs":88,"fat":0.2,"highlight":"the rose is the original"}},
 
