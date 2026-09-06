@@ -87,7 +87,7 @@
 
   {"id":"cardamom","name":"Green cardamom","aliases":["elaichi","hail","hab al-hal","bai dou kou"],"emoji":"🟢","category":"spice","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Perfumed pod of chai and gahwa.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Green elaichi is called tridoshic/mildly cooling by some, heating by others; black cardamom is unambiguously heating."},"unani":{"verdict":"cold","confidence":"contested","note":"Desi folk treat chhoti elaichi as thandi (mouth-cooler); hakims vary."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Green elaichi is called tridoshic/mildly cooling by some, heating by others; black cardamom is unambiguously heating."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Qaqullah/hail is documented garam-khushk in classical Unani pharmacognosy; the 'thandi mouth-cooler' reading is a desi sensory-folk belief, not the classical hakimi position."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated."},
    "nutrition":{"kcal":311,"protein":11,"carbs":68,"fat":6.7,"highlight":"the oils go the moment the pod is ground"},
    "guna":{"verdict":"light","confidence":"high"}},
@@ -159,7 +159,7 @@
 
   {"id":"curry-leaves","name":"Curry leaves","aliases":["kari patta","waraq kari","ka li ye"],"emoji":"🌿","category":"spice","cuisines":["south-asian"],"commonness":2,
    "description":"Aromatic tempering leaf of South Asian kitchens.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Not classical; inferred."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Sources split between mildly cooling and mildly heating."},"unani":{"verdict":"hot","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Not classical; inferred."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Materia-medica sources (e.g. Nadkarni) that do treat kadi patta describe it as ushna virya; the popular 'cooling' belief looks to come from its Pitta-soothing culinary use rather than its classical virya. Corrected from cooling — flagging for a spot-check since named-text sourcing here is thinner than the high-confidence entries."},"unani":{"verdict":"hot","confidence":"contested","note":"Kadi patta is a South Indian regional plant with no entry in the classical Perso-Arabic Unani canon, so this reading is extrapolated rather than sourced."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated."},
    "nutrition":{"kcal":108,"protein":6.1,"carbs":19,"fat":1,"highlight":"fried in oil or they do nothing at all","estimate":true},
    "guna":{"verdict":"light","confidence":"high"}},
@@ -242,7 +242,7 @@
 
   {"id":"white-vinegar","name":"Vinegar","aliases":["sirka","khall","cu"],"emoji":"🫙","category":"spice","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Sour preserving liquid; sirka of Unani texts.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"high","note":"Strongly sour = ushna."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Classical Unani calls sirka cold — disagrees with Ayurveda/TCM."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"high","note":"Strongly sour = ushna."},"unani":{"verdict":"cold-dry","confidence":"high","note":"Sirka is confidently barid-yabis across classical Unani sources — this is a real cross-tradition disagreement (Ayurveda and TCM both read sour as heating), not internal Unani uncertainty, so it does not belong at contested."}},
    "histamine":{"sighi":1,"tags":[],"note":"Clear spirit vinegar ~1; wine/balsamic vinegars are a 3."},
    "nutrition":{"kcal":18,"protein":0,"carbs":0.9,"fat":0,"highlight":"acetic acid and nothing else"},
    "guna":{"verdict":"restless","confidence":"high"}},
@@ -272,7 +272,7 @@
 
   {"id":"chocolate","name":"Chocolate / cocoa","aliases":["kakao","shokolata","qiao ke li"],"emoji":"🍫","category":"spice","cuisines":["western","arabic","chinese","south-asian"],"commonness":1,
    "description":"Cocoa in all its forms — and a major histamine offender.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Not classical; modern sources call it warming-damp."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Stimulant, bitter-pungent."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Not classical; inferred."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"No entry in the ancient canon (cocoa is New World), but modern TCM food-therapy sources are fairly consistent in calling it warming and damp-forming."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Stimulant, bitter-pungent."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Not classical; inferred."}},
    "histamine":{"sighi":3,"tags":["liberator","other-amines"],"note":"Tyramine and phenylethylamine rather than histamine. Theobromine does inhibit DAO, but SIGHI marks that on energy drinks, not on cocoa."},
    "nutrition":{"kcal":546,"protein":4.9,"carbs":61,"fat":31,"highlight":"theobromine, not caffeine, is the lift"},
    "stimulant":{"compounds":["theobromine","caffeine"],"note":"Mostly theobromine with a little caffeine. Theobromine is a far weaker stimulant and clears more slowly — which is why chocolate never feels like coffee."},
@@ -302,13 +302,13 @@
 
   {"id":"olive-oil","name":"Olive oil","aliases":["zait zaytoon","zeit","extra virgin"],"emoji":"🫒","category":"spice","cuisines":["arabic","western"],"commonness":1,
    "description":"Green, peppery and poured raw over everything on the Levantine table.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"A Mediterranean fat with no classical Chinese entry."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Not classical; oils in general are read as ushna and unctuous."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Zait zaytoon is har-ratab and among the best-documented tonics in the Unani record."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"A Mediterranean fat with no classical Chinese entry."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Not classical — olive is not a traditional Indian oil. 'Oils in general are ushna' is a rough guide at best: coconut oil is classically shita in this same dataset, so the reading here is a genuine guess, not a confident rule application."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Zait zaytoon is har-ratab and among the best-documented tonics in the Unani record."}},
    "histamine":{"sighi":0,"tags":[],"note":"Pure fat; specifically recommended on histamine-restricted diets.","ref":{"sighi":0,"marks":"","as":"olive oil"}},
    "nutrition":{"kcal":884,"protein":0,"carbs":0,"fat":100,"highlight":"poured raw, not just cooked in"}},
 
   {"id":"sunflower-oil","name":"Sunflower oil","aliases":["refined oil","surajmukhi tel","vegetable oil"],"emoji":"🫗","category":"spice","cuisines":["south-asian","arabic","western","chinese"],"commonness":1,
    "description":"The neutral refined oil most kitchens actually fry in.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"A modern refined product with no classical entry."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Oils are read as ushna; refining strips the character that would place it more precisely."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Garam by the general rule for oils, not by any specific record."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"A modern refined product with no classical entry."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"No classical entry, and 'oils are ushna' is not a reliable blanket rule — coconut oil is classically shita in this same dataset — so heating here is a guess rather than a grounded reading."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"No classical entry, and the same caveat applies: coconut oil is thanda-tar in Unani, so 'oils are garam' does not hold universally."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low. Repeatedly reheated frying oil is a separate problem.","ref":{"sighi":0,"marks":"","as":"sunflower oil"}},
    "nutrition":{"kcal":884,"protein":0,"carbs":0,"fat":100,"highlight":"neutral, high smoke point"}},
 
@@ -403,7 +403,7 @@
 
   {"id":"paprika","name":"Paprika","aliases":["deghi mirch","sweet pepper powder"],"emoji":"🌶️","category":"spice","cuisines":["western","arabic","south-asian"],"commonness":2,
    "description":"Ground dried sweet peppers — colour first, heat a distant second.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Read with the chilli family, milder."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna like all the capsicums, if gently so."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam, though far below red chilli in degree."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with the chilli family (dried/flaked chilli sit at high confidence on the same logic), milder because sweet-pepper capsicums carry far less capsaicin."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna like all the capsicums, if gently so."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam, though far below red chilli in degree."}},
    "histamine":{"sighi":2,"tags":[],"note":"SIGHI does not mark dried capsicums as liberators; any effect from capsaicin runs through a different pathway (TRPV1 activation) than histamine liberation.","ref":{"sighi":2,"marks":"","as":"paprika, hot"}},
    "nutrition":{"kcal":282,"protein":14.1,"carbs":53.9,"fat":12.9,"highlight":"colour first, heat second"},
    "remedy":{"too-cold":"eat"}},
@@ -417,7 +417,7 @@
 
   {"id":"anise-seed","name":"Anise seed","aliases":["yansoon","aniseed","huai xiang"],"emoji":"🧂","category":"spice","cuisines":["arabic","south-asian"],"commonness":3,
    "description":"Sweet liquorice-scented seed, brewed as yansoon tea for a settled stomach.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with the fennel and star-anise group, which is warm."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna and deepana, though desi usage treats aniseed drinks as cooling."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Yansoon is garam in the Arab record, given for colic and wind."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with the fennel and star-anise group, which is warm."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and deepana in the classical record. The 'cooling' desi belief is almost certainly fennel (saunf) bleeding over — that is the genuinely cooling umbellifer in this family; true anise (Pimpinella anisum) is not."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Yansoon is garam in the Arab record, given for colic and wind."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low."},
    "nutrition":{"kcal":337,"protein":17.6,"carbs":50.2,"fat":15.9,"highlight":"brewed as yansoon"},
    "remedy":{"too-cold":"eat"}},
@@ -438,7 +438,7 @@
 
   {"id":"amchur","name":"Amchur","aliases":["dry mango powder","amchoor","aamchur"],"emoji":"🥭","category":"spice","cuisines":["south-asian"],"commonness":2,
    "description":"Unripe mango dried and ground — sourness without any liquid.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Follows green mango; no Chinese entry."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Amla-rasa and ushna, like the unripe fruit it is made from."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam and drying, though the fresh green mango is read the other way."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Follows green mango; no Chinese entry, and the parent fruit's own TCM reading is itself contested."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Amla-rasa and ushna, like the unripe fruit it is made from."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Drying tips a food toward hot-dry in Unani theory generally (the same shift seen from fresh to dried ginger) — the fresh fruit's cold-moist reading does not carry over to the dried powder."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Concentrated sour fruit — the same flag as green mango, more so for being dried."},
    "nutrition":{"kcal":310,"protein":2.5,"carbs":76,"fat":1.2,"highlight":"sourness without liquid","estimate":true},
    "guna":{"verdict":"restless","confidence":"high"}},
@@ -551,13 +551,13 @@
 
   {"id":"maple-syrup","name":"Maple syrup","aliases":["feng tang jiang","maple sugar syrup"],"emoji":"🍁","category":"spice","cuisines":["western"],"commonness":3,
    "description":"Boiled-down maple sap — mineral-sweet, with a faint woodiness.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Not classically listed; sweet syrups are read as tonifying and damp-forming."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Madhura rasa is generally shita — closer to sugar than to honey, which is ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Garam-tar by the general rule for concentrated sweets."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Not classically listed; sweet syrups are read as tonifying and damp-forming."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Madhura rasa is generally shita — the same rule that puts white sugar at cooling/high confidence in this dataset. Honey is the well-known classical exception, not the default; maple syrup follows the default."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Garam-tar by the general rule for concentrated sweets."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low; not fermented, unlike honey's more complicated position.","ref":{"sighi":0,"marks":"","as":"maple syrup"}},
    "nutrition":{"kcal":260,"protein":0,"carbs":67,"fat":0.1,"highlight":"boiled-down tree sap"}},
 
   {"id":"date-syrup","name":"Date syrup","aliases":["dibs tamr","silan","khajur syrup"],"emoji":"🍯","category":"spice","cuisines":["arabic","south-asian"],"commonness":3,
    "description":"Dates reduced to a dark treacle — poured over tahini, or into sweets.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Follows the date, which is warm and tonifying."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Concentrated dates are ushna and building — a winter sweetener."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Dibs is garam-tar, a classical strengthening food of the Arab table."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Dates themselves are warm at high confidence and unanimous across all three traditions; reduction to syrup concentrates rather than reverses that."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Concentrated dates are ushna and building — a winter sweetener."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Dibs is garam-tar, a classical strengthening food of the Arab table."}},
    "histamine":{"sighi":2,"tags":[],"note":"Concentrated dried fruit, so it sits with dates and raisins rather than with plain sugar."},
    "nutrition":{"kcal":293,"protein":1.6,"carbs":73,"fat":0,"highlight":"poured over tahini"},
    "remedy":{"too-cold":"eat"}},
@@ -585,7 +585,7 @@
 
   {"id":"msg","name":"MSG","aliases":["ajinomoto","wei jing","monosodium glutamate","taste powder"],"emoji":"🧂","category":"spice","cuisines":["chinese","south-asian"],"commonness":2,
    "description":"Crystallised glutamate — pure savouriness, and nothing else.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"A twentieth-century isolate with no classical entry."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"No classical entry; lavana-adjacent and read as ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the Unani record entirely."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"A twentieth-century isolate with no classical entry; unlike table salt (classically cold) it doesn't map cleanly onto the salty (xián) taste category, so it isn't simply read with the salts either."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"No classical entry for the isolate, but lavana rasa (salty taste) is a well-established ushna taste in Ayurveda — table salt sits at high confidence on the same rule."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Outside the Unani record for the isolate, but salt itself is garam-khushk at high confidence in Unani, and the same salty-mineral logic extends reasonably to MSG."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Glutamate is not histamine, but it is a common trigger for the same people — and SIGHI flags it as one of the other biogenic amines to watch.","ref":{"sighi":2,"marks":"L","as":"E621, monosodium glutamate, glutamic acid monosodium salt"}},
    "nutrition":{"kcal":0,"protein":0,"carbs":0,"fat":0,"highlight":"savouriness, isolated"}},
 
@@ -748,7 +748,7 @@
 
   {"id":"stevia","name":"Stevia","aliases":["sweet leaf","tian ju"],"emoji":"🌿","category":"spice","cuisines":["western","south-asian"],"commonness":3,
    "description":"Leaf-derived sweetener with no sugar and no calories.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"A modern isolate; the leaf is read as cooling."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Madhura in taste without the substance; no classical entry."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the Unani record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"A modern isolate; the leaf is read as cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"No classical entry for the isolate, but madhura rasa reads shita by the same general rule that puts white sugar at cooling/high confidence here."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the Unani record, and Unani doesn't have a clean sweet-equals-cold rule to extend the way Ayurveda does — dates, honey and jaggery are all classically hot despite being sweet, so this reading is genuinely unsettled rather than just under-sourced."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low; some people react to the leaf extract independently of histamine."},
    "nutrition":{"kcal":0,"protein":0,"carbs":0,"fat":0,"highlight":"sweetness without sugar"}},
 
@@ -898,7 +898,7 @@
 
   {"id":"baking-soda","name":"Baking soda","aliases":["meetha soda","bicarbonate","xiao da"],"emoji":"⬜","category":"spice","cuisines":["western","south-asian","chinese"],"commonness":1,
    "description":"Sodium bicarbonate — raises batters, tenderises meat, and softens chickpeas.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"contested","note":"Alkaline and mineral; read with the salts, which are cold in TCM."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Kshara (alkali) is classically ushna and tikshna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Sajji is garam-khushk in the Unani record — an alkali used to cut phlegm."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Alkaline mineral substances in TCM (e.g. mirabilite/mangxiao) are consistently read as cold and descending, the same family baking soda is placed with here."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Kshara (alkali) is classically ushna and tikshna — well documented in Sushruta Samhita, even though sodium bicarbonate itself is not the plant-ash kshara of the classical texts."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Sajji is garam-khushk in the Unani record — an alkali used to cut phlegm."}},
    "histamine":{"sighi":0,"tags":[],"note":"None.","ref":{"sighi":0,"marks":"","as":"baking soda, bicarbonate of soda, sodium hydrogen"}},
    "nutrition":{"kcal":0,"protein":0,"carbs":0,"fat":0,"highlight":"raises, tenderises, softens"}},
 
