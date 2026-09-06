@@ -1293,6 +1293,13 @@ export function spectrumView({ band = "" } = {}) {
   const active = BANDS.find(b => b.id === band);
   const shown = active ? all.filter(f => f.heatClass === active.id) : all;
 
+  // Pinned below (`.backbar-sticky`) once a band is selected: the rail is real
+  // navigation between five fixed destinations, not a search/sort/filter
+  // block, so it reuses the plain-sticky idiom `.backbar-sticky` already
+  // established for prep's "← Lists" link rather than `.controls-sticky`
+  // (which is for the filter-shaped controls on Category/State/Mechanism/
+  // Effect). A single band's paginated list can run 7+ screens, so without
+  // this, switching bands meant scrolling all the way back to the top.
   const rail = `
     <div class="spectrum__rail" role="tablist" aria-label="Temperature bands">
       ${BANDS.map(
@@ -1349,7 +1356,7 @@ export function spectrumView({ band = "" } = {}) {
     html: `
       ${backBar("Find", "/find")}
       <section class="hero"><h1>Spectrum</h1><p>Every food in the library, coldest to hottest. Tap a band to narrow it.</p></section>
-      ${rail}
+      <div class="backbar-sticky">${rail}</div>
       <p class="tiny muted" style="margin:12px 2px">Position blends all three traditions — it orders the shelf, it is not a verdict. The badges on each card are the verdicts.</p>
       ${groups}`,
   };
