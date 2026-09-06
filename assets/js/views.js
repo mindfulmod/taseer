@@ -51,6 +51,34 @@ export function notFound(thing) {
 
 // ---- Home ----------------------------------------------------------------
 
+// Home used to render the exact same 8-tile category grid as Find, right down
+// to the markup — a hub screen showing the same "browse everything" surface
+// as the browse hub it already links to three different ways. Trimmed to a
+// quick-access subset here: whatever categories the reader has actually been
+// looking at (from Recently viewed, so it's live to real use, not a guess),
+// topped up from CATEGORIES' own hand-ordered list (a food-group ordering,
+// not alphabetical — already a deliberate call, so reused rather than
+// re-ranked by size or anything else invented for this). Every category
+// remains one tap further away via "See all" into Find's full grid — never
+// removed, just no longer duplicated in full on both screens.
+function homeCategoryPicks(n = 4) {
+  const seen = new Set();
+  const picks = [];
+  for (const food of getFoods(recent.all())) {
+    if (picks.length >= n) break;
+    if (seen.has(food.category)) continue;
+    seen.add(food.category);
+    picks.push(food.category);
+  }
+  for (const c of CATEGORIES) {
+    if (picks.length >= n) break;
+    if (seen.has(c.id)) continue;
+    seen.add(c.id);
+    picks.push(c.id);
+  }
+  return CATEGORIES.filter(c => picks.includes(c.id));
+}
+
 export function homeView() {
   const recents = getFoods(recent.all()).slice(0, 12);
   return {
@@ -107,9 +135,9 @@ export function homeView() {
       <section class="section">
         <div class="section__head">
           <h2>Browse by category</h2>
-          <button class="linkish" data-nav="/find">All</button>
+          <button class="linkish" data-nav="/find">See all ${CATEGORIES.length}</button>
         </div>
-        ${categoryGrid()}
+        ${categoryGrid(homeCategoryPicks())}
       </section>`,
   };
 }
@@ -393,9 +421,9 @@ export function foodView(id) {
 
 // ---- The library (Find's empty-query body) --------------------------------
 
-function categoryGrid() {
+function categoryGrid(list = CATEGORIES) {
   return `<div class="catgrid">
-    ${CATEGORIES.map(
+    ${list.map(
       c => `<button class="cat" data-nav="/category/${c.id}">
               <img class="cat__cut" src="assets/ui/categories/${c.id}.png" alt="" aria-hidden="true" loading="lazy">
               <span class="cat__label">${esc(c.label)}</span>
