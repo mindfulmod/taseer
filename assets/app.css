@@ -332,7 +332,7 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 
 .pillbtn {
   display: inline-flex; align-items: center; gap: 7px;
-  padding: 9px 15px; min-height: 40px;
+  padding: 9px 15px; min-height: var(--tap);
   border: 1px solid var(--line); border-radius: 999px;
   background: var(--surface); color: var(--ink);
   font-size: 0.87rem; font-weight: 600; cursor: pointer;
@@ -348,7 +348,7 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .sortby { display: flex; flex: none; }
 .sortby__sel {
   appearance: none;
-  padding: 0 30px 0 15px; min-height: 100%; height: auto;
+  padding: 0 30px 0 15px; min-height: max(var(--tap), 100%); height: auto;
   border: 1.5px solid var(--line); border-radius: 999px;
   background: var(--surface); color: var(--ink);
   font: inherit; font-size: 0.87rem; font-weight: 600;
@@ -368,7 +368,7 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 @media (max-width: 380px) {
   .findrow { flex-wrap: wrap; }
   .findrow .searchbar { flex: 1 0 100%; }
-  .sortby__sel { min-height: 40px; }
+  .sortby__sel { min-height: var(--tap); }
 }
 
 /* Eleven cuisines will not wrap tidily on a phone, so the row scrolls sideways
@@ -674,7 +674,7 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .fhero .art { position: absolute; inset: 0; border-radius: inherit; }
 .fhero__btn {
   position: absolute; top: 12px; z-index: 3;
-  display: grid; place-items: center; width: 42px; height: 42px;
+  display: grid; place-items: center; width: var(--tap); height: var(--tap);
   border: 0; border-radius: 999px; cursor: pointer;
   /* Neutral, never a temperature hue — hue belongs to the data (ART.md §6.3). */
   background: color-mix(in srgb, var(--surface) 82%, transparent);
@@ -839,7 +839,11 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .chips { display: flex; flex-wrap: wrap; gap: 7px; }
 .chip {
   display: inline-flex; align-items: center; gap: 6px;
-  padding: 6px 11px 6px 7px; border-radius: 999px; cursor: pointer;
+  /* Vertical padding bumped from 6px so a food chip clears a ~44px tap target
+     (was ~36px) — these run in dense, tightly-packed rows (Guna/Caffeine's
+     food lists reach 50+ per screen) where an undersized target is likeliest
+     to send a real tap to the wrong food. */
+  min-height: var(--tap); padding: 6px 11px 6px 7px; border-radius: 999px; cursor: pointer;
   background: var(--t-tint); border: 1px solid color-mix(in srgb, var(--t) 26%, transparent);
   font-size: 0.83rem; font-weight: 600; color: var(--t-deep);
 }
@@ -1010,7 +1014,7 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 }
 .segbar__btn {
   display: flex; align-items: center; justify-content: center; gap: 7px;
-  min-height: 40px; padding: 8px 12px;
+  min-height: var(--tap); padding: 8px 12px;
   border: 0; border-radius: 999px; background: transparent; cursor: pointer;
   font-weight: 700; font-size: 0.9rem; color: var(--ink-2);
 }
