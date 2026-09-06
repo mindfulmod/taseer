@@ -75,6 +75,11 @@ function parseHash() {
   };
 }
 
+// The first path segment of a "/foo/bar?q=x" or "#/foo/bar?q=x" string, "" for
+// home. Used only to tell whether a tab-bar tap targets the screen already on
+// screen — see the [data-nav] handler below.
+const topRoute = hash => hash.replace(/^#/, "").split("?")[0].split("/").filter(Boolean)[0] ?? "";
+
 function resolve({ parts, params }) {
   switch (parts[0]) {
     case undefined: return { view: homeView(), tab: "/" };
@@ -203,6 +208,21 @@ document.addEventListener("click", event => {
   const nav = event.target.closest("[data-nav]");
   if (nav) {
     event.preventDefault();
+    // The bottom tab bar's own tap used to always set location.hash to the
+    // tab's bare route, full stop — harmless everywhere except when the
+    // screen already on the tab you tapped carries a query string, most
+    // visibly Find: tapping "Find" while looking at search results changed
+    // the hash from "#/find?q=…" to "#/find", a real change, so it fired and
+    // silently reset to the bare browse library, discarding the query with
+    // no warning. A tab you're already on should be a no-op (or a
+    // scroll-to-top, which real tab bars use for exactly this tap) — never a
+    // silent data-loss action. Restricted to the tab bar itself: other
+    // [data-nav] links (e.g. "Browse by category instead" on a dead-end
+    // search) are deliberate resets, not a re-tap of the tab you're on.
+    if (nav.closest(".tabbar") && topRoute(nav.dataset.nav) === topRoute(location.hash)) {
+      scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
     location.hash = `#${nav.dataset.nav}`;
     return;
   }
