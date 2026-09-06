@@ -32,7 +32,7 @@
   {"id":"aloo-gobi","name":"Aloo gobi","aliases":["potato cauliflower sabzi"],"emoji":"🥘","category":"dish","cuisines":["south-asian"],"commonness":1,
    "description":"Dry-spiced potato and cauliflower.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Two cooling vegetables in warming spices — lands near neutral."},"unani":{"verdict":"neutral","confidence":"moderate"}},
-   "histamine":{"sighi":0,"tags":[],"note":"One of the safest desi dishes when reactive (skip the tomato variant)."},
+   "histamine":{"sighi":1,"tags":[],"note":"SIGHI 0 vegetables, but the cumin tempering is a SIGHI 2 liberator — a trace of it keeps the dish out of 0, though it's still mild overall."},
    "nutrition":{"kcal":90,"protein":2.5,"carbs":12,"fat":4,"highlight":"dry — no gravy, by definition","estimate":true},
    "ingredients":["potato","cauliflower","turmeric","cumin","ginger"]},
 
@@ -92,7 +92,7 @@
   {"id":"khichdi","name":"Khichdi","aliases":["khichri","kitchari"],"emoji":"🍚","category":"dish","cuisines":["south-asian"],"commonness":1,
    "description":"Soft rice and moong cooked together — the healing pot of the subcontinent.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Functionally TCM's congee logic."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"THE sattvic recovery food — cooling, tridoshic."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Rice + moong, both thanda."}},
-   "histamine":{"sighi":0,"tags":[],"note":"Fresh khichdi is close to the ideal reactive-day meal."},
+   "histamine":{"sighi":1,"tags":[],"note":"The rice and moong are close to the ideal reactive-day base, but the cumin tempering is a SIGHI 2 liberator — leave it out to bring the bowl to 0."},
    "nutrition":{"kcal":110,"protein":4.5,"carbs":18,"fat":2.5,"highlight":"the recovery meal","estimate":true},
    "ingredients":["white-rice","mung-beans","ghee","turmeric","cumin"],
    "remedy":{"too-hot":"eat"}},
@@ -929,7 +929,7 @@
   {"id":"jeera-rice","name":"Jeera rice","aliases":["cumin rice","zeera chawal"],"emoji":"🍚","category":"dish","cuisines":["south-asian"],"commonness":1,
    "description":"Rice tempered with cumin in ghee — the default accompaniment to any dal.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Rice with a cumin tempering."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Jiraka is ushna; rice is shita."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar, gently."}},
-   "histamine":{"sighi":0,"tags":[],"note":"Very low."},
+   "histamine":{"sighi":1,"tags":[],"note":"Named for the cumin tempering it can't be made without — a SIGHI 2 liberator, which is why this sits at 1 rather than plain rice's 0."},
    "nutrition":{"kcal":165,"protein":3.5,"carbs":30,"fat":3.5,"highlight":"the default with any dal","estimate":true},
    "ingredients":["white-rice","cumin","ghee"]},
 

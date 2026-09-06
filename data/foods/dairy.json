@@ -2,7 +2,7 @@
   {"id":"milk","name":"Milk (cow)","aliases":["doodh","haleeb","niu nai"],"emoji":"🥛","category":"dairy","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"The daily glass, chai base, and kheer canvas.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"high","note":"Neutral-moistening; TCM uses it for dryness."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"The classic cooling, building food — warm milk is still shita-virya."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Doodh is thanda-tar; hence warming additions like haldi or saffron."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Fresh pasteurized milk is low; the aged/fermented dairy family is where trouble starts.","ref":{"sighi":1,"marks":"H","as":"milk, lactose-free"}},
+   "histamine":{"sighi":1,"tags":["high-histamine"],"note":"Fresh pasteurized milk is low; the aged/fermented dairy family is where trouble starts.","ref":{"sighi":1,"marks":"H","as":"milk, lactose-free"}},
    "nutrition":{"kcal":61,"protein":3.2,"carbs":4.8,"fat":3.3,"highlight":"calcium in the form the body handles best"},
    "remedy":{"too-hot":"eat"},
    "guna":{"verdict":"light","confidence":"high","note":"Fresh milk is sattvic; the texts treat it differently once it sours or ages."}},
@@ -32,7 +32,7 @@
   {"id":"ghee","name":"Ghee","aliases":["desi ghee","samn","clarified butter","su you"],"emoji":"🧈","category":"dairy","cuisines":["south-asian","arabic"],"commonness":1,
    "description":"Clarified butter — sacred fat of two traditions.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fats read warming in TCM."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"The famous answer: ghee is SHITA-virya — cooling, pitta's best fat."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Desi folk calls ghee garam — another clean tradition split."}},
-   "histamine":{"sighi":0,"tags":[],"note":"Milk solids removed — the safest dairy fat.","ref":{"sighi":1,"marks":"","as":"ghee"}},
+   "histamine":{"sighi":0,"tags":[],"note":"Milk solids removed — the safest dairy fat.","ref":{"sighi":1,"marks":"","as":"ghee"},"why":"SIGHI's generic dairy listing doesn't separate clarified butter from whole milk products. Ghee has the milk solids — the protein and amine-bearing fraction — removed, leaving a near-pure fat with negligible biogenic-amine potential, the same reasoning that puts other pure fats and oils at 0."},
    "nutrition":{"kcal":900,"protein":0,"carbs":0,"fat":100,"highlight":"pure butterfat — the milk solids are gone"},
    "guna":{"verdict":"light","confidence":"high","note":"The sattvic fat par excellence — the one cooking medium the texts recommend without reservation."}},
 
@@ -46,7 +46,7 @@
   {"id":"cream","name":"Cream","aliases":["malai","qishta","nai you"],"emoji":"🥛","category":"dairy","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"Rich milk fat of qorma and qishta desserts.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Heavy-building like milk."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Malai follows milk's thanda nature."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Fresh cream low; whipped/aged products vary.","ref":{"sighi":0,"marks":"","as":"cream, sweet, without additives"}},
+   "histamine":{"sighi":0,"tags":[],"note":"Fresh cream low; whipped/aged products vary.","ref":{"sighi":0,"marks":"","as":"cream, sweet, without additives"}},
    "nutrition":{"kcal":340,"protein":2.1,"carbs":2.8,"fat":36,"highlight":"fat enough to whip, which milk cannot"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh dairy is sattvic; the reading changes once it sours or ages."}},
 
@@ -135,7 +135,7 @@
   {"id":"kefir","name":"Kefir","aliases":["milk kefir","kefir drink"],"emoji":"🥛","category":"dairy","cuisines":["western"],"commonness":3,
    "description":"Milk fermented with grains into a thin, fizzy, sharply sour drink.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not a classical food; placed with cultured milk."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Strongly soured, so ushna — more so than plain dahi."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Read as a thinner, sourer dahi."}},
-   "histamine":{"sighi":2,"tags":["high-histamine","other-amines"],"note":"A live, mixed, long ferment — the mechanism that makes kefir interesting is also the one that makes histamine.","ref":{"sighi":1,"marks":"AH","as":"kefir, keefir, kephir"}},
+   "histamine":{"sighi":1,"tags":["high-histamine","other-amines"],"note":"A live, mixed, long ferment — the mechanism that makes kefir interesting is also the one that makes histamine.","ref":{"sighi":1,"marks":"AH","as":"kefir, keefir, kephir"}},
    "nutrition":{"kcal":41,"protein":3.3,"carbs":4.5,"fat":1,"highlight":"live mixed cultures"}},
 
   {"id":"condensed-milk","name":"Condensed milk","aliases":["sweetened condensed","milkmaid","haleeb muhalla","lian ru"],"emoji":"🥫","category":"dairy","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
@@ -170,7 +170,7 @@
   {"id":"goat-milk","name":"Goat milk","aliases":["bakri ka doodh","haleeb maaz","yang nai"],"emoji":"🐐","category":"dairy","cuisines":["south-asian","arabic"],"commonness":3,
    "description":"Lighter and easier on the stomach than cow's milk, with a distinct tang.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Goat's milk is explicitly warm in TCM, tonifying — unlike cow's milk, which is neutral."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Aja dugdha is shita but light and astringent — classically given in fever, where cow's milk is too heavy."},"unani":{"verdict":"neutral","confidence":"moderate","note":"Treated as the most temperate of the milks, close to balanced."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Fresh milk; low.","ref":{"sighi":0,"marks":"","as":"goat's milk, goat milk"}},
+   "histamine":{"sighi":0,"tags":[],"note":"Fresh milk; low.","ref":{"sighi":0,"marks":"","as":"goat's milk, goat milk"}},
    "nutrition":{"kcal":69,"protein":3.6,"carbs":4.5,"fat":4.1,"highlight":"easier to digest than cow's"}},
 
   {"id":"camel-milk","name":"Camel milk","aliases":["haleeb naga","oont ka doodh","camel's milk"],"emoji":"🐪","category":"dairy","cuisines":["arabic"],"commonness":4,
@@ -201,7 +201,7 @@
   {"id":"milk-powder","name":"Milk powder","aliases":["doodh powder","haleeb bodra","nai fen","skimmed milk powder"],"emoji":"🥛","category":"dairy","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Milk spray-dried to a shelf-stable powder — the base of most packaged sweets and chai.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with milk; drying does not change its nature."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita like milk, though heavier and harder to digest reconstituted."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
-   "histamine":{"sighi":2,"tags":[],"note":"Heat-processed and stored for months — above fresh milk, and it is in far more products than people expect.","ref":{"sighi":1,"marks":"","as":"milk powder, powdered milk"}},
+   "histamine":{"sighi":1,"tags":[],"note":"Heat-dried and shelf-stable — drying halts the microbial activity that builds histamine, so it doesn't rate above fresh milk. It shows up in far more products than people expect, so still worth knowing.","ref":{"sighi":1,"marks":"","as":"milk powder, powdered milk"}},
    "nutrition":{"kcal":496,"protein":26.3,"carbs":38.4,"fat":26.7,"highlight":"in more things than you think"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh dairy is sattvic; the reading changes once it sours or ages."}},
 
@@ -226,7 +226,7 @@
   {"id":"lactose-free-milk","name":"Lactose-free milk","aliases":["lactose free","wu ru tang nai"],"emoji":"🥛","category":"dairy","cuisines":["western"],"commonness":3,
    "description":"Ordinary milk with the lactose already split by added enzyme.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with milk; the enzyme changes the sugar, not the nature."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, as milk is."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Same as milk. Lactose intolerance and histamine intolerance are different problems, often confused.","ref":{"sighi":1,"marks":"H","as":"lactose-free milk"}},
+   "histamine":{"sighi":1,"tags":["high-histamine"],"note":"Same as milk. Lactose intolerance and histamine intolerance are different problems, often confused.","ref":{"sighi":1,"marks":"H","as":"lactose-free milk"}},
    "nutrition":{"kcal":42,"protein":3.4,"carbs":4.8,"fat":1,"highlight":"the sugar is pre-split"}},
 
   {"id":"whey","name":"Whey","aliases":["paneer ka pani","chaas cousin","milk serum"],"emoji":"🥛","category":"dairy","cuisines":["south-asian","western"],"commonness":3,
@@ -343,7 +343,7 @@
   {"id":"tvorog","name":"Tvorog","aliases":["farmer cheese","quark (russian)"],"emoji":"🥣","category":"dairy","cuisines":["eastern-european"],"commonness":2,
    "description":"Fresh curd cheese, drier than quark — eaten with sour cream or baked into syrniki.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh dairy."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; fresh and unsoured."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Fresh and lightly cultured.","ref":{"sighi":0,"marks":"","as":"curd cheese, quark"}},
+   "histamine":{"sighi":0,"tags":[],"note":"SIGHI rates it 0 — fresh and unripened curd, same as quark and the other unaged cheeses.","ref":{"sighi":0,"marks":"","as":"curd cheese, quark"}},
    "nutrition":{"kcal":98,"protein":17,"carbs":3,"fat":2,"highlight":"drier than quark"},
    "guna":{"verdict":"heavy","confidence":"contested","note":"Soured and cultured dairy is read as heavier than fresh milk, and traditionally avoided at night."}},
 

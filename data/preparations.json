@@ -711,19 +711,18 @@
     "minutes": 30,
     "serves": 2,
     "blurb": "The reset meal — nothing aged, nothing fermented, nothing reheated.",
-    "why": "Moong is the one pulse Ayurveda treats as easy on every constitution, and nothing in the pot carries a SIGHI mechanism tag. Cooked fresh and eaten straight away, it is about as low as a full meal goes.",
+    "why": "Moong is the one pulse Ayurveda treats as easy on every constitution, and nothing in the pot carries a SIGHI mechanism tag. Cooked fresh and eaten straight away, it is about as low as a full meal goes. Left the cumin tempering out on purpose — SIGHI marks it a liberator, which the Reactive screen avoids.",
     "swap": "Red lentils cook faster and behave the same.",
     "ingredients": [
       "white-rice",
       "mung-beans",
       "ghee",
-      "turmeric",
-      "cumin"
+      "turmeric"
     ],
     "steps": [
       "Rinse ½ cup rice and ½ cup split moong together until the water runs clear.",
       "Simmer with 3 cups water, turmeric and salt for 20 minutes, until it collapses.",
-      "Temper cumin in ghee and pour it over."
+      "Warm the ghee and pour it over."
     ]
   },
   {
@@ -780,16 +779,15 @@
     "minutes": 35,
     "serves": 4,
     "blurb": "Sweet, thick, and built from things that never appear on a SIGHI list.",
-    "why": "Carrot, pumpkin, ghee and cumin are all SIGHI 0. Most soups fail on the stock rather than the vegetables — bone broth is a 3, so this one is built on water.",
+    "why": "Carrot, pumpkin and ghee are all SIGHI 0. Most soups fail on the stock rather than the vegetables — bone broth is a 3, so this one is built on water. Left cumin out on purpose — SIGHI marks it a liberator, which the Reactive screen avoids.",
     "swap": "Sweet potato for pumpkin; also SIGHI 0 and thicker.",
     "ingredients": [
       "carrot",
       "pumpkin",
-      "ghee",
-      "cumin"
+      "ghee"
     ],
     "steps": [
-      "Soften cubed carrot and pumpkin in ghee with cumin and salt.",
+      "Soften cubed carrot and pumpkin in ghee with salt.",
       "Add water to just cover and simmer 25 minutes until soft.",
       "Blend smooth; loosen with more water if it's claggy."
     ]

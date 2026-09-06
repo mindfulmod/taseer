@@ -2,7 +2,7 @@
   {"id":"chicken","name":"Chicken","aliases":["murgh","dajaj","ji rou"],"emoji":"🍗","category":"protein","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"The default meat of all four cuisines.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"high"},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot-moist","confidence":"high","note":"Murgh is garam — chicken soup for cold days."}},
-   "histamine":{"sighi":0,"tags":[],"note":"Fresh/freshly-frozen is safe; leftovers and slow-cooked broths accumulate histamine fast.","ref":{"sighi":0,"marks":"H","as":"chicken"}},
+   "histamine":{"sighi":0,"tags":["high-histamine"],"note":"Fresh/freshly-frozen is safe; leftovers and slow-cooked broths accumulate histamine fast.","ref":{"sighi":0,"marks":"H","as":"chicken"}},
    "nutrition":{"kcal":165,"protein":31,"carbs":0,"fat":3.6,"highlight":"lean unless you eat the skin"},
    "remedy":{"too-cold":"eat"},
    "guna":{"verdict":"heavy","confidence":"high"}},
@@ -34,7 +34,7 @@
   {"id":"pork","name":"Pork","aliases":["zhu rou","khanzir"],"emoji":"🥓","category":"protein","cuisines":["chinese","western"],"commonness":2,
    "description":"The staple meat of Chinese and Western kitchens.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"high","note":"Unusually for meat, TCM calls pork neutral-cool and yin-nourishing."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Heavy; thinly classified."},"unani":{"verdict":"neutral","confidence":"contested","note":"Not consumed/classified in Unani practice."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Fresh is moderate; cured forms (bacon, ham, sausage) are a 3.","ref":{"sighi":1,"marks":"H","as":"pork (fresh and untreated)"}},
+   "histamine":{"sighi":1,"tags":["high-histamine"],"note":"Fresh is moderate; cured forms (bacon, ham, sausage) are a 3.","ref":{"sighi":1,"marks":"H","as":"pork (fresh and untreated)"}},
    "nutrition":{"kcal":242,"protein":27,"carbs":0,"fat":14,"highlight":"more thiamine than any other meat"},
    "guna":{"verdict":"heavy","confidence":"high"}},
 
@@ -98,7 +98,7 @@
   {"id":"crab","name":"Crab","aliases":["kekda","salta'oon","pang xie"],"emoji":"🦀","category":"protein","cuisines":["chinese","western","south-asian"],"commonness":3,
    "description":"Sweet shellfish — famously 'cold' in Chinese food culture.",
    "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"So cold it's traditionally eaten with warming ginger vinegar."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Shellfish heating per most; disagrees with TCM."},"unani":{"verdict":"hot-moist","confidence":"contested"}},
-   "histamine":{"sighi":2,"tags":["liberator"],"note":"Shellfish liberator; eat very fresh.","ref":{"sighi":2,"marks":"HL","as":"crab"}},
+   "histamine":{"sighi":2,"tags":["high-histamine","liberator"],"note":"Shellfish liberator; eat very fresh.","ref":{"sighi":2,"marks":"HL","as":"crab"}},
    "nutrition":{"kcal":97,"protein":19,"carbs":0,"fat":1.5,"highlight":"zinc & B12"}},
 
   {"id":"squid","name":"Squid","aliases":["calamari","habbar","you yu"],"emoji":"🦑","category":"protein","cuisines":["chinese","arabic","western"],"commonness":3,
@@ -110,7 +110,7 @@
   {"id":"tofu","name":"Tofu","aliases":["soya paneer","dou fu","tawfu"],"emoji":"⬜","category":"protein","cuisines":["chinese","western"],"commonness":2,
    "description":"Fresh soybean curd.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Not classical; inferred."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Fresh tofu is moderate; fermented tofu (furu) and aged forms are a 3.","ref":{"sighi":2,"marks":"","as":"tofu"}},
+   "histamine":{"sighi":2,"tags":[],"note":"Fresh tofu is moderate; fermented tofu (furu) and aged forms are a 3.","ref":{"sighi":2,"marks":"","as":"tofu"}},
    "nutrition":{"kcal":76,"protein":8,"carbs":1.9,"fat":4.8,"highlight":"complete plant protein"},
    "remedy":{"too-hot":"eat"}},
 
@@ -123,7 +123,7 @@
   {"id":"chickpeas","name":"Chickpeas","aliases":["chana","chole","hummus (bean)","ying zui dou","kabuli chana","besan (flour)"],"emoji":"🫘","category":"protein","cuisines":["south-asian","arabic","western"],"commonness":1,
    "description":"The legume of chole, hummus, and besan.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Cooling-dry per texts — yet desi folk calls chana garam; both recorded."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Nakhud is garam in Unani sources."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Legumes are mildly flagged; usually fine fresh-cooked.","ref":{"sighi":2,"marks":"","as":"chickpeas"}},
+   "histamine":{"sighi":2,"tags":[],"note":"Legumes are mildly flagged; usually fine fresh-cooked.","ref":{"sighi":2,"marks":"","as":"chickpeas"}},
    "nutrition":{"kcal":164,"protein":8.9,"carbs":27,"fat":2.6,"highlight":"protein + fiber"}},
 
   {"id":"red-lentils","name":"Red lentils (masoor)","aliases":["masoor dal","adas ahmar","hong dou (approx.)"],"emoji":"🟠","category":"protein","cuisines":["south-asian","arabic"],"commonness":1,
@@ -187,7 +187,7 @@
   {"id":"peanuts","name":"Peanuts","aliases":["moongphali","ful sudani","hua sheng"],"emoji":"🥜","category":"protein","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"The everyday roasted legume-nut.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot-dry","confidence":"high","note":"Moongphali is winter street food — classic garam."}},
-   "histamine":{"sighi":2,"tags":["liberator"],"note":"Liberator — and a major true allergen besides.","ref":{"sighi":2,"marks":"","as":"peanuts"}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"Liberator — and a major true allergen besides.","ref":{"sighi":2,"marks":"","as":"peanuts"},"why":"SIGHI's row carries no letter marker, but peanuts are a well-documented mast-cell-degranulating liberator in the broader literature, distinct from the IgE-mediated peanut allergy the note already separates out — the tag is kept on that established mechanism."},
    "nutrition":{"kcal":567,"protein":26,"carbs":16,"fat":49,"highlight":"a legume that everyone files under nuts"},
    "remedy":{"too-hot":"avoid"},
    "guna":{"verdict":"heavy","confidence":"high"}},
@@ -210,7 +210,7 @@
   {"id":"cashews","name":"Cashews","aliases":["kaju","kajoo","yao guo"],"emoji":"🌰","category":"protein","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"Creamy nut of korma pastes and snack tins.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"high"},"unani":{"verdict":"hot-moist","confidence":"moderate"}},
-   "histamine":{"sighi":1,"tags":["other-amines"],"note":"SIGHI rates it 1 — well below walnuts, which it is often lumped in with.","ref":{"sighi":1,"marks":"AL","as":"cashews, cashew nut"}},
+   "histamine":{"sighi":1,"tags":["liberator","other-amines"],"note":"SIGHI rates it 1 — well below walnuts, which it is often lumped in with.","ref":{"sighi":1,"marks":"AL","as":"cashews, cashew nut"}},
    "nutrition":{"kcal":553,"protein":18,"carbs":30,"fat":44,"highlight":"never sold raw — the shell is caustic"},
    "remedy":{"too-hot":"avoid"}},
 
@@ -237,7 +237,7 @@
   {"id":"sunflower-seeds","name":"Sunflower seeds","aliases":["surajmukhi ke beej","bizr dawwar","kui hua zi"],"emoji":"🌻","category":"protein","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"The cracking-snack seed of Chinese and Arab gatherings.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested"},"unani":{"verdict":"hot-dry","confidence":"contested"}},
-   "histamine":{"sighi":2,"tags":[],"note":"SIGHI rates it 2, higher than most seeds; rancid ones are worse again.","ref":{"sighi":2,"marks":"L","as":"sunflower seeds"}},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"SIGHI rates it 2, higher than most seeds; rancid ones are worse again.","ref":{"sighi":2,"marks":"L","as":"sunflower seeds"}},
    "nutrition":{"kcal":584,"protein":21,"carbs":20,"fat":51,"highlight":"vitamin E, eaten by the handful across two continents"}},
 
   {"id":"chia-seeds","name":"Chia seeds","aliases":["chia","qi ya zi"],"emoji":"⚫","category":"protein","cuisines":["western"],"commonness":2,
@@ -300,14 +300,14 @@
   {"id":"turkey","name":"Turkey","aliases":["huo ji","peru","deek romi"],"emoji":"🦃","category":"protein","cuisines":["western","arabic"],"commonness":3,
    "description":"Lean poultry, mostly roasted whole — and eaten as leftovers for days.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with chicken, which is warm and qi-tonifying."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, as poultry generally is."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam, leaner and drier than chicken."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Low fresh — but turkey is the classic leftover meat, and cooked meat climbs sharply after a day or two in the fridge.","ref":{"sighi":0,"marks":"H","as":"turkey"}},
+   "histamine":{"sighi":0,"tags":["high-histamine"],"note":"Negligible fresh off the bird — but turkey is the classic leftover meat, and cooked meat climbs sharply after a day or two in the fridge.","ref":{"sighi":0,"marks":"H","as":"turkey"}},
    "nutrition":{"kcal":189,"protein":28.6,"carbs":0,"fat":7.4,"highlight":"lean, and eaten for days"},
    "remedy":{"too-cold":"eat"}},
 
   {"id":"quail","name":"Quail","aliases":["bater","an chun","summan"],"emoji":"🐦","category":"protein","cuisines":["south-asian","arabic","chinese"],"commonness":4,
    "description":"Small game bird, roasted or curried whole — two to a person.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"An chun tonifies qi and strengthens the tendons and bones."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna; game birds are the heating end of the meat group."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Bater is famously garam in desi Unani usage, given in winter and for weakness."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Low fresh, like other poultry.","ref":{"sighi":0,"marks":"H","as":"quail"}},
+   "histamine":{"sighi":0,"tags":["high-histamine"],"note":"Negligible fresh, like other poultry, but the same perishability marker applies once stored.","ref":{"sighi":0,"marks":"H","as":"quail"}},
    "nutrition":{"kcal":134,"protein":21.8,"carbs":0,"fat":4.5,"highlight":"two to a person"},
    "remedy":{"too-cold":"eat"}},
 
@@ -394,19 +394,19 @@
   {"id":"clams","name":"Clams","aliases":["tisryo","ge li","vongole"],"emoji":"🦪","category":"protein","cuisines":["chinese","western","south-asian"],"commonness":3,
    "description":"Small hinged shells, cooked just until they open.",
    "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Unusually for shellfish, clams are cold in TCM and used to clear heat and phlegm."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, with the other shellfish."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam in the general reading of shellfish."}},
-   "histamine":{"sighi":2,"tags":["liberator"],"note":"Shellfish liberator.","ref":{"sighi":2,"marks":"HL","as":"bivalves (mussels, oisters, clams, scallops, ...)"}},
+   "histamine":{"sighi":2,"tags":["high-histamine","liberator"],"note":"Shellfish liberator.","ref":{"sighi":2,"marks":"HL","as":"bivalves (mussels, oisters, clams, scallops, ...)"}},
    "nutrition":{"kcal":74,"protein":12.8,"carbs":2.6,"fat":1,"highlight":"cooked until they open"}},
 
   {"id":"oysters","name":"Oysters","aliases":["mu li","sadaf","kasturi"],"emoji":"🦪","category":"protein","cuisines":["chinese","western"],"commonness":4,
    "description":"Eaten raw off the shell, or dried and simmered into stock.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Mu li is cool and yin-nourishing — the shell is a classical calming drug."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna with the shellfish; outside classical practice."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Garam and reputedly strengthening."}},
-   "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Raw shellfish is both a liberator and high in itself — among the riskiest things on a reactive day.","ref":{"sighi":2,"marks":"HL","as":"oysters"}},
+   "histamine":{"sighi":2,"tags":["liberator","high-histamine"],"note":"Raw shellfish is both a liberator and high in itself — among the riskiest things on a reactive day.","ref":{"sighi":2,"marks":"HL","as":"oysters"}},
    "nutrition":{"kcal":68,"protein":7.1,"carbs":3.9,"fat":2.5,"highlight":"eaten raw off the shell"}},
 
   {"id":"scallops","name":"Scallops","aliases":["gan bei","shan bei","sea scallop"],"emoji":"🦪","category":"protein","cuisines":["chinese","western"],"commonness":4,
    "description":"Sweet white discs seared hard and fast; dried, they become a prized stock base.",
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Gan bei is neutral and nourishes yin — the dried scallop is a tonic ingredient."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"With the shellfish group."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Garam by the general shellfish reading."}},
-   "histamine":{"sighi":2,"tags":["liberator"],"note":"Shellfish liberator; the dried kind is higher again.","ref":{"sighi":2,"marks":"HL","as":"bivalves (mussels, oisters, clams, scallops, ...)"}},
+   "histamine":{"sighi":2,"tags":["high-histamine","liberator"],"note":"Shellfish liberator; the dried kind is higher again.","ref":{"sighi":2,"marks":"HL","as":"bivalves (mussels, oisters, clams, scallops, ...)"}},
    "nutrition":{"kcal":88,"protein":16.8,"carbs":2.4,"fat":0.8,"highlight":"seared hard and fast"}},
 
   {"id":"tempeh","name":"Tempeh","aliases":["fermented soy cake","tempe"],"emoji":"🟫","category":"protein","cuisines":["chinese","western"],"commonness":4,
@@ -454,7 +454,7 @@
   {"id":"pecans","name":"Pecans","aliases":["bi gen guo","pecan nut"],"emoji":"🌰","category":"protein","cuisines":["western"],"commonness":4,
    "description":"Long ridged nuts, sweeter and softer than walnuts.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with walnut, which is warm and tonifies the kidney."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna with the nut group."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam, as walnuts are."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Lower than walnut, though the two are close relatives. They go rancid quickly.","ref":{"sighi":0,"marks":"","as":"pecan nut"}},
+   "histamine":{"sighi":0,"tags":[],"note":"Lower than walnut, though the two are close relatives. They go rancid quickly.","ref":{"sighi":0,"marks":"","as":"pecan nut"}},
    "nutrition":{"kcal":691,"protein":9.2,"carbs":13.9,"fat":72,"highlight":"softer than a walnut"},
    "remedy":{"too-cold":"eat"}},
 
@@ -609,7 +609,7 @@
   {"id":"lobster","name":"Lobster","aliases":["long xia","istakoza","spiny lobster"],"emoji":"🦞","category":"protein","cuisines":["western","chinese","arabic"],"commonness":4,
    "description":"Large clawed shellfish, boiled or grilled and eaten from the shell.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with the shellfish group — warm and yang-tonifying."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, with the shellfish."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
-   "histamine":{"sighi":2,"tags":["liberator"],"note":"Shellfish liberator; must be cooked from live for the same reason.","ref":{"sighi":2,"marks":"HL","as":"lobster"}},
+   "histamine":{"sighi":2,"tags":["high-histamine","liberator"],"note":"Shellfish liberator; must be cooked from live for the same reason.","ref":{"sighi":2,"marks":"HL","as":"lobster"}},
    "nutrition":{"kcal":89,"protein":19,"carbs":0,"fat":0.9,"highlight":"eaten from the shell"},
    "remedy":{"too-cold":"eat"}},
 
@@ -667,7 +667,7 @@
   {"id":"venison","name":"Venison","aliases":["lu rou","deer meat","hiran ka gosht"],"emoji":"🍖","category":"protein","cuisines":["chinese","western"],"commonness":4,
    "description":"Very lean dark game meat with a strong flavour.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Lu rou is warm and strongly yang-tonifying — a winter tonic meat in TCM."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree, as game is."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk; classic winter meat."}},
-   "histamine":{"sighi":1,"tags":[],"note":"Low fresh, though game is often hung, which raises it considerably.","ref":{"sighi":1,"marks":"H","as":"venison"}},
+   "histamine":{"sighi":1,"tags":["high-histamine"],"note":"Negligible fresh, though game is often hung before butchering — a deliberate aging process that raises biogenic amines the same way it does in aged meat and cheese.","ref":{"sighi":1,"marks":"H","as":"venison"}},
    "nutrition":{"kcal":158,"protein":30.2,"carbs":0,"fat":3.2,"highlight":"hung game climbs fast"},
    "remedy":{"too-cold":"eat"}},
 
@@ -781,7 +781,7 @@
   {"id":"smoked-salmon","name":"Smoked salmon","aliases":["lox","gravlax","xun san wen yu"],"emoji":"🐟","category":"protein","cuisines":["western"],"commonness":2,
    "description":"Salmon cured in salt and cold-smoked, sliced thin and eaten raw.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with salmon; curing and smoking add heat."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
-   "histamine":{"sighi":3,"tags":["high-histamine","other-amines"],"note":"Cured, smoked and eaten without cooking — one of the highest fish preparations there is.","ref":{"sighi":2,"marks":"","as":"smoked salmon"}},
+   "histamine":{"sighi":3,"tags":["high-histamine","other-amines"],"note":"Cured, smoked and eaten without cooking — one of the highest fish preparations there is.","ref":{"sighi":2,"marks":"","as":"smoked salmon"},"why":"SIGHI's row carries no letter markers at 2, but cured, cold-smoked salmon eaten without further cooking is one of the most consistently cited high-histamine foods in histamine-intolerance literature — curing plus smoking plus no subsequent cooking is the textbook profile, so the higher, marked reading is kept."},
    "nutrition":{"kcal":117,"protein":18.3,"carbs":0,"fat":4.3,"highlight":"cured, smoked, never cooked"},
    "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."}},
 
