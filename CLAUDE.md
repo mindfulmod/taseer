@@ -7,13 +7,17 @@ raise a question rather than relitigating one.
 ## Before any commit
 
 ```bash
-node scripts/validate-data.mjs   # after ANY data/foods edit
-node scripts/build-data.mjs      # regenerates assets/data/foods.js
-node scripts/stamp-sw.mjs        # after ANY shell change (html/css/js/data)
-node scripts/check-palette.mjs   # enforces the ART.md palette
+node scripts/validate-data.mjs             # after ANY data/foods edit
+node scripts/build-data.mjs                # regenerates assets/data/foods.js
+node scripts/stamp-sw.mjs                  # after ANY shell change (html/css/js/data)
+node scripts/check-palette.mjs             # enforces the ART.md palette
+node scripts/check-dish-consistency.mjs    # flags dish/drink thermal verdicts that disagree with their own ingredients
 ```
 
-CI runs all four and fails if any generated file is stale.
+CI runs the first four and fails if any generated file is stale.
+`check-dish-consistency.mjs` produces a candidate review queue, not a build
+gate — it exits 0 regardless of what it finds; read its output, don't auto-fix
+off it (preparation method legitimately overrides an ingredient majority).
 
 ## Visual work
 
