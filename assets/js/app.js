@@ -383,6 +383,23 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   const registerSW = () => navigator.serviceWorker.register("./sw.js").catch(() => {});
   if (document.readyState === "complete") registerSW();
   else addEventListener("load", registerSW);
+
+  // A full document reload is the only thing that re-runs the line above, so
+  // it's the only built-in trigger for "check for a new version". An
+  // installed PWA that's kept open for a long time — backgrounded, not
+  // fully closed, the common case on a phone's home screen — may never
+  // produce another one, leaving it dependent on the browser's own
+  // internal (roughly daily) background check. Re-checking whenever the
+  // tab is foregrounded closes most of that gap for free: `update()` is a
+  // safe no-op when the cached sw.js is already current, and this never
+  // touches the page itself — the existing skipWaiting/clients.claim pair
+  // still does the actual swap silently, on whatever the next full
+  // navigation turns out to be.
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      navigator.serviceWorker.getRegistration().then(reg => reg?.update()).catch(() => {});
+    }
+  });
 }
 
 // Chromium fires this instead of showing its own prompt; we surface it on Me.
