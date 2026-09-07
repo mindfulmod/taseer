@@ -70,21 +70,21 @@
 
   {"id":"lemon","name":"Lemon","aliases":["nimbu","laimun","ning meng"],"emoji":"🍋","category":"fruit","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Sour citrus used for juice, dressing, and sharbat.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Sour = heating classically, yet lemon water is widely used as a cooler."},"unani":{"verdict":"cold","confidence":"high","note":"Base of classic cooling sharbats (shikanjabeen)."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Amla-rasa (sour) is a well-established ushna taste in Ayurveda's rasa-virya doctrine, the same rule this dataset applies to tamarind and amchur — a confident classical position. 'Lemon water is cooling' is a sensory/folk belief about a chilled drink, not the classical virya reading, the same distinction this dataset already draws for cardamom and curry leaves."},"unani":{"verdict":"cold","confidence":"high","note":"Base of classic cooling sharbats (shikanjabeen)."}},
    "histamine":{"sighi":2,"tags":["liberator","other-amines"],"note":"Mild liberator; small amounts fine for many.","ref":{"sighi":2,"marks":"AL","as":"lemon"}},
    "nutrition":{"kcal":29,"protein":1.1,"carbs":9,"fat":0.3,"highlight":"more acid than sugar, unlike every other citrus"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
 
   {"id":"lime","name":"Lime","aliases":["nimbu (kaghzi)","laimun akhdar","qing ning"],"emoji":"🍋‍🟩","category":"fruit","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Small sharp citrus, the desi 'nimbu' in most kitchens.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Same sour paradox as lemon."},"unani":{"verdict":"cold","confidence":"high"}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Same reasoning as lemon: sour taste is a well-established ushna rasa classically, while the 'cooling' reputation of nimbu-pani is a sensory belief about a chilled drink, not the textual virya position."},"unani":{"verdict":"cold","confidence":"high"}},
    "histamine":{"sighi":3,"tags":["liberator","other-amines"],"note":"Mild liberator.","ref":{"sighi":3,"marks":"AL","as":"lime"}},
    "nutrition":{"kcal":30,"protein":0.7,"carbs":11,"fat":0.2,"highlight":"sharper and more floral than lemon"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
 
   {"id":"grapefruit","name":"Grapefruit","aliases":["chakotra","greyp frut","you zi"],"emoji":"🍊","category":"fruit","cuisines":["arabic","chinese","western"],"commonness":3,
    "description":"Large bitter-sour citrus.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"high"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Sour-bitter; schools disagree."},"unani":{"verdict":"cold","confidence":"moderate"}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"high"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"An 18th-century hybrid with no classical Sanskrit entry, and its taste itself pulls two ways under rasa-virya theory: amla (sour) reads ushna, but tikta (bitter) reads shita — a genuine doctrinal tension on top of the missing textual record, not just under-documentation."},"unani":{"verdict":"cold","confidence":"moderate"}},
    "histamine":{"sighi":2,"tags":["liberator","other-amines"],"note":"Also interacts with many medications (non-histamine caution).","ref":{"sighi":2,"marks":"AL","as":"grapefruit"}},
    "nutrition":{"kcal":42,"protein":0.8,"carbs":11,"fat":0.1,"highlight":"the bitterness is naringin"}},
 
@@ -128,7 +128,7 @@
 
   {"id":"pineapple","name":"Pineapple","aliases":["ananas","bo luo"],"emoji":"🍍","category":"fruit","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"Sweet-sharp tropical fruit.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ripe sweet pineapple called cooling by some."},"unani":{"verdict":"hot","confidence":"moderate"}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Pineapple is a New World fruit (Brazil) with no entry in the classical Sanskrit texts. 'Cooling' is likely a modern intuition about a chilled, refreshing fruit rather than a textual position; sour-sweet taste under the general rasa-virya rule leans heating, so this reading is an extrapolation, not a resolved textual disagreement."},"unani":{"verdict":"hot","confidence":"moderate"}},
    "histamine":{"sighi":2,"tags":["liberator","other-amines"],"note":"Bromelain is a strong liberator.","ref":{"sighi":2,"marks":"AL","as":"pineapple"}},
    "nutrition":{"kcal":50,"protein":0.5,"carbs":13,"fat":0.1,"highlight":"bromelain is why it stings your tongue"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -150,7 +150,7 @@
 
   {"id":"longan","name":"Longan","aliases":["long yan","dragon eye"],"emoji":"🍇","category":"fruit","cuisines":["chinese"],"commonness":4,
    "description":"Small translucent fruit; a TCM blood tonic.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"high"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Not classically documented; inferred."},"unani":{"verdict":"hot","confidence":"contested","note":"Not classically documented; inferred."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"No classical entry of its own, but longan is grouped with lychee in this dataset's own lychee entry (heating, moderate) — a real botanical (Sapindaceae) relationship, reinforced by TCM's own high-confidence warm reading here."},"unani":{"verdict":"hot","confidence":"moderate","note":"No classical entry of its own, but follows lychee (hot, moderate, in this same file) on the same family grouping."}},
    "histamine":{"sighi":1,"tags":[],"note":"Sparse data."},
    "nutrition":{"kcal":60,"protein":1.3,"carbs":15,"fat":0.1,"highlight":"dried, it becomes a tonic rather than a fruit"},
    "remedy":{"too-cold":"eat"}},
@@ -249,7 +249,7 @@
 
   {"id":"cranberry","name":"Cranberry","aliases":["karanberi","man yue mei"],"emoji":"🔴","category":"fruit","cuisines":["western"],"commonness":3,
    "description":"Very tart berry, mostly consumed dried or as juice.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classical; inferred."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Astringent-sour; schools would split."},"unani":{"verdict":"cold-dry","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classical; inferred."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"A New World fruit with no classical entry, not a case of schools disagreeing — and even hypothetically, its astringent-sour taste would pull two ways under rasa-virya theory (amla=ushna vs kashaya=shita), same as the tension in grapefruit and star fruit."},"unani":{"verdict":"cold-dry","confidence":"contested"}},
    "histamine":{"sighi":0,"tags":[],"note":"Dried/juiced forms often sweetened and sulfured.","ref":{"sighi":0,"marks":"","as":"cranberry, cranberries"}},
    "nutrition":{"kcal":46,"protein":0.4,"carbs":12,"fat":0.1,"highlight":"too tart to eat unsweetened"}},
 
@@ -262,7 +262,7 @@
 
   {"id":"prunes","name":"Prunes / dried plums","aliases":["aloo bukhara (dried)","qara'sia"],"emoji":"🟣","category":"fruit","cuisines":["south-asian","arabic","western"],"commonness":3,
    "description":"Dried plums, stewed into desi qormas and eaten for digestion.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-moist","confidence":"high","note":"Aloo bukhara is a classic Unani cooler."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Follows plum, itself neutral in this dataset. Unlike the sugar-dense stone and date fruits that warm on drying (apricot, date, fig), plum's own ayurveda and unani readings stay cooling even dried here, so neutral — not warm — is the internally consistent placement."},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-moist","confidence":"high","note":"Aloo bukhara is a classic Unani cooler."}},
    "histamine":{"sighi":2,"tags":[],"note":"Dried fruit; sulfites common."},
    "nutrition":{"kcal":240,"protein":2.2,"carbs":64,"fat":0.4,"highlight":"eaten for what they do, not what they taste like"}},
 
@@ -303,20 +303,20 @@
 
   {"id":"jujube-red-date","name":"Red date (jujube)","aliases":["hong zao","da zao","chinese date","unnab"],"emoji":"🫘","category":"fruit","cuisines":["chinese","arabic"],"commonness":3,
    "description":"The wrinkled red date dropped into Chinese soups and tonics.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Da zao is a core warming tonic — added to soups to build qi and blood, and to soften harsh herbs."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"The Chinese species is not the Ayurvedic badari; read across with caution."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Unnab in Unani is a cooling demulcent for the chest — the opposite reading to TCM's warming tonic."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Da zao is a core warming tonic — added to soups to build qi and blood, and to soften harsh herbs."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"The Chinese species is not the Ayurvedic badari (which this dataset's own ber entry reads as cooling, not heating) — 'heating' here is really an unstated borrow from TCM's own warm reading rather than a grounded Ayurvedic position, so it's a weaker guess than it looks, not a resolved reading with a disclaimer attached."},"unani":{"verdict":"cold-moist","confidence":"high","note":"CORRECTED off contested — unlike the Ayurveda field, 'unnab' is not a loose analogy: it is literally the classical Unani name for this exact species (Ziziphus jujuba), well documented in texts like Makhzan al-Adviya as barid-ratab, a cooling chest demulcent for cough. This is a genuine, well-sourced cross-tradition disagreement with TCM's warming tonic, not internal Unani uncertainty."}},
    "histamine":{"sighi":1,"tags":[],"note":"Dried but unsulphured in its usual form."},
    "nutrition":{"kcal":287,"protein":3.7,"carbs":74,"fat":1.1,"highlight":"the Chinese soup tonic"},
    "remedy":{"too-cold":"eat"}},
 
   {"id":"goji-berry","name":"Goji berry","aliases":["gou qi zi","wolfberry","chinese wolfberry"],"emoji":"🔴","category":"fruit","cuisines":["chinese"],"commonness":3,
    "description":"Small red dried berry, scattered into congee, soups and tea.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"high","note":"Gou qi zi is classically neutral — a liver and kidney yin tonic that suits both hot and cold constitutions."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical Ayurvedic entry; placed from its yin-nourishing character."},"unani":{"verdict":"neutral","confidence":"contested","note":"Absent from the Unani record."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"high","note":"Gou qi zi is classically neutral — a liver and kidney yin tonic that suits both hot and cold constitutions."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"No classical entry, but madhura rasa (sweet taste) is well-established as shita virya in Ayurveda — the same rule this dataset applies to stevia, maple syrup, and monk fruit."},"unani":{"verdict":"neutral","confidence":"contested","note":"Absent from the Unani record, and unlike Ayurveda, Unani has no clean sweet-equals-cold rule to extend — dates, honey and jaggery are all classically hot despite being sweet."}},
    "histamine":{"sighi":0,"tags":[],"note":"Dried fruit; low, like other plain dried fruit — drying doesn't concentrate histamine risk the way fermenting or spoiling does.","ref":{"sighi":0,"marks":"","as":"goji berry, Chinese wolfberry, Chinese boxthorn, Himalayan goji, Tibetan goji"}},
    "nutrition":{"kcal":349,"protein":14.3,"carbs":77,"fat":0.4,"highlight":"unusually protein-dense for a berry"}},
 
   {"id":"olives","name":"Olives","aliases":["zaytoon","zeitun","table olives","gan lan"],"emoji":"🫒","category":"fruit","cuisines":["arabic","western"],"commonness":1,
    "description":"Cured and brined — inedibly bitter straight off the tree.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"The Chinese olive is a different fruit; the Mediterranean one has no classical entry."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Not classical; salt-cured and oily reads ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Zaytoon and its oil are har-ratab in Unani — warming and moistening, a standard tonic."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"The Chinese olive is a different fruit; the Mediterranean one has no classical entry."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Not classical, but salt-curing is the stronger driver rather than being oily — lavana rasa (salty taste) is well-established as ushna in Ayurveda, the same rule this dataset applies to MSG and table salt. 'Oily foods are ushna' alone is not a reliable rule here, since this dataset's own coconut entry is oily yet classically cooling."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Zaytoon and its oil are har-ratab in Unani — warming and moistening, a standard tonic."}},
    "histamine":{"sighi":2,"tags":["high-histamine"],"note":"SIGHI treats unfermented olives as risky and pickled or fermented ones as worse — table olives are cured, so the curing is what rates them, not the fruit.","ref":{"sighi":2,"marks":"","as":"olives"},"why":"SIGHI's row carries no letter marker at its own score of 2, but table olives are cured/brine-fermented — a genuine, well-established biogenic-amine-forming process — which is why the tag is kept even though SIGHI didn't letter-mark this particular row."},
    "nutrition":{"kcal":115,"protein":0.8,"carbs":6.3,"fat":10.7,"highlight":"cured in salt, so salty"},
    "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."}},
@@ -330,7 +330,7 @@
 
   {"id":"sweet-lime","name":"Sweet lime","aliases":["mosambi","musambi","sweet lemon","succari"],"emoji":"🍋","category":"fruit","cuisines":["south-asian","arabic"],"commonness":2,
    "description":"The juice-stall citrus — sweet, barely acidic, handed over in a glass.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not separately classified; read with the citrus family."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Sweeter and far less sour than lemon, so shita without the heating sourness."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Mosambi is firmly thanda in desi usage — the standard convalescent juice."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the citrus family — the same 'read with citrus' reasoning this dataset already carries at moderate confidence for tangelo, ugli fruit, mikan and blood orange, so mosambi was an outlier at contested rather than a case of real doubt."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Sweeter and far less sour than lemon, so shita without the heating sourness."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Mosambi is firmly thanda in desi usage — the standard convalescent juice."}},
    "histamine":{"sighi":1,"tags":["liberator","other-amines"],"note":"Citrus liberator, though milder than lemon."},
    "nutrition":{"kcal":43,"protein":0.8,"carbs":9.3,"fat":0.3,"highlight":"the juice-stall standard"},
    "remedy":{"too-hot":"eat"},
@@ -344,28 +344,28 @@
 
   {"id":"star-fruit","name":"Star fruit","aliases":["carambola","kamrakh","yang tao"],"emoji":"⭐","category":"fruit","cuisines":["south-asian","chinese"],"commonness":3,
    "description":"Crisp and tart, cut into stars. People with kidney disease are advised to avoid it entirely.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Yang tao clears heat and generates fluids — a summer fruit in the Chinese reading."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Regional rather than classical; sour-astringent and read as shita."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Not part of the classical Unani record."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Yang tao clears heat and generates fluids — a summer fruit in the Chinese reading."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"A real doctrinal tension rather than a documentation gap: star fruit is both sour (amla-rasa, classically ushna) and astringent (kashaya-rasa, classically shita), two rasas that pull in opposite directions. This dataset's own amla entry frames sour-yet-cooling as the textbook exception, not the rule, so the tension here is genuine."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"No specific classical entry, but sour taste reads cold in Unani mizaj theory (turush = barid) — the pattern this dataset already documents across lemon, lime, orange, tamarind, amla, kokum, karonda and bilimbi."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low on histamine — its documented hazard is oxalate and neurotoxin load in kidney disease, which is a separate matter.","ref":{"sighi":0,"marks":"","as":"carambola, starfruit"}},
    "nutrition":{"kcal":31,"protein":1,"carbs":6.7,"fat":0.3,"highlight":"cross-sections into stars"},
    "remedy":{"too-hot":"eat"}},
 
   {"id":"durian","name":"Durian","aliases":["liu lian","the king of fruits"],"emoji":"🥥","category":"fruit","cuisines":["chinese"],"commonness":4,
    "description":"Custard-rich, pungent, and the fruit most famously said to overheat you.",
-   "thermal":{"tcm":{"verdict":"hot","confidence":"high","note":"The classic shang huo fruit — eating too much is said to bring on heat signs, and mangosteen is the traditional antidote."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record, but its richness and pungency read ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"No Unani entry; placed by analogy to rich, oily fruits."}},
+   "thermal":{"tcm":{"verdict":"hot","confidence":"high","note":"The classic shang huo fruit — eating too much is said to bring on heat signs, and mangosteen is the traditional antidote."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record. Pungency (katu rasa, itself a well-established ushna taste) is the steadier basis for a heating guess here than richness/fattiness alone — this dataset's own coconut entry shows a rich, oily food can just as easily read cooling, so 'oily = heating' isn't a reliable rule to lean on."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"No Unani entry; placed by analogy to rich fruits, though (as with the ayurveda field) richness alone is not a reliable heating signal in this dataset."}},
    "histamine":{"sighi":1,"tags":[],"note":"Strong-smelling but not fermented — the smell is sulphur compounds, not histamine."},
    "nutrition":{"kcal":147,"protein":1.5,"carbs":27.1,"fat":5.3,"highlight":"the classic heating fruit"},
    "remedy":{"too-cold":"eat"}},
 
   {"id":"mangosteen","name":"Mangosteen","aliases":["shan zhu","mangustan","queen of fruits"],"emoji":"🟣","category":"fruit","cuisines":["chinese","south-asian"],"commonness":4,
    "description":"White segments in a thick purple rind — durian's traditional counterweight.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Paired with durian in Chinese and Southeast Asian practice: the cooling queen against the heating king."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry; sweet-astringent and read as shita."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Absent from the Unani record."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Paired with durian in Chinese and Southeast Asian practice: the cooling queen against the heating king."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"No classical entry for this Southeast Asian fruit, but both its rasas point the same way under Ayurveda's own rasa-virya rule: madhura (sweet) and kashaya (astringent) are each independently well-established as shita, the same logic this dataset uses for maple syrup and stevia — a reinforced rule application, not a guess."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Absent from the Unani record, and unlike Ayurveda, Unani has no clean sweet-equals-cold rule to extend — dates, honey and jaggery are all classically hot despite being sweet, so this placement stays a genuine guess rather than a confident rule application."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":73,"protein":0.4,"carbs":17.9,"fat":0.6,"highlight":"durian's cooling counterpart"},
    "remedy":{"too-hot":"eat"}},
 
   {"id":"rambutan","name":"Rambutan","aliases":["hong mao dan","hairy lychee"],"emoji":"🔴","category":"fruit","cuisines":["chinese"],"commonness":4,
    "description":"Lychee's hairy cousin — sweet, floral, slightly firmer.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Grouped with lychee and longan, which are warm and said to be heating in quantity."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"No classical entry; read with the lychee family."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the Unani record."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Grouped with lychee and longan, which are warm and said to be heating in quantity."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"No classical entry, but this dataset's own tcm field for rambutan already accepts the lychee-family grouping at moderate confidence — the same real Sapindaceae relationship extends here."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"No classical entry, extended from the same lychee-family grouping this dataset already uses for rambutan's tcm reading."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low, like lychee."},
    "nutrition":{"kcal":82,"protein":0.7,"carbs":20.9,"fat":0.2,"highlight":"lychee's hairy cousin"},
    "remedy":{"too-cold":"eat"}},
@@ -379,25 +379,25 @@
 
   {"id":"quince","name":"Quince","aliases":["safarjal","bihi","behi"],"emoji":"🍐","category":"fruit","cuisines":["arabic","south-asian"],"commonness":4,
    "description":"Hard, astringent and inedible raw — cooked into jams and stews.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Not a classical Chinese food fruit."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Bihi appears in regional use rather than the core texts; astringent and read as shita."},"unani":{"verdict":"cold-dry","confidence":"high","note":"Safarjal is well documented in Unani as barid-yabis, astringent, and strengthening to the stomach."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Not a classical Chinese food fruit."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Not from the core classical texts, but astringent taste (kashaya rasa) is a well-established shita-virya taste in Ayurveda's rasa-virya doctrine — the same rule this dataset uses to place maple syrup and stevia — so this is a confident rule application rather than a guess. Reinforced by quince's own unani entry, independently documented as barid (cold) and astringent."},"unani":{"verdict":"cold-dry","confidence":"high","note":"Safarjal is well documented in Unani as barid-yabis, astringent, and strengthening to the stomach."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low; almost always cooked.","ref":{"sighi":0,"marks":"","as":"quince"}},
    "nutrition":{"kcal":57,"protein":0.4,"carbs":15.3,"fat":0.1,"highlight":"has to be cooked"}},
 
   {"id":"blackberry","name":"Blackberry","aliases":["hei mei","bramble berry"],"emoji":"🫐","category":"fruit","cuisines":["western"],"commonness":3,
    "description":"Dark, seedy hedgerow berry, sweet at the edge of tart.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classically listed; read with the berry family."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry; sweet-astringent."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the canon."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classically listed. 'Read with the berry family' overstates the case — this dataset's own soft-berry readings actually vary (mulberry cold, strawberry cool, raspberry's dried herb form warm), so there's no single family rule to extend from here."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry; sweet-astringent."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the canon."}},
    "histamine":{"sighi":0,"tags":[],"note":"Better tolerated than strawberry, which is the berry SIGHI singles out.","ref":{"sighi":0,"marks":"","as":"blackberry"}},
    "nutrition":{"kcal":43,"protein":1.4,"carbs":9.6,"fat":0.5,"highlight":"dark berry pigments"}},
 
   {"id":"carob","name":"Carob","aliases":["kharoub","kharrub","locust bean","st john's bread"],"emoji":"🟤","category":"fruit","cuisines":["arabic","western"],"commonness":4,
    "description":"Dried pod ground into a sweet powder — chocolate's caffeine-free stand-in.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"No Chinese entry."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Not classical; sweet-astringent."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Kharrub is documented in Unani as cold and astringent, used for loose stools — the reverse of chocolate's reading."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"No Chinese entry."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"No classical Ayurvedic entry, but astringent taste (kashaya rasa) is a well-established shita-virya taste in Ayurveda, and this entry's own unani field independently documents carob as cold and astringent too — cross-tradition agreement on the same taste-driven reading."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Kharrub is documented in Unani as cold and astringent, used for loose stools — the reverse of chocolate's reading."}},
    "histamine":{"sighi":2,"tags":[],"note":"Low, and specifically the substitute recommended in place of cocoa.","ref":{"sighi":2,"marks":"","as":"carob, carob powder, carob pod meal"}},
    "nutrition":{"kcal":222,"protein":4.6,"carbs":88.9,"fat":0.7,"highlight":"chocolate's caffeine-free stand-in"}},
 
   {"id":"plantain","name":"Plantain","aliases":["kacha kela","raw banana","cooking banana","da jiao"],"emoji":"🍌","category":"fruit","cuisines":["south-asian","arabic","western"],"commonness":2,
    "description":"Starchy cooking banana — fried, boiled or curried, never eaten raw.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with banana, which is cold; cooking tempers it."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Kachcha kela is shita and grahi (binding) — used for loose motions where ripe banana is not."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda and drying, unlike the ripe fruit which is thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with banana, which this dataset itself reads as cold at high confidence; cooking is a recognized TCM principle for tempering a raw food's coldness, which is why plantain sits one notch warmer than the ripe fruit rather than at the same reading."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Kachcha kela is shita and grahi (binding) — used for loose motions where ripe banana is not."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda and drying, unlike the ripe fruit which is thanda-tar."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Carries banana's liberator flag; the starchier unripe fruit is usually better tolerated."},
    "nutrition":{"kcal":122,"protein":1.3,"carbs":31.9,"fat":0.4,"highlight":"starchy — cooked, not raw"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -410,7 +410,7 @@
 
   {"id":"ber","name":"Ber","aliases":["indian jujube","bor","regi pandu","chinee apple"],"emoji":"🟤","category":"fruit","cuisines":["south-asian"],"commonness":3,
    "description":"Small crisp winter fruit sold by the bagful from roadside carts.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"A different species from the Chinese red date, though related — read with caution."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Ripe badari is sweet and shita; the unripe sour fruit is read the other way."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Unnab-family, thanda, used as a chest demulcent."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A different species from the Chinese red date (jujube), but the same Ziziphus genus this dataset already reads as warm at high confidence — the family's warming tonic character is documented enough in Chinese materia medica to extend with moderate rather than contested confidence."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Ripe badari is sweet and shita; the unripe sour fruit is read the other way."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Unnab-family, thanda, used as a chest demulcent."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":79,"protein":1.2,"carbs":20.2,"fat":0.2,"highlight":"the winter roadside fruit"}},
 
@@ -436,7 +436,7 @@
 
   {"id":"kumquat","name":"Kumquat","aliases":["jin ju","jin gan","golden orange"],"emoji":"🍊","category":"fruit","cuisines":["chinese"],"commonness":4,
    "description":"Thumb-sized citrus eaten whole — sweet skin, sharp flesh.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Jin ju regulates qi and resolves phlegm; unusually for citrus, it is read as warm rather than cool."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"No classical entry; the aromatic peel reads ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the Unani record."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Jin ju regulates qi and resolves phlegm; unusually for citrus, it is read as warm rather than cool."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"No classical entry, but kumquat is eaten whole (sour flesh and aromatic peel together) — sour taste is a well-established ushna rasa in this dataset's own rule (tamarind, amla), so heating follows a confident rule application rather than a guess."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"No specific classical entry, but kumquat is eaten whole, peel and all, like citron (turanj, garam in the Unani record) rather than peeled and juiced like orange or lemon (which this dataset reads as cold) — the same peel-driven exception applies."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Citrus, so flagged as a liberator."},
    "nutrition":{"kcal":71,"protein":1.9,"carbs":15.9,"fat":0.9,"highlight":"eaten skin and all"}},
 
@@ -501,14 +501,14 @@
 
   {"id":"hawthorn","name":"Hawthorn","aliases":["shan zha","chinese hawthorn","haw berry"],"emoji":"🔴","category":"fruit","cuisines":["chinese"],"commonness":3,
    "description":"Tart red berry sold as sugared strings and simmered into digestive teas.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Shan zha is warm and the classical drug for food stagnation — specifically for undigested meat and fat."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"No classical Ayurvedic entry; sour-sweet and read as ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the Unani record."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Shan zha is warm and the classical drug for food stagnation — specifically for undigested meat and fat."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"No classical Ayurvedic entry, but hawthorn is emphatically sour, and sour taste is a well-established ushna rasa in this dataset's own rule (tamarind, amchur, lemon)."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"CORRECTED from hot-dry — no classical Unani entry for this Chinese fruit, but sour taste reads cold in Unani mizaj theory (turush = barid), the pattern independently established across every sour fruit already documented in this dataset's own unani fields (lemon, lime, orange, tamarind, amla, kokum, karonda, bilimbi, all cold or cold-dry). Hot-dry was inconsistent with that pattern."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Sour fruit, so flagged with the others; used in small amounts."},
    "nutrition":{"kcal":85,"protein":0.6,"carbs":22,"fat":0.3,"highlight":"the food-stagnation berry"},
    "remedy":{"too-cold":"eat"}},
 
   {"id":"monk-fruit","name":"Monk fruit","aliases":["luo han guo","buddha fruit","monk fruit sweetener"],"emoji":"🟤","category":"fruit","cuisines":["chinese"],"commonness":3,
    "description":"Dried gourd-fruit brewed for coughs, and now sold as a zero-calorie sweetener.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Luo han guo is cool, moistens the lung and stops cough — a standard dry-throat remedy."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry; read from its moistening use."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Absent from the Unani record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Luo han guo is cool, moistens the lung and stops cough — a standard dry-throat remedy."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"No classical entry, but madhura rasa (sweet taste) is well-established as shita virya in Ayurveda — the same rule this dataset already uses to place stevia and maple syrup, both non-caloric/low-calorie sweeteners like this one."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Absent from the Unani record, and unlike Ayurveda, Unani has no clean sweet-equals-cold rule to extend — dates, honey and jaggery are all classically hot despite being sweet, the same caveat this dataset notes for stevia's unani field."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":0,"protein":0,"carbs":0,"fat":0,"highlight":"sweetness with no sugar"},
    "remedy":{"too-hot":"eat"}},
@@ -560,7 +560,7 @@
 
   {"id":"sea-buckthorn","name":"Sea buckthorn","aliases":["leh berry","sha ji","chharma"],"emoji":"🟠","category":"fruit","cuisines":["chinese","south-asian"],"commonness":4,
    "description":"Intensely sour orange berries from high cold deserts — Ladakh and the Tibetan plateau.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Sha ji is warm and used for cough and blood stasis in the Chinese materia."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Regional rather than classical; sour and read as ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Sha ji is warm and used for cough and blood stasis in the Chinese materia."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"No classical Ayurvedic textual entry, but intensely sour, and sour taste is a well-established ushna rasa in this dataset's own rule (tamarind, amchur, lemon)."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"CORRECTED from hot-dry — no classical entry for this Central Asian/Himalayan berry, but sour taste reads cold in Unani mizaj theory (turush = barid), the pattern this dataset already documents independently across every sour fruit in its unani fields (lemon, lime, orange, tamarind, amla, kokum, karonda, bilimbi). Hot-dry was inconsistent with that pattern."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Very sour and usually taken as juice or concentrate."},
    "nutrition":{"kcal":82,"protein":1.4,"carbs":7.3,"fat":7.1,"highlight":"grows where almost nothing does"},
    "remedy":{"too-cold":"eat"}},
@@ -588,33 +588,33 @@
 
   {"id":"yuzu","name":"Yuzu","aliases":["you zi (japanese)","citron cousin","yuja"],"emoji":"🟡","category":"fruit","cuisines":["chinese"],"commonness":4,
    "description":"Knobbly aromatic citrus used for its peel and juice, almost never eaten whole.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Aromatic citrus peel is warm and qi-moving in the Chinese reading, unlike the cool flesh."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"No classical entry; aromatic and read as ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the Unani record."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Aromatic citrus peel is warm and qi-moving in the Chinese reading, unlike the cool flesh."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"No classical entry, but yuzu is used peel-and-juice together like citron and kumquat (both heating, moderate, in this dataset) rather than as plain flesh — sour taste also reads ushna by the general rasa rule."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"No specific classical entry, but follows the same aromatic-peel exception this dataset already applies to citron and kumquat, unlike the peeled cold-flesh citrus (orange, lemon)."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Citrus liberator; used in small amounts."},
    "nutrition":{"kcal":53,"protein":0.8,"carbs":13.3,"fat":0.3,"highlight":"peel and juice, not flesh"}},
 
   {"id":"calamansi","name":"Calamansi","aliases":["calamondin","si gan","philippine lime"],"emoji":"🟢","category":"fruit","cuisines":["chinese"],"commonness":4,
    "description":"Small round sour citrus squeezed over everything in Southeast Asian cooking.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the small citrus — cool and fluid-generating."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Sour and read as ushna; no classical entry."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the small citrus — cool and fluid-generating."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"No classical entry, but sour taste is a well-established ushna rasa in this dataset's own rule (tamarind, amla, lemon, lime) — a confident rule application, not a guess."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"No specific classical entry, but calamansi is a juice/flesh citrus like lime and lemon (both cold, high confidence, in this dataset) rather than a peel-eaten aromatic citrus — the flesh-citrus-cold pattern extends here."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Citrus liberator."},
    "nutrition":{"kcal":30,"protein":0.5,"carbs":8,"fat":0.1,"highlight":"squeezed over everything"}},
 
   {"id":"buddha-hand","name":"Buddha's hand","aliases":["fo shou","fingered citron","bergamot cousin"],"emoji":"🖐️","category":"fruit","cuisines":["chinese"],"commonness":4,
    "description":"A citron that grows in finger-like segments — all peel, almost no flesh.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Fo shou is warm and one of the standard qi-regulating drugs, used for a tight chest and poor appetite."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"No classical Ayurvedic entry."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the Unani record."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Fo shou is warm and one of the standard qi-regulating drugs, used for a tight chest and poor appetite."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Buddha's hand is a citron cultivar (Citrus medica var. sarcodactylis), not a separate species — this dataset's own citron entry already reads heating at moderate confidence, and that reading carries over directly rather than by loose analogy."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Same citron cultivar as this dataset's own citron entry (hot-dry, moderate, 'Turanj is garam in the Unani record') — a direct cultivar match, not an extrapolation."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Citrus peel; used in slivers."},
    "nutrition":{"kcal":31,"protein":0.8,"carbs":8,"fat":0.1,"highlight":"all peel, no flesh"},
    "remedy":{"too-cold":"eat"}},
 
   {"id":"aam-papad","name":"Aam papad","aliases":["mango leather","amawat","mango bar"],"emoji":"🟧","category":"fruit","cuisines":["south-asian"],"commonness":2,
    "description":"Mango pulp dried in sheets into a chewy sweet-sour slab.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Follows mango; drying concentrates it."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ripe mango is ushna and drying intensifies it."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar, as aam is in desi usage."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"CORRECTED from cool — this dataset's own drying pattern runs the other way for sweet fruit: dried apricot, dried fig, dried dates and dried currants all move from a cooler/neutral fresh reading to warm once dried and concentrated. Aam papad is dried ripe (sweet) mango pulp, so it belongs with that group rather than staying cool."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ripe mango is ushna and drying intensifies it."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar, as aam is in desi usage."}},
    "histamine":{"sighi":2,"tags":[],"note":"Dried and concentrated fruit, usually with added sugar and salt."},
    "nutrition":{"kcal":310,"protein":1.5,"carbs":78,"fat":0.5,"highlight":"mango dried in sheets","estimate":true},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
 
   {"id":"desiccated-coconut","name":"Desiccated coconut","aliases":["nariyal bura","copra","coconut powder"],"emoji":"🥥","category":"fruit","cuisines":["south-asian","arabic"],"commonness":1,
    "description":"Coconut flesh grated and dried — the baking and mithai staple.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with coconut; no classical Chinese entry."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Narikela is shita and guru; drying does not change its virya."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar, as fresh coconut is."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Follows coconut, which this dataset already reads as neutral at moderate confidence; unlike a sugar-dense fruit, drying a fat doesn't shift a TCM reading the way concentrating sugars does — this file's own ayurveda and unani entries for the same food say the same about virya not changing on drying."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Narikela is shita and guru; drying does not change its virya."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar, as fresh coconut is."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low; it goes rancid quietly, which is a fat problem rather than a histamine one."},
    "nutrition":{"kcal":660,"protein":6.9,"carbs":24.2,"fat":64.5,"highlight":"the mithai staple"},
    "remedy":{"too-hot":"eat"},
@@ -634,14 +634,14 @@
 
   {"id":"jam","name":"Jam","aliases":["fruit preserve","murabba","guo jiang"],"emoji":"🍓","category":"fruit","cuisines":["western","arabic","south-asian"],"commonness":1,
    "description":"Fruit boiled with sugar until it sets — the toast standard.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"A preparation rather than a food; the fruit and sugar pull opposite ways."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Long boiling with sugar is ushna, whatever the fruit underneath."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar; murabba is a warming preserve in the Unani record."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"CORRECTED from neutral — boiled sugar preparations are read as warming and damp-forming in TCM food therapy (the same logic behind maple syrup and date syrup elsewhere in this dataset), and canned peaches in syrup already carry the same warm reading here. The underlying fruit's coolness doesn't survive long boiling with sugar, which is exactly why this entry's own ayurveda and unani fields already read heating/hot-moist rather than following the fruit."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Long boiling with sugar is ushna, whatever the fruit underneath."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar; murabba is a warming preserve in the Unani record."}},
    "histamine":{"sighi":2,"tags":[],"note":"Cooked-down fruit with a long shelf life; strawberry and citrus versions carry their own flags."},
    "nutrition":{"kcal":278,"protein":0.4,"carbs":69,"fat":0.1,"highlight":"the toast standard"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
 
   {"id":"marmalade","name":"Marmalade","aliases":["orange preserve","citrus jam"],"emoji":"🍊","category":"fruit","cuisines":["western"],"commonness":2,
    "description":"Bitter-orange jam with the peel left in.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Citrus base with sugar; peel is warmer than flesh."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour, bitter and boiled with sugar — ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"CORRECTED from cool — two warming drivers here, not one cooling one: the peel itself (aromatic citrus peel reads warm in this dataset's own kumquat and citron entries) and boiled sugar (which reads warm the same way it does for jam). Both push the same direction as this entry's own ayurveda and unani fields, which already read heating/hot-moist."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour, bitter and boiled with sugar — ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Citrus with the peel, concentrated by boiling."},
    "nutrition":{"kcal":246,"protein":0.3,"carbs":60.9,"fat":0.1,"highlight":"the peel is the point"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -683,7 +683,7 @@
 
   {"id":"bilimbi","name":"Bilimbi","aliases":["kamrakh cousin","tree cucumber","irumban puli"],"emoji":"🟢","category":"fruit","cuisines":["south-asian"],"commonness":4,
    "description":"Intensely sour green fruit, far too sharp to eat raw — used as a souring agent.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Related to star fruit; read as cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, though the sourness is ushna by taste."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda; used like tamarind."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Same genus as star fruit (Averrhoa), which this dataset already reads as cold at moderate confidence — a real botanical relationship, not a loose analogy."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, though the sourness is ushna by taste."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda; used like tamarind."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Extremely sour — among the sharpest souring agents in the set."},
    "nutrition":{"kcal":29,"protein":0.6,"carbs":6.2,"fat":0.3,"highlight":"too sour to eat raw"}},
 
@@ -708,7 +708,7 @@
 
   {"id":"medlar","name":"Medlar","aliases":["mespilus","openarse","zu'rur"],"emoji":"🟤","category":"fruit","cuisines":["western","arabic"],"commonness":4,
    "description":"Only edible once bletted — left to soften almost to rot before eating.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classically listed."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Astringent; no classical entry."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Zu'rur appears in the Unani record as cold and astringent."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classically listed."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"No classical Ayurvedic entry, but astringent taste (kashaya rasa) is well-established as shita in Ayurveda, and this entry's own unani field independently documents medlar as cold and astringent too."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Zu'rur appears in the Unani record as cold and astringent."}},
    "histamine":{"sighi":2,"tags":[],"note":"Eaten deliberately over-ripe, which is exactly what raises amines."},
    "nutrition":{"kcal":74,"protein":0.5,"carbs":17,"fat":0.2,"highlight":"eaten almost rotten"}},
 
@@ -781,7 +781,7 @@
 
   {"id":"horned-melon","name":"Horned melon","aliases":["kiwano","jiao gua"],"emoji":"🟠","category":"fruit","cuisines":["western"],"commonness":4,
    "description":"Spiked orange shell over green jelly seeds — mild, and mostly a curiosity.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with the melons, which are cooling."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Shita, with the cucurbits."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda; outside the record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Kiwano is genuinely a Cucumis species — the same genus as melon and cucumber, which this dataset reads as cold at high confidence. One notch milder here reflects real uncertainty about degree, not about direction."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Cucurbits (cucumber, melon) are a well-established shita group in Ayurveda, and kiwano is a genuine member of that family, not a loose comparison."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Khiyar (cucumber) and the melons are classically thanda-tar in Unani; kiwano's real cucurbit membership extends that reading."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":44,"protein":1.8,"carbs":7.6,"fat":1.3,"highlight":"mostly a curiosity"}},
 
@@ -816,13 +816,13 @@
 
   {"id":"sudachi","name":"Sudachi","aliases":["japanese green citrus"],"emoji":"🟢","category":"fruit","cuisines":["japanese"],"commonness":4,
    "description":"Small green citrus squeezed over grilled fish — sharper and greener than lime.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the small sour citrus."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour and ushna."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with citrus."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the small sour citrus."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour and ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"No specific classical entry, but sudachi is used for its juice, not its peel — the flesh-citrus-cold pattern this dataset already applies to lime and lemon (both cold, high confidence) extends here rather than the aromatic-peel exception."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Citrus liberator."},
    "nutrition":{"kcal":30,"protein":0.5,"carbs":8,"fat":0.1,"highlight":"over grilled fish, always"}},
 
   {"id":"kabosu","name":"Kabosu","aliases":["japanese sour citrus"],"emoji":"🟢","category":"fruit","cuisines":["japanese"],"commonness":4,
    "description":"Round green citrus, milder than sudachi, used for its juice rather than its zest.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the sour citrus."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour and ushna."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with citrus."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the sour citrus."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour and ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"No specific classical entry, but kabosu is used for its juice like sudachi — the flesh-citrus-cold pattern this dataset already applies to lime and lemon extends here."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Citrus liberator."},
    "nutrition":{"kcal":25,"protein":0.4,"carbs":7,"fat":0.1,"highlight":"juice, not zest"}},
 
@@ -842,7 +842,7 @@
 
   {"id":"lucuma","name":"Lúcuma","aliases":["eggfruit","peruvian lucuma"],"emoji":"🟠","category":"fruit","cuisines":["latin-american"],"commonness":4,
    "description":"Dry orange flesh tasting of maple and sweet potato — used as a flavouring more than eaten.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; no classical entry; sweet and dry."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; madhura and read as mildly ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; outside the record."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"A South American fruit with no classical Chinese entry; sweet and dry."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"No classical entry; madhura and read as mildly ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":99,"protein":1.5,"carbs":25,"fat":0.5,"highlight":"tastes of maple and sweet potato"}},
 
