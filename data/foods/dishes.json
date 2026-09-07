@@ -684,7 +684,7 @@
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Steamed rice flour; mild and neutral."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu — unfermented, so lighter than appam."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda; gentle on the stomach."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low — steamed rice flour and nothing else."},
    "nutrition":{"kcal":130,"protein":2.4,"carbs":29,"fat":0.4,"highlight":"pressed into nests","estimate":true},
-   "ingredients":["rice-flour","coconut"],
+   "ingredients":["rice-flour","coconut","coconut-milk"],
    "remedy":{"too-hot":"eat"}},
 
   {"id":"puttu","name":"Puttu","aliases":["pittu","steamed rice cylinder"],"emoji":"⚪","category":"dish","cuisines":["south-asian"],"commonness":3,
@@ -6432,7 +6432,7 @@
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Plain millet flatbread."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Bajra is ushna; jowar is shita."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk if bajra."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":250,"protein":7,"carbs":50,"fat":3,"highlight":"coarse and thick — field food","estimate":true},
-   "ingredients":["jowar-flour","salt"]},
+   "ingredients":["jowar-flour","salt","millet"]},
 
   {"id":"modak","name":"Modak","aliases":["steamed coconut dumpling"],"emoji":"🥟","category":"dish","cuisines":["south-asian"],"commonness":3,
    "description":"A pleated rice-flour dumpling filled with coconut and jaggery, steamed for Ganesh Chaturthi.",

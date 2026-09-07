@@ -120,7 +120,7 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"No classical entry, but this dataset's own roasted-grain-in-water drinks (barley-tea, ragi malt) both read cool, and this dataset's own Ayurveda entry for this same drink already documents, at high confidence, that dilution overrides the roasted grain's warmer lean — a reading TCM's cool verdict here is consistent with rather than contradicting."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Famous summer cooling drink despite chana's warm lean — roasting + dilution."},"unani":{"verdict":"cold","confidence":"moderate"}},
    "histamine":{"sighi":1,"tags":[],"note":"Roasted gram (chickpea) flour is SIGHI 2, mildly flagged like other legumes — gentle, but not the 0 sparse data once suggested."},
    "nutrition":{"kcal":60,"protein":2.5,"carbs":10,"fat":0.6,"highlight":"protein in a glass, from a field lunch","estimate":true},
-   "ingredients":["chickpeas"],
+   "ingredients":["chickpeas","besan"],
    "remedy":{"too-hot":"eat"}},
 
   {"id":"soy-milk","name":"Soy milk","aliases":["dou jiang","soya doodh"],"emoji":"🥛","category":"drink","cuisines":["chinese","western"],"commonness":2,
@@ -236,7 +236,7 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Follows lemon, which is cool and generates fluids."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Nimbu is amla-rasa and ushna — sour is heating, however cold the glass."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda in desi usage; the standard summer drink."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Citrus liberator."},
    "nutrition":{"kcal":35,"protein":0.1,"carbs":9,"fat":0,"highlight":"the heatwave standard","estimate":true},
-   "ingredients":["lemon","white-sugar"],
+   "ingredients":["lemon","white-sugar","salt"],
    "remedy":{"too-hot":"eat"}},
 
   {"id":"badam-milk","name":"Badam milk","aliases":["almond milk (desi)","badam doodh","haleeb loz"],"emoji":"🥛","category":"drink","cuisines":["south-asian","arabic"],"commonness":2,
