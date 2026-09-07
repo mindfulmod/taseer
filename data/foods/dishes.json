@@ -998,7 +998,7 @@
 
   {"id":"phirni","name":"Phirni","aliases":["firni","ground rice pudding"],"emoji":"🍮","category":"dish","cuisines":["south-asian"],"commonness":2,
    "description":"Ground rice set in sweetened milk and chilled in earthenware bowls.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Set and served cold."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Rice and milk are both shita; served chilled."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar — an Eid sweet, and a summer one."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"CORRECTED: rice flour and milk are both TCM-neutral; rose water's mild cool nudges it past cardamom's mild warmth to a soft cool overall — a close call, not a serving-temperature one, which is why confidence stays moderate."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Rice and milk are both shita; served chilled."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar — an Eid sweet, and a summer one."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":180,"protein":4,"carbs":28,"fat":6,"highlight":"set in clay, served cold","estimate":true},
    "ingredients":["rice-flour","milk","white-sugar","cardamom","rose-water"],
@@ -5189,7 +5189,7 @@
 
   {"id":"zaalouk","name":"Zaalouk","aliases":["moroccan aubergine salad"],"emoji":"🍆","category":"dish","cuisines":["african"],"commonness":2,
    "description":"Aubergine and tomato cooked down with garlic and cumin, eaten cold with bread.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Aubergine and tomato, served cold."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Vrintaka is ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Baingan is garam in the eastern reading."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"CORRECTED: eggplant and tomato are TCM's own cool ingredients (high/moderate confidence); garlic, cumin and paprika pull warm but don't clearly override that anchor — serving temperature isn't the basis."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Vrintaka is ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Baingan is garam in the eastern reading."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Aubergine and tomato together, cooked down and kept."},
    "nutrition":{"kcal":110,"protein":2,"carbs":10,"fat":7,"highlight":"eaten cold, with bread","estimate":true},
    "ingredients":["eggplant","tomato","garlic","cumin","olive-oil","paprika"]},
@@ -5819,7 +5819,7 @@
 
   {"id":"liangpi","name":"Liangpi","aliases":["cold skin noodles"],"emoji":"⬜","category":"dish","cuisines":["chinese"],"commonness":3,
    "description":"Slippery wide noodles made from washed wheat starch, served cold in vinegar and chilli oil.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Wheat starch noodles served cold — a summer dish."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"CORRECTED from high: wheat starch (maida) is TCM's own cool ingredient, but garlic, chilli oil and black vinegar are all warm-to-hot at high confidence in this file and pull hard against it — a real cooling anchor remains, but 'high' overstated a one-sided case; downgraded to moderate. Not a serving-temperature call."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Black vinegar and chilli oil."},
    "nutrition":{"kcal":180,"protein":5,"carbs":36,"fat":3,"highlight":"a summer dish, in Xi'an","estimate":true},
    "ingredients":["maida","black-vinegar","chili-oil","cucumber","bean-sprouts","garlic"],
