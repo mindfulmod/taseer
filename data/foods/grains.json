@@ -16,7 +16,7 @@
 
   {"id":"sticky-rice","name":"Sticky rice","aliases":["glutinous rice","nuo mi"],"emoji":"🍚","category":"grain","cuisines":["chinese"],"commonness":3,
    "description":"Chewy glutinous rice of zongzi and desserts.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Unusual among rices — TCM calls it warming and heavy."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Not classical; inferred from rice."},"unani":{"verdict":"neutral","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Unusual among rices — TCM calls it warming and heavy."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Every other glutinous-rice product in this file (glutinous rice flour, chapssal, black glutinous rice, rice cake, garaetteok) is read heating/guru — sticky rice itself, the base ingredient they're all made from, was the one outlier at cooling. Corrected to match its own downstream products and this same entry's own TCM 'warm and heavy' reading."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Every glutinous-rice product elsewhere in this file (glutinous rice flour, chapssal, black glutinous rice, rice cake, garaetteok) reads hot-moist/garam-tar. Corrected from neutral to match."}},
    "histamine":{"sighi":0,"tags":[],"note":"Safe fresh."},
    "nutrition":{"kcal":97,"protein":2,"carbs":21,"fat":0.2,"highlight":"chewy enough to be filling in half the portion"},
    "remedy":{"too-cold":"eat"}},
@@ -30,14 +30,14 @@
 
   {"id":"white-bread","name":"White bread","aliases":["double roti","toast","mian bao","khubz abyad"],"emoji":"🍞","category":"grain","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Yeasted everyday loaf.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Yeasted + refined; schools vary."},"unani":{"verdict":"hot","confidence":"moderate","note":"Follows wheat's garam nature."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Every other yeasted bread in this file (naan, pita, bagel, croissant, brioche, baguette) is already read heating/ushna on the same 'leavened wheat = ushna' rule — plain white bread is the base case of that same rule, not a special one."},"unani":{"verdict":"hot","confidence":"moderate","note":"Follows wheat's garam nature."}},
    "histamine":{"sighi":1,"tags":[],"note":"Yeast adds a small load; sourdough is worse (fermented)."},
    "nutrition":{"kcal":265,"protein":9,"carbs":49,"fat":3.2,"highlight":"carbohydrate with the bran taken out"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
 
   {"id":"oats","name":"Oats","aliases":["jai","shofan","yan mai","oatmeal"],"emoji":"🌾","category":"grain","cuisines":["western","arabic"],"commonness":1,
    "description":"Breakfast porridge grain.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Cooked oats are warming-building."},"unani":{"verdict":"hot","confidence":"contested","note":"Thin classical documentation."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Cooked oats are warming-building."},"unani":{"verdict":"hot","confidence":"moderate","note":"Thin classical documentation for oats specifically, but this dataset's own oat-flour entry ('Garam-tar, as oats are') already assumes this reading, and TCM + Ayurveda both independently agree oats are warming."}},
    "histamine":{"sighi":0,"tags":[],"note":"A safe breakfast for histamine-sensitive people.","ref":{"sighi":0,"marks":"","as":"oats, oat flakes, oatmeal"}},
    "nutrition":{"kcal":389,"protein":17,"carbs":66,"fat":6.9,"highlight":"the beta-glucan is what makes porridge thick"},
    "remedy":{"too-cold":"eat"},
@@ -59,7 +59,7 @@
 
   {"id":"sorghum","name":"Sorghum (jowar)","aliases":["jowar","dhurra bayda","gao liang"],"emoji":"🌾","category":"grain","cuisines":["south-asian","arabic","chinese"],"commonness":3,
    "description":"Mild gluten-free flatbread grain.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Folk calls jowar thanda (summer roti), some texts say neutral-warm."},"unani":{"verdict":"cold-dry","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Jowar-flour, ground from this exact grain, is already resolved cooling at high confidence elsewhere in this file ('the classic summer roti flour of the Deccan') — the grain and the flour are the same substance and should not sit at different confidence."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Jowar-flour, ground from this exact grain, is already resolved cold-dry at high confidence elsewhere in this file ('eaten in the hot months for exactly that reason') — the whole grain should follow."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated; gluten-free."},
    "nutrition":{"kcal":329,"protein":11,"carbs":72,"fat":3.3,"highlight":"gluten-free without trying to be"}},
 
@@ -78,21 +78,21 @@
 
   {"id":"couscous","name":"Couscous","aliases":["kuskus","maftoul (large)"],"emoji":"🌾","category":"grain","cuisines":["arabic","western"],"commonness":2,
    "description":"Tiny steamed wheat pearls.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Follows TCM wheat; thin documentation."},"ayurveda":{"verdict":"cooling","confidence":"contested"},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Follows wheat."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Semolina, the same durum-wheat middlings couscous is steamed from, is already resolved cool at moderate confidence in this file on the same 'follows TCM wheat' logic — steaming into pearls isn't a bigger change than grinding into semolina."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Unleavened wheat stays with wheat's own shita reading in this dataset (atta, roti, maida, semolina all resolved cooling) — couscous is steamed, not fermented, so the same rule applies."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Follows wheat."}},
    "histamine":{"sighi":1,"tags":[],"note":"As wheat."},
    "nutrition":{"kcal":112,"protein":3.8,"carbs":23,"fat":0.2,"highlight":"fast to cook"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
 
   {"id":"bulgur","name":"Bulgur","aliases":["burghul","dalia (cousin)","cracked wheat"],"emoji":"🌾","category":"grain","cuisines":["arabic"],"commonness":2,
    "description":"Parboiled cracked wheat of tabbouleh and kibbeh.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Follows TCM wheat."},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Follows wheat."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Semolina carries the identical note ('Follows TCM wheat') at moderate confidence elsewhere in this file — parboiled cracked wheat is no further from the base grain than milled semolina is."},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Follows wheat."}},
    "histamine":{"sighi":1,"tags":[],"note":"As wheat.","ref":{"sighi":1,"marks":"","as":"bulgur, burghul, riffoth"}},
    "nutrition":{"kcal":83,"protein":3.1,"carbs":19,"fat":0.2,"highlight":"already parboiled, so it only needs soaking"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
 
   {"id":"pasta","name":"Pasta","aliases":["makarona","yi da li mian","spaghetti","macaroni"],"emoji":"🍝","category":"grain","cuisines":["arabic","western"],"commonness":1,
    "description":"Durum wheat noodles, Italian style.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Refined wheat; heavy."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Follows wheat."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Durum wheat pasta is not leavened, so it follows the base grain's shita reading rather than fermenting toward ushna — the same logic that keeps maida cooling despite being refined and heavy."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Follows wheat."}},
    "histamine":{"sighi":1,"tags":[],"note":"Plain pasta fine — the sauces (tomato, aged cheese) are the problem."},
    "nutrition":{"kcal":158,"protein":5.8,"carbs":31,"fat":0.9,"highlight":"durum holds its shape where soft wheat collapses"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -106,7 +106,7 @@
 
   {"id":"wheat-noodles","name":"Wheat noodles","aliases":["mian tiao","lo mein","ramen (plain)","sevaiyan (roasted)"],"emoji":"🍜","category":"grain","cuisines":["chinese","south-asian"],"commonness":2,
    "description":"Chewy wheat noodles of chow mein and la mian.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Follows wheat."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Follows wheat."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Unleavened wheat noodle, so it follows wheat's own shita reading — the same 'no ferment, no shift to ushna' logic already applied to pasta and maida in this file."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Follows wheat."}},
    "histamine":{"sighi":1,"tags":[],"note":"As wheat; watch the sauces more than the noodle."},
    "nutrition":{"kcal":138,"protein":4.5,"carbs":26,"fat":2,"highlight":"chew comes from gluten, not from cooking"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -121,13 +121,13 @@
 
   {"id":"buckwheat","name":"Buckwheat (kuttu)","aliases":["kuttu","qiao mai","soba grain"],"emoji":"🌾","category":"grain","cuisines":["south-asian","chinese","western"],"commonness":3,
    "description":"Nutty pseudo-grain; kuttu atta of fasting days.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Called heating in Ayurveda — used in vrat (fasting) food; disagrees with TCM."},"unani":{"verdict":"neutral","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Called heating in Ayurveda — used in vrat (fasting) food; disagrees with TCM."},"unani":{"verdict":"neutral","confidence":"contested","note":"Buckwheat is outside the classical Perso-Arabic materia medica entirely, and even TCM and Ayurveda disagree with each other here (cool vs. heating) — there is no comparator system to extrapolate a Unani reading from with any confidence."}},
    "histamine":{"sighi":2,"tags":[],"note":"Usually fine; occasional sensitivity reports.","ref":{"sighi":2,"marks":"","as":"buckwheat"}},
    "nutrition":{"kcal":343,"protein":13,"carbs":72,"fat":3.4,"highlight":"not wheat at all, despite the name"}},
 
   {"id":"besan","name":"Besan","aliases":["gram flour","chickpea flour","chana ka atta","daqiq al hummus"],"emoji":"🫙","category":"grain","cuisines":["south-asian"],"commonness":1,
    "description":"Ground chana — the batter for pakora, the thickener for kadhi.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Follows the chickpea, which has no strong Chinese classification."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Chanaka is shita and ruksha (drying) — cooling but wind-forming."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Besan is thanda in desi usage, which is why it is used on the skin against heat rash."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Chickpea itself is already resolved neutral at moderate confidence in this dataset (proteins.json) — besan is simply ground chickpea, so it follows directly rather than needing its own thin extrapolation."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Chanaka is shita and ruksha (drying) — cooling but wind-forming."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Besan is thanda in desi usage, which is why it is used on the skin against heat rash."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low as a flour. Fermented besan batters are a different matter."},
    "nutrition":{"kcal":387,"protein":22.4,"carbs":57.8,"fat":6.7,"highlight":"the pakora and kadhi base"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -141,7 +141,7 @@
 
   {"id":"maida","name":"Maida","aliases":["refined flour","all-purpose flour","plain flour","白面"],"emoji":"🌾","category":"grain","cuisines":["south-asian","western","arabic","chinese"],"commonness":1,
    "description":"White flour with the bran and germ stripped out — naan, cake, samosa pastry.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with wheat; refining removes fibre, not nature."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita like wheat, but far more guru and abhishyandi (channel-clogging) once refined."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar and heavy, held to sit in the stomach."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with wheat (already resolved cool at moderate in this file); refining removes fibre, not the grain's underlying nature."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita like wheat, but far more guru and abhishyandi (channel-clogging) once refined."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar and heavy, held to sit in the stomach."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low in itself."},
    "nutrition":{"kcal":364,"protein":10.3,"carbs":76.3,"fat":1,"highlight":"bran and germ stripped out"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -155,21 +155,21 @@
 
   {"id":"poha","name":"Poha","aliases":["flattened rice","chivda","aval","beaten rice"],"emoji":"🍚","category":"grain","cuisines":["south-asian"],"commonness":1,
    "description":"Rice parboiled and rolled flat — soaks in seconds, cooks in minutes.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with rice."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu — lighter than cooked rice, which is why it is a breakfast food."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda, and easy on the stomach."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Rice, rice flour, rice noodles and broken rice are all read neutral at moderate-or-high confidence elsewhere in this file — parboiling and flattening is no bigger a change than grinding or extruding."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu — lighter than cooked rice, which is why it is a breakfast food."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda, and easy on the stomach."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":346,"protein":6.6,"carbs":77.3,"fat":1.2,"highlight":"the ten-minute breakfast"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
 
   {"id":"puffed-rice","name":"Puffed rice","aliases":["murmura","mamra","kurmura","pori"],"emoji":"🍚","category":"grain","cuisines":["south-asian"],"commonness":2,
    "description":"Rice exploded dry into weightless puffs — the body of every bhel.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with rice; dry-puffing adds a drying quality."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Laghu and shita — about the lightest form rice takes."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk, very drying."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with rice (neutral at moderate-or-high confidence throughout this file); dry-puffing changes texture, not the grain's underlying nature."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Laghu and shita — about the lightest form rice takes."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk, very drying."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":402,"protein":6.3,"carbs":89.8,"fat":0.5,"highlight":"the body of every bhel"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
 
   {"id":"vermicelli","name":"Seviyan","aliases":["seviyan","semiya","shaeriya","sheer khurma noodles"],"emoji":"🍜","category":"grain","cuisines":["south-asian","arabic"],"commonness":2,
    "description":"Fine roasted wheat threads — sweetened into kheer, or fried into upma.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with wheat."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita like wheat, though roasting lightens it."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam like gehun, and the Eid sheer khurma is built on it."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with wheat, already resolved cool at moderate in this file; unleavened roasted threads follow the same 'no ferment, no shift' logic as bulgur and vermicelli's other unleavened-wheat siblings."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita like wheat, though roasting lightens it."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam like gehun, and the Eid sheer khurma is built on it."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low plain."},
    "nutrition":{"kcal":352,"protein":11,"carbs":73,"fat":1.5,"highlight":"the Eid dessert thread"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -191,27 +191,27 @@
 
   {"id":"pita-bread","name":"Pita","aliases":["khubz","arabic bread","pocket bread","kmaj"],"emoji":"🫓","category":"grain","cuisines":["arabic"],"commonness":1,
    "description":"Round leavened bread that puffs into a hollow pocket in the oven.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with white bread."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened wheat, so ushna — like other yeasted breads."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam; the daily bread of the Levantine table."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A plain leavened wheat bread, like white bread (neutral, moderate) — the enriched or twice-cooked breads in this file (naan, bagel, croissant) are the ones that shift further to warm."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened wheat, so ushna — like other yeasted breads."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam; the daily bread of the Levantine table."}},
    "histamine":{"sighi":2,"tags":[],"note":"Yeast-leavened, so it sits with the other risen breads rather than with flatbreads."},
    "nutrition":{"kcal":275,"protein":9.1,"carbs":55.7,"fat":1.2,"highlight":"puffs into a pocket"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
 
   {"id":"sourdough","name":"Sourdough","aliases":["levain bread","khameer","wild-yeast bread"],"emoji":"🍞","category":"grain","cuisines":["western"],"commonness":2,
    "description":"Bread risen slowly on a wild starter instead of packet yeast.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Fermentation is read as warming; the base grain is wheat."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"A long sour ferment is firmly ushna — sourness is the marker."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk, more so than a quickly risen loaf."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A long wild ferment reads warm elsewhere in this file at high confidence (jiu niang) and vinegar's own sourness is warm too — sourdough's long sour rise follows the same pattern."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"A long sour ferment is firmly ushna — sourness is the marker."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk, more so than a quickly risen loaf."}},
    "histamine":{"sighi":2,"tags":["high-histamine"],"note":"A long wild ferment builds histamine, though SIGHI itself hedges on very long-proved sourdough rather than ruling it out — treat as uncertain, not settled."},
    "nutrition":{"kcal":289,"protein":11.6,"carbs":56.4,"fat":1.8,"highlight":"long wild ferment"},
    "guna":{"verdict":"heavy","confidence":"high"}},
 
   {"id":"rye-bread","name":"Rye bread","aliases":["pumpernickel","schwarzbrot","dark rye"],"emoji":"🍞","category":"grain","cuisines":["western"],"commonness":3,
    "description":"Dense dark loaf, usually soured, with a sharp malty edge.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with the cooling cereal grains."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"The souring dominates; no classical entry for rye."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Placed with the drying grains; outside the classical record."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Corrected from cool: this entry's own description says 'usually soured', and a long sour ferment reads warm elsewhere in this file at high confidence (jiu niang) and moderate confidence (sourdough) — grouping it with the unfermented cooling cereals ignored its own souring."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The souring dominates — the same 'long sour ferment is ushna' rule already applied to sourdough, injera and vinegar in this dataset, not a standalone guess."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Corrected from cold-dry: soured breads read garam in Unani throughout this file (sourdough is hot-dry at moderate on the identical long-ferment logic) — 'placed with the drying grains' overlooked that rye-bread is fermented, not a plain grain."}},
    "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Nearly always sour-risen; the same open question SIGHI raises about long-proved sourdough applies here."},
    "nutrition":{"kcal":259,"protein":8.5,"carbs":48.3,"fat":3.3,"highlight":"dense and sour"}},
 
   {"id":"tortilla","name":"Tortilla","aliases":["corn tortilla","flour tortilla","wrap"],"emoji":"🫓","category":"grain","cuisines":["western"],"commonness":2,
    "description":"Thin unleavened round of corn or wheat, cooked on a dry griddle.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Follows corn, which is neutral, or wheat if wheat-based."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Unleavened and read with its base grain."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Placed with the dry-griddled flatbreads."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Corn is neutral and unleavened wheat is cool in this dataset — close enough either way that neutral is a safe reading regardless of which base is used."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Genuinely ambiguous rather than just thin: cornmeal is read heating in this file while unleavened wheat (atta, maida) is read cooling — a corn tortilla and a wheat tortilla would actually take opposite verdicts, and the record doesn't say which base is meant."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Corrected from cold-dry: both possible bases point to hot in Unani — cornmeal is hot-dry ('the classic winter pairing with sarson saag') and wheat is hot-moist — there was no 'cold, dry-griddled' precedent to place this with in the first place."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low unleavened; the shelf-stable packs carry preservatives, which is a separate question."},
    "nutrition":{"kcal":218,"protein":5.7,"carbs":44.6,"fat":2.9,"highlight":"unleavened, griddle-cooked"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -224,19 +224,19 @@
 
   {"id":"spelt","name":"Spelt","aliases":["dinkel","farro grande","ancient wheat"],"emoji":"🌾","category":"grain","cuisines":["western"],"commonness":4,
    "description":"An older wheat species — nuttier, and often better tolerated.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with wheat."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Follows godhuma; no separate classical entry."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Read with gehun."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Spelt is Triticum spelta — the same genus as bread wheat, which this file reads cool at moderate confidence. No classical Chinese text names spelt specifically, but it is close enough botanically to extend the reading with moderate rather than high confidence."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Follows godhuma; same-genus extension, no separate classical entry for spelt itself."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Read with gehun on the same same-genus basis."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low; still gluten-bearing, which is a separate sensitivity.","ref":{"sighi":0,"marks":"","as":"spelt"}},
    "nutrition":{"kcal":338,"protein":14.6,"carbs":70.2,"fat":2.4,"highlight":"an older wheat"}},
 
   {"id":"farro","name":"Farro","aliases":["emmer","grano farro","burghul cousin"],"emoji":"🌾","category":"grain","cuisines":["western","arabic"],"commonness":4,
    "description":"Chewy ancient wheat berries, simmered into salads and soups.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with wheat."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No separate classical entry."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Grouped with wheat."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Farro/emmer (Triticum dicoccum) is the same genus as bread wheat, read cool at moderate confidence in this file — a reasonable same-genus extension, though no classical Chinese text names emmer specifically."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Same-genus extension from godhuma; no separate classical entry for emmer."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Grouped with wheat on the same same-genus basis."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":340,"protein":14,"carbs":71,"fat":2.4,"highlight":"chewy whole wheat berries"}},
 
   {"id":"black-rice","name":"Black rice","aliases":["forbidden rice","hei mi","chak hao","kala chawal"],"emoji":"🍚","category":"grain","cuisines":["chinese","south-asian"],"commonness":4,
    "description":"Deep purple whole-grain rice that stains everything it's cooked with.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Hei mi is warmer than white rice — a blood- and kidney-tonifying grain in the Chinese reading."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Regional rather than classical; read with rice."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Placed with rice."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Hei mi is warmer than white rice — a blood- and kidney-tonifying grain in the Chinese reading."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Red rice — the other unpolished, bran-intact pigmented rice in this file — is already resolved cooling at moderate on the same 'shita like rice, heavier with the bran left on' basis; black rice is the same structural category."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Red rice, the direct sibling unpolished rice in this file, is already resolved cold-dry at moderate ('Thanda, as rice is') — black rice follows the same reasoning."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":356,"protein":8.9,"carbs":75.6,"fat":3.2,"highlight":"the purple is anthocyanin, same as blueberries"}},
 
@@ -248,13 +248,13 @@
 
   {"id":"udon","name":"Udon","aliases":["wu dong mian","thick wheat noodles"],"emoji":"🍜","category":"grain","cuisines":["chinese"],"commonness":3,
    "description":"Thick soft white wheat noodles, served in broth or fried.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A wheat noodle, so it follows wheat's cool reading."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Read with wheat; no classical entry."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Grouped with gehun."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A wheat noodle, so it follows wheat's cool reading."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"An unleavened wheat noodle, so it stays with wheat's own shita reading — the same logic already applied to pasta and plain wheat noodles in this file."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Wheat is hot-moist regardless of leavening throughout this file (semolina, couscous, bulgur, pasta and plain wheat noodles are all read hot-moist unleavened) — udon follows the same pattern."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low plain; the broth it sits in usually matters more."},
    "nutrition":{"kcal":127,"protein":3.5,"carbs":25.7,"fat":0.4,"highlight":"thick, soft, slippery"}},
 
   {"id":"soba","name":"Soba","aliases":["buckwheat noodles","qiao mai mian"],"emoji":"🍜","category":"grain","cuisines":["chinese"],"commonness":3,
    "description":"Brown buckwheat noodles, eaten hot in broth or cold with dipping sauce.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Qiao mai is cool and descending — traditionally eaten in summer, and held back in cold conditions."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry; follows buckwheat."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the Unani record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Qiao mai is cool and descending — traditionally eaten in summer, and held back in cold conditions."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Corrected from cooling: this entry's own note says it follows buckwheat, but buckwheat itself is resolved heating (moderate) elsewhere in this file, not cooling — soba was following a comparator it had misread."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the Unani record, and buckwheat's own Unani reading is itself unresolved (contested) in this file, so there's no settled comparator to follow here either."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low. Buckwheat is a common allergen, which is a separate mechanism from histamine."},
    "nutrition":{"kcal":99,"protein":5.1,"carbs":21.4,"fat":0.1,"highlight":"buckwheat, not wheat"},
    "remedy":{"too-hot":"eat"}},
@@ -285,7 +285,7 @@
 
   {"id":"samak-rice","name":"Samak rice","aliases":["barnyard millet","vrat ke chawal","moraiyo","sama"],"emoji":"🍚","category":"grain","cuisines":["south-asian"],"commonness":2,
    "description":"Tiny millet grains cooked like rice on fasting days.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with the millets, which are neutral to cool."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu — light enough for a fast."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Corrected from neutral to cool: every other millet in this file (bajra, ragi, foxtail millet, little millet) is read cool at moderate-or-high confidence, not neutral — samak was the one hedging toward the middle."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu — light enough for a fast."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":307,"protein":6.2,"carbs":65.5,"fat":4.7,"highlight":"cooked like rice, isn't rice"},
    "remedy":{"too-hot":"eat"},
@@ -308,7 +308,7 @@
 
   {"id":"little-millet","name":"Little millet","aliases":["kutki","samai","saamai"],"emoji":"🌾","category":"grain","cuisines":["south-asian"],"commonness":4,
    "description":"A small quick-cooking millet, used where rice would be.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Grouped with the millets."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Every other millet in this file (bajra, ragi, foxtail millet, samak/barnyard millet) is read cool at moderate-or-high confidence — a dense enough sibling cluster to support the same reading here."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":329,"protein":9.7,"carbs":67,"fat":5.2,"highlight":"cooks faster than rice"}},
 
@@ -334,7 +334,7 @@
 
   {"id":"breadcrumbs","name":"Breadcrumbs","aliases":["mian bao xie","bread rusk crumb"],"emoji":"🍞","category":"grain","cuisines":["western","chinese","south-asian"],"commonness":2,
    "description":"Dried bread ground coarse — the coating on everything fried.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with the bread it is made from."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened bread dried further; ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Corrected from neutral: rusk — leavened bread dried further, the same description as breadcrumbs — is already read warm at moderate confidence in this file on exactly the 'twice-baked and very dry' logic. This entry's own Ayurveda ('leavened bread dried further; ushna') and Unani ('garam-khushk') fields already agree; TCM was the one lagging at neutral."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened bread dried further; ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
    "histamine":{"sighi":2,"tags":[],"note":"Made from yeasted bread, so it carries that; usually fried on top."},
    "nutrition":{"kcal":395,"protein":13.4,"carbs":71.9,"fat":5.3,"highlight":"the coating on everything"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -363,7 +363,7 @@
 
   {"id":"filo","name":"Filo pastry","aliases":["phyllo","yufka","warqa"],"emoji":"🫓","category":"grain","cuisines":["arabic","western"],"commonness":3,
    "description":"Paper-thin unleavened sheets brushed with fat and stacked — the shell of baklava.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Unleavened wheat sheets; read with wheat."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Follows wheat; unleavened, so lighter than risen breads."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam like gehun, and always cooked in fat."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Corrected from neutral: this entry's own note already says unleavened wheat sheets, and unleavened wheat reads cool at moderate confidence throughout this file (atta, roti, maida, couscous, bulgur) — filo has no ferment to push it up."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Follows wheat; unleavened, the same logic as atta and roti."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam like gehun, and always cooked in fat."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low — unleavened, unlike most bakery wheat."},
    "nutrition":{"kcal":299,"protein":7.1,"carbs":52.6,"fat":6.1,"highlight":"the shell of baklava"}},
 
@@ -376,7 +376,7 @@
 
   {"id":"crackers","name":"Crackers","aliases":["biscuits (savoury)","su bing","water biscuits"],"emoji":"🍘","category":"grain","cuisines":["western","south-asian","chinese"],"commonness":2,
    "description":"Thin dry baked wheat — the shelf-stable snack base.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Dry-baked wheat; read with wheat."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ruksha and ushna from the baking."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk, very drying."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Corrected from neutral: heavily dry-baked wheat reads warm elsewhere in this file (rusk, 'twice-baked and very dry'), and this entry's own Ayurveda ('ruksha and ushna from the baking') and Unani ('garam-khushk, very drying') fields already agree — TCM was the odd one out at neutral."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ruksha and ushna from the baking."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk, very drying."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low plain; flavoured and cheese versions inherit those triggers."},
    "nutrition":{"kcal":455,"protein":9.5,"carbs":71.5,"fat":14.2,"highlight":"the shelf-stable base"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -437,7 +437,7 @@
 
   {"id":"tapioca-flour","name":"Tapioca flour","aliases":["tapioca starch","mu shu fen","cassava flour"],"emoji":"⚪","category":"grain","cuisines":["chinese","south-asian"],"commonness":2,
    "description":"Fine white starch from cassava — the chew in bubble tea pearls and gluten-free bakes.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with cassava."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru; pure starch."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Cassava itself is already resolved neutral at moderate confidence in this dataset (vegetables.json) — tapioca flour is simply extracted cassava starch, and this entry's own Ayurveda and Unani fields already follow cassava directly."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru; pure starch."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low.","ref":{"sighi":0,"marks":"","as":"tapioca starch"}},
    "nutrition":{"kcal":358,"protein":0.2,"carbs":88.7,"fat":0.02,"highlight":"the chew in boba"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -450,13 +450,13 @@
 
   {"id":"kamut","name":"Kamut","aliases":["khorasan wheat","pharaoh grain"],"emoji":"🌾","category":"grain","cuisines":["western","arabic"],"commonness":4,
    "description":"A large ancient wheat with a buttery flavour and more protein than modern kinds.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with wheat."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Follows godhuma."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Grouped with gehun."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Kamut/Khorasan wheat is a Triticum species like bread wheat, read cool at moderate confidence in this file — a reasonable same-genus extension, at moderate rather than high confidence since no classical Chinese text names it specifically."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Follows godhuma on the same same-genus basis."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Grouped with gehun on the same same-genus basis."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low; still gluten-bearing.","ref":{"sighi":0,"marks":"","as":"KAMUT�, Khorasan wheat"}},
    "nutrition":{"kcal":337,"protein":14.5,"carbs":70.4,"fat":2.2,"highlight":"an ancient wheat"}},
 
   {"id":"corn-flakes","name":"Corn flakes","aliases":["cereal flakes","yu mi pian"],"emoji":"🥣","category":"grain","cuisines":["western","south-asian","arabic"],"commonness":1,
    "description":"Milled corn rolled, toasted and usually sugared — the packet breakfast.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with corn; heavily processed."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ruksha and ushna from the toasting."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk, very drying."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Corrected from neutral: this entry's own Ayurveda ('ruksha and ushna from the toasting') and Unani ('garam-khushk, very drying') fields already agree toasting shifts corn flakes warming — the same 'heavy drying/toasting pushes warm' logic that rusk is read on in this file."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ruksha and ushna from the toasting."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk, very drying."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low; the fortification and sugar are the real story, not histamine."},
    "nutrition":{"kcal":357,"protein":7.5,"carbs":84.1,"fat":0.4,"highlight":"the packet breakfast"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -470,26 +470,26 @@
 
   {"id":"lavash","name":"Lavash","aliases":["lavaash","armenian flatbread"],"emoji":"🫓","category":"grain","cuisines":["arabic"],"commonness":3,
    "description":"Very thin unleavened bread baked against a hot wall, soft fresh and cracker-crisp dry.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Unleavened wheat; read with wheat."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Follows godhuma; unleavened."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam like gehun."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Corrected from neutral: this entry's own note says unleavened wheat, and unleavened wheat is read cool at moderate confidence throughout this file (atta, roti, maida, couscous, bulgur) — only fermentation pushes a wheat product up to neutral or warm here, and lavash has none."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Follows godhuma; unleavened, the same 'no ferment, stays shita' logic as atta and roti."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam like gehun."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low — unleavened."},
    "nutrition":{"kcal":275,"protein":9,"carbs":55,"fat":2,"highlight":"soft fresh, crisp dry"}},
 
   {"id":"markook","name":"Markook","aliases":["saj bread","shrak","mountain bread"],"emoji":"🫓","category":"grain","cuisines":["arabic"],"commonness":2,
    "description":"Paper-thin bread cooked on a domed metal saj, folded around anything.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Unleavened wheat."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Follows wheat."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam like gehun."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Corrected from neutral: unleavened wheat is read cool at moderate confidence throughout this file (atta, roti, maida, couscous, bulgur) — markook has no ferment to push it up to neutral or warm."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Follows wheat; unleavened, the same logic as atta and roti."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam like gehun."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low — unleavened."},
    "nutrition":{"kcal":265,"protein":8.5,"carbs":54,"fat":1.5,"highlight":"cooked on a domed saj","estimate":true},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
 
   {"id":"injera","name":"Injera","aliases":["enjera","teff flatbread"],"emoji":"🫓","category":"grain","cuisines":["western"],"commonness":4,
    "description":"Spongy sour flatbread from teff batter fermented for days.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with teff; the ferment warms it."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"A long sour ferment is ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Corrected from cool: this entry's own note already says the ferment warms it, and days of wild fermentation reads warm elsewhere in this file at high confidence (jiu niang) and moderate confidence (sourdough) — the verdict hadn't been updated to match its own reasoning."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"A long sour ferment is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Long-fermented breads read garam in Unani throughout this file (sourdough, jiu niang) — injera's days-long ferment is at least as strong a case."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Days of wild fermentation — one of the most heavily fermented breads there is."},
    "nutrition":{"kcal":184,"protein":5.4,"carbs":37,"fat":1.1,"highlight":"fermented for days","estimate":true}},
 
   {"id":"baguette","name":"Baguette","aliases":["french stick","fa gun"],"emoji":"🥖","category":"grain","cuisines":["western"],"commonness":2,
    "description":"Long crusty white loaf, meant to be eaten the day it is baked.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with white bread."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened wheat is ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A plain leavened wheat loaf, like white bread (neutral, moderate) — no enrichment or extra baking step to push it further to warm."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened wheat is ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
    "histamine":{"sighi":2,"tags":[],"note":"Yeast-leavened."},
    "nutrition":{"kcal":274,"protein":8.8,"carbs":55.8,"fat":1.3,"highlight":"stale by evening, by design"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -508,7 +508,7 @@
 
   {"id":"matzo","name":"Matzo","aliases":["matzah","unleavened bread"],"emoji":"🫓","category":"grain","cuisines":["western"],"commonness":4,
    "description":"Flour and water baked flat in under eighteen minutes so it cannot rise.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Unleavened wheat."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Follows wheat; nothing added."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk, extremely drying."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Corrected from neutral: matzo is deliberately baked in under eighteen minutes specifically to prevent any fermentation, making it the clearest possible case of the 'no ferment, stays with wheat's own cool reading' rule already applied to atta, roti, maida, couscous and bulgur in this file."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Follows wheat; nothing added, and deliberately unfermented — the same logic as atta and roti."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk, extremely drying."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low — deliberately unfermented, which is the entire point of it."},
    "nutrition":{"kcal":395,"protein":10,"carbs":83.7,"fat":1.4,"highlight":"under eighteen minutes, by law"}},
 
@@ -537,14 +537,14 @@
 
   {"id":"wonton-wrapper","name":"Wonton wrapper","aliases":["hun tun pi","dumpling skin"],"emoji":"⬜","category":"grain","cuisines":["chinese"],"commonness":2,
    "description":"Thin squares of egg-and-wheat dough for wrapping and boiling.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with wheat."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Egg makes it ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Unleavened wheat dough, read cool at moderate confidence throughout this file; the small amount of egg in the mix is TCM-neutral and doesn't override the base grain the way fermentation does elsewhere."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Egg makes it ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Egg in the dough carries a liberator flag."},
    "nutrition":{"kcal":291,"protein":9.9,"carbs":58,"fat":1.5,"highlight":"thin enough to see through"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
 
   {"id":"spring-roll-wrapper","name":"Spring roll wrapper","aliases":["chun juan pi","rice paper"],"emoji":"⬜","category":"grain","cuisines":["chinese"],"commonness":2,
    "description":"Paper-thin sheets of wheat or rice for wrapping and frying.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with its base grain."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Shita if rice-based, cooler than wheat."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Thanda."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Neutral either way: rice is neutral and unleavened wheat is cool in this file, close enough that neutral is a safe reading regardless of which base is used."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Cooling either way: rice is shita and unleavened wheat is also shita in this file, so the base ambiguity doesn't actually change the verdict here."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Genuinely ambiguous rather than thin: rice is cold-dry in Unani but wheat is confidently hot-moist throughout this file — a rice-based wrapper and a wheat-based one would take opposite verdicts, and the record doesn't say which base is meant."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":320,"protein":7,"carbs":70,"fat":1,"highlight":"paper, essentially"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -558,7 +558,7 @@
 
   {"id":"somen","name":"Somen","aliases":["thin wheat noodles","su mian"],"emoji":"🍜","category":"grain","cuisines":["japanese"],"commonness":3,
    "description":"Hair-thin wheat noodles served ice-cold with dipping sauce in summer.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with wheat; eaten cold, in the heat."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following godhuma."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; grouped with gehun."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with wheat; eaten cold, in the heat."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following godhuma."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Wheat is hot-moist regardless of leavening throughout this file (semolina, couscous, bulgur, pasta, udon) — somen, unleavened and eaten cold, follows the same pattern."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low plain."},
    "nutrition":{"kcal":127,"protein":3.5,"carbs":25.8,"fat":0.2,"highlight":"eaten ice-cold, in August"},
    "remedy":{"too-hot":"eat"}},
@@ -579,14 +579,14 @@
 
   {"id":"harusame","name":"Harusame","aliases":["glass noodles (japanese)","spring rain noodles"],"emoji":"🍜","category":"grain","cuisines":["japanese"],"commonness":4,
    "description":"Fine translucent starch noodles used in salads and hotpot.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with mung bean starch, which is cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the classical record; placed with the starch noodles."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with mung bean starch, which is cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Harusame is the same mung-bean-starch noodle as glass noodles, which is already resolved cold-dry at moderate elsewhere in this file — same starch, different regional name."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":351,"protein":0.2,"carbs":86,"fat":0.1,"highlight":"spring rain, literally"},
    "remedy":{"too-hot":"eat"}},
 
   {"id":"panko-crumbs","name":"Panko","aliases":["japanese breadcrumbs"],"emoji":"🍞","category":"grain","cuisines":["japanese"],"commonness":2,
    "description":"Coarse airy crumbs from crustless bread — they fry lighter than ordinary breadcrumbs.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with bread."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened wheat, dried; ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Corrected from neutral: panko is dried leavened bread, the same process rusk and breadcrumbs are already read warm from in this file, and this entry's own Ayurveda ('ushna') and Unani ('garam-khushk') fields already agree."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened wheat, dried; ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
    "histamine":{"sighi":2,"tags":[],"note":"Made from yeasted bread."},
    "nutrition":{"kcal":395,"protein":13,"carbs":72,"fat":5,"highlight":"fries lighter than ordinary crumbs"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -601,7 +601,7 @@
 
   {"id":"dangmyeon","name":"Dangmyeon","aliases":["korean glass noodles","sweet potato noodles"],"emoji":"🍜","category":"grain","cuisines":["korean"],"commonness":2,
    "description":"Springy translucent noodles from sweet potato starch — the noodle in japchae.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with sweet potato; a plain starch noodle."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and heavy."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with the starch noodles."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with sweet potato; a plain starch noodle."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and heavy."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Corrected from cold-moist: this was generically grouped with the mung-bean starch noodles (glass noodles, harusame), which really are cold-dry because mung bean is cold — but dangmyeon's actual base is sweet potato, which this dataset resolves hot-moist ('sold as a winter warming food'). It should follow its own starch, not the wrong sibling."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":340,"protein":0.1,"carbs":84,"fat":0.1,"highlight":"the noodle in japchae"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -645,7 +645,7 @@
 
   {"id":"hominy","name":"Hominy","aliases":["nixtamal","pozole corn"],"emoji":"🌽","category":"grain","cuisines":["latin-american"],"commonness":3,
    "description":"Corn soaked in lime until the hulls slip off — the step that makes maize nourishing.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with corn; the alkaline soak is drying."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following corn."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the classical record; the nixtamal process has no classical parallel."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with corn; the alkaline soak is drying."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following corn."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Masa harina and arepa flour, both ground directly from this same nixtamalized corn, are already resolved cold-dry at moderate elsewhere in this file ('Thanda-khushk') — hominy, the base they're both made from, should carry the same reading, not sit behind its own downstream products."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":119,"protein":2.5,"carbs":23.5,"fat":1.5,"highlight":"nixtamalisation makes maize nourishing"}},
 
@@ -664,7 +664,7 @@
 
   {"id":"farofa","name":"Farofa","aliases":["toasted cassava flour"],"emoji":"🟡","category":"grain","cuisines":["latin-american"],"commonness":3,
    "description":"Cassava flour toasted in butter — scattered over feijoada for texture.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with cassava; the toasting warms it."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; ushna from the toasting and fat."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Corrected from neutral: this entry's own note already says the toasting warms it, and cassava (neutral, moderate, resolved in vegetables.json) toasted in butter is at least as heat-shifting as corn flakes, which this file reads warm from toasting alone."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Cassava is cooling at its base (resolved moderate in vegetables.json), but ushna from toasting and fat is a well-used shift in this file (corn flakes, rusk, crackers all move the same direction from dry heat)."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Same toasting-shifts-warm logic as corn flakes and rusk, applied to cassava's own cold-moist base (resolved moderate in vegetables.json)."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":420,"protein":2,"carbs":78,"fat":12,"highlight":"scattered, for texture"}},
 
@@ -697,20 +697,20 @@
 
   {"id":"garri","name":"Garri","aliases":["gari","cassava granules"],"emoji":"🟡","category":"grain","cuisines":["african"],"commonness":1,
    "description":"Cassava grated, fermented, pressed and toasted into granules — soaked cold or made into eba.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with cassava; the ferment adds warmth."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru, following cassava."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with cassava (neutral, moderate, resolved in vegetables.json). The 'ferment adds warmth' idea isn't actually reflected in this entry's own Ayurveda or Unani fields, which both stay with cassava's base cooling reading unshifted — dropping that unsupported claim for consistency with its own record."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru, following cassava."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Cassava is deliberately fermented for days before toasting — that is what makes it garri, and what rates it."},
    "nutrition":{"kcal":357,"protein":1.5,"carbs":84,"fat":0.5,"highlight":"fermented, then toasted"},
    "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."}},
 
   {"id":"attieke","name":"Attiéké","aliases":["cassava couscous"],"emoji":"⚪","category":"grain","cuisines":["african"],"commonness":3,
    "description":"Fermented grated cassava steamed into fine grains — Ivorian, and eaten with fish.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with cassava."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following cassava."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Cassava is resolved neutral at moderate confidence in this dataset (vegetables.json), and this entry's own Ayurveda and Unani fields already follow it directly at moderate."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following cassava."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A cassava ferment, like garri."},
    "nutrition":{"kcal":160,"protein":1,"carbs":38,"fat":0.3,"highlight":"cassava, as couscous"}},
 
   {"id":"kocho","name":"Kocho","aliases":["enset bread"],"emoji":"🫓","category":"grain","cuisines":["african"],"commonness":4,
    "description":"Fermented enset pulp buried in a pit for months and baked flat.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; no classical entry; a long ferment."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Corrected from neutral: months of pit fermentation is a longer, more intense ferment than sourdough or injera, both of which read warm in this file on the same long-ferment logic — kocho is at least as strong a case, not a weaker one."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"A long ferment is ushna throughout this file (sourdough, injera) — months of pit fermentation is an extreme version of the same pattern, and the sourness it produces reinforces ushna independently."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Long ferments read garam in Unani throughout this file (sourdough, jiu niang, injera) — kocho's much longer ferment fits the same pattern."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Months of pit fermentation."},
    "nutrition":{"kcal":180,"protein":1.5,"carbs":42,"fat":0.4,"highlight":"buried for months","estimate":true}},
 
