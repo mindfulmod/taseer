@@ -4311,9 +4311,9 @@
   {"id":"salad-shirazi","name":"Salad Shirazi","aliases":["persian chopped salad"],"emoji":"🥗","category":"dish","cuisines":["persian-turkish"],"commonness":1,
    "description":"Cucumber, tomato and onion diced very small and dressed with lime and mint.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw vegetables, served cold."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; the onion warms it slightly."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
-   "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Raw tomato and lime."},
+   "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Raw tomato and lime — 'limoo' is ambiguous between lime and lemon; scored to the higher (lime, SIGHI 3) per this dataset's round-up convention for ambiguous histamine calls."},
    "nutrition":{"kcal":30,"protein":1,"carbs":6,"fat":0.4,"highlight":"diced very small, on purpose","estimate":true},
-   "ingredients":["cucumber","tomato","onion","lemon","mint"]},
+   "ingredients":["cucumber","tomato","onion","lime","mint"]},
 
   {"id":"mast-o-khiar","name":"Mast-o-khiar","aliases":["yogurt and cucumber"],"emoji":"🥒","category":"dish","cuisines":["persian-turkish"],"commonness":1,
    "description":"Thick yogurt with cucumber, mint and sometimes walnut and raisin.",
@@ -4347,9 +4347,9 @@
   {"id":"faloodeh","name":"Faloodeh","aliases":["frozen rice noodle sorbet"],"emoji":"🍧","category":"dish","cuisines":["persian-turkish"],"commonness":2,
    "description":"Thin frozen rice noodles in rose and lime syrup — a sorbet with texture.",
    "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Frozen, with rose and lime."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Shita throughout."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar; one of the oldest frozen desserts there is."}},
-   "histamine":{"sighi":2,"tags":["liberator"],"note":"Lime juice over it."},
+   "histamine":{"sighi":2,"tags":["liberator"],"note":"Lime syrup, diluted through the dish, not concentrated — 'limoo' is ambiguous between lime and lemon; scored to the higher (lime, SIGHI 3) per this dataset's round-up convention for ambiguous histamine calls."},
    "nutrition":{"kcal":140,"protein":1,"carbs":34,"fat":0.2,"highlight":"one of the oldest frozen desserts","estimate":true},
-   "ingredients":["rice-flour","rose-water","lemon","white-sugar"],
+   "ingredients":["rice-flour","rose-water","lime","white-sugar"],
    "remedy":{"too-hot":"eat"}},
 
   {"id":"bastani","name":"Bastani","aliases":["persian saffron ice cream"],"emoji":"🍨","category":"dish","cuisines":["persian-turkish"],"commonness":2,
