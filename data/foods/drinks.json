@@ -306,7 +306,7 @@
 
   {"id":"mango-juice","name":"Mango juice","aliases":["aam ka ras","asir manga","mango nectar","frooti"],"emoji":"🧃","category":"drink","cuisines":["south-asian","arabic"],"commonness":1,
    "description":"Thick sweet pulp thinned and sweetened — sold in cartons year-round.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Follows the ripe mango, which TCM reads as cool."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ripe mango is ushna and rakta-aggravating in the classical reading — the famous split with the Chinese one."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Aam is garam-tar in desi usage, which is why it is soaked in water before eating."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Follows the ripe mango, which TCM reads as cool."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ripe mango's own entry marks its virya contested — some schools call it ushna and rakta-aggravating, others cooling — so this drink inherits that split rather than asserting it flatly."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Aam is garam-tar in desi usage, which is why it is soaked in water before eating."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low, though the sugar load in carton nectar is considerable."},
    "nutrition":{"kcal":60,"protein":0.3,"carbs":15,"fat":0.1,"highlight":"sold in cartons year-round"}},
 
@@ -485,7 +485,7 @@
 
   {"id":"mango-lassi","name":"Mango lassi","aliases":["aam lassi","mango yogurt drink"],"emoji":"🥭","category":"drink","cuisines":["south-asian"],"commonness":1,
    "description":"Yogurt blended with mango pulp and sugar — thick, sweet and everywhere on a curry-house menu.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Yogurt and mango, blended cold."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Both dahi and ripe mango are ushna in the classical reading — this is a heating drink, whatever its temperature."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Aam is garam; the dahi is thanda, so desi readings split on it."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Yogurt and mango, blended cold."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Dahi is ushna at high confidence, but ripe mango's own virya is itself contested between schools — this is a heating drink, whatever its temperature, but not asserted at high confidence."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Aam is garam; the dahi is thanda, so desi readings split on it."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low, though it is yogurt plus fruit and does not keep."},
    "nutrition":{"kcal":105,"protein":2.8,"carbs":20,"fat":1.8,"highlight":"the curry-house default","estimate":true},
    "ingredients":["yogurt","mango","white-sugar"]},
@@ -949,7 +949,6 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record. As with the yerba-mate leaf entry this drink shares an ingredient reference with: a real, unresolved pull both ways — toasting/drying in processing argues warm, the bitter taste argues cool, and no clean analogy settles it."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Corrected reasoning, matching the yerba-mate leaf entry: tikta (bitter) rasa is classically shita, not ushna, so 'tikta and caffeinated' doesn't argue heating on both counts the way the old note claimed. Caffeine alone grounds this — and mate's stimulant load is unusually heavy (all three methylxanthines at once), enough to outweigh the bitterness pull on its own."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Outside the classical record — no Perso-Arabic textual entry for this South American plant — but the caffeine/stimulant reasoning this dataset applies to coffee and the tea family extends reasonably here too."}},
    "histamine":{"sighi":1,"tags":["dao-blocker"],"note":"SIGHI groups mate with green tea: mild in itself, and a DAO blocker.","ref":{"sighi":1,"marks":"B","as":"mate tea (llex paraguariensis)"}},
    "nutrition":{"kcal":5,"protein":0.3,"carbs":0.8,"fat":0,"highlight":"passed around, never refused","estimate":true},
-   "ingredients":["yerba-mate"],
    "stimulant":{"compounds":["caffeine","theobromine","theophylline"],"note":"As yerba mate — caffeine alongside theobromine and a little theophylline."},
    "guna":{"verdict":"restless","confidence":"moderate","note":"Stimulating, which is the definition of rajasic rather than a judgement on it."}},
 
