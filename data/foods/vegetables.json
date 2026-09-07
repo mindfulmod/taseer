@@ -9,7 +9,7 @@
 
   {"id":"tomato","name":"Tomato","aliases":["tamatar","tamatim","fan qie","banadura"],"emoji":"🍅","category":"vegetable","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"The base of half the world's gravies and salads.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"high","note":"Sour-pungent; classically pitta-aggravating."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"New-world food; hakims disagree."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"high","note":"Sour-pungent; classically pitta-aggravating."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"A New World nightshade with no classical Perso-Arabic entry — the old note's claim that 'hakims disagree' overstated a real textual dispute that doesn't exist; the cold-moist reading here is a modern/regional extrapolation from its sour taste, not a resolved classical position."}},
    "histamine":{"sighi":2,"tags":["high-histamine","liberator"],"note":"One of the biggest everyday histamine offenders.","ref":{"sighi":2,"marks":"HL","as":"tomato"}},
    "nutrition":{"kcal":18,"protein":0.9,"carbs":3.9,"fat":0.2,"highlight":"cooking makes the lycopene more available, not less"},
    "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."}},
@@ -39,7 +39,7 @@
 
   {"id":"napa-cabbage","name":"Napa cabbage","aliases":["chinese cabbage","da bai cai","wombok"],"emoji":"🥬","category":"vegetable","cuisines":["chinese"],"commonness":2,
    "description":"Sweet crinkly cabbage of Chinese soups and stir-fries.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Not classical; inferred from cabbage family."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Not classical; inferred."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"No classical Sanskrit entry of its own, but napa cabbage is Brassica rapa, in the same cabbage family this dataset already reads cooling at moderate confidence — the 'cabbage family' reasoning this entry's own note already invoked."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"No classical Perso-Arabic entry of its own, but napa cabbage is a Brassica rapa relative of cabbage, which this dataset reads cold-dry at moderate confidence; napa's higher water content plausibly nudges it toward moist rather than dry within the same cold brassica reading."}},
    "histamine":{"sighi":0,"tags":[],"note":"Fresh is safe; kimchi form is a 3.","ref":{"sighi":0,"marks":"","as":"celery cabbage, napa cabbage (Brassica rapa subsp. pekinensis)"}},
    "nutrition":{"kcal":16,"protein":1.2,"carbs":3.2,"fat":0.2,"highlight":"sweeter and wetter than green cabbage"},
    "remedy":{"too-hot":"eat"},
@@ -47,7 +47,7 @@
 
   {"id":"bok-choy","name":"Bok choy","aliases":["pak choi","xiao bai cai"],"emoji":"🥬","category":"vegetable","cuisines":["chinese"],"commonness":2,
    "description":"Crunchy-stemmed Chinese green.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Not classical; inferred."},"unani":{"verdict":"cold","confidence":"contested","note":"Not classical; inferred."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Brassica rapa, the same species as napa cabbage (also moderate here) and close kin to cabbage (cooling, moderate) — the cabbage-family cooling reading extends reasonably."},"unani":{"verdict":"cold","confidence":"moderate","note":"Brassica rapa, kin to cabbage and napa cabbage (both cold at moderate-or-higher confidence here) — the cold brassica reading extends."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated.","ref":{"sighi":0,"marks":"","as":"bok choy"}},
    "nutrition":{"kcal":13,"protein":1.5,"carbs":2.2,"fat":0.2,"highlight":"unusual for a green: real calcium"},
    "remedy":{"too-hot":"eat"},
@@ -62,7 +62,7 @@
 
   {"id":"broccoli","name":"Broccoli","aliases":["hari gobhi","brokoli","xi lan hua"],"emoji":"🥦","category":"vegetable","cuisines":["chinese","western"],"commonness":2,
    "description":"Green brassica florets.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Not classical; inferred."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Brassica oleracea — the same species as cabbage and cauliflower, both cold-dry at moderate confidence here on the same genus."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated.","ref":{"sighi":0,"marks":"","as":"broccoli"}},
    "nutrition":{"kcal":34,"protein":2.8,"carbs":6.6,"fat":0.4,"highlight":"sulforaphane forms when you cut it, not when you cook it"},
    "remedy":{"too-hot":"eat"},
@@ -84,7 +84,7 @@
 
   {"id":"sweet-potato","name":"Sweet potato","aliases":["shakarqandi","batata hilwa","hong shu","fan shu"],"emoji":"🍠","category":"vegetable","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"Sweet orange root, roasted street-side in winter.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Sweet-heavy = cooling per some; others call it warming."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Sold as a winter warming food in desi bazaars."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Ipomoea batatas is a New World tuber with no classical Sanskrit entry. Madhura (sweet) rasa pulls toward shita by the general rule this dataset applies to sugar and maple syrup, but sweet potato's real food-culture use — roasted as a heavy, building winter and fasting-day food — pulls the other way, and its own unani field here reads heating. A genuine unresolved tension, not a settled classical position either way."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Sold as a winter warming food in desi bazaars."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated.","ref":{"sighi":0,"marks":"","as":"sweet potato"}},
    "nutrition":{"kcal":86,"protein":1.6,"carbs":20,"fat":0.1,"highlight":"orange flesh means beta-carotene; white means none"},
    "guna":{"verdict":"light","confidence":"high"}},
@@ -99,7 +99,7 @@
 
   {"id":"okra","name":"Okra","aliases":["bhindi","bamia","qiu kui","lady finger"],"emoji":"🫛","category":"vegetable","cuisines":["south-asian","arabic"],"commonness":1,
    "description":"Green pods beloved as bhindi and bamia stew.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Thin classical documentation."},"ayurveda":{"verdict":"cooling","confidence":"high"},"unani":{"verdict":"cold-moist","confidence":"high","note":"Bhindi is classically thandi."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"No ancient classical entry, but modern Chinese food-therapy sources are fairly consistent in reading qiukui (okra) as cold/cool, clearing heat — the same 'no ancient text, consistent modern consensus' basis already used for chocolate elsewhere in this dataset, and it agrees with okra's own high-confidence ayurveda and unani readings here."},"ayurveda":{"verdict":"cooling","confidence":"high"},"unani":{"verdict":"cold-moist","confidence":"high","note":"Bhindi is classically thandi."}},
    "histamine":{"sighi":1,"tags":[],"note":"Well tolerated.","ref":{"sighi":1,"marks":"","as":"ladies' fingers, okra, ochro"}},
    "nutrition":{"kcal":33,"protein":1.9,"carbs":7.5,"fat":0.2,"highlight":"the slime is soluble fibre"},
    "remedy":{"too-hot":"eat"},
@@ -160,7 +160,7 @@
 
   {"id":"radish","name":"Radish / daikon","aliases":["mooli","fijl","luo bo","daikon"],"emoji":"🥕","category":"vegetable","cuisines":["south-asian","arabic","chinese","western"],"commonness":2,
    "description":"Peppery crisp root, from salad mooli to braised daikon.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Raw cool; cooked closer to neutral."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Pungent = heating classically — disagrees with folk 'mooli thandi'."},"unani":{"verdict":"cold","confidence":"contested","note":"Desi folk call mooli thandi; some hakims call it hot-dry."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Raw cool; cooked closer to neutral."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Pungent = heating classically — disagrees with folk 'mooli thandi'."},"unani":{"verdict":"cold","confidence":"contested","note":"Ibn Sina's Canon records a genuine classical split for this root: the peel read as hot, the flesh as cold, with the seed hot again — a real, sourced Unani textual complexity, not simply a folk-versus-hakim disagreement as the old note framed it."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated."},
    "nutrition":{"kcal":16,"protein":0.7,"carbs":3.4,"fat":0.1,"highlight":"the pepperiness fades entirely on cooking"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -189,7 +189,7 @@
 
   {"id":"white-mushroom","name":"Mushroom (button)","aliases":["khumbi","fitr","mo gu","champignon"],"emoji":"🍄","category":"vegetable","cuisines":["chinese","western"],"commonness":2,
    "description":"Everyday white mushroom.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Classically discouraged (tamasic) more than classified."},"unani":{"verdict":"cold-moist","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Classically discouraged (tamasic) more than classified."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical Unani record; European cultivated mushrooms have no textual entry, matching classical Ayurveda's own wariness of fungi noted on this food's ayurveda field."}},
    "histamine":{"sighi":1,"tags":["other-amines"],"note":"Fungi accumulate amines as they age — eat very fresh."},
    "nutrition":{"kcal":22,"protein":3.1,"carbs":3.3,"fat":0.3,"highlight":"the only produce that makes vitamin D, and only under UV"},
    "guna":{"verdict":"heavy","confidence":"high","note":"Classically tamasic — mushrooms grow in the dark on decaying matter, which is the reasoning given."}},
@@ -231,13 +231,13 @@
 
   {"id":"asparagus","name":"Asparagus","aliases":["halyoon","lu sun","shatavari (cousin)"],"emoji":"🥬","category":"vegetable","cuisines":["chinese","western"],"commonness":3,
    "description":"Tender green spears.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Halyoon is hot in classical Unani — disagrees with TCM/Ayurveda."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Halyoon is a confident classical Unani-Galenic position (following Ibn Sina) of hot-moist — a genuine, sourced cross-tradition disagreement with TCM and Ayurveda's cooling reading, not internal Unani doubt, so it does not really belong at contested."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated.","ref":{"sighi":0,"marks":"","as":"asparagus"}},
    "nutrition":{"kcal":20,"protein":2.2,"carbs":3.9,"fat":0.1,"highlight":"folate, and the smell twenty minutes later"}},
 
   {"id":"kale","name":"Kale","aliases":["karam saag","yu yi gan lan"],"emoji":"🥬","category":"vegetable","cuisines":["western"],"commonness":2,
    "description":"Sturdy dark leafy green.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Cooling but drying/roughening (vata)."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Not classical; inferred."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Cooling but drying/roughening (vata)."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Brassica oleracea, the same species as cabbage, cauliflower and broccoli, all cold-dry at moderate confidence here — the same reading extends to kale."}},
    "histamine":{"sighi":1,"tags":[],"note":"Well tolerated.","ref":{"sighi":1,"marks":"","as":"kale, brown cabbage, curly cabbage"}},
    "nutrition":{"kcal":35,"protein":2.9,"carbs":4.4,"fat":1.5,"highlight":"sturdy enough to dress an hour ahead"},
    "remedy":{"too-hot":"eat"},
@@ -274,14 +274,14 @@
 
   {"id":"water-spinach","name":"Water spinach","aliases":["kangkung","kong xin cai","ong choy"],"emoji":"🥬","category":"vegetable","cuisines":["chinese"],"commonness":3,
    "description":"Hollow-stemmed green, flash-fried with garlic.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Not classical; inferred."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Not classical; inferred."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"high"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"No classical Sanskrit entry, but water spinach is Ipomoea aquatica, the same genus as sweet potato leaves, which this dataset already reads cooling at moderate confidence as a leafy Ipomoea vegetable."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Not classical; inferred."}},
    "histamine":{"sighi":0,"tags":[],"note":"Well tolerated."},
    "nutrition":{"kcal":19,"protein":2.6,"carbs":3.1,"fat":0.2,"highlight":"hollow stems, cooked in seconds"},
    "remedy":{"too-hot":"eat"}},
 
   {"id":"snow-peas","name":"Snow peas","aliases":["he lan dou","mangetout"],"emoji":"🫛","category":"vegetable","cuisines":["chinese","western"],"commonness":3,
    "description":"Flat edible-pod peas.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"neutral","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Snow peas are Pisum sativum — literally the same species as green peas, which this dataset reads cold-dry at moderate confidence; this is just the young edible-pod form of the same plant."}},
    "histamine":{"sighi":1,"tags":[],"note":"Well tolerated.","ref":{"sighi":1,"marks":"","as":"snow peas"}},
    "nutrition":{"kcal":42,"protein":2.8,"carbs":7.6,"fat":0.2,"highlight":"the pod is the point"}},
 
@@ -295,7 +295,7 @@
 
   {"id":"tinda","name":"Tinda / apple gourd","aliases":["tinday","Indian round gourd"],"emoji":"🥒","category":"vegetable","cuisines":["south-asian"],"commonness":3,
    "description":"Small round pale gourd of Punjabi summer cooking.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classical; inferred from gourd family."},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-moist","confidence":"high","note":"Folk-classic thanda summer sabzi."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"No Chinese entry for this specific gourd, but the cooling-gourd-family pattern is unusually consistent in this dataset (cucumber, bitter gourd, bottle gourd, ridge gourd, winter melon, all moderate-or-high) with pumpkin the sole documented exception — tinda is a typical summer cooling gourd, not an exception."},"ayurveda":{"verdict":"cooling","confidence":"moderate"},"unani":{"verdict":"cold-moist","confidence":"high","note":"Folk-classic thanda summer sabzi."}},
    "histamine":{"sighi":0,"tags":[],"note":"Sparse data; gourds are reliably safe."},
    "nutrition":{"kcal":21,"protein":1.4,"carbs":3.4,"fat":0.2,"highlight":"94% water, and gone in one bite","estimate":true},
    "remedy":{"too-hot":"eat"}},
@@ -310,7 +310,7 @@
 
   {"id":"ivy-gourd","name":"Ivy gourd","aliases":["tindora","kundru","tendli","dondakaya"],"emoji":"🥒","category":"vegetable","cuisines":["south-asian"],"commonness":2,
    "description":"Thumb-sized gourd sliced and fried dry — the weekday sabzi.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classically listed; read with the gourd family, which is cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Bimbi is shita and light; long used in the diabetic diet."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda like the other gourds."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"No Chinese entry, but the cooling-gourd-family pattern is well established in this dataset (cucumber, bitter gourd, bottle gourd, ridge gourd, winter melon) with pumpkin the one documented exception; ivy gourd is a typical member of that group, not an exception."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Bimbi is shita and light; long used in the diabetic diet."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda like the other gourds."}},
    "histamine":{"sighi":0,"tags":[],"note":"Fresh gourd; among the safest vegetables."},
    "nutrition":{"kcal":18,"protein":1.2,"carbs":3.1,"fat":0.1,"highlight":"the everyday sabzi gourd"},
    "remedy":{"too-hot":"eat"},
@@ -318,7 +318,7 @@
 
   {"id":"pointed-gourd","name":"Pointed gourd","aliases":["parwal","potol","palwal","kambupudalai"],"emoji":"🥒","category":"vegetable","cuisines":["south-asian"],"commonness":2,
    "description":"Small striped gourd, light enough to be fed to the recovering.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the Chinese record; grouped with the cooling gourds."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Patola is classically shita, laghu (light) and deepana — named in texts as suitable during fever."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda and easily digested."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"No Chinese entry, but the cooling-gourd-family pattern is well established here (cucumber, bitter gourd, bottle gourd, ridge gourd, winter melon), and pointed gourd is a typical member of that group."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Patola is classically shita, laghu (light) and deepana — named in texts as suitable during fever."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda and easily digested."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":20,"protein":2,"carbs":4.2,"fat":0.3,"highlight":"light enough for convalescence"},
    "remedy":{"too-hot":"eat"},
@@ -326,7 +326,7 @@
 
   {"id":"snake-gourd","name":"Snake gourd","aliases":["chichinda","padwal","pudalangai","she gua"],"emoji":"🥒","category":"vegetable","cuisines":["south-asian","chinese"],"commonness":3,
    "description":"Long coiling gourd with mild white flesh, cooked soft.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Related species appear in the Chinese record as cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light, in the patola group."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar, a summer vegetable."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Related Trichosanthes species do appear in the Chinese record as cooling, and this reading also matches the broader cooling-gourd-family pattern well established in this dataset."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light, in the patola group."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar, a summer vegetable."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":18,"protein":0.5,"carbs":3.3,"fat":0.3,"highlight":"grows a metre long"},
    "remedy":{"too-hot":"eat"}},
@@ -353,7 +353,7 @@
 
   {"id":"colocasia-leaves","name":"Colocasia leaves","aliases":["arbi ke patte","patra","alu wadi","pathrode"],"emoji":"🌿","category":"vegetable","cuisines":["south-asian"],"commonness":3,
    "description":"Big heart-shaped leaves smeared with besan, rolled and steamed.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"No classical entry for the leaf."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and astringent, though heavy — always cooked with souring agents."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda; the raw leaf is an irritant."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"No classical entry for the leaf specifically, but taro itself (the corm of the same plant, Colocasia esculenta) is neutral at high confidence in this dataset — a direct same-plant precedent."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and astringent, though heavy — always cooked with souring agents."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda; the raw leaf is an irritant."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low; the raw scratch is oxalate, which tamarind or lemon in the recipe neutralises."},
    "nutrition":{"kcal":42,"protein":5,"carbs":6.7,"fat":0.7,"highlight":"steamed into patra rolls"}},
 
@@ -453,14 +453,14 @@
 
   {"id":"garlic-chives","name":"Garlic chives","aliases":["jiu cai","chinese chives","nira","ku chai"],"emoji":"🌿","category":"vegetable","cuisines":["chinese"],"commonness":3,
    "description":"Flat green blades with a garlic bite, folded into dumplings and eggs.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Jiu cai is warm and yang-tonifying — explicitly a winter and kidney-warming vegetable."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"No classical entry; the allium character reads ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam like the rest of the onion family."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Jiu cai is warm and yang-tonifying — explicitly a winter and kidney-warming vegetable."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Allium tuberosum — the same genus this dataset reads ushna at moderate-or-high confidence across eight other entries (onion, garlic, shallots, leek, spring onion, green garlic, garlic scapes, negi); the allium-family rule is one of the strongest patterns in this file."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Same genus (Allium) this dataset reads garam at moderate-or-high confidence across the rest of the onion family here — one of the strongest internal patterns in this file."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low fresh."},
    "nutrition":{"kcal":30,"protein":2.6,"carbs":4.4,"fat":0.5,"highlight":"a warming vegetable in TCM"},
    "remedy":{"too-cold":"eat"}},
 
   {"id":"chayote","name":"Chayote","aliases":["chow chow","iskus","fo shou gua","seemai kathirikai"],"emoji":"🥒","category":"vegetable","cuisines":["south-asian","chinese"],"commonness":3,
    "description":"Pale green squash with mild flesh — cooks fast, tastes of what it's cooked with.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"A new-world squash; grouped with the cooling gourds."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Read with the shita gourd family; light and easily digested."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda, like the other gourds."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A New World Cucurbit with no classical Chinese entry, but the cooling-gourd-family pattern this dataset applies broadly across cucurbits (cucumber, bottle gourd, ridge gourd, winter melon) reasonably extends to it."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Read with the shita gourd family; light and easily digested."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda, like the other gourds."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":19,"protein":0.8,"carbs":4.5,"fat":0.1,"highlight":"mild gourd, cooks fast"},
    "remedy":{"too-hot":"eat"}},
@@ -474,7 +474,7 @@
 
   {"id":"brussels-sprouts","name":"Brussels sprouts","aliases":["baby cabbage","bao zi gan lan"],"emoji":"🥬","category":"vegetable","cuisines":["western"],"commonness":3,
    "description":"Miniature cabbages — bitter boiled, sweet roasted.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with cabbage, which is neutral in the Chinese record."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Grouped with the cabbage family — shita but wind-forming."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Thanda and windy, like cabbage."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Brassica oleracea var. gemmifera — literally the same species as cabbage, which this dataset reads neutral at moderate confidence, exactly as this entry's own note already claims."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Same species as cabbage (Brassica oleracea), cooling at moderate confidence here — the family reading this entry's own note already claims."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Same species as cabbage (Brassica oleracea), cold-dry at moderate confidence here — the family reading this entry's own note already claims."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Low.","ref":{"sighi":1,"marks":"L","as":"Brussels sprouts"}},
    "nutrition":{"kcal":43,"protein":3.4,"carbs":8.9,"fat":0.3,"highlight":"roasts better than it boils"}},
 
@@ -494,20 +494,20 @@
 
   {"id":"artichoke","name":"Artichoke","aliases":["kharshuf","ardi shawki","globe artichoke"],"emoji":"🌿","category":"vegetable","cuisines":["arabic","western"],"commonness":4,
    "description":"Thistle bud eaten leaf by leaf, down to the heart.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not part of the Chinese record."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry; bitter and read as shita."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Kharshuf appears in the Arab record as a bitter liver-cooling vegetable."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"No Chinese entry for the plant itself, but this dataset's own bitter-greens-are-cooling reading (radicchio, chicory root, both moderate) is a real Chinese flavor-nature (xing-wei) principle, not just a family guess, and artichoke is unambiguously bitter."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta (bitter) rasa is shita — the same well-established rule already carrying endive, radicchio, chicory root and gai lan at moderate-or-higher confidence in this dataset."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Kharshuf appears in the Arab record as a bitter liver-cooling vegetable."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low.","ref":{"sighi":0,"marks":"","as":"artichoke"}},
    "nutrition":{"kcal":47,"protein":3.3,"carbs":10.5,"fat":0.2,"highlight":"eaten leaf by leaf"},
    "remedy":{"too-hot":"eat"}},
 
   {"id":"swiss-chard","name":"Swiss chard","aliases":["silverbeet","saluq","niu pi cai"],"emoji":"🥬","category":"vegetable","cuisines":["arabic","western"],"commonness":3,
    "description":"Big glossy leaves on coloured stems — spinach's sturdier cousin.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with the cooling leafy greens."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, in the leafy-green group."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Saluq is thanda in the Arab record, cooked with lemon and garlic."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Swiss chard is Beta vulgaris, the same species as beet greens (the leaf of the beet plant), which this dataset already reads cool at moderate confidence."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, in the leafy-green group."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Saluq is thanda in the Arab record, cooked with lemon and garlic."}},
    "histamine":{"sighi":1,"tags":[],"note":"Often grouped with spinach by family resemblance, but SIGHI actually rates chard lower — 1, not spinach's 2.","ref":{"sighi":1,"marks":"","as":"chard, Swiss chard (Beta vulgaris subsp. vulgaris)"}},
    "nutrition":{"kcal":19,"protein":1.8,"carbs":3.7,"fat":0.2,"highlight":"spinach's sturdier cousin"}},
 
   {"id":"arugula","name":"Arugula","aliases":["jarjeer","rocket","rocca","taramira"],"emoji":"🌿","category":"vegetable","cuisines":["arabic","western"],"commonness":2,
    "description":"Peppery leaf served in bunches on the mezze table.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"No Chinese entry; the mustard-family pungency reads warm."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Katu (pungent) and read as ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Jarjeer is documented as garam-khushk and reputed as an aphrodisiac."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"No Chinese entry, and 'pungent reads warm' is not a safe blanket TCM rule to lean on here — watercress is just as pungent a mustard-family leaf and this dataset itself reads it cool, not warm. Left as a plausible but unconfirmed guess rather than a resolved reading."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Katu (pungent) rasa is ushna — the same well-established rasa-virya rule already carrying radish, horseradish, wasabi, drumstick, moringa leaves and turnip greens at moderate-or-higher confidence in this dataset, and arugula is unmistakably katu."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Jarjeer is documented as garam-khushk and reputed as an aphrodisiac."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":25,"protein":2.6,"carbs":3.7,"fat":0.7,"highlight":"the peppery mezze green"},
    "remedy":{"too-cold":"eat"},
@@ -515,20 +515,20 @@
 
   {"id":"watercress","name":"Watercress","aliases":["xi yang cai","abu qurain","halim leaves"],"emoji":"🌿","category":"vegetable","cuisines":["chinese","arabic","western"],"commonness":3,
    "description":"Small peppery leaves that grow in running water — a Cantonese soup green.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Xi yang cai clears lung heat and moistens dryness — simmered into long autumn soups."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Pungent mustard-family leaf, read as ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"The cress family is garam in Unani, used to disperse cold and phlegm — the reverse of the Chinese reading."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Xi yang cai clears lung heat and moistens dryness — simmered into long autumn soups."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Katu (pungent) rasa is ushna — the same rasa-virya rule already carrying radish, horseradish, wasabi and moringa leaves at moderate-or-higher confidence here."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"The cress family is garam in Unani, used to disperse cold and phlegm — the reverse of the Chinese reading."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":11,"protein":2.3,"carbs":1.3,"fat":0.1,"highlight":"the Cantonese soup green"}},
 
   {"id":"endive","name":"Endive","aliases":["hindiba","chicory","witloof","kasni"],"emoji":"🥬","category":"vegetable","cuisines":["arabic","western"],"commonness":4,
    "description":"Tight pale bitter leaves, eaten raw as scoops or braised soft.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classically listed; bitter greens are read as cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta (bitter) rasa is shita and pitta-clearing."},"unani":{"verdict":"cold-dry","confidence":"high","note":"Hindiba is one of the best-documented cooling drugs in Unani — a standard liver and blood cooler."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"No classical entry, but bitter-greens-are-cooling is the same real Chinese flavor-nature principle already carrying radicchio and chicory root (near-identical reasoning) at moderate confidence in this dataset."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta (bitter) rasa is shita and pitta-clearing."},"unani":{"verdict":"cold-dry","confidence":"high","note":"Hindiba is one of the best-documented cooling drugs in Unani — a standard liver and blood cooler."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low.","ref":{"sighi":0,"marks":"","as":"endive (Cichorium endivia)"}},
    "nutrition":{"kcal":17,"protein":1.3,"carbs":3.4,"fat":0.2,"highlight":"the Unani liver cooler"},
    "remedy":{"too-hot":"eat"}},
 
   {"id":"baby-corn","name":"Baby corn","aliases":["yu mi sun","chhota bhutta","young corn"],"emoji":"🌽","category":"vegetable","cuisines":["chinese","south-asian"],"commonness":3,
    "description":"Whole tiny cobs picked before the kernels set — eaten stalk and all.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with mature corn, which is neutral."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"The immature cob is lighter and moister than the mature grain."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Placed by analogy to young, watery vegetables."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Follows mature corn, which this dataset reads neutral at high confidence — a direct same-plant precedent, just harvested immature."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"The immature cob is lighter and moister than the mature grain."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Placed by analogy to young, watery vegetables."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low fresh; the tinned kind sits in brine, which is a separate question."},
    "nutrition":{"kcal":26,"protein":2.5,"carbs":5.5,"fat":0.2,"highlight":"picked before the kernels set"}},
 
@@ -556,7 +556,7 @@
 
   {"id":"choy-sum","name":"Choy sum","aliases":["cai xin","yu choy","flowering cabbage"],"emoji":"🥬","category":"vegetable","cuisines":["chinese"],"commonness":3,
    "description":"Slim flowering stems with small yellow buds — blanched and dressed in oyster sauce.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the brassica greens, which clear heat gently."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry; grouped with leafy greens."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the Unani record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the brassica greens, which clear heat gently."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Brassica rapa, the same species as bok choy and napa cabbage (both cooling at moderate confidence here) — the family reading extends."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Brassica rapa, the same species as bok choy and napa cabbage (both cold at moderate confidence here) — the family reading extends."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":22,"protein":1.8,"carbs":3.6,"fat":0.3,"highlight":"stems, leaves and buds together"}},
 
@@ -570,7 +570,7 @@
 
   {"id":"cassava","name":"Cassava","aliases":["tapioca root","manioc","kappa","mu shu"],"emoji":"🍠","category":"vegetable","cuisines":["south-asian","chinese"],"commonness":2,
    "description":"Starchy tuber that must be cooked properly — raw or under-cooked it is genuinely toxic.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"A new-world root; read with the starchy tubers."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and very guru — heavy, filling and slow."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar; the Kerala staple eaten with fish curry."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"No ancient classical entry, but cassava is genuinely eaten in southern China with a consistent modern food-therapy reading of neutral — and this dataset's own starchy-tuber cluster (potato, taro, chinese yam, satoimo, malanga, ube) is remarkably consistent in reading neutral at moderate-or-high confidence."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and very guru — heavy, filling and slow."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar; the Kerala staple eaten with fish curry."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low for histamine. Its real hazard is cyanogenic glycosides in raw or badly processed root — a different mechanism entirely."},
    "nutrition":{"kcal":160,"protein":1.4,"carbs":38.1,"fat":0.3,"highlight":"must be cooked through"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -590,7 +590,7 @@
 
   {"id":"gai-lan","name":"Gai lan","aliases":["chinese broccoli","kai lan","chinese kale"],"emoji":"🥬","category":"vegetable","cuisines":["chinese"],"commonness":2,
    "description":"Thick blue-green stems with small flowers — blanched and dressed, faintly bitter.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A brassica; cool and heat-clearing, with the bitter edge that marks it."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta and shita."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical Unani record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A brassica; cool and heat-clearing, with the bitter edge that marks it."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta and shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Brassica oleracea — the same species as cabbage, cauliflower and broccoli, all cold at moderate confidence here; gai lan's stem-and-leaf form plausibly reads moist rather than dry."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":22,"protein":1.2,"carbs":4.7,"fat":0.4,"highlight":"stems more than leaves"},
    "remedy":{"too-hot":"eat"},
@@ -612,13 +612,13 @@
 
   {"id":"parsnip","name":"Parsnip","aliases":["white carrot","ou fang feng","pastinake"],"emoji":"🥕","category":"vegetable","cuisines":["western"],"commonness":3,
    "description":"Pale sweet root that turns sweeter after frost — roasted more often than boiled.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Read with carrot, sweeter and starchier."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Madhura and read as gently ushna; no classical entry."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the Unani record."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"No Chinese entry. The old note claimed to follow carrot, but carrot itself is neutral at high confidence in this dataset, not warm — that comparison didn't actually support the verdict it was citing. Left as an honest guess from parsnip's sweeter, starchier character rather than a resolved family reading."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"CORRECTED from heating: madhura (sweet) rasa is shita by this dataset's own established rule (used for maple syrup and stevia elsewhere) — the old note's 'madhura read as ushna' had the direction backwards relative to that rule. No classical Sanskrit entry exists for this European root, but the taste-doctrine extension now points cooling, not heating."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the Unani record."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low.","ref":{"sighi":0,"marks":"","as":"parsnip"}},
    "nutrition":{"kcal":75,"protein":1.2,"carbs":18,"fat":0.3,"highlight":"sweeter after frost"}},
 
   {"id":"celeriac","name":"Celeriac","aliases":["celery root","knob celery","gen qin"],"emoji":"🥔","category":"vegetable","cuisines":["western"],"commonness":4,
    "description":"The knobbly root of a celery relative — nutty, and better mashed than boiled.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with celery, which is cool and calms the liver."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Follows celery; no separate classical entry."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Placed with celery."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Celeriac is Apium graveolens var. rapaceum — literally the same species as celery, which this dataset reads cool at high confidence."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Same species as celery (Apium graveolens), cooling at moderate confidence here."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Same species as celery (Apium graveolens), cold at moderate confidence here."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low.","ref":{"sighi":0,"marks":"","as":"celeriac, celery root (Apium graveolens var. rapaceum)"}},
    "nutrition":{"kcal":42,"protein":1.5,"carbs":9.2,"fat":0.3,"highlight":"celery's underground half"}},
 
@@ -638,7 +638,7 @@
 
   {"id":"spiny-gourd","name":"Spiny gourd","aliases":["kantola","kakrol","teasel gourd","phagil"],"emoji":"🥒","category":"vegetable","cuisines":["south-asian"],"commonness":4,
    "description":"Small spiky monsoon gourd, fried in slices — a short season and a devoted following.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Grouped with the cooling gourds; no Chinese entry."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light, in the karavellaka family."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda, like the other gourds."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"No Chinese entry, but the cooling-gourd-family pattern is well established here (cucumber, bitter gourd, bottle gourd, ridge gourd, winter melon), and spiny gourd (karavellaka) is a close relative of bitter gourd."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light, in the karavellaka family."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda, like the other gourds."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":17,"protein":3.1,"carbs":7.7,"fat":1,"highlight":"a short monsoon season"},
    "remedy":{"too-hot":"eat"}},
@@ -657,7 +657,7 @@
 
   {"id":"pumpkin-flowers","name":"Pumpkin flowers","aliases":["kaddu ke phool","nan gua hua","squash blossom"],"emoji":"🌼","category":"vegetable","cuisines":["south-asian","chinese","western"],"commonness":4,
    "description":"Bright orange blossoms, battered and fried or stuffed and steamed.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with pumpkin; the flower is lighter and cooler."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu — very light."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda; a brief seasonal vegetable."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"The old note read this with pumpkin fruit, but pumpkin fruit is this dataset's own flagged TCM exception (warm, not cool) among the gourds — so that comparison was backwards. Squash blossoms are a genuinely mild, watery, quick-cooked part distinct from the fruit, and read with the broader cooling-gourd-family pattern (cucumber, bottle gourd, ridge gourd) instead."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu — very light."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda; a brief seasonal vegetable."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":15,"protein":1,"carbs":3.3,"fat":0.1,"highlight":"battered and fried"},
    "remedy":{"too-hot":"eat"}},
@@ -705,7 +705,7 @@
 
   {"id":"pea-shoots","name":"Pea shoots","aliases":["dou miao","matar ke patte","pea tips"],"emoji":"🌱","category":"vegetable","cuisines":["chinese"],"commonness":3,
    "description":"The young tendrils and leaves of the pea plant, wilted in seconds with garlic.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the tender leafy greens; cooling and light."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda; outside the classical record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the tender leafy greens; cooling and light."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Follows peas, the same plant (Pisum sativum), which this dataset reads cold-dry at moderate confidence — the tender shoot's higher water content plausibly nudges it toward moist rather than dry."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":42,"protein":4,"carbs":8.6,"fat":0.2,"highlight":"wilts in seconds"},
    "remedy":{"too-hot":"eat"}},
@@ -725,7 +725,7 @@
 
   {"id":"okra-dried","name":"Dried okra","aliases":["bamia mujaffafa","sun-dried bhindi"],"emoji":"🌿","category":"vegetable","cuisines":["arabic"],"commonness":4,
    "description":"Whole small okra threaded on strings and sun-dried for winter stews.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with okra; drying removes the moistening quality."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, though drying makes it ruksha rather than slimy."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk; the dried form loses okra's characteristic wetness."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Follows fresh okra, now moderate confidence here on the modern Chinese food-therapy consensus; as with dried/pickled bamboo elsewhere in this file, drying does not automatically flip a TCM cold/cool reading."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, though drying makes it ruksha rather than slimy."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk; the dried form loses okra's characteristic wetness."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low; sun-dried rather than fermented."},
    "nutrition":{"kcal":280,"protein":15,"carbs":55,"fat":3,"highlight":"threaded on strings","estimate":true}},
 
@@ -763,14 +763,14 @@
 
   {"id":"mizuna","name":"Mizuna","aliases":["japanese mustard green","shui cai"],"emoji":"🌿","category":"vegetable","cuisines":["chinese"],"commonness":4,
    "description":"Feathery mild mustard green, eaten raw in salads or wilted at the last second.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A brassica green; cooling and gently heat-clearing."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A brassica green; cooling and gently heat-clearing."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Brassica rapa, in the same species as bok choy, napa cabbage and choy sum, all cold at moderate confidence here."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":21,"protein":2.2,"carbs":2,"fat":0.3,"highlight":"mild for a mustard"},
    "remedy":{"too-hot":"eat"}},
 
   {"id":"tatsoi","name":"Tatsoi","aliases":["ta cai","spoon mustard","rosette bok choy"],"emoji":"🌿","category":"vegetable","cuisines":["chinese"],"commonness":4,
    "description":"Dark spoon-shaped leaves growing in a flat rosette — a winter green.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with bok choy; cooling and moistening."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with bok choy; cooling and moistening."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Brassica rapa var. rosularis, a close relative of bok choy (cold, moderate here) — this entry's own tcm field already reads it with bok choy, and the same family logic carries to unani."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":20,"protein":2,"carbs":2.7,"fat":0.3,"highlight":"grows flat to the ground"},
    "remedy":{"too-hot":"eat"}},
@@ -809,7 +809,7 @@
 
   {"id":"cardoon","name":"Cardoon","aliases":["artichoke thistle","kharshuf barri"],"emoji":"🌿","category":"vegetable","cuisines":["western","arabic"],"commonness":4,
    "description":"The stalks of an artichoke relative, blanched and braised — bitter and fibrous.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with artichoke."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta and shita."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Barid-yabis, in the kharshuf family."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cardoon is Cynara cardunculus, the same species as globe artichoke (also moderate here) — direct precedent, not just family resemblance."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta and shita."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Barid-yabis, in the kharshuf family."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":20,"protein":0.7,"carbs":4.1,"fat":0.1,"highlight":"the stalk, not the bud"},
    "remedy":{"too-hot":"eat"}},
@@ -830,13 +830,13 @@
 
   {"id":"winged-beans","name":"Winged beans","aliases":["goa bean","chaturbhuj","si jiao dou"],"emoji":"🫛","category":"vegetable","cuisines":["south-asian","chinese"],"commonness":4,
    "description":"Four-ridged pods eaten whole — every part of the plant is edible.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"No classical Chinese entry."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, in the fresh bean group."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Thanda and windy."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"No classical Chinese entry, but the fresh-bean/pod group reads neutral with real consistency in this dataset (green beans, snow peas, yardlong beans, Thai long beans all neutral at moderate-or-high confidence)."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, in the fresh bean group."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda and windy, matching yardlong beans' own moderate-confidence reading in this dataset almost word for word — the fresh-bean-group pattern here is consistent."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":49,"protein":6.9,"carbs":4.3,"fat":0.9,"highlight":"the whole plant is edible"}},
 
   {"id":"ash-plantain","name":"Ash plantain","aliases":["alu kesel","cooking plantain (ash)"],"emoji":"🍌","category":"vegetable","cuisines":["south-asian"],"commonness":4,
    "description":"A starchy Sri Lankan plantain cooked as a vegetable, never eaten ripe.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with plantain."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and grahi, like raw banana."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Ash plantain is the same food as plantain (unripe cooking banana), which this dataset's own fruits.json reads cool at moderate confidence — a direct precedent, not a loose family guess."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and grahi, like raw banana."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":115,"protein":1.2,"carbs":29,"fat":0.3,"highlight":"never eaten ripe"},
    "remedy":{"too-hot":"eat"}},
@@ -883,7 +883,7 @@
 
   {"id":"taro-stem","name":"Taro stem","aliases":["arbi ke danthal","kosu","yu jing"],"emoji":"🌿","category":"vegetable","cuisines":["south-asian","chinese"],"commonness":4,
    "description":"The leaf stalks of colocasia, cooked with sour agents to cut the itch.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with taro."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and astringent."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Follows taro, the corm of the same plant (Colocasia esculenta), which this dataset reads neutral at high confidence — a direct same-plant precedent, not a loose family guess."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and astringent."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda-tar."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low; the itch is oxalate, which the souring agent neutralises."},
    "nutrition":{"kcal":24,"protein":0.5,"carbs":5.3,"fat":0.1,"highlight":"always cooked with something sour"}},
 
@@ -932,14 +932,14 @@
 
   {"id":"shungiku","name":"Shungiku","aliases":["chrysanthemum greens","tong hao","garland chrysanthemum"],"emoji":"🌿","category":"vegetable","cuisines":["japanese"],"commonness":3,
    "description":"Aromatic bitter greens wilted into hotpot at the last moment.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Tong hao is cool and clears heat; the chrysanthemum family is cooling throughout."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta and shita."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the classical record; bitter greens read as cooling."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Tong hao is cool and clears heat; the chrysanthemum family is cooling throughout."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta and shita."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"A bitter Asteraceae green; the hindiba doctrine (bitter = barid) is one of the best-established patterns in this dataset, already carrying endive, radicchio, chicory root, artichoke and cardoon at moderate-or-higher confidence."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":24,"protein":3.4,"carbs":3,"fat":0.6,"highlight":"in at the very last moment"},
    "remedy":{"too-hot":"eat"}},
 
   {"id":"komatsuna","name":"Komatsuna","aliases":["japanese mustard spinach","xiao song cai"],"emoji":"🥬","category":"vegetable","cuisines":["japanese"],"commonness":3,
    "description":"Mild brassica green, sturdier than spinach and less bitter than mustard leaf.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A brassica green; cooling and heat-clearing."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; grouped with the leafy greens."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A brassica green; cooling and heat-clearing."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Brassica rapa var. perviridis, in the same species as bok choy and napa cabbage, both cold at moderate confidence here."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low — and easier than spinach, which SIGHI rates poorly."},
    "nutrition":{"kcal":15,"protein":1.5,"carbs":2.4,"fat":0.2,"highlight":"sturdier than spinach"},
    "remedy":{"too-hot":"eat"}},
@@ -967,7 +967,7 @@
 
   {"id":"myoga","name":"Myoga","aliases":["japanese ginger bud"],"emoji":"🌸","category":"spice","cuisines":["japanese"],"commonness":4,
    "description":"The flower bud of a ginger relative — sharp, floral, shredded raw over cold dishes.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with the ginger family, though far milder than the root."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Katu and ushna, in the ardraka group."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; placed with ginger."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Read with the ginger family, though far milder than the root."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Katu and ushna, in the ardraka group."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Zingiber mioga — the same genus as true ginger, which this dataset's own spices.json reads hot-dry at high confidence; myoga is a milder flower bud of the same plant family, not the root, so the reading is softened to moderate rather than carried over at full strength."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":12,"protein":0.9,"carbs":2.6,"fat":0.1,"highlight":"the bud, not the root"}},
 
@@ -1028,7 +1028,7 @@
 
   {"id":"sawi","name":"Sawi","aliases":["indonesian mustard green","caisim"],"emoji":"🥬","category":"vegetable","cuisines":["southeast-asian"],"commonness":3,
    "description":"Mild mustard green wilted into noodle soups across the archipelago.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A brassica green; cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; grouped with the leafy greens."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A brassica green; cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"A Brassica mustard-cabbage green, in the same genus already read cold-moist at moderate confidence here for bok choy, tatsoi and komatsuna."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":20,"protein":1.8,"carbs":3,"fat":0.3,"highlight":"wilted in, at the end"},
    "remedy":{"too-hot":"eat"}},
@@ -1048,7 +1048,7 @@
 
   {"id":"tomatillo","name":"Tomatillo","aliases":["husk tomato","tomate verde"],"emoji":"🟢","category":"vegetable","cuisines":["latin-american"],"commonness":2,
    "description":"Tart green fruit in a papery husk — the base of every salsa verde.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record; a nightshade; read with tomato, which is cool."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; sour and read as shita."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with the nightshades."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Follows tomato, the closest analog in this dataset (also a New World nightshade), which reads cool at moderate confidence here."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"CORRECTED from cooling: the old note read the sour taste as shita, but amla (sour) rasa is a well-established ushna taste in this dataset's own rasa-virya reasoning — it is exactly why tomato itself, tomatillo's closest analog here, is heating at high confidence. The 'sour = cooling' framing was backwards relative to this dataset's own settled sour-taste doctrine."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with the nightshades."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"A nightshade like tomato, and sour — tomato is one of the highest fresh foods on the SIGHI list."},
    "nutrition":{"kcal":32,"protein":0.96,"carbs":5.8,"fat":1,"highlight":"the base of every salsa verde"},
    "guna":{"verdict":"light","confidence":"moderate","note":"Fresh and simple — the sattvic default for plant food eaten close to how it grew."}},
@@ -1076,7 +1076,7 @@
 
   {"id":"bitter-leaf","name":"Bitter leaf","aliases":["onugbu","vernonia"],"emoji":"🌿","category":"vegetable","cuisines":["african"],"commonness":3,
    "description":"Washed repeatedly to take the edge off — even then it is bitter.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"contested","note":"Outside the classical record; bitter greens are read as cold and heat-clearing."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta rasa is shita and pitta-clearing."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Barid-yabis, in the bitter group."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"No Chinese entry for this specific African plant, but bitter-greens-read-cold is the same principle already carrying radicchio and chicory root at moderate confidence here, and bitter-leaf is emphatically bitter."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta rasa is shita and pitta-clearing."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Barid-yabis, in the bitter group."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":52,"protein":5.2,"carbs":8,"fat":0.4,"highlight":"washed, and still bitter"},
    "remedy":{"too-hot":"eat"}},
@@ -1090,13 +1090,13 @@
 
   {"id":"cassava-leaves","name":"Cassava leaves","aliases":["pondu","saka saka"],"emoji":"🌿","category":"vegetable","cuisines":["african"],"commonness":3,
    "description":"Pounded cassava leaves cooked for hours — they must be, or they are toxic.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; read with the leafy greens; long cooking is required."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with greens."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Follows cassava root, the same plant (Manihot esculenta), now moderate confidence at neutral here — a direct same-plant precedent, sharper than the old generic 'leafy greens' framing."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Follows cassava root, the same plant (Manihot esculenta), which this dataset already reads cold-moist at moderate confidence."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low for histamine. Raw cassava leaves contain cyanogens, which is why they are boiled for hours."},
    "nutrition":{"kcal":60,"protein":7,"carbs":8,"fat":1,"highlight":"hours of boiling, not by choice"}},
 
   {"id":"enset","name":"Enset","aliases":["false banana","ensete"],"emoji":"🌿","category":"vegetable","cuisines":["african"],"commonness":4,
    "description":"Not a banana — the corm and stem are what is eaten, after long fermentation.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; no classical entry."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; starchy and read as shita."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; outside the record."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Outside the classical record; no classical entry."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; starchy and read as shita."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical Unani record — Ensete ventricosum is an Ethiopian staple with no cross-tradition textual presence at all."}},
    "histamine":{"sighi":2,"tags":[],"note":"Almost always fermented before eating."},
    "nutrition":{"kcal":150,"protein":1.2,"carbs":36,"fat":0.3,"highlight":"the false banana"}},
 
@@ -1115,7 +1115,7 @@
 
   {"id":"gundruk","name":"Gundruk","aliases":["nepali fermented greens"],"emoji":"🌿","category":"vegetable","cuisines":["south-asian"],"commonness":3,
    "description":"Leafy greens wilted, packed tight and left to sour for weeks, then dried.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; a dried leaf ferment; read as warming and drying."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented and ruksha, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk by the ferment."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"No Chinese entry for this specific Nepali ferment, but fermentation-exerts-a-warming-influence is a real principle already used at moderate confidence in this dataset for pickled bamboo ('the ferment warms it somewhat'), and this reading also matches gundruk's own moderate-confidence heating ayurveda field here."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented and ruksha, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk by the ferment."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A weeks-long ferment, then dried — both processes raise it."},
    "nutrition":{"kcal":220,"protein":20,"carbs":40,"fat":3,"highlight":"soured for weeks, then dried"}}
 ]
