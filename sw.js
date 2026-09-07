@@ -1,7 +1,7 @@
 // Taseer service worker — offline-first shell, lazily-cached illustrations.
 // VERSION is generated: run `node scripts/stamp-sw.mjs` after any shell change.
 // Do not edit it by hand — it is a hash of SHELL_FILES, and CI fails if it's stale.
-const VERSION = "taseer-81ee8a938f";
+const VERSION = "taseer-a40bea9933";
 const SHELL = `${VERSION}-shell`;
 const IMAGES = `${VERSION}-images`;
 
@@ -21,14 +21,18 @@ const SHELL_FILES = [
   "./assets/ui/taseer-mark.png",
   // Same reasoning extended to the rest of the app's UI chrome (not food
   // photography): Home's four state-card icons, the eight category cut-outs
-  // (Home/Find's grid and every category page's own hero), and Find's three
-  // other-ways-to-browse icons. Found empirically — a real offline session
-  // that reaches Home before any of these happen to be lazily cached (e.g. a
-  // fresh install that goes offline right away) rendered these as blank gaps,
-  // the exact failure this file's own comment above already describes and
-  // solved for the tab bar, just not carried through to these. Small, fixed-
-  // count PNGs (~880 KB total) — nothing like the per-food photography this
-  // bucket is otherwise deliberately keeping out of the shell.
+  // (Home/Find's grid and every category page's own hero), and every icon
+  // Find's browseBody() other-ways-to-browse list points at (its own ways[]
+  // array — the three browse-* icons plus three it borrows from the category/
+  // state sets, so read the array itself, not just the obvious icon names, if
+  // this list ever needs updating again). Found empirically — a real offline
+  // session that reaches Home or Find before any of these happen to be
+  // lazily cached (e.g. a fresh install that goes offline right away)
+  // rendered these as blank gaps, the exact failure this file's own comment
+  // above already describes and solved for the tab bar, just not carried
+  // through to the rest of the chrome. Small, fixed-count PNGs (~1 MB total)
+  // — nothing like the per-food photography this bucket is otherwise
+  // deliberately keeping out of the shell.
   "./assets/ui/icons/state-too-hot.png",
   "./assets/ui/icons/state-too-cold.png",
   "./assets/ui/icons/state-reactive.png",
@@ -36,6 +40,9 @@ const SHELL_FILES = [
   "./assets/ui/icons/browse-curated.png",
   "./assets/ui/icons/browse-spectrum.png",
   "./assets/ui/icons/browse-compare.png",
+  "./assets/ui/icons/category-spices.png",
+  "./assets/ui/icons/category-vegetables.png",
+  "./assets/ui/icons/category-drinks.png",
   "./assets/ui/categories/dairy.png",
   "./assets/ui/categories/dish.png",
   "./assets/ui/categories/drink.png",
