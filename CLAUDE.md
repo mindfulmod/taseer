@@ -14,14 +14,16 @@ node scripts/check-palette.mjs             # enforces the ART.md palette
 node scripts/check-dish-consistency.mjs    # flags dish/drink thermal verdicts that disagree with their own ingredients
 node scripts/check-derived-consistency.mjs # flags a derived food (X-flour/juice/paste/…) whose verdict/confidence disagrees with its own raw source
 node scripts/check-serving-custom.mjs      # flags a cooling verdict whose note leans on serving-temperature/eating-custom language
+node scripts/check-histamine-consistency.mjs # flags dishes sharing a high-histamine ingredient (SIGHI>=2) that score it inconsistently
 ```
 
 CI runs the first four and fails if any generated file is stale.
-The last three (`check-dish-consistency.mjs`, `check-derived-consistency.mjs`,
-`check-serving-custom.mjs`) produce candidate review queues, not build gates —
-they exit 0 regardless of what they find; read their output, don't auto-fix
-off it (a preparation method — frying, souring, fermenting — can legitimately
-override what an ingredient majority or a raw source alone would suggest).
+The last four (`check-dish-consistency.mjs`, `check-derived-consistency.mjs`,
+`check-serving-custom.mjs`, `check-histamine-consistency.mjs`) produce
+candidate review queues, not build gates — they exit 0 regardless of what
+they find; read their output, don't auto-fix off it (a preparation method —
+frying, souring, fermenting — can legitimately override what an ingredient
+majority or a raw source alone would suggest).
 
 ## Visual work
 
