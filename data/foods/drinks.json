@@ -38,7 +38,7 @@
 
   {"id":"chrysanthemum-tea","name":"Chrysanthemum tea","aliases":["ju hua cha","gul-e-daudi"],"emoji":"🌼","category":"drink","cuisines":["chinese"],"commonness":3,
    "description":"Sweet floral infusion — TCM's go-to heat clearer.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Classic for 'heatiness': red eyes, sore throat."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Not classical; inferred."},"unani":{"verdict":"cold","confidence":"contested","note":"Not classical; inferred."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Classic for 'heatiness': red eyes, sore throat."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"No classical entry, but chrysanthemum's bitter-sweet character (tikta and madhura) is a reinforced case under Ayurveda's own rasa-virya rule: both tastes are independently well-established as shita in this dataset (tonic water for tikta; maple syrup and stevia for madhura), pointing the same way rather than a single unsupported guess."},"unani":{"verdict":"cold","confidence":"contested","note":"True chrysanthemum has no real entry in the Perso-Arabic canon (unlike chamomile/babunaj, a different plant that genuinely is documented there), and Unani has no equivalent of Ayurveda's clean bitter-and-sweet-are-cold rule to lean on instead — so this stays a guess rather than a grounded reading."}},
    "histamine":{"sighi":0,"tags":[],"note":"Caffeine-free; gentle."},
    "nutrition":{"kcal":1,"protein":0,"carbs":0,"fat":0,"highlight":"caffeine-free, and drunk specifically to clear heat","estimate":true},
    "remedy":{"too-hot":"eat","too-cold":"avoid"}},
@@ -59,7 +59,7 @@
 
   {"id":"lemonade","name":"Lemonade / shikanjvi","aliases":["shikanjabeen","limonada","ning meng shui"],"emoji":"🍋","category":"drink","cuisines":["south-asian","arabic","western"],"commonness":1,
    "description":"Lemon, water, sugar — the subcontinent's first response to heat.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Sour is heating on paper, yet nimbu pani is universally used as a cooler."},"unani":{"verdict":"cold","confidence":"high","note":"Shikanjabeen descends from classical Unani sikanjabin."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Amla-rasa (sour) is ushna, the same rule this dataset's own lemon/lime entries apply — and this dataset's own nimbu-pani entry (same drink, different name) already reads it that way. 'Nimbu pani is a cooler' is the sensory/folk belief about a chilled glass, not the classical virya, the same distinction drawn for lemon and lime."},"unani":{"verdict":"cold","confidence":"high","note":"Shikanjabeen descends from classical Unani sikanjabin."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Citrus liberator note — skip when flaring, fine for heat."},
    "nutrition":{"kcal":40,"protein":0,"carbs":10,"fat":0,"highlight":"sugar and salt together is why it rehydrates","estimate":true},
    "remedy":{"too-hot":"eat"}},
@@ -80,7 +80,7 @@
 
   {"id":"lassi","name":"Lassi (sweet)","aliases":["meethi lassi","laban drink"],"emoji":"🥤","category":"drink","cuisines":["south-asian"],"commonness":2,
    "description":"Churned yogurt whipped with water and sugar.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classical."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Churning + dilution tempers dahi's heat, say the texts — sweet lassi lands cooling-ish."},"unani":{"verdict":"cold-moist","confidence":"high","note":"THE Punjabi summer cooler."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Yogurt whipped and drunk cold — read with this dataset's other yogurt drinks (mango lassi, salted lassi, doogh), all of which are cool in TCM regardless of what Ayurveda makes of the same glass."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Dahi/takra is ushna in the classical reading — this dataset's own mango-lassi entry says so explicitly ('a heating drink, whatever its temperature'), and salt-lassi, neer-mor and doogh all read the same yogurt base as heating despite being served cold and used to cool. Plain sweet lassi has no ingredient that would flip that; 'churning and dilution tempers dahi's heat' was asserted here but not for any of its yogurt-drink siblings, and doesn't survive the comparison."},"unani":{"verdict":"cold-moist","confidence":"high","note":"THE Punjabi summer cooler."}},
    "histamine":{"sighi":1,"tags":[],"note":"As yogurt."},
    "nutrition":{"kcal":75,"protein":2.5,"carbs":12,"fat":2,"highlight":"yogurt thinned until it can be drunk","estimate":true},
    "ingredients":["yogurt","white-sugar","milk"],
@@ -88,7 +88,7 @@
 
   {"id":"rose-drink","name":"Rose sharbat (Rooh Afza)","aliases":["rooh afza","sharbat ward","gulab sharbat"],"emoji":"🌹","category":"drink","cuisines":["south-asian","arabic"],"commonness":2,
    "description":"The crimson rose syrup of Ramadan tables and loo summers.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classical; rose itself is mildly cool-moving."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Rose is a classic pitta cooler."},"unani":{"verdict":"cold","confidence":"high","note":"Rooh Afza was formulated BY a Unani hakim as a heat remedy."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Corrected: mei gui hua (rose) is a documented classical Chinese herb, and it is warm, not cool — it moves liver qi and invigorates blood, the standard reading in TCM materia medica. This is a genuine cross-tradition split, not internal uncertainty: Ayurveda and Unani both independently and confidently read rose as cooling (gulab/ward), so TCM landing on the opposite side is a real disagreement between systems, the same kind already on record for white vinegar."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Rose is a classic pitta cooler."},"unani":{"verdict":"cold","confidence":"high","note":"Rooh Afza was formulated BY a Unani hakim as a heat remedy."}},
    "histamine":{"sighi":0,"tags":[],"note":"Syrup base benign; check bottle additives if very sensitive."},
    "nutrition":{"kcal":45,"protein":0,"carbs":11,"fat":0,"highlight":"the loo-season syrup","estimate":true},
    "remedy":{"too-hot":"eat"}},
@@ -101,7 +101,7 @@
 
   {"id":"cola","name":"Cola / soda","aliases":["soft drink","mashroob ghazi","ke le"],"emoji":"🥤","category":"drink","cuisines":["south-asian","arabic","chinese","western"],"commonness":1,
    "description":"Carbonated sweet caffeine.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"contested","note":"Served iced = cold-damp burden in TCM's view; the drink itself isn't classical."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Stimulant-sweet; not classical."},"unani":{"verdict":"neutral","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"A modern product with no classical entry. Corrected from 'cold' to 'cool': nothing about cola sets it apart from this dataset's other iced sweet carbonated drinks (sports-drink, tonic-water, soda-water, vimto), which all sit at 'cool' — being served iced doesn't argue for going a full degree further than they do."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"A real internal tension, not a settled call: caffeine argues ushna (as it does for coffee and energy-drink), but 'sweet' argues the opposite — madhura rasa is shita by this dataset's own rule for sugar, maple syrup and the like. The previous note treated 'stimulant-sweet' as if both pointed the same way; they don't. Heating is kept because caffeine is cola's whole reason for being, not because sweetness supports it too."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"No classical entry — a modern carbonated sugar-water, structurally the same family as this dataset's soda-water, tonic-water and vimto (all cold-moist/cold-dry), which is a better anchor than an unexplained 'neutral'. Unlike water kefir or kombucha, cola isn't fermented, so the ferment-warms mechanism that lifts those doesn't apply here."}},
    "histamine":{"sighi":1,"tags":[],"note":"Caffeinated and sweet, but caffeine does not inhibit DAO — SIGHI marks no mechanism on cola."},
    "nutrition":{"kcal":42,"protein":0,"carbs":11,"fat":0,"highlight":"sugar + caffeine"},
    "stimulant":{"compounds":["caffeine"],"note":"Modest caffeine and a great deal of sugar; the crash people describe is mostly the sugar."},
@@ -117,7 +117,7 @@
 
   {"id":"sattu-drink","name":"Sattu sharbat","aliases":["sattu ka sharbat","roasted gram drink"],"emoji":"🥤","category":"drink","cuisines":["south-asian"],"commonness":3,
    "description":"Roasted gram flour whisked in water — Bihar's field-day cooler.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Not classical."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Famous summer cooling drink despite chana's warm lean — roasting + dilution."},"unani":{"verdict":"cold","confidence":"moderate"}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"No classical entry, but this dataset's own roasted-grain-in-water drinks (barley-tea, ragi malt) both read cool, and this dataset's own Ayurveda entry for this same drink already documents, at high confidence, that dilution overrides the roasted grain's warmer lean — a reading TCM's cool verdict here is consistent with rather than contradicting."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Famous summer cooling drink despite chana's warm lean — roasting + dilution."},"unani":{"verdict":"cold","confidence":"moderate"}},
    "histamine":{"sighi":1,"tags":[],"note":"Roasted gram (chickpea) flour is SIGHI 2, mildly flagged like other legumes — gentle, but not the 0 sparse data once suggested."},
    "nutrition":{"kcal":60,"protein":2.5,"carbs":10,"fat":0.6,"highlight":"protein in a glass, from a field lunch","estimate":true},
    "ingredients":["chickpeas"],
@@ -125,32 +125,32 @@
 
   {"id":"soy-milk","name":"Soy milk","aliases":["dou jiang","soya doodh"],"emoji":"🥛","category":"drink","cuisines":["chinese","western"],"commonness":2,
    "description":"The Chinese breakfast milk.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh dou jiang neutral-cool, moistening."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Not classical."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Not classical."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fresh dou jiang neutral-cool, moistening."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Soy is East Asian and absent from the classical Ayurvedic canon, so this isn't a textual reading — but it tracks this dataset's own TCM entry for the same drink (neutral-cool, moistening), which is the closer and better-documented tradition for a soy product."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Outside the Unani record for the same reason as Ayurveda, but the same cross-system logic applies: this dataset's own TCM reading (neutral-cool, moistening) is the nearer anchor for an East Asian soy product than a guess with no anchor at all."}},
    "histamine":{"sighi":2,"tags":[],"note":"Soy's modest flag; fine for many.","ref":{"sighi":2,"marks":"","as":"soy milk, soy drink"}},
    "nutrition":{"kcal":33,"protein":2.9,"carbs":1.8,"fat":1.6,"highlight":"plant protein that behaves like dairy"}},
 
   {"id":"almond-milk","name":"Almond milk","aliases":["sardai (cousin)","xing ren lu"],"emoji":"🥛","category":"drink","cuisines":["western","south-asian","arabic"],"commonness":2,
    "description":"Nut milk — modern carton or classical badam sardai.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Not classical."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Soaked-peeled almonds ground in milk/water = the cooling sardai logic."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Sardai is served as a cooler despite badam being garam — processing flips it."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Genuinely unclear rather than just 'not classical': the alias 'xing ren lu' names a real classical drink, but it's traditionally apricot kernel (xingren, documented warm), not true almond (badam) — a different plant this dataset elsewhere reads as neutral (see almonds, spices.json). Depending which the alias is meant to track, the honest answer runs from neutral to warm, not a single settled reading."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Soaked-peeled almonds ground in milk/water = the cooling sardai logic."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Sardai is served as a cooler despite badam being garam — processing flips it."}},
    "histamine":{"sighi":1,"tags":[],"note":"As almonds, diluted."},
    "nutrition":{"kcal":15,"protein":0.6,"carbs":0.3,"fat":1.1,"highlight":"very little almond, in the carton version"},
    "remedy":{"too-hot":"eat"}},
 
   {"id":"oat-milk","name":"Oat milk","aliases":["yan mai nai","jai doodh"],"emoji":"🥛","category":"drink","cuisines":["western"],"commonness":2,
    "description":"Creamy grain milk of coffee shops.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Not classical; follows oats' warm lean, diluted."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Follows oats, mildly."},"unani":{"verdict":"neutral","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"This dataset's own oats entry (grains.json) is warm at moderate confidence; diluting a warm grain into a milk mutes rather than erases that, landing at neutral rather than a stronger claim either way."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"This dataset's own oats entry is heating at moderate confidence. Unlike almond milk, there's no documented classical processing step (like sardai's soak-and-peel) that flips a grain milk's direction rather than just softening it, so oat milk tracks oats' own direction, mildly."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"This dataset's own oats entry is hot at moderate confidence; carried into a milk the same way badam's heat carries into badam milk (hot-moist), which is the better-grounded reading than an unexplained neutral."}},
    "histamine":{"sighi":1,"tags":[],"note":"Well tolerated.","ref":{"sighi":1,"marks":"","as":"oat drink, oat milk"}},
    "nutrition":{"kcal":45,"protein":1,"carbs":7,"fat":1.5,"highlight":"the one that behaves in coffee"}},
 
   {"id":"kombucha","name":"Kombucha","aliases":["hong cha jun","fermented tea"],"emoji":"🫧","category":"drink","cuisines":["western","chinese"],"commonness":3,
    "description":"Fermented sweet tea — trendy, and a histamine triple-hit.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Thinly classified."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour-fermented = ushna."},"unani":{"verdict":"hot","confidence":"contested","note":"Fermented drinks lean garam."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Corrected from cool: kombucha is fermented tea, and this dataset's own pu-erh entry — tea fermented the same way — is warm at high confidence for exactly that reason. 'Cool' also sat oddly against this same entry's own Ayurveda and Unani fields, both of which already call the fermentation heating."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour-fermented = ushna."},"unani":{"verdict":"hot","confidence":"moderate","note":"Fermented drinks lean garam — the same rule this dataset applies at moderate-or-higher confidence to beer, cider, rice wine and every other ferment in this file; there's no reason a non-alcoholic ferment should get less credit for the identical mechanism."}},
    "histamine":{"sighi":3,"tags":["high-histamine","dao-blocker"],"note":"Fermented + tea + acids: among the worst drinks for histamine intolerance."},
    "nutrition":{"kcal":13,"protein":0,"carbs":3,"fat":0,"highlight":"a live culture in a bottle","estimate":true}},
 
   {"id":"oolong-tea","name":"Oolong tea","aliases":["wu long cha","wulong","blue tea"],"emoji":"🍵","category":"drink","cuisines":["chinese"],"commonness":2,
    "description":"Half-oxidised leaf, somewhere between green and black in both colour and character.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"high","note":"Sits between green (cool) and black (warm) precisely because it is half-oxidised — the moderate everyday tea."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"No classical entry; caffeine reads as ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam like the other teas."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"high","note":"Sits between green (cool) and black (warm) precisely because it is half-oxidised — the moderate everyday tea."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Corrected reasoning: 'caffeine reads as ushna' doesn't hold up against this dataset's own matcha entry, which is cooling despite an even heavier caffeine load — the leaf's tikta-kashaya character wins there. What actually moves oolong is oxidation, the same mechanism this dataset already uses (at moderate confidence) to place black tea at heating; oolong, half-oxidised, sits on the same side of that line, one step short of black tea."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Not 'like the other teas' — green tea and matcha, also teas, are cold-dry. The real basis is oxidation: black tea (fully oxidised) is hot-dry at moderate confidence for exactly that reason, and oolong, half-oxidised, tracks the same direction."}},
    "histamine":{"sighi":1,"tags":["dao-blocker"],"note":"Lower than black tea, higher than green — oxidation is the variable."},
    "nutrition":{"kcal":1,"protein":0,"carbs":0.2,"fat":0,"highlight":"half-oxidised"},
    "stimulant":{"compounds":["caffeine","theanine"],"note":"Partly oxidised, sitting between green and black on both counts."},
@@ -158,7 +158,7 @@
 
   {"id":"white-tea","name":"White tea","aliases":["bai cha","silver needle","bai hao yin zhen"],"emoji":"🍵","category":"drink","cuisines":["chinese"],"commonness":4,
    "description":"The youngest buds, barely processed — pale and delicate.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"The least processed and coolest of the teas; taken in summer to clear heat."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry; read from its minimal processing."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the Unani record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"The least processed and coolest of the teas; taken in summer to clear heat."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"No classical entry, but this dataset's own oxidation gradient across the tea family (green and matcha cooling, black and pu-erh heating) places minimally-processed white tea at the same end as green tea, matching this dataset's own green-tea entry at the same confidence level."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"No classical entry, but the same oxidation gradient this dataset uses across the rest of the tea family (green tea and matcha both cold-dry) places white tea, the least processed of all of them, on the same side."}},
    "histamine":{"sighi":1,"tags":["dao-blocker"],"note":"Low; the least processed tea."},
    "nutrition":{"kcal":1,"protein":0,"carbs":0.2,"fat":0,"highlight":"buds, barely processed"},
    "remedy":{"too-hot":"eat"},
@@ -166,7 +166,7 @@
 
   {"id":"puerh-tea","name":"Pu-erh tea","aliases":["pu er cha","dark tea","aged tea"],"emoji":"🍵","category":"drink","cuisines":["chinese"],"commonness":3,
    "description":"Tea deliberately aged and fermented for years — earthy and dark.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"The ripened kind is warm and famously taken after fatty meals to move stagnation."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Fermented and caffeinated, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam by its ferment."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"The ripened kind is warm and famously taken after fatty meals to move stagnation."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna — the same rule this dataset applies at moderate-or-higher confidence to every other ferment in this file, and directly consistent with this dataset's own TCM entry for the same tea, which is warm at high confidence for the identical reason."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam by its ferment — consistent with this dataset's own TCM entry for the same tea (warm/high, 'famously taken after fatty meals to move stagnation'), and with the moderate-or-higher confidence this dataset gives every other fermented drink for the same mechanism."}},
    "histamine":{"sighi":3,"tags":["dao-blocker","high-histamine"],"note":"Years of deliberate microbial fermentation — the highest of the teas by a distance."},
    "nutrition":{"kcal":1,"protein":0,"carbs":0.2,"fat":0,"highlight":"aged for years"},
    "remedy":{"too-cold":"eat"},
@@ -174,7 +174,7 @@
 
   {"id":"jasmine-tea","name":"Jasmine tea","aliases":["mo li hua cha","jasmine green"],"emoji":"🍵","category":"drink","cuisines":["chinese"],"commonness":2,
    "description":"Green tea scented by layering it with fresh jasmine blossom.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Follows green tea; the jasmine adds a gentle qi-moving, mood-easing quality."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Read with green tea."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Placed with green tea."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Follows green tea; the jasmine adds a gentle qi-moving, mood-easing quality."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"A green-tea base scented rather than reprocessed, so it tracks green tea's own moderate-confidence cooling reading directly — the same confidence level this dataset's matcha entry gets for the identical 'like green tea' logic."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Placed with green tea, at the same moderate confidence this dataset already gives matcha for the identical 'like green tea' reasoning — there's no basis for jasmine tea to sit a level below its own near-twin."}},
    "histamine":{"sighi":1,"tags":["dao-blocker"],"note":"Low, as green tea is."},
    "nutrition":{"kcal":1,"protein":0,"carbs":0.2,"fat":0,"highlight":"scented with real blossom"},
    "remedy":{"too-hot":"eat"},
@@ -183,7 +183,7 @@
 
   {"id":"chamomile-tea","name":"Chamomile tea","aliases":["babunaj","babuna","yang gan ju"],"emoji":"🌼","category":"drink","cuisines":["arabic","western"],"commonness":2,
    "description":"Dried daisy flowers steeped for a soft, apple-scented calm.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Read with the chrysanthemum family — cooling and heat-clearing."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and calming to pitta."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Babunaj is classed garam in the Unani record, given to relax spasms and disperse wind — the reverse of the Chinese reading."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"German chamomile (yang ju hua, 'foreign chrysanthemum') is not the same plant as ju hua and has no entry in the ancient canon, but modern Chinese herbal-medicine sources that do treat it are fairly consistent in reading it as mildly cool/calming — a genuine reading, just not the ancient-canon 'family resemblance' the note previously claimed."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Chamomile is a European herb absent from the classical Ayurvedic canon, so this isn't a textual reading — but tikta rasa (bitter taste) is a well-established shita taste in Ayurveda, the same rule this dataset applies to tonic water and green tea, and chamomile's bitterness grounds the same call here."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Corrected from moderate: unlike its TCM and Ayurveda readings, this one has real classical grounding — babunaj is a well-documented drug in the classical Unani/Perso-Arabic canon (it appears in Ibn Sina's Canon among others), consistently described as hot-dry, given to relax spasms and disperse wind. The reverse-of-the-Chinese-reading framing undersold how much better attested this particular reading is than its siblings in this same entry."}},
    "histamine":{"sighi":0,"tags":[],"note":"Low. It is in the ragweed family, which matters for pollen allergy rather than histamine.","ref":{"sighi":0,"marks":"","as":"chamomile tea"}},
    "nutrition":{"kcal":1,"protein":0,"carbs":0.2,"fat":0,"highlight":"steeped daisy flowers"}},
 
@@ -209,7 +209,7 @@
 
   {"id":"thandai","name":"Thandai","aliases":["sardai","cooling milk drink"],"emoji":"🥛","category":"drink","cuisines":["south-asian"],"commonness":3,
    "description":"Milk ground with almonds, melon seeds, fennel and pepper — the Holi cooler.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read from its components; the melon seeds and milk dominate."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Built deliberately from shita dravyas — milk, char magaz, saunf and rose."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar by design; the name is literally 'the cooling one'."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"No classical entry for the composite drink, and the honest picture is mixed, not one-sided: several of the named spices (fennel, pepper, cardamom, and — per this dataset's own corrected reading — rose) individually read warm in TCM. 'Cool' is kept on the strength of the milk-and-seed body plus the drink's established purpose (and this dataset's own high-confidence Ayurveda/Unani readings) as a deliberately built cooler, not because the spices are cooling too."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Built deliberately from shita dravyas — milk, char magaz, saunf and rose."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar by design; the name is literally 'the cooling one'."}},
    "histamine":{"sighi":1,"tags":[],"note":"Almonds and milk are low; it is the nut-heavy base that keeps it modest rather than zero."},
    "nutrition":{"kcal":120,"protein":4,"carbs":15,"fat":5,"highlight":"built to cool","estimate":true},
    "ingredients":["milk","almonds","melon-seed-mix","fennel-seed","black-pepper","cardamom","rose-drink"],
@@ -217,7 +217,7 @@
 
   {"id":"jaljeera","name":"Jaljeera","aliases":["jal jeera","cumin cooler","jeera sharbat"],"emoji":"🥤","category":"drink","cuisines":["south-asian"],"commonness":2,
    "description":"Sharp, salty, minty cumin water — sold ice-cold from street carts.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"The mint and tamarind pull cool against the cumin's warmth."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Mint and amchur make it shita overall, despite the heating jeera."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Served as a thanda drink against summer heat and poor appetite."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Mint (cool/high in this dataset) and tamarind (cool/moderate) both pull cool and outweigh cumin's warmth (warm/moderate) on their own established readings — the same balance already used to place this same drink's Ayurveda and Unani fields at cooling/moderate."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Mint and amchur make it shita overall, despite the heating jeera."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Served as a thanda drink against summer heat and poor appetite."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Amchur and tamarind base — sour and concentrated."},
    "nutrition":{"kcal":25,"protein":0.4,"carbs":6,"fat":0.1,"highlight":"the street-cart cooler","estimate":true},
    "ingredients":["cumin","mint","amchur","tamarind","black-pepper"],
@@ -225,7 +225,7 @@
 
   {"id":"aam-panna","name":"Aam panna","aliases":["aam ka panna","raw mango cooler","kairi panha"],"emoji":"🥭","category":"drink","cuisines":["south-asian"],"commonness":2,
    "description":"Roasted green mango pulp with cumin, mint and salt — the drink given against heatstroke.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Sour unripe fruit; no classical entry."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Unripe mango is amla-rasa and ushna in the classical reading, whatever the drink is used for."},"unani":{"verdict":"cold-moist","confidence":"high","note":"The standard desi drink against loo — thanda in practice, which is the whole point of it."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Tracks this dataset's own green-mango entry (fruits.json), which is itself cool/contested — 'the Chinese record covers the ripe mango only.' This isn't a separate gap; it's the same unresolved one carried through."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Unripe mango is amla-rasa and ushna in the classical reading, whatever the drink is used for."},"unani":{"verdict":"cold-moist","confidence":"high","note":"The standard desi drink against loo — thanda in practice, which is the whole point of it."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Green mango base, sour and concentrated."},
    "nutrition":{"kcal":60,"protein":0.3,"carbs":15,"fat":0.1,"highlight":"given against loo","estimate":true},
    "ingredients":["green-mango","cumin","mint","jaggery"],
@@ -249,7 +249,7 @@
 
   {"id":"kahwa","name":"Kahwa","aliases":["kashmiri kahwa","saffron green tea","kashmiri qahwa"],"emoji":"🍵","category":"drink","cuisines":["south-asian"],"commonness":3,
    "description":"Kashmiri green tea with saffron, cardamom and slivered almonds.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"A cool green-tea base carrying warm spices; the spices dominate."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Saffron, cardamom and almond are all ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam; a winter drink of the Kashmir valley."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Corrected from warm: 'the spices dominate' doesn't hold up against this dataset's own entries for the named spices — saffron and almonds are both neutral in TCM (spices.json), and only cardamom is actually warm. A high-confidence cool tea base against one modestly-dosed warm spice and two neutral ones lands closer to oolong's 'sits between' logic than to a confident flip to warm."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Saffron, cardamom and almond are all ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam; a winter drink of the Kashmir valley."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":30,"protein":0.8,"carbs":4,"fat":1.2,"highlight":"saffron, cardamom, almond","estimate":true},
    "ingredients":["green-tea","saffron","cardamom","almonds"],
@@ -265,7 +265,7 @@
 
   {"id":"arabic-coffee","name":"Arabic coffee","aliases":["qahwa","gahwa","cardamom coffee"],"emoji":"☕","category":"drink","cuisines":["arabic"],"commonness":1,
    "description":"Pale lightly-roasted coffee heavy with cardamom, poured from a dallah.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Read with coffee; the cardamom adds warmth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and tikshna — coffee and cardamom together."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Qahwa is garam-khushk in the Arab record; the cardamom is added expressly to temper it."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Coffee (warm/moderate) and cardamom (warm/moderate) both push the same direction here, unlike kahwa's tea-plus-mixed-spices case — a consistent rather than mixed combination, which is enough to clear coffee's own moderate confidence ceiling but not exceed it."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and tikshna — coffee and cardamom together."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Qahwa is garam-khushk in the Arab record; the cardamom is added expressly to temper it."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Read as coffee, roast and origin notwithstanding."},
    "nutrition":{"kcal":2,"protein":0.1,"carbs":0.3,"fat":0,"highlight":"poured from a dallah"},
    "ingredients":["coffee","cardamom"],
@@ -285,7 +285,7 @@
 
   {"id":"coconut-milk","name":"Coconut milk","aliases":["nariyal ka doodh","thengai paal","ye zi nai","santan"],"emoji":"🥥","category":"drink","cuisines":["south-asian","chinese"],"commonness":1,
    "description":"Pressed from grated coconut — the body of southern curries and the base of payasam.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with coconut; not a classical Chinese entry."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Narikela is shita, guru and snigdha — cooling and heavy."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar; the coastal counter to garam cooking."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Not a classical Chinese entry, but this dataset's own coconut and desiccated-coconut entries (fruits.json) both read neutral at moderate confidence, and both note explicitly that processing doesn't change coconut's virya — the same logic carries into the pressed milk."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Narikela is shita, guru and snigdha — cooling and heavy."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar; the coastal counter to garam cooking."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low fresh or tinned; it sours quickly once opened.","ref":{"sighi":1,"marks":"","as":"coconut, coconut shavings, coconut milk, coconut water"}},
    "nutrition":{"kcal":230,"protein":2.3,"carbs":5.5,"fat":23.8,"highlight":"the body of a southern curry"},
    "remedy":{"too-hot":"eat"}},
@@ -318,7 +318,7 @@
 
   {"id":"energy-drink","name":"Energy drink","aliases":["red bull","taurine drink","neng liang yin liao"],"emoji":"🥫","category":"drink","cuisines":["western","arabic","south-asian","chinese"],"commonness":2,
    "description":"Carbonated caffeine and sugar with added taurine and B vitamins.",
-   "thermal":{"tcm":{"verdict":"hot","confidence":"contested","note":"A modern product with no classical entry; stimulant and drying, read as hot."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna and tikshna by its caffeine load."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam-khushk; outside the classical record entirely."}},
+   "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"A modern product with no classical entry, but the caffeine-is-warming logic this dataset applies confidently across coffee and the tea family isn't a stretch here — the dose is unusually high and, unlike cola, there's no meaningfully cooling ingredient (sugar is minor and secondary) pulling the other way."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and tikshna by its caffeine load — the same rule this dataset applies confidently to coffee, and here there's no competing sweet/salty rasa in the way there is for cola or sports drinks."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk; outside the classical record, but all three systems converge here (TCM hot, Ayurveda heating) on the same caffeine-load reasoning this dataset applies elsewhere without hesitation."}},
    "histamine":{"sighi":2,"tags":["dao-blocker","liberator"],"note":"The one drink SIGHI annotates with the compound: theobromine inhibits DAO. That is the mechanism people wrongly attribute to caffeine."},
    "nutrition":{"kcal":45,"protein":0.4,"carbs":11,"fat":0,"highlight":"caffeine, sugar, taurine"},
    "stimulant":{"compounds":["caffeine","theobromine"],"note":"High-dose caffeine with sugar and additives. SIGHI singles this category out for theobromine's effect on DAO."},
@@ -326,7 +326,7 @@
 
   {"id":"sports-drink","name":"Sports drink","aliases":["electrolyte drink","gatorade","ors (cousin)"],"emoji":"🥤","category":"drink","cuisines":["western","arabic","south-asian"],"commonness":2,
    "description":"Sweetened water with added salts, meant to replace what sweating takes.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"A modern product; sweet and fluid-generating."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Read as shita from its sugar and salt-water base."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda-tar; outside the classical record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"A modern product; sweet and fluid-generating."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"The previous note cited 'sugar and salt-water' as if both supported shita, but they don't: lavana rasa (salt) is a well-established ushna taste in this dataset (table salt is heating/high) — the opposite of what was claimed. The real picture is a genuine two-way pull between madhura (sugar, shita) and lavana (salt, ushna), with madhura the dominant taste by far in an actual glass of the stuff (sugar content runs an order of magnitude above sodium by weight) — which is why cooling is kept, on the strength of taste-dominance rather than a false 'both agree' claim."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda-tar; outside the classical record — a modern manufactured drink with no textual anchor in any tradition, and (per the Ayurveda note on this same entry) a genuine sugar-vs-salt tension rather than a one-sided reading, so left contested rather than forced."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low; citric acid and colourings are the usual complaints, not histamine."},
    "nutrition":{"kcal":25,"protein":0,"carbs":6,"fat":0,"highlight":"sugar plus salts"},
    "remedy":{"too-hot":"eat"}},
@@ -362,7 +362,7 @@
 
   {"id":"cider","name":"Cider","aliases":["apple cider (alcoholic)","ping guo jiu","perry (cousin)"],"emoji":"🍎","category":"drink","cuisines":["western"],"commonness":3,
    "description":"Fermented apple juice — dry to sweet, still or sparkling.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"An apple base is cool; the ferment pulls the other way."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Madya is ushna whatever fruit it starts from."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by its ferment."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"A genuine, unresolved pull in both directions: apple juice is cool/moderate in this dataset, but fermentation usually warms in TCM (rice wine, umeshu, makgeolli are all warm). It doesn't always, though — this dataset's own beer entry reads fermented grain as cold, not warm — so 'ferment warms' isn't the clean rule elsewhere that it would need to be to settle this one confidently either way."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Madya is ushna whatever fruit it starts from."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by its ferment."}},
    "histamine":{"sighi":3,"tags":["dao-blocker","high-histamine","other-amines"],"note":"Fermented and usually sulphited, with the same DAO problem as any alcohol."},
    "nutrition":{"kcal":47,"protein":0.1,"carbs":4.3,"fat":0,"highlight":"fermented apple juice"}},
 
@@ -451,14 +451,14 @@
 
   {"id":"malt-drink","name":"Malt drink","aliases":["horlicks","bournvita","ovaltine","mai jing"],"emoji":"🥤","category":"drink","cuisines":["south-asian","western"],"commonness":1,
    "description":"Malted barley and milk powder, whisked into hot milk.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"A modern product; malted grain in warm milk reads as warming."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna: malt and sugar over milk."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar; marketed and used as a strengthening drink."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Mai ya (sprouted, roasted barley malt) is a real, well-documented classical TCM substance in its own right — a digestive herb generally read as neutral-to-warm depending on preparation, warm when roasted. Malt drinks are made from roasted malt extract, which grounds this better than a generic 'modern product' framing did."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna: malt and sugar over milk."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar; marketed and used as a strengthening drink."}},
    "histamine":{"sighi":2,"tags":[],"note":"Malt extract and milk powder, both processed and long-stored.","ref":{"sighi":2,"marks":"","as":"Ovaltine"}},
    "nutrition":{"kcal":110,"protein":3.8,"carbs":18,"fat":2.6,"highlight":"the bedtime tin","estimate":true},
    "remedy":{"too-cold":"eat"}},
 
   {"id":"rooibos","name":"Rooibos","aliases":["red bush tea","nan fei cha"],"emoji":"🍵","category":"drink","cuisines":["western"],"commonness":3,
    "description":"South African red bush infusion — caffeine-free, naturally sweet, no bitterness.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Not in the Chinese record; a mild caffeine-free infusion."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the Unani record."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"A South African plant with no contact history with any of the three traditions, so no classical entry anywhere. It is oxidised in processing, the way black tea is (this dataset's own histamine note for this entry says as much) — which would argue for warm rather than neutral by the oxidation-warms logic used elsewhere in the tea family — but rooibos is a chemically distinct plant (no caffeine, different tannins), so that analogy is suggestive at best, not the kind of internal grounding this dataset treats as confidently groundable. Left as a genuine open call rather than forced either way."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical entry, and no clean rasa-based rule to extend from either — genuinely just a guess at a mild, caffeine-free infusion."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the Unani record, with nothing else in this dataset to anchor it to."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low; it is oxidised like black tea, which is why it is not a zero."},
    "nutrition":{"kcal":1,"protein":0,"carbs":0.2,"fat":0,"highlight":"no caffeine, no bitterness"}},
 
@@ -471,14 +471,14 @@
 
   {"id":"corn-silk-tea","name":"Corn silk tea","aliases":["yu mi xu cha","makai ke baal"],"emoji":"🍵","category":"drink","cuisines":["chinese"],"commonness":4,
    "description":"The silk threads from a corn cob, dried and brewed as a diuretic tea.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Yu mi xu is cool and drains damp — a standard drink for water retention."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and mutrala."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda; outside the classical record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Yu mi xu is cool and drains damp — a standard drink for water retention."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and mutrala."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Corn is New World and outside the classical Unani canon, but a mild diuretic plant infusion sits comfortably in Unani's own cold-moist archetype (as barley water does), and both TCM and Ayurveda already read the same plant part as cooling/moderate — convergent enough to move this off a bare guess."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":1,"protein":0,"carbs":0.2,"fat":0,"highlight":"brewed from the threads"},
    "remedy":{"too-hot":"eat"}},
 
   {"id":"date-seed-coffee","name":"Date seed coffee","aliases":["qahwat nawa","date pit coffee"],"emoji":"☕","category":"drink","cuisines":["arabic"],"commonness":4,
    "description":"Roasted ground date stones brewed like coffee — caffeine-free, faintly bitter.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Roasted and bitter; no classical entry."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna by roasting."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk; a Gulf substitute for coffee."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"No classical entry, but this isn't a bare 'roasting is ushna' guess (a rule this dataset's own sattu entry shows doesn't hold universally) — it's grounded in the roasted-bitter-brewed-like-coffee analogy, and this dataset's own Unani entry for the same drink already reaches the same warm/hot direction independently."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Roasted and bitter, brewed and drunk like coffee — the coffee analogy is doing the real work here, not a blanket 'roasting is ushna' claim (which this dataset's own sattu entry shows is unreliable on its own). Both this dataset's TCM and Unani readings for the same drink already converge on the same direction."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk; a Gulf substitute for coffee."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low; no caffeine, so none of coffee's liberator problem."},
    "nutrition":{"kcal":2,"protein":0.1,"carbs":0.4,"fat":0,"highlight":"the stones, not the fruit"},
    "remedy":{"too-cold":"eat"}},
@@ -515,7 +515,7 @@
 
   {"id":"kombucha-cousin-kvass","name":"Kvass","aliases":["bread kvass","fermented bread drink"],"emoji":"🍺","category":"drink","cuisines":["western"],"commonness":4,
    "description":"Fermented rye bread drink — faintly alcoholic, sour and yeasty.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read with the fermented grain drinks."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented and sour, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Bread kvass is functionally closer to this dataset's own beer entry (fermented, low-alcohol, unfiltered grain, read as cold/damp) than to rice wine's warm reading — 'cool' sits reasonably between the two rather than needing to pick a single fermented-grain rule."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented and sour, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by ferment — the same rule this dataset applies at moderate-or-higher confidence to every other fermented drink in this file."}},
    "histamine":{"sighi":3,"tags":["high-histamine","dao-blocker"],"note":"A yeast ferment with residual alcohol — the same combination as beer, and the same problem."},
    "nutrition":{"kcal":27,"protein":0.2,"carbs":5.5,"fat":0,"highlight":"faintly alcoholic"}},
 
@@ -572,14 +572,14 @@
 
   {"id":"soda-water","name":"Soda water","aliases":["sparkling water","su da shui","seltzer"],"emoji":"💧","category":"drink","cuisines":["western","arabic","chinese"],"commonness":1,
    "description":"Water with carbon dioxide dissolved into it, and nothing else.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Plain carbonated water; no classical entry."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Shita; essentially water."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Plain carbonated water; no classical entry for the specific product, but cold/iced beverages are read as cool and potentially damp-forming in TCM generally (the same logic this dataset applies to milkshake), and there's no other component here to complicate that."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Genuinely a special case rather than the usual 'sour is heating however cold it's served' pattern this dataset applies elsewhere (lemonade, lemon-lime soda): those drinks have their own rasa that overrides serving temperature, but plain water has no rasa of its own to override — cold water itself is classically read as shita, so temperature is the only variable left, and it's a legitimate one here."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Water is literally the cold-and-moist element in classical Perso-Greek humoral doctrine — one of the four elements, not an inference. Carbonation doesn't change what the base substance is."}},
    "histamine":{"sighi":0,"tags":[],"note":"None — one of very few drinks that is genuinely nothing."},
    "nutrition":{"kcal":0,"protein":0,"carbs":0,"fat":0,"highlight":"water, and gas"},
    "remedy":{"too-hot":"eat"}},
 
   {"id":"tonic-water","name":"Tonic water","aliases":["quinine water","tang li shui"],"emoji":"🥤","category":"drink","cuisines":["western"],"commonness":2,
    "description":"Carbonated water with quinine and sugar — bitter, and originally an antimalarial.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Bitter and cooling; no classical entry."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Tikta rasa is shita."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"No classical entry for the product, but bitter taste generally drains/clears rather than warms in TCM, and the water base reinforces rather than fights that — two converging, established readings rather than one unsupported guess."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tikta rasa is shita — the same rule this dataset applies confidently to green tea and this dataset's own leung-cha entry."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Bitter herbs read cold-dry in this dataset's own Unani entries (leung-cha is barid-yabis at high confidence for the same reason) — the dry lean over water's usual cold-moist default comes from the bitter quinine content, the same way this dataset reads other bitter infusions."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low. Quinine is a real drug at dose, which is a separate caution."},
    "nutrition":{"kcal":34,"protein":0,"carbs":8.8,"fat":0,"highlight":"originally an antimalarial"}},
 
@@ -606,7 +606,7 @@
 
   {"id":"vimto","name":"Vimto","aliases":["fruit cordial","ramadan cordial"],"emoji":"🟣","category":"drink","cuisines":["arabic"],"commonness":2,
    "description":"Dark fruit cordial diluted with water — a Gulf Ramadan fixture despite being British.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"A modern cordial; no classical entry."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical record."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda in practice; drunk at iftar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"A proprietary mixed-fruit cordial (grape, raspberry, blackcurrant among others) with no single dominant classical fruit to anchor a reading to, unlike this dataset's single-fruit juices — genuinely a guess."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Same problem as TCM: a mixed-fruit blend with no one classical fruit to derive a rasa-virya reading from."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda in practice; drunk at iftar — a serving-context observation rather than a textual one, since the product itself is outside the classical record and has no single fruit to anchor to."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Concentrated fruit and citric acid."},
    "nutrition":{"kcal":50,"protein":0,"carbs":12.5,"fat":0,"highlight":"British, and a Gulf fixture"}},
 
@@ -672,7 +672,7 @@
 
   {"id":"kefir-water","name":"Water kefir","aliases":["tibicos","sugary kefir"],"emoji":"💧","category":"drink","cuisines":["western"],"commonness":4,
    "description":"Sugar water fermented with kefir grains into a light fizzy drink — no dairy involved.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"A ferment on sugar water; no classical entry."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A light ferment on sugar water rather than tea leaves or grain mash — this dataset's own histamine note for this entry says as much, that there's far less substrate here than in kombucha or kvass. A milder substrate argues for a milder shift off its cool starting point, unlike kombucha (fermented tea, raised to warm) or kvass (fermented bread)."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by ferment — the same rule this dataset applies at moderate-or-higher confidence to every other fermented drink in this file."}},
    "histamine":{"sighi":1,"tags":[],"note":"A live ferment, but on a sugar-water base rather than milk or tea leaves — far less free amino acid substrate for bacteria to convert into histamine, which is why it rates well below milk kefir and kombucha despite the shared process.","ref":{"sighi":1,"marks":"","as":"tibicos, or water kefir"}},
    "nutrition":{"kcal":20,"protein":0,"carbs":5,"fat":0,"highlight":"no dairy in it at all"}},
 
@@ -685,7 +685,7 @@
 
   {"id":"cranberry-juice","name":"Cranberry juice","aliases":["cranberry drink"],"emoji":"🔴","category":"drink","cuisines":["western"],"commonness":2,
    "description":"Tart red juice, almost always sweetened because it is undrinkable otherwise.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"A new-world fruit; no classical entry."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"No classical record."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Tracks this dataset's own cranberry entry (fruits.json), itself cool/contested for the same New World, no-classical-entry reason."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Corrected from an unexplained 'cooling': this dataset's own cranberry entry (fruits.json) documents a real two-way tension between amla rasa (sour, ushna) and kashaya rasa (astringent, shita), the same tension flagged for grapefruit and star fruit, and lands on heating rather than cooling. Pressing to juice, which strips the skin and pulp that carry most of the astringency, arguably tips the balance further toward the sour/liquid amla side — juice should track the whole fruit's documented heating call, not quietly assert the opposite with no basis."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Tracks this dataset's own cranberry entry (fruits.json), itself cold-dry/contested with no textual record either way."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Very sour."},
    "nutrition":{"kcal":46,"protein":0.4,"carbs":12.2,"fat":0.1,"highlight":"undrinkable unsweetened"}},
 
@@ -707,7 +707,7 @@
 
   {"id":"hojicha","name":"Hojicha","aliases":["roasted green tea"],"emoji":"🍵","category":"drink","cuisines":["japanese"],"commonness":2,
    "description":"Green tea roasted brown — nutty, low in caffeine, and given to children at night.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Roasting turns a cool tea neutral, which is why it is an evening drink."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; roasting is ushna; the leaf beneath is shita."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; roasted, so drying."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Roasting turns a cool tea neutral, which is why it is an evening drink."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"'Roasting is ushna' isn't a reliable blanket rule in this dataset — this dataset's own sattu entry has roasting (plus dilution) pull a warm-leaning legume cooling instead, high confidence. Forced into Ayurveda's binary cooling/heating (there's no neutral option), and given this dataset's own TCM entry for the same tea shows only a partial shift (cool to neutral, not to warm), heating here is the weaker side of a forced choice, not a confident rule application."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Same caveat as Ayurveda: 'roasted, so drying' isn't a reliable rule on its own in this dataset (see sattu), and this dataset's own TCM entry for the same tea shows roasting only softening the cool reading to neutral, not reversing it — a guess, honestly held as one."}},
    "histamine":{"sighi":1,"tags":["dao-blocker"],"note":"Low."},
    "nutrition":{"kcal":2,"protein":0.1,"carbs":0.3,"fat":0,"highlight":"given to children at night"},
    "stimulant":{"compounds":["caffeine","theanine"],"note":"Roasted, which drives off some of the caffeine. The gentlest of the green teas for that reason."},
@@ -722,7 +722,7 @@
 
   {"id":"amazake","name":"Amazake","aliases":["sweet rice drink","koji drink"],"emoji":"🥛","category":"drink","cuisines":["japanese"],"commonness":4,
    "description":"Rice fermented with koji into a thick sweet drink — sweet without any sugar added.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A warm fermented grain drink."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A warm fermented grain drink."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Outside the classical record for the specific product, but garam-by-ferment is the same rule this dataset applies at moderate-or-higher confidence to every other fermented drink in this file."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A koji ferment — the same mould family as miso, and drunk uncooked."},
    "nutrition":{"kcal":81,"protein":1.7,"carbs":18.3,"fat":0.1,"highlight":"sweet with no sugar in it"},
    "remedy":{"too-cold":"eat"}},
@@ -754,7 +754,7 @@
 
   {"id":"sikhye","name":"Sikhye","aliases":["sweet rice punch"],"emoji":"🥤","category":"drink","cuisines":["korean"],"commonness":3,
    "description":"Sweet cloudy rice drink made with malt — served ice cold after a meal.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Served cold; malted rice, lightly sweet."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; read with the sweet grain drinks."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Served cold; malted rice, lightly sweet."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"No specific classical entry, but madhura rasa (sweet taste) is a well-established shita taste in this dataset (maple syrup, goji berry, stevia), and this dataset's own TCM entry for the same drink agrees on the cool direction."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record, and — unlike Ayurveda — Unani has no clean sweet-equals-cold rule to extend here either: this dataset's own goji-berry entry makes exactly this point (dates, honey and jaggery are all classically hot despite being sweet), so 'sweet grain drink' doesn't safely translate to cold-moist in Unani the way it does in Ayurveda. Left as a genuine guess rather than a rule application."}},
    "histamine":{"sighi":2,"tags":[],"note":"Malt-fermented, though only briefly and then cooked."},
    "nutrition":{"kcal":58,"protein":0.5,"carbs":14,"fat":0.1,"highlight":"served ice cold, after a meal"}},
 
@@ -767,13 +767,13 @@
 
   {"id":"omija-tea","name":"Omija tea","aliases":["five flavour berry tea","schisandra tea"],"emoji":"🍵","category":"drink","cuisines":["korean"],"commonness":4,
    "description":"Schisandra berries steeped cold — sour, sweet, bitter, salty and pungent at once.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Wu wei zi is warm and astringent, a classical lung and kidney tonic."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; sour and astringent; read as ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; placed with the astringent tonics."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Wu wei zi is warm and astringent, a classical lung and kidney tonic."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Corrected reasoning: 'sour and astringent, read as ushna' overstates it — astringent (kashaya) rasa is classically shita, not ushna, the same tension this dataset's own cranberry entry names outright (amla=ushna vs kashaya=shita). Schisandra genuinely pulls both ways on taste. What tips this one toward heating isn't the taste argument but this dataset's own TCM entry for the very same berry (wu wei zi), warm at high confidence — a real cross-system anchor, unlike most 'outside the record' cases in this file."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"'Placed with the astringent tonics' is a weak anchor on its own — astringent tonics run cooling as often as heating (amla and triphala are cooling astringents). The better basis is the same one used for Ayurveda: this dataset's own TCM entry for the same berry (wu wei zi) is warm at high confidence, a real cross-system data point rather than a guess by category."}},
    "histamine":{"sighi":1,"tags":["liberator"],"note":"Sour berry infusion."},
    "nutrition":{"kcal":15,"protein":0.1,"carbs":3.8,"fat":0,"highlight":"all five flavours, at once"}},
 
   {"id":"maesil-cha","name":"Maesil cha","aliases":["plum syrup tea","green plum tea"],"emoji":"🍵","category":"drink","cuisines":["korean"],"commonness":3,
    "description":"Green plums steeped in sugar for months, then diluted hot or cold.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Sour fruit syrup, usually drunk cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Amla-rasa and ushna."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; thanda in practice; taken for digestion."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Sour fruit syrup, usually drunk cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Amla-rasa and ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Outside the classical record for this specific fruit, but this dataset's own Unani readings for sour-fruit sharbats consistently land cold even where Ayurveda's amla-rasa rule reads the identical fruit as heating (tamarind drink, hibiscus, lemonade all split the same way) — a real, repeated cross-tradition pattern this dataset already carries, not a one-off guess."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Months of sugar-steeping on sour fruit."},
    "nutrition":{"kcal":70,"protein":0.1,"carbs":18,"fat":0,"highlight":"months in the jar"}},
 
@@ -786,7 +786,7 @@
 
   {"id":"daechu-cha","name":"Daechu cha","aliases":["jujube tea"],"emoji":"🍵","category":"drink","cuisines":["korean"],"commonness":3,
    "description":"Red dates simmered long and sweetened — thick, dark and warming.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Da zao is warm and tonifies qi and blood."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and building."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam-tar; a winter tonic."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"high","note":"Da zao is warm and tonifies qi and blood."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and building."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Corrected from hot-moist: jujube (unnab) is a genuinely different plant from the true date (tamr) despite the shared English nickname — dates are classically hot in the Unani record (as this dataset's own date-syrup entry documents), but unnab itself is classically read as a cold-moist pectoral/chest fruit, used in demulcent formulas for cough. This mirrors an already-established pattern in this dataset — pomegranate is warm in TCM but cold-moist in both Ayurveda and Unani — so a fruit reading warm/heating in TCM and Ayurveda while landing cold-moist in Unani isn't an anomaly here. Flagging for a spot-check, since this reverses the previous placeholder guess and the sourcing is thinner than this dataset's high-confidence entries."}},
    "histamine":{"sighi":2,"tags":[],"note":"Dried fruit, long-simmered."},
    "nutrition":{"kcal":85,"protein":0.6,"carbs":21,"fat":0.1,"highlight":"thick, dark and sweet"}},
 
@@ -869,7 +869,7 @@
 
   {"id":"yerba-mate","name":"Yerba mate","aliases":["mate leaf","erva-mate"],"emoji":"🧉","category":"drink","cuisines":["latin-american"],"commonness":2,
    "description":"Holly leaves dried and steeped, drunk through a metal straw from a shared gourd.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record; a bitter caffeinated infusion; read with tea, which is cooling."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; tikta and caffeinated; read as ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; outside the record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record. A real, unresolved pull in both directions: the leaves are toasted/dried in processing (sapecagem), which would argue warm the way roasting or oxidation does elsewhere in this dataset — but the bitter taste argues cool, the way it does for green tea. No clean single analogy settles it."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Corrected reasoning: tikta (bitter) rasa is classically shita, not ushna — this dataset's own tonic-water and green-tea entries make that rule explicit, so 'tikta and caffeinated' can't both point to heating the way the old note claimed. What actually grounds heating here is caffeine alone — and mate carries an unusually heavy stimulant load (all three methylxanthines at once, per this entry's own stimulant note), which is enough on its own to outweigh the bitterness pull, the same way it does for oolong and pu-erh."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Outside the classical record — this South American plant has no Perso-Arabic textual entry — but the caffeine/stimulant reasoning this dataset applies to coffee and the tea family extends reasonably here too."}},
    "histamine":{"sighi":1,"tags":["dao-blocker"],"note":"SIGHI groups mate with green tea: mild in itself, and a DAO blocker."},
    "nutrition":{"kcal":3,"protein":0.2,"carbs":0.5,"fat":0,"highlight":"shared, and through a straw"},
    "stimulant":{"compounds":["caffeine","theobromine","theophylline"],"note":"The one common drink with all three methylxanthines. Theobromine is milder and longer-acting than caffeine, which is why mate is described as sustained rather than sharp."},
@@ -893,7 +893,7 @@
 
   {"id":"tejate","name":"Tejate","aliases":["oaxacan maize and cacao drink"],"emoji":"🥤","category":"drink","cuisines":["latin-american"],"commonness":4,
    "description":"A cold pre-Hispanic drink of maize, cacao and mamey seed with a foam on top.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record; a cold maize and cacao drink; no classical entry."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; cacao is ushna."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; thanda in practice."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Corrected: cacao itself is documented warm/moderate in this dataset (spices.json), not cold — the old note cited cacao as part of what made this 'a cold maize and cacao drink,' which gets its own named ingredient backwards. Served ice-cold is a serving-temperature fact, not the substance's virya, the same distinction this dataset draws elsewhere (lemon-lime soda, nimbu pani). Balancing cacao's warmth against maize's roughly neutral character lands this at neutral rather than cool."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Cacao is ushna — the same reasoning this dataset's own champurrado entry (also masa plus cacao) already uses at moderate confidence for a near-identical drink."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Corrected from cold-moist: this dataset's own champurrado entry — masa and cacao, the same core combination — is hot-moist/moderate on 'cacao is garam.' The two entries had opposite verdicts for the same underlying ingredients; 'thanda in practice' was a serving-temperature guess that didn't survive the comparison to its closer sibling."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Cacao is a fermented bean, and the maize is fermented too."},
    "nutrition":{"kcal":90,"protein":2,"carbs":16,"fat":2,"highlight":"the foam is the point","estimate":true},
    "ingredients":["masa-harina","chocolate","canela"]},
@@ -946,7 +946,7 @@
 
   {"id":"mate-drink","name":"Mate","aliases":["chimarrao","mate tea"],"emoji":"🧉","category":"drink","cuisines":["latin-american"],"commonness":2,
    "description":"Yerba mate steeped in a gourd and drunk hot through a bombilla, passed around.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record; read with tea; a bitter caffeinated infusion."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; tikta and caffeinated."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; outside the record."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record. As with the yerba-mate leaf entry this drink shares an ingredient reference with: a real, unresolved pull both ways — toasting/drying in processing argues warm, the bitter taste argues cool, and no clean analogy settles it."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Corrected reasoning, matching the yerba-mate leaf entry: tikta (bitter) rasa is classically shita, not ushna, so 'tikta and caffeinated' doesn't argue heating on both counts the way the old note claimed. Caffeine alone grounds this — and mate's stimulant load is unusually heavy (all three methylxanthines at once), enough to outweigh the bitterness pull on its own."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Outside the classical record — no Perso-Arabic textual entry for this South American plant — but the caffeine/stimulant reasoning this dataset applies to coffee and the tea family extends reasonably here too."}},
    "histamine":{"sighi":1,"tags":["dao-blocker"],"note":"SIGHI groups mate with green tea: mild in itself, and a DAO blocker.","ref":{"sighi":1,"marks":"B","as":"mate tea (llex paraguariensis)"}},
    "nutrition":{"kcal":5,"protein":0.3,"carbs":0.8,"fat":0,"highlight":"passed around, never refused","estimate":true},
    "ingredients":["yerba-mate"],
@@ -981,7 +981,7 @@
 
   {"id":"boza","name":"Boza","aliases":["fermented millet drink"],"emoji":"🥤","category":"drink","cuisines":["persian-turkish"],"commonness":3,
    "description":"Thick slightly fizzy fermented millet drink, drunk in winter with cinnamon and chickpeas on top.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A fermented grain drink, taken warm."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A fermented grain drink, taken warm."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Outside the classical record for the specific product, but garam-by-ferment is the same rule this dataset applies at moderate-or-higher confidence to every other fermented drink in this file."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A live grain ferment, drunk uncooked."},
    "nutrition":{"kcal":85,"protein":1.5,"carbs":19,"fat":0.2,"highlight":"sold only in winter","estimate":true},
    "ingredients":["millet","white-sugar","canela"],
@@ -989,7 +989,7 @@
 
   {"id":"palm-wine","name":"Palm wine","aliases":["emu","nkwu","toddy"],"emoji":"🍶","category":"drink","cuisines":["african"],"commonness":3,
    "description":"Palm sap that begins fermenting the moment it is tapped — sweet in the morning, sour by night.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; a fresh sap ferment; read as warming."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Madya is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Outside the classical record for the specific drink, but every alcoholic ferment in this file reads warm-to-hot in TCM without exception (wine, spirits, rice wine, umeshu, makgeolli, soju, baijiu, feni, tej) — there's no basis for palm wine alone to sit at contested for the same underlying alcohol-is-warming reasoning."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Madya is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":3,"tags":["dao-blocker","high-histamine","other-amines"],"note":"It ferments in the container as you carry it — one of the few drinks that is measurably higher by evening than by morning."},
    "nutrition":{"kcal":40,"protein":0.2,"carbs":4,"fat":0.1,"highlight":"sweet at dawn, sour by dusk"}},
 
@@ -1014,7 +1014,7 @@
 
   {"id":"kunu","name":"Kunu","aliases":["kunun zaki","millet drink"],"emoji":"🥤","category":"drink","cuisines":["african"],"commonness":3,
    "description":"Millet soaked, ground and lightly fermented with ginger — thin, sweet and grainy.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record; a light grain ferment served cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented and ginger-spiced, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Corrected from cool: this dataset's own ginger-tea entry is warm/high, and every other ginger-containing drink in this file (wedang jahe, bandrek, ginger juice, ginger ale) reads warm-to-hot without exception — 'cool' for a ginger-spiced drink was an outlier that ignored the ginger. Landing at neutral rather than warm outright, since ginger plays a secondary flavouring role here rather than being the point of the drink the way it is in those others."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented and ginger-spiced, so ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Outside the classical record for the specific product, but garam-by-ferment is the same rule this dataset applies at moderate-or-higher confidence to every other fermented drink in this file — reinforced here by ginger's own high-confidence hot-dry reading."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A short grain ferment, drunk uncooked."},
    "nutrition":{"kcal":70,"protein":1.8,"carbs":15,"fat":0.4,"highlight":"thin, sweet and grainy","estimate":true}},
 
@@ -1070,7 +1070,7 @@
 
   {"id":"sobia","name":"Sobia","aliases":["fermented bread drink"],"emoji":"🥤","category":"drink","cuisines":["arabic"],"commonness":4,
    "description":"A cloudy pink Ramadan drink of lightly fermented bread or oats with sugar and cinnamon.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A light ferment served cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A light ferment served cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Outside the classical record for the specific product, but garam-by-ferment is the same rule this dataset applies at moderate-or-higher confidence to every other fermented drink in this file."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"A short live ferment, drunk without cooking."},
    "nutrition":{"kcal":70,"protein":1.5,"carbs":15,"fat":0.5,"highlight":"cloudy pink, in Ramadan"}},
 
