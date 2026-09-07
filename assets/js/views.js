@@ -311,7 +311,7 @@ export function foodView(id) {
         <!-- Thermal nature is what the app is FOR, so it sits in the title card
              above the fold rather than in a panel below the nutrition. -->
         <div class="cardsection">
-          <h3>Thermal nature</h3>
+          <h3 role="heading" aria-level="2">Thermal nature</h3>
           <p class="tiny muted">Where each tradition places it</p>
           ${thermalScale(food)}
           ${food.conflict ? "" : `<p class="spread"><strong>All three traditions agree.</strong> The readings line up across the scale.</p>`}
@@ -345,7 +345,7 @@ export function foodView(id) {
       ${
         food.effects?.length
           ? `<div class="panel">
-               <h3>Documented effects</h3>
+               <h3 role="heading" aria-level="2">Documented effects</h3>
                <p class="tiny muted">Traditionally or anecdotally reported for this food specifically — individual response varies. Open one for the full note, including any dose or safety caveat.</p>
                ${food.effects.map(e => `
                  <details class="expander" style="margin-top:14px">
@@ -366,7 +366,7 @@ export function foodView(id) {
       ${
         food.stimulant
           ? `<div class="panel">
-               <h3>What's in the cup</h3>
+               <h3 role="heading" aria-level="2">What's in the cup</h3>
                <p class="cmpd__list">${
                  food.stimulant.compounds.length
                    ? food.stimulant.compounds.map(c => `<span class="cmpd__pill">${COMPOUNDS[c].glyph} ${esc(COMPOUNDS[c].label)}</span>`).join("")
@@ -379,14 +379,14 @@ export function foodView(id) {
       }
 
       <div class="panel t-${food.heatClass}">
-        <h3>Per 100 ${food.category === "drink" ? "ml" : "g"}</h3>
+        <h3 role="heading" aria-level="2">Per 100 ${food.category === "drink" ? "ml" : "g"}</h3>
         ${macroRings(food)}
       </div>
 
       ${
         ingredients.length
           ? `<div class="panel">
-               <h3>Typically contains</h3>
+               <h3 role="heading" aria-level="2">Typically contains</h3>
                <p class="tiny muted" style="margin-bottom:10px">Traditions classify the dish as a whole — these are the usual contents, not a calculation.</p>
                <div class="chips">${ingredients.map(chip).join("")}</div>
              </div>`
@@ -399,7 +399,7 @@ export function foodView(id) {
       ${
         usedIn.length
           ? `<div class="panel">
-               <h3>Used in</h3>
+               <h3 role="heading" aria-level="2">Used in</h3>
                <div class="tiles" style="margin-top:10px">${usedIn.slice(0, 18).map(prepTile).join("")}</div>
                ${usedIn.length > 18 ? `<p class="tiny muted" style="margin-top:10px">…and ${usedIn.length - 18} more.</p>` : ""}
              </div>`
@@ -962,12 +962,12 @@ export function prepView(id) {
       }
 
       <div class="panel">
-        <h3>What goes in</h3>
+        <h3 role="heading" aria-level="2">What goes in</h3>
         <div class="chips" style="margin-top:10px">${ingredients.map(chip).join("")}</div>
       </div>
 
       <div class="panel t-${tone}">
-        <h3>How</h3>
+        <h3 role="heading" aria-level="2">How</h3>
         <ol class="steps">${prep.steps.map(s => `<li>${esc(s)}</li>`).join("")}</ol>
         ${prep.swap ? `<p class="prep__swap"><b>Swap</b> ${esc(prep.swap)}</p>` : ""}
       </div>
@@ -976,7 +976,7 @@ export function prepView(id) {
            says which tradition is doing the work, in the same register the
            food cards use. Never "this will cool you". -->
       <div class="panel">
-        <h3>Why it's on this list</h3>
+        <h3 role="heading" aria-level="2">Why it's on this list</h3>
         <p class="prep__why">${esc(prep.why)}</p>
       </div>
 
