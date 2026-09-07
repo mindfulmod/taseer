@@ -420,7 +420,7 @@
 
   {"id":"baingan-bharta","name":"Baingan bharta","aliases":["bharta","smoked eggplant mash"],"emoji":"🍆","category":"dish","cuisines":["south-asian"],"commonness":1,
    "description":"Eggplant charred whole over flame, peeled and mashed into masala.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Eggplant is cool in TCM; the charring adds warmth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Vrintaka is ushna in the classical reading and traditionally avoided in excess."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Baingan is garam in desi usage — one of the standard household 'heaty' vegetables."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"The eggplant is charred whole over flame before anything else happens to it, and onion, chilli and garlic all resolve hot/high on top of that. Ayurveda and unani already read this dish as heating, citing both the charring and eggplant's own classical heating reputation — corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Vrintaka is ushna in the classical reading and traditionally avoided in excess."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Baingan is garam in desi usage — one of the standard household 'heaty' vegetables."}},
    "histamine":{"sighi":3,"tags":[],"note":"Eggplant and tomato together — both sit high on the SIGHI list."},
    "nutrition":{"kcal":98,"protein":2.4,"carbs":9.5,"fat":6.2,"highlight":"charred whole over flame","estimate":true},
    "ingredients":["eggplant","onion","tomato","green-chili","garlic","mustard-oil"]},
@@ -629,7 +629,7 @@
 
   {"id":"egg-drop-soup","name":"Egg drop soup","aliases":["dan hua tang","egg flower soup"],"emoji":"🍜","category":"dish","cuisines":["chinese"],"commonness":1,
    "description":"Beaten egg swirled into simmering broth so it sets in ribbons.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A light broth with egg — gentle and neutral."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Egg is ushna in the classical reading, however light the soup."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar; a warming, easily digested soup."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Bone broth, spring onion and white pepper all resolve warm/hot at high confidence; egg is neutral and nothing reads cool. Ayurveda and unani already read this soup as heating — corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Egg is ushna in the classical reading, however light the soup."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar; a warming, easily digested soup."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Egg is a liberator and the broth is long-simmered — a light soup with a heavy histamine load."},
    "nutrition":{"kcal":45,"protein":3.5,"carbs":3,"fat":2,"highlight":"egg set in ribbons","estimate":true},
    "ingredients":["egg","bone-broth","spring-onion","white-pepper"],
@@ -712,7 +712,7 @@
 
   {"id":"thoran","name":"Thoran","aliases":["poriyal","dry coconut stir-fry"],"emoji":"🥥","category":"dish","cuisines":["south-asian"],"commonness":2,
    "description":"Finely chopped vegetables tossed dry with grated coconut and mustard seed.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Vegetables and coconut, cooked briefly."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; light and dry."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Cabbage and coconut are both neutral in tcm specifically (not cooling, unlike ayurveda/unani), while mustard seed and chilli both resolve hot/high — nothing tracked actually reads cool. Corrected to match the real heating evidence."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; light and dry."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low — fresh vegetables cooked the same day; the green chilli is the only contributor."},
    "nutrition":{"kcal":95,"protein":2.2,"carbs":8,"fat":6.5,"highlight":"dry, never saucy","estimate":true},
    "ingredients":["cabbage","desiccated-coconut","mustard-seed","curry-leaves","green-chili"],
@@ -882,7 +882,7 @@
 
   {"id":"dhokla","name":"Dhokla","aliases":["khaman","steamed besan cake"],"emoji":"🟨","category":"dish","cuisines":["south-asian"],"commonness":2,
    "description":"Fermented besan batter steamed into a soft yellow sponge and tempered with mustard seed.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Steamed and light; besan is cooling beneath the ferment."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The ferment turns an otherwise shita batter."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda in desi usage — a light Gujarati breakfast."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"This is a fermented besan batter, and ayurveda already applies fermentation-warming logic here ('The ferment turns an otherwise shita batter') alongside mustard seed and chilli both resolving hot/high in tcm. Corrected tcm to match, consistent with the fermentation override already used for appam, handvo and baek-kimchi."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The ferment turns an otherwise shita batter."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda in desi usage — a light Gujarati breakfast."}},
    "histamine":{"sighi":2,"tags":[],"note":"Fermented batter, though steamed rather than fried."},
    "nutrition":{"kcal":160,"protein":6,"carbs":24,"fat":4,"highlight":"steamed to a sponge","estimate":true},
    "ingredients":["besan","yogurt","mustard-seed","green-chili","curry-leaves"]},
@@ -935,7 +935,7 @@
 
   {"id":"egg-curry","name":"Egg curry","aliases":["anda curry","muttai kuzhambu"],"emoji":"🥚","category":"dish","cuisines":["south-asian"],"commonness":1,
    "description":"Boiled eggs halved into an onion-tomato gravy.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Egg is neutral; the gravy is warming."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Anda is ushna and the masala adds to it."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar; eggs are firmly garam in desi usage."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Garam masala, garlic, onion and ginger all resolve warm/hot at high confidence; egg itself is neutral in tcm and only tomato pulls cool. Ayurveda and unani already read this dish as heating for the same reason — corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Anda is ushna and the masala adds to it."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar; eggs are firmly garam in desi usage."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"Egg is a liberator and the tomato gravy is high — together they add up."},
    "nutrition":{"kcal":155,"protein":9,"carbs":8,"fat":10,"highlight":"halved into the gravy","estimate":true},
    "ingredients":["egg","onion","tomato","garam-masala","ginger","garlic"],
@@ -1046,7 +1046,7 @@
 
   {"id":"fatteh","name":"Fatteh","aliases":["fatteh hummus","fattah"],"emoji":"🥣","category":"dish","cuisines":["arabic"],"commonness":2,
    "description":"Layers of toasted bread, chickpeas and garlicky yogurt, topped with fried nuts.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Yogurt-based and served warm rather than hot."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Dahi is ushna; the garlic and fried nuts add to it."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar in practice."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Garlic and pine nuts both resolve warm/high and tahini resolves warm; only yogurt pulls cool. Ayurveda already reads this dish as heating for the same reason — softened tcm from cool to neutral rather than flipping fully, since yogurt is a real cooling component."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Dahi is ushna; the garlic and fried nuts add to it."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garlic, tahini and pine nuts all resolve hot/high, and chickpeas and pita bread both resolve hot in unani specifically; only yogurt pulls cold. Ayurveda already reads this dish as heating — corrected unani to match."}},
    "histamine":{"sighi":2,"tags":[],"note":"Yogurt and toasted bread, assembled ahead."},
    "nutrition":{"kcal":175,"protein":7,"carbs":20,"fat":8,"highlight":"layered, then eaten fast","estimate":true},
    "ingredients":["chickpeas","yogurt","pita-bread","garlic","tahini","pine-nuts"]},
@@ -2212,7 +2212,7 @@
 
   {"id":"shabu-shabu","name":"Shabu-shabu","aliases":["swish hotpot"],"emoji":"🍲","category":"dish","cuisines":["japanese"],"commonness":2,
    "description":"Paper-thin meat swished through plain kombu broth for seconds, then dipped.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Meat cooked seconds in a plain kelp broth — the lightest hotpot."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the mamsa; the broth adds nothing."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Kelp, napa cabbage and tofu are all high-confidence cooling and dominate a broth the beef is swished through for only seconds; beef itself is only moderate-confidence warm in tcm. Corrected to cool; ayurveda and unani read this dish as heating because beef resolves heating/high in those systems specifically — a genuine cross-system difference, not an error."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the mamsa; the broth adds nothing."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":2,"tags":[],"note":"The broth is only kombu, so this is far lower than a soy or miso hotpot — the dipping sauces decide it."},
    "nutrition":{"kcal":150,"protein":15,"carbs":4,"fat":8,"highlight":"seconds, not minutes","estimate":true},
    "ingredients":["beef","kelp","napa-cabbage","tofu","shungiku"],
@@ -2336,7 +2336,7 @@
 
   {"id":"hiyayakko","name":"Hiyayakko","aliases":["cold tofu"],"emoji":"🧊","category":"dish","cuisines":["japanese"],"commonness":2,
    "description":"A block of chilled silken tofu with ginger, spring onion and soy poured over.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Tofu is cool and moistening; served cold, in summer."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Shita — one of the coolest dishes in the set."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Tofu itself is genuinely cooling, but ginger, negi and katsuobushi are all warm/hot toppings — three of five tracked ingredients read warm. Downgraded from high to moderate confidence rather than flipping the verdict; tofu is still the dish's namesake and bulk."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Tofu itself is genuinely cooling, but sonth and negi both resolve heating/high and katsuobushi adds to it — three of five tracked ingredients read heating. Downgraded from high to moderate confidence; tofu is still the dish's bulk."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Tofu itself is genuinely cooling, but sonth and negi both resolve hot/high and katsuobushi adds to it — three of five tracked ingredients read hot. Downgraded from high to moderate confidence; tofu is still the dish's bulk."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"The tofu is nearly nothing; the soy and bonito on top are what rate it."},
    "nutrition":{"kcal":70,"protein":7,"carbs":2,"fat":4,"highlight":"no cooking at all","estimate":true},
    "ingredients":["tofu","sonth","negi","soy-sauce","katsuobushi"],
@@ -2558,7 +2558,7 @@
 
   {"id":"mul-naengmyeon","name":"Mul naengmyeon","aliases":["water cold noodles"],"emoji":"🧊","category":"dish","cuisines":["korean"],"commonness":3,
    "description":"The soup version of naengmyeon — clear icy broth rather than a chilli dressing.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Icy broth and buckwheat."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Icy broth and buckwheat."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Beef, soba and radish all resolve heating in ayurveda, and dongchimi now reads heating too (see that dish's own correction) — nothing in the ingredient list pulls cooling any more. Corrected to match."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Fermented radish brine as the broth base."},
    "nutrition":{"kcal":110,"protein":5,"carbs":22,"fat":1,"highlight":"clear, not red","estimate":true},
    "ingredients":["soba","dongchimi","beef","radish","rice-vinegar"],
@@ -2832,11 +2832,10 @@
 
   {"id":"mu-saengchae","name":"Mu saengchae","aliases":["spicy radish salad"],"emoji":"🥗","category":"dish","cuisines":["korean"],"commonness":2,
    "description":"Julienned raw radish tossed with chilli, vinegar and sugar.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw radish, which is cool and descending."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; the chilli warms it."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw radish, which is cool and descending."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Radish itself resolves heating/moderate in ayurveda (unlike its cooling reading in tcm), and gochugaru, garlic and rice vinegar all resolve heating too — none of the four tracked ingredients reads cooling here. Corrected to match."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Gochugaru, garlic and rice vinegar all resolve hot; radish itself is only cold/contested here, too weak to anchor a cold verdict. Corrected to match ayurveda."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Chilli and vinegar."},
    "nutrition":{"kcal":45,"protein":1,"carbs":9,"fat":0.5,"highlight":"julienned, never grated","estimate":true},
-   "ingredients":["radish","gochugaru","rice-vinegar","garlic"],
-   "remedy":{"too-hot":"eat"}},
+   "ingredients":["radish","gochugaru","rice-vinegar","garlic"]},
 
   {"id":"kkakdugi","name":"Kkakdugi","aliases":["cubed radish kimchi"],"emoji":"🟥","category":"dish","cuisines":["korean"],"commonness":1,
    "description":"Radish cubed and fermented with chilli — crunchier and sharper than cabbage kimchi.",
@@ -2848,22 +2847,21 @@
 
   {"id":"dongchimi","name":"Dongchimi","aliases":["water radish kimchi"],"emoji":"💧","category":"dish","cuisines":["korean"],"commonness":3,
    "description":"Radish fermented in clear salted brine with no chilli — the broth is the point.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"A cold clear brine ferment; radish is cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; drunk as much as eaten."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"A cold clear brine ferment; radish is cooling."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Radish, salt, garlic and negi all resolve heating in ayurveda — only the nashi pear pulls cooling. Corrected to match the ingredient consensus; tcm still reads this cooling because salt and radish both resolve cold/cool there, a genuine cross-system difference."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Salt, garlic and negi all resolve hot/high in unani; radish itself is only cold/contested and the pear is the one solid cooling ingredient. Corrected to match ayurveda."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Still a ferment, chilli or no chilli — and the brine is drunk, not drained."},
    "nutrition":{"kcal":15,"protein":0.6,"carbs":3,"fat":0.1,"highlight":"the broth is the point","estimate":true},
-   "ingredients":["radish","salt","nashi-pear","garlic","negi"],
-   "remedy":{"too-hot":"eat"}},
+   "ingredients":["radish","salt","nashi-pear","garlic","negi"]},
 
   {"id":"baek-kimchi","name":"Baek kimchi","aliases":["white kimchi"],"emoji":"⬜","category":"dish","cuisines":["korean"],"commonness":3,
    "description":"Cabbage kimchi made without chilli — for children, and for the chilli-averse.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A ferment without chilli; cabbage is cooling."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna, but far less than the red kind."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A ferment without chilli; cabbage is cooling."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna, but far less than the red kind."},"unani":{"verdict":"neutral","confidence":"moderate","note":"Garlic, sonth and salt all resolve hot/high; only napa cabbage and pear pull cold, both moderate confidence. Ayurveda already reads this fermented dish as mildly heating for the same reason — softened unani from cold-moist to neutral rather than flipping fully, since it's deliberately the milder, chilli-free kimchi."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Still a full ferment — leaving the chilli out removes the liberator, not the histamine."},
    "nutrition":{"kcal":25,"protein":1.2,"carbs":4.5,"fat":0.3,"highlight":"for children, and the chilli-averse","estimate":true},
    "ingredients":["napa-cabbage","nashi-pear","garlic","sonth","salt"]},
 
   {"id":"oi-sobagi","name":"Oi sobagi","aliases":["stuffed cucumber kimchi"],"emoji":"🥒","category":"dish","cuisines":["korean"],"commonness":3,
    "description":"Cucumbers slit and stuffed with chilli paste and chives — eaten within days.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cucumber is cooling; the chilli paste is hot."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the chilli."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"This is stuffed with a substantial chilli-garlic-shrimp paste, not lightly dressed — gochugaru, garlic-chives, saeujeot and garlic all resolve warm/hot, and only the cucumber itself is cool. Ayurveda already reads this dish as heating for the same reason — corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the chilli."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"A quick ferment, but a ferment."},
    "nutrition":{"kcal":30,"protein":1,"carbs":5.5,"fat":0.4,"highlight":"eaten within days, not months","estimate":true},
    "ingredients":["cucumber","gochugaru","garlic-chives","saeujeot","garlic"],
@@ -3462,7 +3460,7 @@
 
   {"id":"hainanese-chicken-rice","name":"Hainanese chicken rice","aliases":["chicken rice"],"emoji":"🍚","category":"dish","cuisines":["southeast-asian"],"commonness":1,
    "description":"Poached chicken with rice cooked in its stock, and three sauces beside it.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Poached rather than roasted — the gentlest way to cook chicken."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, as chicken is."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Chicken, bone broth, ginger, chilli and sesame oil all resolve warm/hot at high confidence and nothing reads cool — rice alone is neutral. Poaching being gentle doesn't make the ingredients themselves cooling. Ayurveda and unani already read this dish as heating — corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, as chicken is."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Chicken stock in the rice; the chilli and ginger sauces add more."},
    "nutrition":{"kcal":180,"protein":14,"carbs":20,"fat":5,"highlight":"three sauces, and they matter","estimate":true},
    "ingredients":["chicken","white-rice","bone-broth","sonth","birds-eye-chilli","sesame-oil"],
@@ -4010,7 +4008,7 @@
 
   {"id":"sopa-de-lima","name":"Sopa de lima","aliases":["yucatecan lime soup"],"emoji":"🍋","category":"dish","cuisines":["latin-american"],"commonness":3,
    "description":"A clear chicken broth sharpened with lime and topped with tortilla strips.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A light broth with citrus."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the chicken; the lime is sour."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Chicken, tortilla, habanero and onion are all hot in Unani, three of them high-confidence; only lemon pulls cold. A clear majority, converging with Ayurveda's own already-resolved heating call here ('Ushna from the chicken; the lime is sour') — the old note's climate-practice framing is dropped in favor of tracking the ingredients directly."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Chicken, habanero and onion all resolve warm/hot at high confidence; only lime pulls cool. Unani's own note already resolves this exact tension the same way ('a clear majority, converging with ayurveda') — corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the chicken; the lime is sour."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Chicken, tortilla, habanero and onion are all hot in Unani, three of them high-confidence; only lemon pulls cold. A clear majority, converging with Ayurveda's own already-resolved heating call here ('Ushna from the chicken; the lime is sour') — the old note's climate-practice framing is dropped in favor of tracking the ingredients directly."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Chicken broth plus a great deal of lime."},
    "nutrition":{"kcal":85,"protein":9,"carbs":8,"fat":2,"highlight":"the lime goes in at the end","estimate":true},
    "ingredients":["chicken","lemon","tortilla","habanero","onion"]},
@@ -4040,7 +4038,7 @@
 
   {"id":"sope","name":"Sope","aliases":["masa boat"],"emoji":"🫓","category":"dish","cuisines":["latin-american"],"commonness":2,
    "description":"A thick masa disc with a pinched rim to hold beans, meat and salsa.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Griddled masa with toppings."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Griddled masa with toppings."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Masa harina, queso fresco, salsa verde and crema mexicana all resolve cooling in unani — none of the confidently-classified ingredients reads heating. 'Griddled' doesn't automatically mean heating the way deep-frying does; this is a soft masa base with cool fresh toppings. Corrected to match."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"Salsa and crema on top."},
    "nutrition":{"kcal":230,"protein":7,"carbs":30,"fat":9,"highlight":"the pinched rim holds the sauce","estimate":true},
    "ingredients":["masa-harina","pinto-beans","queso-fresco","salsa-verde","crema-mexicana"]},
@@ -4457,7 +4455,7 @@
 
   {"id":"ezme","name":"Ezme","aliases":["turkish chopped salsa"],"emoji":"🌶️","category":"dish","cuisines":["persian-turkish"],"commonness":2,
    "description":"Tomato, pepper, onion and walnut chopped fine with pomegranate molasses and chilli.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw vegetables; the chilli warms it."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna from the chilli and sourness."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Onion and walnuts both resolve warm/hot at high confidence, and bell pepper and pul biber add to it; only tomato pulls cool. Ayurveda and unani already read this dish as heating for the same reason — corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna from the chilli and sourness."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Raw tomato, pomegranate molasses and walnut."},
    "nutrition":{"kcal":70,"protein":2,"carbs":8,"fat":4,"highlight":"chopped, never blended","estimate":true},
    "ingredients":["tomato","bell-pepper","onion","walnuts","pomegranate-molasses","pul-biber"],
@@ -4574,7 +4572,7 @@
 
   {"id":"zeytinyagli","name":"Zeytinyağlı","aliases":["vegetables in olive oil"],"emoji":"🫒","category":"dish","cuisines":["persian-turkish"],"commonness":2,
    "description":"A whole category: vegetables braised in olive oil and served cold, never hot.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Vegetables cooked in oil, eaten cold."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Vegetables cooked in oil, eaten cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Tomato and onion both resolve heating/high, and lemon adds to it; only green beans pull cooling. 'Served cold, never hot' by design doesn't make the ingredients themselves cooling — the same Mediterranean-braised-in-oil pattern already corrected for loubieh-bi-zeit and pan-con-tomate. Corrected to match."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":2,"tags":[],"note":"Made a day ahead and eaten cold — the standing is worth knowing about."},
    "nutrition":{"kcal":120,"protein":2,"carbs":10,"fat":8,"highlight":"never served hot","estimate":true},
    "ingredients":["green-beans","olive-oil","tomato","onion","lemon"],
@@ -4613,7 +4611,7 @@
 
   {"id":"gozleme","name":"Gözleme","aliases":["turkish stuffed flatbread"],"emoji":"🫓","category":"dish","cuisines":["persian-turkish"],"commonness":1,
    "description":"Thin dough folded around cheese, spinach or potato and griddled.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Griddled stuffed flatbread."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Griddled stuffed flatbread."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Potato, spinach and the maida dough are all cooling, potato at high confidence; feta is the only heating ingredient. Griddling a stuffed flatbread isn't the same override as deep-frying — corrected to match the cooling ingredient majority."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":[],"note":"The feta-and-spinach filling is the usual one, and both rate."},
    "nutrition":{"kcal":250,"protein":9,"carbs":32,"fat":10,"highlight":"rolled out on the spot","estimate":true},
    "ingredients":["maida","feta","spinach","potato","butter"],
@@ -4809,7 +4807,7 @@
 
   {"id":"moi-moi","name":"Moi moi","aliases":["steamed bean pudding"],"emoji":"🟠","category":"dish","cuisines":["african"],"commonness":2,
    "description":"Peeled black-eyed peas blended and steamed with pepper and oil into a soft loaf.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Steamed bean pudding."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita from the beans."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar from the palm oil."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Habanero, onion, dried fish and palm oil all resolve warm/hot; the peas themselves are only neutral in tcm and nothing pulls cool. Corrected to match; ayurveda and unani already read this dish as heating."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Habanero, onion and dried fish all resolve heating/high; black-eyed peas are only contested-cooling. Corrected to match unani's already-heating verdict."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar from the palm oil."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Usually contains dried fish or crayfish."},
    "nutrition":{"kcal":160,"protein":9,"carbs":14,"fat":8,"highlight":"steamed in leaves, properly","estimate":true},
    "ingredients":["black-eyed-peas","palm-oil","habanero","onion","dried-fish"]},
@@ -5092,11 +5090,10 @@
 
   {"id":"gomen","name":"Gomen","aliases":["ethiopian collard greens"],"emoji":"🥬","category":"dish","cuisines":["african"],"commonness":2,
    "description":"Collards stewed slowly with garlic, ginger and spiced butter.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Brassica greens; the spice warms them."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam from the ginger and butter."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Niter-kibbeh (spiced clarified butter, used generously as the cooking fat, not a light tempering), garlic and ginger all resolve hot/high, outweighing the moderate-confidence coolness of the collards alone. Unani already reads this dish hot-dry for the same reason, and this dish's own note already admitted 'the spice warms them' without acting on it — corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Niter-kibbeh, garlic and ginger all resolve heating/high; the collards alone are only moderate-confidence cooling. Unani already reads this dish hot-dry for the same ingredients — corrected ayurveda to match."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam from the ginger and butter."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":90,"protein":3,"carbs":8,"fat":5,"highlight":"stewed slow, not wilted","estimate":true},
-   "ingredients":["collard-greens","niter-kibbeh","garlic","sonth","onion"],
-   "remedy":{"too-hot":"eat"}},
+   "ingredients":["collard-greens","niter-kibbeh","garlic","sonth","onion"]},
 
   {"id":"ugali","name":"Ugali","aliases":["sima","maize meal swallow"],"emoji":"⚪","category":"dish","cuisines":["african"],"commonness":1,
    "description":"Maize meal stirred stiff — East Africa's plain daily starch.",
@@ -5337,7 +5334,7 @@
 
   {"id":"rassolnik","name":"Rassolnik","aliases":["pickle and barley soup"],"emoji":"🥒","category":"dish","cuisines":["eastern-european"],"commonness":3,
    "description":"Barley soup soured with pickled cucumber and its brine, often with kidney.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Barley and offal in a sour broth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured and ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Barley and offal in a sour broth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured and ushna."},"unani":{"verdict":"neutral","confidence":"moderate","note":"Barley, cucumber, potato and sour cream all resolve cooling and form the soup's actual bulk, two at high confidence; kidney is the only heating ingredient and per the description is an optional addition ('often with kidney'). Softened from hot-dry to neutral rather than flipping fully, since kidney does contribute real heat when present."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Pickle brine plus offal."},
    "nutrition":{"kcal":90,"protein":6,"carbs":12,"fat":2.5,"highlight":"the brine goes in too","estimate":true},
    "ingredients":["barley","kidney","cucumber","potato","sour-cream","dill"],
@@ -5420,7 +5417,7 @@
 
   {"id":"herring-fur-coat","name":"Herring under a fur coat","aliases":["seledka pod shuboy"],"emoji":"🐟","category":"dish","cuisines":["eastern-european"],"commonness":3,
    "description":"Layers of salted herring, beetroot, potato and mayonnaise built into a purple terrine.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cold layered salted fish and roots."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Salted matsya is ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cold layered salted fish and roots."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Salted matsya is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Kippers, beetroot, carrot, mayonnaise and egg all resolve heating; only potato pulls cold. Ayurveda already reads this heating — corrected unani to match."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Salted herring plus mayonnaise, assembled and left overnight to set."},
    "nutrition":{"kcal":190,"protein":7,"carbs":12,"fat":13,"highlight":"it must sit overnight to set","estimate":true},
    "ingredients":["kippers","beetroot","potato","carrot","mayonnaise","egg"]},
@@ -5708,7 +5705,7 @@
 
   {"id":"white-cut-chicken","name":"White cut chicken","aliases":["bai qie ji"],"emoji":"🐔","category":"dish","cuisines":["chinese"],"commonness":2,
    "description":"Chicken poached just to done and served cold with ginger and spring onion oil.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Plainly poached chicken."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The ginger oil is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Chicken, ginger, spring onion and sesame oil all resolve warm/hot at high confidence; only salt pulls cold. Serving it cold doesn't make the ingredients themselves cooling — ayurveda and unani already read this dish as heating. Corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The ginger oil is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":2,"tags":[],"note":"Freshly poached and served cold — one of the lower dishes here."},
    "nutrition":{"kcal":170,"protein":24,"carbs":1,"fat":8,"highlight":"just to done, never past it","estimate":true},
    "ingredients":["chicken","sonth","spring-onion","sesame-oil","salt"]},
@@ -5958,7 +5955,7 @@
 
   {"id":"wood-ear-salad","name":"Wood ear salad","aliases":["liang ban mu er"],"emoji":"🖤","category":"dish","cuisines":["chinese"],"commonness":3,
    "description":"Soaked wood ear tossed cold with vinegar, garlic and coriander — crunch with no flavour of its own.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Fungus served cold."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Wood-ear mushroom itself is flavourless filler and reads neutral, not cooling, in tcm; the dressing — vinegar, garlic, chilli oil — is what actually characterises the dish and all three resolve warm/hot. Corrected to match."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"neutral","confidence":"moderate","note":"Wood-ear mushroom is only cold-moist/contested in unani; vinegar, garlic and chilli oil all resolve heating, with cilantro the one solid cooling ingredient. Softened from cold-moist to neutral to reflect the real mix rather than flipping fully."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Black vinegar and soy on a rehydrated dried fungus."},
    "nutrition":{"kcal":60,"protein":2,"carbs":8,"fat":2,"highlight":"crunch, and nothing else","estimate":true},
    "ingredients":["wood-ear-mushroom","black-vinegar","garlic","cilantro","chili-oil","soy-sauce"]},
@@ -6010,7 +6007,7 @@
 
   {"id":"mango-pomelo-sago","name":"Mango pomelo sago","aliases":["yang zhi gan lu"],"emoji":"🥭","category":"dish","cuisines":["chinese"],"commonness":2,
    "description":"Mango purée with coconut milk, sago pearls and pomelo segments, served very cold.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A cold fruit and coconut dessert."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Mango is ushna; the pomelo is shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A cold fruit and coconut dessert."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Coconut milk, sago and evaporated milk are all cooling, and pomelo too — mango is the only heating ingredient, and only at contested confidence. This is a coconut-milk dessert with fruit added, not a mango-dominant one; mango's own reputation for being ushna doesn't carry through as a minority component. Corrected to match the coconut-milk-and-sago base."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Mango and citrus are both liberators."},
    "nutrition":{"kcal":160,"protein":2,"carbs":26,"fat":6,"highlight":"served very cold","estimate":true},
    "ingredients":["mango","coconut-milk","sabudana","pomelo","evaporated-milk"],
@@ -6097,7 +6094,7 @@
 
   {"id":"aloo-posto","name":"Aloo posto","aliases":["potato in poppy seed paste"],"emoji":"🥔","category":"dish","cuisines":["south-asian"],"commonness":3,
    "description":"Potatoes in a thick white poppy-seed paste — plain, and famously hard to stop eating.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Poppy seed is cooling and calming; potato is neutral."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Khus-khus is shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Nothing tracked reads cool in tcm — potato and poppy seed are both neutral, while green chilli and mustard oil resolve hot. Corrected to match; ayurveda and unani read this dish as cooling because potato and poppy seed both resolve cooling in those systems specifically."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Khus-khus is shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":180,"protein":5,"carbs":22,"fat":9,"highlight":"plain, and hard to stop eating","estimate":true},
    "ingredients":["potato","poppy-seed","green-chili","mustard-oil","kalonji"],
@@ -6129,7 +6126,7 @@
 
   {"id":"panta-bhat","name":"Panta bhat","aliases":["fermented rice water"],"emoji":"🍚","category":"dish","cuisines":["south-asian"],"commonness":3,
    "description":"Leftover rice covered in water overnight and eaten cool with salt, onion and chilli.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Soured rice eaten cool; a hot-weather food."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Salt is the only ingredient carrying the 'cold' reading here; onion, chilli and mustard oil are all warm/hot at high confidence and rice is neutral. Downgraded from high to moderate confidence rather than flipping — this is still soured rice eaten specifically to cool down in hot weather, but the ingredient evidence is thinner than 'high' implied."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Overnight fermentation of cooked rice — a live ferment eaten without reheating."},
    "nutrition":{"kcal":90,"protein":2,"carbs":20,"fat":0.3,"highlight":"a hot-weather food, by design","estimate":true},
    "ingredients":["white-rice","onion","green-chili","salt","mustard-oil"],
@@ -6137,7 +6134,7 @@
 
   {"id":"doi-maach","name":"Doi maach","aliases":["fish in yogurt gravy"],"emoji":"🐟","category":"dish","cuisines":["south-asian"],"commonness":3,
    "description":"Rohu fried then simmered in a whisked yogurt gravy that must not be allowed to split.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Fish in a yogurt gravy."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya is ushna; dahi is contested."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"The fish is fried before it goes into the gravy, and rohu, ginger, chilli, mustard oil and turmeric all resolve warm/hot; only yogurt pulls cool. Ayurveda and unani already read this dish as heating — corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya is ushna; dahi is contested."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Yogurt is a live ferment and fish is fish."},
    "nutrition":{"kcal":190,"protein":18,"carbs":5,"fat":11,"highlight":"it must not split","estimate":true},
    "ingredients":["rohu","yogurt","sonth","green-chili","mustard-oil","turmeric"]},
@@ -6353,7 +6350,7 @@
 
   {"id":"aloo-tama","name":"Aloo tama","aliases":["potato and bamboo shoot curry"],"emoji":"🎋","category":"dish","cuisines":["south-asian"],"commonness":4,
    "description":"Sour fermented bamboo shoot with potato and black-eyed peas in a thin turmeric gravy.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Sour bamboo and potato."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The ferment is ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Sour bamboo and potato."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The ferment is ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Turmeric, cumin and green chilli all resolve hot/high; the fermented bamboo shoot is only cold-moist/contested. Ayurveda already treats the ferment as warming here ('the ferment is ushna') — corrected unani to apply the same fermentation logic already used for appam, handvo and dhokla."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Fermented bamboo shoot is the defining ingredient, and it is a live ferment."},
    "nutrition":{"kcal":110,"protein":5,"carbs":18,"fat":3,"highlight":"sour, from the bamboo","estimate":true},
    "ingredients":["bamboo-shoots","potato","black-eyed-peas","turmeric","cumin","green-chili"]},
@@ -6421,7 +6418,7 @@
 
   {"id":"thalipeeth","name":"Thalipeeth","aliases":["multigrain spiced flatbread"],"emoji":"🫓","category":"dish","cuisines":["south-asian"],"commonness":3,
    "description":"A thick flatbread of several roasted flours patted out by hand with holes poked through.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Mixed-grain spiced flatbread."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the spice."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Mixed-grain spiced flatbread."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the spice."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Jowar flour, besan, cilantro and coriander seed all resolve cooling in unani, three at high confidence — only onion and cumin resolve heating. This is a griddled flatbread, not deep-fried, so there's no frying-override to justify 'hot-dry' against a clear cooling majority. Corrected to match."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":280,"protein":10,"carbs":44,"fat":8,"highlight":"patted by hand, with holes poked in","estimate":true},
    "ingredients":["jowar-flour","besan","onion","cilantro","cumin","coriander-seed"],
@@ -6481,7 +6478,7 @@
 
   {"id":"rava-dosa","name":"Rava dosa","aliases":["semolina crepe"],"emoji":"🕸️","category":"dish","cuisines":["south-asian"],"commonness":2,
    "description":"A lacy semolina crepe poured from a thin batter — full of holes, and crisp because of them.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A thin griddled crepe."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following rice and semolina."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A thin griddled crepe."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following rice and semolina."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Semolina itself resolves hot-moist/high in unani (unlike its cooling reading in ayurveda), and cumin and green chilli are both hot/high; only rice flour pulls cold. Corrected to match; ayurveda still reads this dish cooling because semolina resolves cooling there — a genuine cross-system difference."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low — unlike a plain dosa, this batter is not fermented."},
    "nutrition":{"kcal":200,"protein":4,"carbs":30,"fat":7,"highlight":"full of holes, and crisp because of them","estimate":true},
    "ingredients":["semolina","rice-flour","cumin","green-chili","curry-leaves","sunflower-oil"]},
@@ -6635,7 +6632,7 @@
 
   {"id":"loubieh-bi-zeit","name":"Loubieh bi zeit","aliases":["green beans in oil"],"emoji":"🫛","category":"dish","cuisines":["arabic"],"commonness":2,
    "description":"Green beans stewed soft in olive oil, garlic and tomato, and eaten at room temperature.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Vegetables stewed in oil, served cool."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Vegetables stewed in oil, served cool."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garlic, onion and olive oil all resolve hot/high, and tinned tomato adds to it; only the cilantro garnish pulls cold. Room-temperature serving isn't virya — corrected to match, the same pattern already fixed for pan-con-tomate and salmorejo."}},
    "histamine":{"sighi":3,"tags":[],"note":"Tomato and a long slow cook."},
    "nutrition":{"kcal":130,"protein":3,"carbs":10,"fat":9,"highlight":"at room temperature, not hot","estimate":true},
    "ingredients":["green-beans","tinned-tomatoes","garlic","onion","olive-oil","cilantro"]},
@@ -6878,7 +6875,7 @@
 
   {"id":"nakhi","name":"Nakhi","aliases":["boiled chickpeas with cumin"],"emoji":"🫘","category":"dish","cuisines":["arabic"],"commonness":3,
    "description":"Whole chickpeas boiled soft and eaten hot from a paper cone with cumin and lemon.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Plain boiled chickpeas."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Chana is shita and ruksha."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda, and windy."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Plain boiled chickpeas."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Chana is shita and ruksha."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Chickpeas, cumin and salt all resolve hot in unani; only lemon pulls cold. Balila — the near-identical whole-chickpea dish with cumin and lemon — already correctly reads hot-dry/moderate in unani for the same ingredients; corrected nakhi to match its sibling dish."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Lemon; the chickpeas are low."},
    "nutrition":{"kcal":140,"protein":8,"carbs":22,"fat":2,"highlight":"from a paper cone, hot","estimate":true},
    "ingredients":["chickpeas","cumin","lemon","salt"]},
@@ -7065,7 +7062,7 @@
 
   {"id":"polenta-dish","name":"Polenta (soft)","aliases":["wet polenta"],"emoji":"🟡","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Coarse cornmeal stirred in water for the better part of an hour until it pours slowly.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Plain cooked cornmeal."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following corn."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Plain cooked cornmeal."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following corn."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Cornmeal, butter and salt all resolve heating in unani; nothing in the tracked ingredients pulls cold. Corrected to match."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low on its own; the cheese and butter stirred in at the end decide."},
    "nutrition":{"kcal":85,"protein":2,"carbs":17,"fat":1,"highlight":"an hour of stirring, genuinely","estimate":true},
    "ingredients":["cornmeal","butter","salt"]},
@@ -7176,7 +7173,7 @@
 
   {"id":"salade-nicoise","name":"Salade niçoise","aliases":["nicoise salad"],"emoji":"🥗","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Tuna, egg, olive, bean and tomato dressed in oil — assembled, not tossed.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A cold composed salad."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya and anda are ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A cold composed salad."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya and anda are ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Tuna, egg, olives and anchovies all resolve heating; tomato is the only cooling ingredient and reads cold-moist/contested here. Ayurveda already reads this composed salad as heating — corrected unani to match."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Canned tuna, anchovy, olives, egg and tomato — five high items in one bowl."},
    "nutrition":{"kcal":170,"protein":14,"carbs":8,"fat":9,"highlight":"assembled, never tossed","estimate":true},
    "ingredients":["canned-tuna","egg","olives","green-beans","tomato","anchovies"]},
@@ -7344,7 +7341,7 @@
 
   {"id":"knodel","name":"Knödel","aliases":["bread or potato dumpling"],"emoji":"⚪","category":"dish","cuisines":["western"],"commonness":3,
    "description":"A large boiled dumpling of stale bread or potato, served to soak up sauce.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A plain boiled dumpling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Egg, onion and parsley all resolve warm/hot; milk is only a binder here and is the sole cooling ingredient. Ayurveda already reads this dish as heating — corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Egg, onion, bread and parsley all resolve heating; milk is the only cooling ingredient, and a binder rather than the dish's bulk. Corrected to match unani's already-heating verdict."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Egg, onion, bread and parsley all resolve hot; only the milk binder pulls cold, and boiling doesn't override that the way frying does for the fried sweets. Corrected to match ayurveda."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":170,"protein":6,"carbs":30,"fat":3,"highlight":"to soak up the sauce, that is all","estimate":true},
    "ingredients":["white-bread","egg","milk","onion","parsley"]},
@@ -7375,18 +7372,17 @@
 
   {"id":"pan-con-tomate","name":"Pan con tomate","aliases":["bread with tomato"],"emoji":"🍅","category":"dish","cuisines":["western"],"commonness":1,
    "description":"Toast rubbed with a cut tomato and garlic, then oil and salt — four things, done well.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw tomato on toast."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Lashuna is ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw tomato on toast."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Lashuna is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garlic, olive oil, salt and bread all resolve hot; tomato is contested-cold here and carries little weight. Ayurveda already reads this dish heating for the same reason ('Lashuna is ushna') — corrected unani to match."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Raw tomato, which is a liberator and high in its own right."},
    "nutrition":{"kcal":160,"protein":4,"carbs":22,"fat":6,"highlight":"four things, done well","estimate":true},
    "ingredients":["white-bread","tomato","garlic","olive-oil","salt"]},
 
   {"id":"salmorejo","name":"Salmorejo","aliases":["thick cold tomato soup"],"emoji":"🍅","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Tomato, bread, garlic and oil blended thick and cold, with ham and egg on top.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"A cold raw tomato soup."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, served cold."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"A cold raw tomato soup."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Garlic, olive oil, prosciutto and egg all resolve heating/high, and even tomato itself resolves heating/high here — nothing left to anchor 'cooling' but serving temperature. Corrected to match the ingredients."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garlic, olive oil, prosciutto, egg and bread all resolve hot; tomato is the only ingredient pulling cold, and only at contested confidence. 'Served cold' isn't virya — corrected to match the dominant heating ingredients."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Raw tomato, cured ham and egg — thicker than gazpacho, and higher."},
    "nutrition":{"kcal":150,"protein":4,"carbs":14,"fat":9,"highlight":"thicker than gazpacho, and richer","estimate":true},
-   "ingredients":["tomato","white-bread","garlic","olive-oil","prosciutto","egg"],
-   "remedy":{"too-hot":"eat"}},
+   "ingredients":["tomato","white-bread","garlic","olive-oil","prosciutto","egg"]},
 
   {"id":"kottbullar","name":"Köttbullar","aliases":["swedish meatballs"],"emoji":"🍖","category":"dish","cuisines":["western"],"commonness":1,
    "description":"Small pork and beef meatballs in cream gravy, with lingonberry beside them.",
@@ -7398,14 +7394,14 @@
 
   {"id":"pickled-herring","name":"Pickled herring","aliases":["sill","matjes"],"emoji":"🐟","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Herring cured in salt then steeped in sweetened vinegar with onion and dill.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cured fish in vinegar."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya and amla are ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Nothing tracked reads cool in tcm — kippers, onion, vinegar, dill and bay leaf all resolve warm, and sugar is neutral. Corrected to match; ayurveda already reads this dish heating."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya and amla are ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Kippers, onion, bay leaf and vinegar all resolve hot; only sugar in the pickling brine pulls cold. Ayurveda already reads this heating — corrected unani to match."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Cured oily fish in vinegar — three separate reasons it rates 3."},
    "nutrition":{"kcal":210,"protein":14,"carbs":8,"fat":14,"highlight":"salt first, then vinegar","estimate":true},
    "ingredients":["kippers","apple-cider-vinegar","onion","dill","white-sugar","bay-leaf"]},
 
   {"id":"smorrebrod","name":"Smørrebrød","aliases":["danish open sandwich"],"emoji":"🍞","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Dense rye buttered and built up with fish, meat or egg — eaten with a knife and fork.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Rye bread with cold toppings."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Depends entirely on the topping."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk, following rye."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Rye bread with cold toppings."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Depends entirely on the topping."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Egg, onion, dill and rye bread all resolve heating, and the pickled-herring topping now reads heating too (see that dish's own correction). Ayurveda already reads this dish as heating, dependent on topping — corrected unani to match."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"The classic toppings are pickled herring, cured meat or aged cheese."},
    "nutrition":{"kcal":230,"protein":11,"carbs":24,"fat":10,"highlight":"with a knife and fork, always","estimate":true},
    "ingredients":["rye-bread","butter","pickled-herring","egg","dill","onion"]},
