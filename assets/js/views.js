@@ -1332,7 +1332,7 @@ export function spectrumView({ band = "" } = {}) {
     <div class="spectrum__rail" role="tablist" aria-label="Temperature bands">
       ${BANDS.map(
         b => `<button class="spectrum__seg t-${b.id}" data-nav="/spectrum${active?.id === b.id ? "" : `?band=${b.id}`}"
-                 aria-selected="${active?.id === b.id}">
+                 role="tab" aria-selected="${active?.id === b.id}">
                 <span class="spectrum__segbar"></span>
                 <span class="spectrum__seglabel">${esc(b.label)}</span>
                 <span class="spectrum__segcount">${all.filter(f => f.heatClass === b.id).length}</span>
@@ -1555,10 +1555,10 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
   // active verdict, rather than a fixed pair of buttons, means switching from
   // mount() and switching from the very first render never draw it differently.
   const segbarHtml = verdict => `
-    <button class="segbar__btn" data-list="eat" aria-selected="${verdict === "eat"}">
+    <button class="segbar__btn" data-list="eat" role="tab" aria-selected="${verdict === "eat"}">
       ${verdict === "eat" ? "Eat this" : "Eat"} <span class="segbar__count">${eat.length}</span>
     </button>
-    <button class="segbar__btn" data-list="avoid" aria-selected="${verdict === "avoid"}">
+    <button class="segbar__btn" data-list="avoid" role="tab" aria-selected="${verdict === "avoid"}">
       ${verdict === "avoid" ? "Avoid this" : "Avoid"} <span class="segbar__count">${avoid.length}</span>
     </button>`;
 
@@ -1585,7 +1585,7 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
       </section>
 
       <div class="controls-sticky">
-        <div class="segbar" id="segbar" role="tablist">${segbarHtml(verdict)}</div>
+        <div class="segbar" id="segbar" role="tablist" aria-label="Eat or avoid">${segbarHtml(verdict)}</div>
 
         <div class="findrow">
           <div class="searchbar">
