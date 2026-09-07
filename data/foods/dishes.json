@@ -660,9 +660,9 @@
   {"id":"fish-and-chips","name":"Fish and chips","aliases":["battered fish","fish supper"],"emoji":"🍟","category":"dish","cuisines":["western"],"commonness":1,
    "description":"White fish in beer batter, deep-fried, with thick-cut chips.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Deep-fried; the fish itself is neutral."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and guru — frying plus matsya, which is already heating."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk by the frying."}},
-   "histamine":{"sighi":2,"tags":[],"note":"Depends almost entirely on how fresh the fish was; the batter is usually beer-based."},
+   "histamine":{"sighi":2,"tags":[],"note":"Depends almost entirely on how fresh the fish was; the batter is usually beer-based — beer itself is SIGHI 2, matching the dish's own score, so no change needed now that it's listed."},
    "nutrition":{"kcal":230,"protein":12,"carbs":22,"fat":11,"highlight":"beer batter, thick-cut chips","estimate":true},
-   "ingredients":["cod","potato","maida","sunflower-oil"],
+   "ingredients":["cod","potato","maida","sunflower-oil","beer"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"greek-salad","name":"Greek salad","aliases":["horiatiki","village salad"],"emoji":"🥗","category":"dish","cuisines":["western","arabic"],"commonness":1,
