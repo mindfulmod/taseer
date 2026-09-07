@@ -51,7 +51,18 @@ systemDark.addEventListener("change", () => theme.get() === "system" && applyThe
 function renderBanner() {
   const slot = document.getElementById("banner-slot");
   if (!slot) return;
-  slot.innerHTML = banner.dismissed()
+  // A landmark only while it actually holds the notice — an empty, permanently
+  // present "Notice" region would be one more stop on every landmark-navigation
+  // pass through the app for no reason once the banner's been dismissed.
+  const dismissed = banner.dismissed();
+  if (dismissed) {
+    slot.removeAttribute("role");
+    slot.removeAttribute("aria-label");
+  } else {
+    slot.setAttribute("role", "region");
+    slot.setAttribute("aria-label", "Notice");
+  }
+  slot.innerHTML = dismissed
     ? ""
     : `<div class="banner" role="note">
          <span aria-hidden="true">🌿</span>

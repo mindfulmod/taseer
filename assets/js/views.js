@@ -190,7 +190,7 @@ export function findView({ q = "", focus = "" } = {}) {
         <p>${META.count} foods across the world's home kitchens.</p>
       </section>
 
-      <div class="searchbar">
+      <div class="searchbar" role="search" aria-label="Search foods">
         <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
         <input id="q" type="search" inputmode="search" autocomplete="off" spellcheck="false"
                placeholder="Search ${META.count} foods — try “karela”" value="${esc(q)}"
@@ -1110,7 +1110,7 @@ export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } =
 
       <div class="controls-sticky">
         <div class="findrow">
-          <div class="searchbar">
+          <div class="searchbar" role="search" aria-label="Search within ${esc(cat.label)}">
             <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
             <input id="catq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
                    placeholder="Search ${esc(cat.label.toLowerCase())}" value="${esc(q)}"
@@ -1272,7 +1272,7 @@ function comparePicker(picked) {
   return `
     <section class="section">
       <div class="section__head"><h2>${picked.length ? "Add another" : "Pick a food"}</h2></div>
-      <div class="searchbar">
+      <div class="searchbar" role="search" aria-label="Search foods to compare">
         <span aria-hidden="true">🔍</span>
         <input id="cmp-q" type="search" autocomplete="off" placeholder="Search foods…" aria-label="Search foods to compare">
       </div>
@@ -1588,7 +1588,7 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
         <div class="segbar" id="segbar" role="tablist" aria-label="Eat or avoid">${segbarHtml(verdict)}</div>
 
         <div class="findrow">
-          <div class="searchbar">
+          <div class="searchbar" role="search" aria-label="Search within these foods">
             <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
             <input id="stateq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
                    placeholder="Search this list" value="${esc(q)}"
