@@ -25,6 +25,17 @@ const backBar = (label, href) =>
   `<button class="linkish" data-back="${href}">← ${esc(label)}</button>`;
 
 /**
+ * A visually-hidden `aria-live` status line, for a result count that changes
+ * as someone types or filters without the page ever navigating. The count is
+ * always on screen already (an "N of M foods" line, an empty-state message) —
+ * this just speaks the same words for whoever isn't watching the screen while
+ * they type, since nothing else here announces itself as a list swaps in
+ * place under a still-focused search box. `id` lets a screen carry more than
+ * one (state has one per Eat/Avoid column, keyed by verdict).
+ */
+const liveStatus = id => `<p id="${id}" class="sr" aria-live="polite" aria-atomic="true"></p>`;
+
+/**
  * Dead ends used to render as a bare "Unknown food." — no heading, no controls,
  * no explanation. That is reachable in normal use: this ships as an installed
  * PWA, so people keep old links on home screens, and entries do get renamed or
@@ -197,10 +208,12 @@ export function findView({ q = "", focus = "" } = {}) {
                aria-label="Search foods, in any language you'd say the name">
       </div>
 
-      <div id="findbody">${findBody(q)}</div>`,
+      <div id="findbody">${findBody(q)}</div>
+      ${liveStatus("find-status")}`,
     mount(root) {
       const input = root.querySelector("#q");
       const body = root.querySelector("#findbody");
+      const status = root.querySelector("#find-status");
       let missTimer;
 
       // Only when the user tapped a search affordance to get here. Focusing on
@@ -214,8 +227,10 @@ export function findView({ q = "", focus = "" } = {}) {
         const value = input.value;
         body.innerHTML = findBody(value);
         history.replaceState(null, "", value ? `#/find?q=${encodeURIComponent(value)}` : "#/find");
+        const trimmed = value.trim();
+        status.textContent = trimmed ? `${search(value).length} results for ${trimmed}` : "";
         clearTimeout(missTimer);
-        if (value.trim().length >= 2 && search(value).length === 0) {
+        if (trimmed.length >= 2 && search(value).length === 0) {
           missTimer = setTimeout(() => misses.log(value), 900);
         }
       });
@@ -1129,12 +1144,14 @@ export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } =
         }
       </div>
 
-      <div id="catbody">${categoryBody(catId, pool, q, cuisine, sort)}</div>`,
+      <div id="catbody">${categoryBody(catId, pool, q, cuisine, sort)}</div>
+      ${liveStatus("cat-status")}`,
 
     mount(root) {
       const input = root.querySelector("#catq");
       const sel = root.querySelector("#sortby");
       const body = root.querySelector("#catbody");
+      const status = root.querySelector("#cat-status");
       let q0 = q;
       let cuisine0 = cuisine;
       let sort0 = sort;
@@ -1160,6 +1177,10 @@ export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } =
       // keystroke would rebuild the chip row and steal focus from the input.
       const sync = () => {
         body.innerHTML = categoryBody(catId, pool, q0, cuisine0, sort0);
+        // categoryBody's own first child is always either the "N of M foods…"
+        // summary or the "Nothing matches" empty state — both are exactly the
+        // one line worth speaking, never the tile list under it.
+        status.textContent = body.firstElementChild?.textContent?.trim() ?? "";
         const p = new URLSearchParams();
         if (q0.trim()) p.set("q", q0.trim());
         if (cuisine0) p.set("cuisine", cuisine0);
@@ -1441,7 +1462,11 @@ export function meView() {
              </div>`
           : `<div class="empty">No misses logged. Search for something we don't have and it lands here.</div>`,
         missList.length
-          ? `<button class="linkish" data-act="copy-misses">Copy</button><button class="linkish" data-act="clear-misses">Clear</button>`
+          // aria-live: the "Copied"/"Couldn't copy" flash (app.js's copy-misses
+          // handler) is this button's own text swapping in place — a screen
+          // reader only reliably re-speaks that on its own if the button says
+          // so itself, since nothing else on the page moves when it happens.
+          ? `<button class="linkish" data-act="copy-misses" aria-live="polite">Copy</button><button class="linkish" data-act="clear-misses">Clear</button>`
           : "",
       )}
 
@@ -1623,7 +1648,8 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
       <div class="remedy" id="remedybody">
         ${remedyColumn("eat", "Eat this", eat, verdict, favIds, tileOpts, { q, sort })}
         ${remedyColumn("avoid", "Avoid", avoid, verdict, favIds, tileOpts, { q, sort })}
-      </div>`,
+      </div>
+      ${liveStatus("state-status")}`,
 
     mount(root) {
       const input = root.querySelector("#stateq");
@@ -1631,6 +1657,7 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
       const body = root.querySelector("#remedybody");
       const segbar = root.querySelector("#segbar");
       const makeSection = root.querySelector("#makesomething");
+      const status = root.querySelector("#state-status");
       let q0 = q;
       let sort0 = sort;
       let verdict0 = verdict;
@@ -1641,6 +1668,13 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
         body.innerHTML =
           remedyColumn("eat", "Eat this", eat, verdict0, favIds, tileOpts, { q: q0, sort: sort0 }) +
           remedyColumn("avoid", "Avoid", avoid, verdict0, favIds, tileOpts, { q: q0, sort: sort0 });
+        // remedyColumn only puts a lone summary/empty-state line at the top of
+        // the ACTIVE column when a search or sort is applied — the default,
+        // unfiltered view is commonness-grouped sections with nothing that
+        // reads as one sentence, so this deliberately says nothing then rather
+        // than announcing an entire band's worth of food names.
+        const activeCol = body.querySelector(`[data-col="${verdict0}"]`);
+        status.textContent = (q0.trim() || sort0) && activeCol ? activeCol.children[1]?.textContent?.trim() ?? "" : "";
         const p = new URLSearchParams();
         if (verdict0 !== "eat") p.set("list", verdict0);
         if (q0.trim()) p.set("q", q0.trim());
