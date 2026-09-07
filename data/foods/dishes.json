@@ -268,7 +268,7 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Genuinely split: wheat and tomato both read cool at moderate confidence, directly opposed by aged-cheese's moderate warm, with mozzarella neutral. No high-confidence ingredient breaks the tie the way onion and basil do for tomato soup. Baking is a real warming mechanism (as with kunafa and apple pie) but isn't on its own enough to override two independently cool bases with no reinforcement."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour tomato + aged cheese + yeasted dough."},"unani":{"verdict":"hot","confidence":"moderate","note":"Wheat is the crust's bulk and reads high-confidence hot-moist; baking pushes it further, the same mechanism used for pastries elsewhere in this file. Aged cheese agrees; only the fresh mozzarella pulls cold, and the tomato reading is itself unresolved."}},
    "histamine":{"sighi":3,"tags":[],"note":"Tomato sauce + aged cheese + yeast — the weeknight histamine trifecta."},
    "nutrition":{"kcal":265,"protein":11,"carbs":33,"fat":10,"highlight":"the universal slice","estimate":true},
-   "ingredients":["wheat","tomato","fresh-mozzarella","aged-cheese"]},
+   "ingredients":["wheat","tomato","fresh-mozzarella","aged-cheese","yeast"]},
 
   {"id":"burger","name":"Burger","aliases":["hamburger","burgir"],"emoji":"🍔","category":"dish","cuisines":["western"],"commonness":1,
    "description":"Grilled beef patty in a bun with fixings.",
@@ -1314,7 +1314,7 @@
    "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Fried cheese in a soy glaze."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna; paneer is shita underneath."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Soy and vinegar based."},
    "nutrition":{"kcal":255,"protein":12,"carbs":14,"fat":17,"highlight":"the vegetarian default","estimate":true},
-   "ingredients":["paneer","bell-pepper","soy-sauce","green-chili","cornstarch"],
+   "ingredients":["paneer","bell-pepper","soy-sauce","green-chili","cornstarch","rice-vinegar"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"hakka-noodles","name":"Hakka noodles","aliases":["chowmein (desi)","veg noodles"],"emoji":"🍜","category":"dish","cuisines":["south-asian"],"commonness":1,
@@ -1353,7 +1353,7 @@
    "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Fried and chilli-glazed."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Soy, vinegar and chilli sauce."},
    "nutrition":{"kcal":280,"protein":3,"carbs":42,"fat":12,"highlight":"twice-fried, always","estimate":true},
-   "ingredients":["potato","honey-raw","soy-sauce","red-chili","sesame-seeds","cornstarch"],
+   "ingredients":["potato","honey-raw","soy-sauce","red-chili","sesame-seeds","cornstarch","rice-vinegar"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"momos","name":"Momos","aliases":["momo","steamed dumplings (himalayan)"],"emoji":"🥟","category":"dish","cuisines":["south-asian"],"commonness":1,
@@ -3157,7 +3157,7 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Everything raw or poached, eaten cold."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; the herbs and noodles dominate."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"Prawn plus the peanut-hoisin dip; the roll itself is gentle."},
    "nutrition":{"kcal":110,"protein":7,"carbs":16,"fat":2,"highlight":"nothing is fried","estimate":true},
-   "ingredients":["spring-roll-wrapper","prawns","bun-noodles","mint","hoisin","peanuts"],
+   "ingredients":["spring-roll-wrapper","prawns","pork","bun-noodles","mint","hoisin","peanuts"],
    "remedy":{"too-hot":"eat"}},
 
   {"id":"cha-gio","name":"Cha gio","aliases":["vietnamese fried spring rolls","nem ran"],"emoji":"🥟","category":"dish","cuisines":["southeast-asian"],"commonness":1,
@@ -3299,7 +3299,7 @@
    "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Shaved ice and dairy — very cold."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Shita throughout."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar."}},
    "histamine":{"sighi":2,"tags":[],"note":"Mostly low; the leche flan and condensed milk carry what there is."},
    "nutrition":{"kcal":160,"protein":3,"carbs":32,"fat":3,"highlight":"mix it, as the name instructs","estimate":true},
-   "ingredients":["ube","adzuki-beans","condensed-milk","coconut","agar"],
+   "ingredients":["ube","adzuki-beans","condensed-milk","coconut","agar","leche-flan"],
    "remedy":{"too-hot":"eat"}},
 
   {"id":"leche-flan","name":"Leche flan","aliases":["filipino caramel custard"],"emoji":"🍮","category":"dish","cuisines":["southeast-asian"],"commonness":1,
@@ -3346,14 +3346,14 @@
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Blanched vegetables under a rich sauce."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Peanuts are ushna; the vegetables are shita."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Peanut sauce plus egg and terasi."},
    "nutrition":{"kcal":165,"protein":8,"carbs":14,"fat":9,"highlight":"salad is a generous word for it","estimate":true},
-   "ingredients":["peanut-butter","egg","tofu","bean-sprouts","potato","kecap-manis"]},
+   "ingredients":["peanut-butter","egg","tofu","bean-sprouts","potato","kecap-manis","shrimp-paste"]},
 
   {"id":"soto-ayam","name":"Soto ayam","aliases":["indonesian chicken soup"],"emoji":"🍲","category":"dish","cuisines":["southeast-asian"],"commonness":1,
    "description":"Turmeric chicken soup with noodles, egg and a shower of fried shallots.",
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Turmeric broth with chicken."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Haridra is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Chicken broth, egg and terasi."},
    "nutrition":{"kcal":110,"protein":10,"carbs":10,"fat":4,"highlight":"the fried shallots are the finish","estimate":true},
-   "ingredients":["chicken","fresh-turmeric","harusame","egg","fried-shallots","lemongrass"],
+   "ingredients":["chicken","fresh-turmeric","harusame","egg","fried-shallots","lemongrass","shrimp-paste"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"bakso","name":"Bakso","aliases":["indonesian meatball soup"],"emoji":"🍲","category":"dish","cuisines":["southeast-asian"],"commonness":1,
