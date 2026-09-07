@@ -1084,7 +1084,7 @@
 
   {"id":"maamoul","name":"Maamoul","aliases":["mamool","date-filled cookies"],"emoji":"🍪","category":"dish","cuisines":["arabic"],"commonness":2,
    "description":"Shortbread pressed in carved moulds around date or nut paste — Eid and Easter both.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Butter pastry with a date filling."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Dates and ghee are ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Butter pastry with a date-and-walnut filling."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Dates, ghee and walnuts are all ushna."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"CORRECTED from hot-moist: walnuts are a defining filling here, not dates and ghee alone — the note had named only the moist ingredients and left the walnuts out. Garam-khushk, matching kahk's identical dates-and-walnuts filling and baklava's 'nuts carry it dry' reasoning; the dates and ghee don't outweigh the nuts' dry character."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"The nut paste is a substantial filling, not a trace — corrected to the full walnut liberator score, same as koloocheh and kahk's identical construction."},
    "nutrition":{"kcal":410,"protein":6,"carbs":52,"fat":20,"highlight":"pressed in carved moulds","estimate":true},
    "ingredients":["semolina","dates","butter","walnuts","rose-water"],
@@ -1225,7 +1225,7 @@
 
   {"id":"sandwich","name":"Sandwich","aliases":["sarnie","san ming zhi","shatirah"],"emoji":"🥪","category":"dish","cuisines":["western"],"commonness":1,
    "description":"Whatever is to hand, between two slices of bread.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Depends entirely on the filling; the bread is the only constant."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened bread is ushna; the filling decides the rest."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk from the bread."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"CORRECTED from neutral/contested: the note hedged on 'depends on the filling' even though the listed filling, aged cheese, is concrete and warm on its own — same as burger and croque-monsieur, which don't hedge."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Leavened bread is ushna, and the aged-cheese filling pushes the same direction, not an unknown wildcard."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk from the bread and the aged-cheese filling alike."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"The note already named cured meat and cheese as where the rating comes from — the score now matches, in line with every other aged-cheese/cured-meat dish here."},
    "nutrition":{"kcal":250,"protein":10,"carbs":30,"fat":10,"highlight":"the filling decides everything","estimate":true},
    "ingredients":["white-bread","butter","aged-cheese"]},
@@ -1343,7 +1343,7 @@
 
   {"id":"sweetcorn-soup","name":"Sweetcorn soup","aliases":["sweet corn soup","veg corn soup"],"emoji":"🌽","category":"dish","cuisines":["south-asian"],"commonness":1,
    "description":"Thick pale soup of creamed corn and cornflour, mild and faintly sweet.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Corn is neutral; the stock warms it."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following corn."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Corn is neutral; the stock warms it."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"CORRECTED from cooling: 'shita, following corn' misread corn's own entry, which is ushna/moderate, not shita — only the cornstarch thickener is cooling. With the bone-broth base and spring-onion also heating, three of four tracked ingredients push this up."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"CORRECTED from cold-moist: corn is garam-khushk in its own entry, not thanda — the note had it backwards. Bone-broth (garam-tar) and spring-onion (garam) both push hot too; only the cornstarch is cold."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Bone-broth base, same as any other stock soup — the corn and cream don't dilute it."},
    "nutrition":{"kcal":65,"protein":2.5,"carbs":12,"fat":1,"highlight":"the mild one on every menu","estimate":true},
    "ingredients":["corn","cornstarch","bone-broth","spring-onion"]},
@@ -1677,7 +1677,7 @@
 
   {"id":"qatayef","name":"Qatayef","aliases":["atayef","stuffed pancakes"],"emoji":"🥞","category":"dish","cuisines":["arabic"],"commonness":2,
    "description":"Pancakes cooked on one side only, folded around cheese or nuts and fried or baked.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fried batter with a sweet filling."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and guru."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar; a Ramadan fixture."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fried batter with a walnut filling."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and guru, from the walnuts."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"CORRECTED from hot-moist: walnuts are the point of this filling, per its own histamine correction, and carry it dry despite the rose-water — same override baklava makes against its syrup."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"The nut filling is the point of this version, not a trace — corrected to the full walnut liberator score, same as baklava."},
    "nutrition":{"kcal":310,"protein":7,"carbs":44,"fat":12,"highlight":"cooked on one side only","estimate":true},
    "ingredients":["maida","yeast","walnuts","white-sugar","rose-water"]},
@@ -4030,7 +4030,7 @@
 
   {"id":"gordita","name":"Gordita","aliases":["stuffed masa pocket"],"emoji":"🫓","category":"dish","cuisines":["latin-american"],"commonness":2,
    "description":"A thick masa cake fried until it puffs, then split and filled.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fried masa."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the frying."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fried masa."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the frying."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"A genuine tie, downgraded from moderate: masa harina, queso fresco and salsa verde — the filling this dish's own histamine correction just named as dominant — all resolve cold in unani, and only the chicharron pulls hot. Kept hot-dry on the frying and the chicharron for now, but unlike sope (griddled, no chicharron, correctly cold-moist), this one is close enough to flag rather than assert plainly."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"Salsa verde and cheese in the filling, the same combination as chilaquiles and sope, both of which sit at 3. Corrected to match."},
    "nutrition":{"kcal":250,"protein":6,"carbs":32,"fat":11,"highlight":"it puffs, then you split it","estimate":true},
    "ingredients":["masa-harina","chicharron","queso-fresco","salsa-verde"],
@@ -4377,7 +4377,7 @@
 
   {"id":"koloocheh","name":"Koloocheh","aliases":["persian filled cookie"],"emoji":"🍪","category":"dish","cuisines":["persian-turkish"],"commonness":3,
    "description":"Soft spiced cookies filled with walnut and dates, stamped with a pattern.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Baked spiced dough with nuts."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and guru."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Baked spiced dough with nuts."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and guru."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"CORRECTED from hot-moist: walnuts and canela (cinnamon) both resolve hot-dry at high confidence, outweighing dates and butter — same filling and same reading as kahk's identical walnut-and-date combination."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"Walnut-and-date paste is a defining filling here, not a trace; corrected to the full walnut liberator score, same as maamoul."},
    "nutrition":{"kcal":400,"protein":7,"carbs":55,"fat":17,"highlight":"stamped, always","estimate":true},
    "ingredients":["maida","walnuts","dates","canela","butter"],
@@ -4884,7 +4884,7 @@
 
   {"id":"ewedu","name":"Ewedu","aliases":["jute leaf soup"],"emoji":"🟢","category":"dish","cuisines":["african"],"commonness":2,
    "description":"Jute leaves beaten smooth into a bright green slippery soup — molokhia, further south.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Leafy and mucilaginous; cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Leafy and mucilaginous — cooling for the jute leaf itself, the dish's bulk — but both tracked ingredients, dawadawa and habanero, resolve warm/hot; downgraded from moderate given how thin the tracked list is."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Shita for the jute leaf, the dish's bulk, but dawadawa and habanero both resolve heating; downgraded from moderate given how thin the tracked list is."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Thanda-tar for the jute leaf, the dish's bulk, but dawadawa and habanero both resolve hot; downgraded from moderate given how thin the tracked list is."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Iru (dawadawa) is cooked into the soup itself, not served alongside like waakye's shito — efo-riro, which also carries iru, sits at 3. Genuinely closer to a coin flip than most of this pass (only two tracked ingredients here, so less dilution evidence either way); rounded up to the ferment's own score per the asymmetric-caution rule rather than left at the discount."},
    "nutrition":{"kcal":70,"protein":5,"carbs":6,"fat":3,"highlight":"molokhia, further south","estimate":true},
    "ingredients":["dawadawa","habanero"],
@@ -5646,7 +5646,7 @@
 
   {"id":"cheung-fun","name":"Cheung fun","aliases":["rice noodle roll"],"emoji":"⬜","category":"dish","cuisines":["chinese"],"commonness":2,
    "description":"Sheets of rice batter steamed and rolled, then flooded with sweetened soy.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Steamed rice sheets."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following rice."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Steamed rice sheets, flooded with soy and topped with prawns and sesame oil — prawns and sesame oil pull warm, but soy sauce itself reads cool in TCM, so it's a genuine wash rather than plain rice."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"CORRECTED from cooling: 'shita, following rice' only looked at the rice-flour sheet and ignored what it's flooded and topped with. Prawns and sesame oil are heating at high confidence and the soy sauce it's flooded in adds to that — three of four tracked ingredients, outweighing the rice sheet alone."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"CORRECTED from cold-moist, for the same reason as ayurveda: prawns (hot-dry/high) and sesame oil (hot-moist/high) plus the flooding soy sauce outweigh the rice sheet, which is the only tracked ingredient that reads cold."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Plain rice sheets, but flooded with soy sauce — a 3 on its own, not a trace glaze."},
    "nutrition":{"kcal":150,"protein":4,"carbs":30,"fat":2,"highlight":"flooded with sweet soy","estimate":true},
    "ingredients":["rice-flour","prawns","soy-sauce","sesame-oil"]},
@@ -5796,7 +5796,7 @@
 
   {"id":"chao-nian-gao","name":"Stir-fried rice cake","aliases":["chao nian gao"],"emoji":"⬜","category":"dish","cuisines":["chinese"],"commonness":2,
    "description":"Oval slices of rice cake stir-fried with pork and greens until chewy at the edges.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Stir-fried rice cake."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following rice."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Stir-fried rice cake."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"CORRECTED from cooling: 'shita, following rice' treated rice CAKE as if it were plain rice, but this dataset's own rice-cake entry is ushna, not shita — pounding/processing changes it. With pork and the soy sauce that decides the histamine score also heating, only napa cabbage and shiitake pull cold."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"CORRECTED from cold-moist, for the same reason: rice cake is garam-tar in its own entry, not thanda like plain rice. Pork and soy sauce lean the same way."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"The rice cake is plain; the soy sauce is what decides, and it's already a 3 on its own."},
    "nutrition":{"kcal":230,"protein":8,"carbs":40,"fat":5,"highlight":"chewy at the edges","estimate":true},
    "ingredients":["rice-cake","pork","napa-cabbage","soy-sauce","shiitake"]},
@@ -5901,7 +5901,7 @@
 
   {"id":"winter-melon-soup","name":"Winter melon soup","aliases":["dong gua tang"],"emoji":"🥣","category":"dish","cuisines":["chinese"],"commonness":2,
    "description":"Winter melon simmered in a light broth until translucent — drunk in summer to clear heat.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Winter melon is cold and diuretic; the point is clearing heat."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Winter melon is cold and diuretic; the point is clearing heat."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita for the winter melon itself, which is the dish's whole point (drunk to clear heat) — but the bone-broth, dried shrimp and sonth its own histamine note names as the real contributors are all heating. Downgraded from high to moderate to reflect that tension rather than ignore it."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar for the winter melon, same reasoning as ayurveda: the broth, dried shrimp and sonth are all hot in their own entries. Downgraded from high to moderate."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"The broth and dried shrimp are what rate, not the melon — both are SIGHI 3, same as the broth-based soups it sits alongside."},
    "nutrition":{"kcal":45,"protein":3,"carbs":4,"fat":2,"highlight":"drunk in summer, to clear heat","estimate":true},
    "ingredients":["winter-melon","bone-broth","dried-shrimp","sonth"],
@@ -7144,7 +7144,7 @@
 
   {"id":"macaron","name":"Macaron","aliases":["french almond meringue"],"emoji":"🌸","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Two almond meringue shells with a smooth foot, sandwiched around ganache.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Baked meringue and almond."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Anda is ushna; almonds are guru."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Baked meringue and almond around a chocolate ganache filling."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Anda is ushna and almonds are guru, and the ganache filling carries the same weight as brownie's chocolate — the note had named only the shell and left it out."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"Ganache is the filling here, not a trace of chocolate — corrected to match brownie and brigadeiro, where chocolate carries the same weight."},
    "nutrition":{"kcal":400,"protein":8,"carbs":55,"fat":17,"highlight":"the foot is how you judge it","estimate":true},
    "ingredients":["almonds","egg","white-sugar","chocolate","cream"]},
