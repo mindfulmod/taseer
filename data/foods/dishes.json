@@ -805,7 +805,7 @@
 
   {"id":"dum-aloo","name":"Dum aloo","aliases":["kashmiri dum aloo","potato curry"],"emoji":"🥔","category":"dish","cuisines":["south-asian"],"commonness":2,
    "description":"Baby potatoes pricked, fried and simmered in a deep red yogurt gravy.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fried potato in a spiced yogurt gravy."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna: frying, chilli and fennel over a shita potato."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk; the Kashmiri version especially."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fried potato in a spiced yogurt gravy."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"CORRECTED: the old note credited fennel as a heating driver, but fennel is THIS FILE'S OWN 'the cooling digestive' at high confidence — the real driver is dahi (ushna at high confidence), alongside chilli and hing. Potato and fennel pull cooling just as hard, so the margin is thin — downgraded from high to contested rather than the confident 'ushna' this had."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"A closer call than 'garam-khushk' alone suggests: red chilli and hing are hot-dry at high confidence, the real drivers, but dahi, fennel and the potato base are all thanda — nearly balanced. Kept hot-dry for the same reason spice-heavy curries elsewhere in this file lean heating on their masala despite a cooling base, but downgraded to contested rather than high."}},
    "histamine":{"sighi":2,"tags":[],"note":"Yogurt-braised and chilli-heavy."},
    "nutrition":{"kcal":160,"protein":3,"carbs":20,"fat":8,"highlight":"pricked, fried, then simmered","estimate":true},
    "ingredients":["potato","yogurt","red-chili","fennel-seed","hing"],
@@ -2148,7 +2148,7 @@
 
   {"id":"okonomiyaki","name":"Okonomiyaki","aliases":["japanese savoury pancake","osaka pancake"],"emoji":"🥞","category":"dish","cuisines":["japanese"],"commonness":2,
    "description":"A cabbage-heavy batter pancake griddled thick and covered in sauce, mayo and bonito.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Griddled batter with egg and cabbage."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Anda is ushna; the cabbage is shita beneath."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Griddled batter with egg and cabbage."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Anda is ushna; the cabbage is shita beneath."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Anda is garam at high confidence, same as Ayurveda's driver here; cabbage is thanda beneath, but the maida batter, katsuobushi and sauce all lean garam too, well outweighing it."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Egg, bonito flakes, mayonnaise and a Worcestershire-style sauce — four contributors on one pancake."},
    "nutrition":{"kcal":190,"protein":8,"carbs":20,"fat":9,"highlight":"cooked how you like it, as the name says","estimate":true},
    "ingredients":["cabbage","egg","maida","katsuobushi","mayonnaise","worcestershire"],
@@ -3429,7 +3429,7 @@
 
   {"id":"roti-jala","name":"Roti jala","aliases":["net bread","lace pancake"],"emoji":"🕸️","category":"dish","cuisines":["southeast-asian"],"commonness":3,
    "description":"Batter drizzled in a lattice onto a griddle, folded and eaten with curry.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Griddled batter with turmeric."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the egg and turmeric."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Griddled batter with turmeric."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Egg and turmeric are both ushna at high confidence, but the old note never engaged coconut milk, which is shita at high confidence too (the batter's main liquid, not a garnish) — closer to balanced than 'heating' alone suggested. Kept the direction, since unani (hot-moist/moderate, where maida also reads garam) leans the same way, but downgraded to contested."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Egg batter."},
    "nutrition":{"kcal":230,"protein":7,"carbs":32,"fat":8,"highlight":"poured in a lattice","estimate":true},
    "ingredients":["maida","egg","coconut-milk","fresh-turmeric"]},
@@ -5318,7 +5318,7 @@
 
   {"id":"okroshka","name":"Okroshka","aliases":["cold kvass soup"],"emoji":"🧊","category":"dish","cuisines":["eastern-european"],"commonness":3,
    "description":"Chopped raw vegetables and egg in cold kvass or kefir — a soup served ice-cold.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Raw vegetables in a cold fermented liquid."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The ferment is ushna; the dish is served cold."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar; a summer soup."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"Raw vegetables in a cold fermented liquid."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The ferment is ushna; the dish is served cold."},"unani":{"verdict":"neutral","confidence":"contested","note":"A genuine tension: cucumber, radish and sour cream are all cold at moderate-or-higher confidence, but egg and dill are hot-moist/hot-dry, and the kvass itself is hot-moist by the same ferment-is-garam rule this dataset applies to every other fermented drink (already used by Ayurveda's own note here). Corrected from a high-confidence cold-moist that only ever looked at the raw vegetables and never engaged the ferment at all."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Kvass or kefir base plus egg — a fermented liquid served without cooking."},
    "nutrition":{"kcal":60,"protein":3,"carbs":7,"fat":2,"highlight":"served ice-cold, in summer","estimate":true},
    "ingredients":["kombucha-cousin-kvass","cucumber","egg","radish","sour-cream","dill"],
@@ -6125,7 +6125,7 @@
 
   {"id":"panta-bhat","name":"Panta bhat","aliases":["fermented rice water"],"emoji":"🍚","category":"dish","cuisines":["south-asian"],"commonness":3,
    "description":"Leftover rice covered in water overnight and eaten cool with salt, onion and chilli.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Salt is the only ingredient carrying the 'cold' reading here; onion, chilli and mustard oil are all warm/hot at high confidence and rice is neutral. Downgraded from high to moderate confidence rather than flipping — this is still soured rice eaten specifically to cool down in hot weather, but the ingredient evidence is thinner than 'high' implied."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Salt is the only ingredient carrying the 'cold' reading here; onion, chilli and mustard oil are all warm/hot at high confidence and rice is neutral. Downgraded from high to moderate confidence rather than flipping — this is still soured rice eaten specifically to cool down in hot weather, but the ingredient evidence is thinner than 'high' implied."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Unlike TCM, salt itself is ushna at high confidence in Ayurveda, not the cold anchor — so onion, chilli, mustard oil AND salt are all heating here, and only the rice is shita. Downgraded to contested rather than moderate: kept cooling for the same functional reason TCM keeps it (soured rice eaten specifically to cool down in hot weather), but the ingredient case is thinner than TCM's own."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Same gap as Ayurveda: namak, onion, chilli and mustard oil all resolve garam-khushk here, only chawal itself is thanda. Downgraded to contested for the same functional reason — eaten specifically to cool down — but with even less ingredient support than TCM's own downgraded entry."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Overnight fermentation of cooked rice — a live ferment eaten without reheating."},
    "nutrition":{"kcal":90,"protein":2,"carbs":20,"fat":0.3,"highlight":"a hot-weather food, by design","estimate":true},
    "ingredients":["white-rice","onion","green-chili","salt","mustard-oil"],
