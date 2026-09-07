@@ -11,6 +11,7 @@ node scripts/validate-data.mjs   # after ANY data/foods edit
 node scripts/build-data.mjs      # regenerates assets/data/foods.js
 node scripts/stamp-sw.mjs        # after ANY shell change (html/css/js/data)
 node scripts/check-palette.mjs   # enforces the ART.md palette
+node scripts/check-a11y.mjs      # regression-checks known screen-reader bug shapes
 ```
 
 CI runs all four and fails if any generated file is stale.
