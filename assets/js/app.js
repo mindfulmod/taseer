@@ -267,8 +267,13 @@ document.addEventListener("click", event => {
     const text = misses.all().map(m => `${m.q}${m.n > 1 ? ` (${m.n}x)` : ""}`).join("\n");
     navigator.clipboard?.writeText(text).then(() => flash("Copied"), () => flash("Couldn't copy")) ?? flash("Couldn't copy");
   } else if (action === "install") {
+    // The captured event can only be prompted once, whatever the user picks
+    // in the native dialog — so hide the panel the moment it's used instead
+    // of leaving a button that still looks tappable but is now permanently
+    // inert (a second tap did nothing at all, with no sign why).
     installPrompt?.prompt();
     installPrompt = null;
+    document.getElementById("install-slot")?.classList.remove("is-ready");
   } else if (action === "theme") {
     const resolved = document.documentElement.dataset.theme;
     theme.set(resolved === "dark" ? "light" : "dark");
