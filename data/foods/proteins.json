@@ -33,14 +33,14 @@
 
   {"id":"pork","name":"Pork","aliases":["zhu rou","khanzir"],"emoji":"🥓","category":"protein","cuisines":["chinese","western"],"commonness":2,
    "description":"The staple meat of Chinese and Western kitchens.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"high","note":"Unusually for meat, TCM calls pork neutral-cool and yin-nourishing."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Heavy; thinly classified."},"unani":{"verdict":"neutral","confidence":"contested","note":"Not consumed/classified in Unani practice."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"high","note":"Unusually for meat, TCM calls pork neutral-cool and yin-nourishing."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Guru (heavy), in the mamsa group — the Samhitas' habitat-based grouping of boar (varaha) meat as heavy and pitta-provoking supports a heating reading, even though pork sits outside the core Vedic-era diet."},"unani":{"verdict":"neutral","confidence":"contested","note":"Not consumed/classified in Unani practice."}},
    "histamine":{"sighi":1,"tags":["high-histamine"],"note":"Fresh is moderate; cured forms (bacon, ham, sausage) are a 3.","ref":{"sighi":1,"marks":"H","as":"pork (fresh and untreated)"}},
    "nutrition":{"kcal":242,"protein":27,"carbs":0,"fat":14,"highlight":"more thiamine than any other meat"},
    "guna":{"verdict":"heavy","confidence":"high"}},
 
   {"id":"duck","name":"Duck","aliases":["batakh","batt","ya rou"],"emoji":"🦆","category":"protein","cuisines":["chinese","south-asian"],"commonness":3,
    "description":"Rich dark poultry; Peking duck to salan.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"The yin poultry — opposite of chicken."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Heavy-oily; thin documentation."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Waterfowl generally garam-tar; sources vary."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"The yin poultry — opposite of chicken."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, as poultry generally is here — duck's extra fat pushes it to the heavier end of that group."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar, aligned with the general fowl reading in this set — waterfowl skew moist for their fat."}},
    "histamine":{"sighi":1,"tags":[],"note":"Fresh fine; roasted-hung preparations age the meat.","ref":{"sighi":0,"marks":"H","as":"duck"},"why":"As beef — SIGHI's perishability marker has no Taseer equivalent, so it lands in the score."},
    "nutrition":{"kcal":337,"protein":19,"carbs":0,"fat":28,"highlight":"dark meat throughout — there is no white on a duck"}},
 
@@ -69,21 +69,21 @@
 
   {"id":"canned-tuna","name":"Tuna (canned)","aliases":["tuna","toon mu'allab","jin qiang yu"],"emoji":"🥫","category":"protein","cuisines":["arabic","western"],"commonness":1,
    "description":"Pantry protein — and the textbook histamine hazard.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Thinly classified."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"As fish."},"unani":{"verdict":"hot-dry","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"An oily fish; read with the warming oily-fish group here, as salmon and anchovies are."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"As fish."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk, with the general oily/preserved-fish reading here, as sardines are."}},
    "histamine":{"sighi":3,"tags":["high-histamine","other-amines"],"note":"Scombroid fish: histamine forms before canning — the classic 'fish poisoning' is a histamine event.","ref":{"sighi":3,"marks":"AH","as":"tuna"}},
    "nutrition":{"kcal":116,"protein":26,"carbs":0,"fat":0.8,"highlight":"cheap protein, and the textbook histamine hazard"},
    "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."}},
 
   {"id":"sardines","name":"Sardines (canned)","aliases":["sardeen","sha ding yu"],"emoji":"🐟","category":"protein","cuisines":["arabic","western"],"commonness":2,
    "description":"Small oily canned fish.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested"},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot-dry","confidence":"moderate"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"An oily fish; read with the warming oily-fish group here, as salmon and anchovies are."},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot-dry","confidence":"moderate"}},
    "histamine":{"sighi":3,"tags":["high-histamine","other-amines"],"note":"Scombroid-class; canned small oily fish run very high."},
    "nutrition":{"kcal":208,"protein":25,"carbs":0,"fat":11,"highlight":"the bones go in too, and that is where the calcium is"},
    "guna":{"verdict":"heavy","confidence":"moderate","note":"Aged, cured or fermented — the condition the texts call tamasic, whatever the ingredient started as."}},
 
   {"id":"mackerel","name":"Mackerel","aliases":["bangda","isqumri","qing yu"],"emoji":"🐟","category":"protein","cuisines":["south-asian","arabic","chinese"],"commonness":3,
    "description":"Strong-flavored oily fish.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested"},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot-moist","confidence":"moderate"}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"A genuine split: some Chinese food-therapy sources read oily mackerel as warm, with sardines and salmon; others keep it neutral. Kept neutral here, but the warm reading has real support too."},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot-moist","confidence":"moderate"}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"The namesake scombroid fish — spoils into histamine fastest of all."},
    "nutrition":{"kcal":205,"protein":19,"carbs":0,"fat":14,"highlight":"oilier than salmon, and spoils faster"}},
 
@@ -97,13 +97,13 @@
 
   {"id":"crab","name":"Crab","aliases":["kekda","salta'oon","pang xie"],"emoji":"🦀","category":"protein","cuisines":["chinese","western","south-asian"],"commonness":3,
    "description":"Sweet shellfish — famously 'cold' in Chinese food culture.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"So cold it's traditionally eaten with warming ginger vinegar."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Shellfish heating per most; disagrees with TCM."},"unani":{"verdict":"hot-moist","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"high","note":"So cold it's traditionally eaten with warming ginger vinegar."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, with the shellfish group, as the general Ayurvedic seafood-heating rule has it here — a real split with TCM's cold reading, not internal Ayurvedic doubt."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar, with the general shellfish reading here, as mussels and prawns are."}},
    "histamine":{"sighi":2,"tags":["high-histamine","liberator"],"note":"Shellfish liberator; eat very fresh.","ref":{"sighi":2,"marks":"HL","as":"crab"}},
    "nutrition":{"kcal":97,"protein":19,"carbs":0,"fat":1.5,"highlight":"zinc & B12"}},
 
   {"id":"squid","name":"Squid","aliases":["calamari","habbar","you yu"],"emoji":"🦑","category":"protein","cuisines":["chinese","arabic","western"],"commonness":3,
    "description":"Chewy cephalopod, grilled or fried.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"As seafood generally; thin documentation."},"unani":{"verdict":"hot-moist","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, in the seafood group, as octopus — the other cephalopod here — is read."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar, with the general seafood reading here, as octopus is."}},
    "histamine":{"sighi":2,"tags":[],"note":"Moderate; freshness critical as with all seafood."},
    "nutrition":{"kcal":92,"protein":16,"carbs":3.1,"fat":1.4,"highlight":"thirty seconds or thirty minutes — nothing between"}},
 
@@ -134,7 +134,7 @@
 
   {"id":"brown-lentils","name":"Brown/green lentils","aliases":["sabut masoor","adas","whole lentils","puy"],"emoji":"🟤","category":"protein","cuisines":["south-asian","arabic","western"],"commonness":2,
    "description":"Whole lentils of mujadara and soups.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Milder than split masoor."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Adas is classically garam-yabis."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Lentils thinly classified in TCM."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Milder than split masoor."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Adas is classically garam-yabis."}},
    "histamine":{"sighi":1,"tags":[],"note":"As legumes generally."},
    "nutrition":{"kcal":116,"protein":9,"carbs":20,"fat":0.4,"highlight":"hold their shape where red lentils dissolve"}},
 
@@ -156,19 +156,19 @@
 
   {"id":"kidney-beans","name":"Kidney beans (rajma)","aliases":["rajma","fasoolia hamra","hong yao dou"],"emoji":"🫘","category":"protein","cuisines":["south-asian","arabic","western"],"commonness":2,
    "description":"Red beans of rajma-chawal and chili.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Heavy, vata-forming; schools vary."},"unani":{"verdict":"hot-dry","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Heavy and vata-forming by extension from the heavier-bean pattern — but rajma is a new-world bean like pinto and lima, with no classical entry of its own."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam and windy, like the other new-world beans here (pinto, lima) — no classical entry, extended from the legume-heat pattern."}},
    "histamine":{"sighi":1,"tags":[],"note":"As legumes; canned versions slightly worse than home-cooked."},
    "nutrition":{"kcal":127,"protein":8.7,"carbs":23,"fat":0.5,"highlight":"must be boiled hard — undercooked is worse than raw"}},
 
   {"id":"black-beans","name":"Black beans","aliases":["hei dou","lobia negra"],"emoji":"⚫","category":"protein","cuisines":["chinese","western"],"commonness":2,
    "description":"Earthy beans; TCM's kidney-nourishing hei dou.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Black color = kidney-tonifying, gently warming."},"ayurveda":{"verdict":"heating","confidence":"contested"},"unani":{"verdict":"hot-dry","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Black color = kidney-tonifying, gently warming."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"A new-world bean, grouped with the heavier legumes by extension; no classical entry."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"A new-world bean; garam by extension from the legume-heat pattern, not a classical entry."}},
    "histamine":{"sighi":1,"tags":[],"note":"Fermented black beans (douchi) are a 3 — different food."},
    "nutrition":{"kcal":132,"protein":8.9,"carbs":24,"fat":0.5,"highlight":"the black skin is anthocyanin"}},
 
   {"id":"black-eyed-peas","name":"Black-eyed peas (lobia)","aliases":["lobia","rongi","lubya","jiang dou"],"emoji":"🫘","category":"protein","cuisines":["south-asian","arabic","western"],"commonness":2,
    "description":"Quick-cooking spotted beans.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Lighter than most beans; schools vary."},"unani":{"verdict":"neutral","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Lighter than most beans; schools vary."},"unani":{"verdict":"neutral","confidence":"contested","note":"Lubia loosely names various pulses in classical Arabic usage; no verdict specific to the cowpea survives clearly."}},
    "histamine":{"sighi":1,"tags":[],"note":"As legumes."},
    "nutrition":{"kcal":116,"protein":7.7,"carbs":21,"fat":0.5,"highlight":"folate, and no soaking needed"}},
 
@@ -180,7 +180,7 @@
 
   {"id":"soybeans","name":"Soybeans","aliases":["soya","huang dou","ful al-soya"],"emoji":"🟡","category":"protein","cuisines":["chinese","western"],"commonness":3,
    "description":"The mother bean of tofu, soy milk, and sauce.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Heavy; thinly classified."},"unani":{"verdict":"neutral","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Heavy; thinly classified."},"unani":{"verdict":"neutral","confidence":"contested","note":"Not classical; inferred — soy is East Asian and postdates the core Unani corpus, as with edamame and soy-chunks here."}},
    "histamine":{"sighi":2,"tags":[],"note":"Higher than other legumes; fermented soy products higher still."},
    "nutrition":{"kcal":172,"protein":18,"carbs":8.4,"fat":9,"highlight":"the only common bean with all nine amino acids"}},
 
@@ -255,7 +255,7 @@
 
   {"id":"chana-dal","name":"Chana dal","aliases":["split bengal gram","chholar dal","kadalai paruppu"],"emoji":"🟡","category":"protein","cuisines":["south-asian"],"commonness":1,
    "description":"Split husked bengal gram — holds its shape, so it never turns to mush.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Follows the chickpea; no strong Chinese classification."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Chanaka is shita and ruksha — cooling but drying and wind-forming."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk, which is why it is cooked with hing and ginger."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Follows the chickpea, which this dataset itself reads as neutral at moderate confidence — not a strong Chinese classification, but not bare extrapolation either."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Chanaka is shita and ruksha — cooling but drying and wind-forming."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk, which is why it is cooked with hing and ginger."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low cooked. Legumes are the classic wind problem, not a histamine one."},
    "nutrition":{"kcal":364,"protein":20.8,"carbs":60.7,"fat":5.3,"highlight":"holds its shape"}},
 
@@ -267,7 +267,7 @@
 
   {"id":"kala-chana","name":"Kala chana","aliases":["black chickpea","bengal gram whole","desi chana"],"emoji":"🟤","category":"protein","cuisines":["south-asian"],"commonness":2,
    "description":"Small dark chickpeas, soaked overnight and boiled whole.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Read with the chickpea."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Chanaka is shita, though the whole black kind is heavier than the split."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Desi usage separates the two: kala chana is treated as garam where safed chana is not."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Read with the chickpea, which this dataset itself reads as neutral at moderate confidence."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Chanaka is shita, though the whole black kind is heavier than the split."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Desi usage separates the two: kala chana is treated as garam where safed chana is not."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":364,"protein":19.3,"carbs":61,"fat":6,"highlight":"soaked overnight, boiled whole"}},
 
@@ -373,7 +373,7 @@
 
   {"id":"hilsa","name":"Hilsa","aliases":["ilish","pallo machhi","shad"],"emoji":"🐟","category":"protein","cuisines":["south-asian"],"commonness":3,
    "description":"The oily monsoon river fish Bengal builds a season around.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Oily river fish; read with carp."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and snigdha — oily and heating, in the freshwater group."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar in a high degree, for its oil."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A very oily herring-family fish; read with the warming oily-fish group here (salmon, sardines, anchovies), not the neutral carp-like white-fish group."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and snigdha — oily and heating, in the freshwater group."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar in a high degree, for its oil."}},
    "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Oily fish spoils faster than lean; hilsa is often salted or smoked, which pushes it higher again."},
    "nutrition":{"kcal":273,"protein":25,"carbs":0,"fat":19.4,"highlight":"the monsoon fish"},
    "remedy":{"too-cold":"eat"}},
@@ -393,19 +393,19 @@
 
   {"id":"clams","name":"Clams","aliases":["tisryo","ge li","vongole"],"emoji":"🦪","category":"protein","cuisines":["chinese","western","south-asian"],"commonness":3,
    "description":"Small hinged shells, cooked just until they open.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Unusually for shellfish, clams are cold in TCM and used to clear heat and phlegm."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, with the other shellfish."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Garam in the general reading of shellfish."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Unusually for shellfish, clams are cold in TCM and used to clear heat and phlegm."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, with the other shellfish."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk, with the general shellfish reading here, as mussels are."}},
    "histamine":{"sighi":2,"tags":["high-histamine","liberator"],"note":"Shellfish liberator.","ref":{"sighi":2,"marks":"HL","as":"bivalves (mussels, oisters, clams, scallops, ...)"}},
    "nutrition":{"kcal":74,"protein":12.8,"carbs":2.6,"fat":1,"highlight":"cooked until they open"}},
 
   {"id":"oysters","name":"Oysters","aliases":["mu li","sadaf","kasturi"],"emoji":"🦪","category":"protein","cuisines":["chinese","western"],"commonness":4,
    "description":"Eaten raw off the shell, or dried and simmered into stock.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Mu li is cool and yin-nourishing — the shell is a classical calming drug."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna with the shellfish; outside classical practice."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Garam and reputedly strengthening."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Mu li is cool and yin-nourishing — the shell is a classical calming drug."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, with the shellfish group — the heating end of the seafood range in this set."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar and reputedly strengthening, with the general shellfish reading here."}},
    "histamine":{"sighi":2,"tags":["liberator","high-histamine"],"note":"Raw shellfish is both a liberator and high in itself — among the riskiest things on a reactive day.","ref":{"sighi":2,"marks":"HL","as":"oysters"}},
    "nutrition":{"kcal":68,"protein":7.1,"carbs":3.9,"fat":2.5,"highlight":"eaten raw off the shell"}},
 
   {"id":"scallops","name":"Scallops","aliases":["gan bei","shan bei","sea scallop"],"emoji":"🦪","category":"protein","cuisines":["chinese","western"],"commonness":4,
    "description":"Sweet white discs seared hard and fast; dried, they become a prized stock base.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Gan bei is neutral and nourishes yin — the dried scallop is a tonic ingredient."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"With the shellfish group."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Garam by the general shellfish reading."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Gan bei is neutral and nourishes yin — the dried scallop is a tonic ingredient."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, with the shellfish group, as the general reading has it here."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar by the general shellfish reading here, as mussels and lobster are."}},
    "histamine":{"sighi":2,"tags":["high-histamine","liberator"],"note":"Shellfish liberator; the dried kind is higher again.","ref":{"sighi":2,"marks":"HL","as":"bivalves (mussels, oisters, clams, scallops, ...)"}},
    "nutrition":{"kcal":88,"protein":16.8,"carbs":2.4,"fat":0.8,"highlight":"seared hard and fast"}},
 
@@ -441,7 +441,7 @@
 
   {"id":"hazelnuts","name":"Hazelnuts","aliases":["bunduq","zhen zi","filbert"],"emoji":"🌰","category":"protein","cuisines":["arabic","western","chinese"],"commonness":3,
    "description":"Round sweet nuts, best after roasting rubs the skins off.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Zhen zi is neutral and tonifies the spleen and stomach."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Ushna with the nut group; no separate classical entry."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Bunduq is garam-tar in the Unani record, strengthening to the brain."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Zhen zi is neutral and tonifies the spleen and stomach."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna, with the nut group — the same general reading applied to almonds, walnuts, cashews and pistachios here."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Bunduq is garam-tar in the Unani record, strengthening to the brain."}},
    "histamine":{"sighi":1,"tags":[],"note":"Lower than walnuts, which SIGHI flags as a liberator."},
    "nutrition":{"kcal":628,"protein":15,"carbs":16.7,"fat":60.8,"highlight":"roast, then rub the skins off"}},
 
@@ -560,7 +560,7 @@
 
   {"id":"camel-meat","name":"Camel meat","aliases":["lahm jamal","oont ka gosht"],"emoji":"🍖","category":"protein","cuisines":["arabic"],"commonness":4,
    "description":"Lean dark meat from the Gulf and the Sahel, cooked long and slow.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Absent from the Chinese record; read with the red meats."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and guru, in the mamsa group."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk in the Arab and Unani record — a strengthening winter meat."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Thin but not quite absent — later materia medica (e.g. Bencao Gangmu) does mention camel meat and fat as warm and tonifying, though it's peripheral to the core Chinese red-meat canon."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and guru, in the mamsa group."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk in the Arab and Unani record — a strengthening winter meat."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low fresh."},
    "nutrition":{"kcal":216,"protein":26.2,"carbs":0,"fat":11.5,"highlight":"leaner than beef"},
    "remedy":{"too-cold":"eat"}},
@@ -812,7 +812,7 @@
 
   {"id":"mahi-mahi","name":"Mahi mahi","aliases":["dorado","gui hua yu","dolphinfish"],"emoji":"🐟","category":"protein","cuisines":["western","arabic"],"commonness":3,
    "description":"Dense meaty fish that grills like a steak.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Read with the larger sea fish."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A lean, large sea fish — closer to snapper or sea bass than to the oily group here, so it follows their neutral white-fish reading rather than a warming one."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":2,"tags":["high-histamine"],"note":"A scombroid-family relative — it develops histamine fast if the cold chain slips, which is the classic fish-poisoning mechanism."},
    "nutrition":{"kcal":85,"protein":18.5,"carbs":0,"fat":0.7,"highlight":"grills like a steak"}},
 
