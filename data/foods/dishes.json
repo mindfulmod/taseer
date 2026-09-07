@@ -31,7 +31,7 @@
 
   {"id":"aloo-gobi","name":"Aloo gobi","aliases":["potato cauliflower sabzi"],"emoji":"🥘","category":"dish","cuisines":["south-asian"],"commonness":1,
    "description":"Dry-spiced potato and cauliflower.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Two cooling vegetables in warming spices — lands near neutral."},"unani":{"verdict":"neutral","confidence":"moderate"}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Turmeric, cumin and ginger are all high-confidence heating spices, outweighing the cooling potato and cauliflower — the same 'spice dressing overrides cooling vegetable bulk' logic as ful-medames and mujadara."},"unani":{"verdict":"neutral","confidence":"moderate"}},
    "histamine":{"sighi":1,"tags":[],"note":"SIGHI 0 vegetables, but the cumin tempering is a SIGHI 2 liberator — a trace of it keeps the dish out of 0, though it's still mild overall."},
    "nutrition":{"kcal":90,"protein":2.5,"carbs":12,"fat":4,"highlight":"dry — no gravy, by definition","estimate":true},
    "ingredients":["potato","cauliflower","turmeric","cumin","ginger"]},
@@ -168,14 +168,14 @@
 
   {"id":"ful-medames","name":"Ful medames","aliases":["foul","ful"],"emoji":"🥣","category":"dish","cuisines":["arabic"],"commonness":2,
    "description":"Slow-stewed fava beans with cumin, lemon, and oil.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Bean is coolish; the cumin-garlic-oil dressing warms the dish."},"unani":{"verdict":"neutral","confidence":"moderate","note":"Cold-leaning bean deliberately corrected with garam dressing — classic Unani logic in a breakfast."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Cumin and garlic are both high-confidence heating, joined by sour lemon; fava beans are the only cooling note and are themselves only thinly classified — three resolved heating ingredients against one uncertain cooling one."},"unani":{"verdict":"neutral","confidence":"moderate","note":"Cold-leaning bean deliberately corrected with garam dressing — classic Unani logic in a breakfast."}},
    "histamine":{"sighi":1,"tags":[],"note":"Long-held warm vats are worse than fresh pots; favism caution for G6PD."},
    "nutrition":{"kcal":105,"protein":6,"carbs":14,"fat":3,"highlight":"the working breakfast","estimate":true},
    "ingredients":["fava-beans","cumin","lemon","garlic"]},
 
   {"id":"mujadara","name":"Mujadara","aliases":["mujaddara","mudardara"],"emoji":"🍚","category":"dish","cuisines":["arabic"],"commonness":2,
    "description":"Lentils and rice under a blanket of caramelized onions.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Near-balanced; fried onion tips it barely warm."},"unani":{"verdict":"neutral","confidence":"moderate"}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Genuinely close — TCM and Unani land on neutral, a category Ayurveda's binary scale doesn't have. Onion is a high-confidence, potently ushna allium even used as a topping; combined with the lentils' own mild heating, that's enough to tip a near-balanced dish toward heating rather than cooling."},"unani":{"verdict":"neutral","confidence":"moderate"}},
    "histamine":{"sighi":1,"tags":[],"note":"A gentle, reactive-friendly dish when fresh."},
    "nutrition":{"kcal":130,"protein":5,"carbs":20,"fat":3.5,"highlight":"humble & complete","estimate":true},
    "ingredients":["brown-lentils","white-rice","onion"]},
@@ -197,14 +197,14 @@
 
   {"id":"fried-rice","name":"Fried rice","aliases":["chao fan","yang chow"],"emoji":"🍚","category":"dish","cuisines":["chinese"],"commonness":1,
    "description":"Day-old rice tossed hot with egg and soy.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Wok-frying warms neutral rice."},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Wok-frying warms neutral rice."},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot","confidence":"contested","note":"A genuine tie among the resolved ingredients: egg (high-confidence hot-moist) and spring-onion pull hot; rice (equally high-confidence cold-dry) and peas pull cold. Wok-frying is a real warming mechanism — it's what lets TCM call this warm despite starting from neutral rice — but Unani's rice starts from an already-cold anchor, so the same push isn't clearly enough to flip it."}},
    "histamine":{"sighi":2,"tags":[],"note":"Built on leftover rice + soy sauce — two histamine strikes by design."},
    "nutrition":{"kcal":165,"protein":5,"carbs":25,"fat":5,"highlight":"the wok classic","estimate":true},
    "ingredients":["white-rice","egg","soy-sauce","spring-onion","peas"]},
 
   {"id":"chow-mein","name":"Chow mein","aliases":["chao mian","noodles (fried)"],"emoji":"🍜","category":"dish","cuisines":["chinese"],"commonness":1,
    "description":"Stir-fried wheat noodles with vegetables.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot","confidence":"moderate","note":"Noodles, carrot and spring-onion are all hot in Unani, outnumbering cabbage's cold three to one; stir-frying reinforces rather than carries the verdict alone."}},
    "histamine":{"sighi":2,"tags":[],"note":"Soy sauce carries the score."},
    "nutrition":{"kcal":155,"protein":5,"carbs":23,"fat":5,"highlight":"the noodles go in dry-fried, not boiled soft","estimate":true},
    "ingredients":["wheat-noodles","soy-sauce","cabbage","carrot","spring-onion"]},
@@ -227,7 +227,7 @@
 
   {"id":"dumplings","name":"Dumplings (jiaozi)","aliases":["jiaozi","potstickers","momos (cousin)"],"emoji":"🥟","category":"dish","cuisines":["chinese"],"commonness":1,
    "description":"Wheat wrappers around pork-cabbage filling, boiled or fried.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Boiled neutral; fried guo tie warmer."},"ayurveda":{"verdict":"heating","confidence":"contested"},"unani":{"verdict":"neutral","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Boiled neutral; fried guo tie warmer."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ginger (high-confidence) and spring-onion in the filling, plus pork, outweigh the cooling wheat wrapper and napa cabbage three to two — boiled keeps it from going further than TCM's own neutral-to-warm split."},"unani":{"verdict":"neutral","confidence":"contested","note":"Wheat, ginger and spring-onion lean hot three-to-one against napa cabbage on their own. But pork — the dominant filling protein — sits entirely outside Unani's dietary and textual tradition (excluded on religious grounds, not just thinly documented), so this can't commit past the safe neutral middle TCM also lands on for the boiled version."}},
    "histamine":{"sighi":1,"tags":[],"note":"Fresh-made are fine; the dipping sauce (soy + vinegar) is the histamine event."},
    "nutrition":{"kcal":190,"protein":8,"carbs":23,"fat":7,"highlight":"the family fold","estimate":true},
    "ingredients":["wheat","pork","napa-cabbage","ginger","spring-onion"]},
@@ -242,7 +242,7 @@
 
   {"id":"wonton-soup","name":"Wonton soup","aliases":["hun tun tang"],"emoji":"🍜","category":"dish","cuisines":["chinese"],"commonness":2,
    "description":"Delicate shrimp-pork parcels in clear broth.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"contested"},"unani":{"verdict":"hot-moist","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Shrimp is high-confidence ushna on its own, joined by pork and spring-onion; only the wheat wrapper pulls cooling."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Wheat and shrimp are both high-confidence hot, and spring-onion agrees; pork sits outside the Unani record but is only half the filling, not enough to unseat a clean majority."}},
    "histamine":{"sighi":2,"tags":[],"note":"Shrimp filling + long-held broth."},
    "nutrition":{"kcal":60,"protein":3.5,"carbs":7,"fat":2,"highlight":"the light bowl","estimate":true},
    "ingredients":["wheat","shrimp","pork","spring-onion"]},
@@ -265,7 +265,7 @@
 
   {"id":"pizza","name":"Pizza","aliases":["pitza","bi sa"],"emoji":"🍕","category":"dish","cuisines":["western"],"commonness":1,
    "description":"Flatbread with tomato sauce and melted cheese.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Not classical; baked-rich reads warm-damp."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour tomato + aged cheese + yeasted dough."},"unani":{"verdict":"hot","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Genuinely split: wheat and tomato both read cool at moderate confidence, directly opposed by aged-cheese's moderate warm, with mozzarella neutral. No high-confidence ingredient breaks the tie the way onion and basil do for tomato soup. Baking is a real warming mechanism (as with kunafa and apple pie) but isn't on its own enough to override two independently cool bases with no reinforcement."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour tomato + aged cheese + yeasted dough."},"unani":{"verdict":"hot","confidence":"moderate","note":"Wheat is the crust's bulk and reads high-confidence hot-moist; baking pushes it further, the same mechanism used for pastries elsewhere in this file. Aged cheese agrees; only the fresh mozzarella pulls cold, and the tomato reading is itself unresolved."}},
    "histamine":{"sighi":3,"tags":[],"note":"Tomato sauce + aged cheese + yeast — the weeknight histamine trifecta."},
    "nutrition":{"kcal":265,"protein":11,"carbs":33,"fat":10,"highlight":"the universal slice","estimate":true},
    "ingredients":["wheat","tomato","fresh-mozzarella","aged-cheese"]},
@@ -286,21 +286,21 @@
 
   {"id":"mac-and-cheese","name":"Mac and cheese","aliases":["macaroni cheese","makarona bil jibn"],"emoji":"🧀","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Pasta folded into a cheddar sauce.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Rich-damp comfort food; not classical."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Aged cheese leads."},"unani":{"verdict":"hot-moist","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Aged cheese is the dish's defining ingredient (as in the name) and reads warm; pasta, milk and butter are all individually neutral with nothing pulling cool, so cheese decides."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Aged cheese leads."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Aged cheese leads, matching Ayurveda's own 'aged cheese leads' reasoning for this same dish; pasta agrees. Milk is a real high-confidence cold counterweight, but the cheese sauce — the dish's namesake and flavor-dominant component — decides."}},
    "histamine":{"sighi":3,"tags":[],"note":"Aged cheddar is the whole point — and the whole problem."},
    "nutrition":{"kcal":200,"protein":8,"carbs":22,"fat":9,"highlight":"comfort in a bowl","estimate":true},
    "ingredients":["pasta","aged-cheese","milk","butter"]},
 
   {"id":"caesar-salad","name":"Caesar salad","aliases":["sizar salad"],"emoji":"🥗","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Romaine under parmesan, croutons, and anchovy dressing.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw salad base; rich dressing tempers it."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Leaf cool, dressing heating; net mild."},"unani":{"verdict":"cold","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw salad base; rich dressing tempers it."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Lettuce is the dish's bulk and high-confidence cooling; egg, croutons and cheese are all heating but used in dressing and garnish quantities only — toppings temper, they don't flip the base, the same logic TCM already applies here."},"unani":{"verdict":"cold","confidence":"moderate","note":"Khass (lettuce) is high-confidence cold-moist and the salad's bulk; the egg, bread and cheese toppings are all garam but used in garnish quantities, not enough to flip it — same reasoning as the Ayurveda read here."}},
    "histamine":{"sighi":3,"tags":[],"note":"Parmesan + anchovies: two of the highest-histamine foods hiding in a 'light' salad."},
    "nutrition":{"kcal":190,"protein":6,"carbs":8,"fat":15,"highlight":"the deceptive salad","estimate":true},
    "ingredients":["lettuce","aged-cheese","white-bread","egg"]},
 
   {"id":"tomato-soup","name":"Tomato soup","aliases":["shorbat tamatim","fan qie tang"],"emoji":"🍅","category":"dish","cuisines":["western","arabic","chinese"],"commonness":1,
    "description":"Smooth simmered tomato bowl.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Cool tomato served hot; reads near-neutral."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Concentrated sour tomato."},"unani":{"verdict":"neutral","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Onion and basil are both high-confidence warm and outweigh the merely moderate-confidence cool tomato — the aromatics-override-base logic already used for ful-medames and mujadara. Serving temperature doesn't itself change a food's nature in TCM theory, so that's dropped from the reasoning."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Concentrated sour tomato."},"unani":{"verdict":"hot","confidence":"moderate","note":"Onion (high-confidence) and basil are the two clearly-resolved aromatics here and outweigh the cooling cream and the tomato's own unresolved reading — converges with the TCM and Ayurveda reads, both of which land warm/heating on this dish too."}},
    "histamine":{"sighi":3,"tags":[],"note":"Tomato, concentrated — maximal form of the trigger."},
    "nutrition":{"kcal":55,"protein":1.2,"carbs":7,"fat":2.5,"highlight":"cooking is what frees the lycopene","estimate":true},
    "ingredients":["tomato","cream","onion","basil"]},
@@ -315,28 +315,28 @@
 
   {"id":"spaghetti-bolognese","name":"Spaghetti bolognese","aliases":["spag bol","pasta with meat sauce"],"emoji":"🍝","category":"dish","cuisines":["western"],"commonness":1,
    "description":"Pasta under slow tomato-beef ragù.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot","confidence":"contested"}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot","confidence":"moderate","note":"Pasta, beef, onion and garlic are all hot in Unani, two of them high-confidence; only tomato pulls cold, and even that reading is itself unresolved — a clear majority, matching the already-moderate TCM and Ayurveda reads."}},
    "histamine":{"sighi":3,"tags":[],"note":"Tomato concentrate + long-simmered ground beef + the parmesan on top."},
    "nutrition":{"kcal":150,"protein":8,"carbs":17,"fat":6,"highlight":"the weeknight ragù","estimate":true},
    "ingredients":["pasta","beef","tomato","onion","garlic"]},
 
   {"id":"pancakes","name":"Pancakes","aliases":["hotcakes","crepes (cousin)"],"emoji":"🥞","category":"dish","cuisines":["western"],"commonness":1,
    "description":"Griddled sweet breakfast rounds.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Griddled wheat-egg-milk; not classical."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Components split; net mild."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Follows wheat."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Griddling is a warming mechanism, the same one that pushes fried rice and chow mein past their neutral bases; wheat, egg, milk and butter are otherwise all neutral-to-cool with nothing opposing it."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Wheat, milk and butter are all cooling and form the batter's bulk; egg is heating but is a small binding ingredient by comparison — the batter's dairy-and-grain base decides, not the minor egg."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Wheat and egg are both high-confidence hot-moist, and griddling adds its own warming push; milk is the only cooling anchor and doesn't outweigh two separate warming forces plus the cooking method."}},
    "histamine":{"sighi":1,"tags":[],"note":"Batter is benign; watch the toppings (chocolate, strawberries, aged butter)."},
    "nutrition":{"kcal":225,"protein":6,"carbs":28,"fat":10,"highlight":"lumps in the batter are correct","estimate":true},
    "ingredients":["wheat","egg","milk","butter"]},
 
   {"id":"dosa","name":"Dosa","aliases":["dose","masala dosa","sada dosa"],"emoji":"🥞","category":"dish","cuisines":["south-asian"],"commonness":1,
    "description":"Fermented rice-and-dal batter spread thin and crisped on a griddle.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Read from rice and urad; the ferment adds a warming, sour quality."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermentation turns an otherwise shita batter — soured foods are ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by its ferment, though the rice base is thanda."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"None of the base ingredients actually reads cool — rice and urad are neutral, fenugreek is high-confidence warm. Griddle-frying (unlike idli's steaming) adds its own warming push. Corrected from the old 'cool' verdict, which didn't match any tracked ingredient here."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermentation turns an otherwise shita batter — soured foods are ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by its ferment, though the rice base is thanda."}},
    "histamine":{"sighi":2,"tags":[],"note":"Overnight batter fermentation — the crisp dosa is a fermented food, which surprises people."},
    "nutrition":{"kcal":168,"protein":3.9,"carbs":30,"fat":3.7,"highlight":"an overnight ferment","estimate":true},
    "ingredients":["white-rice","urad-dal","fenugreek-seed","coconut-oil"]},
 
   {"id":"idli","name":"Idli","aliases":["iddli","steamed rice cake"],"emoji":"⚪","category":"dish","cuisines":["south-asian"],"commonness":1,
    "description":"Soft steamed discs of the same fermented batter — the gentlest breakfast there is.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"contested","note":"Steamed and mild; the ferment is tempered by the cooking."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna, though laghu and easy to digest."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by ferment; still the lightest thing on the table."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Rice and urad both point neutral — rice confidently so, urad thinly but in the same direction — and steaming, unlike dosa's frying, doesn't push the ferment any further."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna, though laghu and easy to digest."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by ferment; still the lightest thing on the table."}},
    "histamine":{"sighi":2,"tags":[],"note":"Fermented batter, like dosa — light on the stomach but not low on histamine."},
    "nutrition":{"kcal":132,"protein":4.6,"carbs":26,"fat":0.6,"highlight":"steamed, not fried","estimate":true},
    "ingredients":["white-rice","urad-dal"]},
@@ -367,7 +367,7 @@
 
   {"id":"uttapam","name":"Uttapam","aliases":["ooththappam","indian pancake"],"emoji":"🥞","category":"dish","cuisines":["south-asian"],"commonness":2,
    "description":"Thick dosa batter poured soft and studded with onion and tomato.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"The rice base with vegetable toppings; read with dosa."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented batter, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Follows the corrected dosa reading (fried batter, warming ferment), reinforced by onion and green chili, both high-confidence hot in TCM; tomato is the only cooling note and doesn't offset two confident hot toppings."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented batter, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by ferment."}},
    "histamine":{"sighi":2,"tags":[],"note":"Fermented batter plus tomato — both push it up."},
    "nutrition":{"kcal":155,"protein":4.1,"carbs":27,"fat":3.5,"highlight":"dosa batter, poured thick","estimate":true},
    "ingredients":["white-rice","urad-dal","onion","tomato","green-chili"]},
@@ -551,7 +551,7 @@
 
   {"id":"molokhia","name":"Molokhia","aliases":["mulukhiyah","jute leaf stew","molokhiya"],"emoji":"🥬","category":"dish","cuisines":["arabic"],"commonness":2,
    "description":"Finely chopped jute leaves cooked to a green, deliberately viscous stew.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"A leafy green stew; the garlic tempering warms it."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Leafy and mucilaginous — shita, like the other slippery greens."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar in the Egyptian and Levantine reading, though served hot."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Jute leaf itself isn't tracked in this dataset, but mucilaginous leafy greens are a recognized heat-clearing, cooling class in Chinese dietary therapy (as okra and purslane are) — the same class-based logic Ayurveda and Unani already apply here at moderate confidence, both landing cooling despite the same garlic tempering."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Leafy and mucilaginous — shita, like the other slippery greens."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar in the Egyptian and Levantine reading, though served hot."}},
    "histamine":{"sighi":2,"tags":[],"note":"Leafy green base with a long cook; the garlic-coriander tempering adds little."},
    "nutrition":{"kcal":88,"protein":6.5,"carbs":6,"fat":4.2,"highlight":"deliberately viscous","estimate":true},
    "ingredients":["chicken","garlic","coriander-seed","cilantro","white-rice"],
@@ -644,7 +644,7 @@
 
   {"id":"risotto","name":"Risotto","aliases":["rissotto","italian rice"],"emoji":"🍚","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Rice stirred with stock a ladle at a time until it turns creamy.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Rice with stock and cheese; mild and neutral."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Rice is shita, though the cheese and butter make it guru."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Rice base, warmed by the stock and cheese."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Rice with stock and cheese; mild and neutral."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Rice is shita, though the cheese and butter make it guru."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Bone broth and wine are both high-confidence hot with direct classical citations (yakhni, fermented grape drinks), joined by onion and cheese; only the base rice pulls cold, and the long stock-reduction process is itself a warming mechanism. Corrected from cold-dry, which only tracked the rice and ignored the other five ingredients."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Long-simmered stock, aged cheese and usually white wine — three high contributors in one pan."},
    "nutrition":{"kcal":155,"protein":4.5,"carbs":22,"fat":5.5,"highlight":"a ladle at a time","estimate":true},
    "ingredients":["white-rice","aged-cheese","butter","onion","white-wine","bone-broth"]},
@@ -674,7 +674,7 @@
 
   {"id":"appam","name":"Appam","aliases":["palappam","hoppers","vellayappam"],"emoji":"🥞","category":"dish","cuisines":["south-asian"],"commonness":2,
    "description":"Lacy-edged rice pancake with a soft thick middle, fermented with coconut.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Rice base; the ferment warms it."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented batter is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by ferment, over a thanda rice base."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"All three tracked ingredients — rice, coconut milk, rice flour — read neutral in TCM; none reads cool. Corrected to match idli's own reasoning (a gentle ferment tempered by the cooking) rather than the old, ingredient-unsupported 'cool' call."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented batter is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam by ferment, over a thanda rice base."}},
    "histamine":{"sighi":2,"tags":[],"note":"Overnight fermented batter, like dosa."},
    "nutrition":{"kcal":145,"protein":2.6,"carbs":30,"fat":1.8,"highlight":"lacy edge, soft middle","estimate":true},
    "ingredients":["white-rice","coconut-milk","rice-flour"]},
@@ -991,7 +991,7 @@
 
   {"id":"rabri","name":"Rabri","aliases":["rabdi","thickened milk sweet"],"emoji":"🥛","category":"dish","cuisines":["south-asian"],"commonness":2,
    "description":"Milk reduced for hours, the skin folded back in repeatedly until it is thick with layers.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Hours of reduction."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Milk keeps its shita virya classically, however far reduced — the same argument as khoya."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar in desi usage — a rich winter sweet."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Hours of reduction."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Mirrors khoya's own left-open tension exactly (rabri is the same hours-long milk reduction, just less far along): by the classical principle that cooking leaves milk's shita virya intact and only adds guru, cooling is defensible, but it sits against firm hakimi practice calling reduced-milk sweets garam. Real cross-tradition tension, left open rather than forced."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar in desi usage — a rich winter sweet."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":265,"protein":7,"carbs":28,"fat":14,"highlight":"the skin folded back in","estimate":true},
    "ingredients":["milk","white-sugar","cardamom","pistachios"]},
@@ -2062,7 +2062,7 @@
 
   {"id":"sushi","name":"Sushi","aliases":["nigiri","maki","sushi roll"],"emoji":"🍣","category":"dish","cuisines":["japanese"],"commonness":1,
    "description":"Vinegared rice with raw fish or vegetables — the rice is the part that takes years.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cold vinegared rice with raw fish."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya is ushna; the vinegar adds to it."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; served cold; the fish is garam, the rice thanda."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cold vinegared rice with raw fish."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya is ushna; the vinegar adds to it."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Sushi rice, salmon and wasabi are all resolved hot in Unani (wasabi high-confidence) — the old note's claim that 'the rice [is] thanda' contradicts the rice's own vinegar-warmed hot-dry reading elsewhere in this dataset. Only nori pulls cold, and it's a minor, not-always-present wrapper. Corrected from cold-moist."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Raw fish plus vinegared rice held at room temperature — both matter, and freshness decides everything."},
    "nutrition":{"kcal":150,"protein":6,"carbs":26,"fat":2,"highlight":"the rice is the hard part","estimate":true},
    "ingredients":["sushi-rice","salmon","seaweed-nori","wasabi"]},
@@ -2077,7 +2077,7 @@
 
   {"id":"chirashi","name":"Chirashi","aliases":["chirashizushi","scattered sushi"],"emoji":"🍚","category":"dish","cuisines":["japanese"],"commonness":2,
    "description":"A bowl of sushi rice scattered with sashimi and pickles.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cold rice and raw fish."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the fish."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; read with sushi."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cold rice and raw fish."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the fish."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Rice, toro and tamagoyaki are all resolved hot in Unani, two of them high-confidence; only the minor nori garnish pulls cold. Follows the same correction as sushi, its structural twin."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Raw fish on vinegared rice."},
    "nutrition":{"kcal":165,"protein":10,"carbs":26,"fat":3,"highlight":"scattered, not rolled","estimate":true},
    "ingredients":["sushi-rice","toro","ikura","tamagoyaki","seaweed-nori"]},
@@ -2228,7 +2228,7 @@
 
   {"id":"miso-soup","name":"Miso soup","aliases":["misoshiru"],"emoji":"🍜","category":"dish","cuisines":["japanese"],"commonness":1,
    "description":"Dashi with miso whisked in off the heat, plus tofu and wakame.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fermented soybean in a warm broth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented and salty, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fermented soybean in a warm broth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented and salty, so ushna."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Four of the five ingredients — miso, dashi, tofu, wakame — are themselves unresolved in Unani; no Perso-Arabic tradition addresses Japanese fermented soy, kelp broth, bean curd or sea vegetables. Only negi is a solid classical anchor. TCM and Ayurveda can resolve this dish because their own miso readings are already independently confident (moderate, not contested); Unani's isn't, so leaning on 'miso decides' here would stack an uncertain bridge on top of an uncertain override. Left open."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Miso, dashi and wakame — three of the highest ingredients in the set, in the most ordinary bowl in Japan."},
    "nutrition":{"kcal":40,"protein":3,"carbs":4,"fat":1.5,"highlight":"the most ordinary bowl in Japan","estimate":true},
    "ingredients":["miso","dashi","tofu","wakame","negi"],
@@ -2298,7 +2298,7 @@
 
   {"id":"hijiki-nimono","name":"Hijiki nimono","aliases":["simmered hijiki"],"emoji":"⚫","category":"dish","cuisines":["japanese"],"commonness":3,
    "description":"Rehydrated hijiki simmered with carrot, abura-age and soy.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Seaweed-led; cooling."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; read with the sea vegetables."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with seaweed."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Seaweed-led; cooling."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Sea vegetables have no presence at all in classical Ayurveda — unlike TCM, which has a real classical seaweed tradition (kelp, zicai) and resolves this dish confidently. Hijiki itself, the dominant ingredient, carries this exact gap; carrot and mirin lean heating but are supporting quantities only."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Sea vegetables have no presence in the classical Unani materia medica either — a coastal Japanese ingredient with no Perso-Arabic textual precedent. Hijiki itself, the dominant ingredient, carries this gap directly; carrot and abura-age lean warm but are supporting quantities only."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Dried seaweed plus soy."},
    "nutrition":{"kcal":80,"protein":3,"carbs":10,"fat":3,"highlight":"the small brown side dish","estimate":true},
    "ingredients":["hijiki","carrot","abura-age","soy-sauce","mirin"],
@@ -2306,7 +2306,7 @@
 
   {"id":"ohitashi","name":"Ohitashi","aliases":["blanched greens in dashi"],"emoji":"🌿","category":"dish","cuisines":["japanese"],"commonness":2,
    "description":"Greens blanched, squeezed and steeped in cold dashi with bonito on top.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Blanched greens, served cold."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; read with the leafy greens."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Blanched greens, served cold."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Palak (spinach) is a strong, directly-cited classical cold-moist ingredient and the dish's bulk; dashi is a light steeping liquid, katsuobushi and soy-sauce are garnish-quantity toppings. The spinach anchor is solid enough to carry it, matching TCM's and Ayurveda's own spinach-led resolutions."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Spinach is usually the green, and it steeps in dashi — both rate high."},
    "nutrition":{"kcal":35,"protein":3,"carbs":4,"fat":0.5,"highlight":"squeezed dry, then steeped","estimate":true},
    "ingredients":["spinach","dashi","katsuobushi","soy-sauce"]},
@@ -2344,7 +2344,7 @@
 
   {"id":"ochazuke","name":"Ochazuke","aliases":["rice with tea","chazuke"],"emoji":"🍵","category":"dish","cuisines":["japanese"],"commonness":2,
    "description":"Hot green tea or dashi poured over leftover rice with a salty topping.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Green tea over rice — light and cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the classical record; read with rice and green tea."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Green tea over rice — light and cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and laghu."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Rice and green tea are both resolved cold-dry in Unani (rice high-confidence) and form the dish's bulk; nori and umeboshi are garnish-quantity toppings, umeboshi explicitly taken 'in tiny amounts' by its own entry. Matches the TCM and Ayurveda reads, which use the same rice-and-tea-dominant logic."}},
    "histamine":{"sighi":2,"tags":[],"note":"Depends on the topping; the plain tea-and-rice base is very low."},
    "nutrition":{"kcal":90,"protein":2.5,"carbs":18,"fat":0.5,"highlight":"what you eat at midnight","estimate":true},
    "ingredients":["white-rice","green-tea","seaweed-nori","umeboshi"],
@@ -2360,7 +2360,7 @@
 
   {"id":"natto-gohan","name":"Natto gohan","aliases":["natto rice"],"emoji":"🫘","category":"dish","cuisines":["japanese"],"commonness":2,
    "description":"Fermented soybeans stirred with soy and mustard over hot rice.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fermented soy over rice."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fermented soy over rice."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Fermented, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Negi and mustard are both high-confidence hot, matching rice's high-confidence cold two-to-one; natto itself isn't resolved in Unani, but its own TCM and Ayurveda readings (also formally contested, for the same reason) already lean the same direction and were enough for those two systems to resolve this exact dish at moderate confidence via the same ferment-generates-heat doctrine used throughout this file."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Natto and soy together — one of the highest-histamine breakfasts there is."},
    "nutrition":{"kcal":150,"protein":9,"carbs":22,"fat":3,"highlight":"stir it until it strings","estimate":true},
    "ingredients":["natto","white-rice","soy-sauce","negi","prepared-mustard"]},
@@ -2440,7 +2440,7 @@
 
   {"id":"warabimochi","name":"Warabimochi","aliases":["bracken starch mochi"],"emoji":"⬜","category":"dish","cuisines":["japanese"],"commonness":4,
    "description":"Translucent jelly squares of bracken starch, dusted in kinako and syrup.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"contested","note":"Outside the classical record; a plain starch jelly, read as cooling."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with the starch jellies."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"None of the three tracked ingredients — tapioca starch, roasted soy flour, brown sugar — reads cool in TCM; tapioca and kinako are neutral, brown sugar is warm. The old 'cool' verdict didn't match any of them; corrected to neutral, since two of three ingredients land there and the warm sugar dusting isn't enough alone to flip it warm."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Tapioca starch (cold-moist, moderate) and brown sugar (hot-moist, moderate) pull in genuinely opposite directions at matched confidence; kinako, the soy-flour coating, could break the tie but is itself unresolved in Unani. A real, roughly even split rather than just thin documentation."}},
    "histamine":{"sighi":0,"tags":[],"note":"Very low."},
    "nutrition":{"kcal":180,"protein":2,"carbs":42,"fat":0.3,"highlight":"translucent, and barely there","estimate":true},
    "ingredients":["tapioca-flour","kinako","brown-sugar"],
@@ -2463,7 +2463,7 @@
 
   {"id":"doenjang-jjigae","name":"Doenjang jjigae","aliases":["soybean paste stew"],"emoji":"🍲","category":"dish","cuisines":["korean"],"commonness":1,
    "description":"A thick everyday stew built on doenjang with tofu, courgette and anchovy stock.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fermented soybean stew."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna by ferment."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fermented soybean stew."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna by ferment."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Doenjang itself isn't cited in the classical Unani record, but the dataset's own 'fermentation generates heat' doctrine — applied consistently to every fermented ingredient here (miso, ganjang and doenjang all carry this same note) — already lets TCM and Ayurveda resolve this exact dish at moderate confidence with identical reasoning. Anchovies and negi are independently confidently hot; tofu and zucchini pull cold. A modest but real majority."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Doenjang and anchovy stock together."},
    "nutrition":{"kcal":95,"protein":7,"carbs":8,"fat":4,"highlight":"the everyday bowl","estimate":true},
    "ingredients":["doenjang","tofu","zucchini","anchovies","negi"],
@@ -2519,7 +2519,7 @@
 
   {"id":"miyeokguk","name":"Miyeokguk","aliases":["seaweed soup","birthday soup"],"emoji":"🍜","category":"dish","cuisines":["korean"],"commonness":1,
    "description":"Wakame soup eaten on birthdays and after childbirth, for the iron.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Seaweed-led; cooling."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; read with the sea vegetables."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with seaweed."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Seaweed-led; cooling."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Beef, ganjang and sesame oil are all confidently heating (three at high confidence) and would suggest heating by simple ingredient math. But 'miyeokguk' is defined by its seaweed — the entire point of the dish, eaten specifically for the wakame's iron — and TCM already privileges that identity over its own similarly warm-leaning ingredients. Ayurveda can't follow with the same confidence: TCM's cooling wakame reading has a real classical citation behind it, while wakame has none in Ayurveda. Genuinely caught between two defensible readings."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Same tension as the Ayurveda reading here: beef, garlic and sesame oil are all confidently hot, but the dish's identity and purpose rest on the wakame, and TCM's parallel cooling verdict leans on a citation Unani doesn't have for seaweed. Left open rather than forced either way."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Wakame and anchovy or beef stock."},
    "nutrition":{"kcal":45,"protein":4,"carbs":4,"fat":1.5,"highlight":"eaten on birthdays, and after childbirth","estimate":true},
    "ingredients":["wakame","beef","ganjang","sesame-oil","garlic"],
@@ -2598,7 +2598,7 @@
 
   {"id":"kimbap","name":"Kimbap","aliases":["gimbap","korean seaweed rice roll"],"emoji":"🍙","category":"dish","cuisines":["korean"],"commonness":1,
    "description":"Sesame-seasoned rice and fillings rolled in nori — a picnic food, not sushi.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Rice and vegetables in seaweed."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following rice."},"unani":{"verdict":"cold-dry","confidence":"contested","note":"Outside the classical record; read with rice and seaweed."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Rice and vegetables in seaweed."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following rice."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Rice is high-confidence cold-dry and the dish's bulk; carrot, egg and sesame oil are all resolved hot but used in filling quantities only. TCM and Ayurveda already resolve this exact dish the same way, treating rice as dominant over the same fillings; nori is a thin wrapper, not enough on its own to change that."}},
    "histamine":{"sighi":2,"tags":[],"note":"Nori and pickled radish; unlike sushi there is no vinegar and usually no raw fish."},
    "nutrition":{"kcal":160,"protein":5,"carbs":28,"fat":3,"highlight":"a picnic food, not sushi","estimate":true},
    "ingredients":["white-rice","seaweed-nori","carrot","takuan","egg","sesame-oil"]},
@@ -2747,7 +2747,7 @@
 
   {"id":"kongnamul-muchim","name":"Kongnamul muchim","aliases":["seasoned soybean sprouts"],"emoji":"🌱","category":"dish","cuisines":["korean"],"commonness":1,
    "description":"Blanched soybean sprouts dressed in sesame oil, garlic and salt.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Blanched sprouts, served cool."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; read with the sprouts."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Blanched sprouts, served cool."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and light."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Sprouts are the dish's bulk and this dressing (sesame oil, garlic, salt) is light seasoning — exactly how TCM and Ayurveda read it, both landing cooling on a resolved sprout base. But soybean sprouts have no Unani classification at all, unlike their TCM and Ayurvedic readings, so Unani has no resolved base to lean on the same way, only three confidently-hot but genuinely minor seasoning ingredients. Left open rather than guessing at an anchor this tradition doesn't have."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low — one of the gentlest banchan."},
    "nutrition":{"kcal":50,"protein":4,"carbs":5,"fat":2,"highlight":"the most common banchan there is","estimate":true},
    "ingredients":["soybean-sprouts","sesame-oil","garlic","salt"],
@@ -2824,7 +2824,7 @@
 
   {"id":"gimgui","name":"Gimgui","aliases":["roasted seaweed sheets","gim"],"emoji":"⬛","category":"dish","cuisines":["korean"],"commonness":1,
    "description":"Nori sheets brushed with sesame oil, salted and toasted — eaten with rice.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Seaweed; cooling."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Outside the classical record; read with nori."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; placed with seaweed."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Seaweed; cooling."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"Nori is nearly the entire dish by mass (sesame oil and salt are just a light brushing), but nori itself carries no Ayurvedic classification at all, so there's nothing solid to anchor a verdict on. Sesame oil and salt are both confidently heating but used in genuinely trivial quantity relative to the sheet of nori."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Same gap as the Ayurveda reading: nori is nearly the whole dish by mass, but has no Unani classification at all. Sesame oil and salt are both confidently hot-dry with real classical citations, but used in genuinely trivial, seasoning-only quantity — not enough to outweigh an unanchored bulk ingredient."}},
    "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Dried seaweed."},
    "nutrition":{"kcal":210,"protein":30,"carbs":40,"fat":3,"highlight":"brushed, salted, toasted","estimate":true},
    "ingredients":["seaweed-nori","sesame-oil","salt"],
@@ -3104,7 +3104,7 @@
 
   {"id":"kanom-jeen","name":"Kanom jeen","aliases":["fermented rice noodles"],"emoji":"🍜","category":"dish","cuisines":["southeast-asian"],"commonness":3,
    "description":"Fermented rice noodles served cold under curry, with a table of raw vegetables.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cold noodles under hot curry."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The ferment and curry are ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cold noodles under hot curry."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The ferment and curry are ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"A genuine tension, not just thin documentation: red curry paste is confidently hot-dry, but coconut milk and rice noodles are both confidently cold (coconut milk even at high confidence) — the same split that already has TCM and Ayurveda disagreeing on this exact dish (TCM sides with the cold noodle-and-coconut-milk base; Ayurveda sides with the hot curry-and-ferment). Fish sauce, the ferment itself, isn't resolved either. Left open rather than forced either way."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"The noodles are fermented for days — that is what makes them kanom jeen."},
    "nutrition":{"kcal":150,"protein":4,"carbs":32,"fat":1,"highlight":"the noodles are the fermented part","estimate":true},
    "ingredients":["banh-pho","red-curry-paste","coconut-milk","fish-sauce"]},
@@ -3650,7 +3650,7 @@
 
   {"id":"emping","name":"Emping","aliases":["melinjo crackers"],"emoji":"🍘","category":"dish","cuisines":["southeast-asian"],"commonness":4,
    "description":"Bitter crackers pounded from melinjo nuts and fried.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Outside the classical record; fried nut cracker; read as warming."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"Outside the classical record; ushna and guru."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"Outside the classical record; garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"contested","note":"Frying is a real warming mechanism, but neither tracked ingredient actually supports 'warm': sunflower oil reads neutral on its own, and salt is COLD in TCM (it enters the kidney and descends) — the opposite direction. Melinjo nut itself, the dish's namesake, isn't in this dataset at all. Left open; frying alone isn't quite enough against ingredients that don't reinforce it."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Salt is confidently ushna, a real classical citation unlike the oil's own shaky heating call, and frying reinforces the same direction; nothing here pulls toward cooling. Melinjo nut itself remains untracked, so this stays short of high confidence, but nothing opposes the heating lean either."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Salt is confidently garam-khushk, a real classical citation unlike the oil's own shaky heating call, and frying reinforces the same direction; nothing here pulls toward cold. Melinjo nut itself remains untracked, so this stays short of high confidence, but nothing opposes the hot lean either."}},
    "histamine":{"sighi":2,"tags":[],"note":"Nut-based and fried. Melinjo raises uric acid, which is a separate caution for gout."},
    "nutrition":{"kcal":480,"protein":12,"carbs":55,"fat":24,"highlight":"bitter, and deliberately","estimate":true},
    "ingredients":["sunflower-oil","salt"]},
@@ -3756,7 +3756,7 @@
 
   {"id":"ceviche","name":"Ceviche","aliases":["cebiche","seviche"],"emoji":"🐟","category":"dish","cuisines":["latin-american"],"commonness":1,
    "description":"Raw fish 'cooked' in lime juice with onion and chilli — minutes, not hours.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Raw fish in citrus, served cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya and amla-rasa are both ushna, despite the cold plate."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; thanda in practice; a hot-climate dish."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Raw fish in citrus, served cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya and amla-rasa are both ushna, despite the cold plate."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"All six ingredients are independently resolved in Unani, and hot wins clearly: fish, onion and aji amarillo are all high-confidence, plus sweet potato; only lemon and cilantro pull cold, both high-confidence but outnumbered four to two. The old note's 'thanda in practice, hot-climate dish' reasoning leaned on climate and serving custom rather than the food's own mizaj — corrected to track the ingredients directly, converging with Ayurveda's own already-resolved heating call here."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Raw fish plus a great deal of lime — the acid denatures the protein but does nothing to histamine."},
    "nutrition":{"kcal":95,"protein":15,"carbs":5,"fat":1.5,"highlight":"minutes, not hours","estimate":true},
    "ingredients":["white-fish","lemon","onion","aji-amarillo","cilantro","sweet-potato"]},
@@ -4010,7 +4010,7 @@
 
   {"id":"sopa-de-lima","name":"Sopa de lima","aliases":["yucatecan lime soup"],"emoji":"🍋","category":"dish","cuisines":["latin-american"],"commonness":3,
    "description":"A clear chicken broth sharpened with lime and topped with tortilla strips.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A light broth with citrus."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the chicken; the lime is sour."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"Outside the classical record; thanda in practice."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A light broth with citrus."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the chicken; the lime is sour."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Chicken, tortilla, habanero and onion are all hot in Unani, three of them high-confidence; only lemon pulls cold. A clear majority, converging with Ayurveda's own already-resolved heating call here ('Ushna from the chicken; the lime is sour') — the old note's climate-practice framing is dropped in favor of tracking the ingredients directly."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Chicken broth plus a great deal of lime."},
    "nutrition":{"kcal":85,"protein":9,"carbs":8,"fat":2,"highlight":"the lime goes in at the end","estimate":true},
    "ingredients":["chicken","lemon","tortilla","habanero","onion"]},
@@ -4772,14 +4772,14 @@
 
   {"id":"banku","name":"Banku","aliases":["fermented corn and cassava dough"],"emoji":"⚪","category":"dish","cuisines":["african"],"commonness":2,
    "description":"Fermented corn and cassava dough cooked into a sour smooth ball.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A fermented starch dough."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A fermented starch dough."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Cornmeal and cassava are individually a near-tie (hot-dry vs cold-moist, both moderate), but Ayurveda's own resolution of this exact dish doesn't lean on either ingredient dominating — it leans on souring itself being ushna, a doctrine this dataset already applies throughout its Unani entries (dosa, idli, and the fermented soy pastes). The same fermentation-generates-heat logic carries over here."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Deliberately fermented for days — the sourness is the point."},
    "nutrition":{"kcal":170,"protein":3,"carbs":38,"fat":0.5,"highlight":"sour, deliberately","estimate":true},
    "ingredients":["cornmeal","cassava"]},
 
   {"id":"kenkey","name":"Kenkey","aliases":["dokono","fermented maize dumpling"],"emoji":"🌽","category":"dish","cuisines":["african"],"commonness":2,
    "description":"Fermented maize dough wrapped in husks and steamed into a dense sour ball.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A steamed maize ferment."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured, so ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"A steamed maize ferment."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured, so ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"A single-ingredient dough (cornmeal, itself resolved hot-dry at moderate confidence) taken through the same steamed-ferment process as banku; souring is ushna by the doctrine already applied throughout this dataset's Unani entries, reinforcing rather than opposing the base ingredient here."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Days of maize fermentation."},
    "nutrition":{"kcal":180,"protein":4,"carbs":40,"fat":1,"highlight":"wrapped in husks, steamed","estimate":true},
    "ingredients":["cornmeal"]},
@@ -5546,7 +5546,7 @@
 
   {"id":"zurek","name":"Żurek","aliases":["sour rye soup"],"emoji":"🍲","category":"dish","cuisines":["eastern-european"],"commonness":2,
    "description":"Soup soured with fermented rye starter, with sausage and a boiled egg.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A soured grain broth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The rye ferment is ushna."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"Outside the classical record; garam by ferment."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"A soured grain broth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"The rye ferment is ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Kielbasa, egg and marjoram are all high-confidence hot in Unani (marjoram has a direct classical citation — marzanjosh); potato and sour-cream pull cold but only at moderate confidence. The rye starter's souring is itself a heat-generating ferment by the same doctrine used throughout this dataset, reinforcing rather than opposing the ingredient majority."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"A live rye ferment plus sausage and egg — three high items by design."},
    "nutrition":{"kcal":110,"protein":6,"carbs":10,"fat":5,"highlight":"soured with a rye starter","estimate":true},
    "ingredients":["rye","kielbasa","egg","potato","sour-cream","marjoram"],
