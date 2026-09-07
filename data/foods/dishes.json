@@ -1944,7 +1944,7 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Spiced meat in a corn tortilla."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and tikshna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Chilli and lime; the tortilla itself is low."},
    "nutrition":{"kcal":215,"protein":12,"carbs":20,"fat":10,"highlight":"folded, never rolled","estimate":true},
-   "ingredients":["tortilla","beef","onion","cilantro","lemon","red-chili"],
+   "ingredients":["tortilla","beef","onion","cilantro","lime","red-chili"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"burrito","name":"Burrito","aliases":["wrap (mexican)"],"emoji":"🌯","category":"dish","cuisines":["western"],"commonness":1,
@@ -1975,7 +1975,7 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw avocado, cooled by lime."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"Avocado is already a SIGHI 2, and lime adds a liberator — it also browns fast, which is the same oxidation."},
    "nutrition":{"kcal":160,"protein":2,"carbs":9,"fat":15,"highlight":"browns within the hour, so it is made last","estimate":true},
-   "ingredients":["avocado","lemon","onion","cilantro","green-chili"]},
+   "ingredients":["avocado","lime","onion","cilantro","green-chili"]},
 
   {"id":"coleslaw","name":"Coleslaw","aliases":["slaw","cabbage salad"],"emoji":"🥗","category":"dish","cuisines":["western"],"commonness":1,
    "description":"Shredded raw cabbage and carrot bound with mayonnaise.",
@@ -3011,7 +3011,7 @@
    "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Curry paste in coconut milk with fried noodles."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Curry paste, pickled mustard greens and lime."},
    "nutrition":{"kcal":180,"protein":9,"carbs":20,"fat":8,"highlight":"the crisp nest on top is the signature","estimate":true},
-   "ingredients":["wheat-noodles","yellow-curry-paste","coconut-milk","chicken","shallots","lemon"],
+   "ingredients":["wheat-noodles","yellow-curry-paste","coconut-milk","chicken","shallots","lime"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"som-tam","name":"Som tam","aliases":["green papaya salad"],"emoji":"🥗","category":"dish","cuisines":["southeast-asian"],"commonness":1,
@@ -3019,14 +3019,14 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw shredded fruit, dressed cold."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Unripe papaya is ushna; the chilli adds more."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Dried shrimp, fish sauce and lime, on unripe papaya — four contributors in a salad."},
    "nutrition":{"kcal":65,"protein":2,"carbs":12,"fat":1,"highlight":"pounded, not tossed","estimate":true},
-   "ingredients":["green-papaya","dried-shrimp","fish-sauce","lemon","birds-eye-chilli","peanuts"]},
+   "ingredients":["green-papaya","dried-shrimp","fish-sauce","lime","birds-eye-chilli","peanuts"]},
 
   {"id":"larb","name":"Larb","aliases":["laab","minced meat salad"],"emoji":"🥗","category":"dish","cuisines":["southeast-asian"],"commonness":2,
    "description":"Minced meat tossed warm with lime, chilli, mint and toasted rice powder.",
    "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Warm mince with chilli and lime."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Minced meat, fish sauce and lime."},
    "nutrition":{"kcal":165,"protein":16,"carbs":6,"fat":8,"highlight":"the rice powder is the texture","estimate":true},
-   "ingredients":["chicken","khao-khua","fish-sauce","lemon","mint","birds-eye-chilli"],
+   "ingredients":["chicken","khao-khua","fish-sauce","lime","mint","birds-eye-chilli"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"pad-krapow","name":"Pad krapow","aliases":["holy basil stir-fry"],"emoji":"🌿","category":"dish","cuisines":["southeast-asian"],"commonness":1,
@@ -3050,7 +3050,7 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fried rice with egg."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the egg and frying."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Fish sauce and egg."},
    "nutrition":{"kcal":175,"protein":7,"carbs":26,"fat":5,"highlight":"lime on the side, always","estimate":true},
-   "ingredients":["white-rice","egg","fish-sauce","spring-onion","chicken","lemon"],
+   "ingredients":["white-rice","egg","fish-sauce","spring-onion","chicken","lime"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"satay","name":"Satay","aliases":["sate","skewered grilled meat"],"emoji":"🍢","category":"dish","cuisines":["southeast-asian"],"commonness":1,
@@ -3073,7 +3073,7 @@
    "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Chilli and lime in a clear broth."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and tikshna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Fish sauce, lime and long-simmered pork broth."},
    "nutrition":{"kcal":70,"protein":8,"carbs":4,"fat":3,"highlight":"sharper than tom yum","estimate":true},
-   "ingredients":["pork","lemongrass","birds-eye-chilli","fish-sauce","lemon","khao-khua"],
+   "ingredients":["pork","lemongrass","birds-eye-chilli","fish-sauce","lime","khao-khua"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"gaeng-som","name":"Gaeng som","aliases":["southern thai sour curry"],"emoji":"🟠","category":"dish","cuisines":["southeast-asian"],"commonness":3,
@@ -3089,7 +3089,7 @@
    "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Grilled beef with chilli and lime."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Fish sauce, lime and grilled meat."},
    "nutrition":{"kcal":175,"protein":20,"carbs":5,"fat":8,"highlight":"named for juices hitting the coals","estimate":true},
-   "ingredients":["beef","khao-khua","fish-sauce","lemon","mint","birds-eye-chilli"],
+   "ingredients":["beef","khao-khua","fish-sauce","lime","mint","birds-eye-chilli"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"sai-krok-isan","name":"Sai krok Isan","aliases":["fermented sausage"],"emoji":"🌭","category":"dish","cuisines":["southeast-asian"],"commonness":4,
@@ -3149,7 +3149,7 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Grilled pork in a dipping broth."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Fish sauce, lime and grilled minced pork."},
    "nutrition":{"kcal":200,"protein":14,"carbs":18,"fat":8,"highlight":"Hanoi's lunch","estimate":true},
-   "ingredients":["pork","bun-noodles","fish-sauce","pickled-carrot-daikon","rau-ram","lemon"],
+   "ingredients":["pork","bun-noodles","fish-sauce","pickled-carrot-daikon","rau-ram","lime"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"goi-cuon","name":"Goi cuon","aliases":["summer rolls","fresh spring rolls"],"emoji":"🌯","category":"dish","cuisines":["southeast-asian"],"commonness":1,
@@ -3673,7 +3673,7 @@
    "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Chilli and fermented shrimp paste."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna in a high degree."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Terasi is fermented shellfish and the tomato and lime add more — one of the highest condiments in the set."},
    "nutrition":{"kcal":90,"protein":4,"carbs":10,"fat":4,"highlight":"the everyday table sambal","estimate":true},
-   "ingredients":["birds-eye-chilli","shrimp-paste","tomato","lemon","shallots"],
+   "ingredients":["birds-eye-chilli","shrimp-paste","tomato","lime","shallots"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"acar","name":"Acar","aliases":["malay pickle","atjar"],"emoji":"🥒","category":"dish","cuisines":["southeast-asian"],"commonness":2,
@@ -3703,7 +3703,7 @@
    "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Long chilli-pork broth."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Hours of pork broth plus dried chilli and lime."},
    "nutrition":{"kcal":130,"protein":10,"carbs":12,"fat":5,"highlight":"the raw garnishes are half the dish","estimate":true},
-   "ingredients":["hominy","pork","guajillo","cabbage","lemon","mexican-oregano"],
+   "ingredients":["hominy","pork","guajillo","cabbage","lime","mexican-oregano"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"mole","name":"Mole","aliases":["mole poblano","mole negro"],"emoji":"🟤","category":"dish","cuisines":["latin-american"],"commonness":2,
@@ -3727,7 +3727,7 @@
    "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Grilled corn with dairy and chilli."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the chilli and grilling."},"unani":{"verdict":"hot-dry","confidence":"moderate","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Cotija, mayonnaise and lime on grilled corn."},
    "nutrition":{"kcal":165,"protein":5,"carbs":22,"fat":7,"highlight":"on the cob, on a stick","estimate":true},
-   "ingredients":["corn","crema-mexicana","cotija","cayenne-pepper","lemon","mayonnaise"]},
+   "ingredients":["corn","crema-mexicana","cotija","cayenne-pepper","lime","mayonnaise"]},
 
   {"id":"esquites","name":"Esquites","aliases":["corn in a cup"],"emoji":"🌽","category":"dish","cuisines":["latin-american"],"commonness":2,
    "description":"Elote taken off the cob and served in a cup with its dressing.",
@@ -3754,17 +3754,17 @@
 
   {"id":"ceviche","name":"Ceviche","aliases":["cebiche","seviche"],"emoji":"🐟","category":"dish","cuisines":["latin-american"],"commonness":1,
    "description":"Raw fish 'cooked' in lime juice with onion and chilli — minutes, not hours.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Raw fish in citrus, served cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya and amla-rasa are both ushna, despite the cold plate."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"All six ingredients are independently resolved in Unani, and hot wins clearly: fish, onion and aji amarillo are all high-confidence, plus sweet potato; only lemon and cilantro pull cold, both high-confidence but outnumbered four to two. The old note's 'thanda in practice, hot-climate dish' reasoning leaned on climate and serving custom rather than the food's own mizaj — corrected to track the ingredients directly, converging with Ayurveda's own already-resolved heating call here."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Raw fish in citrus, served cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya and amla-rasa are both ushna, despite the cold plate."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"All six ingredients are independently resolved in Unani, and hot wins clearly: fish, onion and aji amarillo are all high-confidence, plus sweet potato; only lime and cilantro pull cold, both high-confidence but outnumbered four to two. The old note's 'thanda in practice, hot-climate dish' reasoning leaned on climate and serving custom rather than the food's own mizaj — corrected to track the ingredients directly, converging with Ayurveda's own already-resolved heating call here."}},
    "histamine":{"sighi":3,"tags":["high-histamine","liberator"],"note":"Raw fish plus a great deal of lime — the acid denatures the protein but does nothing to histamine."},
    "nutrition":{"kcal":95,"protein":15,"carbs":5,"fat":1.5,"highlight":"minutes, not hours","estimate":true},
-   "ingredients":["white-fish","lemon","onion","aji-amarillo","cilantro","sweet-potato"]},
+   "ingredients":["white-fish","lime","onion","aji-amarillo","cilantro","sweet-potato"]},
 
   {"id":"aguachile","name":"Aguachile","aliases":["chilli water ceviche"],"emoji":"🍤","category":"dish","cuisines":["latin-american"],"commonness":3,
    "description":"Raw prawns drowned in blended lime, chilli and coriander — fiercer and wetter than ceviche.",
    "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Raw shellfish in cold chilli-lime."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna from the prawn and chilli."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Raw prawns and lime — about as high as a cold plate gets."},
    "nutrition":{"kcal":85,"protein":14,"carbs":4,"fat":1,"highlight":"fiercer and wetter than ceviche","estimate":true},
-   "ingredients":["prawns","lemon","serrano-chilli","cilantro","cucumber","onion"]},
+   "ingredients":["prawns","lime","serrano-chilli","cilantro","cucumber","onion"]},
 
   {"id":"empanadas","name":"Empanadas","aliases":["baked or fried turnovers"],"emoji":"🥟","category":"dish","cuisines":["latin-american"],"commonness":1,
    "description":"Pastry folded around a filling and crimped — every country claims its own version.",
@@ -3801,7 +3801,7 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Coconut and palm oil with fish."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Fish plus lime and tomato."},
    "nutrition":{"kcal":160,"protein":14,"carbs":8,"fat":9,"highlight":"the pot is part of the dish","estimate":true},
-   "ingredients":["white-fish","coconut-milk","dende-oil","bell-pepper","tomato","lemon"],
+   "ingredients":["white-fish","coconut-milk","dende-oil","bell-pepper","tomato","lime"],
    "remedy":{"too-cold":"eat"}},
 
   {"id":"churrasco","name":"Churrasco","aliases":["brazilian grilled meat","rodizio"],"emoji":"🥩","category":"dish","cuisines":["latin-american"],"commonness":1,
@@ -3872,7 +3872,7 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Cold potato with citrus."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; served chilled."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"Lime, mayonnaise, and usually tuna or chicken."},
    "nutrition":{"kcal":150,"protein":6,"carbs":20,"fat":6,"highlight":"pressed, chilled, sliced","estimate":true},
-   "ingredients":["potato","aji-amarillo","lemon","mayonnaise","avocado","canned-tuna"]},
+   "ingredients":["potato","aji-amarillo","lime","mayonnaise","avocado","canned-tuna"]},
 
   {"id":"papa-huancaina","name":"Papa a la huancaína","aliases":["potato in yellow cheese sauce"],"emoji":"🥔","category":"dish","cuisines":["latin-american"],"commonness":3,
    "description":"Boiled potato under a cold sauce of ají amarillo, fresh cheese and crackers.",
@@ -3949,14 +3949,14 @@
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Tomatillo is cool; the chilli warms it."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the chilli."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda in practice."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"Tomatillo is a nightshade, and there is lime and raw onion."},
    "nutrition":{"kcal":35,"protein":1,"carbs":6,"fat":1,"highlight":"raw, or roasted — pick a side","estimate":true},
-   "ingredients":["tomatillo","serrano-chilli","cilantro","onion","lemon"]},
+   "ingredients":["tomatillo","serrano-chilli","cilantro","onion","lime"]},
 
   {"id":"pico-de-gallo","name":"Pico de gallo","aliases":["salsa fresca"],"emoji":"🍅","category":"dish","cuisines":["latin-american"],"commonness":1,
    "description":"Raw tomato, onion, chilli, coriander and lime, chopped fine and dressed.",
    "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Raw vegetables, served cold."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Sour and ushna."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Raw tomato and lime — tomato alone is a SIGHI 3."},
    "nutrition":{"kcal":25,"protein":1,"carbs":5,"fat":0.2,"highlight":"chopped, never blended","estimate":true},
-   "ingredients":["tomato","onion","serrano-chilli","cilantro","lemon"]},
+   "ingredients":["tomato","onion","serrano-chilli","cilantro","lime"]},
 
   {"id":"chilaquiles","name":"Chilaquiles","aliases":["tortilla in salsa"],"emoji":"🍳","category":"dish","cuisines":["latin-american"],"commonness":1,
    "description":"Fried tortilla pieces simmered briefly in salsa so they soften but keep some bite.",
@@ -4008,10 +4008,10 @@
 
   {"id":"sopa-de-lima","name":"Sopa de lima","aliases":["yucatecan lime soup"],"emoji":"🍋","category":"dish","cuisines":["latin-american"],"commonness":3,
    "description":"A clear chicken broth sharpened with lime and topped with tortilla strips.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Chicken, habanero and onion all resolve warm/hot at high confidence; only lime pulls cool. Unani's own note already resolves this exact tension the same way ('a clear majority, converging with ayurveda') — corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the chicken; the lime is sour."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Chicken, tortilla, habanero and onion are all hot in Unani, three of them high-confidence; only lemon pulls cold. A clear majority, converging with Ayurveda's own already-resolved heating call here ('Ushna from the chicken; the lime is sour') — the old note's climate-practice framing is dropped in favor of tracking the ingredients directly."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Chicken, habanero and onion all resolve warm/hot at high confidence; only lime pulls cool. Unani's own note already resolves this exact tension the same way ('a clear majority, converging with ayurveda') — corrected tcm to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the chicken; the lime is sour."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Chicken, tortilla, habanero and onion are all hot in Unani, three of them high-confidence; only lime pulls cold. A clear majority, converging with Ayurveda's own already-resolved heating call here ('Ushna from the chicken; the lime is sour') — the old note's climate-practice framing is dropped in favor of tracking the ingredients directly."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Chicken broth plus a great deal of lime."},
    "nutrition":{"kcal":85,"protein":9,"carbs":8,"fat":2,"highlight":"the lime goes in at the end","estimate":true},
-   "ingredients":["chicken","lemon","tortilla","habanero","onion"]},
+   "ingredients":["chicken","lime","tortilla","habanero","onion"]},
 
   {"id":"menudo","name":"Menudo","aliases":["tripe soup"],"emoji":"🍲","category":"dish","cuisines":["latin-american"],"commonness":3,
    "description":"Tripe and hominy simmered for hours in a red chilli broth — the hangover cure.",
