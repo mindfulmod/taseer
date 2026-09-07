@@ -256,12 +256,16 @@ document.addEventListener("click", event => {
     misses.clear();
     render();
   } else if (action === "copy-misses") {
-    navigator.clipboard
-      ?.writeText(misses.all().map(m => `${m.q}${m.n > 1 ? ` (${m.n}x)` : ""}`).join("\n"))
-      .then(() => {
-        act.textContent = "Copied";
-        setTimeout(() => (act.textContent = "Copy"), 1600);
-      });
+    // Give SOME visible answer no matter how the write goes — silently doing
+    // nothing (the pre-fix behaviour whenever the API is missing, e.g. no
+    // secure context, or the write is rejected, e.g. clipboard permission
+    // denied) is indistinguishable from the tap not registering at all.
+    const flash = label => {
+      act.textContent = label;
+      setTimeout(() => (act.textContent = "Copy"), 1600);
+    };
+    const text = misses.all().map(m => `${m.q}${m.n > 1 ? ` (${m.n}x)` : ""}`).join("\n");
+    navigator.clipboard?.writeText(text).then(() => flash("Copied"), () => flash("Couldn't copy")) ?? flash("Couldn't copy");
   } else if (action === "install") {
     installPrompt?.prompt();
     installPrompt = null;
