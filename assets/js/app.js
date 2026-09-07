@@ -312,6 +312,13 @@ document.addEventListener("click", event => {
     installPrompt?.prompt();
     installPrompt = null;
     document.getElementById("install-slot")?.classList.remove("is-ready");
+    // That panel (and the button focus was just on) is now display:none —
+    // without this the browser drops focus straight to <body> once the
+    // native install dialog closes. "About" is the nearest still-visible
+    // section below it; its heading is a script-focusable landing point
+    // (tabindex="-1" in views.js) rather than a new landmark invented for
+    // this one case.
+    document.getElementById("about-heading")?.focus();
   } else if (action === "theme") {
     const resolved = document.documentElement.dataset.theme;
     theme.set(resolved === "dark" ? "light" : "dark");

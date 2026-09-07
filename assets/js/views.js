@@ -1481,7 +1481,12 @@ export function meView() {
       </section>
 
       <section class="section">
-        <div class="section__head"><h2>About</h2></div>
+        <!-- tabindex=-1: not a Tab stop, but a script-focusable landing point.
+             The Install button (just above) hides its whole panel the moment
+             it's used (see app.js's "install" action) — this heading is the
+             nearest still-visible section after it, so focus lands somewhere
+             legible instead of falling through to <body>. -->
+        <div class="section__head"><h2 id="about-heading" tabindex="-1">About</h2></div>
         <div class="panel">
           <p><strong>Taseer</strong> (تاثیر) reports how three healing traditions — Traditional Chinese Medicine,
           Ayurveda and Unani — have classified ${META.count} everyday foods as warming or cooling, alongside
