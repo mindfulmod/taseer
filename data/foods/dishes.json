@@ -1450,11 +1450,11 @@
 
   {"id":"undhiyu","name":"Undhiyu","aliases":["oondhiyu","gujarati mixed vegetable"],"emoji":"🥘","category":"dish","cuisines":["south-asian"],"commonness":3,
    "description":"Winter vegetables and besan dumplings slow-cooked upside down in an earthen pot.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Slow-cooked mixed vegetables with dumplings."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the masala; the vegetables are shita."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Slow-cooked mixed vegetables with dumplings."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Potato, coconut, cilantro and besan are all shita/high and the tracked masala isn't strong enough alone to flip a dish this vegetable-heavy — the same bulk-over-tempering reading already kept zunka and pitla (besan plus a comparable spice load) cooling despite their own onion-chili-garlic-turmeric tempering computing even more strongly heating than this. Corrected from heating."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Coconut, cilantro, potato and besan all resolve cold and outweigh eggplant and flat-beans; unlike zunka/pitla (where unani's own ingredient tally comes out heating and the verdict was left to follow it), undhiyu's unani tally comes out cooling, so the same follow-the-ingredients approach lands here at cold-moist. Corrected from hot-moist."}},
    "histamine":{"sighi":2,"tags":[],"note":"Long slow cooking of many ingredients."},
    "nutrition":{"kcal":165,"protein":5,"carbs":20,"fat":8,"highlight":"cooked upside down, traditionally","estimate":true},
    "ingredients":["eggplant","potato","besan","flat-beans","coconut","cilantro"],
-   "remedy":{"too-cold":"eat"}},
+   "remedy":{"too-hot":"eat"}},
 
   {"id":"handvo","name":"Handvo","aliases":["gujarati savoury cake"],"emoji":"🟨","category":"dish","cuisines":["south-asian"],"commonness":3,
    "description":"Fermented rice-and-dal batter with bottle gourd, baked with a sesame crust.",
@@ -1873,7 +1873,7 @@
 
   {"id":"gnocchi","name":"Gnocchi","aliases":["potato dumplings"],"emoji":"🥔","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Soft potato-and-flour dumplings boiled until they float.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Potato and wheat, boiled."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Salt is TCM's own cold, descending ingredient and maida follows wheat's cool reading; potato and egg are neutral, so nothing here pulls warm — gnocchi is boiled, not fried, so this file's usual 'frying warms it' bump doesn't apply either. Corrected from neutral."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita and guru — potato is the bulk here, same as the shredded-potato pancakes (rosti, draniki, placki) in this file, which keep this reading even with egg present."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Egg, salt and maida all resolve hot here and outweigh potato — the same combination that flips placki and tortilla-espanola to hot despite being potato-based. Corrected from cold-moist to match."}},
    "histamine":{"sighi":2,"tags":[],"note":"The dumpling is mild; the sauce decides it."},
    "nutrition":{"kcal":135,"protein":4,"carbs":26,"fat":1.5,"highlight":"they float when they're done","estimate":true},
    "ingredients":["potato","maida","egg","salt"]},
@@ -1888,18 +1888,18 @@
 
   {"id":"minestrone","name":"Minestrone","aliases":["italian vegetable soup"],"emoji":"🍲","category":"dish","cuisines":["western"],"commonness":2,
    "description":"A thick vegetable and bean soup with small pasta, different every time.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Mixed vegetables in a light broth."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Mostly shita vegetables."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Mixed vegetables in a light broth — celery and tomato are the two strongest-confidence readings here and both pull cool, keeping this at neutral rather than warm."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Tomato, carrot and olive oil resolve heating here, the same tomato-and-oil pattern already read heating in dal-makhani, borscht, tomato-soup and french-onion-soup. Corrected from cooling to match."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Olive oil, tomato, carrot and pasta all resolve hot; celery is the only ingredient pulling cold. Same tomato-and-oil pattern as dal-makhani, borscht and tomato-soup. Corrected from cold-moist to match."}},
    "histamine":{"sighi":3,"tags":[],"note":"Tomato base and a long simmer."},
    "nutrition":{"kcal":85,"protein":4,"carbs":13,"fat":2,"highlight":"different every single time","estimate":true},
    "ingredients":["tinned-tomatoes","kidney-beans","carrot","celery","pasta","olive-oil"]},
 
   {"id":"gazpacho","name":"Gazpacho","aliases":["cold tomato soup"],"emoji":"🍅","category":"dish","cuisines":["western"],"commonness":3,
    "description":"Raw tomato, cucumber and pepper blended and served ice cold.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Raw vegetables, served chilled."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita; a summer soup by design."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Raw vegetables, served chilled."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Tomato, garlic, bell pepper and bread all resolve heating; cucumber is the only ingredient pulling cooling. Same pattern already corrected on salmorejo, which shares tomato, garlic, oil and bread with this dish. Corrected to match."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garlic, olive oil, bell pepper and bread all resolve hot; cucumber is the only ingredient pulling cold, tomato is only contested. Salmorejo — sharing tomato, bread, garlic and oil with this dish — was already corrected on the same reasoning; gazpacho's cucumber gives it a stronger cold anchor, so this lands at moderate rather than salmorejo's confidence. Corrected from cold-moist to match."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Raw tomato in quantity, and it is usually made hours ahead to chill."},
    "nutrition":{"kcal":45,"protein":1.5,"carbs":7,"fat":1.8,"highlight":"never sees heat","estimate":true},
    "ingredients":["tomato","cucumber","bell-pepper","garlic","olive-oil","white-bread"],
-   "remedy":{"too-hot":"eat"}},
+   "remedy":{"too-cold":"eat"}},
 
   {"id":"ratatouille","name":"Ratatouille","aliases":["provencal vegetable stew"],"emoji":"🍆","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Aubergine, courgette, pepper and tomato stewed slowly in olive oil.",
@@ -2574,7 +2574,7 @@
 
   {"id":"kongguksu","name":"Kongguksu","aliases":["cold soy milk noodles"],"emoji":"🥛","category":"dish","cuisines":["korean"],"commonness":3,
    "description":"Noodles in chilled ground soybean broth — plain, cold and summer-only.",
-   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Cold soy milk; cooling throughout."},"ayurveda":{"verdict":"cooling","confidence":"high","note":"Shita; soy and cold together."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cold","confidence":"moderate","note":"Cold soy milk; cooling throughout."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Soy milk and cucumber are the dish's namesake and bulk and genuinely cooling, but sesame seeds and salt both resolve heating/high — same pattern as hiyayakko's tofu. Downgraded from high to moderate confidence rather than flipping the verdict."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Soy milk and cucumber are the dish's namesake and bulk and genuinely cold, but somen (wheat is hot-moist regardless of leavening throughout this file), sesame seeds and salt all resolve hot/high — same pattern as hiyayakko's tofu. Downgraded from high to moderate confidence rather than flipping the verdict."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low — one of very few Korean dishes with no ferment in it at all."},
    "nutrition":{"kcal":140,"protein":8,"carbs":20,"fat":3,"highlight":"no ferment in it at all","estimate":true},
    "ingredients":["somen","soybeans","cucumber","sesame-seeds","salt"],
@@ -6984,7 +6984,7 @@
 
   {"id":"shafut","name":"Shafut","aliases":["yemeni yogurt and flatbread"],"emoji":"🥛","category":"dish","cuisines":["arabic"],"commonness":4,
    "description":"Thin sourdough flatbread soaked in herbed buttermilk and left to go soft — served cold.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"high","note":"Soaked bread in cold cultured milk."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Soaked bread in cultured milk — this file's cultured-dairy dishes (haydari, neer-mor, doogh, borani) all read cool at moderate confidence, and shafut carries more tempering heat (chili, garlic and sourdough together) than any of them, so high confidence overstated it. Downgraded to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Buttermilk (takra) is ushna in the classical reading regardless of how the glass feels, the same rule already applied to haydari, neer-mor, doogh and borani; sourdough is also independently heating in this file. Cilantro and mint pull back hard, so the net is a weak heating lean rather than a strong one, but the direction follows its yogurt-dish twins. Corrected from cooling."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Chaas/ayran is the everyday summer cooler in Unani, the same reading kept for haydari, neer-mor, doogh and borani independent of ayurveda's differing takra doctrine."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Cultured buttermilk on a sourdough bread — two ferments in one bowl."},
    "nutrition":{"kcal":130,"protein":6,"carbs":18,"fat":4,"highlight":"left to go soft, deliberately","estimate":true},
    "ingredients":["sourdough","buttermilk","cilantro","green-chili","garlic","mint"],
@@ -7173,14 +7173,14 @@
 
   {"id":"salade-nicoise","name":"Salade niçoise","aliases":["nicoise salad"],"emoji":"🥗","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Tuna, egg, olive, bean and tomato dressed in oil — assembled, not tossed.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"A cold composed salad."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya and anda are ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Tuna, egg, olives and anchovies all resolve heating; tomato is the only cooling ingredient and reads cold-moist/contested here. Ayurveda already reads this composed salad as heating — corrected unani to match."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Tuna and anchovies are both warm oily fish here and outweigh tomato, the only cooling ingredient; ayurveda reads this composed salad as heating and unani was already corrected to match — 'cold composed salad' was serving temperature, not thermal nature. Corrected to align."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Matsya and anda are ushna."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Tuna, egg, olives and anchovies all resolve heating; tomato is the only cooling ingredient and reads cold-moist/contested here. Ayurveda already reads this composed salad as heating — corrected unani to match."}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Canned tuna, anchovy, olives, egg and tomato — five high items in one bowl."},
    "nutrition":{"kcal":170,"protein":14,"carbs":8,"fat":9,"highlight":"assembled, never tossed","estimate":true},
    "ingredients":["canned-tuna","egg","olives","green-beans","tomato","anchovies"]},
 
   {"id":"gratin-dauphinois","name":"Gratin dauphinois","aliases":["potato gratin"],"emoji":"🥔","category":"dish","cuisines":["western"],"commonness":2,
    "description":"Sliced potato baked slowly in cream and garlic until the top browns and the inside sets.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Potato baked in cream."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Potato and cream are both shita and guru."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Garlic and nutmeg both resolve hot/warm at high confidence and outweigh the neutral potato, cream and milk. Every other nutmeg-containing dish in this file (spatzle, bebinca, watalappan, puran-poli, haggis and others) reads warm or hot on the strength of nutmeg alone — this is the one exception, and it has garlic on top. Corrected from neutral to match."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Nutmeg and garlic both resolve heating/high; the same nutmeg-containing dishes (bebinca, watalappan, puran-poli, haggis, spatzle) all read heating in ayurveda despite cooling dairy or starch bulk sitting alongside the nutmeg. Corrected from cooling to match."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Nutmeg and garlic both resolve hot/high; same nutmeg-dish pattern as bebinca, watalappan, puran-poli, haggis and spatzle, all hot-moist or hot-dry despite cooling potato, cream and milk. Corrected from cold-moist to match."}},
    "histamine":{"sighi":2,"tags":[],"note":"Cream and garlic; no cheese in the classical version."},
    "nutrition":{"kcal":190,"protein":4,"carbs":18,"fat":12,"highlight":"no cheese, whatever you have been told","estimate":true},
    "ingredients":["potato","cream","garlic","milk","nutmeg"]},
