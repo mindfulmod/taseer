@@ -299,10 +299,19 @@ export const prepTile = (prep, { effect: showEffect = true } = {}) => {
 export const prepFacts = prep =>
   `${esc(PREP_KINDS[prep.kind] ?? prep.kind)} · ${prep.minutes} min · serves ${prep.serves}`;
 
-export const chip = food => `
-  <button class="chip t-${food.heatClass}${triggers.has(food.id) ? " chip--trigger" : ""}" data-nav="/food/${food.id}">
+export const chip = food => {
+  const isTrigger = triggers.has(food.id);
+  return `
+  <button class="chip t-${food.heatClass}${isTrigger ? " chip--trigger" : ""}" data-nav="/food/${food.id}">
     ${artGlyph(food, "chip__glyph")}${esc(food.name)}
+    <!-- The ring around a trigger chip (.chip--trigger, app.css) is colour
+         only — every full tile (foodTile above) already backs the same
+         warning with a visible ⚠ + aria-label, but this smaller chip, used
+         everywhere from Guna's per-quality lists to a food card's own
+         ingredient row, had nothing a screen reader could pick up. -->
+    ${isTrigger ? `<span class="sr"> — one of your triggers</span>` : ""}
   </button>`;
+};
 
 // ---- Macro rings ---------------------------------------------------------
 
