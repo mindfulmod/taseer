@@ -11,7 +11,7 @@ import {
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
   art, artGlyph, chip, commonnessLabel, conflictBanner, esc, flags, macroRings, mechLabel,
-  miniTile, pagedTileList, prepFacts, prepTile, provenance, sighiBadge, sighiText, thermalScale, tileList,
+  miniTile, pagedTileList, prepFacts, prepTile, provenance, sighiBadge, sighiText, tabAttrs, thermalScale, tileList,
 } from "./components.js";
 
 // data-back, not data-nav: every "← Parent" link on a detail-ish screen is a
@@ -1353,7 +1353,7 @@ export function spectrumView({ band = "" } = {}) {
     <div class="spectrum__rail" role="tablist" aria-label="Temperature bands">
       ${BANDS.map(
         b => `<button class="spectrum__seg t-${b.id}" data-nav="/spectrum${active?.id === b.id ? "" : `?band=${b.id}`}"
-                 role="tab" aria-selected="${active?.id === b.id}">
+                 ${tabAttrs(active?.id === b.id)}>
                 <span class="spectrum__segbar"></span>
                 <span class="spectrum__seglabel">${esc(b.label)}</span>
                 <span class="spectrum__segcount">${all.filter(f => f.heatClass === b.id).length}</span>
@@ -1580,10 +1580,10 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
   // active verdict, rather than a fixed pair of buttons, means switching from
   // mount() and switching from the very first render never draw it differently.
   const segbarHtml = verdict => `
-    <button class="segbar__btn" data-list="eat" role="tab" aria-selected="${verdict === "eat"}">
+    <button class="segbar__btn" data-list="eat" ${tabAttrs(verdict === "eat")}>
       ${verdict === "eat" ? "Eat this" : "Eat"} <span class="segbar__count">${eat.length}</span>
     </button>
-    <button class="segbar__btn" data-list="avoid" role="tab" aria-selected="${verdict === "avoid"}">
+    <button class="segbar__btn" data-list="avoid" ${tabAttrs(verdict === "avoid")}>
       ${verdict === "avoid" ? "Avoid this" : "Avoid"} <span class="segbar__count">${avoid.length}</span>
     </button>`;
 
@@ -1704,6 +1704,11 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
         if (!btn || btn.dataset.list === verdict0) return;
         verdict0 = btn.dataset.list;
         segbar.innerHTML = segbarHtml(verdict0);
+        // The tapped button (still focused a moment ago, whether by a real
+        // click, Enter/Space, or app.js's arrow-key handler) was just torn
+        // out with the rest of segbar's old markup — refocus its replacement
+        // so a keyboard/AT user doesn't lose their place to <body>.
+        segbar.querySelector(`[data-list="${verdict0}"]`)?.focus();
         makeSection.innerHTML = verdict0 === "eat" ? makeSomething(stateId) : "";
         sync();
       });

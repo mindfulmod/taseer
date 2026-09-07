@@ -5,6 +5,13 @@ import { favorites, triggers } from "./store.js";
 export const esc = s =>
   String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
+// ARIA APG "Tabs" pattern attributes for one role="tab" button inside a
+// role="tablist" (the Eat/Avoid segbar, the Spectrum band rail — both use
+// this so neither reimplements roving tabindex separately). Only the
+// selected tab is ever a Tab-key stop; app.js's delegated keydown listener
+// moves focus (and activates) between the rest with the arrow keys.
+export const tabAttrs = selected => `role="tab" aria-selected="${selected}" tabindex="${selected ? "0" : "-1"}"`;
+
 const VERDICT_TEXT = v => v.replace("-", " · ");
 
 const COMMONNESS = ["", "Everyday staple", "Common", "Occasional", "Specialty shop"];

@@ -174,6 +174,28 @@ function watchHeroBack(root) {
   heroBackObserver.observe(hero);
 }
 
+// The Spectrum band rail (role="tablist") is a set of real navigations — a
+// tapped/arrow-activated band tab replaces the whole screen via the router
+// above, which would otherwise drop keyboard focus onto <body> the instant
+// the old, focused tab node is torn out with the rest of `main.innerHTML`.
+// (The Eat/Avoid segbar has the identical problem but rebuilds itself
+// in-place and synchronously — see its own click handler in views.js, which
+// refocuses directly and never needs this.) Set whenever a role="tab" inside
+// a role="tablist" is activated; consumed by the next render() once the new
+// tablist (same aria-label) actually lands.
+let pendingTabFocus = null;
+function restoreTabFocus(root) {
+  if (!pendingTabFocus) return;
+  for (const tablist of root.querySelectorAll('[role="tablist"]')) {
+    if (tablist.getAttribute("aria-label") !== pendingTabFocus) continue;
+    const target = tablist.querySelector('[role="tab"][aria-selected="true"]');
+    if (!target) return; // not this redraw — leave pending for the one that is
+    target.focus();
+    pendingTabFocus = null;
+    return;
+  }
+}
+
 function render() {
   const route = parseHash();
   // Pager state (pagedTileList/growPager, components.js) is keyed to DOM nodes
@@ -187,6 +209,7 @@ function render() {
   main.innerHTML = view.html;
   view.mount?.(main);
   watchHeroBack(main);
+  restoreTabFocus(main);
   setTone(view.tone);
 
   for (const item of document.querySelectorAll(".tabbar__item")) {
@@ -234,6 +257,10 @@ document.addEventListener("click", event => {
       scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
+    // Spectrum's band rail (see restoreTabFocus above) — remember which
+    // tablist this tap belongs to so the render() this navigation triggers
+    // can hand focus back to the newly-selected tab instead of <body>.
+    if (nav.matches('[role="tab"]')) pendingTabFocus = nav.closest('[role="tablist"]')?.getAttribute("aria-label") ?? null;
     location.hash = `#${nav.dataset.nav}`;
     return;
   }
@@ -302,6 +329,32 @@ document.addEventListener("click", event => {
       act.closest(".pager")?.remove();
     }
   }
+});
+
+// ARIA APG "Tabs" pattern keyboard behaviour for every role="tablist" in the
+// app (the Eat/Avoid segbar, the Spectrum band rail — structurally identical
+// markup, one listener covers both rather than each widget wiring its own).
+// Left/Right move focus to the previous/next tab and wrap at the ends; Home/
+// End jump to the first/last. All four also activate the newly-focused tab
+// (automatic activation) by dispatching a real click at it — the exact same
+// path a mouse tap already uses in each widget, so there is no second,
+// diverging way these controls change selection.
+document.addEventListener("keydown", event => {
+  const tab = event.target.closest('[role="tab"]');
+  if (!tab) return;
+  const tablist = tab.closest('[role="tablist"]');
+  if (!tablist) return;
+  const tabs = [...tablist.querySelectorAll('[role="tab"]')];
+  const i = tabs.indexOf(tab);
+  const next =
+    event.key === "ArrowRight" ? tabs[(i + 1) % tabs.length]
+    : event.key === "ArrowLeft" ? tabs[(i - 1 + tabs.length) % tabs.length]
+    : event.key === "Home" ? tabs[0]
+    : event.key === "End" ? tabs[tabs.length - 1]
+    : null;
+  if (!next || next === tab) return;
+  event.preventDefault();
+  next.click();
 });
 
 // How many in-app navigations have happened since load — tells the back button
