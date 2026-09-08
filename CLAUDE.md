@@ -11,13 +11,14 @@ node scripts/validate-data.mjs             # after ANY data/foods edit
 node scripts/build-data.mjs                # regenerates assets/data/foods.js
 node scripts/stamp-sw.mjs                  # after ANY shell change (html/css/js/data)
 node scripts/check-palette.mjs             # enforces the ART.md palette
+node scripts/check-a11y.mjs                # regression-checks known screen-reader bug shapes
 node scripts/check-dish-consistency.mjs    # flags dish/drink thermal verdicts that disagree with their own ingredients
 node scripts/check-derived-consistency.mjs # flags a derived food (X-flour/juice/paste/…) whose verdict/confidence disagrees with its own raw source
 node scripts/check-serving-custom.mjs      # flags a cooling verdict whose note leans on serving-temperature/eating-custom language
 node scripts/check-histamine-consistency.mjs # flags dishes sharing a high-histamine ingredient (SIGHI>=2) that score it inconsistently
 ```
 
-CI runs the first four and fails if any generated file is stale.
+CI runs the first five and fails if any generated file is stale.
 The last four (`check-dish-consistency.mjs`, `check-derived-consistency.mjs`,
 `check-serving-custom.mjs`, `check-histamine-consistency.mjs`) produce
 candidate review queues, not build gates — they exit 0 regardless of what
