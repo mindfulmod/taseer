@@ -311,12 +311,16 @@ export const chip = food => {
   return `
   <button class="chip t-${food.heatClass}${isTrigger ? " chip--trigger" : ""}" data-nav="/food/${food.id}">
     ${artGlyph(food, "chip__glyph")}${esc(food.name)}
-    <!-- The ring around a trigger chip (.chip--trigger, app.css) is colour
-         only — every full tile (foodTile above) already backs the same
-         warning with a visible ⚠ + aria-label, but this smaller chip, used
-         everywhere from Guna's per-quality lists to a food card's own
-         ingredient row, had nothing a screen reader could pick up. -->
-    ${isTrigger ? `<span class="sr"> — one of your triggers</span>` : ""}
+    <!-- The ring around a trigger chip (.chip--trigger, app.css) is a box-shadow,
+         which forced-colors mode (Windows High Contrast) strips along with every
+         other chip's own border colour, leaving every chip in the row bordered
+         identically in black — so a sighted forced-colors user loses the marker
+         exactly like a screen-reader user used to. Reusing foodTile's own visible
+         ⚠ + aria-label (a real glyph survives forced-colors; a box-shadow ring
+         doesn't) fixes both at once, and replaces the earlier screen-reader-only
+         .sr text this used to carry instead — one mechanism, not two competing
+         ones announcing the same thing. -->
+    ${isTrigger ? `<span class="tile__flag" aria-label="One of your triggers">⚠</span>` : ""}
   </button>`;
 };
 
