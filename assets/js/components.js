@@ -5,6 +5,13 @@ import { favorites, triggers } from "./store.js";
 export const esc = s =>
   String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
+// ARIA APG "Tabs" pattern attributes for one role="tab" button inside a
+// role="tablist" (the Eat/Avoid segbar, the Spectrum band rail — both use
+// this so neither reimplements roving tabindex separately). Only the
+// selected tab is ever a Tab-key stop; app.js's delegated keydown listener
+// moves focus (and activates) between the rest with the arrow keys.
+export const tabAttrs = selected => `role="tab" aria-selected="${selected}" tabindex="${selected ? "0" : "-1"}"`;
+
 const VERDICT_TEXT = v => v.replace("-", " · ");
 
 const COMMONNESS = ["", "Everyday staple", "Common", "Occasional", "Specialty shop"];
@@ -299,10 +306,23 @@ export const prepTile = (prep, { effect: showEffect = true } = {}) => {
 export const prepFacts = prep =>
   `${esc(PREP_KINDS[prep.kind] ?? prep.kind)} · ${prep.minutes} min · serves ${prep.serves}`;
 
-export const chip = food => `
-  <button class="chip t-${food.heatClass}${triggers.has(food.id) ? " chip--trigger" : ""}" data-nav="/food/${food.id}">
+export const chip = food => {
+  const isTrigger = triggers.has(food.id);
+  return `
+  <button class="chip t-${food.heatClass}${isTrigger ? " chip--trigger" : ""}" data-nav="/food/${food.id}">
     ${artGlyph(food, "chip__glyph")}${esc(food.name)}
+    <!-- The ring around a trigger chip (.chip--trigger, app.css) is a box-shadow,
+         which forced-colors mode (Windows High Contrast) strips along with every
+         other chip's own border colour, leaving every chip in the row bordered
+         identically in black — so a sighted forced-colors user loses the marker
+         exactly like a screen-reader user used to. Reusing foodTile's own visible
+         ⚠ + aria-label (a real glyph survives forced-colors; a box-shadow ring
+         doesn't) fixes both at once, and replaces the earlier screen-reader-only
+         .sr text this used to carry instead — one mechanism, not two competing
+         ones announcing the same thing. -->
+    ${isTrigger ? `<span class="tile__flag" aria-label="One of your triggers">⚠</span>` : ""}
   </button>`;
+};
 
 // ---- Macro rings ---------------------------------------------------------
 
