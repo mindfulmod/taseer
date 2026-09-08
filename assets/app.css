@@ -415,7 +415,12 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   position: relative; overflow: hidden;
   display: grid; place-items: center; flex: none;
   width: 50px; height: 50px; border-radius: var(--radius-sm);
-  font-size: 1.62rem; line-height: 1;
+  /* px, not rem: this is a decorative fallback emoji in a fixed-size badge (ART.md
+     §8's emoji-on-tinted-ground pattern), not real content — at 200% OS text size a
+     rem-sized glyph outgrows this 50px box and clips against overflow:hidden. Fixed
+     px keeps the glyph immune to text-size scaling, the same way an icon font would
+     be, while leaving the default (16px root) rendering byte-identical. */
+  font-size: 26px; line-height: 1;
   background: var(--t-tint);
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 22%, transparent);
 }
@@ -850,7 +855,8 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .chip__glyph {
   position: relative; overflow: hidden; flex: none;
   display: grid; place-items: center; width: 22px; height: 22px;
-  border-radius: 999px; font-size: 0.8rem; line-height: 1;
+  /* px, see .tile__glyph's comment — same fixed-badge emoji-fallback pattern. */
+  border-radius: 999px; font-size: 13px; line-height: 1;
   background: color-mix(in srgb, var(--t) 14%, var(--surface));
 }
 .chip:hover { border-color: var(--t); }
@@ -974,7 +980,8 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .minitile__glyph {
   position: relative; overflow: hidden;
   display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px;
-  font-size: 1.4rem; background: var(--t-tint);
+  /* px, see .tile__glyph's comment — same fixed-badge emoji-fallback pattern. */
+  font-size: 22px; background: var(--t-tint);
 }
 .minitile__name {
   font-size: 0.72rem; font-weight: 600; line-height: 1.25;
@@ -1108,7 +1115,8 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .cmp__glyph {
   position: relative; overflow: hidden;
   display: grid; place-items: center; width: 46px; height: 46px; margin: 0 auto;
-  border-radius: 14px; font-size: 1.5rem; line-height: 1;
+  /* px, see .tile__glyph's comment — same fixed-badge emoji-fallback pattern. */
+  border-radius: 14px; font-size: 24px; line-height: 1;
   background: color-mix(in srgb, var(--t) 14%, var(--surface));
 }
 .cmp__name { font-size: 0.82rem; font-weight: 700; color: var(--t-deep); line-height: 1.2; }
