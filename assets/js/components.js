@@ -209,6 +209,61 @@ export function foodTile(food, { metaFn, meter = "thermal" } = {}) {
 export const tileList = (list, opts) =>
   `<div class="tiles">${list.map(f => foodTile(f, opts)).join("")}</div>`;
 
+// ---- Pagination -------------------------------------------------------
+// Thermal/SIGHI/commonness banding (views.js) makes a long list legible, but a
+// single band can still hold hundreds of rows on its own — Dishes' "Hot" band
+// is 670 — and building every one of those tiles up front is exactly what
+// makes those screens visibly freeze on a throttled phone. `pagedTileList`
+// keeps the same markup `tileList` produces, just built a page at a time: the
+// grouping structure around it (the `<section>`, its heading) is untouched,
+// and a food's own route (`data-nav="/food/<id>"` on every tile, same as
+// `tileList`) never depends on how much of the list has been paged in, so a
+// deep link into a food that would sit on page 3 is unaffected — it opens the
+// food's own page directly, not a scroll position inside this list.
+export const PAGE_SIZE = 60;
+let pagerSeq = 0;
+const pagers = new Map();
+
+/** Call once per full route render. Pager state from the screen just left is
+ *  no longer reachable from the DOM, so there is nothing left to grow. */
+export function resetPagers() {
+  pagers.clear();
+  pagerSeq = 0;
+}
+
+const pagerButton = (id, remaining) =>
+  remaining <= 0
+    ? ""
+    : `<div class="pager"><button class="pillbtn pager__more" data-act="page-more" data-id="${id}">
+         Show ${Math.min(PAGE_SIZE, remaining)} more · ${remaining} left</button></div>`;
+
+/** Same output as `tileList` for a list of `PAGE_SIZE` or fewer — small lists
+ *  (most bands, most screens) are completely unaffected. Past that it renders
+ *  only the first page, plus a "Show more" button that reveals the rest. */
+export function pagedTileList(list, opts) {
+  if (list.length <= PAGE_SIZE) return tileList(list, opts);
+  const id = `pager${++pagerSeq}`;
+  pagers.set(id, { list, opts, shown: PAGE_SIZE });
+  return `
+    <div class="tiles" id="${id}">${list.slice(0, PAGE_SIZE).map(f => foodTile(f, opts)).join("")}</div>
+    ${pagerButton(id, list.length - PAGE_SIZE)}`;
+}
+
+/** Reveals the next page of a `pagedTileList` in place. Returns the tiles'
+ *  HTML to append and the button's next label/remaining count, or null if
+ *  `id` isn't a live pager (already exhausted, or from a screen that's since
+ *  navigated away and been cleared by `resetPagers`). */
+export function growPager(id) {
+  const p = pagers.get(id);
+  if (!p) return null;
+  const next = Math.min(p.shown + PAGE_SIZE, p.list.length);
+  const html = p.list.slice(p.shown, next).map(f => foodTile(f, p.opts)).join("");
+  p.shown = next;
+  const remaining = p.list.length - p.shown;
+  if (remaining <= 0) pagers.delete(id);
+  return { html, remaining };
+}
+
 export const miniTile = food => `
   <button class="minitile t-${food.heatClass}" data-nav="/food/${food.id}">
     ${artGlyph(food, "minitile__glyph")}

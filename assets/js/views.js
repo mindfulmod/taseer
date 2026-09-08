@@ -2,18 +2,27 @@
 // HTML lands in the DOM (focus, listeners that can't be delegated).
 import {
   BANDS, CATEGORIES, CUISINES, LISTS, META, SORTS, SOURCES, STATES, byCategory, fuzzySuggest,
-  BLOATING, COMPOUNDS, GUNAS, GUNA_IDS, MECHANISM_IDS, MECHANISMS, foodsWithGuna, foodsWithMechanism, gunaCount, stimulantFamilies, getFood, getFoods, getList, getMechanism,
+  BLOATING, COMPOUNDS, EFFECTS, EFFECT_IDS, GUNAS, GUNA_IDS, MECHANISM_IDS, MECHANISMS,
+  effectsCount, everydayPicks, foodsWithEffect, foodsWithGuna, foodsWithMechanism, getEffectEntry, gunaCount,
+  stimulantFamilies, getFood, getFoods, getList, getMechanism,
   getPreparation, heatClass, preparations, prepsForState, prepsUsing, remedyList, search,
   sortFoods, spectrum, systemHeat,
 } from "./data.js";
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
   art, artGlyph, chip, commonnessLabel, conflictBanner, esc, flags, macroRings, mechLabel,
-  miniTile, prepFacts, prepTile, provenance, sighiBadge, sighiText, thermalScale, tileList,
+  miniTile, pagedTileList, prepFacts, prepTile, provenance, sighiBadge, sighiText, thermalScale, tileList,
 } from "./components.js";
 
+// data-back, not data-nav: every "← Parent" link on a detail-ish screen is a
+// BACK affordance, not a hard link to that one fixed route. Reusing the same
+// [data-back] handler foodView's hero button already uses (app.js) means it
+// goes to wherever the reader actually came from — Home, a search result, an
+// inline cross-link from Guna/Caffeine, a remedy screen's "make something"
+// tile — falling back to the named parent route only on a cold/deep-linked
+// open, when there is no in-app history to return to.
 const backBar = (label, href) =>
-  `<button class="linkish" data-nav="${href}">← ${esc(label)}</button>`;
+  `<button class="linkish" data-back="${href}">← ${esc(label)}</button>`;
 
 /**
  * Dead ends used to render as a bare "Unknown food." — no heading, no controls,
@@ -126,7 +135,14 @@ function resultsHtml(q) {
              <div class="section__head"><h2>Did you mean</h2></div>
              ${tileList(near)}
            </section>`
-        : ""
+        // Genuinely nonsense input has no near-match at all — without this the
+        // reader is left with a "no match" sentence and nothing on the whole
+        // screen left to tap. data-nav, not a form reset: clearing #q would
+        // need JS the empty state doesn't otherwise carry, and a plain route
+        // to Find with no query is the browse library either way.
+        : `<div class="chiprow" style="margin-top:14px">
+             <button class="pillbtn" data-nav="/find">Browse by category instead</button>
+           </div>`
     }`;
 }
 
@@ -283,6 +299,25 @@ export function foodView(id) {
           : ""
       }
 
+      ${
+        food.effects?.length
+          ? `<div class="panel">
+               <h3>Documented effects</h3>
+               <p class="tiny muted">Traditionally or anecdotally reported for this food specifically — individual response varies. Open one for the full note, including any dose or safety caveat.</p>
+               ${food.effects.map(e => `
+                 <details class="expander" style="margin-top:14px">
+                   <summary>
+                     <span class="cmpd__pill">${EFFECTS[e.effect]?.glyph ?? "•"} ${esc(EFFECTS[e.effect]?.label ?? e.effect)}</span>
+                     <span class="note__conf ${e.confidence === "contested" ? "note__conf--contested" : ""}"
+                           title="${esc(CONF_TITLE[e.confidence])}">${e.confidence}</span>
+                   </summary>
+                   <p class="cmpd__what">${esc(e.note)}</p>
+                   <button class="linkish linkish--inline" data-nav="/effect/${e.effect}">See every food with this effect →</button>
+                 </details>`).join("")}
+             </div>`
+          : ""
+      }
+
       <div class="panel">${sighiBadge(food)}${provenance(food)}</div>
 
       ${
@@ -322,7 +357,8 @@ export function foodView(id) {
         usedIn.length
           ? `<div class="panel">
                <h3>Used in</h3>
-               <div class="tiles" style="margin-top:10px">${usedIn.map(prepTile).join("")}</div>
+               <div class="tiles" style="margin-top:10px">${usedIn.slice(0, 18).map(prepTile).join("")}</div>
+               ${usedIn.length > 18 ? `<p class="tiny muted" style="margin-top:10px">…and ${usedIn.length - 18} more.</p>` : ""}
              </div>`
           : ""
       }
@@ -376,6 +412,7 @@ function browseBody() {
     // The reactive icon on purpose: histamine is the calm axis, and these three
     // pages are that axis explained rather than scored.
     { to: "/mechanism", icon: "state-reactive", label: "Histamine mechanisms", sub: "Why a food reacts, not just how much" },
+    { to: "/effect", icon: "category-spices", label: "Documented effects", sub: `${effectsCount()} foods with a sleep, focus, mood or other reported effect` },
     { to: "/bloating", icon: "category-vegetables", label: "Why food bloats", sub: "Four mechanisms, and what they cannot tell you" },
     { to: "/caffeine", icon: "category-drinks", label: "The caffeine family", sub: "Why tea and coffee don't feel alike" },
     { to: "/guna", icon: "browse-spectrum", label: "Light, restless, heavy", sub: "Ayurveda's other axis — what food does to your head" },
@@ -689,7 +726,7 @@ export function mechanismView(id, { sort = "staples" } = {}) {
         </div>
         ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "mechsort")}
         <div id="mechbody" style="margin-top:12px">
-          ${tileList(sortFoods(all, sort), { metaFn: SIGHI_META, meter: "histamine" })}
+          ${sortedList(sortFoods(all, sort), sort, { metaFn: SIGHI_META, meter: "histamine" })}
         </div>
       </section>
 
@@ -704,8 +741,93 @@ export function mechanismView(id, { sort = "staples" } = {}) {
       const sel = root.querySelector("#mechsort");
       sel.addEventListener("change", () => {
         root.querySelector("#mechbody").innerHTML =
-          tileList(sortFoods(all, sel.value), { metaFn: SIGHI_META, meter: "histamine" });
+          sortedList(sortFoods(all, sel.value), sel.value, { metaFn: SIGHI_META, meter: "histamine" });
         history.replaceState(null, "", `#/mechanism/${id}?sort=${sel.value}`);
+      });
+    },
+  };
+}
+
+// ---- Documented effects -----------------------------------------------------
+
+/**
+ * The index: every effect tag actually carried by a food, ranked by how many
+ * foods carry it. Neutral tone throughout — this sits off both of the app's
+ * axes (it's neither a temperature nor a histamine reading, same reasoning as
+ * guna above), and colouring it as either would misrepresent what it is.
+ */
+export function effectIndexView() {
+  return {
+    tone: null,
+    html: `
+      ${backBar("Find", "/find")}
+      <section class="hero">
+        <h1>Documented effects</h1>
+        <p>Traditional or anecdotal reports for specific foods — sleep, focus, mood, digestion and
+        more. Individual response varies, and every entry says how confident the evidence is.</p>
+      </section>
+      <div class="stack">
+        ${EFFECT_IDS.map(id => {
+          const e = EFFECTS[id] ?? { label: id, glyph: "•" };
+          return `<button class="listcard t-neutral" data-nav="/effect/${id}">
+                    <span class="listcard__title">${e.glyph} ${esc(e.label)}</span>
+                    <span class="listcard__count">${foodsWithEffect(id).length} foods</span>
+                  </button>`;
+        }).join("")}
+      </div>
+      <p class="tiny muted" style="margin:16px 2px 0">Traditional, anecdotal or early-research
+      reports, food by food — never a personalised or predictive claim. Open a food to see the
+      confidence and any dose or safety note behind its entry. Informational, not medical advice.</p>`,
+  };
+}
+
+export function effectView(id, { sort = "staples" } = {}) {
+  const e = EFFECTS[id];
+  if (!e) return notFound("effect");
+  if (!(sort in SORTS)) sort = "staples";
+  const all = foodsWithEffect(id);
+  if (!all.length) return notFound("effect");
+  // A few labels carry a clarifying suffix after an em dash (carminative,
+  // satiety, analgesic) for the pill and the h1 — too much for a sentence.
+  const short = e.label.split(" — ")[0].toLowerCase();
+  // Confidence is right here in the sub-line, not just on the food card — the
+  // same reason SIGHI_META puts the SIGHI score in the mechanism list rather
+  // than making a reader open every food to find out how solid the claim is.
+  const metaFn = food => {
+    const entry = getEffectEntry(food, id);
+    return `${entry.confidence} confidence${entry.confidence === "contested" ? " — sources disagree" : ""}`;
+  };
+
+  return {
+    tone: null,
+    html: `
+      ${backBar("Documented effects", "/effect")}
+      <section class="hero">
+        <h1>${e.glyph} ${esc(e.label)}</h1>
+        <p>Foods with a documented or anecdotal ${esc(short)} report. Individual
+        response varies — open a food for the full note and its confidence.</p>
+      </section>
+
+      <section class="section">
+        <div class="section__head">
+          <h2>Every food with this tag</h2>
+          <span class="tiny muted">${all.length}</span>
+        </div>
+        ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "effectsort")}
+        <div id="effectbody" style="margin-top:12px">
+          ${sortedList(sortFoods(all, sort), sort, { metaFn })}
+        </div>
+      </section>
+
+      <p class="tiny muted" style="margin:0 2px">Not a ranking of which food works best — these are
+      the foods with a documented report, nothing more. Informational, not medical advice.</p>`,
+
+    mount(root) {
+      const sel = root.querySelector("#effectsort");
+      sel.addEventListener("change", () => {
+        root.querySelector("#effectbody").innerHTML =
+          sortedList(sortFoods(all, sel.value), sel.value, { metaFn });
+        history.replaceState(null, "", `#/effect/${id}?sort=${sel.value}`);
       });
     },
   };
@@ -758,7 +880,7 @@ export function listView(id) {
     html: `
       ${backBar("Lists", "/lists")}
       <section class="hero t-${list.tone}"><h1>${esc(list.title)}</h1><p>${esc(list.blurb)}</p></section>
-      ${tileList(items)}`,
+      ${pagedTileList(items)}`,
   };
 }
 
@@ -867,27 +989,62 @@ function thermalBands(list, dir, opts) {
             <h2 class="band t-${id}">${esc(band.label)}</h2>
             <span class="tiny muted">${items.length}</span>
           </div>
-          ${tileList(items, opts)}
+          ${pagedTileList(items, opts)}
         </section>`;
     })
     .join("");
 }
 
-/** Ranked output: banded when the sort is thermal, flat otherwise. */
-function sortedList(list, sort, opts) {
-  const dir = SORTS[sort]?.band;
-  return dir ? thermalBands(list, dir, opts) : tileList(list, opts);
+/**
+ * The histamine analogue of `thermalBands` above — same reasoning, same shape,
+ * just grouped by SIGHI score (0-3) instead of thermal band. Reuses the exact
+ * labels `sighiBadge`'s badge already shows, and the same `--sighi-N` palette
+ * `foodView`'s histamine note already tints its border with, so this isn't a
+ * new colour or a new taxonomy — just this one list finally using both.
+ */
+function sighiBands(list, opts) {
+  return [0, 1, 2, 3]
+    .map(n => {
+      const items = list.filter(f => f.histamine.sighi === n);
+      if (!items.length) return "";
+      return `
+        <section class="section">
+          <div class="section__head">
+            <h2 class="band" style="color:var(--sighi-${n})">${esc(sighiText(n))}</h2>
+            <span class="tiny muted">${items.length}</span>
+          </div>
+          ${pagedTileList(items, opts)}
+        </section>`;
+    })
+    .join("");
 }
 
-function categoryBody(pool, q, cuisine, sort) {
+/** Ranked output: banded when the sort carries one, flat (but still paginated
+ *  past PAGE_SIZE — an unbanded sort like "A–Z" can still be Dishes' 970) otherwise. */
+function sortedList(list, sort, opts) {
+  const band = SORTS[sort]?.band;
+  if (band === "sighi") return sighiBands(list, opts);
+  return band ? thermalBands(list, band, opts) : pagedTileList(list, opts);
+}
+
+function categoryBody(catId, pool, q, cuisine, sort) {
   let list = cuisine ? pool.filter(f => f.cuisines.includes(cuisine)) : pool;
   // A query ranks by match quality — reordering those hits by temperature would
   // bury the exact-name match the reader was after. Sorting owns the rest.
   list = q.trim() ? search(q, 500, list) : sortFoods(list, sort);
 
   if (!list.length) {
-    return `<div class="empty">Nothing matches${q.trim() ? ` “${esc(q.trim())}”` : ""} here.
-      ${cuisine ? "Try clearing the cuisine filter." : "Try a different spelling, or search from Find."}</div>`;
+    // Used to just say what to try, with nothing on screen that actually did
+    // it — the cuisine chips scroll off-row and the search box is easy to miss
+    // as "the thing to change" once the reader's eye is on this message.
+    const qs = q.trim() ? `?q=${encodeURIComponent(q.trim())}` : "";
+    return `
+      <div class="empty">Nothing matches${q.trim() ? ` “${esc(q.trim())}”` : ""} here.
+        ${cuisine ? "Try clearing the cuisine filter." : "Try a different spelling, or search from Find."}</div>
+      <div class="chiprow" style="margin-top:14px">
+        ${cuisine ? `<button class="pillbtn" data-nav="/category/${catId}${qs}">Clear cuisine filter</button>` : ""}
+        ${q.trim() ? `<button class="pillbtn" data-nav="/find${qs}">Search all ${META.count} foods</button>` : ""}
+      </div>`;
   }
   const of = list.length === pool.length ? "" : ` of ${pool.length}`;
   // The noun agrees with whichever number it follows — "1 of 970 foods", but
@@ -896,7 +1053,7 @@ function categoryBody(pool, q, cuisine, sort) {
   const how = q.trim() ? "best match first" : SORTS[sort in SORTS ? sort : "staples"].label.toLowerCase();
   return `
     <p class="tiny muted" style="margin:0 2px 10px">${list.length}${of} ${noun}, ${how}.</p>
-    ${q.trim() ? tileList(list) : sortedList(list, sort)}`;
+    ${q.trim() ? pagedTileList(list) : sortedList(list, sort)}`;
 }
 
 export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } = {}) {
@@ -938,7 +1095,7 @@ export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } =
           : ""
       }
 
-      <div id="catbody">${categoryBody(pool, q, cuisine, sort)}</div>`,
+      <div id="catbody">${categoryBody(catId, pool, q, cuisine, sort)}</div>`,
 
     mount(root) {
       const input = root.querySelector("#catq");
@@ -968,7 +1125,7 @@ export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } =
       // replaceState, not a hash change: re-rendering the whole screen on every
       // keystroke would rebuild the chip row and steal focus from the input.
       const sync = () => {
-        body.innerHTML = categoryBody(pool, q0, cuisine0, sort0);
+        body.innerHTML = categoryBody(catId, pool, q0, cuisine0, sort0);
         const p = new URLSearchParams();
         if (q0.trim()) p.set("q", q0.trim());
         if (cuisine0) p.set("cuisine", cuisine0);
@@ -1055,7 +1212,29 @@ export function compareView({ ids = "" } = {}) {
   };
 }
 
+/**
+ * Recently viewed, then favourites, then a handful of everyday foods — in that
+ * order of relevance — so the picker never opens to a bare search box with
+ * nothing on screen to tap. Filler for a blank state, not a recommendation.
+ */
+function compareSuggestions(chosenIds) {
+  const seen = new Set(chosenIds);
+  const out = [];
+  const add = list => {
+    for (const f of list) {
+      if (out.length >= 6) return;
+      if (!seen.has(f.id) && !out.some(p => p.id === f.id)) out.push(f);
+    }
+  };
+  add(getFoods(recent.all()));
+  add(getFoods(favorites.all()));
+  add(everydayPicks(10));
+  return out;
+}
+
 function comparePicker(picked) {
+  const chosen = picked.map(f => f.id);
+  const suggestions = compareSuggestions(chosen);
   return `
     <section class="section">
       <div class="section__head"><h2>${picked.length ? "Add another" : "Pick a food"}</h2></div>
@@ -1063,7 +1242,8 @@ function comparePicker(picked) {
         <span aria-hidden="true">🔍</span>
         <input id="cmp-q" type="search" autocomplete="off" placeholder="Search foods…" aria-label="Search foods to compare">
       </div>
-      <div id="cmp-results" class="tiles"></div>
+      <p class="tiny muted" id="cmp-hint" style="margin:12px 2px 8px"${suggestions.length ? "" : " hidden"}>Or pick one of these</p>
+      <div id="cmp-results" class="tiles">${suggestions.map(f => addToCompareTile(f, chosen)).join("")}</div>
     </section>`;
 }
 
@@ -1071,13 +1251,20 @@ function mountComparePicker(picked) {
   return root => {
     const input = root.querySelector("#cmp-q");
     const out = root.querySelector("#cmp-results");
+    const hint = root.querySelector("#cmp-hint");
     if (!input || !out) return;
     const chosen = picked.map(f => f.id);
+    const suggestions = compareSuggestions(chosen);
     const draw = () => {
+      const q = input.value.trim();
+      if (!q) {
+        out.innerHTML = suggestions.map(f => addToCompareTile(f, chosen)).join("");
+        if (hint) hint.hidden = !suggestions.length;
+        return;
+      }
       const hits = search(input.value, 8).filter(f => !chosen.includes(f.id));
-      out.innerHTML = input.value.trim()
-        ? hits.map(f => addToCompareTile(f, chosen)).join("") || `<p class="tiny muted">No match.</p>`
-        : "";
+      out.innerHTML = hits.map(f => addToCompareTile(f, chosen)).join("") || `<p class="tiny muted">No match.</p>`;
+      if (hint) hint.hidden = true;
     };
     input.addEventListener("input", draw);
   };
@@ -1118,14 +1305,15 @@ export function spectrumView({ band = "" } = {}) {
   // out every child to know its scroll width, so nothing is ever "below the
   // fold" and loading="lazy" buys nothing — 2,000 minitiles measured ~1s of
   // blocking layout off-screen and hung the renderer on-screen. A vertical
-  // tileList has no such problem (970 rows render in ~2ms), so the full band
-  // uses that instead of a rail.
+  // list doesn't have that specific problem, so the full band uses one
+  // instead of a rail — paginated (pagedTileList), since the hottest band
+  // alone still runs past a thousand foods across the whole dataset.
   const PREVIEW = 18;
   const groups = active
     ? `<section class="section">
          <div class="section__head"><h2 class="band">${esc(active.label)}</h2><span class="tiny muted">${esc(active.blurb)}</span></div>
          <p class="tiny muted" style="margin:0 2px 10px">${shown.length} foods, coldest to hottest.</p>
-         ${tileList(shown)}
+         ${pagedTileList(shown)}
        </section>`
     : BANDS.map(b => {
         const items = all.filter(f => f.heatClass === b.id);
@@ -1146,7 +1334,12 @@ export function spectrumView({ band = "" } = {}) {
       }).join("");
 
   return {
-    tone: active && active.id !== "neutral" && active.id !== "cool" ? active.id : null,
+    // Only "cold" and "hot" are wired up as a room-wash tone (app.css's
+    // `:root[data-tone="…"]` rules) — the same two extremes remedy screens use.
+    // This used to also pass "warm" through, but there is no matching CSS rule
+    // for it, so `--tone`/`--bg` resolved to nothing and the whole page's
+    // background went translucent on `/#/spectrum?band=warm`.
+    tone: active && (active.id === "cold" || active.id === "hot") ? active.id : null,
     html: `
       ${backBar("Find", "/find")}
       <section class="hero"><h1>Spectrum</h1><p>Every food in the library, coldest to hottest. Tap a band to narrow it.</p></section>
@@ -1270,7 +1463,7 @@ function rankedGroups(list, favIds, opts) {
     items.length
       ? `<section class="section">
            <div class="section__head"><h2 class="band">${esc(label)}${extra}</h2><span class="tiny muted">${items.length}</span></div>
-           ${tileList(items, opts)}
+           ${pagedTileList(items, opts)}
          </section>`
       : "";
   return (
@@ -1314,17 +1507,18 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
   // both the sub-line and the meter. Everywhere else the meter is thermal.
   const tileOpts = stateId === "reactive" ? { metaFn: SIGHI_META, meter: "histamine" } : undefined;
 
-  // Switching Eat/Avoid keeps whatever search and sort you had — they describe
-  // how you want to read a list, not which list you are reading.
-  const keep = extra => {
-    const p = new URLSearchParams(extra);
-    if (q.trim()) p.set("q", q.trim());
-    if (sort) p.set("sort", sort);
-    return p.toString();
-  };
-  const tab = (id, label, count) => `
-    <button class="segbar__btn" data-nav="/state/${stateId}?${keep({ list: id })}" aria-selected="${verdict === id}">
-      ${label} <span class="segbar__count">${count}</span>
+  // Eat/Avoid is a toggle on how to read this same screen, not a trip to a new
+  // one — same class of control as the search box and the sort <select> just
+  // below, so it renders (and re-renders, from mount()) the same way they do,
+  // not as a data-nav hash push. Building the segbar HTML as a function of the
+  // active verdict, rather than a fixed pair of buttons, means switching from
+  // mount() and switching from the very first render never draw it differently.
+  const segbarHtml = verdict => `
+    <button class="segbar__btn" data-list="eat" aria-selected="${verdict === "eat"}">
+      ${verdict === "eat" ? "Eat this" : "Eat"} <span class="segbar__count">${eat.length}</span>
+    </button>
+    <button class="segbar__btn" data-list="avoid" aria-selected="${verdict === "avoid"}">
+      ${verdict === "avoid" ? "Avoid this" : "Avoid"} <span class="segbar__count">${avoid.length}</span>
     </button>`;
 
   // The remedy's own axis leads. "Too hot" wants its strongest coolers at the
@@ -1349,12 +1543,9 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
         <p>${esc(state.blurb)}.</p>
       </section>
 
-      <div class="segbar" role="tablist">
-        ${tab("eat", verdict === "eat" ? "Eat this" : "Eat", eat.length)}
-        ${tab("avoid", verdict === "avoid" ? "Avoid this" : "Avoid", avoid.length)}
-      </div>
+      <div class="segbar" id="segbar" role="tablist">${segbarHtml(verdict)}</div>
 
-      ${verdict === "eat" ? makeSomething(stateId) : ""}
+      <div id="makesomething">${verdict === "eat" ? makeSomething(stateId) : ""}</div>
 
       <div class="findrow">
         <div class="searchbar">
@@ -1389,17 +1580,20 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
       const input = root.querySelector("#stateq");
       const sel = root.querySelector("#statesort");
       const body = root.querySelector("#remedybody");
+      const segbar = root.querySelector("#segbar");
+      const makeSection = root.querySelector("#makesomething");
       let q0 = q;
       let sort0 = sort;
+      let verdict0 = verdict;
 
       // Same reasoning as the category screen: replaceState so a keystroke does
       // not re-render the screen out from under the input it came from.
       const sync = () => {
         body.innerHTML =
-          remedyColumn("eat", "Eat this", eat, verdict, favIds, tileOpts, { q: q0, sort: sort0 }) +
-          remedyColumn("avoid", "Avoid", avoid, verdict, favIds, tileOpts, { q: q0, sort: sort0 });
+          remedyColumn("eat", "Eat this", eat, verdict0, favIds, tileOpts, { q: q0, sort: sort0 }) +
+          remedyColumn("avoid", "Avoid", avoid, verdict0, favIds, tileOpts, { q: q0, sort: sort0 });
         const p = new URLSearchParams();
-        if (verdict !== "eat") p.set("list", verdict);
+        if (verdict0 !== "eat") p.set("list", verdict0);
         if (q0.trim()) p.set("q", q0.trim());
         if (sort0) p.set("sort", sort0);
         const qs = p.toString();
@@ -1412,6 +1606,22 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
       });
       sel.addEventListener("change", () => {
         sort0 = sel.value;
+        sync();
+      });
+
+      // Used to be a data-nav hash push — a real navigation, on every tap,
+      // between two segments of one screen. Tap Eat, Avoid, Eat, then a food,
+      // and the back button spent its first three taps undoing tab switches
+      // that render the same screen shell before it ever got you back out of
+      // this state, rather than the one tap a reader would expect. This is the
+      // same in-place-update-plus-replaceState fix already used for the search
+      // box and sort <select> right above.
+      segbar.addEventListener("click", event => {
+        const btn = event.target.closest("[data-list]");
+        if (!btn || btn.dataset.list === verdict0) return;
+        verdict0 = btn.dataset.list;
+        segbar.innerHTML = segbarHtml(verdict0);
+        makeSection.innerHTML = verdict0 === "eat" ? makeSomething(stateId) : "";
         sync();
       });
     },
@@ -1427,9 +1637,20 @@ function remedyColumn(id, label, items, active, favIds, opts, { q = "", sort = "
 
   let inner;
   if (!shown.length) {
+    // A miss here only means "not in this Eat/Avoid list", not "not in the
+    // library" — the reader searching a state screen has no way to tell those
+    // apart without this, and the food they typed may well just be in the
+    // other column or another state entirely.
     inner = `<div class="empty">${
       q.trim() ? `Nothing here matches “${esc(q.trim())}”.` : "Nothing in this list yet."
-    }</div>`;
+    }</div>
+    ${
+      q.trim()
+        ? `<div class="chiprow" style="margin-top:14px">
+             <button class="pillbtn" data-nav="/find?q=${encodeURIComponent(q.trim())}">Search all foods for “${esc(q.trim())}”</button>
+           </div>`
+        : ""
+    }`;
   } else if (q.trim() || sort) {
     // Commonness bands are the default shape, but they fight an explicit sort:
     // "hottest first" split across four headed groups is four restarts, not one
@@ -1437,7 +1658,7 @@ function remedyColumn(id, label, items, active, favIds, opts, { q = "", sort = "
     const of = shown.length === items.length ? "" : ` of ${items.length}`;
     inner = `<p class="tiny muted" style="margin:0 2px 10px">${shown.length}${of}, ${
       q.trim() ? "best match first" : SORTS[sort].label.toLowerCase()
-    }.</p>${q.trim() ? tileList(shown, opts) : sortedList(shown, sort, opts)}`;
+    }.</p>${q.trim() ? pagedTileList(shown, opts) : sortedList(shown, sort, opts)}`;
   } else {
     inner = rankedGroups(shown, favIds, opts);
   }

@@ -41,7 +41,8 @@
    "histamine":{"sighi":0,"tags":[],"note":"A safe breakfast for histamine-sensitive people.","ref":{"sighi":0,"marks":"","as":"oats, oat flakes, oatmeal"}},
    "nutrition":{"kcal":389,"protein":17,"carbs":66,"fat":6.9,"highlight":"the beta-glucan is what makes porridge thick"},
    "remedy":{"too-cold":"eat"},
-   "guna":{"verdict":"light","confidence":"high"}},
+   "guna":{"verdict":"light","confidence":"high"},
+   "effects":[{"effect":"satiety","confidence":"moderate","note":"A review pooling 22 controlled feeding trials found whole-grain oats and oat bran more reliably increased fullness than other grain foods lower in fibre or viscosity, and a trial comparing isocaloric breakfasts found instant oatmeal beat a ready-to-eat oat cereal on fullness and reduced desire to eat over the next four hours — credited to the gel-forming viscosity of oats' beta-glucan fibre slowing digestion. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"barley","name":"Barley","aliases":["jau","sha'ir","da mai"],"emoji":"🌾","category":"grain","cuisines":["south-asian","arabic","chinese","western"],"commonness":3,
    "description":"Ancient cooling grain; the base of jau ka pani and Prophetic talbina.",
@@ -748,7 +749,8 @@
    "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Enriched leavened bread."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and guru."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":2,"tags":[],"note":"Yeast-leavened and enriched."},
    "nutrition":{"kcal":320,"protein":8,"carbs":50,"fat":10,"highlight":"faintly sweet, and saffron-yellow"},
-   "remedy":{"too-cold":"eat"}},
+   "remedy":{"too-cold":"eat"},
+   "effects":[{"effect":"mood-lifting","confidence":"moderate","note":"Saffron is the defining flavour here, not a background spice — but even a generous dish's worth of threads is a small fraction of the roughly 28-30mg a day of standardized extract used in the depression trials. Unani tradition names zafran mood-lifting on its own grounds, and clinical trials, including a 2025 study of over 200 people, back a measurable effect on low mood at that extract dose, cited in depression-treatment guidelines alongside standard care. A possible effect, not a promise — response to it varies from person to person."}]},
 
   {"id":"taftan","name":"Taftan","aliases":["persian-style leavened bread"],"emoji":"🫓","category":"grain","cuisines":["south-asian"],"commonness":3,
    "description":"A soft milk-and-egg bread scattered with nigella and baked against the oven wall.",

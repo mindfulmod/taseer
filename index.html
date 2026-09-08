@@ -3,6 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <script>
+    // Resolve the theme before the stylesheet paints anything. The html tag's
+    // data-theme="light" default below is only a no-JS fallback — without this,
+    // every reload for a dark-mode reader flashes light first, since app.js's
+    // applyTheme() only runs after the deferred module at the bottom of body
+    // parses, well after first paint. Mirrors store.js's read("theme", "system")
+    // and app.js's applyTheme() resolution exactly, so it can never disagree.
+    (function () {
+      try {
+        var raw = localStorage.getItem("taseer.theme");
+        var pref = raw === null ? "system" : JSON.parse(raw);
+        var dark = pref === "dark" || (pref === "system" && matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+      } catch (e) {}
+    })();
+  </script>
   <title>Taseer — hot, cold &amp; histamine</title>
   <meta name="description" content="Does this food run hot or cold across TCM, Ayurveda and Unani — and is it a histamine risk? A remedy finder for how your body feels.">
   <meta name="theme-color" content="#faf5ec">
@@ -13,6 +29,29 @@
   <meta name="apple-mobile-web-app-title" content="Taseer">
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="stylesheet" href="assets/app.css">
+  <!-- app.js is loaded via a dynamic import() (see the module script at the end
+       of body), specifically so localhost can cache-bust it — but that means
+       the browser's own preload scanner, which only sees <script src> and
+       import/export statements it can find while parsing HTML, never notices
+       this dependency chain until the inline module script actually runs and
+       the import() call executes. Everything past that is then discovered one
+       hop at a time as each file's own static imports are parsed — app.js
+       finds store.js/views.js/components.js, which finds data.js, which
+       finally finds the 1.7MB assets/data/foods.js bundle — paying a full
+       network round trip per hop before the next fetch can even start.
+       Measured on a cold, throttled load (4x CPU, Fast 3G): the foods.js
+       fetch didn't begin until ~4s in, purely from that serial discovery
+       chain, before its own ~9s transfer time even started. These hints let
+       the browser fetch every file in the chain in parallel from the first
+       moment it parses <head>, cutting the discovery delay to ~0. Harmless
+       on localhost (worst case, one extra fetch of the un-cache-busted
+       app.js URL alongside the real cache-busted one actually used). -->
+  <link rel="modulepreload" href="assets/js/app.js">
+  <link rel="modulepreload" href="assets/js/store.js">
+  <link rel="modulepreload" href="assets/js/views.js">
+  <link rel="modulepreload" href="assets/js/components.js">
+  <link rel="modulepreload" href="assets/js/data.js">
+  <link rel="modulepreload" href="assets/data/foods.js">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
