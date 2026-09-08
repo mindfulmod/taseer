@@ -7431,7 +7431,7 @@
 
   {"id":"cornbread","name":"Cornbread","aliases":["southern cornbread"],"emoji":"🌽","category":"dish","cuisines":["western"],"commonness":1,
    "description":"Cornmeal batter baked in a hot iron skillet so the bottom forms a crust.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Baked cornmeal."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"Shita, following corn."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Thanda-khushk."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Baked cornmeal."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"CORRECTED: the old note only ever followed corn's own raw reading. Egg (ushna, high confidence) and, in this file's own reading, buttermilk (ushna — 'the same underlying heat' as dahi, per Charaka/Bhavaprakasha) are both heating in Ayurveda specifically; only butter pulls cooling. Flipped from cooling, which had nothing but corn behind it."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"CORRECTED: cornmeal, egg and baking powder all resolve garam here, only buttermilk (thanda, high confidence) pulls cold — a real ingredient majority the old bare 'Thanda-khushk' never engaged. Flipped from cold-dry, though buttermilk's strong opposition keeps it contested rather than confident."}},
    "histamine":{"sighi":2,"tags":["liberator"],"note":"Egg and buttermilk."},
    "nutrition":{"kcal":260,"protein":6,"carbs":40,"fat":8,"highlight":"the skillet must be hot first","estimate":true},
    "ingredients":["cornmeal","buttermilk","egg","butter","baking-powder"]},
