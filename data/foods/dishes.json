@@ -99,7 +99,7 @@
 
   {"id":"paratha","name":"Paratha","aliases":["parantha","lachha paratha"],"emoji":"🫓","category":"dish","cuisines":["south-asian"],"commonness":1,
    "description":"Ghee-layered griddled flatbread.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"heating","confidence":"moderate"},"unani":{"verdict":"hot-moist","confidence":"high","note":"Wheat + ghee + tawa = breakfast for cold mornings."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate"},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"CORRECTED: this had no note at all, asserting 'heating' though both tracked ingredients — wheat and ghee (this file's own shita-virya 'famous answer', high confidence) — are cooling in Ayurveda specifically. This is a griddled flatbread, not deep-fried, so there's no frying-override to invoke — the exact same reasoning already used to flip this dataset's own thalipeeth from hot-dry to cold-dry in Unani. Corrected to match."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Wheat + ghee + tawa = breakfast for cold mornings."}},
    "histamine":{"sighi":1,"tags":[],"note":"As wheat."},
    "nutrition":{"kcal":300,"protein":6,"carbs":42,"fat":12,"highlight":"the heavy breakfast","estimate":true},
    "ingredients":["wheat","ghee"],
@@ -821,7 +821,7 @@
 
   {"id":"aloo-paratha","name":"Aloo paratha","aliases":["stuffed paratha","potato paratha"],"emoji":"🫓","category":"dish","cuisines":["south-asian"],"commonness":1,
    "description":"Wholewheat flatbread stuffed with spiced potato and shallow-fried in ghee.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fried flatbread with a starchy filling."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and guru — ghee-fried wheat."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar; the Punjabi winter breakfast."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Fried flatbread with a starchy filling."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"CORRECTED: the old note named ghee itself as the heating driver ('ghee-fried wheat'), but ghee is THIS FILE'S OWN 'famous answer' shita-virya ingredient at high confidence, and atta is cooling too — three of five ingredients (atta, potato, ghee) resolve cooling, only green chilli and amchur pull heating. Kept heating for the same shallow-fry mechanism this dataset credits elsewhere, but downgraded from high to contested — the real driver is the chilli-amchur filling, not the ghee, and the margin is thin."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar; the Punjabi winter breakfast."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low; served with dahi and achar, which are not."},
    "nutrition":{"kcal":265,"protein":6,"carbs":38,"fat":10,"highlight":"the Punjabi breakfast","estimate":true},
    "ingredients":["atta","potato","ghee","green-chili","amchur"],
@@ -845,7 +845,7 @@
 
   {"id":"dahi-vada","name":"Dahi vada","aliases":["dahi bhalla","thayir vadai"],"emoji":"⚪","category":"dish","cuisines":["south-asian"],"commonness":1,
    "description":"Fried urad dumplings soaked soft and drowned in sweetened yogurt with chutneys.",
-   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Fried, then soaked and served cold in yogurt."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Urad and frying are ushna; the dahi is classically ushna too, though the dish is served to cool."},"unani":{"verdict":"cold-moist","confidence":"high","note":"Thanda-tar in desi usage — a summer chaat."}},
+   "thermal":{"tcm":{"verdict":"cool","confidence":"moderate","note":"Fried, then soaked and served cold in yogurt."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Urad and frying are ushna; the dahi is classically ushna too, though the dish is served to cool."},"unani":{"verdict":"cold-moist","confidence":"contested","note":"CORRECTED: the old note leaned on serving custom alone ('a summer chaat'), but the ingredient case is close to a wash — urad dal (garam, high) and cumin (garam-khushk, high) pull about as hard as yogurt and tamarind (thanda, both high) pull the other way. Kept cold-moist for the same functional reason (a dish eaten to cool down), but downgraded from high to contested rather than asserting a margin the ingredients don't back."}},
    "histamine":{"sighi":3,"tags":["liberator"],"note":"Yogurt, tamarind chutney and soaking time together — high, despite feeling light."},
    "nutrition":{"kcal":180,"protein":5,"carbs":22,"fat":8,"highlight":"fried, then drowned","estimate":true},
    "ingredients":["urad-dal","yogurt","tamarind-paste","cumin","chaat-masala"]},
@@ -3700,7 +3700,7 @@
 
   {"id":"pozole","name":"Pozole","aliases":["posole"],"emoji":"🍲","category":"dish","cuisines":["latin-american"],"commonness":2,
    "description":"Hominy and pork simmered for hours in a chilli broth, dressed with raw cabbage and lime.",
-   "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Long chilli-pork broth."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna."},"unani":{"verdict":"hot-dry","confidence":"high","note":"Garam-khushk."}},
+   "thermal":{"tcm":{"verdict":"hot","confidence":"moderate","note":"Long chilli-pork broth."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"CORRECTED: the old note was a bare 'ushna' with no ingredient behind it. Guajillo (heating/high) is the real driver, but hominy, cabbage and lime — 'the raw garnishes [that] are half the dish' per its own description — all resolve cooling, lime at high confidence, and are added raw rather than simmered. Downgraded from high to contested rather than asserting confident heat the ingredients only narrowly back."},"unani":{"verdict":"hot-dry","confidence":"contested","note":"CORRECTED: same gap as Ayurveda — guajillo is garam-khushk at high confidence, the real driver, but hominy, cabbage and lime (thanda, lime at high confidence) pull about as hard the other way. Downgraded from high to contested rather than a bare 'garam-khushk.'"}},
    "histamine":{"sighi":3,"tags":["liberator","high-histamine"],"note":"Hours of pork broth plus dried chilli and lime."},
    "nutrition":{"kcal":130,"protein":10,"carbs":12,"fat":5,"highlight":"the raw garnishes are half the dish","estimate":true},
    "ingredients":["hominy","pork","guajillo","cabbage","lime","mexican-oregano"],
@@ -4619,7 +4619,7 @@
 
   {"id":"katmer","name":"Katmer","aliases":["pistachio pastry"],"emoji":"🥮","category":"dish","cuisines":["persian-turkish"],"commonness":3,
    "description":"Paper-thin dough folded around clotted cream and pistachio, baked and eaten immediately.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Baked pastry with cream and nuts."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and very guru."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Baked pastry with cream and nuts."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and very guru."},"unani":{"verdict":"hot-moist","confidence":"contested","note":"CORRECTED: the old bare 'Garam-tar' never engaged clotted cream, the dish's dominant filling — thanda-tar at high confidence, the same reading as qishta/kaymak elsewhere in this file — nor the sugar, also thanda. Filo (cooked in fat) and pistachio are genuinely garam, but clotted cream and sugar pull about as hard the other way. Downgraded from high to contested."}},
    "histamine":{"sighi":2,"tags":[],"note":"Clotted cream and pistachio."},
    "nutrition":{"kcal":430,"protein":8,"carbs":40,"fat":27,"highlight":"eaten within minutes, or not at all","estimate":true},
    "ingredients":["filo","clotted-cream","pistachios","white-sugar","butter"],
@@ -4641,7 +4641,7 @@
 
   {"id":"tavuk-gogsu","name":"Tavuk göğsü","aliases":["chicken breast pudding"],"emoji":"🍮","category":"dish","cuisines":["persian-turkish"],"commonness":4,
    "description":"A milk pudding thickened with shredded chicken breast — and it does not taste of chicken.",
-   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Milk pudding with poached chicken."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the chicken."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar from the milk."}},
+   "thermal":{"tcm":{"verdict":"neutral","confidence":"moderate","note":"Milk pudding with poached chicken."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"CORRECTED: the old note credited chicken (heating/moderate) as the driver, but milk (shita/high) and sugar (shita/high) are stronger and were never engaged — poached chicken is a minor thickener here, not tasted, per this dish's own description. Canela (heating/high) is the real driver the old note missed. Downgraded from moderate to contested rather than asserting a margin the wrong ingredient supposedly won on."},"unani":{"verdict":"cold-moist","confidence":"moderate","note":"Thanda-tar from the milk."}},
    "histamine":{"sighi":2,"tags":[],"note":"Poached chicken held in milk."},
    "nutrition":{"kcal":160,"protein":6,"carbs":26,"fat":4,"highlight":"it does not taste of chicken","estimate":true},
    "ingredients":["milk","chicken","rice-flour","white-sugar","canela"]},
@@ -5334,7 +5334,7 @@
 
   {"id":"rassolnik","name":"Rassolnik","aliases":["pickle and barley soup"],"emoji":"🥒","category":"dish","cuisines":["eastern-european"],"commonness":3,
    "description":"Barley soup soured with pickled cucumber and its brine, often with kidney.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Barley and offal in a sour broth."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Soured and ushna."},"unani":{"verdict":"neutral","confidence":"moderate","note":"Barley, cucumber, potato and sour cream all resolve cooling and form the soup's actual bulk, two at high confidence; kidney is the only heating ingredient and per the description is an optional addition ('often with kidney'). Softened from hot-dry to neutral rather than flipping fully, since kidney does contribute real heat when present."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Barley and offal in a sour broth."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"CORRECTED: the old note ('soured and ushna') cited nothing specific and never engaged barley, cucumber and potato — all shita, two at high confidence, and per this dish's own Unani note 'the soup's actual bulk.' Kidney, sour cream and dill do pull heating in Ayurveda specifically (unlike Unani, where sour cream reads cooling), and kidney is only an optional addition per the description — closer to balanced than a flat 'heating' suggested. Downgraded from moderate to contested, matching the same kidney-is-optional reasoning already applied to this dish's own Unani field."},"unani":{"verdict":"neutral","confidence":"moderate","note":"Barley, cucumber, potato and sour cream all resolve cooling and form the soup's actual bulk, two at high confidence; kidney is the only heating ingredient and per the description is an optional addition ('often with kidney'). Softened from hot-dry to neutral rather than flipping fully, since kidney does contribute real heat when present."}},
    "histamine":{"sighi":3,"tags":["high-histamine"],"note":"Pickle brine plus offal."},
    "nutrition":{"kcal":90,"protein":6,"carbs":12,"fat":2.5,"highlight":"the brine goes in too","estimate":true},
    "ingredients":["barley","kidney","cucumber","potato","sour-cream","dill"],
@@ -6417,11 +6417,11 @@
 
   {"id":"thalipeeth","name":"Thalipeeth","aliases":["multigrain spiced flatbread"],"emoji":"🫓","category":"dish","cuisines":["south-asian"],"commonness":3,
    "description":"A thick flatbread of several roasted flours patted out by hand with holes poked through.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Mixed-grain spiced flatbread."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the spice."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Jowar flour, besan, cilantro and coriander seed all resolve cooling in unani, three at high confidence — only onion and cumin resolve heating. This is a griddled flatbread, not deep-fried, so there's no frying-override to justify 'hot-dry' against a clear cooling majority. Corrected to match."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Mixed-grain spiced flatbread."},"ayurveda":{"verdict":"cooling","confidence":"moderate","note":"CORRECTED: 'ushna from the spice' only ever looked at onion and cumin — jowar flour, besan and cilantro all resolve cooling too, three at high confidence, the same majority already used to flip this exact dish's own Unani field from hot-dry to cold-dry (griddled, not deep-fried, so no frying-override applies). Brought Ayurveda in line with that same reasoning rather than leaving it as the odd one out."},"unani":{"verdict":"cold-dry","confidence":"moderate","note":"Jowar flour, besan, cilantro and coriander seed all resolve cooling in unani, three at high confidence — only onion and cumin resolve heating. This is a griddled flatbread, not deep-fried, so there's no frying-override to justify 'hot-dry' against a clear cooling majority. Corrected to match."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low."},
    "nutrition":{"kcal":280,"protein":10,"carbs":44,"fat":8,"highlight":"patted by hand, with holes poked in","estimate":true},
    "ingredients":["jowar-flour","besan","onion","cilantro","cumin","coriander-seed"],
-   "remedy":{"too-cold":"eat"}},
+   "remedy":{"too-hot":"eat"}},
 
   {"id":"bhakri","name":"Bhakri","aliases":["jowar or bajra flatbread"],"emoji":"🫓","category":"dish","cuisines":["south-asian"],"commonness":2,
    "description":"An unleavened millet or sorghum bread, coarse and thick — field food.",
@@ -6484,7 +6484,7 @@
 
   {"id":"peda","name":"Peda","aliases":["milk fudge disc"],"emoji":"🟡","category":"dish","cuisines":["south-asian"],"commonness":2,
    "description":"Reduced milk and sugar pressed into small firm discs and thumbprinted.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Reduced milk solids."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and guru."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Reduced milk solids."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"CORRECTED: the old note asserted 'ushna' with no citation, but this dish's own dominant ingredient — khoya — carries THIS FILE'S OWN explicitly left-open tension at cooling/contested ('cooking leaves milk's shita virya intact and only adds guru... but it sits against confident hakimi practice calling mawa mithai garam'). Peda has no frying step to invoke the fry-override this dataset uses elsewhere (gulab-jamun); it's just pressed and thumbprinted. Brought in line with khoya's own reading rather than silently overriding it."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":2,"tags":[],"note":"Khoya is milk cooked down for hours."},
    "nutrition":{"kcal":380,"protein":10,"carbs":50,"fat":16,"highlight":"thumbprinted, always","estimate":true},
    "ingredients":["khoya","white-sugar","cardamom","pistachios"],
@@ -6508,7 +6508,7 @@
 
   {"id":"kalakand","name":"Kalakand","aliases":["grainy milk cake"],"emoji":"⬜","category":"dish","cuisines":["south-asian"],"commonness":3,
    "description":"Milk curdled slightly then cooked with sugar until grainy and set into squares.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Reduced milk solids."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna and guru."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Reduced milk solids."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"CORRECTED: the old note asserted 'ushna' with no citation, but milk (shita/high), chhena (shita/moderate) and sugar (shita/high) are all cooling here — three of five ingredients, two at high confidence — with only pistachios pulling heating; cardamom itself is contested, not a heating driver. No frying step to invoke this dataset's fry-override. Matches the same reduced/curdled-milk tension already left open for khoya and rabri rather than asserting confident heat with no ingredient behind it."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":2,"tags":[],"note":"Milk cooked long; the grain comes from deliberate curdling."},
    "nutrition":{"kcal":340,"protein":11,"carbs":42,"fat":15,"highlight":"grainy, and it should be","estimate":true},
    "ingredients":["milk","chhena","white-sugar","cardamom","pistachios"],
@@ -6701,7 +6701,7 @@
 
   {"id":"feteer-meshaltet","name":"Feteer meshaltet","aliases":["egyptian layered pastry"],"emoji":"🥐","category":"dish","cuisines":["arabic"],"commonness":3,
    "description":"Dough stretched translucent, folded with ghee dozens of times, and baked into a hundred layers.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Laminated pastry."},"ayurveda":{"verdict":"heating","confidence":"high","note":"Ushna and very guru."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Laminated pastry."},"ayurveda":{"verdict":"heating","confidence":"contested","note":"CORRECTED: the old note asserted 'ushna' with no citation, but maida, ghee (this file's own shita-virya 'famous answer', at high confidence) and butter are all cooling — only salt pulls heating. This is baked, not fried, so there's no fry-override to invoke the way this dataset does for deep-fried ghee sweets (gulab-jamun, ghevar). Downgraded from high to contested rather than asserting confident heat against a clear cooling majority."},"unani":{"verdict":"hot-moist","confidence":"high","note":"Garam-tar."}},
    "histamine":{"sighi":1,"tags":[],"note":"Low — flour and ghee, and nothing that ferments."},
    "nutrition":{"kcal":430,"protein":7,"carbs":45,"fat":25,"highlight":"a hundred layers, counted or not","estimate":true},
    "ingredients":["maida","ghee","butter","salt"],
@@ -6802,7 +6802,7 @@
 
   {"id":"muhammar","name":"Muhammar","aliases":["sweet red rice"],"emoji":"🍚","category":"dish","cuisines":["arabic"],"commonness":4,
    "description":"Rice cooked with date syrup and saffron until it goes red-brown, eaten with fried fish.",
-   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Sweetened saffron rice."},"ayurveda":{"verdict":"heating","confidence":"moderate","note":"Ushna from the saffron and dates."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
+   "thermal":{"tcm":{"verdict":"warm","confidence":"moderate","note":"Sweetened saffron rice."},"ayurveda":{"verdict":"cooling","confidence":"contested","note":"CORRECTED: the old note cited only saffron and dates (both moderate) as heating, but never engaged rice (shita/high), rose-water (shita/high) and ghee (this file's own shita-virya 'famous answer', high) — three high-confidence cooling ingredients against two moderate-confidence heating ones. Flipped from an uncontested 'heating' to reflect the real weighted case, though saffron and dates keep it genuinely contested rather than confidently cooling."},"unani":{"verdict":"hot-moist","confidence":"moderate","note":"Garam-tar."}},
    "histamine":{"sighi":2,"tags":["high-histamine"],"note":"Date syrup, which is a concentrated dried fruit."},
    "nutrition":{"kcal":220,"protein":4,"carbs":44,"fat":4,"highlight":"sweet rice, with fried fish","estimate":true},
    "ingredients":["white-rice","date-syrup","saffron","cardamom","rose-water","ghee"],
