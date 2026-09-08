@@ -51,7 +51,18 @@ systemDark.addEventListener("change", () => theme.get() === "system" && applyThe
 function renderBanner() {
   const slot = document.getElementById("banner-slot");
   if (!slot) return;
-  slot.innerHTML = banner.dismissed()
+  // A landmark only while it actually holds the notice — an empty, permanently
+  // present "Notice" region would be one more stop on every landmark-navigation
+  // pass through the app for no reason once the banner's been dismissed.
+  const dismissed = banner.dismissed();
+  if (dismissed) {
+    slot.removeAttribute("role");
+    slot.removeAttribute("aria-label");
+  } else {
+    slot.setAttribute("role", "region");
+    slot.setAttribute("aria-label", "Notice");
+  }
+  slot.innerHTML = dismissed
     ? ""
     : `<div class="banner" role="note">
          <span aria-hidden="true">🌿</span>
@@ -74,6 +85,11 @@ function parseHash() {
     params: Object.fromEntries(new URLSearchParams(query ?? "")),
   };
 }
+
+// The first path segment of a "/foo/bar?q=x" or "#/foo/bar?q=x" string, "" for
+// home. Used only to tell whether a tab-bar tap targets the screen already on
+// screen — see the [data-nav] handler below.
+const topRoute = hash => hash.replace(/^#/, "").split("?")[0].split("/").filter(Boolean)[0] ?? "";
 
 function resolve({ parts, params }) {
   switch (parts[0]) {
@@ -139,6 +155,47 @@ function setTone(tone = null) {
 
 let lastHash = null;
 
+// Pins the food card's hero back button to the viewport once the hero itself
+// has scrolled fully out of view (see the `.is-pinned` rule in app.css for why
+// it waits for that rather than pinning from the first paint). One observer,
+// rebuilt per render rather than left running against a food card `render()`
+// is about to tear out — `main.innerHTML = …` below detaches the old `.fhero`
+// without ever un-observing it otherwise.
+let heroBackObserver = null;
+function watchHeroBack(root) {
+  heroBackObserver?.disconnect();
+  heroBackObserver = null;
+  const hero = root.querySelector(".fhero");
+  const back = root.querySelector(".fhero__btn--back");
+  if (!hero || !back) return;
+  heroBackObserver = new IntersectionObserver(([entry]) => {
+    back.classList.toggle("is-pinned", !entry.isIntersecting);
+  });
+  heroBackObserver.observe(hero);
+}
+
+// The Spectrum band rail (role="tablist") is a set of real navigations — a
+// tapped/arrow-activated band tab replaces the whole screen via the router
+// above, which would otherwise drop keyboard focus onto <body> the instant
+// the old, focused tab node is torn out with the rest of `main.innerHTML`.
+// (The Eat/Avoid segbar has the identical problem but rebuilds itself
+// in-place and synchronously — see its own click handler in views.js, which
+// refocuses directly and never needs this.) Set whenever a role="tab" inside
+// a role="tablist" is activated; consumed by the next render() once the new
+// tablist (same aria-label) actually lands.
+let pendingTabFocus = null;
+function restoreTabFocus(root) {
+  if (!pendingTabFocus) return;
+  for (const tablist of root.querySelectorAll('[role="tablist"]')) {
+    if (tablist.getAttribute("aria-label") !== pendingTabFocus) continue;
+    const target = tablist.querySelector('[role="tab"][aria-selected="true"]');
+    if (!target) return; // not this redraw — leave pending for the one that is
+    target.focus();
+    pendingTabFocus = null;
+    return;
+  }
+}
+
 function render() {
   const route = parseHash();
   // Pager state (pagedTileList/growPager, components.js) is keyed to DOM nodes
@@ -151,6 +208,8 @@ function render() {
   const { view, tab } = resolve(route);
   main.innerHTML = view.html;
   view.mount?.(main);
+  watchHeroBack(main);
+  restoreTabFocus(main);
   setTone(view.tone);
 
   for (const item of document.querySelectorAll(".tabbar__item")) {
@@ -183,6 +242,25 @@ document.addEventListener("click", event => {
   const nav = event.target.closest("[data-nav]");
   if (nav) {
     event.preventDefault();
+    // The bottom tab bar's own tap used to always set location.hash to the
+    // tab's bare route, full stop — harmless everywhere except when the
+    // screen already on the tab you tapped carries a query string, most
+    // visibly Find: tapping "Find" while looking at search results changed
+    // the hash from "#/find?q=…" to "#/find", a real change, so it fired and
+    // silently reset to the bare browse library, discarding the query with
+    // no warning. A tab you're already on should be a no-op (or a
+    // scroll-to-top, which real tab bars use for exactly this tap) — never a
+    // silent data-loss action. Restricted to the tab bar itself: other
+    // [data-nav] links (e.g. "Browse by category instead" on a dead-end
+    // search) are deliberate resets, not a re-tap of the tab you're on.
+    if (nav.closest(".tabbar") && topRoute(nav.dataset.nav) === topRoute(location.hash)) {
+      scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+    // Spectrum's band rail (see restoreTabFocus above) — remember which
+    // tablist this tap belongs to so the render() this navigation triggers
+    // can hand focus back to the newly-selected tab instead of <body>.
+    if (nav.matches('[role="tab"]')) pendingTabFocus = nav.closest('[role="tablist"]')?.getAttribute("aria-label") ?? null;
     location.hash = `#${nav.dataset.nav}`;
     return;
   }
@@ -216,15 +294,31 @@ document.addEventListener("click", event => {
     misses.clear();
     render();
   } else if (action === "copy-misses") {
-    navigator.clipboard
-      ?.writeText(misses.all().map(m => `${m.q}${m.n > 1 ? ` (${m.n}x)` : ""}`).join("\n"))
-      .then(() => {
-        act.textContent = "Copied";
-        setTimeout(() => (act.textContent = "Copy"), 1600);
-      });
+    // Give SOME visible answer no matter how the write goes — silently doing
+    // nothing (the pre-fix behaviour whenever the API is missing, e.g. no
+    // secure context, or the write is rejected, e.g. clipboard permission
+    // denied) is indistinguishable from the tap not registering at all.
+    const flash = label => {
+      act.textContent = label;
+      setTimeout(() => (act.textContent = "Copy"), 1600);
+    };
+    const text = misses.all().map(m => `${m.q}${m.n > 1 ? ` (${m.n}x)` : ""}`).join("\n");
+    navigator.clipboard?.writeText(text).then(() => flash("Copied"), () => flash("Couldn't copy")) ?? flash("Couldn't copy");
   } else if (action === "install") {
+    // The captured event can only be prompted once, whatever the user picks
+    // in the native dialog — so hide the panel the moment it's used instead
+    // of leaving a button that still looks tappable but is now permanently
+    // inert (a second tap did nothing at all, with no sign why).
     installPrompt?.prompt();
     installPrompt = null;
+    document.getElementById("install-slot")?.classList.remove("is-ready");
+    // That panel (and the button focus was just on) is now display:none —
+    // without this the browser drops focus straight to <body> once the
+    // native install dialog closes. "About" is the nearest still-visible
+    // section below it; its heading is a script-focusable landing point
+    // (tabindex="-1" in views.js) rather than a new landmark invented for
+    // this one case.
+    document.getElementById("about-heading")?.focus();
   } else if (action === "theme") {
     const resolved = document.documentElement.dataset.theme;
     theme.set(resolved === "dark" ? "light" : "dark");
@@ -242,6 +336,32 @@ document.addEventListener("click", event => {
       act.closest(".pager")?.remove();
     }
   }
+});
+
+// ARIA APG "Tabs" pattern keyboard behaviour for every role="tablist" in the
+// app (the Eat/Avoid segbar, the Spectrum band rail — structurally identical
+// markup, one listener covers both rather than each widget wiring its own).
+// Left/Right move focus to the previous/next tab and wrap at the ends; Home/
+// End jump to the first/last. All four also activate the newly-focused tab
+// (automatic activation) by dispatching a real click at it — the exact same
+// path a mouse tap already uses in each widget, so there is no second,
+// diverging way these controls change selection.
+document.addEventListener("keydown", event => {
+  const tab = event.target.closest('[role="tab"]');
+  if (!tab) return;
+  const tablist = tab.closest('[role="tablist"]');
+  if (!tablist) return;
+  const tabs = [...tablist.querySelectorAll('[role="tab"]')];
+  const i = tabs.indexOf(tab);
+  const next =
+    event.key === "ArrowRight" ? tabs[(i + 1) % tabs.length]
+    : event.key === "ArrowLeft" ? tabs[(i - 1 + tabs.length) % tabs.length]
+    : event.key === "Home" ? tabs[0]
+    : event.key === "End" ? tabs[tabs.length - 1]
+    : null;
+  if (!next || next === tab) return;
+  event.preventDefault();
+  next.click();
 });
 
 // How many in-app navigations have happened since load — tells the back button
@@ -263,6 +383,23 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   const registerSW = () => navigator.serviceWorker.register("./sw.js").catch(() => {});
   if (document.readyState === "complete") registerSW();
   else addEventListener("load", registerSW);
+
+  // A full document reload is the only thing that re-runs the line above, so
+  // it's the only built-in trigger for "check for a new version". An
+  // installed PWA that's kept open for a long time — backgrounded, not
+  // fully closed, the common case on a phone's home screen — may never
+  // produce another one, leaving it dependent on the browser's own
+  // internal (roughly daily) background check. Re-checking whenever the
+  // tab is foregrounded closes most of that gap for free: `update()` is a
+  // safe no-op when the cached sw.js is already current, and this never
+  // touches the page itself — the existing skipWaiting/clients.claim pair
+  // still does the actual swap silently, on whatever the next full
+  // navigation turns out to be.
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      navigator.serviceWorker.getRegistration().then(reg => reg?.update()).catch(() => {});
+    }
+  });
 }
 
 // Chromium fires this instead of showing its own prompt; we surface it on Me.

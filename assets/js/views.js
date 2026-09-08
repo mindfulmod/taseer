@@ -11,7 +11,7 @@ import {
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
   art, artGlyph, chip, commonnessLabel, conflictBanner, esc, flags, macroRings, mechLabel,
-  miniTile, pagedTileList, prepFacts, prepTile, provenance, sighiBadge, sighiText, thermalScale, tileList,
+  miniTile, pagedTileList, prepFacts, prepTile, provenance, sighiBadge, sighiText, tabAttrs, thermalScale, tileList,
 } from "./components.js";
 
 // data-back, not data-nav: every "← Parent" link on a detail-ish screen is a
@@ -23,6 +23,17 @@ import {
 // open, when there is no in-app history to return to.
 const backBar = (label, href) =>
   `<button class="linkish" data-back="${href}">← ${esc(label)}</button>`;
+
+/**
+ * A visually-hidden `aria-live` status line, for a result count that changes
+ * as someone types or filters without the page ever navigating. The count is
+ * always on screen already (an "N of M foods" line, an empty-state message) —
+ * this just speaks the same words for whoever isn't watching the screen while
+ * they type, since nothing else here announces itself as a list swaps in
+ * place under a still-focused search box. `id` lets a screen carry more than
+ * one (state has one per Eat/Avoid column, keyed by verdict).
+ */
+const liveStatus = id => `<p id="${id}" class="sr" aria-live="polite" aria-atomic="true"></p>`;
 
 /**
  * Dead ends used to render as a bare "Unknown food." — no heading, no controls,
@@ -50,6 +61,34 @@ export function notFound(thing) {
 }
 
 // ---- Home ----------------------------------------------------------------
+
+// Home used to render the exact same 8-tile category grid as Find, right down
+// to the markup — a hub screen showing the same "browse everything" surface
+// as the browse hub it already links to three different ways. Trimmed to a
+// quick-access subset here: whatever categories the reader has actually been
+// looking at (from Recently viewed, so it's live to real use, not a guess),
+// topped up from CATEGORIES' own hand-ordered list (a food-group ordering,
+// not alphabetical — already a deliberate call, so reused rather than
+// re-ranked by size or anything else invented for this). Every category
+// remains one tap further away via "See all" into Find's full grid — never
+// removed, just no longer duplicated in full on both screens.
+function homeCategoryPicks(n = 4) {
+  const seen = new Set();
+  const picks = [];
+  for (const food of getFoods(recent.all())) {
+    if (picks.length >= n) break;
+    if (seen.has(food.category)) continue;
+    seen.add(food.category);
+    picks.push(food.category);
+  }
+  for (const c of CATEGORIES) {
+    if (picks.length >= n) break;
+    if (seen.has(c.id)) continue;
+    seen.add(c.id);
+    picks.push(c.id);
+  }
+  return CATEGORIES.filter(c => picks.includes(c.id));
+}
 
 export function homeView() {
   const recents = getFoods(recent.all()).slice(0, 12);
@@ -107,9 +146,9 @@ export function homeView() {
       <section class="section">
         <div class="section__head">
           <h2>Browse by category</h2>
-          <button class="linkish" data-nav="/find">All</button>
+          <button class="linkish" data-nav="/find">See all ${CATEGORIES.length}</button>
         </div>
-        ${categoryGrid()}
+        ${categoryGrid(homeCategoryPicks())}
       </section>`,
   };
 }
@@ -162,17 +201,19 @@ export function findView({ q = "", focus = "" } = {}) {
         <p>${META.count} foods across the world's home kitchens.</p>
       </section>
 
-      <div class="searchbar">
+      <div class="searchbar" role="search" aria-label="Search foods">
         <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
         <input id="q" type="search" inputmode="search" autocomplete="off" spellcheck="false"
                placeholder="Search ${META.count} foods — try “karela”" value="${esc(q)}"
                aria-label="Search foods, in any language you'd say the name">
       </div>
 
-      <div id="findbody">${findBody(q)}</div>`,
+      <div id="findbody">${findBody(q)}</div>
+      ${liveStatus("find-status")}`,
     mount(root) {
       const input = root.querySelector("#q");
       const body = root.querySelector("#findbody");
+      const status = root.querySelector("#find-status");
       let missTimer;
 
       // Only when the user tapped a search affordance to get here. Focusing on
@@ -186,8 +227,10 @@ export function findView({ q = "", focus = "" } = {}) {
         const value = input.value;
         body.innerHTML = findBody(value);
         history.replaceState(null, "", value ? `#/find?q=${encodeURIComponent(value)}` : "#/find");
+        const trimmed = value.trim();
+        status.textContent = trimmed ? `${search(value).length} results for ${trimmed}` : "";
         clearTimeout(missTimer);
-        if (value.trim().length >= 2 && search(value).length === 0) {
+        if (trimmed.length >= 2 && search(value).length === 0) {
           missTimer = setTimeout(() => misses.log(value), 900);
         }
       });
@@ -268,7 +311,7 @@ export function foodView(id) {
         <!-- Thermal nature is what the app is FOR, so it sits in the title card
              above the fold rather than in a panel below the nutrition. -->
         <div class="cardsection">
-          <h3>Thermal nature</h3>
+          <h3 role="heading" aria-level="2">Thermal nature</h3>
           <p class="tiny muted">Where each tradition places it</p>
           ${thermalScale(food)}
           ${food.conflict ? "" : `<p class="spread"><strong>All three traditions agree.</strong> The readings line up across the scale.</p>`}
@@ -302,7 +345,7 @@ export function foodView(id) {
       ${
         food.effects?.length
           ? `<div class="panel">
-               <h3>Documented effects</h3>
+               <h3 role="heading" aria-level="2">Documented effects</h3>
                <p class="tiny muted">Traditionally or anecdotally reported for this food specifically — individual response varies. Open one for the full note, including any dose or safety caveat.</p>
                ${food.effects.map(e => `
                  <details class="expander" style="margin-top:14px">
@@ -323,7 +366,7 @@ export function foodView(id) {
       ${
         food.stimulant
           ? `<div class="panel">
-               <h3>What's in the cup</h3>
+               <h3 role="heading" aria-level="2">What's in the cup</h3>
                <p class="cmpd__list">${
                  food.stimulant.compounds.length
                    ? food.stimulant.compounds.map(c => `<span class="cmpd__pill">${COMPOUNDS[c].glyph} ${esc(COMPOUNDS[c].label)}</span>`).join("")
@@ -336,14 +379,14 @@ export function foodView(id) {
       }
 
       <div class="panel t-${food.heatClass}">
-        <h3>Per 100 ${food.category === "drink" ? "ml" : "g"}</h3>
+        <h3 role="heading" aria-level="2">Per 100 ${food.category === "drink" ? "ml" : "g"}</h3>
         ${macroRings(food)}
       </div>
 
       ${
         ingredients.length
           ? `<div class="panel">
-               <h3>Typically contains</h3>
+               <h3 role="heading" aria-level="2">Typically contains</h3>
                <p class="tiny muted" style="margin-bottom:10px">Traditions classify the dish as a whole — these are the usual contents, not a calculation.</p>
                <div class="chips">${ingredients.map(chip).join("")}</div>
              </div>`
@@ -356,7 +399,7 @@ export function foodView(id) {
       ${
         usedIn.length
           ? `<div class="panel">
-               <h3>Used in</h3>
+               <h3 role="heading" aria-level="2">Used in</h3>
                <div class="tiles" style="margin-top:10px">${usedIn.slice(0, 18).map(prepTile).join("")}</div>
                ${usedIn.length > 18 ? `<p class="tiny muted" style="margin-top:10px">…and ${usedIn.length - 18} more.</p>` : ""}
              </div>`
@@ -393,9 +436,9 @@ export function foodView(id) {
 
 // ---- The library (Find's empty-query body) --------------------------------
 
-function categoryGrid() {
+function categoryGrid(list = CATEGORIES) {
   return `<div class="catgrid">
-    ${CATEGORIES.map(
+    ${list.map(
       c => `<button class="cat" data-nav="/category/${c.id}">
               <img class="cat__cut" src="assets/ui/categories/${c.id}.png" alt="" aria-hidden="true" loading="lazy">
               <span class="cat__label">${esc(c.label)}</span>
@@ -720,11 +763,13 @@ export function mechanismView(id, { sort = "staples" } = {}) {
       }
 
       <section class="section">
-        <div class="section__head">
-          <h2>Every food on this list</h2>
-          <span class="tiny muted">${all.length}</span>
+        <div class="controls-sticky">
+          <div class="section__head">
+            <h2>Every food on this list</h2>
+            <span class="tiny muted">${all.length}</span>
+          </div>
+          ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "mechsort")}
         </div>
-        ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "mechsort")}
         <div id="mechbody" style="margin-top:12px">
           ${sortedList(sortFoods(all, sort), sort, { metaFn: SIGHI_META, meter: "histamine" })}
         </div>
@@ -809,11 +854,13 @@ export function effectView(id, { sort = "staples" } = {}) {
       </section>
 
       <section class="section">
-        <div class="section__head">
-          <h2>Every food with this tag</h2>
-          <span class="tiny muted">${all.length}</span>
+        <div class="controls-sticky">
+          <div class="section__head">
+            <h2>Every food with this tag</h2>
+            <span class="tiny muted">${all.length}</span>
+          </div>
+          ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "effectsort")}
         </div>
-        ${sortSelect(sort, ["staples", "gentlest", "az", "hottest", "coolest"], "effectsort")}
         <div id="effectbody" style="margin-top:12px">
           ${sortedList(sortFoods(all, sort), sort, { metaFn })}
         </div>
@@ -897,7 +944,7 @@ export function prepView(id) {
   return {
     tone,
     html: `
-      ${backBar("Lists", "/lists")}
+      <div class="backbar-sticky">${backBar("Lists", "/lists")}</div>
       <div class="card__hero t-${tone}">
         <div class="card__glyph">${prep.emoji}</div>
         <div>
@@ -915,12 +962,12 @@ export function prepView(id) {
       }
 
       <div class="panel">
-        <h3>What goes in</h3>
+        <h3 role="heading" aria-level="2">What goes in</h3>
         <div class="chips" style="margin-top:10px">${ingredients.map(chip).join("")}</div>
       </div>
 
       <div class="panel t-${tone}">
-        <h3>How</h3>
+        <h3 role="heading" aria-level="2">How</h3>
         <ol class="steps">${prep.steps.map(s => `<li>${esc(s)}</li>`).join("")}</ol>
         ${prep.swap ? `<p class="prep__swap"><b>Swap</b> ${esc(prep.swap)}</p>` : ""}
       </div>
@@ -929,7 +976,7 @@ export function prepView(id) {
            says which tradition is doing the work, in the same register the
            food cards use. Never "this will cool you". -->
       <div class="panel">
-        <h3>Why it's on this list</h3>
+        <h3 role="heading" aria-level="2">Why it's on this list</h3>
         <p class="prep__why">${esc(prep.why)}</p>
       </div>
 
@@ -1076,31 +1123,35 @@ export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } =
         <h1>${esc(cat.label)}</h1><p>${pool.length} foods to look through.</p>
       </section>
 
-      <div class="findrow">
-        <div class="searchbar">
-          <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
-          <input id="catq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
-                 placeholder="Search ${esc(cat.label.toLowerCase())}" value="${esc(q)}"
-                 aria-label="Search within ${esc(cat.label)}">
+      <div class="controls-sticky">
+        <div class="findrow">
+          <div class="searchbar" role="search" aria-label="Search within ${esc(cat.label)}">
+            <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
+            <input id="catq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
+                   placeholder="Search ${esc(cat.label.toLowerCase())}" value="${esc(q)}"
+                   aria-label="Search within ${esc(cat.label)}">
+          </div>
+          ${sortSelect(sort, CAT_SORTS)}
         </div>
-        ${sortSelect(sort, CAT_SORTS)}
+
+        ${
+          cuisines.length
+            ? `<div class="chiprow" role="group" aria-label="Filter by cuisine">
+                 ${chipFor("", "All", !cuisine)}
+                 ${cuisines.map(c => chipFor(c.id, c.label, c.id === cuisine)).join("")}
+               </div>`
+            : ""
+        }
       </div>
 
-      ${
-        cuisines.length
-          ? `<div class="chiprow" role="group" aria-label="Filter by cuisine">
-               ${chipFor("", "All", !cuisine)}
-               ${cuisines.map(c => chipFor(c.id, c.label, c.id === cuisine)).join("")}
-             </div>`
-          : ""
-      }
-
-      <div id="catbody">${categoryBody(catId, pool, q, cuisine, sort)}</div>`,
+      <div id="catbody">${categoryBody(catId, pool, q, cuisine, sort)}</div>
+      ${liveStatus("cat-status")}`,
 
     mount(root) {
       const input = root.querySelector("#catq");
       const sel = root.querySelector("#sortby");
       const body = root.querySelector("#catbody");
+      const status = root.querySelector("#cat-status");
       let q0 = q;
       let cuisine0 = cuisine;
       let sort0 = sort;
@@ -1126,6 +1177,10 @@ export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } =
       // keystroke would rebuild the chip row and steal focus from the input.
       const sync = () => {
         body.innerHTML = categoryBody(catId, pool, q0, cuisine0, sort0);
+        // categoryBody's own first child is always either the "N of M foods…"
+        // summary or the "Nothing matches" empty state — both are exactly the
+        // one line worth speaking, never the tile list under it.
+        status.textContent = body.firstElementChild?.textContent?.trim() ?? "";
         const p = new URLSearchParams();
         if (q0.trim()) p.set("q", q0.trim());
         if (cuisine0) p.set("cuisine", cuisine0);
@@ -1238,7 +1293,7 @@ function comparePicker(picked) {
   return `
     <section class="section">
       <div class="section__head"><h2>${picked.length ? "Add another" : "Pick a food"}</h2></div>
-      <div class="searchbar">
+      <div class="searchbar" role="search" aria-label="Search foods to compare">
         <span aria-hidden="true">🔍</span>
         <input id="cmp-q" type="search" autocomplete="off" placeholder="Search foods…" aria-label="Search foods to compare">
       </div>
@@ -1287,11 +1342,18 @@ export function spectrumView({ band = "" } = {}) {
   const active = BANDS.find(b => b.id === band);
   const shown = active ? all.filter(f => f.heatClass === active.id) : all;
 
+  // Pinned below (`.backbar-sticky`) once a band is selected: the rail is real
+  // navigation between five fixed destinations, not a search/sort/filter
+  // block, so it reuses the plain-sticky idiom `.backbar-sticky` already
+  // established for prep's "← Lists" link rather than `.controls-sticky`
+  // (which is for the filter-shaped controls on Category/State/Mechanism/
+  // Effect). A single band's paginated list can run 7+ screens, so without
+  // this, switching bands meant scrolling all the way back to the top.
   const rail = `
     <div class="spectrum__rail" role="tablist" aria-label="Temperature bands">
       ${BANDS.map(
         b => `<button class="spectrum__seg t-${b.id}" data-nav="/spectrum${active?.id === b.id ? "" : `?band=${b.id}`}"
-                 aria-selected="${active?.id === b.id}">
+                 ${tabAttrs(active?.id === b.id)}>
                 <span class="spectrum__segbar"></span>
                 <span class="spectrum__seglabel">${esc(b.label)}</span>
                 <span class="spectrum__segcount">${all.filter(f => f.heatClass === b.id).length}</span>
@@ -1343,7 +1405,7 @@ export function spectrumView({ band = "" } = {}) {
     html: `
       ${backBar("Find", "/find")}
       <section class="hero"><h1>Spectrum</h1><p>Every food in the library, coldest to hottest. Tap a band to narrow it.</p></section>
-      ${rail}
+      <div class="backbar-sticky">${rail}</div>
       <p class="tiny muted" style="margin:12px 2px">Position blends all three traditions — it orders the shelf, it is not a verdict. The badges on each card are the verdicts.</p>
       ${groups}`,
   };
@@ -1400,7 +1462,11 @@ export function meView() {
              </div>`
           : `<div class="empty">No misses logged. Search for something we don't have and it lands here.</div>`,
         missList.length
-          ? `<button class="linkish" data-act="copy-misses">Copy</button><button class="linkish" data-act="clear-misses">Clear</button>`
+          // aria-live: the "Copied"/"Couldn't copy" flash (app.js's copy-misses
+          // handler) is this button's own text swapping in place — a screen
+          // reader only reliably re-speaks that on its own if the button says
+          // so itself, since nothing else on the page moves when it happens.
+          ? `<button class="linkish" data-act="copy-misses" aria-live="polite">Copy</button><button class="linkish" data-act="clear-misses">Clear</button>`
           : "",
       )}
 
@@ -1415,7 +1481,12 @@ export function meView() {
       </section>
 
       <section class="section">
-        <div class="section__head"><h2>About</h2></div>
+        <!-- tabindex=-1: not a Tab stop, but a script-focusable landing point.
+             The Install button (just above) hides its whole panel the moment
+             it's used (see app.js's "install" action) — this heading is the
+             nearest still-visible section after it, so focus lands somewhere
+             legible instead of falling through to <body>. -->
+        <div class="section__head"><h2 id="about-heading" tabindex="-1">About</h2></div>
         <div class="panel">
           <p><strong>Taseer</strong> (تاثیر) reports how three healing traditions — Traditional Chinese Medicine,
           Ayurveda and Unani — have classified ${META.count} everyday foods as warming or cooling, alongside
@@ -1514,10 +1585,10 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
   // active verdict, rather than a fixed pair of buttons, means switching from
   // mount() and switching from the very first render never draw it differently.
   const segbarHtml = verdict => `
-    <button class="segbar__btn" data-list="eat" aria-selected="${verdict === "eat"}">
+    <button class="segbar__btn" data-list="eat" ${tabAttrs(verdict === "eat")}>
       ${verdict === "eat" ? "Eat this" : "Eat"} <span class="segbar__count">${eat.length}</span>
     </button>
-    <button class="segbar__btn" data-list="avoid" aria-selected="${verdict === "avoid"}">
+    <button class="segbar__btn" data-list="avoid" ${tabAttrs(verdict === "avoid")}>
       ${verdict === "avoid" ? "Avoid this" : "Avoid"} <span class="segbar__count">${avoid.length}</span>
     </button>`;
 
@@ -1543,27 +1614,35 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
         <p>${esc(state.blurb)}.</p>
       </section>
 
-      <div class="segbar" id="segbar" role="tablist">${segbarHtml(verdict)}</div>
+      <div class="controls-sticky">
+        <div class="segbar" id="segbar" role="tablist" aria-label="Eat or avoid">${segbarHtml(verdict)}</div>
 
-      <div id="makesomething">${verdict === "eat" ? makeSomething(stateId) : ""}</div>
-
-      <div class="findrow">
-        <div class="searchbar">
-          <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
-          <input id="stateq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
-                 placeholder="Search this list" value="${esc(q)}"
-                 aria-label="Search within these foods">
+        <div class="findrow">
+          <div class="searchbar" role="search" aria-label="Search within these foods">
+            <img class="searchbar__icon" src="assets/ui/icons/tab-search.png" alt="" aria-hidden="true">
+            <input id="stateq" type="search" inputmode="search" autocomplete="off" spellcheck="false"
+                   placeholder="Search this list" value="${esc(q)}"
+                   aria-label="Search within these foods">
+          </div>
+          <label class="sortby">
+            <span class="sr">Sort by</span>
+            <select id="statesort" class="sortby__sel">
+              <option value=""${sort ? "" : " selected"}>Everyday first</option>
+              ${sorts
+                .map(s => `<option value="${s}"${s === sort ? " selected" : ""}>${esc(SORTS[s].label)}</option>`)
+                .join("")}
+            </select>
+          </label>
         </div>
-        <label class="sortby">
-          <span class="sr">Sort by</span>
-          <select id="statesort" class="sortby__sel">
-            <option value=""${sort ? "" : " selected"}>Everyday first</option>
-            ${sorts
-              .map(s => `<option value="${s}"${s === sort ? " selected" : ""}>${esc(SORTS[s].label)}</option>`)
-              .join("")}
-          </select>
-        </label>
       </div>
+
+      <!-- Below the sticky controls, not between the segmented control and the
+           search/sort row where it used to sit: that gap was the one thing
+           stopping the segbar and findrow from being one contiguous block,
+           which is what they need to be to pin together as a single strip
+           (see .controls-sticky, app.css). Nothing here depends on the exact
+           position — mount() below finds it by id either way. -->
+      <div id="makesomething">${verdict === "eat" ? makeSomething(stateId) : ""}</div>
 
       ${
         stateId === "reactive"
@@ -1574,7 +1653,8 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
       <div class="remedy" id="remedybody">
         ${remedyColumn("eat", "Eat this", eat, verdict, favIds, tileOpts, { q, sort })}
         ${remedyColumn("avoid", "Avoid", avoid, verdict, favIds, tileOpts, { q, sort })}
-      </div>`,
+      </div>
+      ${liveStatus("state-status")}`,
 
     mount(root) {
       const input = root.querySelector("#stateq");
@@ -1582,6 +1662,7 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
       const body = root.querySelector("#remedybody");
       const segbar = root.querySelector("#segbar");
       const makeSection = root.querySelector("#makesomething");
+      const status = root.querySelector("#state-status");
       let q0 = q;
       let sort0 = sort;
       let verdict0 = verdict;
@@ -1592,6 +1673,13 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
         body.innerHTML =
           remedyColumn("eat", "Eat this", eat, verdict0, favIds, tileOpts, { q: q0, sort: sort0 }) +
           remedyColumn("avoid", "Avoid", avoid, verdict0, favIds, tileOpts, { q: q0, sort: sort0 });
+        // remedyColumn only puts a lone summary/empty-state line at the top of
+        // the ACTIVE column when a search or sort is applied — the default,
+        // unfiltered view is commonness-grouped sections with nothing that
+        // reads as one sentence, so this deliberately says nothing then rather
+        // than announcing an entire band's worth of food names.
+        const activeCol = body.querySelector(`[data-col="${verdict0}"]`);
+        status.textContent = (q0.trim() || sort0) && activeCol ? activeCol.children[1]?.textContent?.trim() ?? "" : "";
         const p = new URLSearchParams();
         if (verdict0 !== "eat") p.set("list", verdict0);
         if (q0.trim()) p.set("q", q0.trim());
@@ -1621,6 +1709,11 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
         if (!btn || btn.dataset.list === verdict0) return;
         verdict0 = btn.dataset.list;
         segbar.innerHTML = segbarHtml(verdict0);
+        // The tapped button (still focused a moment ago, whether by a real
+        // click, Enter/Space, or app.js's arrow-key handler) was just torn
+        // out with the rest of segbar's old markup — refocus its replacement
+        // so a keyboard/AT user doesn't lose their place to <body>.
+        segbar.querySelector(`[data-list="${verdict0}"]`)?.focus();
         makeSection.innerHTML = verdict0 === "eat" ? makeSomething(stateId) : "";
         sync();
       });
