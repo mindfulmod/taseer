@@ -17,7 +17,7 @@ Then open http://localhost:4173. Nothing to install.
 | Doc | Covers |
 |---|---|
 | [specs/01-product-spec.md](specs/01-product-spec.md) | Soul, core loop, verdicts, cards, browse, personal layer, safety, v2 parking lot |
-| [specs/02-data-spec.md](specs/02-data-spec.md) | Curation model (Claude classifies, owner spot-checks), schema, sources, staged 250→1000 rollout |
+| [specs/02-data-spec.md](specs/02-data-spec.md) | Curation model (Claude classifies, owner spot-checks), schema, sources, staged 250→2,000 rollout (scope widened past the original 1,000-food target, see amendment) |
 | [specs/03-design-system.md](specs/03-design-system.md) | Temperature-as-color identity, badges, screens, light/dark |
 | [specs/04-image-spec.md](specs/04-image-spec.md) | The one recipe all 250 food illustrations must follow |
 | [ART.md](ART.md) | Locked palette, type scale, density rules, ban-list, acceptance checklist |
