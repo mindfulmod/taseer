@@ -1259,15 +1259,6 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .vpill--btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); box-shadow: none; }
 .flagline--inline { margin-left: 8px; vertical-align: middle; font-size: 0.7rem; padding: 3px 9px; }
 
-/* P2 — dark-mode hero wash. The paintings share one sand backdrop (§8) that is
-   the brightest thing on a charcoal screen; a wash from the page colour lets
-   the subject keep its light while the backdrop sinks toward the surface. */
-:root[data-theme="dark"] .fhero::after {
-  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 1;
-  background: linear-gradient(to bottom, color-mix(in srgb, var(--bg) 22%, transparent), color-mix(in srgb, var(--bg) 58%, transparent));
-}
-:root[data-theme="dark"] .fhero .art { filter: saturate(0.94) brightness(0.94); }
-
 /* P6 — tag indexes as rows: the glyph sits in a tinted tile (§6.5), the count
    reads as a count, and seven tags fit a phone screen instead of three. */
 .wayrow--tag { grid-template-columns: auto 1fr auto auto; min-height: 64px; padding: 10px 14px 10px 10px; }
