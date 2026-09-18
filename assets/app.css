@@ -1233,3 +1233,86 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+
+
+/* ==== UI scan prototypes (2026-09-18) ====================================
+   Each block is one ranked proposal; see the before/after artifact. */
+
+/* P1 — verdict strip in the title card. SIGHI segments reuse .segments' look
+   at pill size; guna takes its tone triad; the trigger toggle is the same
+   .pillbtn behaviour in the same row so it stops floating between panels. */
+.verdicts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+.vpill {
+  display: inline-flex; align-items: center; gap: 7px; min-height: 36px;
+  padding: 6px 12px; border-radius: 999px; font-size: 0.85rem; line-height: 1.2;
+  background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink);
+}
+.vpill strong { font-weight: 700; }
+.vpill__label { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.vpill__segs { display: flex; gap: 2px; }
+.vpill__segs i { width: 9px; height: 5px; border-radius: 999px; background: var(--line-strong); }
+.vpill__segs i.on { background: var(--sighi); }
+.vpill--guna { background: var(--t-tint); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 26%, transparent); color: var(--t-deep); }
+.vpill--guna .vpill__label { color: color-mix(in srgb, var(--t-deep) 78%, transparent); }
+.vpill--flag { color: var(--ink-2); font-weight: 600; }
+.vpill--btn { border: 0; cursor: pointer; font-weight: 700; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line-strong); min-height: var(--tap); }
+.vpill--btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); box-shadow: none; }
+.flagline--inline { margin-left: 8px; vertical-align: middle; font-size: 0.7rem; padding: 3px 9px; }
+
+/* P2 — dark-mode hero wash. The paintings share one sand backdrop (§8) that is
+   the brightest thing on a charcoal screen; a wash from the page colour lets
+   the subject keep its light while the backdrop sinks toward the surface. */
+:root[data-theme="dark"] .fhero::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 1;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--bg) 22%, transparent), color-mix(in srgb, var(--bg) 58%, transparent));
+}
+:root[data-theme="dark"] .fhero .art { filter: saturate(0.94) brightness(0.94); }
+
+/* P6 — tag indexes as rows: the glyph sits in a tinted tile (§6.5), the count
+   reads as a count, and seven tags fit a phone screen instead of three. */
+.wayrow--tag { grid-template-columns: auto 1fr auto auto; min-height: 64px; padding: 10px 14px 10px 10px; }
+.glyph--sm {
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; font-size: 1.05rem;
+  color: var(--t-deep); background: var(--t-tint);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 22%, transparent);
+}
+.wayrow__count { font-size: 0.78rem; font-weight: 700; color: var(--ink-3); letter-spacing: 0.04em; }
+
+/* P7 — a key for the three thermal dots, once per list. */
+.countline { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.dotkey { display: inline-flex; align-items: center; gap: 4px; font-size: 0.7rem; letter-spacing: 0.04em; }
+.dotkey i { width: 7px; height: 7px; border-radius: 999px; background: var(--ink-3); opacity: 0.55; }
+.dotkey i + i { margin-left: -1px; }
+.dotkey i:last-of-type { margin-right: 4px; }
+
+/* P5 — the type floor. The two sizes under 11px (9.3px axis labels, 10px badge
+   labels) read as texture, not text, and sit under the bible's eyebrow role. */
+.scale__axis { font-size: 0.68rem; }
+.badge__label { font-size: 0.68rem; }
+
+@media (min-width: 1080px) {
+  /* P4 — desktop navigation as a row at the top, per §5, not a phone pill
+     floating over the page. Same three items, same icons, laid horizontally. */
+  .tabbar {
+    top: 14px; bottom: auto; left: auto;
+    right: max(28px, calc((100vw - 1180px) / 2 + 28px));
+    transform: none; width: auto; padding: 4px; border-radius: 999px;
+    grid-auto-columns: auto;
+  }
+  .tabbar__item { grid-auto-flow: column; align-items: center; gap: 8px; padding: 6px 14px 6px 8px; min-height: 40px; font-size: 0.82rem; border-radius: 999px; }
+  .tabbar__icon { width: 22px; height: 22px; }
+  .main { padding-top: 64px; padding-bottom: 40px; }
+
+  /* P3 — food card as two columns at the top: the painting at its own 3:2
+     beside the title card, instead of a 380px letterbox with the card under
+     it. Panels pair beneath as before. */
+  #card > .fhero { grid-column: 1; margin: 0; aspect-ratio: 3 / 2; height: auto; border-radius: var(--radius-lg); align-self: start; }
+  #card > .titlecard { grid-column: 2; margin: 0; }
+  #card { gap: 20px; }
+  #card > .titlecard { margin-left: 0; margin-right: 0; }
+
+  /* P8 — home state tiles read as a row (icon beside text) at desktop, with
+     a larger mark, instead of a 40px icon adrift in a 148px box. */
+  .state { grid-template-columns: auto 1fr; column-gap: 16px; align-items: center; min-height: 120px; padding: 20px 22px; }
+  .state__icon { width: 64px; height: 64px; grid-row: 1 / 3; margin: 0; }
+}
