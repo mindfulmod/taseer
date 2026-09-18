@@ -494,7 +494,7 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 }
 .badge__label {
   display: flex; align-items: center; gap: 4px;
-  font-size: 0.63rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
   color: color-mix(in srgb, var(--t-deep) 78%, transparent);
 }
 .badge__verdict {
@@ -518,6 +518,14 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   /* Neutral is a sand tone that would vanish on the cream surface. */
   box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t-deep) 30%, transparent);
 }
+
+/* Three dots in a row read as a rating until something says otherwise, so each
+   list states what they are once, on its own count line, rather than per row. */
+.countline { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.dotkey { display: inline-flex; align-items: center; gap: 4px; font-size: 0.7rem; letter-spacing: 0.04em; }
+.dotkey i { width: 7px; height: 7px; border-radius: 999px; background: var(--ink-3); opacity: 0.55; }
+.dotkey i + i { margin-left: -1px; }
+.dotkey i:last-of-type { margin-right: 4px; }
 
 .segments { display: flex; gap: 3px; height: 5px; }
 .segments i { flex: 1; border-radius: 999px; background: var(--line-strong); }
@@ -808,7 +816,7 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 }
 .scale__axis {
   display: flex; justify-content: space-between; margin: 7px 0 0 104px;
-  font-size: 0.58rem; font-weight: 800; letter-spacing: 0.07em;
+  font-size: 0.68rem; font-weight: 800; letter-spacing: 0.07em;
   text-transform: uppercase; color: var(--ink-3);
 }
 .spread { margin-top: 12px; font-size: 0.84rem; line-height: 1.5; color: var(--ink-2); }
@@ -1083,6 +1091,19 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .wayrow__sub { display: block; font-size: 0.8rem; color: var(--ink-2); }
 .wayrow__go { color: var(--ink-3); font-size: 1.3rem; }
 
+/* Tag indexes (effects, histamine mechanisms) are the same row at a tighter
+   height: many short labels with a count, where a stack of tinted cards let
+   only three fit a phone screen and gave each tag a whole panel's worth of
+   emphasis. Emoji never sit bare on a surface (ART.md §6.5), so the tag's
+   glyph gets the same tinted tile the food rows use, at row scale. */
+.wayrow--tag { grid-template-columns: auto 1fr auto auto; min-height: 64px; padding: 10px 14px 10px 10px; }
+.glyph--sm {
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; font-size: 1.05rem;
+  color: var(--t-deep); background: var(--t-tint);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 22%, transparent);
+}
+.wayrow__count { font-size: 0.78rem; font-weight: 700; color: var(--ink-3); letter-spacing: 0.04em; }
+
 /* ---- Curated lists ------------------------------------------------------ */
 
 .listcard {
@@ -1292,29 +1313,3 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
-
-
-/* ==== UI scan prototypes (2026-09-18) ====================================
-   Each block is one ranked proposal; see the before/after artifact. */
-
-/* P6 — tag indexes as rows: the glyph sits in a tinted tile (§6.5), the count
-   reads as a count, and seven tags fit a phone screen instead of three. */
-.wayrow--tag { grid-template-columns: auto 1fr auto auto; min-height: 64px; padding: 10px 14px 10px 10px; }
-.glyph--sm {
-  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 12px; font-size: 1.05rem;
-  color: var(--t-deep); background: var(--t-tint);
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 22%, transparent);
-}
-.wayrow__count { font-size: 0.78rem; font-weight: 700; color: var(--ink-3); letter-spacing: 0.04em; }
-
-/* P7 — a key for the three thermal dots, once per list. */
-.countline { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-.dotkey { display: inline-flex; align-items: center; gap: 4px; font-size: 0.7rem; letter-spacing: 0.04em; }
-.dotkey i { width: 7px; height: 7px; border-radius: 999px; background: var(--ink-3); opacity: 0.55; }
-.dotkey i + i { margin-left: -1px; }
-.dotkey i:last-of-type { margin-right: 4px; }
-
-/* P5 — the type floor. The two sizes under 11px (9.3px axis labels, 10px badge
-   labels) read as texture, not text, and sit under the bible's eyebrow role. */
-.scale__axis { font-size: 0.68rem; }
-.badge__label { font-size: 0.68rem; }

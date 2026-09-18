@@ -705,9 +705,11 @@ export function bloatingView() {
 // ---- Histamine mechanisms -------------------------------------------------
 
 /**
- * The index. Three cards, because the mechanisms are peers — none of them is
- * the "main" one, and ranking them by how many foods carry the tag would imply
- * a severity order that SIGHI does not claim.
+ * The index. One row per mechanism at one weight, because the mechanisms are
+ * peers — none of them is the "main" one, and ranking them by how many foods
+ * carry the tag would imply a severity order that SIGHI does not claim. Same
+ * row as the effects index: four tinted cards claimed a panel's emphasis each
+ * for what is a list of four tags, and pushed the last one off the fold.
  */
 export function mechanismIndexView() {
   return {
@@ -726,10 +728,11 @@ export function mechanismIndexView() {
       <div class="stack">
         ${MECHANISM_IDS.map(id => {
           const m = MECHANISMS[id];
-          return `<button class="listcard t-calm" data-nav="/mechanism/${id}">
-                    <span class="listcard__title">${m.glyph} ${esc(m.label)}</span>
-                    <span class="listcard__blurb">${esc(m.lede)}</span>
-                    <span class="listcard__count">${foodsWithMechanism(id).length} foods</span>
+          return `<button class="wayrow wayrow--tag t-calm" data-nav="/mechanism/${id}">
+                    <span class="glyph--sm">${m.glyph}</span>
+                    <span><span class="wayrow__label">${esc(m.label)}</span><span class="wayrow__sub">${esc(m.lede)}</span></span>
+                    <span class="wayrow__count">${foodsWithMechanism(id).length}</span>
+                    <span class="wayrow__go" aria-hidden="true">›</span>
                   </button>`;
         }).join("")}
       </div>
@@ -828,7 +831,7 @@ export function effectIndexView() {
         ${EFFECT_IDS.map(id => {
           const e = EFFECTS[id] ?? { label: id, glyph: "•" };
           return `<button class="wayrow wayrow--tag t-neutral" data-nav="/effect/${id}">
-                    <span class="glyph glyph--sm">${e.glyph}</span>
+                    <span class="glyph--sm">${e.glyph}</span>
                     <span><span class="wayrow__label">${esc(e.label)}</span></span>
                     <span class="wayrow__count">${foodsWithEffect(id).length}</span>
                     <span class="wayrow__go" aria-hidden="true">›</span>
