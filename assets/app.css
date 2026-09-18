@@ -875,6 +875,10 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .ring__val { font-size: var(--fs-meta); font-weight: 800; fill: var(--ink); }
 .ring__label { font-size: var(--fs-eyebrow); color: var(--ink-2); font-weight: 600; }
 
+/* What a full ring means. Sits between the rings and the written note because
+   it explains the chart rather than the food. */
+.rings__key { margin: 10px 2px 0; }
+
 /* The written line sits under the rings, not inside them — it is an aside about
    the food, never a fifth statistic. */
 .rings__note {
