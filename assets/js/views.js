@@ -10,7 +10,7 @@ import {
 } from "./data.js";
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
-  art, artGlyph, chip, commonnessLabel, conflictBanner, esc, flags, macroRings, mechLabel,
+  art, artGlyph, chip, commonnessLabel, conflictBanner, esc, macroRings, mechLabel,
   miniTile, pagedTileList, prepFacts, prepTile, provenance, sighiBadge, sighiText, tabAttrs, thermalScale, tileList,
 } from "./components.js";
 
@@ -317,12 +317,13 @@ export function foodView(id) {
           ${food.conflict ? "" : `<p class="spread"><strong>All three traditions agree.</strong> The readings line up across the scale.</p>`}
         </div>
 
-        <!-- PROPOSAL 1 (prototype): the spec's locked hierarchy puts the
-             histamine badge beside the thermal badges at the top of the card.
-             It had drifted to the fourth panel down. This strip restates the
-             SIGHI verdict (and guna, when present) at glance size; the full
-             panels below are unchanged. The trigger toggle lives here too,
-             instead of floating alone between panels. -->
+        <!-- The spec's locked hierarchy puts the histamine badge beside the
+             thermal badges at the top of the card; it had drifted to the
+             fourth panel down. This strip restates the SIGHI verdict (and
+             guna, when present) at glance size, and the full panels below are
+             unchanged. The trigger toggle lives here too, since it is the
+             reader's answer to these verdicts, rather than floating alone
+             between two panels. -->
         <div class="verdicts">
           <span class="vpill vpill--sighi" style="--sighi:var(--sighi-${food.histamine.sighi})">
             <span class="vpill__segs">${[0, 1, 2, 3].map(i => `<i class="${i <= food.histamine.sighi ? "on" : ""}"></i>`).join("")}</span>

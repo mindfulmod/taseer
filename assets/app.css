@@ -643,6 +643,9 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   background: var(--surface-2); border: 1px solid var(--line);
   font-size: 0.76rem; font-weight: 600; color: var(--ink-2);
 }
+/* The same mark set inline in a panel heading, where it qualifies the heading
+   ("Per 100 g ≈ estimated") rather than standing as its own row. */
+.flagline--inline { margin-left: 8px; vertical-align: middle; font-size: 0.7rem; padding: 3px 9px; }
 
 /* ---- Food card ---------------------------------------------------------- */
 
@@ -742,6 +745,32 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .cardsection { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); }
 .cardsection > .tiny { margin: 2px 0 14px; }
 
+/* The verdict strip: the product spec's locked card hierarchy (specs/01,
+   "Food card (locked hierarchy)") puts the thermal badges AND the histamine
+   badge at the top of the card. Histamine had drifted down to the fourth
+   panel, so the card's first screen answered two of the three questions it
+   promises. This restates SIGHI — and guna, where it exists — at glance size
+   directly under the thermal scale; the full panels below are unchanged and
+   stay the place where each verdict is explained. The trigger toggle joins
+   the row because it is the reader's answer to the same set of verdicts, and
+   it used to float alone in an actions strip between two panels. */
+.verdicts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
+.vpill {
+  display: inline-flex; align-items: center; gap: 7px; min-height: 36px;
+  padding: 6px 12px; border-radius: 999px; font-size: 0.85rem; line-height: 1.2;
+  background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink);
+}
+.vpill strong { font-weight: 700; }
+.vpill__label { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
+.vpill__segs { display: flex; gap: 2px; }
+.vpill__segs i { width: 9px; height: 5px; border-radius: 999px; background: var(--line-strong); }
+.vpill__segs i.on { background: var(--sighi); }
+.vpill--guna { background: var(--t-tint); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 26%, transparent); color: var(--t-deep); }
+.vpill--guna .vpill__label { color: color-mix(in srgb, var(--t-deep) 78%, transparent); }
+.vpill--flag { color: var(--ink-2); font-weight: 600; }
+.vpill--btn { border: 0; cursor: pointer; font-weight: 700; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line-strong); min-height: var(--tap); }
+.vpill--btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); box-shadow: none; }
+
 /* Three thin tracks on one shared cold→hot axis, one marker each — the same
    information as three stacked badges in ~40% of the height. One grid for all
    three rows with `display:contents` on the row, so every track starts and ends
@@ -782,8 +811,6 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 }
 .spread { margin-top: 12px; font-size: 0.84rem; line-height: 1.5; color: var(--ink-2); }
 .spread strong { color: var(--ink); }
-
-.card__actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
 
 /* ---- Preparation card ---------------------------------------------------
    The emoji-and-title block. The food card used to open this way too, before
@@ -1202,8 +1229,7 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   #card > .fhero,
   #card > .titlecard,
   #card > .conflict,
-  #card > .row,
-  #card > .card__actions { grid-column: 1 / -1; }
+  #card > .row { grid-column: 1 / -1; }
   /* Capped as the old desktop hero was: at this width the 3:2 crop would take
      most of the fold. A fixed height rather than a clamped ratio — pairing
      `aspect-ratio` with `max-height` transfers the ratio back into the WIDTH,
@@ -1237,27 +1263,6 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 
 /* ==== UI scan prototypes (2026-09-18) ====================================
    Each block is one ranked proposal; see the before/after artifact. */
-
-/* P1 — verdict strip in the title card. SIGHI segments reuse .segments' look
-   at pill size; guna takes its tone triad; the trigger toggle is the same
-   .pillbtn behaviour in the same row so it stops floating between panels. */
-.verdicts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); }
-.vpill {
-  display: inline-flex; align-items: center; gap: 7px; min-height: 36px;
-  padding: 6px 12px; border-radius: 999px; font-size: 0.85rem; line-height: 1.2;
-  background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line); color: var(--ink);
-}
-.vpill strong { font-weight: 700; }
-.vpill__label { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
-.vpill__segs { display: flex; gap: 2px; }
-.vpill__segs i { width: 9px; height: 5px; border-radius: 999px; background: var(--line-strong); }
-.vpill__segs i.on { background: var(--sighi); }
-.vpill--guna { background: var(--t-tint); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 26%, transparent); color: var(--t-deep); }
-.vpill--guna .vpill__label { color: color-mix(in srgb, var(--t-deep) 78%, transparent); }
-.vpill--flag { color: var(--ink-2); font-weight: 600; }
-.vpill--btn { border: 0; cursor: pointer; font-weight: 700; background: var(--surface); box-shadow: inset 0 0 0 1px var(--line-strong); min-height: var(--tap); }
-.vpill--btn[aria-pressed="true"] { background: var(--ink); color: var(--bg); box-shadow: none; }
-.flagline--inline { margin-left: 8px; vertical-align: middle; font-size: 0.7rem; padding: 3px 9px; }
 
 /* P6 — tag indexes as rows: the glyph sits in a tinted tile (§6.5), the count
    reads as a count, and seven tags fit a phone screen instead of three. */

@@ -138,16 +138,6 @@ export function conflictBanner(food) {
     </div>`;
 }
 
-export function flags(food) {
-  const out = [];
-  if (food.contested) {
-    const which = SYSTEMS.filter(s => food.thermal[s].confidence === "contested").map(s => SYSTEM_LABELS[s]);
-    out.push(`<span class="flagline" title="References genuinely disagree, or classical documentation is thin">? ${esc(joinNames(which))} contested</span>`);
-  }
-  if (food.nutrition.estimate) out.push(`<span class="flagline">≈ Nutrition estimated</span>`);
-  return out.length ? `<div class="row" style="gap:7px">${out.join("")}</div>` : "";
-}
-
 /**
  * Glyph tile carrying the painted thumb, with the emoji left in the DOM
  * underneath it. A missing thumb removes its own <img> and the tinted emoji
