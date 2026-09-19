@@ -138,16 +138,6 @@ export function conflictBanner(food) {
     </div>`;
 }
 
-export function flags(food) {
-  const out = [];
-  if (food.contested) {
-    const which = SYSTEMS.filter(s => food.thermal[s].confidence === "contested").map(s => SYSTEM_LABELS[s]);
-    out.push(`<span class="flagline" title="References genuinely disagree, or classical documentation is thin">? ${esc(joinNames(which))} contested</span>`);
-  }
-  if (food.nutrition.estimate) out.push(`<span class="flagline">≈ Nutrition estimated</span>`);
-  return out.length ? `<div class="row" style="gap:7px">${out.join("")}</div>` : "";
-}
-
 /**
  * Glyph tile carrying the painted thumb, with the emoji left in the DOM
  * underneath it. A missing thumb removes its own <img> and the tinted emoji
@@ -339,7 +329,7 @@ const ring = (value, max, label, unit) => {
   const pct = Math.max(0, Math.min(1, value / max));
   return `
     <div class="ring">
-      <svg viewBox="0 0 62 62" role="img" aria-label="${esc(label)} ${value}${unit} per 100 g">
+      <svg viewBox="0 0 62 62" role="img" aria-label="${esc(label)} ${value}${unit} of ${max}${unit}">
         <circle class="ring__track" cx="31" cy="31" r="${R}"></circle>
         <circle class="ring__fill" cx="31" cy="31" r="${R}"
           stroke-dasharray="${(pct * CIRC).toFixed(1)} ${CIRC.toFixed(1)}"></circle>
@@ -376,6 +366,15 @@ function macroShape({ kcal, protein, carbs, fat }) {
   return "carbohydrate-led";
 }
 
+/**
+ * Each arc is the value against a fixed ceiling, not against the other rings
+ * and not against a daily allowance — which nothing on screen said, so a
+ * three-quarter ring looked like a verdict. The ceilings are stated once under
+ * the rings, from MACROS so the sentence cannot drift from the arcs, and each
+ * ring's own label reads "8g of 30g" for the same reason.
+ */
+const ringKey = MACROS.map(m => `${m.max}${m.unit} ${m.label.toLowerCase()}`).join(", ").replace(/, ([^,]*)$/, " or $1");
+
 export const macroRings = food => `
   <div class="rings">
     ${MACROS.map(m => ring(food.nutrition[m.key], m.max, m.label, m.unit)).join("")}
@@ -384,6 +383,7 @@ export const macroRings = food => `
       <span class="ring__label">Profile</span>
     </div>
   </div>
+  <p class="tiny muted rings__key">A full ring is ${ringKey}.</p>
   <p class="rings__note">${esc(food.nutrition.highlight)}</p>`;
 
 export const mechLabel = tag => MECHS[tag]?.label ?? tag;

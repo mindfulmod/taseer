@@ -10,7 +10,7 @@ import {
 } from "./data.js";
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
-  art, artGlyph, chip, commonnessLabel, conflictBanner, esc, flags, macroRings, mechLabel,
+  art, artGlyph, chip, commonnessLabel, conflictBanner, esc, macroRings, mechLabel,
   miniTile, pagedTileList, prepFacts, prepTile, provenance, sighiBadge, sighiText, tabAttrs, thermalScale, tileList,
 } from "./components.js";
 
@@ -316,14 +316,27 @@ export function foodView(id) {
           ${thermalScale(food)}
           ${food.conflict ? "" : `<p class="spread"><strong>All three traditions agree.</strong> The readings line up across the scale.</p>`}
         </div>
+
+        <!-- The spec's locked hierarchy puts the histamine badge beside the
+             thermal badges at the top of the card; it had drifted to the
+             fourth panel down. This strip restates the SIGHI verdict (and
+             guna, when present) at glance size, and the full panels below are
+             unchanged. The trigger toggle lives here too, since it is the
+             reader's answer to these verdicts, rather than floating alone
+             between two panels. -->
+        <div class="verdicts">
+          <span class="vpill vpill--sighi" style="--sighi:var(--sighi-${food.histamine.sighi})">
+            <span class="vpill__segs">${[0, 1, 2, 3].map(i => `<i class="${i <= food.histamine.sighi ? "on" : ""}"></i>`).join("")}</span>
+            <span class="vpill__label">Histamine</span>
+            <strong>${food.histamine.sighi} · ${sighiText(food.histamine.sighi)}</strong>
+          </span>
+          ${food.guna ? `<span class="vpill vpill--guna t-${GUNAS[food.guna.verdict].tone}"><span class="vpill__label">Guna</span><strong>${esc(GUNAS[food.guna.verdict].label)}</strong></span>` : ""}
+          ${food.contested ? `<span class="vpill vpill--flag" title="References genuinely disagree, or classical documentation is thin">? Contested</span>` : ""}
+          <button class="vpill vpill--btn" data-act="trigger" data-id="${food.id}" aria-pressed="${isTrig}">⚠ ${isTrig ? "One of my triggers" : "Mark as trigger"}</button>
+        </div>
       </div>
 
       ${conflictBanner(food)}
-      ${flags(food)}
-
-      <div class="card__actions">
-        <button class="pillbtn" data-act="trigger" data-id="${food.id}" aria-pressed="${isTrig}">⚠ ${isTrig ? "One of my triggers" : "Mark as trigger"}</button>
-      </div>
 
       ${
         food.guna
@@ -346,7 +359,7 @@ export function foodView(id) {
         food.effects?.length
           ? `<div class="panel">
                <h3 role="heading" aria-level="2">Documented effects</h3>
-               <p class="tiny muted">Traditionally or anecdotally reported for this food specifically — individual response varies. Open one for the full note, including any dose or safety caveat.</p>
+               <p class="tiny muted">Reported for this food specifically; response varies. Open one for its note and caveats.</p>
                ${food.effects.map(e => `
                  <details class="expander" style="margin-top:14px">
                    <summary>
@@ -379,7 +392,7 @@ export function foodView(id) {
       }
 
       <div class="panel t-${food.heatClass}">
-        <h3 role="heading" aria-level="2">Per 100 ${food.category === "drink" ? "ml" : "g"}</h3>
+        <h3 role="heading" aria-level="2">Per 100 ${food.category === "drink" ? "ml" : "g"}${food.nutrition.estimate ? ` <span class="flagline flagline--inline">≈ estimated</span>` : ""}</h3>
         ${macroRings(food)}
       </div>
 
@@ -400,8 +413,8 @@ export function foodView(id) {
         usedIn.length
           ? `<div class="panel">
                <h3 role="heading" aria-level="2">Used in</h3>
-               <div class="tiles" style="margin-top:10px">${usedIn.slice(0, 18).map(prepTile).join("")}</div>
-               ${usedIn.length > 18 ? `<p class="tiny muted" style="margin-top:10px">…and ${usedIn.length - 18} more.</p>` : ""}
+               <div class="tiles" style="margin-top:10px">${usedIn.slice(0, 4).map(prepTile).join("")}</div>
+               ${usedIn.length > 4 ? `<details class="expander" style="margin-top:12px"><summary>${usedIn.length - 4} more</summary><div class="tiles" style="margin-top:10px">${usedIn.slice(4, 18).map(prepTile).join("")}</div></details>` : ""}
              </div>`
           : ""
       }
@@ -692,9 +705,11 @@ export function bloatingView() {
 // ---- Histamine mechanisms -------------------------------------------------
 
 /**
- * The index. Three cards, because the mechanisms are peers — none of them is
- * the "main" one, and ranking them by how many foods carry the tag would imply
- * a severity order that SIGHI does not claim.
+ * The index. One row per mechanism at one weight, because the mechanisms are
+ * peers — none of them is the "main" one, and ranking them by how many foods
+ * carry the tag would imply a severity order that SIGHI does not claim. Same
+ * row as the effects index: four tinted cards claimed a panel's emphasis each
+ * for what is a list of four tags, and pushed the last one off the fold.
  */
 export function mechanismIndexView() {
   return {
@@ -713,10 +728,11 @@ export function mechanismIndexView() {
       <div class="stack">
         ${MECHANISM_IDS.map(id => {
           const m = MECHANISMS[id];
-          return `<button class="listcard t-calm" data-nav="/mechanism/${id}">
-                    <span class="listcard__title">${m.glyph} ${esc(m.label)}</span>
-                    <span class="listcard__blurb">${esc(m.lede)}</span>
-                    <span class="listcard__count">${foodsWithMechanism(id).length} foods</span>
+          return `<button class="wayrow wayrow--tag t-calm" data-nav="/mechanism/${id}">
+                    <span class="glyph--sm">${m.glyph}</span>
+                    <span><span class="wayrow__label">${esc(m.label)}</span><span class="wayrow__sub">${esc(m.lede)}</span></span>
+                    <span class="wayrow__count">${foodsWithMechanism(id).length}</span>
+                    <span class="wayrow__go" aria-hidden="true">›</span>
                   </button>`;
         }).join("")}
       </div>
@@ -814,9 +830,11 @@ export function effectIndexView() {
       <div class="stack">
         ${EFFECT_IDS.map(id => {
           const e = EFFECTS[id] ?? { label: id, glyph: "•" };
-          return `<button class="listcard t-neutral" data-nav="/effect/${id}">
-                    <span class="listcard__title">${e.glyph} ${esc(e.label)}</span>
-                    <span class="listcard__count">${foodsWithEffect(id).length} foods</span>
+          return `<button class="wayrow wayrow--tag t-neutral" data-nav="/effect/${id}">
+                    <span class="glyph--sm">${e.glyph}</span>
+                    <span><span class="wayrow__label">${esc(e.label)}</span></span>
+                    <span class="wayrow__count">${foodsWithEffect(id).length}</span>
+                    <span class="wayrow__go" aria-hidden="true">›</span>
                   </button>`;
         }).join("")}
       </div>
@@ -1099,7 +1117,8 @@ function categoryBody(catId, pool, q, cuisine, sort) {
   const noun = (of ? pool.length : list.length) === 1 ? "food" : "foods";
   const how = q.trim() ? "best match first" : SORTS[sort in SORTS ? sort : "staples"].label.toLowerCase();
   return `
-    <p class="tiny muted" style="margin:0 2px 10px">${list.length}${of} ${noun}, ${how}.</p>
+    <p class="tiny muted countline" style="margin:0 2px 10px"><span>${list.length}${of} ${noun}, ${how}.</span>
+      <span class="dotkey" aria-hidden="true"><i></i><i></i><i></i> TCM · Ayurveda · Unani</span></p>
     ${q.trim() ? pagedTileList(list) : sortedList(list, sort)}`;
 }
 

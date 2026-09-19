@@ -78,6 +78,12 @@ No bundled font: offline-first beats cross-device identity.
 | Meta | 13 / 1.35 | 400 | ink-2 |
 | Eyebrow / band | 11 / 1.2 | 800 | uppercase, 0.09em, ink-3 |
 
+*Amended 2026-09-18:* these roles are the app's only type sizes. `app.css` declares
+them as `--fs-*` tokens on `:root` — plus `--fs-small` (14px), for the many places
+the design sits between body and meta, and `--fs-display-lg` (33.6px) for the
+desktop home h1 the viewport table below already scales up — and
+`scripts/check-type.mjs` fails the build on any size that is not one of them.
+
 Space scale 4px: gaps 8 / 12 / 16 / 24 / 32.
 Radius: glyph tile 15 · row 18 · panel 20 · hero 28 · pill 999. Touch target ≥44px.
 
@@ -109,7 +115,8 @@ desktop screen is a bug, not a responsive layout:
 - **Airy:** at 390×844, **6–7 list rows** visible. Row height 76px, gap 12px.
 - A row carries at most **two** information systems: name + meta line, plus one badge cluster.
 - Full badge sets (3 traditions + histamine) appear **only on the food card**, never in lists.
-- Category and cuisine tiles are **neutral** — emoji + label + count, no identity hue.
+- Category and cuisine tiles are **neutral** — label + count with the category's
+  painted cut-out (§8, amended), no identity hue.
 - Macro rings: 4 rings max plus one text highlight; all rings take the food's accent,
   differentiated by label, never by hue.
 - Horizontal rails (recently viewed) use 82px round-cornered mini tiles, ≥3 visible.
@@ -155,7 +162,7 @@ per-food prompt manifest: `specs/04-image-spec.md`.
 - **Style:** soft painted illustration — gouache/watercolour edges, matte, no photo
   texture, no outlines. Never photoreal, never 3D-render, never flat-vector.
 - **Placement:** food-card hero **only**. Lists, rails, category tiles and
-  ingredient chips keep emoji glyph tiles.
+  ingredient chips keep emoji glyph tiles. *(Amended 2026-09-18 — see below.)*
 - **Backdrop is neutral warm sand `#F1E7D6` for all 250** — temperature tint is
   applied by the app in CSS, never baked into the asset.
 - **Frame:** 3:2 landscape, 1280×854 source → shipped 640×427 WebP q72, ≤45 KB.
@@ -172,12 +179,24 @@ per-food prompt manifest: `specs/04-image-spec.md`.
   backgrounds, no plating for raw ingredients, no floating subjects without a
   contact shadow.
 
+### Amended 2026-09-18 — painted art at glyph size
+
+The build ships the same painted set cropped to glyph size (`assets/food-thumbs`)
+and the category and state cut-outs on transparency (`assets/ui/`), so painted art
+is allowed in list rows, rails, chips and category tiles as well as the hero — one
+set, one recipe, at glyph-tile size, never a second style. **The emoji glyph tile
+stays mandatory:** the thumb is layered over it and removes its own `<img>` when
+the crop is missing, so the tinted emoji tile is what shows. Emoji therefore remain
+the glyph everywhere (§6.9); the painting is only ever laid on top of one.
+
 ## 9. Acceptance checklist (reviews grade against THIS)
 
 - [ ] `node scripts/check-palette.mjs` clean — only §2 hexes in source
+- [ ] `node scripts/check-type.mjs` clean — only §3 role tokens as type sizes
 - [ ] Screenshotted at 390×844 in **both** light and dark
 - [ ] 6–7 list rows visible per phone screen; rows 76px with 12px gaps
-- [ ] Every food glyph in a tinted tile; row fill neutral, row border tinted
+- [ ] Every food glyph in a tinted tile, with the painted thumb layered over it
+      where one exists (§8, amended); row fill neutral, row border tinted
 - [ ] No temperature hue on any button, tab, link, back arrow or focus ring
 - [ ] Remedy screen tone reads within a second and matches the *remedy*
 - [ ] Conflict: quiet mark in lists, labelled banner on the card
