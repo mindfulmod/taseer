@@ -1,5 +1,53 @@
 # Taseer dataset — 2,000 foods (batches 1–5)
 
+## Verification pass, 2026-09-06 — the 111 `unreviewed` histamine entries
+
+> `sourceState()` in `assets/js/data.js` marks a food `unreviewed` when it
+> disagrees with the SIGHI `ref` reading captured for it and nobody has said
+> why — 111 entries at the start of this pass (109 after two dairy fixes had
+> already landed), spanning every category with histamine `ref` data: dairy,
+> drinks, fruits, grains, proteins, spices, vegetables. Worked through all of
+> them against the recorded `ref` value, marks and mechanism.
+>
+> **94 were simply wrong and are now corrected** to match SIGHI's sighi
+> score and/or marks (`histamine.tags`) — old→new value pairs are in the
+> commit diff. **13 are genuine reasoned disagreements**, each carrying a new
+> `histamine.why`: a scope mismatch where SIGHI lumps several product forms
+> into one row (`ghee`, `coconut`, `coconut-water`, `spirits`), or a
+> well-established mechanism SIGHI's row doesn't letter-mark but we're
+> confident is real (`soy-sauce`, `spinach`, `smoked-salmon`, `peanuts`,
+> `kimchi`, `gelatin`, `olives`, `hot-chocolate`, `kelp`). **2 are left
+> `unreviewed` on purpose** — `elderberry` (raw fruit vs. the concentrated
+> syrup it's actually eaten as, and syrup-specific data isn't available to
+> ground a number) and `seitan` (SIGHI marks it H at a matching score, but
+> the mechanism for a plant-gluten product isn't clear enough to add the tag).
+>
+> **Two systematic patterns, beyond the individual fixes:**
+> - **Fresh/short-processed dairy was still rated a tier too high**, the
+>   same bias the 2026-08-15 cheese pass found and 03ea91f partly continued:
+>   `cream`, `kefir`, `goat-milk`, `milk-powder` and `tvorog` all dropped a
+>   level. Dried fruit carried the mirror-image version of the same mistake —
+>   drying halts the bacterial activity that builds histamine rather than
+>   concentrating it, so `raisins`, `goji-berry` and several others came back
+>   down to SIGHI's 0.
+> - **"Sour" had quietly become a stand-in for "liberator."** `sour-cherry`,
+>   `gooseberry`, `redcurrant`, `rhubarb` and `lingonberry` all carried a
+>   `liberator` tag SIGHI's own marks don't have, on no stronger basis than
+>   their notes citing sourness. All five lost the tag; `sumac`'s note made
+>   the same move and was corrected too.
+>
+> **Live consequence, matching the one the histamine-provenance section
+> already names for cumin:** correcting `cumin` (0→2, liberator, per the
+> `why` SIGHI cumin was cited for) and `chickpeas` (1→2) broke the
+> dish/ingredient SIGHI check and the reactive-preparation guard on five
+> downstream entries — `aloo-gobi`, `khichdi`, `jeera-rice`, `sattu-drink`
+> (dish SIGHI raised a level to sit under their now-higher ingredient) and
+> two reactive preparations, `prep-khichdi` and `prep-carrot-pumpkin-soup`
+> (cumin dropped from the ingredient list and steps; both were seasoning,
+> not the dish's identity, unlike `jeera-rice`). Exactly the scenario the
+> histamine-provenance section warned about: **the guard is only as good as
+> the data it guards.**
+
 ## Verification pass, 2026-08-15 — nuts, seeds and cheese
 
 > Checked ~26 entries against SIGHI's published compatibility list and
