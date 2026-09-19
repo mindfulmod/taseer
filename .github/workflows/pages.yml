@@ -38,6 +38,8 @@ jobs:
 
       - name: Enforce the art palette
         run: node scripts/check-palette.mjs
+      - name: Enforce the type scale
+        run: node scripts/check-type.mjs
       - name: Check illustration filenames
         run: node scripts/check-images.mjs
 

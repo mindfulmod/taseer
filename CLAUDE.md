@@ -11,10 +11,11 @@ node scripts/validate-data.mjs   # after ANY data/foods edit
 node scripts/build-data.mjs      # regenerates assets/data/foods.js
 node scripts/stamp-sw.mjs        # after ANY shell change (html/css/js/data)
 node scripts/check-palette.mjs   # enforces the ART.md palette
+node scripts/check-type.mjs      # enforces the ART.md §3 type scale (--fs-* tokens only)
 node scripts/check-a11y.mjs      # regression-checks known screen-reader bug shapes
 ```
 
-CI runs all four and fails if any generated file is stale.
+CI runs all five and fails if any generated file is stale.
 
 ## Visual work
 
@@ -22,7 +23,8 @@ All visual changes must comply with `ART.md`. Run `/art-review` before merging v
 work. **No agent may claim visual quality without a screenshot** — in both light and dark.
 
 Adding a colour means amending `ART.md` §2 first; `check-palette.mjs` fails the build
-otherwise.
+otherwise. Type sizes work the same way: every `font-size` reads a `--fs-*` role token
+from `ART.md` §3, and a new size means amending §3 first or `check-type.mjs` fails.
 
 ## Data
 
