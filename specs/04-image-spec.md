@@ -1,13 +1,13 @@
 # Taseer — Food Image Spec
 
-**Locked 2026-08-02.** Governs the 250 food illustrations generated externally
+**Locked 2026-08-02.** Governs the 2,000 food illustrations generated externally
 (Codex) and dropped into `assets/food-images/`. Art rules live in `ART.md` §8;
 this file is the production manual.
 
 ## The one job
 
-250 images generated at different times, by a model with no memory of the other
-249, must look like **one commissioned set**. Everything below exists to remove
+2,000 images generated at different times, by a model with no memory of the other
+1,999, must look like **one commissioned set**. Everything below exists to remove
 per-image freedom. Style, camera, light, backdrop and framing are fixed; only the
 subject changes.
 
@@ -38,15 +38,22 @@ in one image.
 - One file per food: `assets/food-images/<id>.webp`, where `<id>` is the food's
   `id` in `data/foods/*.json` — exactly, lowercase, hyphenated. `bitter-gourd.webp`,
   `masala-chai.webp`.
-- A missing file is fine and always will be. The app detects images at runtime and
-  falls back silently to the emoji glyph tile — **never ship a placeholder image.**
-- Images are lazily cached, never precached. The app works fully offline with zero
-  images present.
+- Every food must ship a hero and a 320 × 320 WebP thumbnail in `assets/food-thumbs/`.
+  CI decodes both sets and checks coverage, dimensions and file budgets (45 KiB hero,
+  24 KiB thumbnail). Existing heroes may be 640 × 426 or 640 × 427.
+- Loading reserves a softly tinted area with no emoji. A genuine load error shows
+  a decorative emoji fallback; a previously loaded thumbnail can bridge hero loading.
+  The app remains usable offline when an illustration has not been cached.
+- Visible thumbnails are eager; later rows are lazy. The active hero is eager with
+  high fetch priority. No whole-library preload or blocking image splash screen.
+- Viewed food art uses a bounded cache of 256 files, retained across shell releases.
+  `node scripts/build-artwork-manifest.mjs` versions changed image bytes separately.
+  Run it before `node scripts/stamp-sw.mjs` after any artwork change.
 
 ## Workflow
 
 ```bash
-node scripts/build-image-prompts.mjs   # regenerates image-prompts.md (250 prompts)
+node scripts/build-image-prompts.mjs   # regenerates image-prompts.md (2,000 prompts)
 # generate PNGs externally, then:
 node scripts/optimise-images.mjs       # PNG -> 640x427 WebP q72 into assets/food-images/
 ```
@@ -77,3 +84,7 @@ description from the dataset, which keeps dishes recognisable (biryani gets
 - [ ] Subject recognisable at 320px wide (the real display size on a phone)
 - [ ] File ≤45 KB after conversion
 - [ ] Filename matches a real food `id` (`node scripts/check-images.mjs`)
+
+## Preparation artwork
+
+`data/preparation-art.json` is the explicit 44-entry mapping. Food-art reuse must show the finished dish and appropriate ingredients. New art lives in `assets/prep-images/` (640 × 427 WebP, ≤45 KiB) and `assets/prep-thumbs/` (320 × 320 WebP, ≤24 KiB). Keep the source prompt and reviewed status in the mapping. `build-data.mjs` bundles only runtime paths; the generated content-version manifest includes both preparation folders. The image check fails for missing mappings, unreviewed art, missing or corrupt files, bad dimensions or exceeded budgets.

@@ -6,12 +6,12 @@ import {
   effectsCount, everydayPicks, foodsWithEffect, foodsWithGuna, foodsWithMechanism, getEffectEntry, gunaCount,
   stimulantFamilies, getFood, getFoods, getList, getMechanism,
   getPreparation, heatClass, preparations, prepsForState, prepsUsing, remedyList, search,
-  sortFoods, spectrum, systemHeat,
+  sortFoods, spectrum, systemHeat, norm,
 } from "./data.js";
 import { favorites, misses, recent, triggers } from "./store.js";
 import {
   art, artGlyph, chip, commonnessLabel, conflictBanner, esc, macroRings, mechLabel,
-  miniTile, pagedTileList, prepFacts, prepTile, provenance, sighiBadge, sighiText, tabAttrs, thermalScale, tileList,
+  miniTile, PAGE_SIZE, pagedTileList, resetPagers, prepFacts, prepTile, prepCard, thermalLegend, provenance, sighiBadge, sighiText, tabAttrs, thermalScale, tileList,
 } from "./components.js";
 
 // data-back, not data-nav: every "← Parent" link on a detail-ish screen is a
@@ -90,6 +90,21 @@ function homeCategoryPicks(n = 4) {
   return CATEGORIES.filter(c => picks.includes(c.id));
 }
 
+// Decorative artwork accompanies a complete text label, so the destination
+// remains clear when images are unavailable. Each card is one native button.
+function homeStateCard({id, tone, title, description, href, compact}) {
+  return `<button class="state${compact ? ' state--compact' : ''} t-${tone}" data-nav="${href}">
+    <span class="state__visual" aria-hidden="true">
+      <img class="state__art" src="assets/ui/states/${id}.webp" width="400" height="400" alt="" decoding="async" fetchpriority="high">
+    </span>
+    <span class="state__copy">
+      <span class="state__label">${esc(title)}</span>
+      <span class="state__blurb">${esc(description)}</span>
+      <span class="state__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span>
+    </span>
+  </button>`;
+}
+
 export function homeView() {
   const recents = getFoods(recent.all()).slice(0, 12);
   return {
@@ -110,21 +125,12 @@ export function homeView() {
            under it says what the list holds. A card that only makes sense once
            you have read the heading above it is a card that failed. -->
       <div class="states">
-        ${Object.entries(STATES)
-          .map(
-            ([id, s]) => `
-            <button class="state t-${s.tone}" data-nav="/state/${id}">
-              <img class="state__icon" src="assets/ui/icons/state-${id}.png" alt="" aria-hidden="true">
-              <span class="state__label">${esc(s.ask)}</span>
-              <span class="state__blurb">${esc(s.blurb)}</span>
-            </button>`,
-          )
-          .join("")}
-        <button class="state t-neutral" data-nav="/find">
-          <img class="state__icon" src="assets/ui/icons/state-balanced.png" alt="" aria-hidden="true">
-          <span class="state__label">Just browsing?</span>
-          <span class="state__blurb">All ${META.count} foods by category</span>
-        </button>
+        ${Object.entries(STATES).map(([id, s]) => homeStateCard({
+          id, tone: s.tone, title: s.ask, description: s.blurb,
+          href: `/state/${id}`, compact: id === 'reactive',
+        })).join('')}
+        ${homeStateCard({id: 'browse', tone: 'neutral', title: 'Just browsing?',
+          description: `All ${META.count} foods by category`, href: '/find', compact: true})}
       </div>
 
       <!-- focus=1: tapping a search affordance should land in the box. Tapping
@@ -160,7 +166,11 @@ function resultsHtml(q) {
   const hits = search(q);
   if (hits.length) {
     return `<p class="eyebrow" style="margin-bottom:10px">${hits.length} result${hits.length === 1 ? "" : "s"}</p>
-      ${tileList(hits)}`;
+      ${thermalLegend()}
+      ${tileList(hits, { metaFn: food => {
+        const alias = food.aliases.find(a => norm(a).includes(norm(q)));
+        return alias && !norm(food.name).includes(norm(q)) ? `Also called ${alias}` : food.description;
+      } })}`;
   }
   const near = fuzzySuggest(q);
   return `
@@ -226,7 +236,7 @@ export function findView({ q = "", focus = "" } = {}) {
       input.addEventListener("input", () => {
         const value = input.value;
         body.innerHTML = findBody(value);
-        history.replaceState(null, "", value ? `#/find?q=${encodeURIComponent(value)}` : "#/find");
+        history.replaceState(history.state, "", value ? `#/find?q=${encodeURIComponent(value)}` : "#/find");
         const trimmed = value.trim();
         status.textContent = trimmed ? `${search(value).length} results for ${trimmed}` : "";
         clearTimeout(missTimer);
@@ -314,7 +324,7 @@ export function foodView(id) {
           <h3 role="heading" aria-level="2">Thermal nature</h3>
           <p class="tiny muted">Where each tradition places it</p>
           ${thermalScale(food)}
-          ${food.conflict ? "" : `<p class="spread"><strong>All three traditions agree.</strong> The readings line up across the scale.</p>`}
+          ${food.conflict ? conflictBanner(food) : `<p class="spread">${['tcm','ayurveda','unani'].every(sys => systemHeat(food, sys) < 0) ? 'All three traditions lean cooling.' : ['tcm','ayurveda','unani'].every(sys => systemHeat(food, sys) > 0) ? 'All three traditions lean warming.' : 'Readings vary in strength; each tradition is shown separately.'}</p>`}
         </div>
 
         <!-- The spec's locked hierarchy puts the histamine badge beside the
@@ -334,9 +344,15 @@ export function foodView(id) {
           ${food.contested ? `<span class="vpill vpill--flag" title="References genuinely disagree, or classical documentation is thin">? Contested</span>` : ""}
           <button class="vpill vpill--btn" data-act="trigger" data-id="${food.id}" aria-pressed="${isTrig}">⚠ ${isTrig ? "One of my triggers" : "Mark as trigger"}</button>
         </div>
+        <button class="source-note" data-act="source-detail">
+          ${food.sourceState === "verified" ? "Matches the SIGHI reference" :
+            food.sourceState === "derived" ? "Estimated reading · not directly listed by SIGHI" :
+            food.sourceState === "reasoned" ? "Differs from SIGHI · explanation available" :
+            "Differs from SIGHI · not yet reviewed"}
+          <span aria-hidden="true">↓</span>
+        </button>
       </div>
 
-      ${conflictBanner(food)}
 
       ${
         food.guna
@@ -374,7 +390,7 @@ export function foodView(id) {
           : ""
       }
 
-      <div class="panel">${sighiBadge(food)}${provenance(food)}</div>
+      <div class="panel" id="source-detail" tabindex="-1">${sighiBadge(food)}${provenance(food)}</div>
 
       ${
         food.stimulant
@@ -477,6 +493,11 @@ function browseBody() {
   ];
   return `
     <section class="section">
+      <div class="section__head"><h2>By category</h2></div>
+      ${categoryGrid()}
+    </section>
+    <section class="section">
+      <div class="section__head"><h2>Explore more</h2></div>
       <div class="stack stack--ways">
         ${ways
           .map(
@@ -488,10 +509,6 @@ function browseBody() {
           )
           .join("")}
       </div>
-    </section>
-    <section class="section">
-      <div class="section__head"><h2>By category</h2></div>
-      ${categoryGrid()}
     </section>`;
 }
 
@@ -803,7 +820,7 @@ export function mechanismView(id, { sort = "staples" } = {}) {
       sel.addEventListener("change", () => {
         root.querySelector("#mechbody").innerHTML =
           sortedList(sortFoods(all, sel.value), sel.value, { metaFn: SIGHI_META, meter: "histamine" });
-        history.replaceState(null, "", `#/mechanism/${id}?sort=${sel.value}`);
+        history.replaceState(history.state, "", `#/mechanism/${id}?sort=${sel.value}`);
       });
     },
   };
@@ -892,7 +909,7 @@ export function effectView(id, { sort = "staples" } = {}) {
       sel.addEventListener("change", () => {
         root.querySelector("#effectbody").innerHTML =
           sortedList(sortFoods(all, sel.value), sel.value, { metaFn });
-        history.replaceState(null, "", `#/effect/${id}?sort=${sel.value}`);
+        history.replaceState(history.state, "", `#/effect/${id}?sort=${sel.value}`);
       });
     },
   };
@@ -916,23 +933,25 @@ export function listsView() {
         }).join("")}
       </div>
       <section class="section">
-        <div class="section__head"><h2>Simple preparations</h2><span class="tiny muted">${preparations.length}</span></div>
-        <p class="tiny muted" style="margin-bottom:12px">Two to four steps, not recipes. Each one links to the foods in it.</p>
-        <!-- Grouped rather than one flat grid: at ten a flat list was fine, at
-             forty-four it is a wall, and the only division a reader actually
-             wants here is the one the whole app is organised by. -->
-        ${Object.keys(STATES)
-          .map(id => {
-            const list = prepsForState(id);
-            return `
-              <div class="section__head" style="margin-top:20px">
-                <h3 class="band">${esc(STATES[id].effect)}</h3>
-                <span class="tiny muted">${list.length}</span>
-              </div>
-              <div class="tiles">${list.map(p => prepTile(p, { effect: false })).join("")}</div>`;
-          })
-          .join("")}
+        <div class="section__head"><h2>Something to make</h2><button class="linkish" data-nav="/preparations">All 44 →</button></div>
+        <div class="prep-grid">${[preparations[0], preparations[18], preparations[31]].map(prepCard).join("")}</div>
       </section>`,
+  };
+}
+
+export function preparationsView({ state = "all" } = {}) {
+  if (!(state in STATES)) state = "all";
+  const items = state === "all" ? preparations : prepsForState(state);
+  return {
+    tone: STATES[state]?.tone,
+    html: `${backBar("Back", state === "all" ? "/lists" : `/state/${state}`)}
+      <section class="hero prep-library-head"><p class="eyebrow">The preparation library</p><h1>Something to make</h1>
+      <p>Simple drinks, bowls and plates. Find a little inspiration, then explore what goes in.</p></section>
+      <nav class="chiprow prep-filters" aria-label="Filter preparations">
+        ${[['all','All preparations'], ...Object.entries(STATES).map(([id,s]) => [id,s.effect])].map(([id,label]) => `<button class="pillbtn ${state === id ? 'on' : ''}" data-nav="/preparations${id === 'all' ? '' : `?state=${id}`}" aria-pressed="${state === id}">${esc(label)}</button>`).join('')}
+      </nav>
+      <div class="section__head"><h2>${state === 'all' ? 'Everyday inspiration' : esc(STATES[state].effect)}</h2><span class="tiny muted">${items.length} preparations</span></div>
+      <div class="prep-grid">${items.map(prepCard).join('')}</div>`
   };
 }
 
@@ -962,14 +981,16 @@ export function prepView(id) {
   return {
     tone,
     html: `
-      <div class="backbar-sticky">${backBar("Lists", "/lists")}</div>
-      <div class="card__hero t-${tone}">
-        <div class="card__glyph">${prep.emoji}</div>
+      <div class="backbar-sticky">${backBar("Back", `/preparations?state=${prep.state}`)}</div>
+      <div class="prep-hero t-${tone}">
+        ${art(prep, prep.art.hero, "prep-hero__art")}
         <div>
           <p class="eyebrow">${esc(STATES[prep.state].effect)}</p>
           <div class="card__title"><h1>${esc(prep.name)}</h1></div>
           <p class="card__desc">${esc(prep.blurb)}</p>
           <p class="prep__facts">${prepFacts(prep)}</p>
+          <div class="prep-timing" aria-label="Estimated preparation time">${[['prep','Prep'],['cook','Cook'],['rest','Rest / steep']].filter(([key]) => prep.timing[key]).map(([key,label]) => `<span><b>${prep.timing[key]} min</b>${label}</span>`).join('')}</div>
+          ${prep.timing.note ? `<p class="tiny muted">${esc(prep.timing.note)}</p>` : ''}
         </div>
       </div>
 
@@ -1041,6 +1062,7 @@ const CAT_SORTS = ["staples", "hottest", "coolest", "gentlest", "az"];
  * the order looks arbitrary.
  */
 function thermalBands(list, dir, opts) {
+  const budget = { remaining: PAGE_SIZE };
   const order = BANDS.map(b => b.id);
   if (dir === "desc") order.reverse();
   return order
@@ -1054,7 +1076,7 @@ function thermalBands(list, dir, opts) {
             <h2 class="band t-${id}">${esc(band.label)}</h2>
             <span class="tiny muted">${items.length}</span>
           </div>
-          ${pagedTileList(items, opts)}
+          ${pagedTileList(items, opts, budget)}
         </section>`;
     })
     .join("");
@@ -1068,6 +1090,7 @@ function thermalBands(list, dir, opts) {
  * new colour or a new taxonomy — just this one list finally using both.
  */
 function sighiBands(list, opts) {
+  const budget = { remaining: PAGE_SIZE };
   return [0, 1, 2, 3]
     .map(n => {
       const items = list.filter(f => f.histamine.sighi === n);
@@ -1078,7 +1101,7 @@ function sighiBands(list, opts) {
             <h2 class="band" style="color:var(--sighi-${n})">${esc(sighiText(n))}</h2>
             <span class="tiny muted">${items.length}</span>
           </div>
-          ${pagedTileList(items, opts)}
+          ${pagedTileList(items, opts, budget)}
         </section>`;
     })
     .join("");
@@ -1205,7 +1228,7 @@ export function categoryView(catId, { q = "", cuisine = "", sort = "staples" } =
         if (cuisine0) p.set("cuisine", cuisine0);
         if (sort0 !== "staples") p.set("sort", sort0);
         const qs = p.toString();
-        history.replaceState(null, "", `#/category/${catId}${qs ? `?${qs}` : ""}`);
+        history.replaceState(history.state, "", `#/category/${catId}${qs ? `?${qs}` : ""}`);
       };
 
       input.addEventListener("input", () => {
@@ -1546,6 +1569,7 @@ const GROUPS = [
 
 /** Renders the list in commonness bands, with favourites lifted into their own band. */
 function rankedGroups(list, favIds, opts) {
+  const budget = { remaining: PAGE_SIZE };
   const fav = new Set(favIds);
   const favs = list.filter(f => fav.has(f.id));
   const rest = list.filter(f => !fav.has(f.id));
@@ -1553,7 +1577,7 @@ function rankedGroups(list, favIds, opts) {
     items.length
       ? `<section class="section">
            <div class="section__head"><h2 class="band">${esc(label)}${extra}</h2><span class="tiny muted">${items.length}</span></div>
-           ${pagedTileList(items, opts)}
+           ${pagedTileList(items, opts, budget)}
          </section>`
       : "";
   return (
@@ -1574,15 +1598,12 @@ function rankedGroups(list, favIds, opts) {
 function makeSomething(stateId) {
   const preps = prepsForState(stateId);
   if (!preps.length) return "";
-  const shown = preps.slice(0, 4);
   return `
-    <section class="section">
-      <div class="section__head">
-        <h2>Or make something</h2>
-        ${preps.length > shown.length ? `<button class="linkish" data-nav="/lists">All ${preps.length}</button>` : ""}
-      </div>
-      <div class="tiles">${shown.map(prepTile).join("")}</div>
-    </section>`;
+    <details class="prep-preview expander">
+      <summary>Make something <span class="tiny muted">${preps.length} preparations</span></summary>
+      <div class="tiles">${preps.slice(0, 4).map(prepTile).join("")}</div>
+      <button class="linkish" data-nav="/preparations?state=${stateId}">See all ${preps.length} preparations →</button>
+    </details>`;
 }
 
 export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
@@ -1596,6 +1617,11 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
   // Reactive is the one remedy sorted BY histamine, so its rows read histamine —
   // both the sub-line and the meter. Everywhere else the meter is thermal.
   const tileOpts = stateId === "reactive" ? { metaFn: SIGHI_META, meter: "histamine" } : undefined;
+  const desktop = typeof matchMedia === "function" ? matchMedia("(min-width: 1080px)") : null;
+  const columns = (active, query, order) => [
+    ["eat", "Eat this", eat], ["avoid", "Avoid", avoid],
+  ].filter(([id]) => desktop?.matches || id === active)
+    .map(([id, label, items]) => remedyColumn(id, label, items, active, favIds, tileOpts, { q: query, sort: order })).join("");
 
   // Eat/Avoid is a toggle on how to read this same screen, not a trip to a new
   // one — same class of control as the search box and the sort <select> just
@@ -1626,7 +1652,7 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
     html: `
       ${backBar("Home", "/")}
       <section class="hero hero--cat t-${state.tone}">
-        <img class="hero__cut" src="assets/ui/icons/state-${stateId}.png" alt="" aria-hidden="true">
+        <img class="hero__cut hero__cut--state" src="assets/ui/states/${stateId}.webp" alt="" aria-hidden="true">
         <!-- "Feeling …", not a bare "Too hot": on its own that reads as a screen
              about hot foods, when it is the opposite. -->
         <h1>Feeling ${esc(state.label.toLowerCase())}</h1>
@@ -1670,8 +1696,7 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
       }
 
       <div class="remedy" id="remedybody">
-        ${remedyColumn("eat", "Eat this", eat, verdict, favIds, tileOpts, { q, sort })}
-        ${remedyColumn("avoid", "Avoid", avoid, verdict, favIds, tileOpts, { q, sort })}
+        ${columns(verdict, q, sort)}
       </div>
       ${liveStatus("state-status")}`,
 
@@ -1689,9 +1714,8 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
       // Same reasoning as the category screen: replaceState so a keystroke does
       // not re-render the screen out from under the input it came from.
       const sync = () => {
-        body.innerHTML =
-          remedyColumn("eat", "Eat this", eat, verdict0, favIds, tileOpts, { q: q0, sort: sort0 }) +
-          remedyColumn("avoid", "Avoid", avoid, verdict0, favIds, tileOpts, { q: q0, sort: sort0 });
+        resetPagers();
+        body.innerHTML = columns(verdict0, q0, sort0);
         // remedyColumn only puts a lone summary/empty-state line at the top of
         // the ACTIVE column when a search or sort is applied — the default,
         // unfiltered view is commonness-grouped sections with nothing that
@@ -1704,9 +1728,10 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
         if (q0.trim()) p.set("q", q0.trim());
         if (sort0) p.set("sort", sort0);
         const qs = p.toString();
-        history.replaceState(null, "", `#/state/${stateId}${qs ? `?${qs}` : ""}`);
+        history.replaceState(history.state, "", `#/state/${stateId}${qs ? `?${qs}` : ""}`);
       };
 
+      desktop?.addEventListener("change", sync);
       input.addEventListener("input", () => {
         q0 = input.value;
         sync();
@@ -1736,13 +1761,14 @@ export function stateView(stateId, { list = "eat", q = "", sort = "" } = {}) {
         makeSection.innerHTML = verdict0 === "eat" ? makeSomething(stateId) : "";
         sync();
       });
+      return () => desktop?.removeEventListener("change", sync);
     },
   };
 }
 
 /**
- * Both lists are always rendered. Phones show the one the segmented control
- * selects; desktop shows both side by side and hides the control (ART.md §5).
+ * Phones construct only the active list; desktop shows both with one row
+ * budget per column. The breakpoint listener mounts the other list as needed.
  */
 function remedyColumn(id, label, items, active, favIds, opts, { q = "", sort = "" } = {}) {
   const shown = q.trim() ? search(q, 500, items) : sort ? sortFoods(items, sort) : items;

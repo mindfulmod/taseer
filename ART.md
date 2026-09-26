@@ -163,7 +163,7 @@ per-food prompt manifest: `specs/04-image-spec.md`.
   texture, no outlines. Never photoreal, never 3D-render, never flat-vector.
 - **Placement:** food-card hero **only**. Lists, rails, category tiles and
   ingredient chips keep emoji glyph tiles. *(Amended 2026-09-18 — see below.)*
-- **Backdrop is neutral warm sand `#F1E7D6` for all 250** — temperature tint is
+- **Backdrop is neutral warm sand `#F1E7D6` for all 2,000** — temperature tint is
   applied by the app in CSS, never baked into the asset.
 - **Frame:** 3:2 landscape, 1280×854 source → shipped 640×427 WebP q72, ≤45 KB.
   Single subject centred, occupying 60–70% of frame, soft contact shadow.
@@ -203,3 +203,51 @@ the glyph everywhere (§6.9); the painting is only ever laid on top of one.
 - [ ] Trigger ring visible on every appearance, including ingredient chips
 - [ ] Body text ≥4.5:1 and meta ≥4:1 contrast in both modes
 - [ ] Gut test: home beside a Headspace shot, food card beside an Oura shot
+
+
+### Phase 1 amendment — September 25, 2026
+
+The 2,000-food library uses painted heroes and square thumbnails throughout.
+Loading states reserve the image area on the existing tinted surface, with no
+visible emoji until an actual error. Fallback emoji are decorative and hidden
+from assistive technology. A loaded thumbnail may remain while the hero loads.
+Images are optional at runtime/offline; required assets are verified at build time.
+This supersedes the earlier instruction to leave an emoji visible below every crop.
+The existing palette, type scale, painted style and temperature semantics remain.
+Find puts categories before secondary exploration. Remedy preparation previews
+use a compact disclosure so the first food recommendations fit on a phone.
+
+## Phase 2 refinement — 2026-09-25
+
+Keep the painted food family and locked palette. Preparation artwork depicts the finished dish; reuse a food illustration only where its ingredients and form match. Preparation library cards use landscape art, readable titles and total time. Detail pages pair a larger illustration with timing and ingredients. Food rows use 60px art on quieter surfaces, with thermal colour in marks and restrained borders; remedy warmth remains in headings, controls and the upper wash. Reduce desktop header dead space. Thermal legends must work by touch and keyboard, not colour or hover alone.
+
+## Prototype exploration — 2026-09-26
+
+The user requested five whole-app visual alternatives. `prototypes/` is a separate design lab, not a replacement for the production shell. It may trial system serif and monospace typography, larger display roles, alternative radii/density, and image-led or index-led layouts. It retains the locked palette, painted assets, separate traditional readings and source-status distinctions. Prototype saved items are isolated from real app preferences. Choosing a direction and production integration remain separate work.
+
+## Existing-app polish — 2026-09-26
+
+Refine the production design rather than adopting a prototype: preserve its
+screen hierarchy, painted marks, system type, warm palette and thermal semantics.
+Radii become 12px for glyphs and controls, 14px for rows, 18px for panels and
+24px for heroes. Pills remain for compact tags and filter chips; search, sort
+and segmented controls use rounded rectangles. Home state cards retain their
+thermal gradient but lose their raised bevel. Content cards use hairlines;
+elevation is reserved for navigation and the overlapping food summary. Dark
+surfaces use borders rather than broad shadows. Secondary labels use ink-2 for
+readability. Shared controls have 120ms press feedback, at least 44px targets,
+visible keyboard focus and the existing reduced-motion override.
+
+## Home remedy-card direction — 2026-09-26
+
+Replace the abstract home-state marks with a coherent painted ingredient family:
+cucumber, mint and water for cooling; ginger tea for warming; a pear and plain
+rice for the low-histamine entry; a market basket for browsing. These are
+illustrations of the destinations, not medical promises. Generate transparent
+cutouts in the existing soft gouache language, with no lettering or packaging.
+Home's thermal pair are prominent illustrated cards, with a clear text block and
+arrow affordance. Reactions and browsing are smaller companion cards. Retain the
+two-column phone rhythm, accessible button names and existing destinations.
+Thermal tint still describes the destination; reactions stays plum. New raster
+assets may be used for the matching remedy header. Keep the existing icons for
+unrelated navigation and the existing imagery elsewhere.

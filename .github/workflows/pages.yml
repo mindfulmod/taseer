@@ -22,7 +22,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      # No dependencies to install — everything here is stdlib Node.
+      # Pillow is only for decoding artwork during validation; the app has no runtime dependencies.
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image validator
+        run: python3 -m pip install Pillow==11.3.0
+      - name: Check artwork manifest is current
+        run: |
+          node scripts/build-artwork-manifest.mjs
+          git diff --exit-code assets/data/artwork-manifest.js
+      - name: Check UI and caching regressions
+        run: node --test tests/*.test.mjs
+      - name: Check accessibility patterns
+        run: node scripts/check-a11y.mjs
       - name: Validate dataset
         run: node scripts/validate-data.mjs
       - name: Check generated data is current
@@ -40,7 +53,7 @@ jobs:
         run: node scripts/check-palette.mjs
       - name: Enforce the type scale
         run: node scripts/check-type.mjs
-      - name: Check illustration filenames
+      - name: Validate required heroes and thumbnails
         run: node scripts/check-images.mjs
 
   deploy:

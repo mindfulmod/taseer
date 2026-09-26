@@ -26,6 +26,7 @@ const files = [...listMatch[1].matchAll(/"([^"]+)"/g)]
   .sort();
 
 const hash = createHash("sha256");
+hash.update(sw.replace(/const VERSION = "[^"]*";/, 'const VERSION = "GENERATED";'));
 for (const file of files) {
   hash.update(file);
   hash.update(readFileSync(join(root, file)));

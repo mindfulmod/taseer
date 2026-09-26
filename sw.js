@@ -1,9 +1,27 @@
 // Taseer service worker — offline-first shell, lazily-cached illustrations.
 // VERSION is generated: run `node scripts/stamp-sw.mjs` after any shell change.
-// Do not edit it by hand — it is a hash of SHELL_FILES, and CI fails if it's stale.
-const VERSION = "taseer-32ed12f7bf";
-const SHELL = `${VERSION}-shell`;
-const IMAGES = `${VERSION}-images`;
+// Do not edit it by hand — it hashes worker logic and SHELL_FILES, and CI fails if it's stale.
+const VERSION = "taseer-a65b26e657";
+importScripts("./assets/data/artwork-manifest.js");
+// Cache ownership includes the registration path; other GitHub Pages apps on
+// this origin keep their own caches. Artwork outlives a shell release.
+const SCOPE = self.registration.scope;
+const PREFIX = `taseer:${new URL(SCOPE).pathname}:`;
+const SHELL = `${PREFIX}${VERSION}-shell`;
+const IMAGES = `${PREFIX}art-v1`;
+const MAX_IMAGES = 256;
+const artworkPath = url => url.startsWith(SCOPE) ? url.slice(SCOPE.length).split("?")[0] : "";
+const artworkKey = path => new Request(new URL(`${path}?art=${ARTWORK_VERSIONS[path]}`, SCOPE));
+let imageWrites = Promise.resolve();
+function rememberArtwork(key, response) {
+  imageWrites = imageWrites.catch(() => {}).then(async () => {
+    const cache = await caches.open(IMAGES);
+    await cache.put(key, response);
+    const keys = await cache.keys();
+    await Promise.all(keys.slice(0, Math.max(0, keys.length - MAX_IMAGES)).map(k => cache.delete(k)));
+  });
+  return imageWrites.catch(() => {}); // Quota errors must not hide a successful network image.
+}
 
 // Everything the app needs to run with no network at all. Illustrations are
 // deliberately absent — the app must look finished without a single one.
@@ -33,6 +51,10 @@ const SHELL_FILES = [
   // through to the rest of the chrome. Small, fixed-count PNGs (~1 MB total)
   // — nothing like the per-food photography this bucket is otherwise
   // deliberately keeping out of the shell.
+  "./assets/ui/states/too-hot.webp",
+  "./assets/ui/states/too-cold.webp",
+  "./assets/ui/states/reactive.webp",
+  "./assets/ui/states/browse.webp",
   "./assets/ui/icons/state-too-hot.png",
   "./assets/ui/icons/state-too-cold.png",
   "./assets/ui/icons/state-reactive.png",
@@ -57,6 +79,8 @@ const SHELL_FILES = [
   "./assets/js/store.js",
   "./assets/js/views.js",
   "./assets/js/components.js",
+  "./assets/js/artwork.js",
+  "./assets/data/artwork-manifest.js",
 ];
 
 self.addEventListener("install", event => {
@@ -68,55 +92,66 @@ self.addEventListener("install", event => {
   );
 });
 
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches
-      .keys()
-      .then(keys => Promise.all(keys.filter(k => !k.startsWith(VERSION)).map(k => caches.delete(k))))
-      .then(() => self.clients.claim()),
-  );
-});
+async function activateCaches() {
+  const names = await caches.keys();
+  // One-time migration from earlier releases. Verify bytes against the new
+  // manifest before adopting a legacy URL, so changed paintings cannot go stale.
+  for (const name of names.filter(n => /^taseer-[a-f0-9]{10}-images$/.test(n))) {
+    const old = await caches.open(name);
+    const candidates = (await old.keys()).filter(r => ARTWORK_VERSIONS[artworkPath(r.url)]).slice(-MAX_IMAGES);
+    for (const request of candidates) {
+      const path = artworkPath(request.url);
+      const response = await old.match(request);
+      if (!response?.ok) continue;
+      const hash = await crypto.subtle.digest("SHA-256", await response.clone().arrayBuffer());
+      const digest = [...new Uint8Array(hash)].map(b => b.toString(16).padStart(2, "0")).join("").slice(0, 16);
+      if (digest === ARTWORK_VERSIONS[path]) await rememberArtwork(artworkKey(path), response);
+    }
+  }
+  const images = await caches.open(IMAGES);
+  for (const request of await images.keys()) {
+    const path = artworkPath(request.url);
+    if (!ARTWORK_VERSIONS[path] || request.url !== artworkKey(path).url) await images.delete(request);
+  }
+  for (const name of names) {
+    if (name.startsWith(PREFIX) && name !== SHELL && name !== IMAGES) await caches.delete(name);
+    // Legacy names did not include scope. Delete only if every entry belongs
+    // to this registration, rather than sweeping other apps on the origin.
+    if (/^taseer-[a-f0-9]{10}-(shell|images)$/.test(name)) {
+      const entries = await (await caches.open(name)).keys();
+      if (entries.length && entries.every(r => r.url.startsWith(SCOPE))) await caches.delete(name);
+    }
+  }
+  await self.clients.claim();
+}
+self.addEventListener("activate", event => event.waitUntil(activateCaches()));
 
 self.addEventListener("fetch", event => {
   const { request } = event;
   if (request.method !== "GET") return;
 
   const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return;
+  if (url.origin !== self.location.origin || !url.href.startsWith(SCOPE)) return;
 
-  // Artwork: cache-first, filled in as it is viewed — food heroes and thumbs,
-  // plus any /assets/ui/ file not already in the shell precache above (most
-  // now are; this branch still runs for all of them, but caches.match() finds
-  // those instantly with no network, same as anything else already cached).
-  // A miss that fails offline is fine for what's left here: food thumbs fall
-  // back to the emoji underneath them, and the rest is decoration. Food
-  // photography specifically is kept out of the shell bucket so a version
-  // bump does not re-download megabytes of it.
-  if (
-    url.pathname.includes("/food-images/") ||
-    url.pathname.includes("/food-thumbs/") ||
-    url.pathname.includes("/assets/ui/")
-  ) {
-    event.respondWith(
-      caches.match(request).then(
-        hit =>
-          hit ??
-          fetch(request).then(response => {
-            if (response.ok) {
-              const copy = response.clone();
-              caches.open(IMAGES).then(cache => cache.put(request, copy));
-            }
-            return response;
-          }),
-      ),
-    );
+  const path = artworkPath(url.href);
+  if (ARTWORK_VERSIONS[path]) {
+    const key = artworkKey(path);
+    event.respondWith((async () => {
+      const cache = await caches.open(IMAGES);
+      const hit = await cache.match(key);
+      if (hit) return hit;
+      // The content hash also bypasses an old HTTP cache after an artwork edit.
+      const response = await fetch(key);
+      if (response.ok) await rememberArtwork(key, response.clone());
+      return response;
+    })());
     return;
   }
 
   // Shell: cache-first with a background refresh, so an update lands on the next
   // launch rather than blocking this one.
   event.respondWith(
-    caches.match(request).then(hit => {
+    caches.open(SHELL).then(cache => cache.match(request)).then(hit => {
       const network = fetch(request)
         .then(response => {
           if (response.ok) {

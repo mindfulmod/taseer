@@ -2,22 +2,43 @@
 import { banner, favorites, misses, recent, theme, triggers } from "./store.js";
 import {
   bloatingView, caffeineView, categoryView, gunaView, compareView, effectIndexView, effectView, findView, foodView, homeView, listView, listsView,
-  mechanismIndexView, mechanismView, meView, prepView, spectrumView, stateView, notFound,
+  mechanismIndexView, mechanismView, meView, prepView, preparationsView, spectrumView, stateView, notFound,
 } from "./views.js";
-import { growPager, PAGE_SIZE, resetPagers } from "./components.js";
+import { growPager, PAGE_SIZE, resetPagers, pagerSnapshot, restorePagers, thermalLegend } from "./components.js";
+
+import { startArtwork } from "./artwork.js";
 
 const main = document.getElementById("main");
+startArtwork(main);
+let unmountView;
 
-// The router already decides scroll position itself — every route change,
-// forward or via the browser's own back/forward, calls scrollTo(0, 0) below.
-// Left on "auto" the browser's own back/forward scroll restoration fights
-// that: it restores the old pixel offset from before the navigation, racing
-// the app's reset and often winning it, landing back-navigation partway down
-// whatever now renders at that offset — a wrong food card, a truncated
-// paginated band's tail — never actually at the top of the screen being
-// returned to. One flag hands scroll position entirely to the app, which
-// already has explicit, deliberate control over it.
+// Each history entry owns its list position, expanded pages and keyboard focus.
+// Keep snapshots in memory, bounded to the most recent 40 entries.
 if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+const visits = new Map();
+let currentVisit = crypto.randomUUID();
+let visitDepth = 0;
+history.replaceState({ ...history.state, taseerVisit: currentVisit, taseerDepth: 0 }, '');
+let lastScroll = 0;
+addEventListener('scroll', () => { lastScroll = scrollY; }, { passive: true });
+function rememberVisit(focus = document.activeElement) {
+  visits.set(currentVisit, {
+    y: lastScroll,
+    pages: pagerSnapshot(),
+    open: [...main.querySelectorAll('details')].map((d,i) => d.open ? i : -1).filter(i => i >= 0),
+    focus: focus?.dataset?.nav ? `[data-nav="${CSS.escape(focus.dataset.nav)}"]` : focus?.id ? `#${CSS.escape(focus.id)}` : null,
+  });
+  while (visits.size > 40) visits.delete(visits.keys().next().value);
+}
+function restoreVisit(saved) {
+  if (!saved) return;
+  restorePagers(main, saved.pages);
+  const details = main.querySelectorAll('details');
+  for (const i of saved.open) if (details[i]) details[i].open = true;
+  if (saved.focus) main.querySelector(saved.focus)?.focus({ preventScroll: true });
+  scrollTo(0, saved.y);
+  lastScroll = saved.y;
+}
 
 // ---- Theme ---------------------------------------------------------------
 
@@ -102,6 +123,7 @@ function resolve({ parts, params }) {
     case "browse": return { view: findView({}), tab: "/find" };
     case "food": return { view: foodView(parts[1]), tab: null };
     case "category": return { view: categoryView(parts[1], params), tab: "/find" };
+    case "preparations": return { view: preparationsView(params), tab: "/find" };
     case "lists": return { view: listsView(), tab: "/find" };
     case "bloating": return { view: bloatingView(), tab: "/find" };
     case "caffeine": return { view: caffeineView(), tab: "/find" };
@@ -196,7 +218,7 @@ function restoreTabFocus(root) {
   }
 }
 
-function render() {
+function render(saved) {
   const route = parseHash();
   // Pager state (pagedTileList/growPager, components.js) is keyed to DOM nodes
   // this render is about to replace — nothing from the outgoing screen can be
@@ -204,10 +226,12 @@ function render() {
   // resolve(), not after: resolve() is what calls pagedTileList (building the
   // view's html string), so resetting afterward would wipe the very entries
   // that html's "Show more" buttons refer to.
+  unmountView?.();
   resetPagers();
   const { view, tab } = resolve(route);
   main.innerHTML = view.html;
-  view.mount?.(main);
+  unmountView = view.mount?.(main);
+  explainDots();
   watchHeroBack(main);
   restoreTabFocus(main);
   setTone(view.tone);
@@ -217,7 +241,8 @@ function render() {
     else item.removeAttribute("aria-current");
   }
 
-  if (location.hash !== lastHash) {
+  if (saved) restoreVisit(saved);
+  else if (location.hash !== lastHash) {
     lastHash = location.hash;
     window.scrollTo(0, 0);
   }
@@ -234,7 +259,8 @@ document.addEventListener("click", event => {
     // Opened cold (deep link, shared URL, fresh PWA launch) there is no such
     // entry, so fall back to the value in data-back — the food's own category,
     // which is the most useful place to land.
-    if (inAppNavs > 0) history.back();
+    rememberVisit(back);
+    if (visitDepth > 0) history.back();
     else location.hash = `#${back.dataset.back}`;
     return;
   }
@@ -261,6 +287,8 @@ document.addEventListener("click", event => {
     // tablist this tap belongs to so the render() this navigation triggers
     // can hand focus back to the newly-selected tab instead of <body>.
     if (nav.matches('[role="tab"]')) pendingTabFocus = nav.closest('[role="tablist"]')?.getAttribute("aria-label") ?? null;
+    nav.focus({ preventScroll: true });
+    rememberVisit(nav);
     location.hash = `#${nav.dataset.nav}`;
     return;
   }
@@ -323,13 +351,21 @@ document.addEventListener("click", event => {
     const resolved = document.documentElement.dataset.theme;
     theme.set(resolved === "dark" ? "light" : "dark");
     applyTheme();
+  } else if (action === "source-detail") {
+    const detail = document.getElementById("source-detail");
+    detail?.focus({ preventScroll: true });
+    detail?.scrollIntoView({ block: "start", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
   } else if (action === "page-more") {
     // Appends the next page onto the tiles container already on screen rather
     // than re-rendering the list, so growing a long list never re-does work
     // already visible — see pagedTileList/growPager (components.js).
     const grown = growPager(id);
     if (!grown) return;
-    document.getElementById(id)?.insertAdjacentHTML("beforeend", grown.html);
+    const list = document.getElementById(id);
+    const previous = list?.lastElementChild;
+    list?.insertAdjacentHTML("beforeend", grown.html);
+    // Keep keyboard users at the start of the newly revealed page.
+    (previous?.nextElementSibling ?? list?.firstElementChild)?.focus({ preventScroll: true });
     if (grown.remaining > 0) {
       act.textContent = `Show ${Math.min(PAGE_SIZE, grown.remaining)} more · ${grown.remaining} left`;
     } else {
@@ -364,13 +400,31 @@ document.addEventListener("keydown", event => {
   next.click();
 });
 
-// How many in-app navigations have happened since load — tells the back button
-// whether there is anything of ours to go back to.
-let inAppNavs = 0;
 addEventListener("hashchange", () => {
-  inAppNavs++;
-  render();
+  // On native Back/Forward the outgoing DOM still exists at this point.
+  rememberVisit();
+  const incoming = history.state?.taseerVisit;
+  const saved = incoming ? visits.get(incoming) : null;
+  if (incoming) {
+    currentVisit = incoming;
+    visitDepth = history.state.taseerDepth ?? 0;
+  } else {
+    currentVisit = crypto.randomUUID();
+    visitDepth++;
+    history.replaceState({ ...history.state, taseerVisit: currentVisit, taseerDepth: visitDepth }, '');
+  }
+  render(saved);
+  lastHash = location.hash;
 });
+
+// Lists explain their markers once, including after search/filter updates.
+function explainDots() {
+  if (main.querySelector('.thermal-key')) return;
+  const row = main.querySelector('.tile:not(.tile--prep) .tdots');
+  const list = row && (main.querySelector('#remedybody') ?? row.closest('.tiles'));
+  list?.insertAdjacentHTML('beforebegin', thermalLegend());
+}
+new MutationObserver(explainDots).observe(main, { childList: true, subtree: true });
 
 // ---- PWA -----------------------------------------------------------------
 
@@ -380,7 +434,7 @@ if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
   // executes, "load" has very often already fired, so a plain
   // addEventListener("load", …) here silently never calls register() at all.
   // Check readyState first and register immediately in that case.
-  const registerSW = () => navigator.serviceWorker.register("./sw.js").catch(() => {});
+  const registerSW = () => navigator.serviceWorker.register("./sw.js", { updateViaCache: "none" }).catch(() => {});
   if (document.readyState === "complete") registerSW();
   else addEventListener("load", registerSW);
 

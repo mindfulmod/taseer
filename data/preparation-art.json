@@ -1,0 +1,460 @@
+[
+  {
+    "id": "prep-cucumber-mint-water",
+    "source": "generated",
+    "assetId": "prep-cucumber-mint-water",
+    "hero": "assets/prep-images/prep-cucumber-mint-water.webp",
+    "thumb": "assets/prep-thumbs/prep-cucumber-mint-water.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Use case: stylized-concept. Create one finished food illustration for Taseer's preparation library, landscape 3:2. Subject: a simple clear glass tumbler of cucumber-mint infused water, containing several thin green cucumber slices, torn fresh mint leaves and a subtle lime wedge in clear water. Single finished drink only, no ingredients scattered around it. Style: delicate matte gouache and watercolor, softly painted realistic food shapes, visible gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view about 30 degrees above the drink, centered, subject occupies 65 percent of frame, safe margins for square thumbnail crop. Soft light from upper left with grounded contact shadow. Muted natural colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders. Save as a single illustration.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-sattu-cooler",
+    "source": "food",
+    "assetId": "sattu-drink",
+    "hero": "assets/food-images/sattu-drink.webp",
+    "thumb": "assets/food-thumbs/sattu-drink.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-barley-water",
+    "source": "food",
+    "assetId": "barley-water",
+    "hero": "assets/food-images/barley-water.webp",
+    "thumb": "assets/food-thumbs/barley-water.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-mint-lassi",
+    "source": "generated",
+    "assetId": "prep-mint-lassi",
+    "hero": "assets/prep-images/prep-mint-lassi.webp",
+    "thumb": "assets/prep-thumbs/prep-mint-lassi.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a clear short glass of white yogurt lassi with finely blended fresh green mint and toasted cumin speckles. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-doogh",
+    "source": "food",
+    "assetId": "doogh",
+    "hero": "assets/food-images/doogh.webp",
+    "thumb": "assets/food-thumbs/doogh.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-smashed-cucumber",
+    "source": "food",
+    "assetId": "smashed-cucumber",
+    "hero": "assets/food-images/smashed-cucumber.webp",
+    "thumb": "assets/food-thumbs/smashed-cucumber.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-mung-bean-soup",
+    "source": "generated",
+    "assetId": "prep-mung-bean-soup",
+    "hero": "assets/prep-images/prep-mung-bean-soup.webp",
+    "thumb": "assets/prep-thumbs/prep-mung-bean-soup.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Use case: stylized-concept. Asset: a finished preparation illustration for Taseer, landscape 3:2. Subject: a low simple terracotta bowl of Chinese sweet mung bean soup: whole small green mung beans with some split skins, loose slightly cloudy pale green broth, plainly cooked, no other garnishes. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-lauki-sabzi",
+    "source": "generated",
+    "assetId": "prep-lauki-sabzi",
+    "hero": "assets/prep-images/prep-lauki-sabzi.webp",
+    "thumb": "assets/prep-thumbs/prep-lauki-sabzi.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Use case: stylized-concept. Asset: a finished preparation illustration for Taseer, landscape 3:2. Subject: a low simple terracotta bowl of bottle gourd sabzi: translucent pale green cubed bottle gourd cooked with a little yellow turmeric, visible toasted cumin seeds and a slight ghee sheen, a dry tender vegetable side, no tomatoes or added garnishes. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-cold-bun-bowl",
+    "source": "generated",
+    "assetId": "prep-cold-bun-bowl",
+    "hero": "assets/prep-images/prep-cold-bun-bowl.webp",
+    "thumb": "assets/prep-thumbs/prep-cold-bun-bowl.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a low ceramic bowl of cold thin white rice noodles, cucumber matchsticks, lettuce strips, fresh mint leaves and a lime wedge; no meat. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-karela-fry",
+    "source": "generated",
+    "assetId": "prep-karela-fry",
+    "hero": "assets/prep-images/prep-karela-fry.webp",
+    "thumb": "assets/prep-thumbs/prep-karela-fry.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a terracotta bowl of thin browned bitter melon rings with scalloped edges, sauteed onion and a little turmeric; dry stir fry. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-cucumber-pomegranate-raita",
+    "source": "generated",
+    "assetId": "prep-cucumber-pomegranate-raita",
+    "hero": "assets/prep-images/prep-cucumber-pomegranate-raita.webp",
+    "thumb": "assets/prep-thumbs/prep-cucumber-pomegranate-raita.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of thick white yogurt with grated cucumber, ruby pomegranate seeds, chopped mint and toasted cumin. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-watermelon-mint",
+    "source": "generated",
+    "assetId": "prep-watermelon-mint",
+    "hero": "assets/prep-images/prep-watermelon-mint.webp",
+    "thumb": "assets/prep-thumbs/prep-watermelon-mint.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of red watermelon cubes with a few torn fresh mint leaves. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-napa-tofu-soup",
+    "source": "generated",
+    "assetId": "prep-napa-tofu-soup",
+    "hero": "assets/prep-images/prep-napa-tofu-soup.webp",
+    "thumb": "assets/prep-thumbs/prep-napa-tofu-soup.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of clear pale broth with soft napa cabbage leaves, small white tofu cubes, ginger slivers and sliced spring onion. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-rose-milk",
+    "source": "generated",
+    "assetId": "prep-rose-milk",
+    "hero": "assets/prep-images/prep-rose-milk.webp",
+    "thumb": "assets/prep-thumbs/prep-rose-milk.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a clear glass of plain white rose-scented milk; the milk is white, no pink dye, no petals, no garnish. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-ginger-honey-tea",
+    "source": "food",
+    "assetId": "ginger-tea",
+    "hero": "assets/food-images/ginger-tea.webp",
+    "thumb": "assets/food-thumbs/ginger-tea.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-golden-milk",
+    "source": "generated",
+    "assetId": "prep-golden-milk",
+    "hero": "assets/prep-images/prep-golden-milk.webp",
+    "thumb": "assets/prep-thumbs/prep-golden-milk.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a small ceramic cup of golden turmeric milk with tiny black pepper flecks. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-cinnamon-date-warmer",
+    "source": "generated",
+    "assetId": "prep-cinnamon-date-warmer",
+    "hero": "assets/prep-images/prep-cinnamon-date-warmer.webp",
+    "thumb": "assets/prep-thumbs/prep-cinnamon-date-warmer.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a small ceramic cup of smooth blended beige date milk with subtle cinnamon specks, no garnish. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-adrak-chai",
+    "source": "food",
+    "assetId": "masala-chai",
+    "hero": "assets/food-images/masala-chai.webp",
+    "thumb": "assets/food-thumbs/masala-chai.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-shorbat-adas",
+    "source": "food",
+    "assetId": "shorbat-adas",
+    "hero": "assets/food-images/shorbat-adas.webp",
+    "thumb": "assets/food-thumbs/shorbat-adas.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-ginger-chicken-broth",
+    "source": "generated",
+    "assetId": "prep-ginger-chicken-broth",
+    "hero": "assets/prep-images/prep-ginger-chicken-broth.webp",
+    "thumb": "assets/prep-thumbs/prep-ginger-chicken-broth.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of clear golden chicken broth with tender chicken pieces, ginger slivers and sliced spring onion. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-ginger-congee",
+    "source": "generated",
+    "assetId": "prep-ginger-congee",
+    "hero": "assets/prep-images/prep-ginger-congee.webp",
+    "thumb": "assets/prep-thumbs/prep-ginger-congee.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of soft creamy white rice congee topped with fine ginger matchsticks and sliced green spring onion, a trace of sesame oil. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-sarson-saag",
+    "source": "food",
+    "assetId": "saag",
+    "hero": "assets/food-images/saag.webp",
+    "thumb": "assets/food-thumbs/saag.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-methi-paratha",
+    "source": "generated",
+    "assetId": "prep-methi-paratha",
+    "hero": "assets/prep-images/prep-methi-paratha.webp",
+    "thumb": "assets/prep-thumbs/prep-methi-paratha.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: three rustic golden brown whole wheat flatbreads with chopped green fenugreek leaves cooked into the dough, stacked on a simple ceramic plate. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-lamb-yakhni",
+    "source": "generated",
+    "assetId": "prep-lamb-yakhni",
+    "hero": "assets/prep-images/prep-lamb-yakhni.webp",
+    "thumb": "assets/prep-thumbs/prep-lamb-yakhni.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of clear golden lamb broth with tender lamb pieces, ginger and a few whole peppercorns. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-sooji-halwa",
+    "source": "food",
+    "assetId": "sooji-halwa",
+    "hero": "assets/food-images/sooji-halwa.webp",
+    "thumb": "assets/food-thumbs/sooji-halwa.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-sonth-ladoo",
+    "source": "generated",
+    "assetId": "prep-sonth-ladoo",
+    "hero": "assets/prep-images/prep-sonth-ladoo.webp",
+    "thumb": "assets/prep-thumbs/prep-sonth-ladoo.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: five small round golden brown jaggery and dry ginger ladoo sweets with toasted sesame specks, on a simple ceramic plate. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-nutmeg-milk",
+    "source": "generated",
+    "assetId": "prep-nutmeg-milk",
+    "hero": "assets/prep-images/prep-nutmeg-milk.webp",
+    "thumb": "assets/prep-thumbs/prep-nutmeg-milk.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a small ceramic cup of warm ivory milk lightly flecked with grated brown nutmeg. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-goat-pepper-soup",
+    "source": "food",
+    "assetId": "pepper-soup",
+    "hero": "assets/food-images/pepper-soup.webp",
+    "thumb": "assets/food-thumbs/pepper-soup.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-rice-and-ghee",
+    "source": "generated",
+    "assetId": "prep-rice-and-ghee",
+    "hero": "assets/prep-images/prep-rice-and-ghee.webp",
+    "thumb": "assets/prep-thumbs/prep-rice-and-ghee.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of fluffy cooked white rice with a small golden pool of melted ghee on top, no garnish. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-fresh-oat-porridge",
+    "source": "generated",
+    "assetId": "prep-fresh-oat-porridge",
+    "hero": "assets/prep-images/prep-fresh-oat-porridge.webp",
+    "thumb": "assets/prep-thumbs/prep-fresh-oat-porridge.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of creamy cooked oat porridge with fine grated apple mixed through it, no berries or other garnish. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-coconut-chia-cooler",
+    "source": "generated",
+    "assetId": "prep-coconut-chia-cooler",
+    "hero": "assets/prep-images/prep-coconut-chia-cooler.webp",
+    "thumb": "assets/prep-thumbs/prep-coconut-chia-cooler.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a clear glass of translucent coconut water with swollen dark chia seeds suspended throughout, no coconut pieces or garnish. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-khichdi",
+    "source": "food",
+    "assetId": "khichdi",
+    "hero": "assets/food-images/khichdi.webp",
+    "thumb": "assets/food-thumbs/khichdi.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-steamed-white-fish",
+    "source": "generated",
+    "assetId": "prep-steamed-white-fish",
+    "hero": "assets/prep-images/prep-steamed-white-fish.webp",
+    "thumb": "assets/prep-thumbs/prep-steamed-white-fish.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a white steamed fish fillet on a simple ceramic plate, topped with ginger matchsticks and sliced spring onion, a trace of clear oil; no dark sauce, not a whole fish. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-chicken-congee",
+    "source": "generated",
+    "assetId": "prep-chicken-congee",
+    "hero": "assets/prep-images/prep-chicken-congee.webp",
+    "thumb": "assets/prep-thumbs/prep-chicken-congee.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of creamy white rice congee with small tender shredded chicken pieces, ginger and sliced spring onion. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-carrot-pumpkin-soup",
+    "source": "generated",
+    "assetId": "prep-carrot-pumpkin-soup",
+    "hero": "assets/prep-images/prep-carrot-pumpkin-soup.webp",
+    "thumb": "assets/prep-thumbs/prep-carrot-pumpkin-soup.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of smoothly blended orange carrot and pumpkin soup with tiny cumin flecks, no cream swirl or garnish. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-poha",
+    "source": "generated",
+    "assetId": "prep-poha",
+    "hero": "assets/prep-images/prep-poha.webp",
+    "thumb": "assets/prep-thumbs/prep-poha.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of cooked fluffy yellow turmeric rice flakes with golden potato cubes, dark mustard seeds and green curry leaves; no peas, no onion, no peanuts. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-zucchini-noodles",
+    "source": "generated",
+    "assetId": "prep-zucchini-noodles",
+    "hero": "assets/prep-images/prep-zucchini-noodles.webp",
+    "thumb": "assets/prep-thumbs/prep-zucchini-noodles.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of thin white rice noodles tossed with sauteed green zucchini half-moons, small garlic slices and a trace of sesame oil. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-broccoli-potato-mash",
+    "source": "generated",
+    "assetId": "prep-broccoli-potato-mash",
+    "hero": "assets/prep-images/prep-broccoli-potato-mash.webp",
+    "thumb": "assets/prep-thumbs/prep-broccoli-potato-mash.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic bowl of roughly mashed potato and broccoli, creamy pale potato with soft green broccoli flecks and small florets, trace of melted butter. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-pear-blueberry-compote",
+    "source": "generated",
+    "assetId": "prep-pear-blueberry-compote",
+    "hero": "assets/prep-images/prep-pear-blueberry-compote.webp",
+    "thumb": "assets/prep-thumbs/prep-pear-blueberry-compote.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a small ceramic bowl of soft stewed pale pear chunks and whole blueberries in purple fruit juices. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-cucumber-mozzarella-plate",
+    "source": "generated",
+    "assetId": "prep-cucumber-mozzarella-plate",
+    "hero": "assets/prep-images/prep-cucumber-mozzarella-plate.webp",
+    "thumb": "assets/prep-thumbs/prep-cucumber-mozzarella-plate.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Use case: stylized-concept. Asset: a finished preparation illustration for Taseer, landscape 3:2. Subject: a plain low sand-colored ceramic plate with thick cucumber slices, hand-torn fresh white mozzarella and small torn mint leaves, lightly dressed in olive oil; no tomatoes, balsamic or bread. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-thyme-roast-chicken",
+    "source": "generated",
+    "assetId": "prep-thyme-roast-chicken",
+    "hero": "assets/prep-images/prep-thyme-roast-chicken.webp",
+    "thumb": "assets/prep-thumbs/prep-thyme-roast-chicken.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: a ceramic plate with two golden roasted chicken pieces and halved roasted potatoes, thyme leaves and a trace of olive oil; not a whole bird. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  },
+  {
+    "id": "prep-fennel-tea",
+    "source": "food",
+    "assetId": "fennel-tea",
+    "hero": "assets/food-images/fennel-tea.webp",
+    "thumb": "assets/food-thumbs/fennel-tea.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-ragi-porridge",
+    "source": "food",
+    "assetId": "ragi-malt",
+    "hero": "assets/food-images/ragi-malt.webp",
+    "thumb": "assets/food-thumbs/ragi-malt.webp",
+    "review": "reviewed",
+    "notes": "Existing finished preparation illustration reviewed for dish and ingredient match."
+  },
+  {
+    "id": "prep-sweet-potato-mash",
+    "source": "generated",
+    "assetId": "prep-sweet-potato-mash",
+    "hero": "assets/prep-images/prep-sweet-potato-mash.webp",
+    "thumb": "assets/prep-thumbs/prep-sweet-potato-mash.webp",
+    "review": "reviewed",
+    "notes": "Generated finished dish; reviewed in hero and thumbnail contact sheets.",
+    "prompt": "Create one finished food illustration for Taseer, landscape 3:2. Subject: two roasted orange sweet potato halves in their brown skins, flesh roughly fork-mashed with melted ghee and tiny black pepper flecks, on a simple ceramic plate. One finished dish only. Delicate matte gouache and watercolor with soft realistic food shapes and gentle brush texture, no outlines, no photographic sharpness or 3D plastic gloss. Seamless warm sand beige #F1E7D6 backdrop with subtle painted paper texture, no horizon or table edge. Three-quarter view from 30 degrees above, centered composition, subject fills 65 percent of frame with even margins and room for a center square thumbnail crop. Soft upper-left light, grounded contact shadow, muted natural earthy colors. No text, labels, branding, hands, utensils, napkins, extra props, steam or borders.",
+    "generator": "Built-in image generation"
+  }
+]

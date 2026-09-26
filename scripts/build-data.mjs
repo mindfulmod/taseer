@@ -33,6 +33,13 @@ foods.sort((a, b) => a.id.localeCompare(b.id));
 const sources = JSON.parse(readFileSync(join(root, "data", "sources.json"), "utf8"));
 const preparations = JSON.parse(readFileSync(join(root, "data", "preparations.json"), "utf8"));
 
+const preparationArt = new Map(JSON.parse(readFileSync(join(root, "data", "preparation-art.json"), "utf8")).map(a => [a.id, a]));
+for (const prep of preparations) {
+  const mapping = preparationArt.get(prep.id);
+  if (!mapping) throw new Error(`Missing preparation art mapping: ${prep.id}`);
+  prep.art = { hero: mapping.hero, thumb: mapping.thumb };
+}
+
 const meta = {
   count: foods.length,
   categories: foods.reduce((acc, f) => ((acc[f.category] = (acc[f.category] ?? 0) + 1), acc), {}),

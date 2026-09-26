@@ -1,6 +1,7 @@
 // Render helpers. Everything returns an HTML string; the shell owns the DOM.
 import { PREP_KINDS, STATES, SYSTEM_LABELS, systemHeat, heatClass } from "./data.js";
 import { favorites, triggers } from "./store.js";
+import { artwork } from "./artwork.js";
 
 export const esc = s =>
   String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
@@ -78,16 +79,8 @@ export function provenance(food) {
 
 const SYSTEMS = ["tcm", "ayurveda", "unani"];
 
-/**
- * Painting wrapper (ART.md §8). Everything painted goes through this, so the
- * dark grade is applied in exactly one place. A missing file degrades to the
- * emoji on a tinted ground instead of a broken-image icon.
- */
-export const art = (food, src, cls = "") => `
-  <span class="art ${cls}">
-    <img src="${src}" alt="" loading="lazy" decoding="async"
-         onerror="this.parentElement.classList.add('art--none');this.parentElement.append('${food.emoji}')">
-  </span>`;
+/** The same loading/ready/error treatment for heroes and small illustrations. */
+export const art = (food, src, cls = "") => artwork(food, `art ${cls}`, { src, hero: true });
 
 /**
  * The three traditions as thin markers on one shared cold→hot axis.
@@ -138,16 +131,8 @@ export function conflictBanner(food) {
     </div>`;
 }
 
-/**
- * Glyph tile carrying the painted thumb, with the emoji left in the DOM
- * underneath it. A missing thumb removes its own <img> and the tinted emoji
- * tile is what shows — no broken image, no layout shift, the same silent
- * degradation the food-card hero already does.
- */
-export const artGlyph = (food, cls) => `
-  <span class="${cls}">${food.emoji}<img class="glyph__art"
-    src="assets/food-thumbs/${food.id}.webp" alt="" loading="lazy" decoding="async"
-    onerror="this.remove()"></span>`;
+/** Thumbnails never expose their decorative fallback while still loading. */
+export const artGlyph = (food, cls) => artwork(food, cls);
 
 /**
  * Thermal reading at row scale — one dot per tradition, same three systems in
@@ -217,7 +202,7 @@ export const tileList = (list, opts) =>
 // `tileList`) never depends on how much of the list has been paged in, so a
 // deep link into a food that would sit on page 3 is unaffected — it opens the
 // food's own page directly, not a scroll position inside this list.
-export const PAGE_SIZE = 60;
+export const PAGE_SIZE = 32;
 let pagerSeq = 0;
 const pagers = new Map();
 
@@ -234,16 +219,16 @@ const pagerButton = (id, remaining) =>
     : `<div class="pager"><button class="pillbtn pager__more" data-act="page-more" data-id="${id}">
          Show ${Math.min(PAGE_SIZE, remaining)} more · ${remaining} left</button></div>`;
 
-/** Same output as `tileList` for a list of `PAGE_SIZE` or fewer — small lists
- *  (most bands, most screens) are completely unaffected. Past that it renders
- *  only the first page, plus a "Show more" button that reveals the rest. */
-export function pagedTileList(list, opts) {
-  if (list.length <= PAGE_SIZE) return tileList(list, opts);
+/** Share a budget between groups so later headings do not each render a page. */
+export function pagedTileList(list, opts, budget = { remaining: PAGE_SIZE }) {
+  const shown = Math.min(list.length, PAGE_SIZE, budget.remaining);
+  budget.remaining -= shown;
+  if (shown === list.length) return tileList(list, opts);
   const id = `pager${++pagerSeq}`;
-  pagers.set(id, { list, opts, shown: PAGE_SIZE });
+  pagers.set(id, { list, opts, shown });
   return `
-    <div class="tiles" id="${id}">${list.slice(0, PAGE_SIZE).map(f => foodTile(f, opts)).join("")}</div>
-    ${pagerButton(id, list.length - PAGE_SIZE)}`;
+    <div class="tiles" id="${id}">${list.slice(0, shown).map(f => foodTile(f, opts)).join("")}</div>
+    ${pagerButton(id, list.length - shown)}`;
 }
 
 /** Reveals the next page of a `pagedTileList` in place. Returns the tiles'
@@ -252,13 +237,27 @@ export function pagedTileList(list, opts) {
  *  navigated away and been cleared by `resetPagers`). */
 export function growPager(id) {
   const p = pagers.get(id);
-  if (!p) return null;
+  if (!p || p.shown >= p.list.length) return null;
   const next = Math.min(p.shown + PAGE_SIZE, p.list.length);
   const html = p.list.slice(p.shown, next).map(f => foodTile(f, p.opts)).join("");
   p.shown = next;
   const remaining = p.list.length - p.shown;
-  if (remaining <= 0) pagers.delete(id);
+
   return { html, remaining };
+}
+
+export const pagerSnapshot = () => Object.fromEntries([...pagers].map(([id,p]) => [id,p.shown]));
+export function restorePagers(root, counts = {}) {
+  for (const [id, count] of Object.entries(counts)) {
+    const list = root.querySelector(`#${id}`);
+    const button = root.querySelector(`[data-act="page-more"][data-id="${id}"]`);
+    if (!list || !button) continue;
+    let grown;
+    while (pagers.get(id)?.shown < count && (grown = growPager(id))) list.insertAdjacentHTML('beforeend', grown.html);
+    if (!grown) continue;
+    if (grown.remaining) button.textContent = `Show ${Math.min(PAGE_SIZE, grown.remaining)} more · ${grown.remaining} left`;
+    else button.closest('.pager')?.remove();
+  }
 }
 
 export const miniTile = food => `
@@ -276,7 +275,7 @@ export const prepTile = (prep, { effect: showEffect = true } = {}) => {
   const { tone, effect } = STATES[prep.state];
   return `
     <button class="tile tile--prep t-${tone}" data-nav="/prep/${prep.id}">
-      <span class="tile__glyph">${prep.emoji}</span>
+      ${artGlyph(prep, "tile__glyph")}
       <span class="tile__body">
         <span class="tile__name"><span>${esc(prep.name)}</span></span>
         <span class="tile__meta">${esc(prep.blurb)}</span>
@@ -287,14 +286,29 @@ export const prepTile = (prep, { effect: showEffect = true } = {}) => {
              "Cooling" under a COOLING heading is noise, and the time is the
              thing that actually separates them. -->
         ${showEffect ? `<span class="prep__effect">${esc(effect)}</span>` : ""}
-        <span class="prep__time">${prep.minutes} min</span>
+        <span class="prep__time">~${prep.minutes} min${prep.timing?.note ? " + cooling" : ""}</span>
       </span>
     </button>`;
 };
 
 /** Kind · time · yield — the three things you want before committing to cook. */
+export const prepCard = prep => `
+  <button class="prep-card t-${STATES[prep.state].tone}" data-nav="/prep/${prep.id}">
+    ${artwork(prep, 'prep-card__art art', { src: prep.art.hero, landscape: true })}
+    <span class="prep-card__copy"><span class="eyebrow">${esc(STATES[prep.state].effect)} · ~${prep.minutes} min${prep.timing?.note ? " + cooling" : ""}</span>
+      <strong>${esc(prep.name)}</strong><span class="tiny muted">${esc(prep.blurb)}</span>
+    </span>
+  </button>`;
+
+export const thermalLegend = () => `<details class="thermal-key expander">
+  <summary>Three dots · three traditions <span aria-hidden="true">ⓘ</span></summary>
+  <p>Left to right: <strong>TCM · Ayurveda · Unani</strong>. Each dot is that tradition’s own reading. Open a food to see the readings written out.</p>
+  <div class="thermal-key__colors">${['cold','cool','neutral','warm','hot'].map(t => `<span class="t-${t}"><i></i>${t[0].toUpperCase()+t.slice(1)}</span>`).join('')}</div>
+  <p>Mixed colours mean different readings. ◐ marks a cooling-versus-warming disagreement.</p>
+</details>`;
+
 export const prepFacts = prep =>
-  `${esc(PREP_KINDS[prep.kind] ?? prep.kind)} · ${prep.minutes} min · serves ${prep.serves}`;
+  `${esc(PREP_KINDS[prep.kind] ?? prep.kind)} · About ${prep.minutes} min${prep.timing?.note ? " + cooling" : " total"} · serves ${prep.serves}`;
 
 export const chip = food => {
   const isTrigger = triggers.has(food.id);

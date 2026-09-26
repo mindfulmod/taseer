@@ -404,6 +404,8 @@ for (const p of preps) {
   if (!p.name || !p.blurb || !p.emoji) errors.push(`${where}: missing name/blurb/emoji`);
   if (!p.why) errors.push(`${where}: missing "why" — a preparation has to say which tradition is doing the work`);
   if (!PREP_KINDS.includes(p.kind)) errors.push(`${where}: bad kind ${p.kind} (expected ${PREP_KINDS.join("|")})`);
+  if (!p.timing || ['prep', 'cook', 'rest'].some(k => !Number.isInteger(p.timing[k]) || p.timing[k] < 0) ||
+      ['prep', 'cook', 'rest'].reduce((n,k) => n + (p.timing?.[k] ?? 0), 0) !== p.minutes) errors.push(`${where}: invalid timing breakdown or total`);
   if (!(p.minutes > 0)) errors.push(`${where}: missing/invalid minutes`);
   if (!(p.serves > 0)) errors.push(`${where}: missing/invalid serves`);
   if (!REMEDY_STATES.includes(p.state) && p.state !== "reactive") errors.push(`${where}: bad state ${p.state}`);
