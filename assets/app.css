@@ -44,8 +44,19 @@
   --radius-sm: 12px;
   --radius-panel: 18px;
   --radius-lg: 24px;
-  --shadow: 0 1px 3px rgb(74 55 30 / 6%);
-  --shadow-lift: 0 3px 14px rgb(74 55 30 / 9%);
+  /* Three heights, read the same way in both themes (ART.md §4): a *well* sits
+     below the page (things you type into or switch between), a *plinth* rests
+     on it (content you tap), a *float* hovers above it (chrome, and the food
+     summary over its painting). Light carries height in warm shadow; dark
+     carries it in lightness steps, never shadow. */
+  --plinth: var(--surface);
+  --float: var(--surface);
+  --well: var(--surface-2);
+  --edge: var(--line);
+  --shadow: 0 1px 2px rgb(74 55 30 / 6%), 0 8px 24px rgb(74 55 30 / 7%);
+  --shadow-lift: 0 2px 4px rgb(74 55 30 / 7%), 0 18px 40px rgb(74 55 30 / 13%);
+  --shadow-well: inset 0 1px 2px rgb(74 55 30 / 9%), inset 0 0 0 1px rgb(74 55 30 / 4%);
+  --shadow-sheet: 0 -10px 28px rgb(74 55 30 / 7%);
 
   /* Paintings are the content, so they are never graded in light mode — house
      rule: Instagram, Apple Photos and Pinterest all leave images alone, and iOS
@@ -104,8 +115,14 @@
   --alert-tint: #38201b;
 
   /* Dark separates with borders, not lift. */
+  --plinth: color-mix(in srgb, var(--ink) 3%, var(--surface));
+  --float: color-mix(in srgb, var(--ink) 8%, var(--surface));
+  --well: var(--bg);
+  --edge: color-mix(in srgb, var(--ink) 9%, var(--line));
   --shadow: 0 1px 2px rgb(0 0 0 / 40%);
   --shadow-lift: 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-well: inset 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-sheet: none;
 
   --art-filter: brightness(0.98) saturate(0.96);
   --art-veil: 0.12;
@@ -189,7 +206,7 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .setrow {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   margin: 12px 0; padding: 10px 10px 10px 16px;
-  background: var(--surface); border: 1px solid var(--line);
+  background: var(--plinth); border: 1px solid var(--edge);
   border-radius: var(--radius-panel); box-shadow: var(--shadow);
 }
 .setrow__label { font-weight: 700; }
@@ -221,9 +238,9 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   left: 12px; right: 12px; bottom: calc(10px + env(safe-area-inset-bottom));
   display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
   padding: 5px; border-radius: 20px;
-  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  background: color-mix(in srgb, var(--float) 86%, transparent);
   backdrop-filter: saturate(1.4) blur(18px);
-  border: 1px solid var(--line);
+  border: 1px solid var(--edge);
   box-shadow: var(--shadow-lift);
 }
 .tabbar__item {
@@ -331,6 +348,15 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
 }
+/* Under a category or remedy header the list rises as a sheet over the
+   header, the way the food card's summary rises over its painting. */
+.hero--cat + .controls-sticky {
+  margin-top: 4px;
+  border: 1px solid var(--edge); border-bottom-color: var(--line);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: color-mix(in srgb, var(--float) 92%, transparent);
+  box-shadow: var(--shadow-sheet);
+}
 /* Each screen nests a different mix of findrow/chiprow/segbar/section__head —
    flatten all of their own top/bottom margins to one consistent gap here
    rather than special-casing four different layouts, then drop the last
@@ -364,9 +390,9 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   appearance: none;
   padding: 0 30px 0 15px; min-height: max(var(--tap), 100%); height: auto;
   border: 1px solid var(--line); border-radius: var(--radius-sm);
-  background: var(--surface); color: var(--ink);
+  background-color: var(--plinth); color: var(--ink);
   font: inherit; font-size: var(--fs-small); font-weight: 600;
-  cursor: pointer; box-shadow: none;
+  cursor: pointer; box-shadow: var(--shadow);
   /* Chevron drawn in the border colour, not a temperature — hue belongs to the
      data (ART.md §6.3). currentColor keeps it correct in both themes. */
   background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
@@ -416,7 +442,7 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .tile {
   display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 12px;
   width: 100%; min-height: 76px; padding: 12px 16px 12px 12px; text-align: left;
-  background: var(--surface);
+  background: var(--plinth);
   border: 1px solid color-mix(in srgb, var(--t) 16%, var(--line));
   border-radius: var(--radius); cursor: pointer;
   box-shadow: var(--shadow);
@@ -740,10 +766,14 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 
 .titlecard {
   position: relative; z-index: 2;
-  margin: -46px 0 0; padding: 20px 16px 18px;
-  border-radius: var(--radius-lg); background: var(--surface);
+  margin: -56px 0 0; padding: 20px 16px 18px;
+  border-radius: var(--radius-lg); background: var(--float);
   box-shadow: var(--shadow-lift);
 }
+:root[data-theme="dark"] .titlecard { box-shadow: inset 0 0 0 1px var(--edge); }
+/* ink-3 drops under 3.1:1 on the lighter float step; ink-2 holds 5.4:1. */
+:root[data-theme="dark"] .titlecard .eyebrow,
+:root[data-theme="dark"] .tabbar__item:not([aria-current="page"]) { color: var(--ink-2); }
 /* Temperature rises from the card's base rather than washing the art: a
    duotone over a painting makes a cooling mango read as spoiled. */
 .titlecard::before {
@@ -857,7 +887,7 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
 .card__title { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
 .panel {
-  background: var(--surface); border: 1px solid var(--line);
+  background: var(--plinth); border: 1px solid var(--edge);
   border-radius: var(--radius-panel); padding: 16px; margin: 12px 0;
   box-shadow: var(--shadow);
 }
@@ -934,9 +964,11 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .searchbar {
   display: flex; align-items: center; gap: 10px;
   padding: 0 14px; margin: 8px 0 16px;
-  background: var(--surface-2); border: 1px solid transparent;
-  border-radius: var(--radius-sm); box-shadow: none;
+  background: var(--well); border: 1px solid transparent;
+  border-radius: var(--radius-sm); box-shadow: var(--shadow-well);
 }
+/* A dark well is the page colour, so it needs its rim to read as a field. */
+:root[data-theme="dark"] .searchbar { border-color: var(--line); }
 .searchbar__icon { width: 22px; height: 22px; object-fit: contain; flex: none; }
 .searchbar:focus-within { border-color: var(--ink); background: var(--surface); box-shadow: 0 0 0 2px color-mix(in srgb, var(--ink) 10%, transparent); }
 .searchbar input {
@@ -948,9 +980,9 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .searchcue {
   display: flex; align-items: center; gap: 10px; width: 100%;
   padding: 13px 16px; margin: 16px 0 4px;
-  background: var(--surface); border: 1px solid var(--line);
+  background: var(--plinth); border: 1px solid var(--edge);
   border-radius: var(--radius-sm); color: var(--ink-2); font-size: var(--fs-body);
-  cursor: pointer; text-align: left; box-shadow: none;
+  cursor: pointer; text-align: left; box-shadow: var(--shadow);
 }
 .searchcue__icon { width: 22px; height: 22px; object-fit: contain; flex: none; }
 
@@ -962,11 +994,11 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .cat {
   position: relative; overflow: visible;
   display: grid; gap: 2px; padding: 16px 14px; min-height: 92px; align-content: end;
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
-  cursor: pointer; text-align: left; box-shadow: none;
+  background: var(--plinth); border: 1px solid var(--edge); border-radius: var(--radius);
+  cursor: pointer; text-align: left; box-shadow: var(--shadow);
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
-.cat:hover { border-color: var(--line-strong); }
+.cat:hover { border-color: var(--line-strong); box-shadow: var(--shadow-lift); }
 
 /* The cut-outs are the only art in the app on transparency, so the only art
    that can genuinely float above a card. drop-shadow() follows the alpha;
@@ -1008,19 +1040,22 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   position: relative; display: flex; flex-direction: column; min-width: 0;
   padding: 0; overflow: hidden; text-align: left; cursor: pointer;
   border: 1px solid color-mix(in srgb, var(--t) 22%, var(--line));
-  border-radius: var(--radius-panel); background: var(--surface);
+  border-radius: var(--radius-panel); background: var(--plinth);
   box-shadow: var(--shadow);
 }
+/* The painting's band fades into the card rather than stopping at a ruled
+   line, and the cut-out casts onto it, so the art sits in the card's space. */
 .state__visual {
   display: grid; place-items: center; position: relative; height: 126px;
-  background: linear-gradient(140deg, var(--t-tint), color-mix(in srgb, var(--t-tint) 35%, var(--surface)));
-  border-bottom: 1px solid color-mix(in srgb, var(--t) 12%, var(--line));
+  background: linear-gradient(to bottom, var(--t-tint), color-mix(in srgb, var(--t-tint) 55%, var(--plinth)) 70%, var(--plinth));
 }
 .state__art {
   display: block; width: 156px; height: 156px; max-width: 100%;
   object-fit: contain; position: relative; top: -9px;
+  filter: drop-shadow(0 6px 10px rgb(36 30 23 / 18%));
   transition: transform 180ms ease;
 }
+:root[data-theme="dark"] .state__art { filter: drop-shadow(0 6px 12px rgb(0 0 0 / 50%)); }
 .state__copy {
   position: relative; display: grid; align-content: start; gap: 5px;
   flex: 1; padding: 14px 14px 42px;
@@ -1053,8 +1088,8 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .minitile {
   display: grid; justify-items: center; gap: 4px; flex: none;
   width: 82px; padding: 12px 6px;
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
-  cursor: pointer; text-align: center;
+  background: var(--plinth); border: 1px solid var(--edge); border-radius: var(--radius-sm);
+  cursor: pointer; text-align: center; box-shadow: var(--shadow);
 }
 .minitile__glyph {
   position: relative; overflow: hidden;
@@ -1096,7 +1131,7 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
 .segbar {
   display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px;
   padding: 4px; margin: 14px 0 10px;
-  background: var(--surface-2); border-radius: var(--radius);
+  background: var(--well); border-radius: var(--radius); box-shadow: var(--shadow-well);
 }
 .segbar__btn {
   display: flex; align-items: center; justify-content: center; gap: 7px;
@@ -1104,7 +1139,8 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   border: 0; border-radius: 10px; background: transparent; cursor: pointer;
   font-weight: 700; font-size: var(--fs-small); color: var(--ink-2);
 }
-.segbar__btn[aria-selected="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+.segbar__btn[aria-selected="true"] { background: var(--float); color: var(--ink); box-shadow: var(--shadow); }
+:root[data-theme="dark"] .segbar__btn[aria-selected="true"] { box-shadow: inset 0 0 0 1px var(--edge); }
 .segbar__count {
   font-size: var(--fs-eyebrow); font-weight: 700; padding: 1px 7px; border-radius: 999px;
   background: var(--surface-2); color: var(--ink-3);
