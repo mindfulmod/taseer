@@ -251,3 +251,31 @@ two-column phone rhythm, accessible button names and existing destinations.
 Thermal tint still describes the destination; reactions stays plum. New raster
 assets may be used for the matching remedy header. Keep the existing icons for
 unrelated navigation and the existing imagery elsewhere.
+
+## Depth — 2026-10-01
+
+Requested by AM: a more modern finish that does not read as flat. This supersedes
+the 2026-09-26 line reserving elevation for navigation and the food summary.
+Every surface sits at one of three heights, read the same way in both themes:
+
+- **Well** (below the page): search fields and the segmented track. Light: an inset
+  warm shadow; dark: the page colour itself, with an inset shadow.
+- **Plinth** (on the page): rows, panels, category and state cards, the search cue.
+  Light: §4's two-layer warm shadow, as originally locked; dark: one lightness step
+  above the surface (3% ink), no lift shadow.
+- **Float** (above the page): the tab bar, the food summary over its painting, the
+  selected segment, and the sheet that list controls form under a category or
+  remedy header. Light: a deeper warm shadow; dark: a second step (8% ink) with an
+  `--edge` hairline. Ink-3 text moves to ink-2 on dark floats to keep contrast.
+
+Home state cards fade their tinted band into the card instead of ruling it off, and
+the cut-out casts a contact shadow onto it. No new colours: every step is mixed from
+§2 tokens. §4's dark rule holds — dark height is lightness, never shadow.
+
+From the live Timeless Seeds app (mindfulmod/books), three finishing rules:
+- Light floats take a three-layer shadow (2px / 12px / 32px), so they cast a long,
+  faint ambient shadow rather than a single blur.
+- Dark plinths and floats carry a lit top edge: a 1px inset line of ink at 7% and
+  11%. It is a highlight, not a bevel — no bottom shade, no gradient fill.
+- Pressing reads as going down: the current tab is a well inside the floating bar,
+  and pill buttons sit on a 2px lip that the press takes up.
