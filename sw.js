@@ -1,7 +1,7 @@
 // Taseer service worker — offline-first shell, lazily-cached illustrations.
 // VERSION is generated: run `node scripts/stamp-sw.mjs` after any shell change.
 // Do not edit it by hand — it hashes worker logic and SHELL_FILES, and CI fails if it's stale.
-const VERSION = "taseer-5ba74b5bcb";
+const VERSION = "taseer-e0ead9efd6";
 importScripts("./assets/data/artwork-manifest.js");
 // Cache ownership includes the registration path; other GitHub Pages apps on
 // this origin keep their own caches. Artwork outlives a shell release.

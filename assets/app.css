@@ -54,7 +54,7 @@
   --well: var(--surface-2);
   --edge: var(--line);
   --shadow: 0 1px 2px rgb(74 55 30 / 6%), 0 8px 24px rgb(74 55 30 / 7%);
-  --shadow-lift: 0 2px 4px rgb(74 55 30 / 7%), 0 18px 40px rgb(74 55 30 / 13%);
+  --shadow-lift: 0 2px 3px rgb(74 55 30 / 8%), 0 12px 28px rgb(74 55 30 / 8%), 0 32px 60px rgb(74 55 30 / 5%);
   --shadow-well: inset 0 1px 2px rgb(74 55 30 / 9%), inset 0 0 0 1px rgb(74 55 30 / 4%);
   --shadow-sheet: 0 -10px 28px rgb(74 55 30 / 7%);
 
@@ -119,8 +119,9 @@
   --float: color-mix(in srgb, var(--ink) 8%, var(--surface));
   --well: var(--bg);
   --edge: color-mix(in srgb, var(--ink) 9%, var(--line));
-  --shadow: 0 1px 2px rgb(0 0 0 / 40%);
-  --shadow-lift: 0 1px 2px rgb(0 0 0 / 40%);
+  /* A lit top edge is how a raised surface catches light in the dark. */
+  --shadow: inset 0 1px 0 color-mix(in srgb, var(--ink) 7%, transparent), 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow-lift: inset 0 1px 0 color-mix(in srgb, var(--ink) 11%, transparent), 0 1px 2px rgb(0 0 0 / 40%);
   --shadow-well: inset 0 1px 2px rgb(0 0 0 / 40%);
   --shadow-sheet: none;
 
@@ -260,7 +261,8 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   filter: drop-shadow(0 1px 1.5px rgb(36 30 23 / 30%));
 }
 :root[data-theme="dark"] .tabbar__icon { filter: drop-shadow(0 1px 2px rgb(0 0 0 / 55%)); }
-.tabbar__item[aria-current="page"] { color: var(--ink); background: var(--surface-2); }
+/* The current tab is pressed in: a well inside the floating bar. */
+.tabbar__item[aria-current="page"] { color: var(--ink); background: var(--well); box-shadow: var(--shadow-well); }
 
 @media (min-width: 860px) {
   /* Centred and capped: stretched across a desktop window the four tabs drift
@@ -378,6 +380,8 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   font-size: var(--fs-small); font-weight: 600; cursor: pointer;
 }
 .pillbtn:hover { border-color: var(--line-strong); }
+/* A 2px lip under each pill button, which the press takes up. */
+.pillbtn { box-shadow: 0 2px 0 var(--line-strong); }
 .pillbtn[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 
 /* Search and sort share one line so the controls cost a single row of height
@@ -770,10 +774,9 @@ a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 
   border-radius: var(--radius-lg); background: var(--float);
   box-shadow: var(--shadow-lift);
 }
-:root[data-theme="dark"] .titlecard { box-shadow: inset 0 0 0 1px var(--edge); }
+:root[data-theme="dark"] .titlecard { box-shadow: var(--shadow-lift); }
 /* ink-3 drops under 3.1:1 on the lighter float step; ink-2 holds 5.4:1. */
-:root[data-theme="dark"] .titlecard .eyebrow,
-:root[data-theme="dark"] .tabbar__item:not([aria-current="page"]) { color: var(--ink-2); }
+:root[data-theme="dark"] .titlecard .eyebrow { color: var(--ink-2); }
 /* Temperature rises from the card's base rather than washing the art: a
    duotone over a painting makes a cooling mango read as spoiled. */
 .titlecard::before {
@@ -1140,7 +1143,7 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
   font-weight: 700; font-size: var(--fs-small); color: var(--ink-2);
 }
 .segbar__btn[aria-selected="true"] { background: var(--float); color: var(--ink); box-shadow: var(--shadow); }
-:root[data-theme="dark"] .segbar__btn[aria-selected="true"] { box-shadow: inset 0 0 0 1px var(--edge); }
+:root[data-theme="dark"] .segbar__btn[aria-selected="true"] { box-shadow: var(--shadow-lift); }
 .segbar__count {
   font-size: var(--fs-eyebrow); font-weight: 700; padding: 1px 7px; border-radius: 999px;
   background: var(--surface-2); color: var(--ink-3);
@@ -1475,9 +1478,10 @@ details.expander[open] > summary::after { transform: rotate(180deg); }
        .fhero__btn, .vpill--btn, .chip, .spectrum__seg):active {
   transform: scale(0.98);
 }
+.pillbtn:active { transform: translateY(2px); box-shadow: 0 0 0 var(--line-strong); }
 .tabbar__item { color: var(--ink-2); }
-.panel, .setrow, .wayrow { box-shadow: none; }
-.titlecard { border: 1px solid var(--line); }
+.wayrow { box-shadow: none; }
+.titlecard { border: 1px solid var(--edge); }
 .banner { padding-block: 8px; background: transparent; }
 .banner strong { font-weight: 600; }
 .eyebrow, .band, .vpill__label, .segbar__count { color: var(--ink-2); }
